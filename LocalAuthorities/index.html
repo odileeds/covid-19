@@ -18,35 +18,36 @@
 		<div class="holder">
 			<h1>Local Authority COVID-19 dashboard</h1>
 			<p>Areas include Upper Tier Local Authorities and health boards depending on how figures are reported locally.</p>
-			<ul class="grid">
-			<li>
-				<figure class="b5-bg doublepadded">
-					<h2>Confirmed cases by area</h2>
-					<output></output>
-					<form>
-						<div class="b6-bg padded" style="position:relative;line-height:2em;">
-							<label for="scale">Log scale?</label><div class="switch"><input type="checkbox" id="scale"><span><span aria-hidden="true">No</span><span aria-hidden="true">Yes</span><a></a></span></div>
-						</div>
-					</form>
-					<figcaption>
-						<h3>Notes</h3>
-						<p>This graph aims to provide a similar view to that provided by <a href="https://www.ft.com/coronavirus-latest">the Financial Times COVID-19 tracker</a>. The data for this graph come from <a href="https://github.com/tomwhite/covid-19-uk-data">Tom White's COVID-19 UK Historical Data</a> on Github. Some values early in the crisis are clearly uncertain. As Tom notes, Wales stopped reporting Local Authority breakdowns from 18th March 2020 so we have excluded those from the visualisation. The visualisation is created by Stuart Lowe, <a href="https://odileeds.org/">ODI Leeds</a>.</p>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="b5-bg doublepadded">
-					<h2>Hex map for England</h2>
-					<iframe src="/hexmaps/covid-19/?headless" width="100%" height="690px" scrolling="no" onload="resizeIframe(this)"></iframe>
-					<figcaption>
-						<h3>Notes</h3>
-						<p>This map shows reported COVID-19 cases per capita as a <a href="https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-local-authority-districts-2019.hexjson">Local Authority hex cartogram</a> - this gives each Local Authority the same visual weight on the map. Some Local Authorities in England are missing because of inconsistencies. We don't have data for Scotland, Wales, or Northern Ireland. If you know where they publish CSV files of these numbers, please <a href="https://twitter.com/odileeds">get in touch</a>.</p>
-						<p>Note: Public Health England provide raw data for "Upper Tier Local Authorities". This map is for Local Authorities so where an Upper Tier Local Authority isn't a Local Authority, each Local Authority in that Upper Tier Local Authority is given the same per-capita value (<a href="https://twitter.com/owenboswarva/status/1243606486024105985">UK geography is hard</a>). When you click on one of these Local Authorities you will be shown the total for the Upper Tier Local Authority.</p>
-						<p>Visualisation: <a href="https://github.com/odileeds/hexmaps/" target="_parent">ODI Leeds</a> / Data: <a href="https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases" target="_parent">Public Health England</a> provide <a href="https://www.arcgis.com/home/item.html?id=b684319181f94875a6879bbc833ca3a6">COVID-19 cases as a CSV download</a>. The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandtable2">population estimates (2020) for Local Authorities</a> are from the ONS.</p>
-					</figcaption>
-				</figure>
-			</li>
 		</div>
+		<ul class="grid">
+		<li>
+			<figure class="b5-bg doublepadded">
+				<h2>Confirmed cases by area</h2>
+				<output></output>
+				<form>
+					<div class="b6-bg padded" style="position:relative;line-height:2em;">
+						<label for="scale">Log scale?</label><div class="switch"><input type="checkbox" id="scale"><span><span aria-hidden="true">No</span><span aria-hidden="true">Yes</span><a></a></span></div>
+					</div>
+				</form>
+				<figcaption>
+					<h3>Notes</h3>
+					<p>This graph aims to provide a similar view to that provided by <a href="https://www.ft.com/coronavirus-latest">the Financial Times COVID-19 tracker</a>. The data for this graph come from <a href="https://github.com/tomwhite/covid-19-uk-data">Tom White's COVID-19 UK Historical Data</a> on Github. Some values early in the crisis are clearly uncertain. As Tom notes, Wales stopped reporting Local Authority breakdowns from 18th March 2020 so we have excluded those from the visualisation. The visualisation is created by Stuart Lowe, <a href="https://odileeds.org/">ODI Leeds</a>.</p>
+				</figcaption>
+			</figure>
+		</li>
+		<li>
+			<figure class="b5-bg doublepadded">
+				<h2>Hex map for England</h2>
+				<iframe src="/hexmaps/covid-19/?headless" width="100%" height="500px" scrolling="no" onload="resizeIframe(this)"></iframe>
+				<figcaption>
+					<h3>Notes</h3>
+					<p>This map shows reported COVID-19 cases per capita as a <a href="https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-local-authority-districts-2019.hexjson">Local Authority hex cartogram</a> - this gives each Local Authority the same visual weight on the map. Some Local Authorities in England are missing because of inconsistencies. We don't have data for Scotland, Wales, or Northern Ireland. If you know where they publish CSV files of these numbers, please <a href="https://twitter.com/odileeds">get in touch</a>.</p>
+					<p>Note: Public Health England provide raw data for "Upper Tier Local Authorities". This map is for Local Authorities so where an Upper Tier Local Authority isn't a Local Authority, each Local Authority in that Upper Tier Local Authority is given the same per-capita value (<a href="https://twitter.com/owenboswarva/status/1243606486024105985">UK geography is hard</a>). When you click on one of these Local Authorities you will be shown the total for the Upper Tier Local Authority.</p>
+					<p>Visualisation: <a href="https://github.com/odileeds/hexmaps/" target="_parent">ODI Leeds</a> / Data: <a href="https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases" target="_parent">Public Health England</a> provide <a href="https://www.arcgis.com/home/item.html?id=b684319181f94875a6879bbc833ca3a6">COVID-19 cases as a CSV download</a>. The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandtable2">population estimates (2020) for Local Authorities</a> are from the ONS.</p>
+				</figcaption>
+			</figure>
+		</li>
+		</ul>
 	</div>
 
 	<footer class="bottom doublepadded b1-bg">
