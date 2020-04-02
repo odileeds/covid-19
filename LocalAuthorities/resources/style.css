@@ -1,0 +1,100 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1em; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* apply a natural box layout model to all elements */
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* End of reset */
+
+html, body {
+	padding: 0px;
+	margin: 0px;
+	min-height: 100%!important;
+	height: 100%!important;
+	background-color: #ffffff;
+	font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	font-size: 16px;
+	color: #333;
+	line-height: 1.44em;
+}
+h1 { font-size: 2em; margin-top: 1em; }
+h2 { font-size: 1.7em; margin-top: 1.7647058823529411em; font-weight: 500; }
+h3 { font-size: 1.4em; margin-top: 1.428571em; }
+h1:first-child, h2:first-child, h3:first-child { margin-top: 0; line-height: 1em;}
+strong { font-weight: 700; }
+em { font-style: italic; }
+h2 a, h3 a,p a { color: #2254F4; text-decoration: underline; }
+p, time, li, td, th, footer, div { font-weight: 300; }
+p { margin-bottom: 1em; }
+button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; vertical-align: top; line-height: 1.25em; }
+a:hover, a:focus { text-decoration: underline; }
+a:visited { color: inherit; }
+header a { text-decoration: none; }
+footer { width: 100%; padding: 1em; padding-bottom: 3em; }
+footer h2 + p { margin-top: 1em; }
+
+#main { padding: 1em; }
+.holder { position: relative; width: 1080px; max-width: 100%; margin: auto; }
+button, .button { margin-top: 0.25em; border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; }
+a.button:hover, button:hover, button:focus, a.button:focus { background-color: #333333!important; color: #efefef!important; }
+.b1-bg { background-color: #000000; color: white!important; }
+.b2-bg { background-color: #333333; color: white!important; }
+.bk-bg { background-color: #6D6D6D; color: white!important; }
+.b3-bg, .github:hover { background-color: #999999; color: black!important; }
+.b4-bg { background-color: #bbbbbb; color: black!important; }
+.b5-bg, .off label { background-color: #dfdfdf; color: black!important; }
+.b6-bg { background-color: #ffffff; color: black!important; }
+.c12-bg, .on label { background-color: #D60303; color: white; }
+.c12-bg:hover, .c12-bg:focus { background: #444; color: white; }
+.padded { padding: 1em; }
+.doublepadded { padding: 2em; }
+
+output { display: block; font-size: 1em; position: relative; }
+output svg { border: 1px solid #999; }
+output svg svg { overflow: unset; }
+output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !important; opacity: 1!important; }
+
+.infobubble {
+	position: absolute;
+	background-color: black;
+	color: white;
+	padding: 0.25em 0.5em;
+	left: 50%;
+	top: -0.5em;
+	transform: translate3d(0%,-100%, 0);
+	white-space: nowrap;
+	margin-right: -50%;
+	text-align: center;
+	z-index: 100;
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+}
+.infobubble::after {
+	content: '';
+	position: absolute;
+	bottom: auto;
+	width: 0;
+	height: 0;
+	border: 0.5em solid transparent;
+	left: 0;
+	border-color: transparent;
+	border-left-color: black;
+	bottom: -0.5em;
+}
