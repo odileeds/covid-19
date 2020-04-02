@@ -1111,5 +1111,10 @@ S().ready(function(){
 	graph = new PandemicGraph({'id':'graph'});
 	graph.getData();
 	
-
+	function resizeIframe(obj) { obj.style.height = '1px'; obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px'; }
+	window.addEventListener('resize', function(event){
+		iframes = S('iframe');
+		for(var i = 0; i < iframes.length; i++) resizeIframe(iframes[i]);
+	});
+	
 });
