@@ -95,7 +95,7 @@ ul.grid {
 	margin-bottom: 1em;
 }
 
-output { display: block; font-size: 1em; position: relative; }
+output { display: block; font-size: 1em; position: relative; height: 500px; }
 output svg svg { overflow: unset; }
 output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !important; opacity: 1!important; }
 
