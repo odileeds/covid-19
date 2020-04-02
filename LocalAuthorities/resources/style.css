@@ -79,11 +79,11 @@ output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !importa
 	padding: 0.25em 0.5em;
 	left: 50%;
 	top: -0.5em;
-	transform: translate3d(0%,-100%, 0);
+	transform: translate3d(-100%,-100%, 0);
 	white-space: nowrap;
-	margin-right: -50%;
 	text-align: center;
 	z-index: 100;
+	margin-left: -1em;
 	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
 }
 .infobubble::after {
@@ -93,8 +93,8 @@ output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !importa
 	width: 0;
 	height: 0;
 	border: 0.5em solid transparent;
-	left: 0;
+	right: -0.5em;
 	border-color: transparent;
-	border-left-color: black;
-	bottom: -0.5em;
+	border-bottom-color: black;
+	bottom: 0em;
 }

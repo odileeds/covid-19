@@ -666,7 +666,7 @@ function PandemicGraph(o){
 		x = getX(0)-5;
 		s = defaultSpacing(graph.y.min,graph.y.max,5);
 		for(i = 0; i < graph.y.max; i+=s){
-			graph.el.yaxis.appendChild(createText(i.toLocaleString(),{'x':x,'y':getY(i),'style':{'text-anchor':'end','dominant-baseline':'middle'}}));
+			//graph.el.yaxis.appendChild(createText(i.toLocaleString(),{'x':x,'y':getY(i),'style':{'text-anchor':'end','dominant-baseline':'middle'}}));
 		}
 
 
@@ -814,7 +814,7 @@ function PandemicGraph(o){
 				}
 				this.data = byid;
 				this.maxcases = max;
-				this.maxdays = ndays;
+				this.maxdays = ndays+2;
 
 				this.updateLabels();
 				this.draw();
@@ -840,11 +840,12 @@ function PandemicGraph(o){
 
 function infoBubble(graph,d){
 	
-	if(S('.infobubble').length==0) S(graph.el.svg).after('<div class="infobubble">Info</div>');
+	if(S('.infobubble').length==0) S(graph.el.svg).after('<div class="infobubble">?</div>');
 	bubble = S('.infobubble');
 	var r = d.el.getBoundingClientRect();
-	console.log(d,r,d.el,d.el.parentNode,d.el.parentNode.getBoundingClientRect())
-	bubble.css({'left':Math.round(r.width)+'px','top':Math.round(r.top)+'px'});
+	var r2 = d.el.parentNode.getBoundingClientRect();
+	console.log(d,r,r2)
+	bubble.css({'left':Math.round(r.width+100)+'px','top':Math.round(r.top+50-r2.top)+'px'}).html(d.name+', '+d.country+' ('+d.max.toLocaleString()+')');
 }
 
 function CSV2JSON(data,format,start,end){
