@@ -144,3 +144,7 @@ figcaption p:last-child { margin-bottom: 0px; }
 .switch > span span { text-align: center; display: block; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: all .2s ease-out; box-sizing: border-box; }
 .switch > span span:last-of-type { padding-right: 2em; }
 .switch > span span:first-of-type { opacity: 1; padding-left: 2em; color: black; }
+
+@media only screen and (max-width: 1080px) {
+	ul.grid { grid-template-columns: repeat(1, 1fr); }
+}
