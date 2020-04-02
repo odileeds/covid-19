@@ -642,8 +642,8 @@ function PandemicGraph(o){
 
 		// Set font size
 		var style = window.getComputedStyle(graph.el.svg, null).getPropertyValue('font-size');
-		var fs = parseFloat(style);
-		graph.el.svg.style['font-size'] = (fs)+'px';
+		this.fs = parseFloat(style);
+		graph.el.svg.style['font-size'] = this.fs+'px';
 
 
 		this.updateLabels();
@@ -661,6 +661,7 @@ function PandemicGraph(o){
 		for(i = 0; i < graph.x.max; i+=s){
 			graph.el.xaxis.appendChild(createText(i.toLocaleString(),{'x':getX(i),'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 		}
+		graph.el.xaxis.appendChild(createText('Number of days since 10 cases',{'x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
 		graph.el.yaxis.innerHTML = "";
 		x = getX(0)-5;
