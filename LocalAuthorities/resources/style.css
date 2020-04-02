@@ -35,10 +35,10 @@ html, body {
 	color: #333;
 	line-height: 1.44em;
 }
-h1 { font-size: 2em; margin-top: 1em; }
-h2 { font-size: 1.7em; margin-top: 1.7647058823529411em; font-weight: 500; }
-h3 { font-size: 1.4em; margin-top: 1.428571em; }
-h1:first-child, h2:first-child, h3:first-child { margin-top: 0; line-height: 1em;}
+h1 { font-size: 1.7em; margin-top: 1.17647em; }
+h2 { font-size: 1.4em; margin-top: 1.4285em; }
+h3 { font-size: 1.2em; margin-top: 1.666em; }
+h1 + p, h2 + p, h3 + p { margin-top: 1em; }
 strong { font-weight: 700; }
 em { font-style: italic; }
 h2 a, h3 a,p a { color: #2254F4; text-decoration: underline; }
@@ -81,10 +81,28 @@ a.button:hover, button:hover, button:focus, a.button:focus { background-color: #
 .padded { padding: 1em; }
 .doublepadded { padding: 2em; }
 
+
+/* Use CSS Grid */
+ul.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: minmax(204px, auto);
+	grid-gap: 1em;
+	list-style: none;
+	order: 1;
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 1em;
+}
+
 output { display: block; font-size: 1em; position: relative; }
-output svg { border: 1px solid #999; }
 output svg svg { overflow: unset; }
 output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !important; opacity: 1!important; }
+
+figcaption { font-size: 0.8em; color: #444; line-height: 1.4em; }
+figcaption h2, figure h2 { margin-top: 0; margin-bottom: 1em; }
+figcaption p:last-child { margin-bottom: 0px; }
+
 
 .infobubble {
 	position: absolute;
@@ -112,3 +130,16 @@ output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !importa
 	border-bottom-color: black;
 	bottom: 0em;
 }
+
+.switch { width: 5em; position: absolute; display: inline-block; right: 1em; }
+.switch input { position: absolute; opacity: 0; z-index: 3; width: 100%; height: 100%; margin: 0px; cursor: pointer; }
+.switch input:focus ~ span { box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2, 0 0 4px 2px #3366dd; }
+.switch input:checked + span { background-color: #67E767; color: black; }
+.switch input:checked + span a { left: 100%; border-color: #67E767; margin-left: -2em; right: 0%; }
+.switch input:checked + span span:first-of-type { opacity: 0; }
+.switch input:checked + span span:last-of-type { opacity: 1; }
+.switch a { left: 0; top: 0; width: 2em; height: 2em; background-color: #fff; border-radius: 100%; border: 0.25em solid #dddddd; transition: all .2s ease-out; position: absolute; right: 50%; top: 0; z-index: 1; display: block; padding: 0; }
+.switch > span { display: block; width: 100%; height: 2em; background-color: #dddddd; border-radius: 1.75em; transition: all .4s ease-out; position: relative; overflow: hidden; display: block; min-height: 2em; padding: 0; text-align: left; line-height: 2em; box-sizing: border-box; }
+.switch > span span { text-align: center; display: block; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: all .2s ease-out; box-sizing: border-box; }
+.switch > span span:last-of-type { padding-right: 2em; }
+.switch > span span:first-of-type { opacity: 1; padding-left: 2em; color: black; }

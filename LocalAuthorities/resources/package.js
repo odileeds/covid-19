@@ -575,10 +575,11 @@ function PandemicGraph(o){
 			'y':{'min':-12.5,'max':100}
 		},
 		'x': {'min':0,'max':14},
-		'y': {'min':0,'max':10000},
+		'y': {'min':0,'max':10000,'log':true},
 		'width': 300,
 		'height': 500,
-		'el':{}
+		'el':{},
+		'mincases': 3
 	};
 	this.graph = graph;
 	this.el = document.getElementsByTagName('output')[0];
@@ -654,23 +655,46 @@ function PandemicGraph(o){
 
 	this.updateLabels = function(){
 
-		// Update labels
-		graph.el.xaxis.innerHTML = "";
+		S('.infobubble').remove();
+
+		graph.el.axes.innerHTML = "";
+		
+		if(typeof this.maxcases=="undefined") return this;
+
+
+		// Update x-axis labels and lines
 		y = graph.heightinner+5;
-		s = defaultSpacing(graph.x.min,graph.x.max,5);
-		for(i = 0; i < graph.x.max; i+=s){
-			graph.el.xaxis.appendChild(createText(i.toLocaleString(),{'x':getX(i),'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
+		ticks = makeTicks(graph.x.min,graph.x.max,5);
+		graph.el.xaxis.innerHTML = "";
+		for(i = 0; i < ticks.length; i++){
+			graph.el.xaxis.appendChild(createText(ticks[i].value.toLocaleString(),{'x':getX(ticks[i].value),'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 		}
-		graph.el.xaxis.appendChild(createText('Number of days since 10 cases',{'x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
+		graph.el.xaxis.appendChild(createText('Number of days since '+graph.mincases+' confirmed cases',{'x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
+
+		// Update the y-axis labels and lines
 		graph.el.yaxis.innerHTML = "";
-		x = getX(0)-5;
-		s = defaultSpacing(graph.y.min,graph.y.max,5);
-		for(i = 0; i < graph.y.max; i+=s){
-			//graph.el.yaxis.appendChild(createText(i.toLocaleString(),{'x':x,'y':getY(i),'style':{'text-anchor':'end','dominant-baseline':'middle'}}));
+		w = this.el.offsetWidth;
+		h = this.el.offsetHeight;
+		xoff = w*Math.abs(graph.view.x.min/(graph.view.x.max-graph.view.x.min));
+		ticks = makeTicks(graph.mincases,this.maxcases,5,{'log':graph.y.log});
+		if(graph.y.log){
+			logmin = Math.log10(graph.mincases);
+			logmax = Math.log10(this.maxcases);
+		}
+		for(i = 0; i < ticks.length; i++){
+			if(graph.y.log) v = (Math.log10(ticks[i].value)-logmin)/(logmax-logmin);
+			else v = ticks[i].value/this.maxcases;
+			y = graph.heightinner * (1 - v);
+			if(y > 0){
+				if(!ticks[i].minor){
+					graph.el.yaxis.appendChild(createText(ticks[i].value.toLocaleString(),{'x':(xoff-5).toFixed(2),'y':y.toFixed(2),'style':{'text-anchor':'end','dominant-baseline':'middle'}}));
+				}
+				if(ticks[i].value > 0) graph.el.axes.appendChild(createPath({'d':'M '+(xoff-3).toFixed(2)+','+y+' l '+(w - xoff + 3).toFixed(2)+',0','style':{'stroke':'#999','stroke-width':(ticks[i].minor ? '0.8px':'1.5px'),'fill':'transparent','opacity':(ticks[i].minor ? 0.2 : 0.3)}}));
+			}
 		}
 
-
+		return this;
 	}
 
 	function createPath(o){
@@ -720,63 +744,85 @@ function PandemicGraph(o){
 			svg = '<svg id="'+this.id+'" width="100%" height="'+graph.height+'px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMax meet">';
 			svg += '	<desc>Created by ODI Leeds</desc>';
 			svg += '	<title>'+this.title+'</title>';
+			svg += '	<g id="'+this.id+'-axis-y"></g>';
+			svg += '	<g id="'+this.id+'-axis-x"></g>';
+			svg += '	<g id="'+this.id+'-axis-lines"></g>';
 			svg += '	<svg x="0" y="0" id="'+this.id+'-holder" viewBox="0 0 100 100" preserveAspectRatio="none">';
 			svg += '		<g id="'+this.id+'-chart-furniture" transform="translate(0,100) scale(1,-1)"></g>';
 			svg += '		<g id="'+this.id+'-chart" transform="translate(0,100) scale(1,-1)"></g>';
 			svg += '	</svg>';
-			svg += '	<g id="'+this.id+'-axis-y">';
-			svg += '	</g>';
-			svg += '	<g id="'+this.id+'-axis-x">'
-			svg += '	</g>';
 			svg += '</svg>';
 			this.el.innerHTML = svg;
 			graph.el.svg = this.el.querySelectorAll('svg')[0];
 			graph.el.holder = graph.el.svg.querySelectorAll('#'+this.id+'-holder')[0];
 			graph.el.chart = graph.el.svg.querySelectorAll('#'+this.id+'-chart')[0];
 			graph.el.chartfurniture = graph.el.svg.querySelectorAll('#'+this.id+'-chart-furniture')[0];
-			graph.el.chartfurniture.appendChild(createPath({'id':'graph-axis-x-line','d':'M 0 0 l 100,0','style':{'stroke':'black','stroke-width':'1px','fill':'transparent'}}));
-			graph.el.chartfurniture.appendChild(createPath({'id':'graph-axis-y-line','d':'M 0 0 l 0 100','style':{'stroke':'black','stroke-width':'1px','fill':'transparent'}}));
+			graph.el.chartfurniture.appendChild(createPath({'id':'graph-axis-x-line','d':'M 0 0 l 100,0','style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3}}));
+			graph.el.chartfurniture.appendChild(createPath({'id':'graph-axis-y-line','d':'M 0 0 l 0 100','style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3}}));
+			graph.el.axes = graph.el.svg.querySelectorAll('#'+this.id+'-axis-lines')[0];
 		}
+
+		graph.y.log = S('.switch input')[0].checked;
+		S('.switch input').on('change',{me:this},function(e){
+			console.log(e.currentTarget.checked);
+			graph.y.log = e.currentTarget.checked;
+			e.data.me.updateLabels();
+			e.data.me.draw();
+		});
+		return this;
 	}
 
 	this.draw = function(){
 
-		var id,d;
+		var id,d,logmin,logmax,x,y;
+
+		if(graph.y.log){
+			logmin = Math.log10(graph.mincases);
+			logmax = Math.log10(this.maxcases);
+		}
 
 		// Loop through the data and draw or redraw the lines
 		for(id in this.data){
-			data = [];
-			v = 1;
-			for(d = new Date(this.data[id].mindate); d <= this.data[id].maxdate; d.setDate(d.getDate() + 1)){
-				iso = d.toISOString().substr(0,10);
-				if(this.data[id].days[iso]) v = this.data[id].days[iso];
-				data.push(v);
-			}
-			path = 'M 0 0';
-			for(i = 0; i < data.length; i++){
-				path += ' L '+(100*(i+1)/this.maxdays).toFixed(2)+','+(100*data[i]/this.maxcases).toFixed(2);
-			}
-			if(!this.data[id].el){
-				this.data[id].el = createGroup({'id':'area-'+id});
-				this.data[id].line = createPath({'style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3},'class':'line'});
-				//this.data[id].text = createText(this.data[id].name,{'x':(100*(data.length)/this.maxdays).toFixed(2),'y':(100*data[data.length-1]/this.maxcases).toFixed(2),'style':{'text-anchor':'middle','dominant-baseline':'hanging'},'transform':'scale(1,-1)'});
-				this.data[id].el.appendChild(this.data[id].line);
-				//this.data[id].el.appendChild(this.data[id].text);
-				graph.el.chart.appendChild(this.data[id].el);
-				S('#area-'+id+' .line').on('mouseover',{this:this,g:graph,id:id,d:this.data[id]},function(e){
-					a = e.data.g.el.svg.querySelectorAll('g.active');
-					for(var i = 0; i < a.length; i++) a[i].setAttribute('class','');
-					el = document.getElementById('area-'+e.data.id);
-					el.setAttribute('class','active');
-					
-					infoBubble(e.data.g,e.data.d);
+			if(id.indexOf('W06')!=0){
+				data = [];
+				v = 1;
+				var now = new Date();
+				for(d = new Date(this.data[id].mindate); d <= now; d.setDate(d.getDate() + 1)){
+					iso = d.toISOString().substr(0,10);
+					if(this.data[id].days[iso]) v = this.data[id].days[iso];
+					data.push(v);
+				}
+				x = 0;
+				y = (100*(graph.y.log ? (Math.log10(graph.mincases)-logmin)/(logmax-logmin) : graph.mincases/this.maxcases));
+				path = 'M '+x.toFixed(2)+' '+y.toFixed(2);
+				for(i = 0; i < data.length; i++){
+					x = (100*(i+1)/this.maxdays);
+					y = (100*(graph.y.log ? (Math.log10(data[i])-logmin)/(logmax-logmin) : data[i]/this.maxcases));
+					path += ' L '+x.toFixed(2)+','+y.toFixed(2);
+				}
+				if(!this.data[id].el){
+					this.data[id].el = createGroup({'id':'area-'+id});
+					this.data[id].line = createPath({'style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3},'class':'line'});
+					this.data[id].el.appendChild(this.data[id].line);
+					//this.data[id].text = createText(this.data[id].name,{'x':(100*(data.length)/this.maxdays).toFixed(2),'y':(100*data[data.length-1]/this.maxcases).toFixed(2),'style':{'text-anchor':'middle','dominant-baseline':'hanging'},'transform':'scale(1,-1)'});
+					//this.data[id].el.appendChild(this.data[id].text);
+					graph.el.chart.appendChild(this.data[id].el);
+					S('#area-'+id+' .line').on('mouseover',{this:this,g:graph,id:id,d:this.data[id]},function(e){
+						a = e.data.g.el.svg.querySelectorAll('g.active');
+						for(var i = 0; i < a.length; i++) a[i].setAttribute('class','');
+						el = document.getElementById('area-'+e.data.id);
+						el.setAttribute('class','active');
+						
+						infoBubble(e.data.g,e.data.d);
 
-					// Simulate z-index
-					//e.data.g.el.chart.appendChild(el);
-				});
+						// Simulate z-index
+						//e.data.g.el.chart.appendChild(el);
+					});
+				}
+				this.data[id].line.setAttribute('d',path);
+			}else{
+				console.warn('Not including '+id,this.data[id]);
 			}
-			this.data[id].line.setAttribute('d',path);
-			//console.log(id,this.data[id].mindate,data,path);
 		}
 		return this;
 	}
@@ -794,7 +840,7 @@ function PandemicGraph(o){
 					id = data[i].AreaCode;
 					if(id){
 						t = parseInt(data[i].TotalCases);
-						if(t > 10){
+						if(t > graph.mincases){
 							if(!byid[id]) byid[id] = {'days':{},'country':data[i].Country,'name':data[i].Area,'mindate':'3000-01-01','maxdate':'2000-01-01','max':0};
 							byid[id].days[data[i]['Date']] = t;
 							if(t > max) max = t;
@@ -810,7 +856,7 @@ function PandemicGraph(o){
 				for(var id in byid){
 					byid[id].mindate = new Date(byid[id].mindate);
 					byid[id].maxdate = new Date(byid[id].maxdate);
-					byid[id].ndays = Math.round((byid[id].maxdate.getTime()-byid[id].mindate.getTime())/86400000);
+					byid[id].ndays = Math.round((byid[id].maxdate.getTime()-byid[id].mindate.getTime())/86400000)+1;
 					if(byid[id].ndays > ndays) ndays = byid[id].ndays;
 				}
 				this.data = byid;
@@ -820,7 +866,6 @@ function PandemicGraph(o){
 				this.updateLabels();
 				this.draw();
 
-				console.log(byid,this.maxcases,this.maxdays);
 			},
 			"error": function(e,attr){
 				console.error('Unable to load '+attr.url);
@@ -839,6 +884,98 @@ function PandemicGraph(o){
 	return this;
 }
 
+/**
+ * @desc Create logarithmic tick marks that span the range
+ * @param {number} min - the minimum value to include
+ * @param {number} max - the maximum value to include
+ */
+function logTicks(min,max){
+	var mn,mx,val,major,minor,i,j,ticks,vis,inc,n,show,o,r;
+	ticks = {'length':0,'min':min,'max':max};
+	if(min > max) return ticks;
+
+	// Get the log range
+	r = Math.log10(max)-Math.log10(min);
+	mn = Math.floor(Math.log10(min));
+	mx = Math.ceil(Math.log10(max));
+	o = Math.ceil(r/(3*6))*3;
+
+	// The major tick marks
+	major = [];
+
+	// First we make the major tick marks
+	for(i = mn; i <= mx ; i++){
+		val = Math.pow(10,i);
+		major.push(val);
+		if(val >= min && val < max){
+			// The tick mark is in the range of the graph
+			show = true;
+			// If the range is big, only show every 'o' orders
+			if(r > 8 && Math.log10(val)%o!=0) show = false;
+			ticks[''+ticks.length] = {'value':val,'label':(show ? val.toString() : ''),'length':1};
+			ticks.length++;
+		}
+	}
+
+	// Now create the minor tick marks
+	if(ticks.length < 10){
+		minor = [];
+		n = ticks.length;
+		for(i = 0; i < major.length; i++){
+			minor.push(major[i]);
+			for(j = 2; j <= 9; j++){
+				val = major[i] * j;
+				vis = (val > min && val < max);
+				minor.push(val);
+				if(vis){
+					ticks[''+ticks.length] = {'value':val,'label':(n <= 2 ? val.toString() : ''),'length':1,'minor':true};
+					ticks.length++;
+				}
+			}
+		}
+	}
+
+	return ticks;
+}
+/**
+ * @desc Make the tick marks.
+ * @param {number} mn - the minimum value
+ * @param {number} mx - the maximum value
+ */
+function makeTicks(mn,mx,n,opts){
+
+	var v,l,i,d,vmx,ticks;
+	ticks = {};
+	if(!opts) opts = {};
+
+	// If the range is negative we cowardly quit
+	if(mn > mx) return ticks;
+	// If the min or max are not numbers we quit
+	if(isNaN(mn) || isNaN(mx)) return ticks;
+
+
+	if(opts.log){
+		ticks = logTicks(mn,mx);
+	}else{
+		ticks.length = 0;
+		ticks.inc = defaultSpacing(mn,mx,n);
+		vmx = mx + ticks.inc;
+		for(v = Math.floor(mn/ticks.inc), i = 0; v <= vmx; v += ticks.inc, i++){
+			// If formatLabel is set we use that to format the label
+			ticks[i] = {'value':v,'label':(typeof opts.formatLabel==="function" ? opts.formatLabel.call(ticks[i].value,opts) : v.toString())};
+			ticks.length++;
+		}
+	}
+
+	if(ticks.length == 0){
+		console.warn('No ticks');
+		return ticks;
+	}
+
+	ticks.range = ticks[ticks.length-1].value - ticks[0].value;
+
+	return ticks;
+}
 function infoBubble(graph,d){
 	
 	if(S('.infobubble').length==0) S(graph.el.svg).after('<div class="infobubble">?</div>');
@@ -846,7 +983,7 @@ function infoBubble(graph,d){
 	var r = d.el.getBoundingClientRect();
 	var r2 = d.el.parentNode.getBoundingClientRect();
 	console.log(d,r,r2)
-	bubble.css({'left':Math.round(r.width+100)+'px','top':Math.round(r.top+50-r2.top)+'px'}).html(d.name+', '+d.country+' ('+d.max.toLocaleString()+')');
+	bubble.css({'left':Math.round(r.width+100)+'px','top':Math.round(r.top-r2.top)+'px'}).html(d.name+', '+d.country+' ('+d.max.toLocaleString()+')');
 }
 
 function CSV2JSON(data,format,start,end){
