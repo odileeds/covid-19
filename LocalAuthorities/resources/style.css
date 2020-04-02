@@ -35,8 +35,8 @@ html, body {
 	color: #333;
 	line-height: 1.44em;
 }
-h1 { font-size: 1.7em; }
-h2 { font-size: 1.4em; margin-top: 1.4285em; }
+h1 { font-size: 1.7em; font-weight: 600; }
+h2 { font-size: 1.4em; margin-top: 1.4285em; font-weight: 600; }
 h3 { font-size: 1.2em; margin-top: 1.666em; }
 h1 + p, h2 + p, h3 + p { margin-top: 1em; }
 strong { font-weight: 700; }
@@ -101,7 +101,7 @@ output svg svg { overflow: unset; }
 output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !important; opacity: 1!important; }
 
 figcaption { font-size: 0.8em; color: #444; line-height: 1.4em; }
-figcaption h2, figure h2 { margin-top: 0; margin-bottom: 1em; }
+figcaption h2, figure h2 { margin-top: 0; margin-bottom: 0.5em; }
 figcaption p:last-child { margin-bottom: 0px; }
 
 
