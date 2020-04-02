@@ -7,6 +7,6 @@ As part of #OpenDataSavesLives at [ODI Leeds](https://odileeds.org/) we are crea
 
 ## Data
 
-We are [collating data sources in an open Google doc](https://docs.google.com/document/d/1EW8rMgoaNlx6Qit948BRgbVm1d6l_ZsOIvdVB6XXmaU/).
+We are [collating data sources in an open Google doc](https://docs.google.com/spreadsheets/d/14AdGyCAOdanClrie4BT4VWnLi47XxZ8Q8etiroxUWQU/edit?usp=sharing).
 
 
