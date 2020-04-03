@@ -711,9 +711,9 @@ function PandemicGraph(o){
 		graph.el.xaxis.innerHTML = "";
 		for(i = 0; i < ticks.length; i++){
 			x = getX(ticks[i].value);
-			if(x < w) graph.el.xaxis.appendChild(createText(ticks[i].value.toLocaleString(),{'x':x,'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
+			if(x < w) graph.el.xaxis.appendChild(createElement('text',{'html':ticks[i].value.toLocaleString(),'x':x,'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 		}
-		graph.el.xaxis.appendChild(createText('Number of days since '+graph.mincases+' confirmed cases',{'x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
+		graph.el.xaxis.appendChild(createElement('text',{'html':'Number of days since '+graph.mincases+' confirmed cases','x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
 
 		// Update the y-axis labels and lines
@@ -729,45 +729,24 @@ function PandemicGraph(o){
 			y = graph.heightinner * (1 - v);
 			if(y > 0){
 				if(!ticks[i].minor){
-					graph.el.yaxis.appendChild(createText(ticks[i].value.toLocaleString(),{'x':(xoff-5).toFixed(2),'y':y.toFixed(2),'style':{'text-anchor':'end','dominant-baseline':'middle'}}));
+					graph.el.yaxis.appendChild(createElement('text',{'html':ticks[i].value.toLocaleString(),'x':(xoff-5).toFixed(2),'y':y.toFixed(2),'style':{'text-anchor':'end','dominant-baseline':'middle'}}));
 				}
-				if(ticks[i].value > 0) graph.el.axes.appendChild(createPath({'d':'M '+(xoff-3).toFixed(2)+','+y+' l '+(w - xoff + 3).toFixed(2)+',0','style':{'stroke':'#999','stroke-width':(ticks[i].minor ? '0.8px':'1.5px'),'fill':'transparent','opacity':(ticks[i].minor ? 0.2 : 0.3)}}));
+				if(ticks[i].value > 0) graph.el.axes.appendChild(createElement('path',{'d':'M '+(xoff-3).toFixed(2)+','+y+' l '+(w - xoff + 3).toFixed(2)+',0','style':{'stroke':'#999','stroke-width':(ticks[i].minor ? '0.8px':'1.5px'),'fill':'transparent','opacity':(ticks[i].minor ? 0.2 : 0.3)}}));
 			}
 		}
 
 		return this;
 	}
-
-	function createPath(o){
-		if(!o) o = {};
-		if(!o['stroke-linecap']) o['stroke-linecap'] = 'round';
-		if(!o['vector-effect']) o['vector-effect'] = 'non-scaling-stroke';
-		var el,t,i,j;
-		el = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-		for(i in o){
-			if(i=="style"){
-				for(j in o[i]) el.style[j] = o[i][j];
-			}else el.setAttribute(i,o[i]);
-		}
-		return el;
-	}
-	function createGroup(o){
-		if(!o) o = {};
-		var el,t,i,j;
-		el = document.createElementNS("http://www.w3.org/2000/svg", 'g');
-		for(i in o){
-			if(i=="style"){
-				for(j in o[i]) el.style[j] = o[i][j];
-			}else el.setAttribute(i,o[i]);
-		}
-		return el;
-	}
-	function createText(txt,o){
+	function createElement(t,o){
 		if(!o) o = {};
 		if(!o.style) o.style = {};
-		var el,t,i,j;
-		el = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-		el.innerHTML = txt;
+		if(t=="path"){
+			if(!o['stroke-linecap']) o['stroke-linecap'] = 'round';
+			if(!o['vector-effect']) o['vector-effect'] = 'non-scaling-stroke';
+		}
+		var el,i,j;
+		el = document.createElementNS("http://www.w3.org/2000/svg", t);
+		if(t=="text") el.innerHTML = o.html;
 		for(i in o){
 			if(i=="style"){
 				for(j in o[i]){
@@ -778,6 +757,7 @@ function PandemicGraph(o){
 		}
 		return el;		
 	}
+
 	
 	this.init = function(){
 		// Create the graph if necessary
@@ -798,8 +778,8 @@ function PandemicGraph(o){
 			graph.el.holder = graph.el.svg.querySelectorAll('#'+this.id+'-holder')[0];
 			graph.el.chart = graph.el.svg.querySelectorAll('#'+this.id+'-chart')[0];
 			graph.el.chartfurniture = graph.el.svg.querySelectorAll('#'+this.id+'-chart-furniture')[0];
-			graph.el.chartfurniture.appendChild(createPath({'id':'graph-axis-x-line','d':'M 0 0 l 100,0','style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3}}));
-			graph.el.chartfurniture.appendChild(createPath({'id':'graph-axis-y-line','d':'M 0 0 l 0 100','style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3}}));
+			graph.el.chartfurniture.appendChild(createElement('path',{'id':'graph-axis-x-line','d':'M 0 0 l 100,0','style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3}}));
+			graph.el.chartfurniture.appendChild(createElement('path',{'id':'graph-axis-y-line','d':'M 0 0 l 0 100','style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3}}));
 			graph.el.axes = graph.el.svg.querySelectorAll('#'+this.id+'-axis-lines')[0];
 		}
 
@@ -841,13 +821,11 @@ function PandemicGraph(o){
 					path += ' L '+x.toFixed(2)+','+y.toFixed(2);
 				}
 				if(!this.data[id].el){
-					this.data[id].el = createGroup({'id':'area-'+id});
-					this.data[id].line = createPath({'style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3},'class':'line'});
-					this.data[id].area = createPath({'style':{'fill':'#999','opacity':0.3,'fillOpacity':0.2},'class':'area'});
+					this.data[id].el = createElement('g',{'id':'area-'+id});
+					this.data[id].line = createElement('path',{'style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3},'class':'line'});
+					this.data[id].area = createElement('path',{'style':{'fill':'#999','opacity':0.3,'fillOpacity':0.2},'class':'area'});
 					this.data[id].el.appendChild(this.data[id].line);
 					this.data[id].el.appendChild(this.data[id].area);
-					//this.data[id].text = createText(this.data[id].name,{'x':(100*(data.length)/this.maxdays).toFixed(2),'y':(100*data[data.length-1]/this.maxcases).toFixed(2),'style':{'text-anchor':'middle','dominant-baseline':'hanging'},'transform':'scale(1,-1)'});
-					//this.data[id].el.appendChild(this.data[id].text);
 					graph.el.chart.appendChild(this.data[id].el);
 					S('#area-'+id+' .line').on('mouseover',{me:this,g:graph,id:id},function(e){
 
@@ -1125,6 +1103,7 @@ function InfoBubbles(graph){
 	this.remove = function(id){
 		if(typeof id==="string"){
 			if(!msg[id] && S('#label-area-'+id).length == 1) msg[id] = {'el': S('#label-area-'+id)[0]};
+			if(!msg[id]) return this;
 			if(!msg[id].keep){
 				if(msg[id].el && msg[id].el.parentNode) msg[id].el.parentNode.removeChild(msg[id].el);
 				delete msg[id];
