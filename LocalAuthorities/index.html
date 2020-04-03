@@ -24,12 +24,18 @@
 	</header>
 
 	<div id="main" class="b6-bg">
-
 		<ul class="grid">
 		<li>
 			<figure class="b5-bg doublepadded">
 				<h2>Confirmed cases by area</h2>
 				<p>Areas include Upper Tier Local Authorities and health boards depending on how figures are reported locally.</p>
+				<form>
+					<div id="areas">
+						<div id="search" class="searching"><div class="search-inner"><label for="typeahead" class="search-button c12-bg"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 12 13"><g stroke-width="2" stroke="white" fill="none"><path d="M11.29 11.71l-4-4"></path><circle cx="5" cy="5" r="4"></circle></g></svg></label><input type="text" class="search-input" name="typeahead" id="typeahead" value="" placeholder="e.g. Leeds"></div></div>
+						<div class="results"><span id="typeahead-results"></span></div>
+					</div>
+				</form>
+				<div id="toggle-holder"></div>
 				<div id="logplot"></div>
 				<form>
 					<div class="b6-bg padded" style="position:relative;line-height:2em;">

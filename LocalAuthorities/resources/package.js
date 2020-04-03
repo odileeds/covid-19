@@ -540,6 +540,205 @@
 })(window || this);
 
 
+/* Typeahead search v0.1.3 */
+(function(root){
+
+	function Builder(){
+		this.version = "0.1.3";
+		this.init = function(el,opt){ return new TA(el,opt); };
+		return this;
+	}
+	/**
+	 * @desc Create a new TypeAhead object
+	 * @param {DOM|string} el - the DOM element
+	 * @param {object} opt - configuration options
+	 */
+	function TA(el,opt){
+		if(!opt) opt = {};
+		if(typeof el==="string") el = document.querySelector(el);
+		if(!el){
+			console.warn('No valid element provided');
+			return this;
+		}
+		var _obj = this;
+		var evs = {};
+		var results,form;
+		var inline = (typeof opt.inline==="boolean" ? opt.inline : false);
+
+		function search(s,e,t){
+
+			str = s.toUpperCase();
+
+			// Rank the airports
+			tmp = [];
+			if(str){
+				for(var i = 0 ; i < opt.items.length; i++){
+					datum = {'rank':0,'key':i,'value':opt.items[i]};
+					if(typeof opt.rank==="function") datum.rank = opt.rank(opt.items[i],s);
+					else{
+						if(opt.items[i].toUpperCase().indexOf(str) == 0) datum.rank += 3;
+						if(opt.items[i].toUpperCase().indexOf(str) > 0) datum.rank += 1;
+					}
+					tmp.push(datum);
+				}
+				tmp = sortBy(tmp,'rank');
+			}
+
+			// Add results to DOM
+			if(!results){
+				el.parentElement.style.position = "relative";
+				results = document.createElement('div');
+				results.classList.add('typeahead-results');
+				results.style.top = (el.offsetTop + el.offsetHeight)+'px';
+				results.style.left = el.offsetLeft+'px';
+				results.style.maxWidth = (el.parentElement.offsetWidth - el.offsetLeft - parseInt(window.getComputedStyle(el.parentElement, null).getPropertyValue('padding-right')))+'px';
+				results.style.position = "absolute";
+				form.style.position = "relative";
+				el.insertAdjacentElement('afterend',results);
+			}
+
+			html = "";
+			if(tmp.length > 0){
+				var n = Math.min(tmp.length,(typeof opt.max==="number" ? opt.max : 10));
+				html = "<ol>";
+				for(var i = 0; i < n; i++){
+					if(tmp[i].rank > 0) html += '<li data-id="'+tmp[i].key+'" '+(i==0 ? ' class="selected"':'')+'><a tabindex="0" href="#" class="name">'+(typeof opt.render==="function" ? opt.render(opt.items[tmp[i].key]) : opt.items[tmp[i].key])+"</a></li>";
+				}
+				html += "</ol>";
+			}
+			results.innerHTML = html;
+			if(inline){
+				el.style.marginBottom = results.offsetHeight+'px';
+			}
+
+			// Add click events
+			var li = getLi();
+			for(var i = 0 ; i < li.length ; i++){
+				li[i].addEventListener('click',function(ev){
+					ev.preventDefault();
+					ev.stopPropagation();
+					select(this.getAttribute('data-id'));
+				});
+			}
+			
+			if(evs[t]){
+				e._typeahead = _obj;
+				// Process each of the events attached to this event
+				for(var i = 0; i < evs[t].length; i++){
+					ev = evs[t][i];
+					e.data = ev.data||{};
+					if(typeof ev.fn==="function") ev.fn.call(this,e);
+				}
+			}
+
+			return this;
+		}
+
+		function getLi(){ return (results ? results.querySelectorAll('li') : []); }
+		
+		function select(i){
+			if(i){
+				_obj.input = el;
+				if(typeof opt.process==="function") opt.process.call(_obj,opt.items[i]);
+				else console.log(opt.items[i])
+			}
+			if(results) results.innerHTML = "";
+			if(inline) el.style.marginBottom = "0px";
+			return;
+		}
+
+		function submit(){
+			var li = getLi();
+			var s = -1;
+			for(var i = 0; i < li.length; i++){
+				if(li[i].classList.contains('selected')) return select(li[i].getAttribute('data-id'));
+			}
+			return;
+		}
+
+		function highlight(keyCode){
+			var li = getLi();
+			var s = -1;
+			var sel;
+			for(var i = 0; i < li.length; i++){
+				if(li[i].classList.contains('selected')) s = i;
+			}
+			sel = s;
+			if(keyCode==40) s++;
+			else s--;
+			if(s < 0) s = li.length-1;
+			if(s >= li.length) s = 0;
+			if(sel >= 0) li[sel].classList.remove('selected');
+			li[s].classList.add('selected');
+		}
+
+		this.on = function(event,data,fn){
+			if(!el){
+				console.warn('Unable to attach event '+event);
+				return this;
+			}
+			if(event=="change"){
+				if(!evs[event]){
+					evs[event] = [];
+					el.addEventListener('keyup',function(e){
+						e.preventDefault();
+						e.stopPropagation();
+						if(e.keyCode==40 || e.keyCode==38){
+							highlight(e.keyCode);
+						}else if(e.keyCode==13){
+							submit();
+						}else{
+							t = event;
+
+							// Match here
+							search(this.value,e,event);
+						}
+					});
+				}
+				evs[event].push({'fn':fn,'data':data});
+			}else console.warn('No event of type '+event);
+			return this;
+		}
+		this.off = function(e,fn){
+			// Remove any existing event from our list
+			if(evs[e]){
+				for(var i = 0; i < evs[e].length; i++){
+					if(evs[e][i].fn==fn) evs[e].splice(i,1);
+				}
+			}
+		}
+		if(el.form){
+			form = el.form;
+			form.addEventListener('submit',function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				submit();
+			},false);
+		}
+		if(el){
+			el.setAttribute('autocomplete','off');
+		}
+		this.addItems = function(d){
+			if(!opt.items) opt.items = [];
+			opt.items = opt.items.concat(d);
+		}
+		this.on('change',{'test':'blah'},function(e){ console.log('change end'); });
+
+		return this;
+	}
+
+	root.TypeAhead = new Builder();
+
+	// Sort the data
+	function sortBy(arr,i){
+		yaxis = i;
+		return arr.sort(function (a, b) {
+			return a[i] < b[i] ? 1 : -1;
+		});
+	}
+
+})(window || this);
+
 function qs() {
 	var r = {length:0};
 	var q = location.search;
@@ -619,14 +818,25 @@ function PandemicGraph(o){
 		'el':{},
 		'mincases': 3
 	};
+	
+	// Do we update the address bar?
+	this.pushstate = !!(window.history && history.pushState);
+	// Add "back" button functionality
+	var _obj = this;
+	if(this.pushstate){
+		window[(this.pushstate) ? 'onpopstate' : 'onhashchange'] = function(e){
+			if(e.state && e.state.type) _obj.updateAreas(e.state.type);
+			else _obj.updateAreas(_obj.defaulttype);
+		};
+	}
+
 	this.graph = graph;
 	this.el = S('#logplot')[0];
-	this.info = new InfoBubbles(graph);
+	this.info = new InfoBubbles(graph,{'line':'#2254F4','background':'','color':''});
 	this.qs = qs();
 	months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 	function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); } //toISOString().substr(0,10);
-	
-	var _obj = this;
+
 	// We'll need to change the sizes when the window changes size
 	window.addEventListener('resize', function(event){ _obj.resize(); });
 
@@ -846,7 +1056,7 @@ function PandemicGraph(o){
 						e.data.me.info.remove();
 
 						// Add an info bubble
-						e.data.me.selectLine(e.data.id,'',{'line':'#2254F4','background':'','color':'','class':'label'});
+						e.data.me.selectLine(e.data.id,'',{'class':'label'});
 
 						// Simulate z-index
 						//e.data.g.el.chart.appendChild(el);
@@ -863,6 +1073,140 @@ function PandemicGraph(o){
 				console.warn('Not including '+id,this.data[id]);
 			}
 		}
+		return this;
+	}
+	this.updateAreas = function(){
+
+		var a;
+		if(typeof this.qs.areas==="object") a = this.qs.areas;
+		this.qs = qs();
+
+		// Build a type ahead search
+		if(!this.typeahead){
+			
+			items = [];
+			for(id in this.data) items.push({'name':this.data[id].name,'country':this.data[id].country,'id':id});
+			
+			this.typeahead = TypeAhead.init('#typeahead',{
+				'items': items,
+				'inline': true,	// The results are shown inline so as not to hide any existing DOM
+				'rank': function(d,str){
+					// Calculate a weighting
+					var r = 0;
+					// If the name starts with the string
+					if(d.name.toUpperCase().indexOf(str.toUpperCase())==0) r += 3;
+					// If the name includes the string
+					if(d.name.toUpperCase().indexOf(str.toUpperCase())>0) r += 1;
+					// If the country starts with the string
+					if(d.country.toUpperCase().indexOf(str.toUpperCase())==0) r += 2;
+					// If the country includes the string
+					if(d.country.toUpperCase().indexOf(str.toUpperCase())>0) r += 0.5;
+					// If the code starts with the string
+					if(d.id.toUpperCase().indexOf(str.toUpperCase())==0) r += 3;
+					// If the code matches
+					if(d.id.toUpperCase() == str.toUpperCase()) r += 3;
+					return r;
+				},
+				'render': function(d){
+					// Render the drop down list item for each airport.
+					// This can be HTML. It will be wrapped in <a>
+					return d.name+', '+d.country;
+				},
+				'process': function(d){
+					this.input.value = "";
+					var match = false;
+					if(_obj.qs.areas){
+						for(var i = 0; i < _obj.qs.areas.length; i++){
+							if(_obj.qs.areas[i] == d.id) match = true;
+						}
+					}
+					if(!match){
+						//_obj.qs.areas.push(d.id);
+						_obj.addToggle(d.id,true);
+					}
+				}
+			});
+		}
+
+		// Highlight selected UTLAs
+		if(typeof this.qs.areas==="string") this.qs.areas = this.qs.areas.split(/;/);
+
+		// Add any missing toggles
+		if(this.qs.areas){
+			for(i = 0; i < this.qs.areas.length; i++){
+				if(S('#toggle-'+this.qs.areas[i]).length == 0) this.addToggle(this.qs.areas[i]);
+			}
+		}
+		if(a){
+			// Find out which toggles no longer exist
+			for(j = 0; j < a.length; j++){
+				match = false;
+				for(i = 0; i < this.qs.areas.length; i++){
+					if(a[j]==this.qs.areas[i]){ match = true; continue; }
+				}
+				// It no longer exists so remove it (but don't update the history)
+				if(!match) this.removeToggle(a[j]);
+			}
+		}
+
+		return this;
+	}
+
+	this.updateHistory = function(){
+		var str = this.qs.areas.join(";");
+		if(this.pushstate) history.pushState({'areas':str},"COVID-19",(str ? '?areas='+str : '?'));
+	}
+
+	this.addToggle = function(id,update){
+
+		if(S('#toggle-holder .toggles').length==0) S('#toggle-holder').append('<ul class="toggles"></ul>');
+
+		var li;
+
+		// Add to array
+		var match = -1;
+		if(!this.qs.areas) this.qs.areas = [];
+		for(var i = 0; i < this.qs.areas.length; i++){
+			if(this.qs.areas[i]==id) match = i;
+		}
+		if(match < 0) this.qs.areas.push(id);
+
+		// Select the line
+		this.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
+
+		// Build toggle
+		if(this.data[id] && S('#toggle-'+id).length==0){
+			li = document.createElement('li');
+			li.setAttribute('class','c12-bg');
+			li.setAttribute('title','Toggle '+this.data[id].name);
+			li.innerHTML = '<label for="toggle-'+id+'">'+this.data[id].name+'</label><span class="close"><span>&times;</span><input id="toggle-'+id+'" type="checkbox" checked="checked" data="'+id+'"></span>';
+			S('#toggle-holder .toggles')[0].appendChild(li);
+			S(li).find('input').on('change',{me:this},function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				e.data.me.removeToggle(e.currentTarget.getAttribute('data'),true);
+			});
+		}
+
+		if(update) this.updateHistory();
+
+		return this;
+	}
+	this.removeToggle = function(id,update){
+		if(this.info.msg['area-'+id]) this.deselectLine(id,true);
+		//else this.selectLine(id,'',{'keep':true,'line':'#FF6700','background':'','color':'black','class':'label'});
+		// Remove toggle from DOM
+		S('#toggle-'+id).parent().parent().remove();
+		
+		// Remove from array
+		var match = -1;
+		for(var i = 0; i < this.qs.areas.length; i++){
+			if(this.qs.areas[i]==id) match = i;
+		}
+		if(match >= 0) this.qs.areas.splice(match,1);
+
+		if(update) this.updateHistory();
+
 		return this;
 	}
 	
@@ -887,8 +1231,8 @@ function PandemicGraph(o){
 
 			el = S('#area-'+id);
 			if(!opts.keep) el.addClass('active');
-			el.find('.line').css({'stroke': opts.line});
-			el.find('.area').css({'fill': opts.line});
+			el.find('.line').css({'stroke': opts.line||this.info.opts.line});
+			el.find('.area').css({'fill': opts.line||this.info.opts.line});
 
 			if(!txt){
 				// Build label text
@@ -900,14 +1244,19 @@ function PandemicGraph(o){
 		return this;
 	}
 	
-	this.deselectLine = function(id){
+	this.deselectLine = function(id,override){
 		el = S('#area-'+id);
 		el.removeClass('active');
+		if(el.hasClass('keep') && override){
+			this.info.unprotect('area-'+id);
+			delete this.data[id].opts;
+			el.removeClass('keep');
+		}
 		if(!el.hasClass('keep')){
-			el.find('.line').css({'stroke':'d'});
+			el.find('.line').css({'stroke':''});
 			el.find('.area').css({'fill':''});
 		}
-		this.info.remove(id);
+		this.info.remove();
 		return this;
 	}
 
@@ -953,12 +1302,7 @@ function PandemicGraph(o){
 
 				this.updateLabels();
 				this.draw();
-				
-				// Highlight selected UTLAs
-				if(this.qs.areas) this.qs.areas = this.qs.areas.split(/;/);
-				for(i = 0; i < this.qs.areas.length; i++){
-					this.selectLine(this.qs.areas[i],'',{'keep':true,'line':'#FF6700','background':'','color':'black','class':'label'});
-				}
+				this.updateAreas();
 
 			},
 			"error": function(e,attr){
@@ -1073,9 +1417,10 @@ function makeTicks(mn,mx,n,opts){
 
 
 
-function InfoBubbles(graph){
+function InfoBubbles(graph,opts){
 	var msg = {};
 	this.msg = msg;
+	this.opts = opts;
 	function getXY(el){
 		var r,r2,xoff;
 		r = el.getBoundingClientRect();
@@ -1093,6 +1438,13 @@ function InfoBubbles(graph){
 		}
 		return this;
 	}
+	this.unprotect = function(id){
+		if(msg[id]){
+			msg[id].keep = false;
+			msg[id].el.remove();
+		}
+		return this;
+	}
 	this.add = function(id,txt,el,opts){
 		if(!msg[id] || !msg[id].el){
 			if(!msg[id]) msg[id] = {'original':el };
@@ -1103,9 +1455,12 @@ function InfoBubbles(graph){
 			msg[id].el = info;
 			graph.el.svg.insertAdjacentElement('afterend',msg[id].el);
 		}
+		
 		el = S(msg[id].el);
-		if(opts.background) el.css({'background':opts.background,'border-color':opts.background});
-		if(opts.color) el.css({'color':opts.color});
+		bg = opts.background || this.opts.background;
+		c = opts.color || this.opts.color;
+		if(bg) el.css({'background':bg,'border-color':bg});
+		if(c) el.css({'color':c});
 		if(opts.keep) msg[id].keep = opts.keep;
 		if(opts['class']) el.addClass(opts['class']);
 		el.html(txt+'<div class="after"></div>');
@@ -1113,7 +1468,6 @@ function InfoBubbles(graph){
 	}
 	this.remove = function(id){
 		if(typeof id==="string"){
-			if(!msg[id] && S('#label-area-'+id).length == 1) msg[id] = {'el': S('#label-area-'+id)[0]};
 			if(!msg[id]) return this;
 			if(!msg[id].keep){
 				if(msg[id].el && msg[id].el.parentNode) msg[id].el.parentNode.removeChild(msg[id].el);

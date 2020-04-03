@@ -81,6 +81,7 @@ a.button:hover, button:hover, button:focus, a.button:focus { background-color: #
 .c12-bg, .on label { background-color: #D60303; color: white; }
 .c12-bg:hover, .c12-bg:focus { background: #444; color: white; }
 .padded { padding: 1em; }
+.padded-bottom { padding: 1em; margin-bottom: 1em; }
 .doublepadded { padding: 2em; }
 
 
@@ -96,7 +97,7 @@ ul.grid {
 	padding: 0px;
 }
 
-#logplot { display: block; font-size: 1em; position: relative; height: 500px; }
+#logplot { display: block; font-size: 1em; position: relative; height: 500px; margin-bottom: 1em; }
 svg svg { overflow: unset; }
 svg .line { stroke: #999; }
 svg .area { display:none; }
@@ -144,6 +145,15 @@ figcaption p:last-child { margin-bottom: 0px; }
 	bottom: 0em;
 }
 
+ul.toggles { margin: 0px; padding-left: 0px; }
+ul.toggles li { display: inline-block; line-height: 2em; padding-left: 0.5em; margin-right: 0.25em; margin-bottom: 0.5em; position: relative; }
+ul.toggles li .close { float: right; margin-left: 0.5em; padding: 0 0.5em; background: rgba(0,0,0,0.5); color: white; text-decoration: none; }
+ul.toggles label { cursor: pointer; }
+ul.toggles .close { cursor: pointer; position: relative; }
+ul.toggles .close input { opacity: 0; position: absolute; left: 0px; top: 0px; margin: 0; padding: 0; width: 100%; height: 100%; }
+ul.toggles li .close:hover, ul.toggles li .close:focus { color: white; }
+	
+
 .switch { width: 5em; position: absolute; display: inline-block; right: 1em; }
 .switch input { position: absolute; opacity: 0; z-index: 3; width: 100%; height: 100%; margin: 0px; cursor: pointer; }
 .switch input:focus ~ span { box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2, 0 0 4px 2px #3366dd; }
@@ -156,6 +166,67 @@ figcaption p:last-child { margin-bottom: 0px; }
 .switch > span span { text-align: center; display: block; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: all .2s ease-out; box-sizing: border-box; }
 .switch > span span:last-of-type { padding-right: 2em; }
 .switch > span span:first-of-type { opacity: 1; padding-left: 2em; color: black; }
+
+#areas { margin-bottom: 0.75em; }
+#toggle-holder { margin-top: 4.25em; }
+#search { position: absolute; display: block; width: 100%; max-width: 400px; z-index: 2; }
+#search .search-inner { position: relative; }
+#search label {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 100;
+	font-size: 1em;
+	display: inline-block;
+	padding: 1.13em;
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1;
+	text-transform: uppercase;
+	padding: 0.5em 1em;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: 0.05em;
+	line-height: 2em;
+	width: 3em;
+}
+#search input {
+	font-size: 1em;
+	background: rgba(255,255,255,0.7) !important;
+	border: solid 0.5em #D60303;
+	border-radius: 0px;
+	display: none;
+	color: black;
+	padding: 0 0.5em;
+	height: 3em;
+	width: 100%;
+	position: relative;
+	left: 0em;
+	top: 0px;
+	padding-left: 3em;
+	z-index: 99;
+}
+#search svg { position: relative; top: 0.2em; }
+#search.searching input { display: inline-block; }
+.typeahead-results {
+	width: 100%;
+}
+.typeahead-results ol {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.typeahead-results li > a {
+	padding: 0.25em 0.5em;
+	background: #efefef;
+	text-decoration: none;
+	display: block;
+	color: inherit;
+}
+.typeahead-results li.selected > a {
+	background-color: #444;
+	color: white;
+}
+
 
 @media only screen and (max-width: 1080px) {
 	ul.grid { grid-template-columns: repeat(1, 1fr); }
