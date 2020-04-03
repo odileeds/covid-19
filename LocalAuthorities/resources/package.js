@@ -7,7 +7,7 @@
 
 	function stuQuery(els){
 		// Make our own fake, tiny, version of jQuery simulating the parts we need
-		this.stuquery = "1.0.25";
+		this.stuquery = "1.0.26";
 
 		this.getBy = function(e,s){
 			var i,m,k;
@@ -108,7 +108,7 @@
 		}
 		return this;
 	};
-	stuQuery.prototype.before=function(t){
+	stuQuery.prototype.before = function(t){
 		var i,d,e,j;
 		for(i = 0 ; i < this.length ; i++){
 			d = document.createElement('div');
@@ -246,31 +246,48 @@
 	};
 	stuQuery.prototype.hasClass = function(cls){
 		// Check if a DOM element has the specified class
+		var i,c;
 		var result = true;
-		for(var i = 0; i < this.length; i++){
-			if(!this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) result = false;
+		for(i = 0; i < this.length; i++){
+			c = this[i].getAttribute('class');
+			if(c && !c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) result = false;
 		}
 		return result;
 	};
 	stuQuery.prototype.toggleClass = function(cls){
 		// Toggle a class on a DOM element
-		for(var i = 0; i < this.length; i++){
-			if(this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this[i].className = this[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
-			else this[i].className = (this[i].className+' '+cls).replace(/^ /,'');
+		var i,c;
+		for(i = 0; i < this.length; i++){
+			c = this[i].getAttribute('class');
+			if(c){
+				if(c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) c = c.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
+				else c = (cls+' '+cls).replace(/^ /,'');
+			}
+			this[i].setAttribute('class',c);
 		}
 		return this;
 	};
 	stuQuery.prototype.addClass = function(cls){
 		// Add a class on a DOM element
-		for(var i = 0; i < this.length; i++){
-			if(!this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this[i].className = (this[i].className+' '+cls).replace(/^ /,'');
+		var c,i;
+		for(i = 0; i < this.length; i++){
+			c = this[i].getAttribute('class');
+			if(c){
+				if(!c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) c = (c+' '+cls).replace(/^ /,'');
+			}else c = cls;
+			this[i].setAttribute('class',c);
 		}
 		return this;
 	};
 	stuQuery.prototype.removeClass = function(cls){
 		// Remove a class on a DOM element
-		for(var i = 0; i < this.length; i++){
-			while(this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this[i].className = this[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'').replace(/^ /,'');
+		var i,c;
+		for(i = 0; i < this.length; i++){
+			c = this[i].getAttribute('class');
+			if(c!=""){
+				while(c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) c = c.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'').replace(/^ /,'');
+				this[i].setAttribute('class',c||"");
+			}
 		}
 		return this;
 	};
@@ -521,6 +538,25 @@
 })(window || this);
 
 
+function qs() {
+	var r = {length:0};
+	var q = location.search;
+	if(q && q != '#'){
+		// remove the leading ? and trailing &
+		q.replace(/^\?/,'').replace(/\&$/,'').split('&').forEach(function(e){
+			var key = e.split('=')[0];
+			var val = e.split('=')[1];
+			// convert floats
+			if(/^-?[0-9.]+$/.test(val)) val = parseFloat(val);
+			if(val == "true") val = true;
+			if(val == "false") val = false;
+			if(/^\?[0-9\.]+$/.test(val)) val = parseFloat(val);	// convert floats
+			r[key] = val;
+		});
+	}
+	return r;
+};
+
 /**
  * @desc Get some spacing given a minimum and maximum value
  * @param {number} mn - the minimum value
@@ -582,7 +618,9 @@ function PandemicGraph(o){
 		'mincases': 3
 	};
 	this.graph = graph;
-	this.el = document.getElementsByTagName('output')[0];
+	this.el = S('#logplot')[0];
+	this.info = new InfoBubbles(graph);
+	this.qs = qs();
 	
 	var _obj = this;
 	// We'll need to change the sizes when the window changes size
@@ -631,14 +669,10 @@ function PandemicGraph(o){
 		graph.el.holder.setAttribute('x',Math.ceil(getX(0)));
 
 		// Build the x-axis
-		if(!graph.el.xaxis){
-			graph.el.xaxis = graph.el.svg.querySelectorAll('#'+this.id+'-axis-x')[0];
-		}
+		if(!graph.el.xaxis) graph.el.xaxis = graph.el.svg.querySelectorAll('#'+this.id+'-axis-x')[0];
 
 		// Build the y-axis
-		if(!graph.el.yaxis){
-			graph.el.yaxis = graph.el.svg.querySelectorAll('#'+this.id+'-axis-y')[0];
-		}
+		if(!graph.el.yaxis) graph.el.yaxis = graph.el.svg.querySelectorAll('#'+this.id+'-axis-y')[0];
 
 
 		// Set font size
@@ -649,17 +683,24 @@ function PandemicGraph(o){
 
 		this.updateLabels();
 		this.draw();
+		
+		this.info.update();
 
 		return this;
 	}
 
 	this.updateLabels = function(){
 
-		S('.infobubble').remove();
+		this.info.remove();
 
 		graph.el.axes.innerHTML = "";
 		
 		if(typeof this.maxcases=="undefined") return this;
+
+
+		w = this.el.offsetWidth;
+		h = this.el.offsetHeight;
+		xoff = w*Math.abs(graph.view.x.min/(graph.view.x.max-graph.view.x.min));
 
 
 		// Update x-axis labels and lines
@@ -667,16 +708,14 @@ function PandemicGraph(o){
 		ticks = makeTicks(graph.x.min,graph.x.max,5);
 		graph.el.xaxis.innerHTML = "";
 		for(i = 0; i < ticks.length; i++){
-			graph.el.xaxis.appendChild(createText(ticks[i].value.toLocaleString(),{'x':getX(ticks[i].value),'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
+			x = getX(ticks[i].value);
+			if(x < w) graph.el.xaxis.appendChild(createText(ticks[i].value.toLocaleString(),{'x':x,'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 		}
 		graph.el.xaxis.appendChild(createText('Number of days since '+graph.mincases+' confirmed cases',{'x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
 
 		// Update the y-axis labels and lines
 		graph.el.yaxis.innerHTML = "";
-		w = this.el.offsetWidth;
-		h = this.el.offsetHeight;
-		xoff = w*Math.abs(graph.view.x.min/(graph.view.x.max-graph.view.x.min));
 		ticks = makeTicks(graph.mincases,this.maxcases,5,{'log':graph.y.log});
 		if(graph.y.log){
 			logmin = Math.log10(graph.mincases);
@@ -768,6 +807,7 @@ function PandemicGraph(o){
 			graph.y.log = e.currentTarget.checked;
 			e.data.me.updateLabels();
 			e.data.me.draw();
+			e.data.me.info.update();
 		});
 		return this;
 	}
@@ -789,8 +829,7 @@ function PandemicGraph(o){
 				var now = new Date();
 				for(d = new Date(this.data[id].mindate); d <= now; d.setDate(d.getDate() + 1)){
 					iso = d.toISOString().substr(0,10);
-					if(this.data[id].days[iso]) v = this.data[id].days[iso];
-					data.push(v);
+					if(this.data[id].days[iso] >= graph.mincases) data.push(this.data[id].days[iso]);
 				}
 				x = 0;
 				y = (100*(graph.y.log ? (Math.log10(graph.mincases)-logmin)/(logmax-logmin) : graph.mincases/this.maxcases));
@@ -803,26 +842,75 @@ function PandemicGraph(o){
 				if(!this.data[id].el){
 					this.data[id].el = createGroup({'id':'area-'+id});
 					this.data[id].line = createPath({'style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3},'class':'line'});
+					this.data[id].area = createPath({'style':{'fill':'#999','opacity':0.3,'fillOpacity':0.2},'class':'area'});
 					this.data[id].el.appendChild(this.data[id].line);
+					this.data[id].el.appendChild(this.data[id].area);
 					//this.data[id].text = createText(this.data[id].name,{'x':(100*(data.length)/this.maxdays).toFixed(2),'y':(100*data[data.length-1]/this.maxcases).toFixed(2),'style':{'text-anchor':'middle','dominant-baseline':'hanging'},'transform':'scale(1,-1)'});
 					//this.data[id].el.appendChild(this.data[id].text);
 					graph.el.chart.appendChild(this.data[id].el);
-					S('#area-'+id+' .line').on('mouseover',{this:this,g:graph,id:id,d:this.data[id]},function(e){
-						a = e.data.g.el.svg.querySelectorAll('g.active');
-						for(var i = 0; i < a.length; i++) a[i].setAttribute('class','');
-						el = document.getElementById('area-'+e.data.id);
-						el.setAttribute('class','active');
+					S('#area-'+id+' .line').on('mouseover',{me:this,g:graph,id:id},function(e){
+
+						// Remove existing strokes if they aren't keep
+						S(e.data.g.el.svg).find('.active:not(.keep) .line').css({'stroke':''});
 						
-						infoBubble(e.data.g,e.data.d);
+						S(e.data.g.el.svg).find('.active').removeClass('active');
+
+						// Remove old infobubbles
+						e.data.me.info.remove();
+
+						// Add an info bubble
+						e.data.me.selectLine(e.data.id,'',{'line':'#2254F4','background':'','color':'','class':'label'});
 
 						// Simulate z-index
 						//e.data.g.el.chart.appendChild(el);
+					}).on('mouseout',{me:this,id:id},function(e){
+
+						//el = document.getElementById('area-'+e.data.id);
+						//el.setAttribute('class','');
+
+						// Remove the info bubble
+						//e.data.me.info.remove(e.data.id);
+
 					});
 				}
 				this.data[id].line.setAttribute('d',path);
+				this.data[id].area.setAttribute('d',path+' L '+x.toFixed(2)+',0Z');
 			}else{
 				console.warn('Not including '+id,this.data[id]);
 			}
+		}
+		return this;
+	}
+	
+	this.selectLine = function(id,txt,opts){
+
+		// Add a fixed info bubble
+		if(this.data[id]){
+
+			if(opts.keep){
+				S(this.data[id].el).addClass('keep');
+				if(typeof opts.background==="string") this.data[id].background = opts.background;
+				if(typeof opts.color==="string") this.data[id].color = opts.color;
+				if(typeof opts.line==="string") this.data[id].line = opts.line;
+				if(opts['class']) this.data[id]['class'] = opts['class'];
+			}
+			if(typeof this.data[id].background==="string") opts.background = this.data[id].background;
+			if(typeof this.data[id].color==="string") opts.color = this.data[id].color;
+			if(typeof this.data[id].line==="string") opts.line = this.data[id].line;
+			if(!opts.line) opts.line = opts.background;
+			if(this.data[id]['class']) opts['class'] = this.data[id]['class'];
+
+			el = S('#area-'+id);
+			if(!opts.keep) el.addClass('active');
+			el.find('.line').css({'stroke': opts.line});
+			el.find('.area').css({'fill': opts.line});
+
+			if(!txt){
+				// Build label text
+				//txt = this.data[id].name+', '+this.data[id].country+' ('+this.data[id].max.toLocaleString()+')';
+				txt = this.data[id].name+' / '+this.data[id].max.toLocaleString();
+			}
+			this.info.add('area-'+id,(txt ? txt : 'Hi there'),this.data[id].el,opts);
 		}
 		return this;
 	}
@@ -840,7 +928,7 @@ function PandemicGraph(o){
 					id = data[i].AreaCode;
 					if(id){
 						t = parseInt(data[i].TotalCases);
-						if(t > graph.mincases){
+						if(t > 0){
 							if(!byid[id]) byid[id] = {'days':{},'country':data[i].Country,'name':data[i].Area,'mindate':'3000-01-01','maxdate':'2000-01-01','max':0};
 							byid[id].days[data[i]['Date']] = t;
 							if(t > max) max = t;
@@ -861,10 +949,17 @@ function PandemicGraph(o){
 				}
 				this.data = byid;
 				this.maxcases = max;
-				this.maxdays = ndays+2;
+				this.maxdays = ndays+5;
+				graph.x.max = this.maxdays;
 
 				this.updateLabels();
 				this.draw();
+				
+				// Highlight selected UTLAs
+				if(this.qs.areas) this.qs.areas = this.qs.areas.split(/;/);
+				for(i = 0; i < this.qs.areas.length; i++){
+					this.selectLine(this.qs.areas[i],'',{'keep':true,'line':'#FF6700','background':'','color':'black','class':'label'});
+				}
 
 			},
 			"error": function(e,attr){
@@ -976,15 +1071,64 @@ function makeTicks(mn,mx,n,opts){
 
 	return ticks;
 }
-function infoBubble(graph,d){
-	
-	if(S('.infobubble').length==0) S(graph.el.svg).after('<div class="infobubble">?</div>');
-	bubble = S('.infobubble');
-	var r = d.el.getBoundingClientRect();
-	var r2 = d.el.parentNode.getBoundingClientRect();
-	console.log(d,r,r2)
-	bubble.css({'left':Math.round(r.width+100)+'px','top':Math.round(r.top-r2.top)+'px'}).html(d.name+', '+d.country+' ('+d.max.toLocaleString()+')');
+
+
+
+function InfoBubbles(graph){
+	var msg = {};
+	function getXY(el){
+		var r,r2,xoff;
+		r = el.getBoundingClientRect();
+		r2 = el.parentNode.getBoundingClientRect();
+		xoff = parseFloat(el.nearestViewportElement.getAttribute('x'));
+		return {'x':(xoff+r.width).toFixed(2),'y':(r.top-r2.top).toFixed(2)};
+	}
+	this.update = function(){
+		var r,r2,xoff,id;
+		console.log('update',msg);
+		for(id in msg){
+			xy = getXY(msg[id].original);
+			console.log(id);
+			S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px','position':'absolute'});
+		}
+		return this;
+	}
+	this.add = function(id,txt,el,opts){
+		if(!msg[id]){
+			var xy = getXY(el);
+			info = document.createElement('div');
+			info.setAttribute("style",'left:'+xy.x+'px; top:'+xy.y+'px;position:absolute;');
+			msg[id] = {'el':info,'original':el};
+			graph.el.svg.insertAdjacentElement('afterend',msg[id].el);
+		}
+		el = S(msg[id].el);
+		if(opts.background) el.css({'background':opts.background,'border-color':opts.background});
+		if(opts.color) el.css({'color':opts.color});
+		if(opts.keep) msg[id].keep = opts.keep;
+		if(opts['class']) el.addClass(opts['class']);
+		el.html(txt+'<div class="after"></div>');
+		return this;
+	}
+	this.remove = function(id){
+		if(typeof id==="string"){
+			if(!msg[id].keep){
+				msg[id].el.parentNode.removeChild(msg[id].el);
+				delete msg[id];
+			}
+		}else{
+			for(id in msg){
+				if(!msg[id].keep){
+					msg[id].el.parentNode.removeChild(msg[id].el);
+					delete msg[id];
+				}
+			}
+		}
+		return this;
+	}
+	return this;
 }
+
+
 
 function CSV2JSON(data,format,start,end){
 

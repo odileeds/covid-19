@@ -96,18 +96,29 @@ ul.grid {
 	padding: 0px;
 }
 
-output { display: block; font-size: 1em; position: relative; height: 500px; }
-output svg svg { overflow: unset; }
-output svg .active .line { stroke: #2254F4!important; stroke-width: 2px !important; opacity: 1!important; }
+#logplot { display: block; font-size: 1em; position: relative; height: 500px; }
+svg svg { overflow: unset; }
+svg .line { stroke: #999; }
+svg .area { display:none; }
+svg .active .line, svg .keep .line { stroke-width: 2.5px !important; opacity: 1!important; }
+svg .active .area { display: block; }
 
 figcaption { font-size: 0.8em; color: #444; line-height: 1.4em; }
 figcaption h2, figure h2 { margin-top: 0; margin-bottom: 0.5em; }
 figcaption p:last-child { margin-bottom: 0px; }
 
-
+.label {
+	transform: translate3d(0,-50%,0);
+	margin-left: -1em;
+	padding: 0.25em 0.5em;
+	font-weight: bold;
+	text-shadow: 2px 2px 0 #dfdfdf, 2px -2px 0 #dfdfdf, -2px 2px 0 #dfdfdf, -2px -2px 0 #dfdfdf, 2px 0px 0 #dfdfdf, 0px 2px 0 #dfdfdf, -2px 0px 0 #dfdfdf, 0px -2px 0 #dfdfdf;
+	font-size: 0.8em;
+}
 .infobubble {
 	position: absolute;
 	background-color: black;
+	border-color: black;
 	color: white;
 	padding: 0.25em 0.5em;
 	left: 50%;
@@ -119,7 +130,7 @@ figcaption p:last-child { margin-bottom: 0px; }
 	margin-left: -1em;
 	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
 }
-.infobubble::after {
+.infobubble .after {
 	content: '';
 	position: absolute;
 	bottom: auto;
@@ -128,7 +139,7 @@ figcaption p:last-child { margin-bottom: 0px; }
 	border: 0.5em solid transparent;
 	right: -0.5em;
 	border-color: transparent;
-	border-bottom-color: black;
+	border-bottom-color: inherit;
 	bottom: 0em;
 }
 
@@ -147,4 +158,5 @@ figcaption p:last-child { margin-bottom: 0px; }
 
 @media only screen and (max-width: 1080px) {
 	ul.grid { grid-template-columns: repeat(1, 1fr); }
+	.doublepadded { padding: 1em; }
 }
