@@ -250,7 +250,9 @@
 		var result = true;
 		for(i = 0; i < this.length; i++){
 			c = this[i].getAttribute('class');
-			if(c && !c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) result = false;
+			if(c){
+				if(!c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) result = false;
+			}else result = false;
 		}
 		return result;
 	};
@@ -803,7 +805,6 @@ function PandemicGraph(o){
 
 		graph.y.log = S('.switch input')[0].checked;
 		S('.switch input').on('change',{me:this},function(e){
-			console.log(e.currentTarget.checked);
 			graph.y.log = e.currentTarget.checked;
 			e.data.me.updateLabels();
 			e.data.me.draw();
@@ -865,16 +866,13 @@ function PandemicGraph(o){
 						//e.data.g.el.chart.appendChild(el);
 					}).on('mouseout',{me:this,id:id},function(e){
 
-						//el = document.getElementById('area-'+e.data.id);
-						//el.setAttribute('class','');
-
-						// Remove the info bubble
-						//e.data.me.info.remove(e.data.id);
+						// Deselect the line
+						e.data.me.deselectLine(e.data.id);
 
 					});
 				}
-				this.data[id].line.setAttribute('d',path);
-				this.data[id].area.setAttribute('d',path+' L '+x.toFixed(2)+',0Z');
+				if(this.data[id].line) this.data[id].line.setAttribute('d',path);
+				if(this.data[id].area) this.data[id].area.setAttribute('d',path+' L '+x.toFixed(2)+',0Z');
 			}else{
 				console.warn('Not including '+id,this.data[id]);
 			}
@@ -887,18 +885,19 @@ function PandemicGraph(o){
 		// Add a fixed info bubble
 		if(this.data[id]){
 
+			if(!this.data[id].opts) this.data[id].opts = {};
 			if(opts.keep){
 				S(this.data[id].el).addClass('keep');
-				if(typeof opts.background==="string") this.data[id].background = opts.background;
-				if(typeof opts.color==="string") this.data[id].color = opts.color;
-				if(typeof opts.line==="string") this.data[id].line = opts.line;
-				if(opts['class']) this.data[id]['class'] = opts['class'];
+				if(typeof opts.background==="string") this.data[id].opts.background = opts.background;
+				if(typeof opts.color==="string") this.data[id].opts.color = opts.color;
+				if(typeof opts.line==="string") this.data[id].opts.line = opts.line;
+				if(opts['class']) this.data[id].opts['class'] = opts['class'];
 			}
-			if(typeof this.data[id].background==="string") opts.background = this.data[id].background;
-			if(typeof this.data[id].color==="string") opts.color = this.data[id].color;
-			if(typeof this.data[id].line==="string") opts.line = this.data[id].line;
+			if(typeof this.data[id].opts.background==="string") opts.background = this.data[id].opts.background;
+			if(typeof this.data[id].opts.color==="string") opts.color = this.data[id].opts.color;
+			if(typeof this.data[id].opts.line==="string") opts.line = this.data[id].opts.line;
 			if(!opts.line) opts.line = opts.background;
-			if(this.data[id]['class']) opts['class'] = this.data[id]['class'];
+			if(this.data[id].opts['class']) opts['class'] = this.data[id].opts['class'];
 
 			el = S('#area-'+id);
 			if(!opts.keep) el.addClass('active');
@@ -912,6 +911,17 @@ function PandemicGraph(o){
 			}
 			this.info.add('area-'+id,(txt ? txt : 'Hi there'),this.data[id].el,opts);
 		}
+		return this;
+	}
+	
+	this.deselectLine = function(id){
+		el = S('#area-'+id);
+		el.removeClass('active');
+		if(!el.hasClass('keep')){
+			el.find('.line').css({'stroke':'d'});
+			el.find('.area').css({'fill':''});
+		}
+		this.info.remove(id);
 		return this;
 	}
 
@@ -1076,6 +1086,7 @@ function makeTicks(mn,mx,n,opts){
 
 function InfoBubbles(graph){
 	var msg = {};
+	this.msg = msg;
 	function getXY(el){
 		var r,r2,xoff;
 		r = el.getBoundingClientRect();
@@ -1085,20 +1096,22 @@ function InfoBubbles(graph){
 	}
 	this.update = function(){
 		var r,r2,xoff,id;
-		console.log('update',msg);
 		for(id in msg){
-			xy = getXY(msg[id].original);
-			console.log(id);
-			S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px','position':'absolute'});
+			if(msg[id].el){
+				xy = getXY(msg[id].original);
+				S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px','position':'absolute'});
+			}
 		}
 		return this;
 	}
 	this.add = function(id,txt,el,opts){
-		if(!msg[id]){
+		if(!msg[id] || !msg[id].el){
+			if(!msg[id]) msg[id] = {'original':el };
 			var xy = getXY(el);
 			info = document.createElement('div');
 			info.setAttribute("style",'left:'+xy.x+'px; top:'+xy.y+'px;position:absolute;');
-			msg[id] = {'el':info,'original':el};
+			info.setAttribute("id","label-"+id);
+			msg[id].el = info;
 			graph.el.svg.insertAdjacentElement('afterend',msg[id].el);
 		}
 		el = S(msg[id].el);
@@ -1111,14 +1124,15 @@ function InfoBubbles(graph){
 	}
 	this.remove = function(id){
 		if(typeof id==="string"){
+			if(!msg[id] && S('#label-area-'+id).length == 1) msg[id] = {'el': S('#label-area-'+id)[0]};
 			if(!msg[id].keep){
-				msg[id].el.parentNode.removeChild(msg[id].el);
+				if(msg[id].el && msg[id].el.parentNode) msg[id].el.parentNode.removeChild(msg[id].el);
 				delete msg[id];
 			}
 		}else{
 			for(id in msg){
-				if(!msg[id].keep){
-					msg[id].el.parentNode.removeChild(msg[id].el);
+				if(msg[id] && !msg[id].keep){
+					if(msg[id].el && msg[id].el.parentNode) msg[id].el.parentNode.removeChild(msg[id].el);
 					delete msg[id];
 				}
 			}

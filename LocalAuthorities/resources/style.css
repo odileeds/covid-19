@@ -109,7 +109,7 @@ figcaption p:last-child { margin-bottom: 0px; }
 
 .label {
 	transform: translate3d(0,-50%,0);
-	margin-left: -1em;
+	margin-left: -0.75em;
 	padding: 0.25em 0.5em;
 	font-weight: bold;
 	text-shadow: 2px 2px 0 #dfdfdf, 2px -2px 0 #dfdfdf, -2px 2px 0 #dfdfdf, -2px -2px 0 #dfdfdf, 2px 0px 0 #dfdfdf, 0px 2px 0 #dfdfdf, -2px 0px 0 #dfdfdf, 0px -2px 0 #dfdfdf;
