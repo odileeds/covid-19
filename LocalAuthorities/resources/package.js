@@ -264,6 +264,8 @@
 			if(c){
 				if(c.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) c = c.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
 				else c = (cls+' '+cls).replace(/^ /,'');
+			}else{
+				c = cls;
 			}
 			this[i].setAttribute('class',c);
 		}
