@@ -102,7 +102,7 @@ svg .line { stroke: #999; }
 svg .area { display:none; }
 svg .active .line, svg .keep .line { stroke-width: 2.5px !important; opacity: 1!important; }
 svg .active .area { display: block; }
-
+#logplot time { position: absolute; top: 0px; right: 0px; font-size: 0.8em; }
 figcaption { font-size: 0.8em; color: #444; line-height: 1.4em; }
 figcaption h2, figure h2 { margin-top: 0; margin-bottom: 0.5em; }
 figcaption p:last-child { margin-bottom: 0px; }
@@ -112,6 +112,7 @@ figcaption p:last-child { margin-bottom: 0px; }
 	margin-left: -0.75em;
 	padding: 0.25em 0.5em;
 	font-weight: bold;
+	line-height: 1.25em;
 	text-shadow: 2px 2px 0 #dfdfdf, 2px -2px 0 #dfdfdf, -2px 2px 0 #dfdfdf, -2px -2px 0 #dfdfdf, 2px 0px 0 #dfdfdf, 0px 2px 0 #dfdfdf, -2px 0px 0 #dfdfdf, 0px -2px 0 #dfdfdf;
 	font-size: 0.8em;
 }

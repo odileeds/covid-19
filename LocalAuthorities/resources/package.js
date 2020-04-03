@@ -623,6 +623,8 @@ function PandemicGraph(o){
 	this.el = S('#logplot')[0];
 	this.info = new InfoBubbles(graph);
 	this.qs = qs();
+	months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); } //toISOString().substr(0,10);
 	
 	var _obj = this;
 	// We'll need to change the sizes when the window changes size
@@ -772,7 +774,7 @@ function PandemicGraph(o){
 			svg += '		<g id="'+this.id+'-chart-furniture" transform="translate(0,100) scale(1,-1)"></g>';
 			svg += '		<g id="'+this.id+'-chart" transform="translate(0,100) scale(1,-1)"></g>';
 			svg += '	</svg>';
-			svg += '</svg>';
+			svg += '</svg><time>Updated: ?</time>';
 			this.el.innerHTML = svg;
 			graph.el.svg = this.el.querySelectorAll('svg')[0];
 			graph.el.holder = graph.el.svg.querySelectorAll('#'+this.id+'-holder')[0];
@@ -800,6 +802,12 @@ function PandemicGraph(o){
 		if(graph.y.log){
 			logmin = Math.log10(graph.mincases);
 			logmax = Math.log10(this.maxcases);
+		}
+
+		if(this.maxdateformat){
+			t = this.el.querySelectorAll('time')[0];
+			t.innerHTML = "Updated: "+this.maxdateformat;
+			t.setAttribute('datetime',this.maxdate.toISOString().substr(0,10));
 		}
 
 		// Loop through the data and draw or redraw the lines
@@ -884,8 +892,8 @@ function PandemicGraph(o){
 
 			if(!txt){
 				// Build label text
-				//txt = this.data[id].name+', '+this.data[id].country+' ('+this.data[id].max.toLocaleString()+')';
-				txt = this.data[id].name+' / '+this.data[id].max.toLocaleString();
+				d = getDate(this.data[id].maxdate);
+				txt = this.data[id].name+' ('+this.data[id].max.toLocaleString()+')'+(d==this.maxdateformat ? '':' '+d);
 			}
 			this.info.add('area-'+id,(txt ? txt : 'Hi there'),this.data[id].el,opts);
 		}
@@ -929,15 +937,18 @@ function PandemicGraph(o){
 					}
 				}
 				var ndays = 0;
+				this.maxdate = new Date('2000-01-01');
 				for(var id in byid){
 					byid[id].mindate = new Date(byid[id].mindate);
 					byid[id].maxdate = new Date(byid[id].maxdate);
+					if(byid[id].maxdate > this.maxdate) this.maxdate = byid[id].maxdate;
 					byid[id].ndays = Math.round((byid[id].maxdate.getTime()-byid[id].mindate.getTime())/86400000)+1;
 					if(byid[id].ndays > ndays) ndays = byid[id].ndays;
 				}
 				this.data = byid;
 				this.maxcases = max;
 				this.maxdays = ndays+5;
+				this.maxdateformat = getDate(this.maxdate);
 				graph.x.max = this.maxdays;
 
 				this.updateLabels();
