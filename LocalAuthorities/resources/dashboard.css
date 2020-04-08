@@ -117,33 +117,6 @@ figcaption p:last-child { margin-bottom: 0px; }
 	text-shadow: 2px 2px 0 #dfdfdf, 2px -2px 0 #dfdfdf, -2px 2px 0 #dfdfdf, -2px -2px 0 #dfdfdf, 2px 0px 0 #dfdfdf, 0px 2px 0 #dfdfdf, -2px 0px 0 #dfdfdf, 0px -2px 0 #dfdfdf;
 	font-size: 0.8em;
 }
-.infobubble {
-	position: absolute;
-	background-color: black;
-	border-color: black;
-	color: white;
-	padding: 0.25em 0.5em;
-	left: 50%;
-	top: -0.5em;
-	transform: translate3d(-100%,-100%, 0);
-	white-space: nowrap;
-	text-align: center;
-	z-index: 100;
-	margin-left: -1em;
-	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-}
-.infobubble .after {
-	content: '';
-	position: absolute;
-	bottom: auto;
-	width: 0;
-	height: 0;
-	border: 0.5em solid transparent;
-	right: -0.5em;
-	border-color: transparent;
-	border-bottom-color: inherit;
-	bottom: 0em;
-}
 
 ul.toggles { margin: 0px; padding-left: 0px; }
 ul.toggles li { display: inline-block; line-height: 2em; padding-left: 0.5em; margin-right: 0.25em; margin-bottom: 0.5em; position: relative; }
@@ -258,18 +231,15 @@ button.on, button.on:hover { background-color: #D60303!important; color: white!i
 
 .infobubble {
 	z-index: 1000;
-	top: 1em;
-	left: 50%;
-	transform: translate3d(-50%, 0, 0);
-	position: fixed;
-	max-height: calc(100% - 2em);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
 	overflow-y: auto; 
 	text-align: center;
-	margin-right: -50%;
-	box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
 	background-color: #efefef;
 	color: black;
-	width: 300px;
 }
 .infobubble .infobubble_inner { margin: 1em; }
 .infobubble.covid-19 { text-align: left; }
