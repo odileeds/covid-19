@@ -766,9 +766,9 @@
 				this.highlight(regions);
 			};
 			this.pick = function(value){
-				console.log('pick',_obj.hexes[value].el);
 				// Trigger the click event on the appropriate hex
 				if(_obj.hexes[value]) _obj.hexes[value].el.trigger('click');
+				else console.warn('No hex for '+value);
 			};
 			this.highlight = function(rs){
 				this.n = 0;
