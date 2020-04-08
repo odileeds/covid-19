@@ -222,6 +222,8 @@ ul.toggles { position: relative; margin-bottom: -0.5em; margin-top: 0.5em; }
 .hex-label.hover { fill: black!important; }
 .hex-label.selected { }
 .hex-cell.selected { stroke: black!important; stroke-width: 4px!important; stroke-opacity:1 }
+
+
 button.on, button.on:hover { background-color: #D60303!important; color: white!important; }
 
 .controls { margin-bottom: 1em; }

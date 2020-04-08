@@ -4,9 +4,9 @@
  */
 (function(S){
 
+	var name = "hexmap";
 	// An init function for the plugin
 	function init(){
-		console.log('init hexmap',this);
 
 		// Build hexmap
 		var LA2UTLA = { "E06000001":{"id":"E06000001","n":"Hartlepool"},"E06000002":{"id":"E06000002","n":"Middlesbrough"},"E06000003":{"id":"E06000003","n":"Redcar and Cleveland"},"E06000004":{"id":"E06000004","n":"Stockton-on-Tees"},"E06000005":{"id":"E06000005","n":"Darlington"},"E06000006":{"id":"E06000006","n":"Halton"},"E06000007":{"id":"E06000007","n":"Warrington"},"E06000008":{"id":"E06000008","n":"Blackburn with Darwen"},"E06000009":{"id":"E06000009","n":"Blackpool"},"E06000010":{"id":"E06000010","n":"Kingston upon Hull, City of"},"E06000011":{"id":"E06000011","n":"East Riding of Yorkshire"},"E06000012":{"id":"E06000012","n":"North East Lincolnshire"},"E06000013":{"id":"E06000013","n":"North Lincolnshire"},"E06000014":{"id":"E06000014","n":"York"},"E06000015":{"id":"E06000015","n":"Derby"},"E06000016":{"id":"E06000016","n":"Leicester"},"E06000017":{"id":"E06000017","n":"Rutland"},"E06000018":{"id":"E06000018","n":"Nottingham"},"E06000019":{"id":"E06000019","n":"Herefordshire, County of"},"E06000020":{"id":"E06000020","n":"Telford and Wrekin"},"E06000021":{"id":"E06000021","n":"Stoke-on-Trent"},"E06000022":{"id":"E06000022","n":"Bath and North East Somerset"},"E06000023":{"id":"E06000023","n":"Bristol, City of"},"E06000024":{"id":"E06000024","n":"North Somerset"},"E06000025":{"id":"E06000025","n":"South Gloucestershire"},"E06000026":{"id":"E06000026","n":"Plymouth"},"E06000027":{"id":"E06000027","n":"Torbay"},"E06000028":{"id":"E06000028","n":"Bournemouth"},"E06000029":{"id":"E06000029","n":"Poole"},"E06000030":{"id":"E06000030","n":"Swindon"},"E06000031":{"id":"E06000031","n":"Peterborough"},"E06000032":{"id":"E06000032","n":"Luton"},"E06000033":{"id":"E06000033","n":"Southend-on-Sea"},"E06000034":{"id":"E06000034","n":"Thurrock"},"E06000035":{"id":"E06000035","n":"Medway"},"E06000036":{"id":"E06000036","n":"Bracknell Forest"},"E06000037":{"id":"E06000037","n":"West Berkshire"},"E06000038":{"id":"E06000038","n":"Reading"},"E06000039":{"id":"E06000039","n":"Slough"},"E06000040":{"id":"E06000040","n":"Windsor and Maidenhead"},"E06000041":{"id":"E06000041","n":"Wokingham"},"E06000042":{"id":"E06000042","n":"Milton Keynes"},"E06000043":{"id":"E06000043","n":"Brighton and Hove"},"E06000044":{"id":"E06000044","n":"Portsmouth"},"E06000045":{"id":"E06000045","n":"Southampton"},"E06000046":{"id":"E06000046","n":"Isle of Wight"},"E06000047":{"id":"E06000047","n":"County Durham"},"E06000049":{"id":"E06000049","n":"Cheshire East"},"E06000050":{"id":"E06000050","n":"Cheshire West and Chester"},"E06000051":{"id":"E06000051","n":"Shropshire"},"E06000052":{"id":"E06000052","n":"Cornwall"},"E06000053":{"id":"E06000053","n":"Isles of Scilly"},"E06000054":{"id":"E06000054","n":"Wiltshire"},"E06000055":{"id":"E06000055","n":"Bedford"},"E06000056":{"id":"E06000056","n":"Central Bedfordshire"},"E06000057":{"id":"E06000057","n":"Northumberland"},"E07000004":{"id":"E10000002","n":"Buckinghamshire"},"E07000005":{"id":"E10000002","n":"Buckinghamshire"},"E07000146":{"id":"E10000020","n":"Norfolk"},"E07000147":{"id":"E10000020","n":"Norfolk"},"E07000148":{"id":"E10000020","n":"Norfolk"},"E07000149":{"id":"E10000020","n":"Norfolk"},"E07000150":{"id":"E10000021","n":"Northamptonshire"},"E07000151":{"id":"E10000021","n":"Northamptonshire"},"E07000152":{"id":"E10000021","n":"Northamptonshire"},"E07000153":{"id":"E10000021","n":"Northamptonshire"},"E07000154":{"id":"E10000021","n":"Northamptonshire"},"E07000155":{"id":"E10000021","n":"Northamptonshire"},"E07000156":{"id":"E10000021","n":"Northamptonshire"},"E07000163":{"id":"E10000023","n":"North Yorkshire"},"E07000164":{"id":"E10000023","n":"North Yorkshire"},"E07000165":{"id":"E10000023","n":"North Yorkshire"},"E07000166":{"id":"E10000023","n":"North Yorkshire"},"E07000167":{"id":"E10000023","n":"North Yorkshire"},"E07000168":{"id":"E10000023","n":"North Yorkshire"},"E07000169":{"id":"E10000023","n":"North Yorkshire"},"E07000170":{"id":"E10000024","n":"Nottinghamshire"},"E07000171":{"id":"E10000024","n":"Nottinghamshire"},"E07000172":{"id":"E10000024","n":"Nottinghamshire"},"E07000173":{"id":"E10000024","n":"Nottinghamshire"},"E07000174":{"id":"E10000024","n":"Nottinghamshire"},"E07000175":{"id":"E10000024","n":"Nottinghamshire"},"E07000176":{"id":"E10000024","n":"Nottinghamshire"},"E07000177":{"id":"E10000025","n":"Oxfordshire"},"E07000178":{"id":"E10000025","n":"Oxfordshire"},"E07000179":{"id":"E10000025","n":"Oxfordshire"},"E07000180":{"id":"E10000025","n":"Oxfordshire"},"E07000181":{"id":"E10000025","n":"Oxfordshire"},"E07000187":{"id":"E10000027","n":"Somerset"},"E07000188":{"id":"E10000027","n":"Somerset"},"E07000189":{"id":"E10000027","n":"Somerset"},"E07000190":{"id":"E10000027","n":"Somerset"},"E07000191":{"id":"E10000027","n":"Somerset"},"E07000192":{"id":"E10000028","n":"Staffordshire"},"E07000193":{"id":"E10000028","n":"Staffordshire"},"E07000194":{"id":"E10000028","n":"Staffordshire"},"E07000195":{"id":"E10000028","n":"Staffordshire"},"E07000196":{"id":"E10000028","n":"Staffordshire"},"E07000197":{"id":"E10000028","n":"Staffordshire"},"E07000198":{"id":"E10000028","n":"Staffordshire"},"E07000199":{"id":"E10000028","n":"Staffordshire"},"E07000200":{"id":"E10000029","n":"Suffolk"},"E07000201":{"id":"E10000029","n":"Suffolk"},"E07000202":{"id":"E10000029","n":"Suffolk"},"E07000203":{"id":"E10000029","n":"Suffolk"},"E07000204":{"id":"E10000029","n":"Suffolk"},"E07000205":{"id":"E10000029","n":"Suffolk"},"E07000206":{"id":"E10000029","n":"Suffolk"},"E07000207":{"id":"E10000030","n":"Surrey"},"E07000208":{"id":"E10000030","n":"Surrey"},"E07000209":{"id":"E10000030","n":"Surrey"},"E07000210":{"id":"E10000030","n":"Surrey"},"E07000211":{"id":"E10000030","n":"Surrey"},"E07000212":{"id":"E10000030","n":"Surrey"},"E07000213":{"id":"E10000030","n":"Surrey"},"E07000214":{"id":"E10000030","n":"Surrey"},"E07000215":{"id":"E10000030","n":"Surrey"},"E07000216":{"id":"E10000030","n":"Surrey"},"E07000217":{"id":"E10000030","n":"Surrey"},"E07000218":{"id":"E10000031","n":"Warwickshire"},"E07000219":{"id":"E10000031","n":"Warwickshire"},"E07000220":{"id":"E10000031","n":"Warwickshire"},"E07000221":{"id":"E10000031","n":"Warwickshire"},"E07000222":{"id":"E10000031","n":"Warwickshire"},"E07000223":{"id":"E10000032","n":"West Sussex"},"E07000224":{"id":"E10000032","n":"West Sussex"},"E07000225":{"id":"E10000032","n":"West Sussex"},"E07000226":{"id":"E10000032","n":"West Sussex"},"E07000227":{"id":"E10000032","n":"West Sussex"},"E07000228":{"id":"E10000032","n":"West Sussex"},"E07000229":{"id":"E10000032","n":"West Sussex"},"E07000234":{"id":"E10000034","n":"Worcestershire"},"E07000235":{"id":"E10000034","n":"Worcestershire"},"E07000236":{"id":"E10000034","n":"Worcestershire"},"E07000237":{"id":"E10000034","n":"Worcestershire"},"E07000238":{"id":"E10000034","n":"Worcestershire"},"E07000239":{"id":"E10000034","n":"Worcestershire"},"E07000240":{"id":"E10000015","n":"Hertfordshire"},"E07000241":{"id":"E10000015","n":"Hertfordshire"},"E07000242":{"id":"E10000015","n":"Hertfordshire"},"E07000243":{"id":"E10000015","n":"Hertfordshire"},"E07000244":{"id":"E10000029","n":"Suffolk"},"E07000245":{"id":"E10000029","n":"Suffolk"},"E07000246":{"id":"E10000027","n":"Somerset"},"E08000001":{"id":"E08000001","n":"Bolton"},"E08000002":{"id":"E08000002","n":"Bury"},"E08000003":{"id":"E08000003","n":"Manchester"},"E08000004":{"id":"E08000004","n":"Oldham"},"E08000005":{"id":"E08000005","n":"Rochdale"},"E08000006":{"id":"E08000006","n":"Salford"},"E08000007":{"id":"E08000007","n":"Stockport"},"E08000008":{"id":"E08000008","n":"Tameside"},"E08000009":{"id":"E08000009","n":"Trafford"},"E08000010":{"id":"E08000010","n":"Wigan"},"E08000011":{"id":"E08000011","n":"Knowsley"},"E08000012":{"id":"E08000012","n":"Liverpool"},"E08000013":{"id":"E08000013","n":"St. Helens"},"E08000014":{"id":"E08000014","n":"Sefton"},"E08000015":{"id":"E08000015","n":"Wirral"},"E08000016":{"id":"E08000016","n":"Barnsley"},"E08000017":{"id":"E08000017","n":"Doncaster"},"E08000018":{"id":"E08000018","n":"Rotherham"},"E08000019":{"id":"E08000019","n":"Sheffield"},"E08000021":{"id":"E08000021","n":"Newcastle upon Tyne"},"E08000022":{"id":"E08000022","n":"North Tyneside"},"E08000023":{"id":"E08000023","n":"South Tyneside"},"E08000024":{"id":"E08000024","n":"Sunderland"},"E08000025":{"id":"E08000025","n":"Birmingham"},"E08000026":{"id":"E08000026","n":"Coventry"},"E08000027":{"id":"E08000027","n":"Dudley"},"E08000028":{"id":"E08000028","n":"Sandwell"},"E08000029":{"id":"E08000029","n":"Solihull"},"E08000030":{"id":"E08000030","n":"Walsall"},"E08000031":{"id":"E08000031","n":"Wolverhampton"},"E08000032":{"id":"E08000032","n":"Bradford"},"E08000033":{"id":"E08000033","n":"Calderdale"},"E08000034":{"id":"E08000034","n":"Kirklees"},"E08000035":{"id":"E08000035","n":"Leeds"},"E08000036":{"id":"E08000036","n":"Wakefield"},"E08000037":{"id":"E08000037","n":"Gateshead"},"E09000001":{"id":"E09000001-12","n":"Hackney and City of London"},"E09000002":{"id":"E09000002","n":"Barking and Dagenham"},"E09000003":{"id":"E09000003","n":"Barnet"},"E09000004":{"id":"E09000004","n":"Bexley"},"E09000005":{"id":"E09000005","n":"Brent"},"E09000006":{"id":"E09000006","n":"Bromley"},"E09000007":{"id":"E09000007","n":"Camden"},"E09000008":{"id":"E09000008","n":"Croydon"},"E09000009":{"id":"E09000009","n":"Ealing"},"E09000010":{"id":"E09000010","n":"Enfield"},"E09000011":{"id":"E09000011","n":"Greenwich"},"E09000012":{"id":"E09000001-12","n":"Hackney and City of London"},"E09000013":{"id":"E09000013","n":"Hammersmith and Fulham"},"E09000014":{"id":"E09000014","n":"Haringey"},"E09000015":{"id":"E09000015","n":"Harrow"},"E09000016":{"id":"E09000016","n":"Havering"},"E09000017":{"id":"E09000017","n":"Hillingdon"},"E09000018":{"id":"E09000018","n":"Hounslow"},"E09000019":{"id":"E09000019","n":"Islington"},"E09000020":{"id":"E09000020","n":"Kensington and Chelsea"},"E09000021":{"id":"E09000021","n":"Kingston upon Thames"},"E09000022":{"id":"E09000022","n":"Lambeth"},"E09000023":{"id":"E09000023","n":"Lewisham"},"E09000024":{"id":"E09000024","n":"Merton"},"E09000025":{"id":"E09000025","n":"Newham"},"E09000026":{"id":"E09000026","n":"Redbridge"},"E09000027":{"id":"E09000027","n":"Richmond upon Thames"},"E09000028":{"id":"E09000028","n":"Southwark"},"E09000029":{"id":"E09000029","n":"Sutton"},"E09000030":{"id":"E09000030","n":"Tower Hamlets"},"E09000031":{"id":"E09000031","n":"Waltham Forest"},"E09000032":{"id":"E09000032","n":"Wandsworth"},"E09000033":{"id":"E09000033","n":"Westminster"},"W06000001":{"id":"W06000001","n":"Isle of Anglesey"},"W06000002":{"id":"W06000002","n":"Gwynedd"},"W06000003":{"id":"W06000003","n":"Conwy"},"W06000004":{"id":"W06000004","n":"Denbighshire"},"W06000005":{"id":"W06000005","n":"Flintshire"},"W06000006":{"id":"W06000006","n":"Wrexham"},"W06000008":{"id":"W06000008","n":"Ceredigion"},"W06000009":{"id":"W06000009","n":"Pembrokeshire"},"W06000010":{"id":"W06000010","n":"Carmarthenshire"},"W06000011":{"id":"W06000011","n":"Swansea"},"W06000012":{"id":"W06000012","n":"Neath Port Talbot"},"W06000013":{"id":"W06000013","n":"Bridgend"},"W06000014":{"id":"W06000014","n":"Vale of Glamorgan"},"W06000015":{"id":"W06000015","n":"Cardiff"},"W06000016":{"id":"W06000016","n":"Rhondda Cynon Taf"},"W06000018":{"id":"W06000018","n":"Caerphilly"},"W06000019":{"id":"W06000019","n":"Blaenau Gwent"},"W06000020":{"id":"W06000020","n":"Torfaen"},"W06000021":{"id":"W06000021","n":"Monmouthshire"},"W06000022":{"id":"W06000022","n":"Newport"},"W06000023":{"id":"W06000023","n":"Powys"},"W06000024":{"id":"W06000024","n":"Merthyr Tydfil"},"E07000006":{"id":"E10000002","n":"Buckinghamshire"},"E07000007":{"id":"E10000002","n":"Buckinghamshire"},"E07000008":{"id":"E10000003","n":"Cambridgeshire"},"E07000009":{"id":"E10000003","n":"Cambridgeshire"},"E07000010":{"id":"E10000003","n":"Cambridgeshire"},"E07000011":{"id":"E10000003","n":"Cambridgeshire"},"E07000012":{"id":"E10000003","n":"Cambridgeshire"},"E07000026":{"id":"E10000006","n":"Cumbria"},"E07000027":{"id":"E10000006","n":"Cumbria"},"E07000028":{"id":"E10000006","n":"Cumbria"},"E07000029":{"id":"E10000006","n":"Cumbria"},"E07000030":{"id":"E10000006","n":"Cumbria"},"E07000031":{"id":"E10000006","n":"Cumbria"},"E07000032":{"id":"E10000007","n":"Derbyshire"},"E07000033":{"id":"E10000007","n":"Derbyshire"},"E07000034":{"id":"E10000007","n":"Derbyshire"},"E07000035":{"id":"E10000007","n":"Derbyshire"},"E07000036":{"id":"E10000007","n":"Derbyshire"},"E07000037":{"id":"E10000007","n":"Derbyshire"},"E07000038":{"id":"E10000007","n":"Derbyshire"},"E07000039":{"id":"E10000007","n":"Derbyshire"},"E07000040":{"id":"E10000008","n":"Devon"},"E07000041":{"id":"E10000008","n":"Devon"},"E07000042":{"id":"E10000008","n":"Devon"},"E07000043":{"id":"E10000008","n":"Devon"},"E07000044":{"id":"E10000008","n":"Devon"},"E07000045":{"id":"E10000008","n":"Devon"},"E07000046":{"id":"E10000008","n":"Devon"},"E07000047":{"id":"E10000008","n":"Devon"},"E07000048":{"id":"E10000009","n":"Dorset"},"E07000049":{"id":"E10000009","n":"Dorset"},"E07000050":{"id":"E10000009","n":"Dorset"},"E07000051":{"id":"E10000009","n":"Dorset"},"E07000052":{"id":"E10000009","n":"Dorset"},"E07000053":{"id":"E10000009","n":"Dorset"},"E07000061":{"id":"E10000011","n":"East Sussex"},"E07000062":{"id":"E10000011","n":"East Sussex"},"E07000063":{"id":"E10000011","n":"East Sussex"},"E07000064":{"id":"E10000011","n":"East Sussex"},"E07000065":{"id":"E10000011","n":"East Sussex"},"E07000066":{"id":"E10000012","n":"Essex"},"E07000067":{"id":"E10000012","n":"Essex"},"E07000068":{"id":"E10000012","n":"Essex"},"E07000069":{"id":"E10000012","n":"Essex"},"E07000070":{"id":"E10000012","n":"Essex"},"E07000071":{"id":"E10000012","n":"Essex"},"E07000072":{"id":"E10000012","n":"Essex"},"E07000073":{"id":"E10000012","n":"Essex"},"E07000074":{"id":"E10000012","n":"Essex"},"E07000075":{"id":"E10000012","n":"Essex"},"E07000076":{"id":"E10000012","n":"Essex"},"E07000077":{"id":"E10000012","n":"Essex"},"E07000078":{"id":"E10000013","n":"Gloucestershire"},"E07000079":{"id":"E10000013","n":"Gloucestershire"},"E07000080":{"id":"E10000013","n":"Gloucestershire"},"E07000081":{"id":"E10000013","n":"Gloucestershire"},"E07000082":{"id":"E10000013","n":"Gloucestershire"},"E07000083":{"id":"E10000013","n":"Gloucestershire"},"E07000084":{"id":"E10000014","n":"Hampshire"},"E07000085":{"id":"E10000014","n":"Hampshire"},"E07000086":{"id":"E10000014","n":"Hampshire"},"E07000087":{"id":"E10000014","n":"Hampshire"},"E07000088":{"id":"E10000014","n":"Hampshire"},"E07000089":{"id":"E10000014","n":"Hampshire"},"E07000090":{"id":"E10000014","n":"Hampshire"},"E07000091":{"id":"E10000014","n":"Hampshire"},"E07000092":{"id":"E10000014","n":"Hampshire"},"E07000093":{"id":"E10000014","n":"Hampshire"},"E07000094":{"id":"E10000014","n":"Hampshire"},"E07000095":{"id":"E10000015","n":"Hertfordshire"},"E07000096":{"id":"E10000015","n":"Hertfordshire"},"E07000098":{"id":"E10000015","n":"Hertfordshire"},"E07000099":{"id":"E10000015","n":"Hertfordshire"},"E07000102":{"id":"E10000015","n":"Hertfordshire"},"E07000103":{"id":"E10000015","n":"Hertfordshire"},"E07000105":{"id":"E10000016","n":"Kent"},"E07000106":{"id":"E10000016","n":"Kent"},"E07000107":{"id":"E10000016","n":"Kent"},"E07000108":{"id":"E10000016","n":"Kent"},"E07000109":{"id":"E10000016","n":"Kent"},"E07000110":{"id":"E10000016","n":"Kent"},"E07000111":{"id":"E10000016","n":"Kent"},"E07000112":{"id":"E10000016","n":"Kent"},"E07000113":{"id":"E10000016","n":"Kent"},"E07000114":{"id":"E10000016","n":"Kent"},"E07000115":{"id":"E10000016","n":"Kent"},"E07000116":{"id":"E10000016","n":"Kent"},"E07000117":{"id":"E10000017","n":"Lancashire"},"E07000118":{"id":"E10000017","n":"Lancashire"},"E07000119":{"id":"E10000017","n":"Lancashire"},"E07000120":{"id":"E10000017","n":"Lancashire"},"E07000121":{"id":"E10000017","n":"Lancashire"},"E07000122":{"id":"E10000017","n":"Lancashire"},"E07000123":{"id":"E10000017","n":"Lancashire"},"E07000124":{"id":"E10000017","n":"Lancashire"},"E07000125":{"id":"E10000017","n":"Lancashire"},"E07000126":{"id":"E10000017","n":"Lancashire"},"E07000127":{"id":"E10000017","n":"Lancashire"},"E07000128":{"id":"E10000017","n":"Lancashire"},"E07000129":{"id":"E10000018","n":"Leicestershire"},"E07000130":{"id":"E10000018","n":"Leicestershire"},"E07000131":{"id":"E10000018","n":"Leicestershire"},"E07000132":{"id":"E10000018","n":"Leicestershire"},"E07000133":{"id":"E10000018","n":"Leicestershire"},"E07000134":{"id":"E10000018","n":"Leicestershire"},"E07000135":{"id":"E10000018","n":"Leicestershire"},"E07000136":{"id":"E10000019","n":"Lincolnshire"},"E07000137":{"id":"E10000019","n":"Lincolnshire"},"E07000138":{"id":"E10000019","n":"Lincolnshire"},"E07000139":{"id":"E10000019","n":"Lincolnshire"},"E07000140":{"id":"E10000019","n":"Lincolnshire"},"E07000141":{"id":"E10000019","n":"Lincolnshire"},"E07000142":{"id":"E10000019","n":"Lincolnshire"},"E07000143":{"id":"E10000020","n":"Norfolk"},"E07000144":{"id":"E10000020","n":"Norfolk"},"E07000145":{"id":"E10000020","n":"Norfolk"},"E06000052":{"id":"E06000052-3","n":"Cornwall and Isles of Scilly"},"E06000053":{"id":"E06000052-3","n":"Cornwall and Isles of Scilly"}}
@@ -34,7 +34,7 @@
 				for(var i = 0; i < data.length; i++){
 					code = data[i]['GSS_CD'];
 					if(code){
-						cases = parseInt(data[i]['TotalCases']);
+						cases = parseInt(data[i]['TotalCases'].replace(/\,/g,""));	// Remove commas from numbers
 						total += cases;
 						percapita = (populations[code]) ? 1e5*cases/populations[code] : 0;
 						if(!this.hex.hexes[code]){
@@ -45,7 +45,6 @@
 								for(var la in lookup[code].LA){
 									lastring += '<li>'+(this.hex.hexes[la] ? this.hex.hexes[la].attributes.title : '?')+'</li>';
 								}
-								//console.log('Population for '+code+' is '+populations[code]);
 								for(var la in lookup[code].LA){
 									this.data[type][la] = {
 										'cases': cases/n,
@@ -53,13 +52,11 @@
 										'title':data[i]['GSS_NM'],
 										'desc':'<strong>Total cases:</strong> '+cases+'.<br /><strong>Population (2020):</strong> '+(populations[code] ? populations[code].toLocaleString():'?')+'.<br /><strong>Cases per 100,000 people:</strong> '+Math.round(percapita)+'.<br /><strong>Includes:</strong> <ul>'+lastring+'</ul>'
 									};
-									//console.log(code+' ('+data[i]['GSS_NM']+') converts to '+la+' ('+n+' authorities)')
 								}
 							}else{
 								console.warn('No hex for '+code+' and no UTLA lookup');
 							}
 						}else{
-							//console.log('Population for '+code+' is '+populations[code]);
 							this.data[type][code] = {
 								'cases': cases,
 								'percapita': percapita,
@@ -143,12 +140,13 @@
 				}
 			}
 		}
-		hexmap = new ResultsMap('hexmap',{
+		this.plugins[name].obj = new ResultsMap('hexmap',{
 			'width':700,
 			'height':850,
 			'padding':0,
-			'file':'https://raw.githubusercontent.com/odileeds/hexmaps/gh-pages/maps/uk-local-authority-districts-2019.hexjson',
+			'file':'resources/uk-local-authority-districts-2019.hexjson',
 			'views': views,
+			'parent': this,
 			'search':{'id':'search'}
 		});
 	}
@@ -472,7 +470,7 @@
 		if(!attr) attr  = {};
 		this._attr = attr;
 		if(S('#'+attr.id).length==0){
-			console.log("Can't find the element to draw into (#"+attr.id+")");
+			console.warn("Can't find the element to draw into (#"+attr.id+")");
 			return {};
 		}
 
@@ -755,6 +753,7 @@
 				this.highlight(regions,n);
 			};
 			this.pick = function(value){
+				console.log('pick',_obj.hexes[value].el);
 				// Trigger the click event on the appropriate hex
 				if(_obj.hexes[value]) _obj.hexes[value].el.trigger('click');
 			};
@@ -1040,13 +1039,11 @@
 		if(attr.file) this.load(attr.file);
 		
 		this.search = new Search(attr.search);
-		console.log('here',_obj,this)
-
 
 		return this;
 	}
 
-
+	var _parent;
 
 	function ResultsMap(id,attr){
 		if(!attr) attr = {};
@@ -1060,7 +1057,7 @@
 		this.type = "";
 		this.files = {};
 		this.views = attr.views;
-		this.cache = {};
+		_parent = attr.parent;
 
 		if(S('#data-selector').length > 0) this.type = S('#data-selector')[0].value;
 		if(S('.view-toggle').length > 0) this.type = document.querySelector('input[name="view"]:checked').id;
@@ -1074,11 +1071,7 @@
 			return this;
 		}
 		
-		this.qs = QueryString();
-
-		var t;
-		// Use the search string to pick a parameter to display
-		//t = this.qs.type || location.search.replace(/\?/,"");
+		var t = _parent.qs.hextype;
 
 		if(t){
 			// Check if this is in the list
@@ -1120,18 +1113,6 @@
 
 		this.hex = new HexMap(attrhex);
 
-		// Do we update the address bar?
-		this.pushstate = !!(window.history && history.pushState);
-
-		// Add "back" button functionality
-		var _obj = this;
-		if(this.pushstate){
-			window[(this.pushstate) ? 'onpopstate' : 'onhashchange'] = function(e){
-				if(e.state && e.state.type) _obj.updateData(e.state.type);
-				else _obj.updateData(_obj.defaulttype);
-			};
-		}
-
 		this.hex.load(attr.file,{me:this},function(e){
 			el = document.querySelector('input[name="view"]:checked');
 			e.data.me.setType(e.data.me.type,el.getAttribute('data'),(e.data.me.type!=e.data.me.defaulttype ? true : false));
@@ -1150,24 +1131,14 @@
 
 		this.setType = function(t,d,update){
 
-
 			// Have we changed type?
 			if(t==this.by){
 				console.log('no change');
 				return this;
 			}
 
-			console.log('setType',t,d)
-
-
-			// Create query string
-			this.qs.type = t;
-			str = '';
-			if(this.qs.type) str += (str ? '&':'')+'type='+this.qs.type;
-			if(typeof this.qs.headless==="boolean") str += (str ? '&':'')+'headless='+this.qs.headless;
-
-			// Update the history
-			if(this.pushstate) history.pushState({type:t},"Hexes",(update ? '?'+str : ''));
+			_parent.qs.hextype = t;
+			_parent.updateHistory();
 
 			this.updateData(t,d);
 
@@ -1176,7 +1147,7 @@
 
 		this.updateData = function(type,dtype){
 
-			console.log('updateData',type,dtype);
+			if(!dtype) dtype = document.querySelector('input[name="view"]:checked').getAttribute('data');
 			if(this.polling){
 				console.info('Stop loop');
 				clearInterval(this.polling);
@@ -1230,7 +1201,7 @@
 
 			var previous = this.hex.selected;
 			var current = region;
-			if(this.hex.search.active) this.hex.search.toggle();
+			if(this.hex.search.active) this.hex.search.active = false;//this.hex.search.toggle();
 
 			this.label(region,previous!=current);
 			this.hex.selectRegion(region);
@@ -1307,7 +1278,39 @@
 
 			if(this.views[type]){
 				file = this.views[type].file;
-				if(!this.cache[file]){
+
+				_parent.getData(file,{
+					'this':this,
+					'name': name,
+					'callback': callback,
+					'dataType':(this.views[type].file.indexOf(".json") > 0 ? 'json':'text'),
+					'type': type,
+					'dtype': dtype,
+					'cache': (typeof this.views[type].live==="boolean" ? !this.views[type].live : true),
+					'process':function(d,attr){
+						// Convert to JSON if CSV
+						if(attr.dataType=="text") d = CSV.toJSON(d);
+						function getTimestamp(str){
+							var timestamp = "";
+							var date;
+							str.replace(/last-modified: (.*)/,function(m,p1){ date = p1; });
+							if(date){
+								date = new Date(date);
+								timestamp = (date.getUTCHours() < 10 ? "0" : "")+date.getUTCHours()+':'+(date.getUTCMinutes() < 10 ? "0" : "")+date.getUTCMinutes();
+							}
+							return timestamp;
+						}
+						attr.timestamp = getTimestamp(attr.header);
+						return d;
+					},
+					'loaded': function(data,attr){
+						if(typeof this.views[attr.type].process==="function") this.views[attr.type].process.call(this,attr.type,data,attr);
+						if(typeof attr.callback==="function") attr.callback.call(this,attr.type,attr.dtype);
+					}
+				});
+				
+				/*
+				if(!_parent.cache[file]){
 					console.info('Getting '+this.views[type].file +' for '+type+' ('+dtype+')');
 					S().ajax(file,{
 						'this': this,
@@ -1321,7 +1324,7 @@
 							// Convert to JSON if CSV
 							if(attr.dataType=="text") d = CSV.toJSON(d);
 							attr.timestamp = getTimestamp(attr.header);
-							this.cache[attr.url] = d;
+							_parent.cache[attr.url] = d;
 							// Process the data
 							attr.process.call(this,attr.type,d,attr);
 							if(typeof attr.callback==="function") attr.callback.call(this,attr.type,attr.dtype);
@@ -1337,29 +1340,36 @@
 				}else{
 					console.log('Using cached data');
 					// Process the data
-					this.views[type].process.call(this,type,this.cache[file],{'this':this});
+					this.views[type].process.call(this,type,_parent.cache[file],{'this':this});
 					if(typeof callback==="function") callback.call(this,type,dtype);
-				}
+				}*/
 				
 			}
 			return this;
 		};
 
 		this.setColours = function(type,dtype){
+			var i,p,key;
 			if(!type) type = "";
 			
 			if(S('#data-selector').length > 0) S('#data-selector')[0].value = type;
 			if(S('.view-toggle').length > 0){
 				var options = S('.view-toggle');
-				for(var i = 0; i < options.length; i++){
-					if(options[i].getAttribute('id')==type) options[i].checked = true;
+				for(i = 0; i < options.length; i++){
+					p = S(options[i].parentNode);
+					if(options[i].getAttribute('id')==type){
+						options[i].checked = true;
+						p.addClass('on').removeClass('off');
+					}else{
+						p.addClass('off').removeClass('on');
+					}
 				}
 			}
 
 			this.by = type;
 			this.bysrc = dtype;
 
-			var key = "";
+			key = "";
 
 			// Set the function for changing the colours and creating the key
 			if(this.views[type] && typeof this.views[type].key==="function") key = this.views[type].key.call(this);
@@ -1376,23 +1386,13 @@
 			return this;
 		};
 
-		function getTimestamp(str){
-			var timestamp = "";
-			var date;
-			str.replace(/last-modified: (.*)/,function(m,p1){ date = p1; });
-			if(date){
-				date = new Date(date);
-				timestamp = (date.getUTCHours() < 10 ? "0" : "")+date.getUTCHours()+':'+(date.getUTCMinutes() < 10 ? "0" : "")+date.getUTCMinutes();
-			}
-			return timestamp;
-		}
 
 		return this;
 	}
 
 
-	if(!Dashboard.plugins["hexmap"]){
-		Dashboard.plugins['hexmap'] = {
+	if(!Dashboard.plugins[name]){
+		Dashboard.plugins[name] = {
 			init: init,
 			version: '1.0'
 		};
