@@ -260,6 +260,10 @@
 				if(this.qs.areas[i]==id) match = i;
 			}
 			if(match >= 0) this.qs.areas.splice(match,1);
+			
+			if(this.qs.areas.length == 0){
+				S('#toggle-holder ul.toggles').remove();
+			}
 
 			console.log('ready to updatehistory',update);
 			if(update) this.updateHistory();
