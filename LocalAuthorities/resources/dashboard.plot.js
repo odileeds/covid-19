@@ -23,7 +23,7 @@
 
 		var graph = {
 			'view':{
-				'x':{'min':-20,'max':200},
+				'x':{'min':-30,'max':200},
 				'y':{'min':-12.5,'max':100}
 			},
 			'x': {'min':0,'max':14},
@@ -152,6 +152,7 @@
 					if(ticks[i].value > 0) graph.el.axes.appendChild(createElement('path',{'d':'M '+(xoff-3).toFixed(2)+','+y+' l '+(w - xoff + 3).toFixed(2)+',0','style':{'stroke':'#999','stroke-width':(ticks[i].minor ? '0.8px':'1.5px'),'fill':'transparent','opacity':(ticks[i].minor ? 0.2 : 0.3)}}));
 				}
 			}
+			graph.el.yaxis.appendChild(createElement('text',{'html':'Total confirmed cases','style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'},'transform':'translate(0 '+(graph.heightinner/2)+') rotate(-90 0 0)'}));
 
 			return this;
 		}
