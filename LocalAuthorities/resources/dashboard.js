@@ -211,7 +211,7 @@
 		
 		this.addToggle = function(id,update){
 
-			if(S('#toggle-holder .toggles').length==0) S('#toggle-holder').append('<ul class="toggles"></ul>');
+			if(S('#toggle-holder .toggles').length==0) S('#toggle-holder').append('<ul class="toggles padded b5-bg"></ul>');
 
 			var li;
 
