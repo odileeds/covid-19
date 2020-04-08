@@ -4,11 +4,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8" />
 	<title>Local Authority COVID-19 dashboard</title>
-	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
-	<script type="text/javascript" src="resources/package.js"></script>
-	<script>
-	function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px'; }
-	</script>
+	<link rel="StyleSheet" href="resources/dashboard.css" type="text/css" />
+	<script type="text/javascript" src="resources/common.js"></script>
+	<script type="text/javascript" src="resources/dashboard.js"></script>
 </head>
 <body class="b1-bg">
 
@@ -24,18 +22,22 @@
 	</header>
 
 	<div id="main" class="b6-bg">
+
+		<div class="padded-bottom">
+			<form id="areaform">
+				<div id="areas">
+					<div id="search" class="searching"><div class="search-inner"><label for="typeahead" class="search-button c12-bg" title="Search areas"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 12 13"><g stroke-width="2" stroke="white" fill="none"><path d="M11.29 11.71l-4-4"></path><circle cx="5" cy="5" r="4"></circle></g></svg></label><input type="text" class="search-input" name="typeahead" id="typeahead" value="" placeholder="Search areas e.g. Leeds"></div></div>
+					<div class="results"><span id="typeahead-results"></span></div>
+				</div>
+			</form>
+			<div id="toggle-holder"></div>
+		</div>
+
 		<ul class="grid">
 		<li>
 			<figure class="b5-bg doublepadded">
 				<h2>Confirmed cases by area</h2>
 				<p>Areas include Upper Tier Local Authorities and health boards depending on how figures are reported locally.</p>
-				<form>
-					<div id="areas">
-						<div id="search" class="searching"><div class="search-inner"><label for="typeahead" class="search-button c12-bg"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 12 13"><g stroke-width="2" stroke="white" fill="none"><path d="M11.29 11.71l-4-4"></path><circle cx="5" cy="5" r="4"></circle></g></svg></label><input type="text" class="search-input" name="typeahead" id="typeahead" value="" placeholder="e.g. Leeds"></div></div>
-						<div class="results"><span id="typeahead-results"></span></div>
-					</div>
-				</form>
-				<div id="toggle-holder"></div>
 				<div id="logplot"></div>
 				<form>
 					<div class="b6-bg padded" style="position:relative;line-height:2em;">
@@ -51,12 +53,26 @@
 		<li>
 			<figure class="b5-bg doublepadded">
 				<h2>Hex map for England</h2>
-				<iframe src="../../hexmaps/covid-19/index.html?headless=true" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
-				<figcaption>
+				<div class="b6-bg padded">
+					<div class="controls">
+						<form>
+							<div class="control on">
+								<input type="radio" class="view-toggle switchdata" id="COVID-19-percapita" data="COVID-19" name="view" checked="checked" /><label for="COVID-19-per-capita">Per capita</label>
+							</div>
+							<div class="control off">
+								<input type="radio" class="view-toggle switchdata" id="COVID-19-cases" data="COVID-19" name="view" /><label for="COVID-19-cases">Cases</label>
+							</div>
+						</form>
+					</div>
+
+					<div id="hexmap" style="text-align:center;margin:auto;">
+					</div>
+					<div id="key"></div>
+				</div>				<figcaption>
 					<h3>Notes</h3>
 					<p>This map shows reported COVID-19 cases per capita as a <a href="https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-local-authority-districts-2019.hexjson">Local Authority hex cartogram</a> - this gives each Local Authority the same visual weight on the map. Some Local Authorities in England are missing because of inconsistencies. We don't have data for Scotland, Wales, or Northern Ireland. If you know where they publish CSV files of these numbers, please <a href="https://twitter.com/odileeds">get in touch</a>.</p>
 					<p>Note: Public Health England provide raw data for "Upper Tier Local Authorities". This map is for Local Authorities so where an Upper Tier Local Authority isn't a Local Authority, each Local Authority in that Upper Tier Local Authority is given the same per-capita value (<a href="https://twitter.com/owenboswarva/status/1243606486024105985">UK geography is hard</a>). When you click on one of these Local Authorities you will be shown the total for the Upper Tier Local Authority.</p>
-					<p>Visualisation: <a href="https://github.com/odileeds/hexmaps/" target="_parent">ODI Leeds</a> / Data: <a href="https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases" target="_parent">Public Health England</a> provide <a href="https://www.arcgis.com/home/item.html?id=b684319181f94875a6879bbc833ca3a6">COVID-19 cases as a CSV download</a>. The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandtable2">population estimates (2020) for Local Authorities</a> are from the ONS.</p>
+					<p>Visualisation: <a href="https://github.com/odileeds/hexmaps/" target="_parent">ODI Leeds</a> / Data: <a href="https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases" target="_parent">Public Health England</a> provide <a href="https://www.arcgis.com/home/item.html?id=b684319181f94875a6879bbc833ca3a6">COVID-19 cases as a CSV download</a>. The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandtable2">population estimates (2020) for Local Authorities</a> are from the ONS. <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">See the README for more details</a>.</p>
 				</figcaption>
 			</figure>
 		</li>
@@ -66,7 +82,7 @@
 	<footer class="bottom doublepadded b1-bg">
 		<div class="holder">
 			<h2>About this dashboard</h2>
-			<p>This dashboard is created by <a href="https://odileeds.org/">ODI Leeds</a> to help Local Authorities (and similar) get an overview of how their area compares to other parts of the United Kingdom.</p>
+			<p>This dashboard is created by <a href="https://odileeds.org/">ODI Leeds</a> to help Local Authorities (and similar) get an overview of how their area compares to other parts of the United Kingdom. The code is released <a href="https://github.com/odileeds/covid-19">under an MIT Licence on Github</a>.</p>
 		</div>
 	</footer>
 </body>
