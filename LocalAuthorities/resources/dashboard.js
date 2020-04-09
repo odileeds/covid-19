@@ -331,6 +331,12 @@
 							plugins.hexmap.obj.hex.search.pick(d.id);
 							plugins.hexmap.obj.hex.search.active = false;
 						}
+					},
+					'blur': function(){
+						if(plugins.hexmap.obj){
+							plugins.hexmap.obj.hex.search.key('');
+							plugins.hexmap.obj.hex.search.active = false;
+						}
 					}
 				});
 			}
