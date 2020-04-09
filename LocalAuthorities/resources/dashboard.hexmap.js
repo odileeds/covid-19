@@ -8,39 +8,6 @@
 
 	// Build hexmap
 
-
-	var lookup = {};
-
-
-	
-	function process(type,data,attr){
-		var i,r,la,total,code,cases,percapita,n,lastring,now;
-		type = "COVID-19";
-		if(!this.data[type]) this.data[type] = {};
-
-		if(data.length > 0){
-			total = 0;
-			for(i = 0; i < data.length; i++){
-				code = data[i].GSS_CD;
-				// Fix for Cornwall and Hackney in the PHE data
-				if(code && code == "E06000052") data[i].GSS_CD = "E06000052-3";
-				if(code && code == "E09000012") data[i].GSS_CD = "E09000001-12";
-			}
-
-			for(i = 0; i < data.length; i++){
-				if(data[i].GSS_CD) total += processRow.call(this,type,data[i]);
-			}
-		}else{
-			for(r in this.hex.hexes){
-				if(this.hex.hexes[r]) this.data[type][r] = {};
-			}
-		}
-		now = new Date();
-		if(S('#updated').length == 0) S('#'+this.id).prepend('<div id="updated">?</div>');
-		S('#updated').html('Total: '+total.toLocaleString());
-	}
-	
-
 	// An init function for the plugin
 	function init(){
 
@@ -109,13 +76,13 @@
 			}
 		};
 
+		_parent = this;
 		this.plugins[name].obj = new ResultsMap('hexmap',{
 			'width':700,
 			'height':850,
 			'padding':0,
 			'file':'resources/uk-local-authority-districts-2019.hexjson',
 			'views': views,
-			'parent': this,
 			'search':{'id':'search'}
 		});
 	}
@@ -1006,7 +973,6 @@
 		this.type = "";
 		this.files = {};
 		this.views = attr.views;
-		_parent = attr.parent;
 		var _obj = this;
 
 		if(S('#data-selector').length > 0) this.type = S('#data-selector')[0].value;
@@ -1080,7 +1046,6 @@
 		};
 
 		this.setType = function(t,d,update){
-
 			// Have we changed type?
 			if(t==this.by){
 				console.log('no change');
@@ -1096,7 +1061,6 @@
 		};
 
 		this.updateData = function(type,dtype){
-
 			if(!dtype) dtype = document.querySelector('input[name="view"]:checked').getAttribute('data');
 			if(!this.data || !this.data[type]){
 				return this.loadResults(type,dtype,function(type,dtype){
@@ -1241,7 +1205,7 @@
 								this.data[attr.dtype][r].desc = data[r].desc;
 							}
 						}
-						
+
 						if(typeof attr.callback==="function") attr.callback.call(this,attr.type,attr.dtype);
 					}
 				});

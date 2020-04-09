@@ -7,14 +7,12 @@
 	var datasources = {
 		'populations':{
 			'src':'data/populations.json',
-			//'loaded': true,
 			'dataType':'json'
-			//'data': { "E06000001":93458,"E06000002":140423,"E06000003":137879,"E06000004":198253,"E06000005":106828,"E06000006":129523,"E06000007":210625,"E06000008":149190,"E06000009":139173,"E06000010":261184,"E06000011":342195,"E06000012":159996,"E06000013":173143,"E06000014":211099,"E06000015":258710,"E06000016":360557,"E06000017":40387,"E06000018":333963,"E06000019":195189,"E06000020":181769,"E06000021":257871,"E06000022":195691,"E06000023":471344,"E06000024":217015,"E06000025":289478,"E06000026":264280,"E06000027":137496,"E06000028":194882,"E06000029":152359,"E06000030":225353,"E06000031":205764,"E06000032":213099,"E06000033":184882,"E06000034":176625,"E06000035":279310,"E06000036":123206,"E06000037":158474,"E06000038":164129,"E06000039":150353,"E06000040":151530,"E06000041":172104,"E06000042":271238,"E06000043":293917,"E06000044":216910,"E06000045":255383,"E06000046":143140,"E06000047":531947,"E06000049":384888,"E06000050":346192,"E06000051":326692,"E06000052":577727,"E06000052-3":579794,"E06000053":2067,"E06000054":509964,"E06000055":174720,"E06000056":290053,"E06000057":322852,"E06000058":397716,"E06000059":430378,"E07000004":205426,"E07000005":96274,"E07000006":70083,"E07000007":174143,"E07000008":125473,"E07000009":90623,"E07000010":103621,"E07000011":178911,"E07000012":159205,"E07000026":97960,"E07000027":66720,"E07000028":108682,"E07000029":67923,"E07000030":53164,"E07000031":105351,"E07000032":128575,"E07000033":80938,"E07000034":105012,"E07000035":72332,"E07000036":116230,"E07000037":92932,"E07000038":102071,"E07000039":108164,"E07000040":148493,"E07000041":132228,"E07000042":83533,"E07000043":97703,"E07000044":87706,"E07000045":135846,"E07000046":69352,"E07000047":56249,"E07000048":50475,"E07000049":90662,"E07000050":70931,"E07000051":47867,"E07000052":104094,"E07000053":66348,"E07000061":103866,"E07000062":92984,"E07000063":103925,"E07000064":97304,"E07000065":162447,"E07000066":187964,"E07000067":152370,"E07000068":76383,"E07000069":90500,"E07000070":180245,"E07000071":197246,"E07000072":132284,"E07000073":87425,"E07000074":65305,"E07000075":88232,"E07000076":148624,"E07000077":91604,"E07000078":117416,"E07000079":91983,"E07000080":88006,"E07000081":130515,"E07000082":120685,"E07000083":96277,"E07000084":176563,"E07000085":122560,"E07000086":134262,"E07000087":117070,"E07000088":85168,"E07000089":97493,"E07000090":127786,"E07000091":180498,"E07000092":94623,"E07000093":127425,"E07000094":125809,"E07000095":96976,"E07000096":155839,"E07000098":104850,"E07000099":134049,"E07000102":93152,"E07000103":97077,"E07000105":132420,"E07000106":166305,"E07000107":113887,"E07000108":119640,"E07000109":106722,"E07000110":174062,"E07000111":121415,"E07000112":114211,"E07000113":151965,"E07000114":143349,"E07000115":133233,"E07000116":118848,"E07000117":89278,"E07000118":119522,"E07000119":81343,"E07000120":81251,"E07000121":146127,"E07000122":92041,"E07000123":142620,"E07000124":60954,"E07000125":71887,"E07000126":111051,"E07000127":114479,"E07000128":112428,"E07000129":103703,"E07000130":187556,"E07000131":94635,"E07000132":115023,"E07000133":51281,"E07000134":105669,"E07000135":57250,"E07000136":71202,"E07000137":143102,"E07000138":99548,"E07000139":118349,"E07000140":95886,"E07000141":143347,"E07000142":95898,"E07000143":142019,"E07000144":131671,"E07000145":100097,"E07000146":152654,"E07000147":105800,"E07000148":142790,"E07000149":142705,"E07000150":73307,"E07000151":87464,"E07000152":96251,"E07000153":103649,"E07000154":226702,"E07000155":94907,"E07000156":80721,"E07000163":57173,"E07000164":91480,"E07000165":160644,"E07000166":53189,"E07000167":55846,"E07000168":109422,"E07000169":91149,"E07000170":129825,"E07000171":118634,"E07000172":115012,"E07000173":119267,"E07000174":110247,"E07000175":123532,"E07000176":120396,"E07000177":151724,"E07000178":152996,"E07000179":141881,"E07000180":138229,"E07000181":111060,"E07000187":116606,"E07000188":124482,"E07000189":169316,"E07000190":121889,"E07000191":35369,"E07000192":101594,"E07000193":120212,"E07000194":104858,"E07000195":130792,"E07000196":112757,"E07000197":138122,"E07000198":98723,"E07000199":76454,"E07000200":92538,"E07000201":66673,"E07000202":137012,"E07000203":104153,"E07000204":113773,"E07000205":131963,"E07000206":119789,"E07000207":137027,"E07000208":80555,"E07000209":148940,"E07000210":87095,"E07000211":149936,"E07000212":89096,"E07000213":99813,"E07000214":88983,"E07000215":88285,"E07000216":126137,"E07000217":101087,"E07000218":66440,"E07000219":130406,"E07000220":109181,"E07000221":131536,"E07000222":144062,"E07000223":64298,"E07000224":162919,"E07000225":122616,"E07000226":113531,"E07000227":145250,"E07000228":151785,"E07000229":111283,"E07000234":100512,"E07000235":79657,"E07000236":85118,"E07000237":102160,"E07000238":131412,"E07000239":102244,"E07000240":147895,"E07000241":124585,"E07000242":149828,"E07000243":88214,"E08000001":286952,"E08000002":191841,"E08000003":553905,"E08000004":238525,"E08000005":223372,"E08000006":260804,"E08000007":294053,"E08000008":227556,"E08000009":238813,"E08000010":328790,"E08000011":151092,"E08000012":502326,"E08000013":181622,"E08000014":276782,"E08000015":324533,"E08000016":248707,"E08000017":313762,"E08000018":267215,"E08000019":589710,"E08000021":302680,"E08000022":208486,"E08000023":151394,"E08000024":277540,"E08000025":1152785,"E08000026":378966,"E08000027":323692,"E08000028":331717,"E08000029":217713,"E08000030":287476,"E08000031":265809,"E08000032":540909,"E08000033":210958,"E08000034":441772,"E08000035":795565,"E08000036":352983,"E08000037":202829,"E09000001":8712,"E09000001-12":294433,"E09000002":214681,"E09000003":399641,"E09000004":249590,"E09000005":335439,"E09000006":334612,"E09000007":271803,"E09000008":387684,"E09000009":340940,"E09000010":335481,"E09000011":292964,"E09000012":285721,"E09000013":189193,"E09000014":271984,"E09000015":250751,"E09000016":261922,"E09000017":309310,"E09000018":272978,"E09000019":244497,"E09000020":156243,"E09000021":177731,"E09000022":329631,"E09000023":308582,"E09000024":206431,"E09000025":358969,"E09000026":305599,"E09000027":198843,"E09000028":324164,"E09000029":206866,"E09000030":332101,"E09000031":280316,"E09000032":331971,"E09000033":264039,"E10000002":545925,"E10000003":657833,"E10000006":499800,"E10000007":806253,"E10000008":811109,"E10000009":430378,"E10000011":560525,"E10000012":1498181,"E10000013":644882,"E10000014":1389256,"E10000015":1192465,"E10000016":1596058,"E10000017":1222979,"E10000018":715117,"E10000019":767332,"E10000020":917736,"E10000021":763001,"E10000023":618904,"E10000024":836913,"E10000025":695890,"E10000027":567662,"E10000028":883511,"E10000029":765899,"E10000030":1196953,"E10000031":581624,"E10000032":871682,"E10000034":601103,"E11000001":2844612,"E11000002":1436356,"E11000003":1419395,"E11000005":2958158,"E11000006":2342186,"E11000007":1142928,"E12000001":2674568,"E12000002":7363337,"E12000003":5528103,"E12000004":4882232,"E12000005":5985916,"E12000006":6277257,"E12000007":9039390,"E12000008":9235982,"E12000009":5691687,"E92000001":56678470,"N09000001":142492,"N09000002":214090,"N09000003":341877,"N09000004":144246,"N09000005":150679,"N09000006":116835,"N09000007":144381,"N09000008":138773,"N09000009":147392,"N09000010":180012,"N09000011":160864,"S08000015":369670,"S08000016":115270,"S08000017":148790,"S08000019":306070,"S08000020":584550,"S08000022":321800,"S08000024":897770,"S08000025":22190,"S08000026":22990,"S08000028":26830,"S08000029":371910,"S08000030":416080,"S08000031":1174980,"S08000032":659200,"S12000005":51400,"S12000006":148790,"S12000008":121840,"S12000010":105790,"S12000011":95170,"S12000013":26830,"S12000014":160340,"S12000017":235540,"S12000018":78150,"S12000019":91340,"S12000020":95520,"S12000021":135280,"S12000023":22190,"S12000026":115270,"S12000027":22990,"S12000028":112550,"S12000029":319020,"S12000030":94330,"S12000033":227560,"S12000034":261470,"S12000035":86260,"S12000036":518500,"S12000038":177790,"S12000039":89130,"S12000040":182140,"S12000041":116040,"S12000042":148750,"S12000045":108330,"S12000047":371910,"S12000048":151290,"S12000049":626410,"S12000050":340180,"W06000001":69961,"W06000002":124178,"W06000003":117181,"W06000004":95330,"W06000005":155593,"W06000006":136126,"W06000008":72992,"W06000009":125055,"W06000010":187568,"W06000011":246466,"W06000012":142906,"W06000013":144876,"W06000014":132165,"W06000015":364248,"W06000016":240131,"W06000018":181019,"W06000019":69713,"W06000020":93049,"W06000021":94142,"W06000022":153302,"W06000023":132447,"W06000024":60183,"W11000023":698369,"W11000024":132447,"W11000025":385615,"W11000028":591225,"W11000029":496413,"W11000030":445190,"W11000031":389372 }
 		},
 		'conversion':{
 			'src':'data/conversion.json',
 			'dataType':'json',
-			'preProcess':function(d,attr){
+			'preProcess':function(d){
 				for(la in d){
 					if(d[la]){
 						id = d[la].id;
@@ -29,7 +27,7 @@
 			'src':'https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv',
 			'dataType':'csv',
 			'requires': ['conversion','populations'],
-			'preProcess': function(d,attr){
+			'preProcess': function(d){
 				var data = CSV.toJSON(d);
 				var byid = {};
 				var max = 0;
@@ -39,7 +37,7 @@
 						t = parseInt(data[i].TotalCases);
 						if(t > 0){
 							if(!byid[id]) byid[id] = {'days':{},'country':data[i].Country,'name':data[i].Area,'mindate':'3000-01-01','maxdate':'2000-01-01','max':0};
-							byid[id].days[data[i]['Date']] = t;
+							byid[id].days[data[i]['Date']] = {'cases':t,'percapita':0};
 							byid[id].population = (datasources['populations'].data[id]||0);
 							if(t > max) max = t;
 							if(t > byid[id].max) byid[id].max = t;
@@ -63,7 +61,7 @@
 			'src':'https://www.arcgis.com/sharing/rest/content/items/b684319181f94875a6879bbc833ca3a6/data',
 			'dataType':'csv',
 			'requires': ['conversion','populations','uk-historic'],
-			'preProcess': function(d,attr){
+			'preProcess': function(d){
 				var i,r,la,total,code,cases,percapita,n,lastring,now,odata,cases,percapita,n,lastring,la,output,code,data;
 				data = CSV.toJSON(d);
 				odata = {};
@@ -98,9 +96,8 @@
 					}
 				}
 				
-				if(!this.plugins.hexmap.obj){
-					console.error('No hexmap loaded');
-				}
+				var LAs = {"E06000001":"Hartlepool","E06000002":"Middlesbrough","E06000003":"Redcar and Cleveland","E06000004":"Stockton-on-Tees","E06000010":"Kingston upon Hull, City of","E06000011":"East Riding of Yorkshire","E06000005":"Darlington","E06000006":"Halton","E06000039":"Slough","E06000007":"Warrington","E06000008":"Blackburn with Darwen","E06000009":"Blackpool","E06000012":"North East Lincolnshire","E06000014":"York","E06000015":"Derby","E06000013":"North Lincolnshire","E06000016":"Leicester","E06000017":"Rutland","E06000018":"Nottingham","E06000019":"Herefordshire, County of","E06000020":"Telford and Wrekin","E06000021":"Stoke-on-Trent","E06000032":"Luton","E06000022":"Bath and North East Somerset","E06000033":"Southend-on-Sea","E06000023":"Bristol, City of","E07000068":"Brentwood","E06000024":"North Somerset","E07000237":"Worcester","E06000025":"South Gloucestershire","E09000005":"Brent","E06000026":"Plymouth","E06000034":"Thurrock","E06000035":"Medway","E06000027":"Torbay","E06000036":"Bracknell Forest","E09000021":"Kingston upon Thames","E06000030":"Swindon","E06000031":"Peterborough","E06000037":"West Berkshire","E06000038":"Reading","E06000040":"Windsor and Maidenhead","E06000041":"Wokingham","E09000022":"Lambeth","E06000042":"Milton Keynes","E06000043":"Brighton and Hove","E09000006":"Bromley","E06000044":"Portsmouth","E06000045":"Southampton","E06000046":"Isle of Wight","E06000047":"County Durham","E06000049":"Cheshire East","E06000050":"Cheshire West and Chester","E06000051":"Shropshire","E06000052":"Cornwall","E06000053":"Isles of Scilly","E06000054":"Wiltshire","E09000007":"Camden","E06000055":"Bedford","E07000005":"Chiltern","E06000056":"Central Bedfordshire","E06000057":"Northumberland","E06000058":"Bournemouth, Christchurch and Poole","E06000059":"Dorset","E07000004":"Aylesbury Vale","E09000008":"Croydon","E07000006":"South Bucks","E07000007":"Wycombe","E07000008":"Cambridge","E07000009":"East Cambridgeshire","E07000066":"Basildon","E07000010":"Fenland","E07000033":"Bolsover","E07000011":"Huntingdonshire","E09000009":"Ealing","E07000012":"South Cambridgeshire","E07000026":"Allerdale","E07000027":"Barrow-in-Furness","E07000028":"Carlisle","E07000029":"Copeland","E07000034":"Chesterfield","E07000035":"Derbyshire Dales","E07000030":"Eden","E07000031":"South Lakeland","E07000032":"Amber Valley","E07000036":"Erewash","E07000037":"High Peak","E07000041":"Exeter","E07000042":"Mid Devon","E07000043":"North Devon","E07000044":"South Hams","E07000038":"North East Derbyshire","E07000061":"Eastbourne","E07000039":"South Derbyshire","E07000062":"Hastings","E07000040":"East Devon","E07000045":"Teignbridge","E07000046":"Torridge","E07000047":"West Devon","E07000063":"Lewes","E09000010":"Enfield","E07000064":"Rother","E07000065":"Wealden","E09000011":"Greenwich","E07000067":"Braintree","E09000012":"Hackney","E07000069":"Castle Point","E07000070":"Chelmsford","E07000071":"Colchester","E07000072":"Epping Forest","E07000073":"Harlow","E07000074":"Maldon","E07000087":"Fareham","E07000075":"Rochford","E07000076":"Tendring","E07000077":"Uttlesford","E07000078":"Cheltenham","E07000079":"Cotswold","E09000013":"Hammersmith and Fulham","E07000080":"Forest of Dean","E07000081":"Gloucester","E07000082":"Stroud","E07000088":"Gosport","E07000083":"Tewkesbury","E09000014":"Haringey","E07000084":"Basingstoke and Deane","E07000089":"Hart","E07000085":"East Hampshire","E07000086":"Eastleigh","E07000090":"Havant","E07000091":"New Forest","E07000092":"Rushmoor","E07000103":"Watford","E07000093":"Test Valley","E09000015":"Harrow","E07000094":"Winchester","E07000095":"Broxbourne","E07000096":"Dacorum","E07000098":"Hertsmere","E07000117":"Burnley","E07000099":"North Hertfordshire","E07000102":"Three Rivers","E07000105":"Ashford","E07000122":"Pendle","E07000106":"Canterbury","E07000107":"Dartford","E07000108":"Dover","E07000109":"Gravesham","E07000110":"Maidstone","E07000123":"Preston","E07000111":"Sevenoaks","E07000241":"Welwyn Hatfield","E07000112":"Folkestone and Hythe","E07000113":"Swale","E07000114":"Thanet","E07000115":"Tonbridge and Malling","E08000005":"Rochdale","E07000116":"Tunbridge Wells","E07000118":"Chorley","E07000126":"South Ribble","E07000119":"Fylde","E07000120":"Hyndburn","E07000121":"Lancaster","E08000006":"Salford","E07000124":"Ribble Valley","E07000125":"Rossendale","E07000127":"West Lancashire","E09000023":"Lewisham","E07000128":"Wyre","E07000129":"Blaby","E07000130":"Charnwood","E07000131":"Harborough","E07000132":"Hinckley and Bosworth","E07000134":"North West Leicestershire","E07000133":"Melton","E07000135":"Oadby and Wigston","E09000024":"Merton","E07000136":"Boston","E07000137":"East Lindsey","E07000138":"Lincoln","E08000013":"St. Helens","E07000139":"North Kesteven","E07000150":"Corby","E07000140":"South Holland","E07000170":"Ashfield","E07000141":"South Kesteven","E07000173":"Gedling","E07000142":"West Lindsey","E07000143":"Breckland","E07000144":"Broadland","E07000145":"Great Yarmouth","E07000146":"King's Lynn and West Norfolk","E07000147":"North Norfolk","E07000148":"Norwich","E07000149":"South Norfolk","E07000151":"Daventry","E07000152":"East Northamptonshire","E07000174":"Mansfield","E07000153":"Kettering","E07000154":"Northampton","E07000155":"South Northamptonshire","E07000156":"Wellingborough","E07000163":"Craven","E07000164":"Hambleton","E07000178":"Oxford","E07000165":"Harrogate","E07000166":"Richmondshire","E07000192":"Cannock Chase","E07000167":"Ryedale","E07000168":"Scarborough","E07000169":"Selby","E07000171":"Bassetlaw","E07000172":"Broxtowe","E07000175":"Newark and Sherwood","E07000202":"Ipswich","E07000176":"Rushcliffe","E07000207":"Elmbridge","E07000208":"Epsom and Ewell","E07000177":"Cherwell","E07000179":"South Oxfordshire","E07000180":"Vale of White Horse","E07000212":"Runnymede","E07000181":"West Oxfordshire","E07000213":"Spelthorne","E07000187":"Mendip","E07000188":"Sedgemoor","E07000189":"South Somerset","E07000193":"East Staffordshire","E07000194":"Lichfield","E07000214":"Surrey Heath","E09000025":"Newham","E07000195":"Newcastle-under-Lyme","E07000215":"Tandridge","E07000196":"South Staffordshire","E09000016":"Havering","E07000197":"Stafford","E09000026":"Redbridge","E07000198":"Staffordshire Moorlands","E07000199":"Tamworth","E07000200":"Babergh","E07000203":"Mid Suffolk","E09000032":"Wandsworth","E07000209":"Guildford","E08000003":"Manchester","E07000210":"Mole Valley","E07000211":"Reigate and Banstead","E09000033":"Westminster","E07000216":"Waverley","E07000217":"Woking","N09000011":"Ards and North Down","E07000218":"North Warwickshire","E07000219":"Nuneaton and Bedworth","E08000004":"Oldham","E07000220":"Rugby","E07000221":"Stratford-on-Avon","E07000234":"Bromsgrove","E07000222":"Warwick","E07000223":"Adur","E07000235":"Malvern Hills","E07000224":"Arun","E07000225":"Chichester","E07000226":"Crawley","E07000227":"Horsham","E07000228":"Mid Sussex","E07000229":"Worthing","E07000236":"Redditch","E07000238":"Wychavon","E07000239":"Wyre Forest","E07000240":"St Albans","E07000242":"East Hertfordshire","E07000243":"Stevenage","E07000244":"East Suffolk","E07000245":"West Suffolk","E07000246":"Somerset West and Taunton","E08000022":"North Tyneside","E08000001":"Bolton","E08000002":"Bury","E08000023":"South Tyneside","E08000007":"Stockport","E08000008":"Tameside","E08000009":"Trafford","E08000010":"Wigan","E08000011":"Knowsley","E08000012":"Liverpool","E08000014":"Sefton","E08000015":"Wirral","E08000016":"Barnsley","E08000024":"Sunderland","E08000017":"Doncaster","E08000018":"Rotherham","E08000019":"Sheffield","E08000021":"Newcastle upon Tyne","E08000025":"Birmingham","E08000026":"Coventry","E09000017":"Hillingdon","E08000027":"Dudley","E08000028":"Sandwell","E09000018":"Hounslow","E09000019":"Islington","E08000029":"Solihull","E08000030":"Walsall","E08000031":"Wolverhampton","E08000032":"Bradford","E08000033":"Calderdale","E08000034":"Kirklees","E08000036":"Wakefield","E08000035":"Leeds","E09000004":"Bexley","E08000037":"Gateshead","E09000001":"City of London","E09000002":"Barking and Dagenham","E09000003":"Barnet","E09000020":"Kensington and Chelsea","E09000027":"Richmond upon Thames","E09000028":"Southwark","E09000029":"Sutton","E09000030":"Tower Hamlets","E09000031":"Waltham Forest","N09000001":"Antrim and Newtownabbey","N09000002":"Armagh City, Banbridge and Craigavon","N09000003":"Belfast","N09000004":"Causeway Coast and Glens","N09000005":"Derry City and Strabane","N09000006":"Fermanagh and Omagh","N09000007":"Lisburn and Castlereagh","N09000008":"Mid and East Antrim","N09000009":"Mid Ulster","N09000010":"Newry, Mourne and Down","S12000005":"Clackmannanshire","S12000006":"Dumfries and Galloway","S12000008":"East Ayrshire","S12000010":"East Lothian","S12000011":"East Renfrewshire","S12000013":"Na h-Eileanan Siar","S12000014":"Falkirk","S12000017":"Highland","S12000018":"Inverclyde","S12000019":"Midlothian","S12000020":"Moray","S12000021":"North Ayrshire","S12000023":"Orkney Islands","S12000026":"Scottish Borders","S12000027":"Shetland Islands","S12000028":"South Ayrshire","S12000029":"South Lanarkshire","S12000030":"Stirling","S12000033":"Aberdeen City","S12000034":"Aberdeenshire","S12000035":"Argyll and Bute","S12000036":"City of Edinburgh","S12000039":"West Dunbartonshire","S12000038":"Renfrewshire","S12000045":"East Dunbartonshire","S12000047":"Fife","S12000040":"West Lothian","S12000041":"Angus","S12000042":"Dundee City","S12000048":"Perth and Kinross","S12000049":"Glasgow City","W06000013":"Bridgend","S12000050":"North Lanarkshire","W06000001":"Isle of Anglesey","W06000002":"Gwynedd","W06000003":"Conwy","W06000004":"Denbighshire","W06000005":"Flintshire","W06000006":"Wrexham","W06000008":"Ceredigion","W06000009":"Pembrokeshire","W06000010":"Carmarthenshire","W06000011":"Swansea","W06000012":"Neath Port Talbot","W06000014":"Vale of Glamorgan","W06000015":"Cardiff","W06000016":"Rhondda Cynon Taf","W06000020":"Torfaen","W06000018":"Caerphilly","W06000019":"Blaenau Gwent","W06000024":"Merthyr Tydfil","W06000021":"Monmouthshire","W06000022":"Newport","W06000023":"Powys"};
+
 				for(var code in odata){
 					if(code){
 
@@ -108,7 +105,7 @@
 						odata[code].percapita = (datasources['populations'].data[code]) ? 1e5*odata[code].TotalCases/datasources['populations'].data[code] : 0;
 
 						// If the Local Authority doesn't exist
-						if(!this.plugins.hexmap.obj.hex.hexes[code]){
+						if(!LAs[code]){
 							
 							if(lookup[code]){
 								if(!lookup[code].LA) console.error('No LA for '+code,lookup[code]);
@@ -116,7 +113,7 @@
 								lastring = '';
 								for(la in lookup[code].LA){
 									if(lookup[code].LA[la]){
-										lastring += '<li>'+(this.plugins.hexmap.obj.hex.hexes[la] ? this.plugins.hexmap.obj.hex.hexes[la].attributes.title : '?')+(datasources['populations'].data[la] ? ' ('+datasources['populations'].data[la].toLocaleString()+')':'')+'</li>';
+										lastring += '<li>'+(LAs[la] ? LAs[la] : '?')+(datasources['populations'].data[la] ? ' ('+datasources['populations'].data[la].toLocaleString()+')':'')+'</li>';
 									}
 								}
 								for(la in lookup[code].LA){
@@ -166,8 +163,60 @@
 			};
 		}
 
-		this.loadPlugin = function(id,file,opt){
-			if(!opt) opt = {};
+		this.init = function(){
+			this.datatoload = 0;
+			this.dataloaded = 0;
+			for(id in datasources){
+				this.datatoload++;
+				if(datasources[id].loaded) this.dataloaded++;
+			}
+			for(id in datasources){
+				if(!datasources[id].loaded){
+					S().ajax(datasources[id].src,{
+						"dataType": datasources[id].dataType,
+						"this": this,
+						"id": id,
+						"success":function(d,attr){
+							datasources[attr.id].data = d;
+							datasources[attr.id].processed = false;
+
+							// We've loaded the data
+							datasources[attr.id].loaded = true;
+							this.dataloaded++;
+							if(this.datatoload==this.dataloaded) this.loadedData();
+						},
+						"error": function(e,attr){
+							console.error('Unable to load '+attr.url);
+						}
+					});
+				}
+			}
+		};
+
+		this.loadedData = function(){
+			
+			for(id in datasources){
+				if(typeof datasources[id].preProcess==="function"){
+					// Pre process the data
+					datasources[id].data = datasources[id].preProcess.call(this,datasources[id].data);
+				}
+			}
+
+			this.pluginloaded = 0;
+			this.plugintoload = 0;
+			for(id in this.panels){
+				if(this.panels[id]){
+					if(this.panels[id].src) this.plugintoload++;
+				}
+			}
+			for(id in this.panels){
+				if(this.panels[id]){
+					if(this.panels[id].src) this.loadPlugin(id,this.panels[id].src,{});
+				}
+			}
+		}
+
+		this.loadPlugin = function(id,file){
 			if(typeof file!=="string") return this;
 			if(this.panels[id] && this.panels[id].loaded) return this;
 
@@ -178,125 +227,33 @@
 				// Initialize this plugin
 				if(!this.panels[id]) console.warn('Panel '+id+' does not exist');
 				this.panels[id].loaded = true;
-				// Initiate the plugin
-				if(typeof this.plugins[id].init==="function") this.plugins[id].init.call(this);
-				// Run any callback
-				if(typeof opt.success==="function") opt.success.call(this,data);
+				
+				this.pluginloaded++;
+				
+				if(this.pluginloaded==this.plugintoload) this.loadedPlugins();
 			};
 			config.dataType = 'script';
 			config.this = this;
 			config.cache = true;
-			if(typeof opt.complete==="function") config.complete = opt.complete;
-			if(typeof opt.progress==="function") config.progress = opt.progress;
-			if(typeof opt.error==="function") config.error = opt.error;
-			else config.error = function(e,attr){ console.log('Failed to load '+attr.url); }
+			config.error = function(e,attr){ console.log('Failed to load '+attr.url); }
 
 			// Load the script
 			S().ajax(this.base+file,config);
 			return this;
 		};
-		
-		this.init = function(){
-			for(id in this.panels){
-				if(this.panels[id]){
-					if(this.panels[id].src){
-						this.loadPlugin(id,this.panels[id].src,{});
-					}
-				}
+
+		this.loadedPlugins = function(){
+			for(id in this.plugins){
+				// Initiate the plugin
+				if(typeof this.plugins[id].init==="function") this.plugins[id].init.call(this);
 			}
-		};
+			return this;
+		}
 		
 		this.getData = function(id,o){
 			
-			if(!datasources[id]){
-				console.error('Data source '+id+' is unknown');
-				return this;
-			}
-			
-			// Find out which datasets are required
-			var required,req,r,r2;
-			required = {};
-			req = clone(datasources[id].requires);
-			while(req.length > 0){
-				r = req.pop();
-				if(r){
-					if(datasources[r]){
-						if(datasources[r].requires) req.concat(datasources[r].requires);
-						required[r] = true;
-					}else{
-						console.error('Data source '+r+' is unknown. (2)');
-					}
-				}
-			}
-			required[id] = true;
+			if(typeof o.loaded==="function") o.loaded.call((o['this']||this),datasources[id].data,o);
 
-			// Work out if we've loaded everything already
-			loaded = 0;
-			loading = 0;
-			n = 0;
-			for(r in required){
-				n++;
-				if(datasources[r].loaded) loaded++;
-			}
-
-			if(loaded == n){
-
-				// We have everything so trigger the callback straight away
-				if(typeof o.loaded==="function") o.loaded.call((o['this']||this),datasources[id].data,o);
-
-			}else{
-
-				// Add details of this request to a queue
-				this.queue.push({'id':id,'requires':required,'o':o});
-
-				// Now loop through getting anything that hasn't been requested
-				for(r in required){
-					if(!datasources[r].loaded && !datasources[r].loading){
-						console.info('Getting '+datasources[r].src);
-						datasources[r].loading = true;
-						S().ajax(datasources[r].src,{
-							"dataType": datasources[r].dataType,
-							"this": this,
-							"o": o,
-							"id": r,
-							"success":function(d,attr){
-								// Pre process the data
-								if(typeof datasources[attr.id].preProcess==="function"){
-									datasources[attr.id].data = datasources[attr.id].preProcess.call(this,d,attr);
-								}else{
-									datasources[attr.id].data = d;
-								}
-
-								// We've loaded the data
-								datasources[attr.id].loading = false;
-								datasources[attr.id].loaded = true;
-
-								if(!this.queue.length) this.queue = [this.queue];
-								for(var q = 0; q < this.queue.length; q++){
-									var n = 0;
-									var got = 0;
-									for(var r in this.queue[q].requires){
-										if(datasources[r].loaded) got++;
-										n++;
-									}
-									if(got==n){
-										// Can now do callback
-										if(typeof this.queue[q].o.loaded==="function"){
-											this.queue[q].o.loaded.call((this.queue[q].o['this']||this),datasources[this.queue[q].id].data,this.queue[q].o);
-										}
-										// Remove from the queue
-										q2 = this.queue.splice(q,1);
-									}
-								}
-
-							},
-							"error": function(e,attr){
-								console.error('Unable to load '+attr.url);
-							}
-						});
-					}
-				}
-			}
 			return this;
 		}
 
@@ -311,21 +268,19 @@
 
 		this.updateAreas = function(){
 
+			if(this.plugintoload > this.pluginloaded) console.error('not loaded');
 			var a;
 			this.qs = QueryString();
 			if(typeof this.qs.areas==="object") a = this.qs.areas;
 
 
-			/* Update the Plot */
-			
-			var plot = this.plugins.plot.obj;
 			var plugins = this.plugins;
 
 			// Build a type ahead search
 			if(!this.typeahead){
 				
 				items = [];
-				for(id in plot.data) items.push({'name':plot.data[id].name,'country':plot.data[id].country,'id':id});
+				for(id in datasources['uk-historic'].data) items.push({'name':datasources['uk-historic'].data[id].name,'country':datasources['uk-historic'].data[id].country,'id':id});
 				
 				this.typeahead = TypeAhead.init('#typeahead',{
 					'items': items,
@@ -402,10 +357,6 @@
 				}
 			}
 
-
-			/* Update the hexmap */
-			if(this.plugins.hexmap && this.plugins.hexmap.obj) this.plugins.hexmap.obj.updateData(this.qs.hextype);
-
 			return this;
 		};
 		
@@ -424,6 +375,7 @@
 			if(match < 0) this.qs.areas.push(id);
 
 			var plot = this.plugins.plot.obj;
+			
 			// Select the line
 			if(this.plugins.plot) plot.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
 
@@ -465,7 +417,6 @@
 				S('#toggle-holder ul.toggles').remove();
 			}
 
-			console.log('ready to updatehistory',update);
 			if(update) this.updateHistory();
 
 			return this;

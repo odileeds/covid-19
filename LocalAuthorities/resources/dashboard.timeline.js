@@ -4,7 +4,7 @@
  */
 (function(S){
 
-	name = "timeline";
+	var name = "timeline";
 	var _parent;
 
 	function init(){
@@ -43,7 +43,7 @@
 			for(var id in data){
 				if(data[id]){
 					for(d in data[id].days){
-						data[id].days[d] = {'cases':data[id].days[d],'percapita':0};
+						data[id].days[d].percapita = 0;
 						if(data[id].population > 0){
 							data[id].days[d].percapita = data[id].days[d].cases*1e5/data[id].population;
 							if(data[id].days[d].percapita > maxcapita) maxcapita = data[id].days[d].percapita;

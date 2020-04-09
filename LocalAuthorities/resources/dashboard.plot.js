@@ -4,14 +4,15 @@
  */
 (function(S){
 
-	name = "plot";
+	var name = "plot";
 	var _parent;
 
 	function init(){
 		_parent = this;
-		graph = new PandemicGraph({'id':'graph'});
-		graph.getData();
-		this.plugins[name].obj = graph;
+
+		this.plugins[name].obj = new PandemicGraph({'id':'graph'});
+		this.plugins[name].obj.getData();
+
 	}
 		
 	function PandemicGraph(o){
@@ -239,11 +240,10 @@
 					data = [];
 					v = 1;
 					mindate = new Date(this.data[id].mindate.toISOString().substr(0,10)+'T12:00Z');
-					//this.data[id].mindate.setUTCHours(0);
 					
 					for(d = mindate; d < endtime; d.setDate(d.getDate() + 1)){
 						iso = d.toISOString().substr(0,10);
-						if(this.data[id].days[iso] >= graph.mincases) data.push(this.data[id].days[iso]);
+						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso].cases);
 					}
 					x = 0;
 					y = (100*(graph.y.log ? (Math.log10(graph.mincases)-logmin)/(logmax-logmin) : graph.mincases/this.maxcases));
