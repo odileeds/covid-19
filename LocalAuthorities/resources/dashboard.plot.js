@@ -383,6 +383,8 @@
 					this.maxdateformat = getDate(this.maxdate);
 					graph.x.max = this.maxdays;
 					
+					if(_parent.plugins.hexmap.obj) _parent.plugins.hexmap.obj.addSupplemental('',byid);
+					
 					return byid;
 				},
 				'loaded': function(data){

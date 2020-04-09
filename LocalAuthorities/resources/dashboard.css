@@ -119,15 +119,15 @@ figcaption p:last-child { margin-bottom: 0px; }
 }
 
 
-.switch { width: 5em; position: absolute; display: inline-block; right: 1em; }
+.switch { width: 5em; position: absolute; display: inline-block; right: 0em; }
 .switch input { position: absolute; opacity: 0; z-index: 3; width: 100%; height: 100%; margin: 0px; cursor: pointer; }
 .switch input:focus ~ span { box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2, 0 0 4px 2px #3366dd; }
 .switch input:checked + span { background-color: #67E767; color: black; }
 .switch input:checked + span a { left: 100%; border-color: #67E767; margin-left: -2em; right: 0%; }
 .switch input:checked + span span:first-of-type { opacity: 0; }
 .switch input:checked + span span:last-of-type { opacity: 1; }
-.switch a { left: 0; top: 0; width: 2em; height: 2em; background-color: #fff; border-radius: 100%; border: 0.25em solid #dddddd; transition: all .2s ease-out; position: absolute; right: 50%; top: 0; z-index: 1; display: block; padding: 0; }
-.switch > span { display: block; width: 100%; height: 2em; background-color: #dddddd; border-radius: 1.75em; transition: all .4s ease-out; position: relative; overflow: hidden; display: block; min-height: 2em; padding: 0; text-align: left; line-height: 2em; box-sizing: border-box; }
+.switch a { left: 0; top: 0; width: 2em; height: 2em; background-color: #fff; border-radius: 100%; border: 0.25em solid #cccccc; transition: all .2s ease-out; position: absolute; right: 50%; top: 0; z-index: 1; display: block; padding: 0; }
+.switch > span { display: block; width: 100%; height: 2em; background-color: #cccccc; border-radius: 1.75em; transition: all .4s ease-out; position: relative; overflow: hidden; display: block; min-height: 2em; padding: 0; text-align: left; line-height: 2em; box-sizing: border-box; }
 .switch > span span { text-align: center; display: block; position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: all .2s ease-out; box-sizing: border-box; }
 .switch > span span:last-of-type { padding-right: 2em; }
 .switch > span span:first-of-type { opacity: 1; padding-left: 2em; color: black; }
