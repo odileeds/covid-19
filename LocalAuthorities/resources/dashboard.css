@@ -114,9 +114,10 @@ figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
 .notes p:last-child { margin-bottom: 0px; }
 #timeline table { width: 100%; border-collapse: unset; }
 #timeline table h3 { margin-top: 0em; }
-#timeline table tr:hover { background: #ccc;  }
+#timeline table tr:hover { background: #ccc; }
+#timeline table tr:hover td.c { opacity: 1; }
 #timeline table td { border: 1px solid #dfdfdf; padding: 0 0.25em; }
-#timeline table td.c { cursor: pointer; }
+#timeline table td.c { cursor: pointer; opacity: 0.9; }
 #timeline table td:first-child { min-width: 100px; white-space: nowrap; }
 
 .label {
