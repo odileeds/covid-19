@@ -89,14 +89,18 @@ a.button:hover, button:hover, button:focus, a.button:focus { background-color: #
 ul.grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-auto-rows: minmax(204px, auto);
+	grid-auto-rows: minmax(100px, auto);
 	grid-gap: 1em;
 	list-style: none;
 	order: 1;
 	margin: 0px;
 	padding: 0px;
 }
-
+ul.grid li.fullwidth { grid-column: auto / span 2; }
+ul.grid li > a, figure { height: 100%; display: block; }
+ul.grid li > a { text-decoration: none; }
+ul.grid li > a h2 { margin-top: 0; }
+ul.grid li > a p { margin-top: 1em; margin-bottom: 0; }
 #logplot { display: block; font-size: 1em; position: relative; height: 500px; margin-bottom: 1em; }
 svg svg { overflow: unset; }
 svg .line { stroke: #999; }
@@ -108,6 +112,12 @@ figcaption { margin-bottom: 1em; margin-top: 0.5em; }
 figcaption, .notes { font-size: 0.8em; color: #444; line-height: 1.4em; }
 figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
 .notes p:last-child { margin-bottom: 0px; }
+#timeline table { width: 100%; border-collapse: unset; }
+#timeline table h3 { margin-top: 0em; }
+#timeline table tr:hover { background: #ccc;  }
+#timeline table td { border: 1px solid #dfdfdf; padding: 0 0.25em; }
+#timeline table td.c { cursor: pointer; }
+#timeline table td:first-child { min-width: 100px; white-space: nowrap; }
 
 .label {
 	transform: translate3d(0,-50%,0);
@@ -256,8 +266,8 @@ button.on, button.on:hover { background-color: #D60303!important; color: white!i
 .infobubble ul {list-style: disc; margin-left: 1em; }
 .popup-bio { display: flex; }
 .infobubble table { margin-bottom: 0.5em; }
-.bottom { color: #999; margin-top: 1em; line-height: 1.25em; }
-.bottom a, .bottom a:visited { color: inherit; }
+footer { color: #999; line-height: 1.25em; }
+footer a, footer a:visited { color: inherit; }
 .spinner { position: absolute; left: 50%; top: 50%; transform: translate3d(-50%,-50%,0); z-index: 1000; }
 .spinner svg { width: 5em; margin: auto; }
 #tooltip { background-color: black; color: white; padding: 0.325em 0.5em; transform: translate3d(-50%,0.5em,0); z-index: 100; position: absolute; z-index: 98; }
@@ -296,5 +306,6 @@ button.on, button.on:hover { background-color: #D60303!important; color: white!i
 
 @media only screen and (max-width: 1080px) {
 	ul.grid { grid-template-columns: repeat(1, 1fr); }
+	ul.grid li.fullwidth { grid-column: auto / span 1; }
 	.doublepadded { padding: 1em; }
 }

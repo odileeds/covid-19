@@ -1,0 +1,98 @@
+/*!
+	Dashboard plugin to show a timeline of cases in the style of the one at https://www.ft.com/coronavirus-latest
+	Written by Stuart Lowe (ODI Leeds)
+ */
+(function(S){
+
+	name = "timeline";
+	var _parent;
+
+	function init(){
+		_parent = this;
+		var timeline = new TimeLine({'id':'timeline'});
+		timeline.getData();
+		this.plugins[name].obj = timeline;
+	}
+	
+	function TimeLine(opts){
+		
+		this.id = opts.id;
+
+		this.getData = function(){
+
+			_parent.getData('uk-historic',{
+				'this': this,
+				'loaded': function(data,attr){
+					return this.draw(data);
+				}
+			});
+
+			return this;
+		}
+
+		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); }
+
+		this.draw = function(data){
+
+			this.maxdate = new Date('2000-01-01');
+			this.mindate = new Date('3000-01-01');
+			var max = 0;
+			var min = 1e100;
+			var maxcapita = 0;
+			for(var id in data){
+				if(data[id]){
+					for(d in data[id].days){
+						data[id].days[d] = {'cases':data[id].days[d],'percapita':0};
+						if(data[id].population > 0){
+							data[id].days[d].percapita = data[id].days[d].cases*1e5/data[id].population;
+							if(data[id].days[d].percapita > maxcapita) maxcapita = data[id].days[d].percapita;
+						}
+					}
+					if(data[id].max > max) max = data[id].max;
+					if(data[id].maxdate > this.maxdate) this.maxdate = data[id].maxdate;
+					if(data[id].mindate < this.mindate) this.mindate = data[id].mindate;
+				}
+			}
+			var ndays = Math.round(this.maxdate-this.mindate)/86400000;
+			var html = '<table>';
+			var mindate = this.mindate.toISOString().substr(0,10)+'T12:00Z';
+
+			var keys = Object.keys(data).sort(function(a,b){
+				if(a[0] == b[0]) return data[a].name > data[b].name
+				else return a[0] > b[0];
+			});
+
+			var nations = {'E':'England','N':'Northern Ireland','S':'Scotland','W':'Wales'};
+			previd = "";
+			for(var j = 0; j < keys.length; j++){
+				id = keys[j];
+				if(id[0] != previd) html += '<tr style="margin-top:1em;"><td><h3>'+nations[id[0]]+'</h3></td><td colspan="'+Math.round(ndays/2)+'" style="text-align:left;">'+getDate(this.mindate)+'</td><td colspan="'+(ndays-Math.round(ndays/2))+'" style="text-align:right;">'+getDate(this.maxdate)+'</td></tr>';
+				html += '<tr>';
+				html += '<td>'+data[id].name+'</td>';
+				for(i = 0, d = new Date(mindate); d <= this.maxdate; d.setDate(d.getDate() + 1),i++){
+					iso = d.toISOString().substr(0,10);
+					if(data[id].days[iso]){
+						html += '<td class="c" style="width:'+(100/ndays)+'%;background-color:'+Colour.getColourFromScale("Viridis8",data[id].days[iso].percapita,0,maxcapita)+'" title="'+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)">&nbsp;</td>';
+					}else{
+						html += '<td>&nbsp;</td>'
+					}
+				}
+				html += '</tr>';
+				previd = id[0];
+			}
+			html += '</table>';
+			
+			S('#'+this.id).html(html);
+			return this;
+		}
+	}
+		
+	if(!Dashboard.plugins[name]){
+		Dashboard.plugins[name] = {
+			init: init,
+			version: '1.0'
+		};
+	}
+
+})(S);
