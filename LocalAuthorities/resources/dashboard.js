@@ -267,6 +267,7 @@
 								}else{
 									datasources[attr.id].data = d;
 								}
+								console.log(attr.id,typeof datasources[attr.id].preProcess,datasources[attr.id].data);
 
 								// We've loaded the data
 								datasources[attr.id].loading = false;
@@ -281,12 +282,15 @@
 										n++;
 									}
 									if(got==n){
+										console.log('Got',datasources);
 										// Can now do callback
 										if(typeof this.queue[q].o.loaded==="function"){
 											this.queue[q].o.loaded.call((this.queue[q].o['this']||this),datasources[this.queue[q].id].data,this.queue[q].o);
 										}
 										// Remove from the queue
 										this.queue.splice(q,1);
+									}else{
+										console.warn('Got '+got+' of '+n);
 									}
 								}
 							},
