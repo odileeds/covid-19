@@ -3,10 +3,152 @@
  */
 (function(root){
 
-	
+	var lookup = {};
+	var datasources = {
+		'populations':{
+			'src':'data/populations.json',
+			'dataType':'json'
+		},
+		'conversion':{
+			'src':'data/conversion.json',
+			'dataType':'json',
+			'preProcess':function(d,attr){
+				for(la in d){
+					if(d[la]){
+						id = d[la].id;
+						if(!lookup[id]) lookup[id] = {'n': d[la].n, 'LA':{} };
+						lookup[id].LA[la] = true;
+					}
+				}
+				return d;
+			}
+		},
+		'uk-historic':{
+			'src':'https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv',
+			'dataType':'csv',
+			'requires': ['conversion','populations'],
+			'preProcess': function(d,attr){
+				var data = CSV.toJSON(d);
+				var byid = {};
+				var max = 0;
+				for(var i = 0; i < data.length; i++){
+					id = data[i].AreaCode;
+					if(id){
+						t = parseInt(data[i].TotalCases);
+						if(t > 0){
+							if(!byid[id]) byid[id] = {'days':{},'country':data[i].Country,'name':data[i].Area,'mindate':'3000-01-01','maxdate':'2000-01-01','max':0};
+							byid[id].days[data[i]['Date']] = t;
+							byid[id].population = (datasources['populations'].data[id]||0);
+							if(t > max) max = t;
+							if(t > byid[id].max) byid[id].max = t;
+							if(data[i]['Date'] > byid[id].maxdate) byid[id].maxdate = data[i]['Date'];
+							if(data[i]['Date'] < byid[id].mindate) byid[id].mindate = data[i]['Date'];
+						}
+					}else{
+						console.warn('No ID given for row '+i,data[i]);
+					}
+				}
+				
+				for(var id in byid){
+					byid[id].mindate = new Date(byid[id].mindate+'T00:00Z');
+					byid[id].maxdate = new Date(byid[id].maxdate+'T00:00Z');
+					byid[id].ndays = Math.round((byid[id].maxdate.getTime()-byid[id].mindate.getTime())/86400000)+1;
+				}
+				return byid;
+			}
+		},
+		'england-latest':{
+			'src':'https://www.arcgis.com/sharing/rest/content/items/b684319181f94875a6879bbc833ca3a6/data',
+			'dataType':'csv',
+			'requires': ['conversion','populations','uk-historic'],
+			'preProcess': function(d,attr){
+				var i,r,la,total,code,cases,percapita,n,lastring,now,odata,cases,percapita,n,lastring,la,output,code,data;
+				data = CSV.toJSON(d);
+				odata = {};
+
+				if(data.length > 0){
+					for(i = 0; i < data.length; i++){
+						code = data[i].GSS_CD;
+						// Fix for Cornwall and Hackney in the PHE data
+						if(code && code == "E06000052") data[i].GSS_CD = "E06000052-3";
+						if(code && code == "E09000012") data[i].GSS_CD = "E09000001-12";
+						// Update the code
+						code = data[i].GSS_CD;
+						if(typeof data[i].TotalCases==="string") data[i].TotalCases = parseInt(data[i].TotalCases.replace(/\,/g,""));
+						if(code){
+							odata[code] = {'TotalCases':data[i].TotalCases,'GSS_CD':code,'GSS_NM':data[i].GSS_NM};
+						}
+					}
+				}else{
+					console.error('No data loaded for England');
+				}
+				
+				// Add in UK Historic data (which should be loaded at this point)
+				if(datasources['uk-historic'].data){
+					for(var id in datasources['uk-historic'].data){
+						if(datasources['uk-historic'].data[id]){
+							// Ignore English and Welsh Local Authorities (we will be using Welsh Health Boards)
+							if(!odata[id] && id.indexOf('E')!=0 && id.indexOf('W06')!=0){
+								// Build item
+								odata[id] = {'GSS_CD':id,'GSS_NM':datasources['uk-historic'].data[id].name,'TotalCases':datasources['uk-historic'].data[id].max,'date':datasources['uk-historic'].data[id].maxdate.toISOString().substr(0,10)};
+							}
+						}
+					}
+				}
+				
+				if(!this.plugins.hexmap.obj){
+					console.error('No hexmap loaded');
+				}
+				for(var code in odata){
+					if(code){
+						//console.log(code,clone(odata[code]));
+						odata[code].cases = odata[code].TotalCases;
+						odata[code].percapita = (datasources['populations'].data[code]) ? 1e5*odata[code].TotalCases/datasources['populations'].data[code] : 0;
+
+						// If the Local Authority doesn't exist
+						if(!this.plugins.hexmap.obj.hex.hexes[code]){
+							
+							if(lookup[code]){
+								if(!lookup[code].LA) console.error('No LA for '+code,lookup[code]);
+								n = Object.keys(lookup[code].LA).length;
+								lastring = '';
+								for(la in lookup[code].LA){
+									if(lookup[code].LA[la]){
+										lastring += '<li>'+(this.plugins.hexmap.obj.hex.hexes[la] ? this.plugins.hexmap.obj.hex.hexes[la].attributes.title : '?')+(datasources['populations'].data[la] ? ' ('+datasources['populations'].data[la].toLocaleString()+')':'')+'</li>';
+									}
+								}
+								for(la in lookup[code].LA){
+									if(lookup[code].LA[la]){
+										odata[la] = {};
+										odata[la].cases = Math.round(odata[code].TotalCases/n);
+										odata[la].percapita = odata[code].percapita;
+										odata[la].title = datasources['conversion'].data[la].n;
+										odata[la].desc = '<strong>Total cases:</strong> '+odata[code].cases+(odata[code].date ? ' (as of '+odata[code].date+')':'')+'.<br /><strong>Population ('+(odata[code].GSS_CD.substr(0,1)=="E" ? '2020':'mid 2018')+'):</strong> '+(datasources['populations'].data[code] ? datasources['populations'].data[code].toLocaleString():'?')+'.<br /><strong>Cases per 100,000 people:</strong> '+Math.round(odata[code].percapita)+'.<br /><strong>Includes:</strong> <ul>'+lastring+'</ul>';
+//										console.log(code,la,odata[la],odata[code],n,Math.round(odata[code].TotalCases/n),lookup[code].LA,this.plugins.hexmap.obj.hex.hexes[la].attributes.title,datasources['conversion'].data[la].n);
+									}
+								}
+							}else{
+								console.warn('No hex for '+code+' and no UTLA lookup');
+							}
+						}else{
+							//console.log(code,odata[code])
+							odata[code].title = odata[code].GSS_NM;
+							odata[code].desc = '<strong>Total cases:</strong> '+odata[code].cases+'.<br /><strong>Population ('+(code.substr(0,1)=="E" ? '2020':'mid 2018')+'):</strong> '+(datasources['populations'].data[code] ? datasources['populations'].data[code].toLocaleString():'?')+'.<br /><strong>Cases per 100,000 people:</strong> '+Math.round(odata[code].percapita)+'.';
+						}
+					}
+				}
+				
+				return odata;
+			}
+		}
+	};
+	function clone(d){
+		return JSON.parse(JSON.stringify(d));
+	}
 	function DashboardBuilder(opts){
 		this.qs = QueryString();
 		this.cache = {};
+		this.queue = [];
 		this.panels = opts.panels||{};
 		this.plugins = opts.plugins||{};
 		this.base = (typeof opts.base==="string") ? opts.base : 'resources/';
@@ -65,36 +207,96 @@
 			}
 		};
 		
-		this.getData = function(url,o){
-
-			if(this.cache[url]){
-				if(!this.cache[url].loading){
-					// Got the data and processed it so call the "loaded" function
-					for(id in this.cache[url].callback){
-						if(typeof this.cache[url].callback[id].loaded==="function") this.cache[url].callback[id].loaded.call((o['this']||this),this.cache[url].data,o);
+		this.getData = function(id,o){
+			
+			if(!datasources[id]){
+				console.error('Data source '+id+' is unknown');
+				return this;
+			}
+			
+			// Find out which datasets are required
+			var required,req,r,r2;
+			required = {};
+			required[id] = true;
+			req = clone(datasources[id].requires);
+			while(req.length > 0){
+				r = req.pop();
+				if(r){
+					if(datasources[r]){
+						if(datasources[r].requires) req.concat(datasources[r].requires);
+						required[r] = true;
+					}else{
+						console.error('Data source '+r+' is unknown. (2)');
 					}
 				}
+			}
+
+			// Work out if we've loaded everything already
+			loaded = 0;
+			loading = 0;
+			n = 0;
+			for(r in required){
+				n++;
+				if(datasources[r].loaded) loaded++;
+			}
+
+			if(loaded == n){
+
+				// We have everything so trigger the callback straight away
+				console.log('straight away',o);
+				if(typeof o.loaded==="function") o.loaded.call((o['this']||this),datasources[id].data,o);
+
 			}else{
-				this.cache[url] = {'loading':true,'callback':{}};
-				if(o['process']) this.cache[url].process = o['process'];
-				if(o['name'] && o['loaded']) this.cache[url].callback[o['name']] = {'loaded':o['loaded'],'attr':o};
-				console.info('Getting '+url);
-				S().ajax(url,{
-					"dataType":"text",
-					"this": this,
-					"o": o,
-					"success": function(d,attr){
-						this.cache[url].loading = false;
-						if(attr.o.process) this.cache[attr.url].data = attr.o.process.call((attr.o['this']||this),d,attr);
-						// Got the data and processed it so call the "loaded" function
-						for(id in this.cache[attr.url].callback){
-							if(typeof this.cache[attr.url].callback[id].loaded==="function") this.cache[attr.url].callback[id].loaded.call((attr.o['this']||this),this.cache[attr.url].data,attr.o);
-						}
-					},
-					"error": function(e,attr){
-						console.error('Unable to load '+attr.url);
-					}		
-				});
+
+				// Add details of this request to a queue
+				this.queue.push({'id':id,'requires':required,'o':o});
+
+				// Now loop through getting anything that hasn't been requested
+				for(r in required){
+					if(!datasources[r].loaded && !datasources[r].loading){
+						console.info('Getting '+datasources[r].src);
+						datasources[r].loading = true;
+						S().ajax(datasources[r].src,{
+							"dataType": datasources[r].dataType,
+							"this": this,
+							"o": o,
+							"id": r,
+							"success":function(d,attr){
+								// Pre process the data
+								if(typeof datasources[attr.id].preProcess==="function"){
+									datasources[attr.id].data = datasources[attr.id].preProcess.call(this,d,attr);
+								}else{
+									datasources[attr.id].data = d;
+								}
+
+								// We've loaded the data
+								datasources[attr.id].loading = false;
+								datasources[attr.id].loaded = true;
+
+								if(!this.queue.length) this.queue = [this.queue];
+								for(var q = 0; q < this.queue.length; q++){
+									var n = 0;
+									var got = 0;
+									for(var r in this.queue[q].requires){
+										if(datasources[r].loaded) got++;
+										n++;
+									}
+									if(got==n){
+										// Can now do callback
+										if(typeof this.queue[q].o.loaded==="function"){
+											this.queue[q].o.loaded.call((this.queue[q].o['this']||this),datasources[this.queue[q].id].data,this.queue[q].o);
+										}
+										// Remove from the queue
+										this.queue.splice(q,1);
+									}
+								}
+							},
+							"error": function(e,attr){
+								console.error('Unable to load '+attr.url);
+							}
+						});
+					}
+				}
 			}
 			return this;
 		}
@@ -292,7 +494,8 @@ S(document).ready(function(){
 		'base':'resources/',
 		'panels':{
 			'hexmap':{'src':'dashboard.hexmap.js'},
-			'plot':{'src':'dashboard.plot.js'}
+			'plot':{'src':'dashboard.plot.js'},
+			'timeline':{'src':'dashboard.timeline.js'}
 		}
 	});
 });

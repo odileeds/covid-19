@@ -57,10 +57,9 @@ for($i = 1; $i < @lines; $i++){
 		}
 		# Create Health Board values for Scotland and Wales
 		if($lines[$i] =~ /^[SW]/i){
-			if($str){ $str .= ", // $ln\n"; }
+			if($str){ $str .= ",\n"; }
 			$hb = $cols[$headers{'hlthau'}];
 			$hn = $cols[$headers{'HLTHAUNM'}];
-			$la = $cols[$headers{'LAD19CD'}];
 			$ln = $cols[$headers{'Name'}];
 			#"W06000022":{"id":"W11000028","n":"Aneurin Bevan"},	// Newport
 			$str .= "\"$la\":{\"id\":\"$hb\",\"n\":\"$hn\"}";
@@ -68,9 +67,29 @@ for($i = 1; $i < @lines; $i++){
 			$areas{$hb} += $p;
 		}
 	}
+	# Create UTLA values for England
+	if($lines[$i] =~ /^[E]/i){
+		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
+		#LAD19CD,Name,Estimated Population  mid-2018,HLTHAUCDO,hlthau,HLTHAUNM,UTLA19CD,UTLA19NM
+		$la = $cols[$headers{'LAD19CD'}];
+		$ut = $cols[$headers{'UTLA19CD'}];
+		$un = $cols[$headers{'UTLA19NM'}];
+		$ln = $cols[$headers{'Name'}];
+		if($ut ne $la){
+			if($str){ $str .= ",\n"; }
+		print "$ut - $la $un\n";
+			#"E07000165":{"id":"E10000023","n":"North Yorkshire"},	// Harrogate
+			$str .= "\"$la\":{\"id\":\"$ut\",\"n\":\"$un\"}";
+			#if(!$areas{$ut}){ $areas{$ut} = 0; }
+			#$areas{$ut} += $p;			
+		}
+	}
 }
-$str .= " // $ln\n";
 
+$str .= ",\n\"E09000001\":{\"id\":\"E09000001-12\",\"n\":\"Hackney and City of London\"},\n";
+$str .= "\"E09000012\":{\"id\":\"E09000001-12\",\"n\":\"Hackney and City of London\"},\n";
+$str .= "\"E06000052\":{\"id\":\"E06000052-3\",\"n\":\"Cornwall and Isles of Scilly\"},\n";
+$str .= "\"E06000053\":{\"id\":\"E06000052-3\",\"n\":\"Cornwall and Isles of Scilly\"}\n";
 
 
 ##############
@@ -89,5 +108,7 @@ for $a (sort(keys(%areas))){
 }
 print "var populations = {$json}\n\n";
 
-print $str."\n\n";
 
+open(FILE,">","conversion2.json");
+print FILE "{\n".$str."}";
+close(FILE);

@@ -343,54 +343,31 @@
 
 		this.getData = function(){
 
-			// Get Tom White's totals file
-			var url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
-			_parent.getData(url,{
+			_parent.getData('uk-historic',{
 				'this':this,
-				'name': name,
-				'process':function(d,attr){
-					var data = CSV.toJSON(d);
-					var byid = {};
+				'loaded': function(data,attr){
+
 					var max = 0;
-					for(var i = 0; i < data.length; i++){
-						id = data[i].AreaCode;
-						if(id){
-							t = parseInt(data[i].TotalCases);
-							if(t > 0){
-								if(!byid[id]) byid[id] = {'days':{},'country':data[i].Country,'name':data[i].Area,'mindate':'3000-01-01','maxdate':'2000-01-01','max':0};
-								byid[id].days[data[i]['Date']] = t;
-								if(t > max) max = t;
-								if(t > byid[id].max) byid[id].max = t;
-								if(data[i]['Date'] > byid[id].maxdate) byid[id].maxdate = data[i]['Date'];
-								if(data[i]['Date'] < byid[id].mindate) byid[id].mindate = data[i]['Date'];
-							}
-						}else{
-							console.warn('No ID given for row '+i,data[i]);
-						}
-					}
 					var ndays = 0;
 					this.maxdate = new Date('2000-01-01');
-					for(var id in byid){
-						byid[id].mindate = new Date(byid[id].mindate+'T00:00Z');
-						byid[id].maxdate = new Date(byid[id].maxdate+'T00:00Z');
-						if(byid[id].maxdate > this.maxdate) this.maxdate = byid[id].maxdate;
-						byid[id].ndays = Math.round((byid[id].maxdate.getTime()-byid[id].mindate.getTime())/86400000)+1;
-						if(byid[id].ndays > ndays) ndays = byid[id].ndays;
+					for(var id in data){
+						if(data[id]){
+							if(data[id].max > max) max = data[id].max;
+							if(data[id].maxdate > this.maxdate) this.maxdate = data[id].maxdate;
+							if(data[id].ndays > ndays) ndays = data[id].ndays;
+						}
 					}
-					this.data = byid;
+					this.data = data;
 					this.maxcases = max;
 					this.maxdays = ndays+5;
 					this.maxdateformat = getDate(this.maxdate);
 					graph.x.max = this.maxdays;
-					
-					if(_parent.plugins.hexmap.obj) _parent.plugins.hexmap.obj.addSupplemental('',byid);
-					
-					return byid;
-				},
-				'loaded': function(data){
+
 					this.updateLabels();
 					this.draw();
 					_parent.updateAreas();
+
+					return this;
 				}
 			});
 
