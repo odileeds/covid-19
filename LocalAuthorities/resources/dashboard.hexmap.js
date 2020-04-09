@@ -16,7 +16,6 @@
 			if(!data) data = {};
 			lbl = '<h2 class="popup-title">'+(data.title||title)+'</h2>';
 			lbl += (data.desc||'<p>Cases: '+data.cases);
-			lbl += (data.desc||'<p>Cases: '+data.cases);
 
 			function postRender(title,region,data){
 				S('#tooltip').remove();
