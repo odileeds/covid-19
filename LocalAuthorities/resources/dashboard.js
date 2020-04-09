@@ -243,7 +243,6 @@
 			if(loaded == n){
 
 				// We have everything so trigger the callback straight away
-				console.log('straight away',o);
 				if(typeof o.loaded==="function") o.loaded.call((o['this']||this),datasources[id].data,o);
 
 			}else{

@@ -67,18 +67,18 @@
 			previd = "";
 			for(var j = 0; j < keys.length; j++){
 				id = keys[j];
-				if(id[0] != previd) html += '<tr style="margin-top:1em;"><td><h3>'+nations[id[0]]+'</h3></td><td colspan="'+Math.round(ndays/2)+'" style="text-align:left;">'+getDate(this.mindate)+'</td><td colspan="'+(ndays-Math.round(ndays/2))+'" style="text-align:right;">'+getDate(this.maxdate)+'</td></tr>';
+				if(id[0] != previd) html += '<tr style="margin-top:1em;"><td><h3>'+nations[id[0]]+'</h3></td><td>'+getDate(this.mindate)+'<span style="float:right;">'+getDate(this.maxdate)+'</span></td></tr>';
 				html += '<tr>';
-				html += '<td>'+data[id].name+'</td>';
+				html += '<td class="ntl">'+data[id].name+'</td><td><div class="tl" style="grid-template-columns: repeat('+ndays+', 1fr); ">';
 				for(i = 0, d = new Date(mindate); d <= this.maxdate; d.setDate(d.getDate() + 1),i++){
 					iso = d.toISOString().substr(0,10);
 					if(data[id].days[iso]){
-						html += '<td class="c" style="width:'+(100/ndays)+'%;background-color:'+Colour.getColourFromScale("Viridis8",data[id].days[iso].percapita,0,maxcapita)+'" title="'+iso+': '+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)">&nbsp;</td>';
+						html += '<div class="c" style="background-color:'+Colour.getColourFromScale("Viridis8",data[id].days[iso].percapita,0,maxcapita)+'" title="'+iso+': '+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)"></div>';
 					}else{
-						html += '<td>&nbsp;</td>'
+						html += '<div class="c"></div>'
 					}
 				}
-				html += '</tr>';
+				html += '</div></td></tr>';
 				previd = id[0];
 			}
 			html += '</table>';

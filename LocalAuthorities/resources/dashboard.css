@@ -112,13 +112,15 @@ figcaption { margin-bottom: 1em; margin-top: 0.5em; }
 figcaption, .notes { font-size: 0.8em; color: #444; line-height: 1.4em; }
 figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
 .notes p:last-child { margin-bottom: 0px; }
-#timeline table { width: 100%; border-collapse: unset; }
+#timeline { padding: 0; margin: 0; }
+#timeline table { width: 100%; }
 #timeline table h3 { margin-top: 1em; }
-#timeline table tr:hover { background: #ccc; }
-#timeline table tr:hover td.c { opacity: 1; }
-#timeline table td { border: 1px solid #dfdfdf; padding: 0 0.25em; }
-#timeline table td.c { cursor: pointer; opacity: 0.9; }
-#timeline table td:first-child { min-width: 100px; white-space: nowrap; }
+#timeline table tr:hover { background: #ccc; line-height: 1.5em;}
+#timeline table tr:hover .tl .c { opacity: 1; }
+#timeline table td { vertical-align: middle; }
+#timeline table td.ntl { padding: 0 0.25em; width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#timeline table .tl { width: 100%; display: grid; grid-gap: 2px; }
+#timeline table .tl .c { margin: 1px 0; height: 1.5em; cursor: pointer; opacity: 0.9; }
 
 .label {
 	transform: translate3d(0,-50%,0);
@@ -300,6 +302,8 @@ footer a, footer a:visited { color: inherit; }
 	}
 	.generalelection { max-width: 100%; }
 	body.modal { overflow: hidden; }
+	#timeline table td.ntl { max-width: 100px; }
+	#timeline table .tl { grid-gap: 1px; }
 }
 
 
