@@ -104,9 +104,10 @@ svg .area { display:none; }
 svg .active .line, svg .keep .line { stroke-width: 2.5px !important; opacity: 1!important; }
 svg .active .area { display: block; }
 #logplot time { position: absolute; top: 0px; right: 0px; font-size: 0.8em; }
-figcaption { font-size: 0.8em; color: #444; line-height: 1.4em; }
-figcaption h2, figure h2 { margin-top: 0; margin-bottom: 0.5em; }
-figcaption p:last-child { margin-bottom: 0px; }
+figcaption { margin-bottom: 1em; margin-top: 0.5em; }
+figcaption, .notes { font-size: 0.8em; color: #444; line-height: 1.4em; }
+figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
+.notes p:last-child { margin-bottom: 0px; }
 
 .label {
 	transform: translate3d(0,-50%,0);

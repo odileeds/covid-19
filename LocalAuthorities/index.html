@@ -39,21 +39,22 @@
 				<h2>Confirmed cases by area</h2>
 				<p>Areas include Upper Tier Local Authorities and health boards depending on how figures are reported locally.</p>
 				<div id="logplot"></div>
+				<figcaption>Visualisation: Stuart Lowe, <a href="https://odileeds.org/">ODI Leeds</a> / Data: <a href="https://github.com/tomwhite/covid-19-uk-data">Tom White's COVID-19 UK Historical Data</a>.</figcaption>
 				<form>
 					<div style="position:relative;line-height:2em;">
 						<label for="scale">Log scale?</label><div class="switch"><input type="checkbox" id="scale"><span><span aria-hidden="true">No</span><span aria-hidden="true">Yes</span><a></a></span></div>
 					</div>
 				</form>
-				<figcaption>
+				<div class="notes">
 					<h3>Notes</h3>
-					<p>This graph aims to provide a similar view to that provided by <a href="https://www.ft.com/coronavirus-latest">the Financial Times COVID-19 tracker</a>. The data for this graph come from <a href="https://github.com/tomwhite/covid-19-uk-data">Tom White's COVID-19 UK Historical Data</a> on Github. Some values early in the crisis are clearly uncertain. As Tom notes, Wales stopped reporting Local Authority breakdowns from 18th March 2020 so we have excluded those from the visualisation. The visualisation is created by Stuart Lowe, <a href="https://odileeds.org/">ODI Leeds</a>.</p>
-				</figcaption>
+					<p>This graph aims to provide a similar view to that provided by <a href="https://www.ft.com/coronavirus-latest">the Financial Times COVID-19 tracker</a>. Some values early in the crisis are clearly uncertain as totals shouldn't go down (the data are messy). As <a href="https://github.com/tomwhite/covid-19-uk-data/blob/master/README.md">Tom White notes</a>, Wales stopped reporting Local Authority breakdowns from 18th March 2020 so we have excluded those from the visualisation.</p>
+				</div>
 			</figure>
 		</li>
 		<li>
 			<figure class="b5-bg doublepadded">
 				<h2>UK hex map</h2>
-				<div class="b6-bg padded">
+				<div>
 					<div class="controls">
 						<form>
 							<div class="control on">
@@ -68,12 +69,13 @@
 					<div id="hexmap" style="text-align:center;margin:auto;">
 					</div>
 					<div id="key"></div>
-				</div>				<figcaption>
+					<figcaption>Visualisation: Stuart Lowe, <a href="https://github.com/odileeds/hexmaps/">ODI Leeds</a> / Data: <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">Public Health England, Tom White, and others</a>.</figcaption>
+				</div>
+				<div class="notes">
 					<h3>Notes</h3>
 					<p>This map shows reported COVID-19 cases per capita as a <a href="https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-local-authority-districts-2019.hexjson">Local Authority hex cartogram</a> - this gives each Local Authority the same visual weight on the map at the expense of geography.</p>
 					<p>Note: Data are provided by "Upper Tier Local Authorities" in England &amp; Northern Ireland, and by Health Board in Wales &amp; Scotland. This map shows Local Authorities. In cases where the raw data are provided for a combination of Local Authorities (i.e. for Health Boards or some Upper Tier Local Authorities), each Local Authority in that group is given the same per-capita value (<a href="https://twitter.com/owenboswarva/status/1243606486024105985">UK geography is hard</a>). When you click on one of these Local Authorities you will be shown the total for the UTLA/Health Board along with which Local Authorities are in it.</p>
-					<p>Visualisation: <a href="https://github.com/odileeds/hexmaps/" target="_parent">ODI Leeds</a> / Data: <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">Public Health England, Tom White, and others</a>.</p>
-				</figcaption>
+				</div>
 			</figure>
 		</li>
 		</ul>
