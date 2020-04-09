@@ -170,7 +170,7 @@
 				if(i=="style"){
 					for(j in o[i]){
 						el.style[j] = o[i][j];
-						if(el.style[j] != o[i][j]) console.warn('Unable to set style '+j);
+						//if(el.style[j] != o[i][j]) console.warn('Unable to set style '+j);
 					}
 				}else el.setAttribute(i,o[i]);
 			}
@@ -285,7 +285,7 @@
 					if(this.data[id].line) this.data[id].line.setAttribute('d',path);
 					if(this.data[id].area) this.data[id].area.setAttribute('d',path+' L '+x.toFixed(2)+',0Z');
 				}else{
-					console.warn('Not including '+id,this.data[id]);
+					//console.warn('Not including '+id);
 				}
 			}
 			return this;
