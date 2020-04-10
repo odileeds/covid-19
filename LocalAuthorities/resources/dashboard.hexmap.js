@@ -1082,7 +1082,8 @@
 
 			if(S('#tooltip').length==0) S('#'+e.data.builder.id+'-inner').append('<div id="tooltip"></div>');
 			var tooltip = S('#tooltip');
-			tooltip.html(e.data.builder.hex.hexes[e.data.region].attributes.title+'</div>');
+			var v = (_obj.by.indexOf('percapita') > 0) ? Math.round(_obj.data[_obj.bysrc][e.data.region].percapita)+'/100,000' : _obj.data[_obj.bysrc][e.data.region].cases;
+			tooltip.html(e.data.builder.hex.hexes[e.data.region].attributes.title+' ('+v+')</div>');
 			var bb = e.data.builder.hex.hexes[e.data.region].el[0].getBoundingClientRect();
 			tooltip.css({'position':'absolute','left':''+Math.round(bb.left+(bb.width/2)-S('#'+e.data.builder.id)[0].offsetLeft)+'px','top':''+Math.round(bb.y+bb.height+window.scrollY-S('#'+e.data.builder.id)[0].offsetTop)+'px'});
 
