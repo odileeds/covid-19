@@ -399,6 +399,8 @@
 				});
 			}
 
+			if(this.plugins.timeline && this.plugins.timeline.obj) this.plugins.timeline.obj.setAreas(this.qs.areas);
+
 			if(update) this.updateHistory();
 
 			return this;
@@ -422,6 +424,8 @@
 			if(this.qs.areas.length == 0){
 				S('#toggle-holder ul.toggles').remove();
 			}
+			
+			if(this.plugins.timeline && this.plugins.timeline.obj) this.plugins.timeline.obj.setAreas(this.qs.areas);
 
 			if(update) this.updateHistory();
 
