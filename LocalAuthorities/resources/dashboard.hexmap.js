@@ -43,7 +43,7 @@
 						}
 					}
 					this.hex.setColours = function(region){
-						if(_obj.data[type][region]) return Colour.getColourFromScale("Viridis",_obj.data[type][region][filter],min,max);
+						if(_obj.data[type][region]) return Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
 						else return "#dfdfdf";
 					};
 					return '';
@@ -67,7 +67,7 @@
 						}
 					}
 					this.hex.setColours = function(region){
-						if(_obj.data[type][region]) return Colour.getColourFromScale("Viridis",_obj.data[type][region][filter],min,max);
+						if(_obj.data[type][region]) return Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
 						else return "#dfdfdf";
 					};
 					return '';

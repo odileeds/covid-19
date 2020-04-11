@@ -75,7 +75,7 @@
 				for(i = 0, d = new Date(mindate); i < ndays; d.setDate(d.getDate() + 1),i++){
 					iso = d.toISOString().substr(0,10);
 					if(data[id].days[iso]){
-						html += '<div class="c" style="background-color:'+Colour.getColourFromScale("Viridis",data[id].days[iso].percapita,0,maxcapita)+'" title="'+iso+': '+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)"></div>';
+						html += '<div class="c" style="background-color:'+Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),data[id].days[iso].percapita,0,maxcapita)+'" title="'+iso+': '+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)"></div>';
 					}else{
 						html += '<div class="c"></div>'
 					}

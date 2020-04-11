@@ -263,7 +263,9 @@
 			str = a ? 'areas='+a : '';
 			h = (this.qs.hextype || "");
 			str += (str ? '&':'')+(h ? 'hextype='+h : "");
-			if(this.pushstate) history.pushState({'areas':a,'hexes':h},"COVID-19",(str ? '?'+str : '?'));
+			c = (this.qs.colourscale || "");
+			str += (str ? '&':'')+(c ? 'colourscale='+c : "");
+			if(this.pushstate) history.pushState({'areas':a,'hexes':h,'colourscale':c},"COVID-19",(str ? '?'+str : '?'));
 		};
 
 		this.updateAreas = function(){
