@@ -1,8 +1,12 @@
 #!/usr/bin/perl
 
+# Get directory
+$dir = $0;
+$dir =~ s/^(.*)\/([^\/]*)/$1/g;
+
 $url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
 @lines = `wget -q --no-check-certificate -O- "$url"`;
-#$csv = join("",@lines);
+
 
 %LA;
 %headers;
@@ -63,7 +67,7 @@ if(@lines > 0){
 			$json .= "}";
 		}
 	}
-	open(FILE,">","utla.json");
+	open(FILE,">","$dir/utla.json");
 	print FILE "{\n";
 	print FILE "\t\"lastupdate\":\"".$mostrecent."\",\n";
 	print FILE "\t\"data\": {\n";
