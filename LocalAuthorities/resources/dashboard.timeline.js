@@ -35,14 +35,21 @@
 		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); }
 
-		this.draw = function(data){
+		this.draw = function(d){
+
+
+			var d,id,max,min,maxcapita;
+			data = {};
+			for(id in d){
+				if(!d[id].added) data[id] = d[id];
+			}
 
 			this.maxdate = new Date('2000-01-01');
 			this.mindate = new Date('3000-01-01');
-			var max = 0;
-			var min = 1e100;
-			var maxcapita = 0;
-			for(var id in data){
+			max = 0;
+			min = 1e100;
+			maxcapita = 0;
+			for(id in data){
 				if(data[id]){
 					for(d in data[id].days){
 						data[id].days[d].percapita = 0;
@@ -69,6 +76,7 @@
 			previd = "";
 			for(var j = 0; j < keys.length; j++){
 				id = keys[j];
+				
 				if(id[0] != previd) html += '<tr style="margin-top:1em;"><td><h3>'+nations[id[0]]+'</h3></td><td>'+getDate(this.mindate)+'<span style="float:right;">'+getDate(this.maxdate)+'</span></td></tr>';
 				html += '<tr id="timeline-'+id+'" class="timeline-row">';
 				html += '<td class="ntl">'+data[id].name+'</td><td><div class="tl" style="grid-template-columns: repeat('+ndays+', 1fr); ">';
