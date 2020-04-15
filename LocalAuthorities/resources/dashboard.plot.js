@@ -101,10 +101,10 @@
 			this.fs = parseFloat(style);
 			graph.el.svg.style['font-size'] = this.fs+'px';
 
-
 			this.updateLabels();
-			this.draw();
-			
+			if(this.data){
+				this.draw();
+			}
 			this.info.update();
 
 			return this;
@@ -233,14 +233,19 @@
 			endtime.setUTCHours(24);
 			endtime.setUTCMinutes(0);
 			endtime.setUTCSeconds(0);
+			
+			if(!this.data){
+				console.error('No data to draw')
+				return this;
+			}
 
 			// Loop through the data and draw or redraw the lines
 			for(id in this.data){
-				if(id.indexOf('W06')!=0){
+				if(this.data[id] && id.indexOf('W06')!=0 && !this.data[id].added){
 					data = [];
 					v = 1;
 					mindate = new Date(this.data[id].mindate.toISOString().substr(0,10)+'T12:00Z');
-					
+					if(!this.data[id].days) console.error('bad days',id,this.data[id]);
 					for(d = mindate; d < endtime; d.setDate(d.getDate() + 1)){
 						iso = d.toISOString().substr(0,10);
 						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso].cases);
@@ -346,7 +351,6 @@
 			_parent.getData('uk-historic',{
 				'this':this,
 				'loaded': function(data,attr){
-
 					var max = 0;
 					var ndays = 0;
 					this.maxdate = new Date('2000-01-01');

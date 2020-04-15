@@ -26,7 +26,7 @@
 
 		var views = {
 			'COVID-19-percapita':{
-				'src': 'england-latest',
+				'src': 'uk-historic',
 				'popup': {
 					'render': render
 				},
@@ -50,7 +50,7 @@
 				}
 			},
 			'COVID-19-cases':{
-				'src': 'england-latest',
+				'src': 'uk-historic',
 				'popup': {
 					'render': render
 				},
