@@ -132,7 +132,7 @@
 				x = getX(ticks[i].value);
 				if(x < w) graph.el.xaxis.appendChild(createElement('text',{'html':ticks[i].value.toLocaleString(),'x':x,'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 			}
-			graph.el.xaxis.appendChild(createElement('text',{'html':'Number of days since '+graph.mincases+' confirmed cases','x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
+			graph.el.xaxis.appendChild(createElement('text',{'html':'Days since '+graph.mincases+' confirmed cases','x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
 
 			// Update the y-axis labels and lines
