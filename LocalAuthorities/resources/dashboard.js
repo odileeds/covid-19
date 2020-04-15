@@ -24,42 +24,44 @@
 			}
 		},
 		'uk-historic':{
-			'src':'https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv',
-			'dataType':'csv',
+			'src':'data/utla.json',
+			'dataType':'json',
 			'requires': ['conversion','populations'],
-			'preProcess': function(d){
-				var data,byid,max,i,name;
-				data = CSV.toJSON(d);
+			'preProcess': function(dat){
+				var data,byid,max,i,name,d,d2,id,id2;
+				data = dat.data;
 				byid = {};
 				max = 0;
-				for(i = 0; i < data.length; i++){
-					id = data[i].AreaCode;
+				for(id in data){
 
 					if(id && id.indexOf('W06')!=0){
+						name = data[id].n;
 
-						name = data[i].Area;
-
-						// Fix for Cornwall/IslesOfScilly and Hackney/CityOfLondon which are 
-						// reported as the first LA so we turn that into a fake UTLA
-						if(id == "E06000052" || id == "E06000053"){ id = "E06000052-3"; name = "Cornwall and Isles of Scilly" }
-						if(id == "E09000001" || id == "E09000012"){ id = "E09000001-12"; name = "Hackney and City of London"; }
-						
-						if(!byid[id]) byid[id] = {'days':{},'dates':{'max':'2000-01-01','min':'3000-01-01'},'country':data[i].Country,'name':name,'max':0};
+						if(!byid[id]) byid[id] = {'days':{},'dates':{'max':'2000-01-01','min':'3000-01-01'},'name':name,'max':0};
 						byid[id].population = (datasources['populations'].data[id]||0);
 						byid[id].GSS_CD = id;
 						byid[id].GSS_NM = byid[id].name;
-						byid[id].TotalCases = byid[id].max;
-						t = parseInt(data[i].TotalCases);
-						byid[id].cases = t;
+						byid[id].country = data[id].c;
+						byid[id].cases = 0;
 
-						if(t > 0){
-							byid[id].days[data[i]['Date']] = {'cases':t,'percapita':0};
-							if(t > max) max = t;
-							if(t > byid[id].max) byid[id].max = t;
-							// Update the maximum date
-							if(data[i]['Date'] > byid[id].dates.max) byid[id].dates.max = data[i]['Date'];
-							// Update the minimum date
-							if(data[i]['Date'] < byid[id].dates.min) byid[id].dates.min = data[i]['Date'];
+						for(d in data[id].v){
+							t = data[id].v[d];
+							d2 = d.substr(0,4)+'-'+d.substr(4,2)+'-'+d.substr(6,2);
+							if(t > byid[id].cases){ byid[id].cases = t; }
+							
+							if(t > 0){
+								byid[id].days[d2] = {'cases':t,'percapita':0};
+								if(t > max) max = t;
+
+								// Update the maximum value
+								if(t > byid[id].max) byid[id].max = t;
+
+								// Update the maximum date
+								if(d2 > byid[id].dates.max) byid[id].dates.max = d2;
+
+								// Update the minimum date
+								if(d2 < byid[id].dates.min) byid[id].dates.min = d2;
+							}
 						}
 					}else{
 						//console.warn('No ID given for row '+i,data[i]);
@@ -77,8 +79,7 @@
 
 				for(var code in byid){
 					if(byid[code]){
-
-						byid[code].percapita = (datasources['populations'].data[code]) ? 1e5*byid[code].TotalCases/datasources['populations'].data[code] : 0;
+						byid[code].percapita = (datasources['populations'].data[code]) ? 1e5*byid[code].cases/datasources['populations'].data[code] : 0;
 
 						if(lookup[code]){
 							if(!lookup[code].LA) console.error('No LA for '+code,lookup[code]);
