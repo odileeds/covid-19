@@ -114,14 +114,16 @@ figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
 .notes p:last-child { margin-bottom: 0px; }
 #timeline { padding: 0; margin: 0; }
 #timeline table { width: 100%; }
-#timeline table h3 { margin-top: 1em; }
-#timeline table tr td { vertical-align: bottom; }
+#timeline table h3 { margin-top: 1em; font-weight: bold; }
+#timeline table tr.header-row td { vertical-align: bottom; border-bottom: 1px solid #999; padding: 1em 0 0.25em 0; }
+#timeline table tr.header-row td:last-child { color: #666666; padding-bottom: 0px; font-size: 0.8em; }
 #timeline table tr.timeline-row td { vertical-align: middle; }
+#timeline table tr.timeline-row.first-row td { padding-top: 4px; }
 #timeline table tr:hover { background: #ccc; }
 #timeline table tr:hover .tl .c { opacity: 1; }
-#timeline table td.ntl { padding: 0 0.25em; width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#timeline table .tl { width: 100%; display: grid; grid-gap: 2px; }
-#timeline table .tl .c { margin: 1px 0; height: 1.5em; cursor: pointer; opacity: 0.9; }
+#timeline table td.ntl { padding: 0 0 0 0.25em; width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#timeline table .tl { width: 100%; display: grid; grid-gap: 2px; margin: 1px 0; }
+#timeline table .tl .c { height: 1.5em; cursor: pointer; opacity: 0.9; }
 
 .label {
 	transform: translate3d(0,-50%,0);
