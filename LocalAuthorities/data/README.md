@@ -8,7 +8,7 @@ Tom White compiles [UK historical data](https://github.com/tomwhite/covid-19-uk-
 
 ### England
 
-~~[Public Health England](https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases) provide [COVID-19 cases as a CSV](https://www.arcgis.com/home/item.html?id=b684319181f94875a6879bbc833ca3a6).~~
+~~[Public Health England](https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases) provide [COVID-19 cases as a CSV](https://www.arcgis.com/home/item.html?id=b684319181f94875a6879bbc833ca3a6).~~ [Confirmed cases for England, Wales, Scotland, and Northern Ireland](https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv) are collated by Tom White.
 
 The populations for England come from [ONS population estimates](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandtable2) extracted to [populations.csv](populations.csv). We have extracted values for `All ages` in `2020` and included the following additions:
 
