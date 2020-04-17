@@ -157,8 +157,8 @@ ul.toggles label { cursor: pointer; }
 ul.toggles .close { cursor: pointer; position: relative; }
 ul.toggles .close input { opacity: 0; position: absolute; left: 0px; top: 0px; margin: 0; padding: 0; width: 100%; height: 100%; cursor: pointer; }
 ul.toggles li .close:hover, ul.toggles li .close:focus { color: white; }
-	
-#search { position: absolute; display: block; width: 100%; max-width: 100%; z-index: 1002; }
+
+#search { display: block; width: 100%; max-width: 100%; z-index: 1002; }
 #search .search-inner { position: relative; }
 #search .search-button {
 	position: absolute;
@@ -216,6 +216,34 @@ ul.toggles li .close:hover, ul.toggles li .close:focus { color: white; }
 	background-color: #444;
 	color: white;
 }
+#hexmap-colour-scale {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-gap: 1em; 
+	line-height: 2em;
+	margin-top: 1em;
+}
+#hexmap-colour-scale label { display: none; }
+#hexmap-colour-scale select {
+	font-size: 1em;
+	width: 100%;
+	height: 2em;
+}
+.key .bar {
+	height: 2em;
+	position: relative;
+	display: block;
+	border: 1px solid #666666;
+}
+.key .range {
+	display: block;
+	line-height: 1.5em;
+	font-size: 0.8em;
+}
+.key .range .min { float: left; padding-left: 0.25em; border-left: 1px solid #666666; }
+.key .range .max { float: right; padding-right: 0.25em; border-right: 1px solid #666666; }
+#timeline .key { display: block; max-width: 300px; width: 100%; margin-top: 1em; float: right;  }
+#timeline .key .bar { height: 1em; }
 
 
 

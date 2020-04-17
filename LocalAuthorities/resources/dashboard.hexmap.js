@@ -31,7 +31,7 @@
 					'render': render
 				},
 				'property': 'percapita',
-				'key': function(filter){
+				'keysetup': function(filter){
 					var _obj = this;
 					var min = 0;
 					var max = -1e100;
@@ -43,10 +43,12 @@
 						}
 					}
 					this.hex.setColours = function(region){
-						if(_obj.data[type][region]) return Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
-						else return "#dfdfdf";
+						var f = "#dfdfdf";
+						if(_obj.data[type][region]) f = Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
+						return {'fill':f,'min':min,'max':max};
 					};
-					return '';
+
+					return {'min':min,'max':max};
 				}
 			},
 			'COVID-19-cases':{
@@ -55,7 +57,7 @@
 					'render': render
 				},
 				'property':'cases',
-				'key': function(filter){
+				'keysetup': function(filter){
 					var _obj = this;
 					var min = 0;
 					var max = -1e100;
@@ -67,10 +69,12 @@
 						}
 					}
 					this.hex.setColours = function(region){
-						if(_obj.data[type][region]) return Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
-						else return "#dfdfdf";
+						var f = "#dfdfdf";
+						if(_obj.data[type][region]) f = Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
+						return {'fill':f,'min':min,'max':max};
 					};
-					return '';
+
+					return {'min':min,'max':max};
 				}
 			}
 		};
@@ -788,15 +792,19 @@
 			}
 			return this;
 		};
-
+		
 		this.updateColours = function(){
 			var fn = (typeof this.setColours==="function") ? this.setColours : function(){ return this.style['default'].fill; };
+			var result,scale;
 			for(var region in this.mapping.hexes){
 				if(this.mapping.hexes[region]){
-					this.hexes[region].fillcolour = fn.call(this,region);
+					result = fn.call(this,region);
+					this.hexes[region].fillcolour = result.fill;
 					this.setHexStyle(region);
 				}
 			}
+			
+			if(typeof this.buildScale==="function") scale = this.buildScale.call(this,result);
 
 			return this;
 		};
@@ -973,12 +981,16 @@
 		this.files = {};
 		this.views = attr.views;
 		var _obj = this;
-
-		if(S('#data-selector').length > 0) this.type = S('#data-selector')[0].value;
-		if(S('.view-toggle').length > 0) this.type = document.querySelector('input[name="view"]:checked').id;
+		if(S('.view-toggle').length > 0){
+			var views = document.querySelectorAll('input[name="view"]');
+			checked = 0;
+			for(var i = 0; i < views.length; i++){
+				if(views[i].getAttribute('checked')=="checked") checked = i;
+			}
+			this.type = views[checked].id;
+		}
 
 		this.defaulttype = this.type;
-
 
 		function updateToggles(){
 			S('.view-toggle').parent().removeClass('on').addClass('off');
@@ -1048,16 +1060,27 @@
 			// Have we changed type?
 			if(t==this.by){
 				console.log('no change');
-				return this;
+				update = false;
 			}
 
 			_parent.qs.hextype = t;
-			_parent.updateHistory();
+			if(update) _parent.updateHistory();
 
 			this.updateData(t,d);
 
 			return this;
 		};
+
+		this.updateView = function(id,updateHistory){
+			var input = document.querySelectorAll('input[name="view"]');
+			for(var i = 0; i < input.length; i++){
+				if(id==input[i].getAttribute('id')) input[i].checked = true;
+				else input[i].checked = false;
+			}
+			this.setType(id,document.querySelector('input[name="view"]:checked').getAttribute('data'),updateHistory);
+			updateToggles();
+			return this;
+		}
 
 		this.updateData = function(type,dtype){
 			if(!dtype) dtype = document.querySelector('input[name="view"]:checked').getAttribute('data');
@@ -1215,9 +1238,9 @@
 		};
 
 		this.setColours = function(type,dtype){
-			var i,p,key;
+			var i,p,colourscale,key;
 			if(!type) type = "";
-			
+
 			if(S('#data-selector').length > 0) S('#data-selector')[0].value = type;
 			if(S('.view-toggle').length > 0){
 				var options = S('.view-toggle');
@@ -1235,13 +1258,8 @@
 			this.by = type;
 			this.bysrc = dtype;
 
-			key = "";
-
 			// Set the function for changing the colours and creating the key
-			if(this.views[type] && typeof this.views[type].key==="function") key = this.views[type].key.call(this,this.views[type].property);
-
-			// Update the key
-			S('#key').html(key);
+			if(this.views[type] && typeof this.views[type].keysetup==="function") range = this.views[type].keysetup.call(this,this.views[type].property);
 
 			// Update the map colours
 			this.hex.updateColours();

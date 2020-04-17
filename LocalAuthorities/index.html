@@ -68,7 +68,19 @@
 
 					<div id="hexmap" style="text-align:center;margin:auto;">
 					</div>
-					<div id="key"></div>
+					<form id="hexmap-form">
+						<div id="hexmap-colour-scale">
+							<label for="colour-scale" class="search-button">Colour scale</label>
+							<select id="colour-scale">
+								<option value="">Select a colour scale</option>
+								<option value="Viridis" selected="selected">Viridis (purple-green-yellow)</option>
+								<option value="Heat">Heat (black-orange-yellow)</option>
+								<option value="Plasma">Plasma (blue-orange-yellow)</option>
+							</select>
+							<div class="key">Key</div>
+						</div>
+					</form>
+
 					<figcaption>Visualisation: Stuart Lowe, <a href="https://github.com/odileeds/hexmaps/">ODI Leeds</a> / Data: <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">Tom White's COVID-19 UK Historical Data, ONS et al</a>.</figcaption>
 				</div>
 				<div class="notes">
@@ -83,7 +95,7 @@
 				<h2>Timeline (per capita)</h2>
 				<div>
 					<div id="timeline"></div>
-					<div id="timeline-key"></div>
+					<div id="timeline-key" class="key"></div>
 					<figcaption>Visualisation: Stuart Lowe, <a href="https://github.com/odileeds/hexmaps/">ODI Leeds</a> / Data: <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">Tom White's COVID-19 UK Historical Data, ONS et al</a>.</figcaption>
 				</div>
 				<div class="notes">

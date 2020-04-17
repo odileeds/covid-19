@@ -104,7 +104,7 @@
 								}
 							}
 						}else{
-							console.warn('No hex for '+code+' and no UTLA lookup');
+							//console.warn('No hex for '+code+' and no UTLA lookup');
 						}
 
 						if(!byid[code].days) console.error('bad days early',code,byid[code]);
@@ -190,6 +190,12 @@
 					if(this.panels[id].src) this.loadPlugin(id,this.panels[id].src,{});
 				}
 			}
+			
+			// Add events			
+			S('#colour-scale').on('change',{me:this},function(e){
+				e.data.me.updateColourScale(e.currentTarget.value);
+				e.data.me.updateHistory();
+			});
 		}
 
 		this.loadPlugin = function(id,file){
@@ -219,9 +225,34 @@
 		};
 
 		this.loadedPlugins = function(){
+			console.log('loadedPlugins');
 			for(id in this.plugins){
 				// Initiate the plugin
 				if(typeof this.plugins[id].init==="function") this.plugins[id].init.call(this);
+			}
+
+			var _obj = this;
+
+			if(this.plugins.hexmap && this.plugins.hexmap.obj){
+				// Define a function to display the scalebar
+				this.plugins.hexmap.obj.hex.buildScale = function(r){
+					var html = "";
+					// Update the key
+					if(r && r.max > -1e100) html = '<div class="bar" style="background:linear-gradient(to right, '+Colour.getColourScale(_obj.qs.colourscale||"Viridis")+');"></div><div class="range"><span class="min">'+Math.round(r.min)+'</span><span class="max">'+Math.round(r.max)+(_obj.qs.hextype=="COVID-19-percapita" ? '/'+(1e5).toLocaleString() : '')+'</span></div>';
+					S('#hexmap-colour-scale .key').html(html);
+					return this;
+				};
+			}
+			if(this.plugins.timeline && this.plugins.timeline.obj){
+				// Define a function to display the scalebar
+				this.plugins.timeline.obj.buildScale = function(r){
+					var html = "";
+					// Update the key
+					if(r && r.max > -1e100) html = '<div class="bar" style="background:linear-gradient(to right, '+Colour.getColourScale(_obj.qs.colourscale||"Viridis")+');"></div><div class="range"><span class="min">'+Math.round(r.min)+'</span><span class="max">'+Math.round(r.max)+(_obj.qs.hextype=="COVID-19-percapita" ? '/'+(1e5).toLocaleString() : '')+'</span></div>';
+					S('#timeline .key').html(html);
+					return this;
+				};
+				this.plugins.timeline.obj.draw();
 			}
 			return this;
 		}
@@ -244,13 +275,32 @@
 			if(this.pushstate) history.pushState({'areas':a,'hexes':h,'colourscale':c},"COVID-19",(str ? '?'+str : '?'));
 		};
 
+		this.updateColourScale = function(cs){
+			this.qs.colourscale = cs;
+
+			if(this.plugins.hexmap && this.plugins.hexmap.obj) this.plugins.hexmap.obj.hex.updateColours();
+			if(this.plugins.timeline && this.plugins.timeline.obj) this.plugins.timeline.obj.draw();
+
+			return this;
+		}
+
 		this.updateAreas = function(){
 
 			if(this.plugintoload > this.pluginloaded) console.error('not loaded');
 			var a;
 			this.qs = QueryString();
 			if(typeof this.qs.areas==="object") a = this.qs.areas;
+			
+			// Set the colour scale select box value
+			if(this.qs.colourscale){
+				S('#colour-scale')[0].value = (this.qs.colourscale);
+				// Update the colour scales
+				this.updateColourScale(this.qs.colourscale);
+			}
 
+
+			// Update the view
+			if(this.plugins.hexmap && this.plugins.hexmap.obj)  this.plugins.hexmap.obj.updateView(this.qs.hextype);
 
 			var plugins = this.plugins;
 

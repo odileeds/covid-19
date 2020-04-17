@@ -10,14 +10,15 @@
 	function init(){
 		_parent = this;
 		var timeline = new TimeLine({'id':'timeline'});
-		timeline.getData();
 		this.plugins[name].obj = timeline;
+		timeline.getData();
 		if(this.qs.areas) timeline.setAreas(this.qs.areas);
 	}
 	
 	function TimeLine(opts){
 		
 		this.id = opts.id;
+		this.areas = [];
 
 		this.getData = function(){
 
@@ -25,7 +26,7 @@
 				'this': this,
 				'loaded': function(data,attr){
 					this.data = data;
-					return this.draw(data);
+					return this.draw();
 				}
 			});
 
@@ -35,8 +36,19 @@
 		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); }
 
-		this.draw = function(d){
+		this.draw = function(){
 
+			if(this.areas.length > 0){
+				var data = {};
+				for(var a = 0; a < this.areas.length; a++){
+					data[this.areas[a]] = this.data[this.areas[a]];
+				}
+				d = data;
+			}else{
+				d = this.data;
+			}
+
+			
 
 			var d,id,max,min,maxcapita;
 			data = {};
@@ -46,8 +58,8 @@
 
 			this.maxdate = new Date('2000-01-01');
 			this.mindate = new Date('3000-01-01');
-			max = 0;
-			min = 1e100;
+			max = -1e100;
+			min = 0;
 			maxcapita = 0;
 			for(id in data){
 				if(data[id]){
@@ -77,7 +89,7 @@
 			for(var j = 0; j < keys.length; j++){
 				id = keys[j];
 				
-				if(id[0] != previd) html += '<tr class="header-row"><td><h3>'+nations[id[0]]+'</h3></td><td>'+getDate(this.mindate)+'<span style="float:right;">'+getDate(this.maxdate)+'</span></td></tr>';
+				if(id[0] != previd) html += '<tr class="header-row"><td><div class="key">Key</div><h3>'+nations[id[0]]+'</h3></td><td>'+getDate(this.mindate)+'<span style="float:right;">'+getDate(this.maxdate)+'</span></td></tr>';
 				html += '<tr id="timeline-'+id+'" class="timeline-row'+(id[0] != previd ? ' first-row' : '')+'">';
 				html += '<td class="ntl">'+data[id].name+'</td><td><div class="tl" style="grid-template-columns: repeat('+ndays+', 1fr); ">';
 				for(i = 0, d = new Date(mindate); i < ndays; d.setDate(d.getDate() + 1),i++){
@@ -95,20 +107,15 @@
 			
 			S('#'+this.id).html(html);
 			this.table = S('#'+this.id).find('.timeline');
+			
+			if(typeof this.buildScale==="function") scale = this.buildScale.call(this,{'min':0,'max':maxcapita});
 			return this;
 		}
 		
 		this.setAreas = function(areas){
+			this.areas = areas;
 			var tr = this.table.find('.timeline-row');
-			if(areas.length > 0){
-				var data = {};
-				for(var a = 0; a < areas.length; a++){
-					data[areas[a]] = this.data[areas[a]];
-				}
-				this.draw(data);
-			}else{
-				this.draw(this.data);
-			}
+			this.draw();
 		}
 		return this;
 	}
