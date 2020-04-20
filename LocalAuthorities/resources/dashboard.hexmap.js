@@ -1073,11 +1073,15 @@
 
 		this.updateView = function(id,updateHistory){
 			var input = document.querySelectorAll('input[name="view"]');
-			for(var i = 0; i < input.length; i++){
-				if(id==input[i].getAttribute('id')) input[i].checked = true;
-				else input[i].checked = false;
+			if(input){
+				for(var i = 0; i < input.length; i++){
+					if(id==input[i].getAttribute('id')) input[i].checked = true;
+					else input[i].checked = false;
+				}
+				this.setType(id,document.querySelector('input[name="view"]:checked').getAttribute('data'),updateHistory);
+			}else{
+				console.warn('No input[name="view"]');
 			}
-			this.setType(id,document.querySelector('input[name="view"]:checked').getAttribute('data'),updateHistory);
 			updateToggles();
 			return this;
 		}
