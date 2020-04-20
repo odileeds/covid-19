@@ -457,6 +457,7 @@
 
 		// Can load a file or a hexjson data structure
 		this.load = function(file,attr,fn){
+			console.log('load',file)
 			if(typeof attr==="function" && !fn){
 				fn = attr;
 				attr = "";
@@ -468,6 +469,7 @@
 					'complete': function(data){
 						this.setMapping(data);
 						this.search.init();
+						this.ready = true;
 						if(typeof fn==="function") fn.call(this,{'data':attr});
 					},
 					'error': this.failLoad,
@@ -477,6 +479,7 @@
 			}else if(typeof file==="object"){
 				this.setMapping(file);
 				this.search.init();
+				this.ready = true;
 				if(typeof fn==="function") fn.call(this,{'data':attr});
 			}
 			return this;
@@ -1072,17 +1075,18 @@
 		};
 
 		this.updateView = function(id,updateHistory){
-			var input = document.querySelectorAll('input[name="view"]');
-			if(input){
+			console.log('updateView',this.hex)
+			if(this.hex && this.hex.ready){
+				var input = document.querySelectorAll('input[name="view"]');
 				for(var i = 0; i < input.length; i++){
 					if(id==input[i].getAttribute('id')) input[i].checked = true;
 					else input[i].checked = false;
 				}
 				this.setType(id,document.querySelector('input[name="view"]:checked').getAttribute('data'),updateHistory);
+				updateToggles();
 			}else{
-				console.warn('No input[name="view"]');
+				console.warn('not ready');
 			}
-			updateToggles();
 			return this;
 		}
 
