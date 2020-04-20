@@ -198,6 +198,7 @@ ul.toggles li .close:hover, ul.toggles li .close:focus { color: white; }
 #search.searching input { display: inline-block; }
 .typeahead-results {
 	width: 100%;
+	z-index: 1000;
 }
 .typeahead-results ol {
 	list-style: none;
