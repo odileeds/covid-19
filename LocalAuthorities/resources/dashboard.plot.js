@@ -35,7 +35,7 @@
 			'mincases': 3
 		};
 		this.selected = {};
-		this.key = {'type':'cases','min':0,'max':0};
+		this.key = {'type':'percapita','min':0,'max':0};
 
 		this.graph = graph;
 		this.el = S('#logplot')[0];
