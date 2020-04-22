@@ -619,7 +619,6 @@
 			if(!msg[id] || !msg[id].el){
 				if(!msg[id]) msg[id] = {'original':el };
 				var xy = getXY(el);
-				console.log('add',id,xy,el);
 				info = document.createElement('div');
 				info.setAttribute("style",'left:'+xy.x+'px;top:'+xy.y+'px;position:absolute;');
 				info.setAttribute("id","label-"+id);
@@ -627,8 +626,7 @@
 				graph.el.svg.insertAdjacentElement('afterend',msg[id].el);
 			}else{
 				// Update location
-				var xy = getXY(el);
-				console.log('update',id,xy,el);
+				//var xy = getXY(el);
 			}
 			
 			el = S(msg[id].el);
