@@ -350,7 +350,7 @@
 
 			// See if areas match
 			if(opt){
-				if(opt.hextype!=this.qs.hextype) this.trigger('type',{'hextype':this.qs.hextype});
+				if(opt.hextype!=this.qs.hextype) this.trigger('type',{'hextype':this.qs.hextype||"COVID-19-percapita"});
 				if(opt.colourscale!=this.qs.colourscale){
 					// Set the colour scale select box value
 					S('#colour-scale')[0].value = (this.qs.colourscale);

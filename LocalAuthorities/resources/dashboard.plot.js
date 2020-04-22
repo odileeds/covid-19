@@ -322,7 +322,7 @@
 					}
 					if(!this.data[id].el){
 						this.data[id].el = createElement('g',{'id':'area-'+id});
-						this.data[id].line = createElement('path',{'style':{'stroke':'#999','stroke-width':'1px','fill':'transparent','opacity':0.3},'class':'line'});
+						this.data[id].line = createElement('path',{'style':{'stroke':'#999','stroke-width':'2px','fill':'transparent','opacity':0.3},'class':'line'});
 						this.data[id].area = createElement('path',{'style':{'fill':'#999','opacity':0.3,'fillOpacity':0.2},'class':'area'});
 						this.data[id].el.appendChild(this.data[id].line);
 						this.data[id].el.appendChild(this.data[id].area);
