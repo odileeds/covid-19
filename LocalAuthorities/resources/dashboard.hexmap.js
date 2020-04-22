@@ -995,11 +995,6 @@
 
 		this.defaulttype = this.type;
 
-		function updateToggles(){
-			S('.view-toggle').parent().removeClass('on').addClass('off');
-			S('#'+document.querySelector('input[name="view"]:checked').id).parent().removeClass('off').addClass('on');
-			return this;
-		}
 		
 		var t = _parent.qs.hextype;
 
@@ -1033,8 +1028,36 @@
 					}
 				}
 			}
-			updateToggles();
+			_parent.updateToggles();
 		}
+		
+		// Add callbacks to parent
+		_parent.on('type',{this:this},function(e){ this.updateData(e.hextype,e.d); });
+		_parent.on('colourscale',{this:this},function(e){ this.hex.updateColours(); });
+		_parent.on('typeahead',{this:this},function(e){
+			this.hex.search.key(e.value);
+			this.hex.search.active = true;
+		});
+		_parent.on('select',{this:this},function(e){
+			this.hex.search.pick(e.id);
+			this.hex.search.active = false;
+		});
+		_parent.on('typeaheadblur',{this:this},function(e){
+			this.hex.search.key('');
+			this.hex.search.active = false;
+		});
+		_parent.on('load',{this:this},function(e){
+			// Define a function to display the scalebar
+			this.hex.buildScale = function(r){
+				var html = "";
+				// Update the key
+				if(r && r.max > -1e100) html = '<div class="bar" style="background:linear-gradient(to right, '+Colour.getColourScale(_parent.qs.colourscale||"Viridis")+');"></div><div class="range"><span class="min">'+Math.round(r.min)+'</span><span class="max">'+Math.round(r.max)+(_parent.qs.hextype=="COVID-19-percapita" ? '/'+(1e5).toLocaleString() : '')+'</span></div>';
+				S('#hexmap-colour-scale .key').html(html);
+				return this;
+			};
+		});
+
+
 
 		// Create a hex map
 		var attrhex = JSON.parse(JSON.stringify(attr));
@@ -1045,7 +1068,7 @@
 
 		this.hex.load(attr.file,{me:this},function(e){
 			var el = document.querySelector('input[name="view"]:checked');
-			e.data.me.setType(e.data.me.type,el.getAttribute('data'),(e.data.me.type!=e.data.me.defaulttype ? true : false));
+			_parent.trigger("type",{"hextype":e.data.me.type,"d":el.getAttribute('data'),"update":(e.data.me.type!=e.data.me.defaulttype ? true : false)});
 		});
 
 		
@@ -1059,31 +1082,14 @@
 			if(this.iframe && S('.infobubble').length > 0) S('.infobubble').css({'top':'calc('+(this.iframe.top > 0 ? this.iframe.top : 0)+'px + 1em)','max-height':(this.iframe.height)+'px'});
 		};
 
-		this.setType = function(t,d,update){
-			// Have we changed type?
-			if(t==this.by){
-				console.log('no change');
-				update = false;
-			}
-
-			_parent.qs.hextype = t;
-			if(update) _parent.updateHistory();
-
-			this.updateData(t,d);
-
-			return this;
-		};
-
 		this.updateView = function(id,updateHistory){
-			console.log('updateView',this.hex)
 			if(this.hex && this.hex.ready){
 				var input = document.querySelectorAll('input[name="view"]');
 				for(var i = 0; i < input.length; i++){
 					if(id==input[i].getAttribute('id')) input[i].checked = true;
 					else input[i].checked = false;
 				}
-				this.setType(id,document.querySelector('input[name="view"]:checked').getAttribute('data'),updateHistory);
-				updateToggles();
+				_parent.trigger("type",{'hextype':id,'d':document.querySelector('input[name="view"]:checked').getAttribute('data'),'update':updateHistory});
 			}else{
 				console.warn('not ready');
 			}
@@ -1192,15 +1198,6 @@
 
 			return this;
 		};
-
-
-		// Add events to buttons for colour changing
-		S('.view-toggle').on('change',{me:this},function(e){
-			updateToggles();
-			var el = document.querySelector('input[name="view"]:checked');
-			var id = el.id;
-			e.data.me.setType(id,el.getAttribute('data'),true);
-		});
 
 		S(document).on('keypress',function(e){
 			//if(e.originalEvent.charCode==109) S('#savesvg').trigger('click');     // M

@@ -118,6 +118,7 @@ figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
 #timeline table tr.header-row td { vertical-align: bottom; border-bottom: 1px solid #999; padding: 1em 0.25em 0.25em 0.25em; }
 #timeline table tr.header-row td:last-child { color: #666666; padding-bottom: 0px; font-size: 0.8em; }
 #timeline table tr.timeline-row td { vertical-align: middle; }
+#timeline table tr td .daterange { width: 100%; }
 #timeline table tr.timeline-row.first-row td { padding-top: 4px; }
 #timeline table tr.timeline-row:hover { background: #ccc; }
 #timeline table tr.timeline-row:hover .tl .c { opacity: 1; }
@@ -243,7 +244,8 @@ ul.toggles li .close:hover, ul.toggles li .close:focus { color: white; }
 }
 .key .range .min { float: left; padding-left: 0.25em; border-left: 1px solid #666666; }
 .key .range .max { float: right; padding-right: 0.25em; border-right: 1px solid #666666; }
-#timeline .key { display: block; max-width: 300px; width: 100%; margin-top: 1em; float: right;  }
+#timeline .key { display: block; max-width: 300px; right: 0; width: 100%; height: 2.5em; overflow: hidden; margin-left:auto; }
+#timeline .key .range { height: 1.5em; }
 #timeline .key .bar { height: 1em; }
 
 

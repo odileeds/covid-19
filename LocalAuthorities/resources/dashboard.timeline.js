@@ -32,13 +32,40 @@
 
 			return this;
 		}
+		this.key = {'type':'percapita'};
 
 		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); }
 
+		_parent.on('colourscale',{this:this},function(e){ this.draw(); });
+		_parent.on('changeareas',{this:this},function(e){ this.setAreas(e.areas); });
+		_parent.on('load',{this:this},function(e){
+			// Define a function to display the scalebar
+			this.buildScale = function(r){
+				var html = "";
+				// Update the key
+				if(r && r.max > -1e100) html = '<div class="bar" style="background:linear-gradient(to right, '+Colour.getColourScale(_parent.qs.colourscale||"Viridis")+');"></div><div class="range"><span class="min">'+Math.round(r.min)+'</span><span class="max">'+Math.round(r.max)+(_parent.qs.hextype=="COVID-19-percapita" ? '/'+(1e5).toLocaleString() : '')+'</span></div>';
+				S('#timeline .key').html(html);
+				return this;
+			};
+			this.draw();
+		});
+		_parent.on("type",{this:this},function(e){
+			if(!e.hextype) e.hextype = "COVID-19-cases";
+			if(e.hextype) e.hextype = e.hextype.replace('COVID-19-','');
+			this.key.type = e.hextype;
+			if(this.key.type=="cases"){
+				this.key.yaxis = "Cumulative confirmed cases";
+			}else if(this.key.type=="percapita"){
+				this.key.yaxis = "Cumulative cases per 100,000";
+			}
+			this.draw();
+			return this;
+		});
+
 		this.draw = function(){
 
-			if(this.areas.length > 0){
+			if(this.areas && this.areas.length > 0){
 				var data = {};
 				for(var a = 0; a < this.areas.length; a++){
 					data[this.areas[a]] = this.data[this.areas[a]];
@@ -48,29 +75,22 @@
 				d = this.data;
 			}
 
-			
-
-			var d,id,max,min,maxcapita;
+			var d,id,max,min;
 			data = {};
 			for(id in d){
-				if(!d[id].added) data[id] = d[id];
+				if(d[id] && !d[id].added) data[id] = d[id];
 			}
 
 			this.maxdate = new Date('2000-01-01');
 			this.mindate = new Date('3000-01-01');
 			max = -1e100;
 			min = 0;
-			maxcapita = 0;
+			
 			for(id in data){
 				if(data[id]){
 					for(d in data[id].days){
-						data[id].days[d].percapita = 0;
-						if(data[id].population > 0){
-							data[id].days[d].percapita = data[id].days[d].cases*1e5/data[id].population;
-							if(data[id].days[d].percapita > maxcapita) maxcapita = data[id].days[d].percapita;
-						}
+						if(data[id].days[d][this.key.type] > max) max = data[id].days[d][this.key.type];
 					}
-					if(data[id].max > max) max = data[id].max;
 					if(data[id].maxdate > this.maxdate) this.maxdate = data[id].maxdate;
 					if(data[id].mindate < this.mindate) this.mindate = data[id].mindate;
 				}
@@ -89,13 +109,13 @@
 			for(var j = 0; j < keys.length; j++){
 				id = keys[j];
 				
-				if(id[0] != previd) html += '<tr class="header-row"><td><div class="key">Key</div><h3>'+nations[id[0]]+'</h3></td><td>'+getDate(this.mindate)+'<span style="float:right;">'+getDate(this.maxdate)+'</span></td></tr>';
+				if(id[0] != previd) html += '<tr class="header-row"><td><h3>'+nations[id[0]]+'</h3></td><td><div class="key">Key</div><div class="daterange">'+getDate(this.mindate)+'<span style="float:right;">'+getDate(this.maxdate)+'</span></div></td></tr>';
 				html += '<tr id="timeline-'+id+'" class="timeline-row'+(id[0] != previd ? ' first-row' : '')+'">';
 				html += '<td class="ntl">'+data[id].name+'</td><td><div class="tl" style="grid-template-columns: repeat('+ndays+', 1fr); ">';
 				for(i = 0, d = new Date(mindate); i < ndays; d.setDate(d.getDate() + 1),i++){
 					iso = d.toISOString().substr(0,10);
 					if(data[id].days[iso]){
-						html += '<div class="c" style="background-color:'+Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),data[id].days[iso].percapita,0,maxcapita)+'" title="'+iso+': '+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)"></div>';
+						html += '<div class="c" style="background-color:'+Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),data[id].days[iso][this.key.type],0,max)+'" title="'+iso+': '+Math.round(data[id].days[iso].percapita)+'/100,000 ('+data[id].days[iso].cases+' cases)"></div>';
 					}else{
 						html += '<div class="c"></div>'
 					}
@@ -108,14 +128,17 @@
 			S('#'+this.id).html(html);
 			this.table = S('#'+this.id).find('.timeline');
 			
-			if(typeof this.buildScale==="function") scale = this.buildScale.call(this,{'min':0,'max':maxcapita});
+			if(typeof this.buildScale==="function") scale = this.buildScale.call(this,{'min':min,'max':max});
+
 			return this;
 		}
 		
+
 		this.setAreas = function(areas){
 			this.areas = areas;
 			var tr = this.table.find('.timeline-row');
 			this.draw();
+			return this;
 		}
 		return this;
 	}

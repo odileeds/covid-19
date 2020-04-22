@@ -33,10 +33,22 @@
 			<div id="toggle-holder"></div>
 		</div>
 
+		<div class="controls">
+			<form>
+				<div class="control off">
+					<input type="radio" class="view-toggle switchdata" id="COVID-19-cases" data="COVID-19" name="view" /><label for="COVID-19-cases">Confirmed cases</label>
+				</div>
+				<div class="control on">
+					<input type="radio" class="view-toggle switchdata" id="COVID-19-percapita" data="COVID-19" name="view" checked="checked" /><label for="COVID-19-per-capita">Per capita</label>
+				</div>
+			</form>
+		</div>
+
+
 		<ul class="grid">
 		<li>
 			<figure class="b5-bg doublepadded">
-				<h2>Confirmed cases by area</h2>
+				<h2>Area graph<span class="hextype"></span></h2>
 				<p>Areas include Upper Tier Local Authorities and health boards depending on how figures are reported locally.</p>
 				<div id="logplot"></div>
 				<figcaption>Visualisation: Stuart Lowe, <a href="https://odileeds.org/">ODI Leeds</a> / Data: <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">Tom White's COVID-19 UK Historical Data, ONS et al</a>.</figcaption>
@@ -53,19 +65,8 @@
 		</li>
 		<li>
 			<figure class="b5-bg doublepadded">
-				<h2>UK hex map</h2>
+				<h2>UK hex map<span class="hextype"></span></h2>
 				<div>
-					<div class="controls">
-						<form>
-							<div class="control on">
-								<input type="radio" class="view-toggle switchdata" id="COVID-19-percapita" data="COVID-19" name="view" checked="checked" /><label for="COVID-19-per-capita">Per capita</label>
-							</div>
-							<div class="control off">
-								<input type="radio" class="view-toggle switchdata" id="COVID-19-cases" data="COVID-19" name="view" /><label for="COVID-19-cases">Cases</label>
-							</div>
-						</form>
-					</div>
-
 					<div id="hexmap" style="text-align:center;margin:auto;">
 					</div>
 					<form id="hexmap-form">
@@ -92,10 +93,9 @@
 		</li>
 		<li class="fullwidth">
 			<figure class="b5-bg doublepadded">
-				<h2>Timeline (per capita)</h2>
+				<h2>Timeline<span class="hextype"></span></h2>
 				<div>
 					<div id="timeline"></div>
-					<div id="timeline-key" class="key"></div>
 					<figcaption>Visualisation: Stuart Lowe, <a href="https://github.com/odileeds/hexmaps/">ODI Leeds</a> / Data: <a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data/README.md">Tom White's COVID-19 UK Historical Data, ONS et al</a>.</figcaption>
 				</div>
 				<div class="notes">

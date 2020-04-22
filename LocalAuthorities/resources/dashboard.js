@@ -3,6 +3,17 @@
  */
 (function(root){
 
+	var G = {};
+	G.extend = function(out){
+		out = out || {};
+		for(var i = 1; i < arguments.length; i++){
+			if(!arguments[i]) continue;
+			for(var key in arguments[i]){
+				if (arguments[i].hasOwnProperty(key)) out[key] = arguments[i][key];
+			}
+		}
+		return out;
+	};
 	var lookup = {};
 	var datasources = {
 		'populations':{
@@ -80,6 +91,9 @@
 				for(var code in byid){
 					if(byid[code]){
 						byid[code].percapita = (datasources['populations'].data[code]) ? 1e5*byid[code].cases/datasources['populations'].data[code] : 0;
+						for(d in byid[code].days){
+							byid[code].days[d].percapita = (datasources['populations'].data[code]) ? 1e5*byid[code].days[d].cases/datasources['populations'].data[code] : 0;
+						}
 						byid[code].desc = '<strong>Total cases:</strong> '+byid[code].cases+(byid[code].date ? ' (as of '+byid[code].date+')':'')+'.<br /><strong>Population ('+(byid[code].GSS_CD.substr(0,1)=="E" ? '2020':'mid 2018')+'):</strong> '+(datasources['populations'].data[code] ? datasources['populations'].data[code].toLocaleString():'?')+'.<br /><strong>Cases per 100,000 people:</strong> '+Math.round(byid[code].percapita)+'.';
 
 						if(lookup[code]){
@@ -121,8 +135,8 @@
 	}
 	function DashboardBuilder(opts){
 		this.qs = QueryString();
-		this.cache = {};
 		this.queue = [];
+		this.events = {};
 		this.panels = opts.panels||{};
 		this.plugins = opts.plugins||{};
 		this.base = (typeof opts.base==="string") ? opts.base : 'resources/';
@@ -135,10 +149,49 @@
 		if(this.pushstate){
 			window[(this.pushstate) ? 'onpopstate' : 'onhashchange'] = function(e){
 				console.log('change',e.state);
-				if(e.state && e.state.type) _obj.updateAreas(e.state.type);
-				else _obj.updateAreas(_obj.defaulttype);
+				if(e.state && e.state.type) _obj.updateState(e.state);
+				else _obj.updateState({'areas':_obj.qs.areas,'hextype':_obj.qs.hextype,'colourscale':_obj.qs.colourscale});
 			};
 		}
+
+		/**
+		 * @desc Attach a handler to an event for the Canvas object
+		 * @usage canvas.on(eventType[,eventData],handler(eventObject));
+		 * @usage canvas.on("resize",function(e){ console.log(e); });
+		 * @usage canvas.on("resize",{me:this},function(e){ console.log(e.data.me); });
+		 * @param {string} ev - the event type
+		 * @param {object} e - any properties to add to the output as e.data
+		 * @param {function} fn - a callback function
+		 */
+		this.on = function(ev,e,fn){
+			if(typeof ev!="string") return this;
+			if(typeof fn==="undefined"){
+				fn = e;
+				e = {};
+			}else{
+				e = {data:e};
+			}
+			if(typeof e!="object" || typeof fn!="function") return this;
+			if(this.events[ev]) this.events[ev].push({e:e,fn:fn});
+			else this.events[ev] = [{e:e,fn:fn}];
+			return this;
+		};
+
+		/**
+		 * @desc Trigger a defined event with arguments. This is for internal-use to be sure to include the correct arguments for a particular event
+		 */
+		this.trigger = function(ev,args){
+			if(typeof ev != "string") return;
+			if(typeof args != "object") args = {};
+			var o = [];
+			if(typeof this.events[ev]=="object"){
+				for(var i = 0 ; i < this.events[ev].length ; i++){
+					var e = G.extend(this.events[ev][i].e,args);
+					if(typeof this.events[ev][i].fn == "function") o.push(this.events[ev][i].fn.call((e['data']['this']||this),e));
+				}
+			}
+			if(o.length > 0) return o;
+		};
 
 		this.init = function(){
 			this.datatoload = 0;
@@ -194,10 +247,48 @@
 			
 			// Add events			
 			S('#colour-scale').on('change',{me:this},function(e){
-				e.data.me.updateColourScale(e.currentTarget.value);
-				e.data.me.updateHistory();
+				e.data.me.trigger('colourscale',{'colourscale':e.currentTarget.value});
+			});
+
+			// Add events to buttons for colour changing
+			S('.view-toggle').on('change',{me:this},function(e){
+				var el = document.querySelector('input[name="view"]:checked');
+				e.data.me.trigger('type',{'hextype':el.id,'d':el.getAttribute('data'),'update':true});
 			});
 		}
+		
+		// Add callbacks for type and colourscale
+		this.on("type",{me:this},function(e){
+			var update = e.update;
+			// Have we changed type?
+			if(e.hextype==this.qs.hextype) update = false;
+			this.qs.hextype = e.hextype;
+			// Update the history?
+			if(update) this.updateHistory();
+
+			// Update the DOM
+			this.updateToggles();
+			
+			var lbl = '';
+			if(this.qs.hextype == "COVID-19-percapita") lbl = 'per capita';
+			if(this.qs.hextype == "COVID-19-cases") lbl = 'confirmed cases';
+			S('.hextype').html(lbl ? ' ('+lbl+')':'');
+			return e.data.me;
+		});
+		this.on("colourscale",{me:this},function(e){
+			var update = (e.colourscale != this.qs.colourscale);
+			// Set the value
+			this.qs.colourscale = e.colourscale;
+			if(update) this.updateHistory();
+			return this;
+		});
+
+
+		this.updateToggles = function(){
+			S('.view-toggle').parent().removeClass('on').addClass('off');
+			S('#'+document.querySelector('input[name="view"]:checked').id).parent().removeClass('off').addClass('on');
+			return this;			
+		};
 
 		this.loadPlugin = function(id,file){
 			if(typeof file!=="string") return this;
@@ -231,30 +322,7 @@
 				// Initiate the plugin
 				if(typeof this.plugins[id].init==="function") this.plugins[id].init.call(this);
 			}
-
-			var _obj = this;
-
-			if(this.plugins.hexmap && this.plugins.hexmap.obj){
-				// Define a function to display the scalebar
-				this.plugins.hexmap.obj.hex.buildScale = function(r){
-					var html = "";
-					// Update the key
-					if(r && r.max > -1e100) html = '<div class="bar" style="background:linear-gradient(to right, '+Colour.getColourScale(_obj.qs.colourscale||"Viridis")+');"></div><div class="range"><span class="min">'+Math.round(r.min)+'</span><span class="max">'+Math.round(r.max)+(_obj.qs.hextype=="COVID-19-percapita" ? '/'+(1e5).toLocaleString() : '')+'</span></div>';
-					S('#hexmap-colour-scale .key').html(html);
-					return this;
-				};
-			}
-			if(this.plugins.timeline && this.plugins.timeline.obj){
-				// Define a function to display the scalebar
-				this.plugins.timeline.obj.buildScale = function(r){
-					var html = "";
-					// Update the key
-					if(r && r.max > -1e100) html = '<div class="bar" style="background:linear-gradient(to right, '+Colour.getColourScale(_obj.qs.colourscale||"Viridis")+');"></div><div class="range"><span class="min">'+Math.round(r.min)+'</span><span class="max">'+Math.round(r.max)+(_obj.qs.hextype=="COVID-19-percapita" ? '/'+(1e5).toLocaleString() : '')+'</span></div>';
-					S('#timeline .key').html(html);
-					return this;
-				};
-				this.plugins.timeline.obj.draw();
-			}
+			this.trigger('load');
 			return this;
 		}
 		
@@ -273,38 +341,35 @@
 			str += (str ? '&':'')+(h ? 'hextype='+h : "");
 			c = (this.qs.colourscale || "");
 			str += (str ? '&':'')+(c ? 'colourscale='+c : "");
-			if(this.pushstate) history.pushState({'areas':a,'hexes':h,'colourscale':c},"COVID-19",(str ? '?'+str : '?'));
+			if(this.pushstate) history.pushState({'areas':a,'hextype':h,'colourscale':c},"COVID-19",(str ? '?'+str : '?'));
 		};
 
-		this.updateColourScale = function(cs){
-			this.qs.colourscale = cs;
+		this.updateState = function(opt){
+			
+			this.updateAreas();
 
-			if(this.plugins.hexmap && this.plugins.hexmap.obj) this.plugins.hexmap.obj.hex.updateColours();
-			if(this.plugins.timeline && this.plugins.timeline.obj) this.plugins.timeline.obj.draw();
-
+			// See if areas match
+			if(opt){
+				if(opt.hextype!=this.qs.hextype) this.trigger('type',{'hextype':this.qs.hextype});
+				if(opt.colourscale!=this.qs.colourscale){
+					// Set the colour scale select box value
+					S('#colour-scale')[0].value = (this.qs.colourscale);
+					// Update the colour scales
+					this.trigger("colourscale",{'colourscale':this.qs.colourscale});
+				}
+			}
 			return this;
 		}
 
 		this.updateAreas = function(){
 
-			if(this.plugintoload > this.pluginloaded) console.error('not loaded');
 			var a;
 			this.qs = QueryString();
-			if(typeof this.qs.areas==="object") a = this.qs.areas;
+			if(typeof this.qs.areas==="object"){
+				a = this.qs.areas;
 			
-			// Set the colour scale select box value
-			if(this.qs.colourscale){
-				S('#colour-scale')[0].value = (this.qs.colourscale);
-				// Update the colour scales
-				this.updateColourScale(this.qs.colourscale);
 			}
-
-
-			// Update the view
-			if(this.plugins.hexmap && this.plugins.hexmap.obj)  this.plugins.hexmap.obj.updateView(this.qs.hextype);
-
-			var plugins = this.plugins;
-
+			
 			// Build a type ahead search
 			if(!this.typeahead){
 				
@@ -333,13 +398,7 @@
 
 						return r;
 					},
-					'endsearch': function(str){
-						// Highlight on map
-						if(plugins.hexmap.obj){
-							plugins.hexmap.obj.hex.search.key(str);
-							plugins.hexmap.obj.hex.search.active = true;
-						}
-					},
+					'endsearch': function(str){ _obj.trigger('typeahead',{'value':str}); },
 					'render': function(d){
 						// Render the drop down list item for each airport.
 						// This can be HTML. It will be wrapped in <a>
@@ -354,25 +413,26 @@
 							}
 						}
 						if(!match){
-							//_obj.qs.areas.push(d.id);
 							_obj.addToggle(d.id,true);
-						}
-						if(plugins.hexmap.obj){
-							plugins.hexmap.obj.hex.search.pick(d.id);
-							plugins.hexmap.obj.hex.search.active = false;
+							// Trigger the callback
+							_obj.trigger('select',{'id':d.id});
+							// Trigger the callback
+							_obj.trigger('changeareas',{'areas':_obj.qs.areas});
 						}
 					},
 					'blur': function(){
-						if(plugins.hexmap.obj){
-							plugins.hexmap.obj.hex.search.key('');
-							plugins.hexmap.obj.hex.search.active = false;
-						}
+						// Trigger the callback
+						_obj.trigger('typeaheadblur',{'id':d.id});
 					}
 				});
 			}
 
 			// Highlight selected UTLAs
+			// Fix type if it is a string
 			if(typeof this.qs.areas==="string") this.qs.areas = this.qs.areas.split(/;/);
+
+			// Remove existing toggles
+			S('#toggle-holder ul.toggles').remove();
 
 			// Add any missing toggles
 			if(this.qs.areas){
@@ -381,46 +441,32 @@
 				}
 			}
 
-			if(a){
-				// Find out which toggles no longer exist
-				for(j = 0; j < a.length; j++){
-					match = false;
-					for(i = 0; i < this.qs.areas.length; i++){
-						if(a[j]==this.qs.areas[i]){ match = true; continue; }
-					}
-					// It no longer exists so remove it (but don't update the history)
-					if(!match) this.removeToggle(a[j]);
-				}
-			}
+			// Trigger the callback
+			this.trigger('changeareas',{'areas':_obj.qs.areas});
 
 			return this;
 		};
 		
+		
 		this.addToggle = function(id,update){
 
 			if(S('#toggle-holder .toggles').length==0) S('#toggle-holder').append('<ul class="toggles padded b5-bg"></ul>');
-
-			var li;
+			var li,match,i;
 
 			// Add to array
-			var match = -1;
+			match = -1;
 			if(!this.qs.areas) this.qs.areas = [];
-			for(var i = 0; i < this.qs.areas.length; i++){
+			for(i = 0; i < this.qs.areas.length; i++){
 				if(this.qs.areas[i]==id) match = i;
 			}
 			if(match < 0) this.qs.areas.push(id);
-
-			var plot = this.plugins.plot.obj;
 			
-			// Select the line
-			if(this.plugins.plot) plot.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
-
 			// Build toggle
-			if(plot.data[id] && S('#toggle-'+id).length==0){
+			if(datasources['uk-historic'].data[id] && S('#toggle-'+id).length==0){
 				li = document.createElement('li');
 				li.setAttribute('class','c12-bg');
-				li.setAttribute('title','Toggle '+plot.data[id].name);
-				li.innerHTML = '<label for="toggle-'+id+'">'+plot.data[id].name+'</label><span class="close"><span>&times;</span><input id="toggle-'+id+'" type="checkbox" checked="checked" data="'+id+'"></span>';
+				li.setAttribute('title','Toggle '+datasources['uk-historic'].data[id].name);
+				li.innerHTML = '<label for="toggle-'+id+'">'+datasources['uk-historic'].data[id].name+'</label><span class="close"><span>&times;</span><input id="toggle-'+id+'" type="checkbox" checked="checked" data="'+id+'"></span>';
 				S('#toggle-holder .toggles')[0].appendChild(li);
 				S(li).find('input').on('change',{me:this},function(e){
 					e.preventDefault();
@@ -429,35 +475,34 @@
 				});
 			}
 
-			if(this.plugins.timeline && this.plugins.timeline.obj) this.plugins.timeline.obj.setAreas(this.qs.areas);
 			if(update) this.updateHistory();
 
 			return this;
 		};
 
 		this.removeToggle = function(id,update){
-			var plot = this.plugins.plot.obj;
-
-			if(plot.info.msg['area-'+id]) plot.deselectLine(id,true);
+			var areas,match,i;
+			areas = clone(this.qs.areas);
 
 			// Remove toggle from DOM
 			S('#toggle-'+id).parent().parent().remove();
 			
 			// Remove from array
-			var match = -1;
-			for(var i = 0; i < this.qs.areas.length; i++){
-				if(this.qs.areas[i]==id) match = i;
+			match = -1;
+			for(i = 0; i < areas.length; i++){
+				if(areas[i]==id) match = i;
 			}
-			if(match >= 0) this.qs.areas.splice(match,1);
+			if(match >= 0){
+				areas.splice(match,1);
+				update = true;
+			}
 			
-			if(this.qs.areas.length == 0){
-				S('#toggle-holder ul.toggles').remove();
-			}
+			if(areas.length == 0) S('#toggle-holder ul.toggles').remove();
+			this.qs.areas = areas;
 
-			if(this.plugins.timeline && this.plugins.timeline.obj) this.plugins.timeline.obj.setAreas(this.qs.areas);
+			this.trigger('changeareas',{'areas':_obj.qs.areas});
 
 			if(update) this.updateHistory();
-
 			return this;
 		};
 

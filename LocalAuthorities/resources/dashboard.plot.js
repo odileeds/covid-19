@@ -34,6 +34,8 @@
 			'el':{},
 			'mincases': 3
 		};
+		this.selected = {};
+		this.key = {'type':'cases','min':0,'max':0};
 
 		this.graph = graph;
 		this.el = S('#logplot')[0];
@@ -41,6 +43,36 @@
 
 		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); } //toISOString().substr(0,10);
+
+
+		// Add callbacks
+		_parent.on('type',{this:this},function(e){ this.setRange(e.hextype); });
+		_parent.on('changeareas',{this:this},function(e){
+			if(!e.areas) e.areas = [];
+			// Loop through already selected lines and deselect those that don't exit
+			for(id in this.selected){
+				if(this.selected[id]){
+					match = false;
+					for(i = 0 ; i < e.areas.length; i++){
+						if(e.areas[i]==id) match = true;
+					}
+					if(!match){
+						// It isn't in the new areas so remove it
+						if(this.info.msg['area-'+id])this.deselectLine(id,true);
+					}else{
+						this.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
+					}
+				}
+			}
+			// Loop over new areas
+			for(i = 0 ; i < e.areas.length; i++){
+				id = e.areas[i];
+				if(id){
+					if(typeof this.selected[id]==="undefined") this.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
+				}
+			}
+			return this;
+		});
 
 		var _obj = this;
 
@@ -110,13 +142,37 @@
 			return this;
 		}
 
+		this.setRange = function(type){
+			if(!type) type = "COVID-19-cases";
+			this.key.type = type.replace('COVID-19-','');
+			if(this.key.type=="cases"){
+				this.key.min = graph.mincases;
+				this.key.max = this.maxcases;
+				this.key.yaxis = "Cumulative confirmed cases";
+			}else if(this.key.type=="percapita"){
+				this.key.min = 0.1;
+				this.key.max = 500;
+				this.key.yaxis = "Cumulative cases per 100,000";
+			}
+			this.updateLabels();
+			this.draw();
+			this.info.update();
+
+			return this;
+		}
+
 		this.updateLabels = function(){
+
+			var w,h,x,y,xoff,i,min,max,logmin,logmax;
 
 			this.info.remove();
 
 			graph.el.axes.innerHTML = "";
+
+			min = this.key.min;
+			max = this.key.max;
 			
-			if(typeof this.maxcases=="undefined") return this;
+			if(typeof max=="undefined") return this;
 
 
 			w = this.el.offsetWidth;
@@ -132,19 +188,21 @@
 				x = getX(ticks[i].value);
 				if(x < w) graph.el.xaxis.appendChild(createElement('text',{'html':ticks[i].value.toLocaleString(),'x':x,'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 			}
-			graph.el.xaxis.appendChild(createElement('text',{'html':'Days since '+graph.mincases+' confirmed cases','x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
+			graph.el.xaxis.appendChild(createElement('text',{'html':'Days since '+min+' confirmed cases','x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
 
 			// Update the y-axis labels and lines
 			graph.el.yaxis.innerHTML = "";
-			ticks = makeTicks(graph.mincases,this.maxcases,5,{'log':graph.y.log});
+			ticks = makeTicks(min,max,5,{'log':graph.y.log});
 			if(graph.y.log){
-				logmin = Math.log10(graph.mincases);
-				logmax = Math.log10(this.maxcases);
+				logmin = Math.log10(min);
+				logmax = Math.log10(max);
 			}
 			for(i = 0; i < ticks.length; i++){
-				if(graph.y.log) v = (Math.log10(ticks[i].value)-logmin)/(logmax-logmin);
-				else v = ticks[i].value/this.maxcases;
+				if(graph.y.log){
+					if(ticks[i].value > 0) v = (Math.log10(ticks[i].value)-logmin)/(logmax-logmin);
+					else v = 0;
+				}else v = ticks[i].value/max;
 				y = graph.heightinner * (1 - v);
 				if(y > 0){
 					if(!ticks[i].minor){
@@ -153,7 +211,7 @@
 					if(ticks[i].value > 0) graph.el.axes.appendChild(createElement('path',{'d':'M '+(xoff-3).toFixed(2)+','+y+' l '+(w - xoff + 3).toFixed(2)+',0','style':{'stroke':'#999','stroke-width':(ticks[i].minor ? '0.8px':'1.5px'),'fill':'transparent','opacity':(ticks[i].minor ? 0.2 : 0.3)}}));
 				}
 			}
-			graph.el.yaxis.appendChild(createElement('text',{'html':'Cumulative confirmed cases','style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'},'transform':'translate(0 '+(graph.heightinner/2)+') rotate(-90 0 0)'}));
+			graph.el.yaxis.appendChild(createElement('text',{'html':this.key.yaxis,'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'},'transform':'translate(0 '+(graph.heightinner/2)+') rotate(-90 0 0)'}));
 
 			return this;
 		}
@@ -215,11 +273,14 @@
 
 		this.draw = function(){
 
-			var id,d,logmin,logmax,x,y;
+			var id,d,logmin,logmax,x,y,now,endtime,min,max;
+			
+			min = this.key.min;
+			max = this.key.max;
 
 			if(graph.y.log){
-				logmin = Math.log10(graph.mincases);
-				logmax = Math.log10(this.maxcases);
+				logmin = Math.log10(min);
+				logmax = Math.log10(max);
 			}
 
 			if(this.maxdateformat){
@@ -228,8 +289,8 @@
 				t.setAttribute('datetime',this.maxdate.toISOString().substr(0,10));
 			}
 
-			var now = new Date();
-			var endtime = new Date();
+			now = new Date();
+			endtime = new Date();
 			endtime.setUTCHours(24);
 			endtime.setUTCMinutes(0);
 			endtime.setUTCSeconds(0);
@@ -246,16 +307,17 @@
 					v = 1;
 					mindate = new Date(this.data[id].mindate.toISOString().substr(0,10)+'T12:00Z');
 					if(!this.data[id].days) console.error('bad days',id,this.data[id]);
+					// Loop over the days for this ID
 					for(d = mindate; d < endtime; d.setDate(d.getDate() + 1)){
 						iso = d.toISOString().substr(0,10);
-						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso].cases);
+						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso][this.key.type]);
 					}
 					x = 0;
-					y = (100*(graph.y.log ? (Math.log10(graph.mincases)-logmin)/(logmax-logmin) : graph.mincases/this.maxcases));
+					y = (100*(graph.y.log ? (Math.log10(min)-logmin)/(logmax-logmin) : min/max));
 					path = 'M '+x.toFixed(2)+' '+y.toFixed(2);
 					for(i = 0; i < data.length; i++){
 						x = (100*(i+1)/this.maxdays);
-						y = (100*(graph.y.log ? (Math.log10(data[i])-logmin)/(logmax-logmin) : data[i]/this.maxcases));
+						y = (100*(graph.y.log ? (Math.log10(data[i])-logmin)/(logmax-logmin) : data[i]/max));
 						path += ' L '+x.toFixed(2)+','+y.toFixed(2);
 					}
 					if(!this.data[id].el){
@@ -326,6 +388,7 @@
 					txt = this.data[id].name+' ('+this.data[id].max.toLocaleString()+')'+(d==this.maxdateformat ? '':' '+d);
 				}
 				this.info.add('area-'+id,(txt ? txt : 'Hi there'),this.data[id].el,opts);
+				this.selected[id] = true;
 			}
 			return this;
 		}
@@ -336,6 +399,7 @@
 			if(el.hasClass('keep') && override){
 				this.info.unprotect('area-'+id);
 				delete this.data[id].opts;
+				delete this.selected[id];
 				el.removeClass('keep');
 			}
 			if(!el.hasClass('keep')){
@@ -367,8 +431,7 @@
 					this.maxdateformat = getDate(this.maxdate);
 					graph.x.max = this.maxdays;
 
-					this.updateLabels();
-					this.draw();
+					this.setRange("COVID-19-cases");
 					_parent.updateAreas();
 
 					return this;
@@ -530,16 +593,17 @@
 		function getXY(el){
 			var r,r2,xoff;
 			r = el.getBoundingClientRect();
-			r2 = el.parentNode.getBoundingClientRect();
+			r2 = el.parentNode.parentNode.getBoundingClientRect();
 			xoff = parseFloat(el.nearestViewportElement.getAttribute('x'));
+			yoff = parseFloat(el.nearestViewportElement.getAttribute('y'));
 			return {'x':(xoff+r.width).toFixed(2),'y':(r.top-r2.top).toFixed(2)};
 		}
 		this.update = function(){
 			var r,r2,xoff,id;
 			for(id in msg){
 				if(msg[id].el){
-					xy = getXY(msg[id].original);
-					S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px','position':'absolute'});
+					xy = getXY(S(msg[id].original)[0]);
+					S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px'});
 				}
 			}
 			return this;
@@ -555,11 +619,16 @@
 			if(!msg[id] || !msg[id].el){
 				if(!msg[id]) msg[id] = {'original':el };
 				var xy = getXY(el);
+				console.log('add',id,xy,el);
 				info = document.createElement('div');
-				info.setAttribute("style",'left:'+xy.x+'px; top:'+xy.y+'px;position:absolute;');
+				info.setAttribute("style",'left:'+xy.x+'px;top:'+xy.y+'px;position:absolute;');
 				info.setAttribute("id","label-"+id);
 				msg[id].el = info;
 				graph.el.svg.insertAdjacentElement('afterend',msg[id].el);
+			}else{
+				// Update location
+				var xy = getXY(el);
+				console.log('update',id,xy,el);
 			}
 			
 			el = S(msg[id].el);
