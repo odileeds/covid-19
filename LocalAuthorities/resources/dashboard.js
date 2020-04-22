@@ -80,6 +80,7 @@
 				for(var code in byid){
 					if(byid[code]){
 						byid[code].percapita = (datasources['populations'].data[code]) ? 1e5*byid[code].cases/datasources['populations'].data[code] : 0;
+						byid[code].desc = '<strong>Total cases:</strong> '+byid[code].cases+(byid[code].date ? ' (as of '+byid[code].date+')':'')+'.<br /><strong>Population ('+(byid[code].GSS_CD.substr(0,1)=="E" ? '2020':'mid 2018')+'):</strong> '+(datasources['populations'].data[code] ? datasources['populations'].data[code].toLocaleString():'?')+'.<br /><strong>Cases per 100,000 people:</strong> '+Math.round(byid[code].percapita)+'.';
 
 						if(lookup[code]){
 							if(!lookup[code].LA) console.error('No LA for '+code,lookup[code]);
