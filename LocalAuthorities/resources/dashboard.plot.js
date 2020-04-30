@@ -35,11 +35,12 @@
 			'mincases': 3
 		};
 		this.selected = {};
-		this.key = {'type':'percapita','min':0,'max':0};
+		this.yaxis = {'type':'percapita','min':0,'max':0};
+		this.xaxis = {'title':'Days since '+graph.mincases+' confirmed cases'};
 
 		this.graph = graph;
 		this.el = S('#logplot')[0];
-		this.info = new InfoBubbles(graph,{'line':'#2254F4','background':'','color':''});
+		this.info = new InfoBubbles(graph,{'line':'#D60303','background':'','color':'#D60303'});
 
 		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 		function getDate(d){ return months[d.getMonth()]+' '+d.getDate(); } //toISOString().substr(0,10);
@@ -48,19 +49,27 @@
 		// Add callbacks
 		_parent.on('type',{this:this},function(e){ this.setRange(e.hextype); });
 		_parent.on('changeareas',{this:this},function(e){
+			var i,c,id,match;
 			if(!e.areas) e.areas = [];
+			
+			function getColour(cls){
+				var el = document.getElementsByClassName(cls);
+				return (el.length > 0 ? window.getComputedStyle(el[0]).backgroundColor : '#D60303');
+			}
+			
 			// Loop through already selected lines and deselect those that don't exit
 			for(id in this.selected){
 				if(this.selected[id]){
-					match = false;
+					match = -1;
 					for(i = 0 ; i < e.areas.length; i++){
-						if(e.areas[i]==id) match = true;
+						if(e.areas[i]==id) match = i;
 					}
-					if(!match){
+					if(match < 0){
 						// It isn't in the new areas so remove it
 						if(this.info.msg['area-'+id])this.deselectLine(id,true);
 					}else{
-						this.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
+						c = getColour(e.colours[match % e.colours.length]);
+						this.selectLine(id,'',{'keep':true,'line':c,'background':'',c,'class':'label'});
 					}
 				}
 			}
@@ -68,7 +77,8 @@
 			for(i = 0 ; i < e.areas.length; i++){
 				id = e.areas[i];
 				if(id){
-					if(typeof this.selected[id]==="undefined") this.selectLine(id,'',{'keep':true,'line':'#D60303','background':'','color':'black','class':'label'});
+					c = getColour(e.colours[i % e.colours.length]);
+					if(typeof this.selected[id]==="undefined") this.selectLine(id,'',{'keep':true,'line':c,'background':'','color':c,'class':'label'});
 				}
 			}
 			return this;
@@ -134,29 +144,31 @@
 			graph.el.svg.style['font-size'] = this.fs+'px';
 
 			this.updateLabels();
-			if(this.data){
-				this.draw();
-			}
-			this.info.update();
+			if(this.data) this.draw();
+			//this.info.update();
 
 			return this;
 		}
 
 		this.setRange = function(type){
 			if(!type) type = "COVID-19-cases";
-			this.key.type = type.replace('COVID-19-','');
-			if(this.key.type=="cases"){
-				this.key.min = graph.mincases;
-				this.key.max = this.maxcases;
-				this.key.yaxis = "Cumulative confirmed cases";
-			}else if(this.key.type=="percapita"){
-				this.key.min = 0.1;
-				this.key.max = 500;
-				this.key.yaxis = "Cumulative cases per 100,000";
+			this.yaxis.type = type.replace('COVID-19-','');
+			if(this.yaxis.type=="cases"){
+				this.yaxis.min = graph.mincases;
+				this.yaxis.max = this.maxcases;
+				this.yaxis.title = "Cumulative confirmed cases";
+			}else if(this.yaxis.type=="percapita"){
+				this.yaxis.min = 0.1;
+				this.yaxis.max = 500;
+				this.yaxis.title = "Cumulative cases per 100,000";
+			}else if(this.yaxis.type=="daily"){
+				this.yaxis.min = 0.1;
+				this.yaxis.max = 200;
+				this.yaxis.title = "Daily rate of confirmed cases";
 			}
 			this.updateLabels();
 			this.draw();
-			this.info.update();
+			//this.info.update();
 
 			return this;
 		}
@@ -169,8 +181,8 @@
 
 			graph.el.axes.innerHTML = "";
 
-			min = this.key.min;
-			max = this.key.max;
+			min = this.yaxis.min;
+			max = this.yaxis.max;
 			
 			if(typeof max=="undefined") return this;
 
@@ -188,7 +200,7 @@
 				x = getX(ticks[i].value);
 				if(x < w) graph.el.xaxis.appendChild(createElement('text',{'html':ticks[i].value.toLocaleString(),'x':x,'y':y,'style':{'text-anchor':'middle','dominant-baseline':'hanging'}}));
 			}
-			graph.el.xaxis.appendChild(createElement('text',{'html':'Days since '+min+' confirmed cases','x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
+			graph.el.xaxis.appendChild(createElement('text',{'html':this.xaxis.title,'x':getX(graph.x.max/2),'y':(y+this.fs*1.5),'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'}}));
 
 
 			// Update the y-axis labels and lines
@@ -211,7 +223,7 @@
 					if(ticks[i].value > 0) graph.el.axes.appendChild(createElement('path',{'d':'M '+(xoff-3).toFixed(2)+','+y+' l '+(w - xoff + 3).toFixed(2)+',0','style':{'stroke':'#999','stroke-width':(ticks[i].minor ? '0.8px':'1.5px'),'fill':'transparent','opacity':(ticks[i].minor ? 0.2 : 0.3)}}));
 				}
 			}
-			graph.el.yaxis.appendChild(createElement('text',{'html':this.key.yaxis,'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'},'transform':'translate(0 '+(graph.heightinner/2)+') rotate(-90 0 0)'}));
+			graph.el.yaxis.appendChild(createElement('text',{'html':this.yaxis.title,'style':{'text-anchor':'middle','dominant-baseline':'hanging','font-weight':'bold'},'transform':'translate(0 '+(graph.heightinner/2)+') rotate(-90 0 0)'}));
 
 			return this;
 		}
@@ -266,7 +278,7 @@
 				graph.y.log = e.currentTarget.checked;
 				e.data.me.updateLabels();
 				e.data.me.draw();
-				e.data.me.info.update();
+				//e.data.me.info.update();
 			});
 			return this;
 		}
@@ -275,8 +287,8 @@
 
 			var id,d,logmin,logmax,x,y,now,endtime,min,max;
 			
-			min = this.key.min;
-			max = this.key.max;
+			min = this.yaxis.min;
+			max = this.yaxis.max;
 
 			if(graph.y.log){
 				logmin = Math.log10(min);
@@ -310,7 +322,7 @@
 					// Loop over the days for this ID
 					for(d = mindate; d < endtime; d.setDate(d.getDate() + 1)){
 						iso = d.toISOString().substr(0,10);
-						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso][this.key.type]);
+						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso][this.yaxis.type]);
 					}
 					x = 0;
 					y = (100*(graph.y.log ? (Math.log10(min)-logmin)/(logmax-logmin) : min/max));
@@ -320,6 +332,9 @@
 						y = (100*(graph.y.log ? (Math.log10(data[i])-logmin)/(logmax-logmin) : data[i]/max));
 						path += ' L '+x.toFixed(2)+','+y.toFixed(2);
 					}
+					this.data[id].last = {'x':x,'y':y};
+					this.info.update("area-"+id,x,y);
+
 					if(!this.data[id].el){
 						this.data[id].el = createElement('g',{'id':'area-'+id});
 						this.data[id].line = createElement('path',{'style':{'stroke':'#999','stroke-width':'2px','fill':'transparent','opacity':0.3},'class':'line'});
@@ -381,12 +396,17 @@
 				if(!opts.keep) el.addClass('active');
 				el.find('.line').css({'stroke': opts.line||this.info.opts.line});
 				el.find('.area').css({'fill': opts.line||this.info.opts.line});
+				
+				// Bring selected line to the front
+				el[0].parentNode.appendChild(el[0]);
 
 				if(!txt){
 					// Build label text
 					d = getDate(this.data[id].maxdate);
 					txt = this.data[id].name+' ('+this.data[id].max.toLocaleString()+')'+(d==this.maxdateformat ? '':' '+d);
 				}
+				opts.x = this.data[id].last.x;
+				opts.y = this.data[id].last.y;
 				this.info.add('area-'+id,(txt ? txt : 'Hi there'),this.data[id].el,opts);
 				this.selected[id] = true;
 			}
@@ -590,21 +610,22 @@
 		var msg = {};
 		this.msg = msg;
 		this.opts = opts;
-		function getXY(el){
-			var r,r2,xoff;
+		function getXY(id){
+			var r,r2,xoff,holder,el;
+			el = msg[id].original;
+			holder = el.parentNode.parentNode;
 			r = el.getBoundingClientRect();
-			r2 = el.parentNode.parentNode.getBoundingClientRect();
+			r2 = holder.getBoundingClientRect();
 			xoff = parseFloat(el.nearestViewportElement.getAttribute('x'));
-			yoff = parseFloat(el.nearestViewportElement.getAttribute('y'));
-			return {'x':(xoff+r.width).toFixed(2),'y':(r.top-r2.top).toFixed(2)};
+			return {'x':(xoff+r.width).toFixed(2),'y':r2.height*((100-msg[id].y)/100)};
 		}
-		this.update = function(){
+		this.update = function(id,x,y){
 			var r,r2,xoff,id;
-			for(id in msg){
-				if(msg[id].el){
-					xy = getXY(S(msg[id].original)[0]);
-					S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px'});
-				}
+			if(msg[id] && msg[id].el){
+				msg[id].x = x;
+				msg[id].y = y;
+				xy = getXY(id);
+				S(msg[id].el).css({'left':xy.x+'px','top':xy.y+'px'});
 			}
 			return this;
 		}
@@ -616,18 +637,18 @@
 			return this;
 		}
 		this.add = function(id,txt,el,opts){
-			if(!msg[id] || !msg[id].el){
-				if(!msg[id]) msg[id] = {'original':el };
-				var xy = getXY(el);
-				info = document.createElement('div');
-				info.setAttribute("style",'left:'+xy.x+'px;top:'+xy.y+'px;position:absolute;');
-				info.setAttribute("id","label-"+id);
-				msg[id].el = info;
+			var xy;
+			if(!msg[id]) msg[id] = {'original':el };
+			msg[id].x = opts.x;
+			msg[id].y = opts.y;
+			if(!msg[id].el){
+				msg[id].el = document.createElement('div');
 				graph.el.svg.insertAdjacentElement('afterend',msg[id].el);
+				msg[id].el.setAttribute("id","label-"+id);
 			}else{
-				// Update location
-				//var xy = getXY(el);
 			}
+			xy = getXY(id);
+			msg[id].el.setAttribute("style",'left:'+xy.x+'px;top:'+xy.y+'px;position:absolute;');
 			
 			el = S(msg[id].el);
 			bg = opts.background || this.opts.background;
