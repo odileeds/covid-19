@@ -3,6 +3,11 @@
  */
 (function(root){
 
+	Date.prototype.addDays = function(days) {
+		var date = new Date(this.valueOf());
+		date.setDate(date.getDate() + days);
+		return date;
+	}
 	var G = {};
 	G.extend = function(out){
 		out = out || {};
@@ -39,7 +44,7 @@
 			'dataType':'json',
 			'requires': ['conversion','populations'],
 			'preProcess': function(dat){
-				var data,byid,max,i,name,d,d2,id,id2;
+				var data,byid,max,i,name,d,d2,id,id2,v;
 				data = dat.data;
 				byid = {};
 				max = 0;
@@ -55,11 +60,16 @@
 						byid[id].country = data[id].c;
 						byid[id].cases = 0;
 
-						for(d in data[id].v){
-							t = data[id].v[d];
-							d2 = d.substr(0,4)+'-'+d.substr(4,2)+'-'+d.substr(6,2);
+
+						byid[id].mindate = new Date(data[id].mindate+'T12:00Z');
+						byid[id].maxdate = new Date(data[id].maxdate+'T12:00Z');
+						
+						// Get first date (use midday to avoid daylight savings issues)
+						d = new Date(data[id].mindate+'T12:00Z');
+						for(v = 0; v < data[id].v.length; v++){
+							d2 = d.addDays(v).toISOString().substr(0,10);
+							t = data[id].v[v];
 							if(t > byid[id].cases){ byid[id].cases = t; }
-							
 							if(t > 0){
 								byid[id].days[d2] = {'cases':t,'percapita':0};
 								if(t > max) max = t;
@@ -73,6 +83,7 @@
 								// Update the minimum date
 								if(d2 < byid[id].dates.min) byid[id].dates.min = d2;
 							}
+
 						}
 					}else{
 						//console.warn('No ID given for row '+i,data[i]);

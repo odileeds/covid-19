@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 
+use POSIX qw(strftime);
+use DateTime;
+
+
 # Get directory
 $dir = $0;
 $dir =~ s/^(.*)\/([^\/]*)/$1/g;
@@ -8,9 +12,13 @@ $url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/
 @lines = `wget -q --no-check-certificate -O- "$url"`;
 
 
+
+
 %LA;
 %headers;
 $mostrecent = "2000-01-01";
+$mindate = "3000-01-01";
+$maxdate = "2000-01-01";
 
 if(@lines > 0){
 
@@ -29,7 +37,10 @@ if(@lines > 0){
 		$cols[$headers{'Area'}] =~ s/(^\"|\"$)//g;
 		if($cols[$headers{'TotalCases'}] =~ /[\s\D]/){ $cols[$headers{'TotalCases'}] = "\"$cols[$headers{'TotalCases'}]\""; }
 		$d = $cols[$headers{'Date'}];
-		$d =~ s/\-//g;
+		#$d =~ s/\-//g;
+		
+		if($d lt $mindate){ $mindate = $d; }
+		if($d gt $maxdate){ $maxdate = $d; }
 		
 		$id = $cols[$headers{'AreaCode'}];
 		$oid = $id;
@@ -49,22 +60,55 @@ if(@lines > 0){
 		if($cols[$headers{'Date'}] gt $mostrecent){ $mostrecent = $cols[$headers{'Date'}]; }
 	}
 	
+	@dates = ();
+	$min = getISODate($mindate);
+	$max = getISODate($maxdate);
+
+	$dt = getISODate($mindate);
+
+	print "$mindate - $maxdate ".$dt->epoch."\n";
+	
+	for(; $dt->epoch <= $max->epoch; ){
+		push(@dates,$dt->strftime("%F"));
+		$dt += DateTime::Duration->new( days => 1 );
+	}
+	
 	$json = "";
 	for $id (sort(keys(%LA))){
 		if($id ne ""){
+
+			@dates = sort(keys(%{$LA{$id}{'dates'}}));
+			$n = @dates;
+
 			if($json){ $json .= ",\n";}
 			$json .= "\t\t\"$id\":{";
 			$json .= "\"n\":\"$LA{$id}{'name'}\",";
 			$json .= "\"c\":\"$LA{$id}{'country'}\",";
-			$json .= "\"v\":{";
-			@dates = sort(keys(%{$LA{$id}{'dates'}}));
-			for($d = 0; $d < @dates; $d++){
-				if($d > 0){
+			$json .= "\"mindate\":\"$dates[0]\",";
+			$json .= "\"maxdate\":\"".$dates[$n-1]."\",";
+			$json .= "\"v\":[";
+
+			$min = getISODate($dates[0]);
+			$max = getISODate($dates[$n-1]);
+			$dt = getISODate($dates[0]);
+			
+			for($i = 0; $dt->epoch <= $max->epoch; $i++){
+				if($i > 0){
 					$json .= ",";
 				}
-				$json .= "\"$dates[$d]\":$LA{$id}{'dates'}{$dates[$d]}";
+				$d = $dt->strftime("%F");
+				$json .= ($LA{$id}{'dates'}{$d} ? $LA{$id}{'dates'}{$d} : "null");
+				$dt += DateTime::Duration->new( days => 1 );
 			}
-			$json .= $dates."}";
+
+#			for($d = 0; $d < @dates; $d++){
+#				if($d > 0){
+#					$json .= ",";
+#				}
+#				$json .= "\"$dates[$d]\":".($LA{$id}{'dates'}{$dates[$d]} ? $LA{$id}{'dates'}{$dates[$d]} : "null");
+##				$json .= ($LA{$id}{'dates'}{$dates[$d]} ? $LA{$id}{'dates'}{$dates[$d]} : "null");
+	#		}
+			$json .= $dates."]";
 			$json .= "}";
 		}
 	}
@@ -88,6 +132,21 @@ if(@lines > 0){
 #2020-03-01,Scotland,S08000029,Fife,0
 #2020-03-01,Scotland,S08000019,Forth Valley,0
 
+
+sub getISODate {
+	local $dt;
+	local $str = $_[0];
+	if($str =~ /([0-9]{4})-?([0-9]{2})-?([0-9]{2})/){
+		$dt = DateTime->new(
+			year       => $1,
+			month      => $2,
+			day        => $3,
+		);
+	}else{
+	
+	}
+	return $dt;
+}
 
 
 
