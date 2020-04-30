@@ -114,6 +114,7 @@ if(@lines > 0){
 	}
 	open(FILE,">","$dir/utla.json");
 	print FILE "{\n";
+	print FILE "\t\"src\":{\"name\":\"Tom White\",\"url\":\"https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv\"},\n";
 	print FILE "\t\"lastupdate\":\"".$mostrecent."\",\n";
 	print FILE "\t\"data\": {\n";
 	print FILE $json."\n";
