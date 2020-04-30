@@ -32,16 +32,17 @@ if(@lines > 0){
 		$d =~ s/\-//g;
 		
 		$id = $cols[$headers{'AreaCode'}];
+		$oid = $id;
 		$name = $cols[$headers{'Area'}];
 		
 		if($id eq "E06000052" || $id eq "E06000053"){ $id = "E06000052-3"; $name = "Cornwall and Isles of Scilly" }
-		if($id eq "E09000001" || $id eq "E09000012"){ $id = "E09000001-12"; $name = "Hackney and City of London"; }
-		
+		#if($id eq "E09000001" || $id eq "E09000012"){ $id = "E09000001-12"; $name = "Hackney and City of London"; }
 		
 		if(!$LA{$id}){ $LA{$id} = {'name'=>'','country'=>$cols[$headers{'Country'}],'dates'=>{}}; }
 		# Only add the date if it has a value
 		if($cols[$headers{'TotalCases'}] ne ""){
-			$LA{$id}{'dates'}{$d} = $cols[$headers{'TotalCases'}];
+			if(!$LA{$id}{'dates'}{$d} || $LA{$id}{'dates'}{$d} eq ""){ $LA{$id}{'dates'}{$d} = 0; }
+			$LA{$id}{'dates'}{$d} += $cols[$headers{'TotalCases'}];
 		}
 		$LA{$id}{'name'} = $name;
 		
