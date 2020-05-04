@@ -35,7 +35,7 @@
 		"licence": "MIT",
 		"createdAt": "2020-04-02T12:00Z",
 		"updatedAt": "2020-05-01T12:00Z",
-		"update_frequency": "Daily",
+		"update_frequency": "daily",
 		"title": "#OpenDataSavesLives COVID-19 tools",
 		"author": "ODI Leeds",
 		"author_email": "hello@odileeds.org",
@@ -59,7 +59,7 @@
 			"description": "This is a processed version of Tom White's compiled UK data to reduce file size.",
 			"url": "https://raw.githubusercontent.com/odileeds/covid-19/master/LocalAuthorities/data/utla.json"
 		}],
-		"dependencies": [{
+		"references": [{
 			"url": "https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv",
 			"description": "Daily counts of confirmed cases for (upper tier) local authorities in England, health boards in Scotland and Wales, and local government district for Northern Ireland. Note that prior to 18 March 2020 Wales data was broken down by local authority, not heath board, and prior to 27 March 2020 there were no breakdowns by area for Northern Ireland."
 		}]
