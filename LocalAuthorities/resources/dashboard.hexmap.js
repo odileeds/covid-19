@@ -35,16 +35,22 @@
 					var _obj = this;
 					var min = 0;
 					var max = -1e100;
+					var vals = [];
 					var type = "COVID-19";
+					// Because there can be some extreme values we'll not use the most extreme to define the scale
 					for(la in this.data[type]){
-						if(this.data[type][la]){
-							if(this.data[type][la][filter] > max) max = this.data[type][la][filter];
-							if(this.data[type][la][filter] < min) min = this.data[type][la][filter];
-						}
+						if(this.data[type][la]) vals.push(this.data[type][la][filter]);
 					}
+					vals = vals.sort(function(a,b){ return a-b; });
+					min = vals[1];
+					max = vals[vals.length-2];
+
 					this.hex.setColours = function(region){
 						var f = "#dfdfdf";
-						if(_obj.data[type][region]) f = Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),_obj.data[type][region][filter],min,max);
+						var v = _obj.data[type][region][filter];
+						if(v < min) v = min;
+						if(v > max) v = max;
+						if(_obj.data[type][region]) f = Colour.getColourFromScale((_parent.qs.colourscale||"Viridis"),v,min,max);
 						return {'fill':f,'min':min,'max':max};
 					};
 
