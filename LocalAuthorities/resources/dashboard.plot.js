@@ -32,7 +32,7 @@
 			'width': 300,
 			'height': 500,
 			'el':{},
-			'mincases': 3
+			'mincases': 10
 		};
 		this.selected = {};
 		this.yaxis = {'type':'percapita','min':0,'max':0};
@@ -145,7 +145,6 @@
 
 			this.updateLabels();
 			if(this.data) this.draw();
-			//this.info.update();
 
 			return this;
 		}
@@ -159,16 +158,15 @@
 				this.yaxis.title = "Cumulative confirmed cases";
 			}else if(this.yaxis.type=="percapita"){
 				this.yaxis.min = 0.1;
-				this.yaxis.max = 500;
+				this.yaxis.max = 600;
 				this.yaxis.title = "Cumulative cases per 100,000";
 			}else if(this.yaxis.type=="daily"){
 				this.yaxis.min = 0.1;
 				this.yaxis.max = 200;
-				this.yaxis.title = "Daily rate of confirmed cases";
+				this.yaxis.title = "New daily cases";
 			}
 			this.updateLabels();
 			this.draw();
-			//this.info.update();
 
 			return this;
 		}
@@ -278,7 +276,6 @@
 				graph.y.log = e.currentTarget.checked;
 				e.data.me.updateLabels();
 				e.data.me.draw();
-				//e.data.me.info.update();
 			});
 			return this;
 		}
@@ -317,20 +314,23 @@
 				if(this.data[id] && id.indexOf('W06')!=0 && !this.data[id].added){
 					data = [];
 					v = 1;
-					mindate = new Date(this.data[id].mindate.toISOString().substr(0,10)+'T12:00Z');
+					mindate = new Date(this.data[id].start);
 					if(!this.data[id].days) console.error('bad days',id,this.data[id]);
 					// Loop over the days for this ID
 					for(d = mindate; d < endtime; d.setDate(d.getDate() + 1)){
 						iso = d.toISOString().substr(0,10);
 						if(this.data[id].days[iso] && this.data[id].days[iso].cases >= graph.mincases) data.push(this.data[id].days[iso][this.yaxis.type]);
+						else data.push(null);
 					}
 					x = 0;
 					y = (100*(graph.y.log ? (Math.log10(min)-logmin)/(logmax-logmin) : min/max));
 					path = 'M '+x.toFixed(2)+' '+y.toFixed(2);
 					for(i = 0; i < data.length; i++){
-						x = (100*(i+1)/this.maxdays);
-						y = (100*(graph.y.log ? (Math.log10(data[i])-logmin)/(logmax-logmin) : data[i]/max));
-						path += ' L '+x.toFixed(2)+','+y.toFixed(2);
+						if(data[i]){
+							x = (100*(i+1)/this.maxdays);
+							y = (100*(graph.y.log ? (Math.log10(data[i])-logmin)/(logmax-logmin) : data[i]/max));
+							path += ' L '+x.toFixed(2)+','+y.toFixed(2);
+						}
 					}
 					this.data[id].last = {'x':x,'y':y};
 					this.info.update("area-"+id,x,y);
@@ -435,16 +435,40 @@
 			_parent.getData('uk-historic',{
 				'this':this,
 				'loaded': function(data,attr){
+					var d,iso,mindate;
 					var max = 0;
 					var ndays = 0;
+					var endtime = new Date();
+					endtime.setUTCHours(24);
+					endtime.setUTCMinutes(0);
+					endtime.setUTCSeconds(0);
+
+
 					this.maxdate = new Date('2000-01-01');
 					for(var id in data){
 						if(data[id]){
 							if(data[id].max > max) max = data[id].max;
 							if(data[id].maxdate > this.maxdate) this.maxdate = data[id].maxdate;
-							if(data[id].ndays > ndays) ndays = data[id].ndays;
+
+							// Calculate the start date for the plot
+							mindate = new Date(data[id].mindate.toISOString().substr(0,10)+'T12:00Z');
+							for(d = new Date(data[id].mindate.toISOString().substr(0,10)+'T12:00Z'); d < endtime; d.setDate(d.getDate() + 1)){
+								iso = d.toISOString().substr(0,10);
+								if(data[id].days[iso] && data[id].days[iso].cases >= graph.mincases){
+									mindate = new Date(iso+'T12:00Z');
+									d = endtime;
+								}
+							}
+							// Calculate the start for the graph
+							data[id].start = mindate;
+							// How many days is this range?
+							data[id].n = Math.ceil((data[id].maxdate - data[id].start)/86400000);
+
+							if(data[id].n > ndays) ndays = data[id].ndays;
+
 						}
 					}
+
 					this.data = data;
 					this.maxcases = max;
 					this.maxdays = ndays+5;
