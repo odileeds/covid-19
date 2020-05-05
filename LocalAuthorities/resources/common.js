@@ -187,19 +187,25 @@
 			if(typeof max!=="number") max = 1;
 			cs = scales[s].stops;
 			v2 = 100*(v-min)/(max-min);
-
-			if(cs.length == 1) colour = 'rgba('+cs[0].c.rgb[0]+', '+cs[0].c.rgb[1]+', '+cs[0].c.rgb[2]+', ' + (v2/100).toFixed(3) + ")";
-			else{
-				for(c = 0; c < cs.length-1; c++){
-					if(v2 >= cs[c].v && v2 <= cs[c+1].v){
-						// On this colour stop
-						pc = 100*(v2 - cs[c].v)/(cs[c+1].v-cs[c].v);
-						if(v2 > max) pc = 100;	// Don't go above colour range
-						colour = this.getColourPercent(pc,cs[c].c,cs[c+1].c);
-						continue;
+			
+			var match = -1;
+			if(v==max){
+				colour = 'rgba('+cs[cs.length-1].c.rgb[0]+', '+cs[cs.length-1].c.rgb[1]+', '+cs[cs.length-1].c.rgb[2]+', ' + (v2/100).toFixed(3) + ")";
+			}else{
+				if(cs.length == 1) colour = 'rgba('+cs[0].c.rgb[0]+', '+cs[0].c.rgb[1]+', '+cs[0].c.rgb[2]+', ' + (v2/100).toFixed(3) + ")";
+				else{
+					for(c = 0; c < cs.length-1; c++){
+						if(v2 >= cs[c].v && v2 <= cs[c+1].v){
+							// On this colour stop
+							pc = 100*(v2 - cs[c].v)/(cs[c+1].v-cs[c].v);
+							if(v2 >= max) pc = 100;	// Don't go above colour range
+							colour = this.getColourPercent(pc,cs[c].c,cs[c+1].c);
+							continue;
+						}
 					}
 				}
 			}
+	
 			return colour;	
 		};
 		
