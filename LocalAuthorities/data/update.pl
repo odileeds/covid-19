@@ -5,7 +5,11 @@ use POSIX qw(strftime);
 
 # Get directory
 $dir = $0;
-$dir =~ s/^(.*)\/([^\/]*)/$1/g;
+if($dir =~ /\//){
+	$dir =~ s/^(.*)\/([^\/]*)/$1/g;
+}else{
+	$dir = "./";
+}
 
 $url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
 @lines = `wget -q --no-check-certificate -O- "$url"`;
@@ -109,6 +113,7 @@ if(@lines > 0){
 			$json .= "}";
 		}
 	}
+	print "Save to $dir/utla.json\n";
 	open(FILE,">","$dir/utla.json");
 	print FILE "{\n";
 	print FILE "\t\"src\":{\"name\":\"Tom White\",\"url\":\"https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv\"},\n";
