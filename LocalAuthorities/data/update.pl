@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 use POSIX qw(strftime);
-use DateTime;
 
 
 # Get directory
