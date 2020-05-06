@@ -257,6 +257,7 @@
 				svg += '	<g id="'+this.id+'-axis-x"></g>';
 				svg += '	<g id="'+this.id+'-axis-lines"></g>';
 				svg += '	<svg x="0" y="0" id="'+this.id+'-holder" viewBox="0 0 100 100" preserveAspectRatio="none">';
+				svg += '		<style>path.line { stroke-width: 2px; fill: transparent; opacity: 0.3; stroke-linecap: round; vector-effect: non-scaling-stroke; }</style>';
 				svg += '		<g id="'+this.id+'-chart-furniture" transform="translate(0,100) scale(1,-1)"></g>';
 				svg += '		<g id="'+this.id+'-chart" transform="translate(0,100) scale(1,-1)"></g>';
 				svg += '	</svg>';
@@ -337,7 +338,7 @@
 
 					if(!this.data[id].el){
 						this.data[id].el = createElement('g',{'id':'area-'+id});
-						this.data[id].line = createElement('path',{'style':{'stroke':'#999','stroke-width':'2px','fill':'transparent','opacity':0.3},'class':'line'});
+						this.data[id].line = createElement('path',{'class':'line'});
 						this.data[id].area = createElement('path',{'style':{'fill':'#999','opacity':0.3,'fillOpacity':0.2},'class':'area'});
 						this.data[id].el.appendChild(this.data[id].line);
 						this.data[id].el.appendChild(this.data[id].area);
