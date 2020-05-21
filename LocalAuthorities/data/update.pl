@@ -1,28 +1,53 @@
 #!/usr/bin/perl
 
+use Data::Dumper;
 use POSIX qw(strftime);
-
+use JSON::XS;
+use lib "./lib/";
+use ODILeeds::HexJSON;
 
 # Get directory
 $dir = $0;
-if($dir =~ /\//){
-	$dir =~ s/^(.*)\/([^\/]*)/$1/g;
-}else{
-	$dir = "./";
-}
-
-$url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
-@lines = `wget -q --no-check-certificate -O- "$url"`;
-
-
-
+if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1/g; }
+else{ $dir = "./"; }
 
 %LA;
 %headers;
+%LAlast;
 $mostrecent = "2000-01-01";
 $mindate = "3000-01-01";
 $maxdate = "2000-01-01";
 
+
+
+
+# Get the conversion file from UTLA to LA
+open(FILE,$dir."conversion.json");
+@lines = <FILE>;
+close(FILE);
+$conversion = JSON::XS->new->utf8->decode(join("\n",@lines));
+%conv = %{$conversion};
+%utla;
+foreach $la (keys(%conv)){
+	print "$la - $conv{$la}{'id'}\n";
+	if(!$utla{$conv{$la}{'id'}}){
+		%{$utla{$conv{$la}{'id'}}} = ('name'=>$conv{$la}{'n'},'la'=>());
+	}
+	push(@{$utla{$conv{$la}{'id'}}->{'la'}},$la);
+}
+
+
+# Get the conversion file from UTLA to LA
+open(FILE,$dir."populations.json");
+@lines = <FILE>;
+close(FILE);
+$pop = JSON::XS->new->utf8->decode(join("\n",@lines));
+%pop = %{$pop};
+
+
+# Get the CSV from Tom White
+$url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
+@lines = `wget -q --no-check-certificate -O- "$url"`;
 if(@lines > 0){
 
 
@@ -100,15 +125,24 @@ if(@lines > 0){
 				}
 				$d = getDate($dt,"%Y-%m-%d");
 				$json .= ($LA{$id}{'dates'}{$d} ? $LA{$id}{'dates'}{$d} : "null");
+				if($utla{$id}){
+					$nla = @{$utla{$id}->{'la'}};
+					foreach $convla (@{$utla{$id}->{'la'}}){
+						if($pop{$id}){
+							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}/$nla};
+						}else{
+							print "No population for $id\n";
+						}
+					}
+				}else{
+					if($pop{$id}){
+						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}};
+					}else{
+						print "No population for $id\n";
+					}
+				}
 			}
 
-#			for($d = 0; $d < @dates; $d++){
-#				if($d > 0){
-#					$json .= ",";
-#				}
-#				$json .= "\"$dates[$d]\":".($LA{$id}{'dates'}{$dates[$d]} ? $LA{$id}{'dates'}{$dates[$d]} : "null");
-##				$json .= ($LA{$id}{'dates'}{$dates[$d]} ? $LA{$id}{'dates'}{$dates[$d]} : "null");
-	#		}
 			$json .= $dates."]";
 			$json .= "}";
 		}
@@ -127,6 +161,48 @@ if(@lines > 0){
 	print "Empty file";
 }
 
+
+
+open(FILE,$dir."../hexmap.html");
+@lines = <FILE>;
+close(FILE);
+@html;
+
+# Create a hexmap
+$hj = ODILeeds::HexJSON->new();
+# Load the HexJSON
+$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+# Set primary value keys
+$hj->setPrimaryKey('percapita');
+# Add the data
+$hj->addData(%LAlast);
+# Set the colour scale to use
+$hj->setColourScale('Viridis');
+# Create the SVG output
+$svg = $hj->map(('width'=>'600'));
+
+$inhexmap = 0;
+foreach $line (@lines){
+	if(!$inhexmap){
+		push(@html,$line);
+	}
+	if($line =~ /\<\!-- Begin hexmap --\>/){
+		push(@html,$svg);
+		$inhexmap = 1;
+	}
+	if($line =~ /\<\!-- End hexmap --\>/){
+		push(@html,$line);
+		$inhexmap = 0;
+	}
+}
+
+open(FILE,">",$dir."../hexmap.html");
+print FILE @html;
+close(FILE);
+
+open(FILE,">",$dir."local-authorities-confirmed-cases.svg");
+print FILE $svg;
+close(FILE);
 
 
 
