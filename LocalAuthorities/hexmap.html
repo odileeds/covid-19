@@ -1467,11 +1467,12 @@ TestTestTestTest<!-- End hexmap keyworkers -->
 					casesUTLA = e.target.getAttribute('data-casesutla');
 					UTLA = e.target.getAttribute('data-utla');
 					keyworkers = e.target.getAttribute('data-keyworkers');
-					v = (UTLA ? UTLA : e.target.querySelector('title').innerHTML)+' (';
-					if(id.indexOf("percapita")>=0) v += Math.round(percapita)+'/100,000';
-					else if(id.indexOf("cases")>=0) v += (casesUTLA ? casesUTLA : cases);
-					else if(id.indexOf("keyworker")>=0) v += keyworkers+'%';
-					v += ')';
+					v = (UTLA ? UTLA : e.target.querySelector('title').innerHTML);
+					n = "";
+					if(id.indexOf("percapita")>=0) n = Math.round(percapita)+'/100,000';
+					else if(id.indexOf("cases")>=0) n = (casesUTLA ? casesUTLA : cases);
+					else if(id.indexOf("keyworker")>=0) n = (keyworkers ? keyworkers+'%':'');
+					if(n) v += ' ('+n+')';
 					tooltip.innerHTML = v;
 					bb = e.target.getBoundingClientRect();
 					tooltip.style.position = "absolute";
