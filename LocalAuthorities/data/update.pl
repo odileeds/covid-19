@@ -236,7 +236,7 @@ for($i = 0; $i < @html; $i++){
 	}
 	if($html[$i] =~ /\<\!-- Begin hexmap keyworkers --\>/){
 	print "keyworkers\n";
-		push(@htmloutput,$svg_keyworkers."Test");
+		push(@htmloutput,$svg_keyworkers);
 		$inhexmap = 1;
 	}
 	if($html[$i] =~ /\<\!-- End hexmap /){
