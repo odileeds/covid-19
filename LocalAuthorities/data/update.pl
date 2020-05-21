@@ -172,27 +172,41 @@ close(FILE);
 $hj = ODILeeds::HexJSON->new();
 # Load the HexJSON
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
-# Set primary value keys
-$hj->setPrimaryKey('percapita');
 # Add the data
 $hj->addData(%LAlast);
+# Set primary value keys
+$hj->setPrimaryKey('percapita');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg = $hj->map(('width'=>'600'));
+$svg_percapita = $hj->map(('width'=>'480'));
 
-$inhexmap = 0;
-foreach $line (@lines){
-	if(!$inhexmap){
-		push(@html,$line);
+# Set primary value keys
+$hj->setPrimaryKey('cases');
+# Create the SVG output
+$svg_cases = $hj->map(('width'=>'480'));
+
+
+
+for($i = 0; $i < @lines; $i++){
+	if(!$inhexmapcases && !$inhexmappercapita){
+		push(@html,$lines[$i]);
 	}
-	if($line =~ /\<\!-- Begin hexmap --\>/){
-		push(@html,$svg);
-		$inhexmap = 1;
+	if($lines[$i] =~ /\<\!-- Begin hexmap cases --\>/){
+		push(@html,$svg_cases);
+		$inhexmapcases = 1;
 	}
-	if($line =~ /\<\!-- End hexmap --\>/){
-		push(@html,$line);
-		$inhexmap = 0;
+	if($lines[$i] =~ /\<\!-- End hexmap cases --\>/){
+		push(@html,$lines[$i]);
+		$inhexmapcases = 0;
+	}
+	if($lines[$i] =~ /\<\!-- Begin hexmap percapita --\>/){
+		push(@html,$svg_percapita);
+		$inhexmappercapita = 1;
+	}
+	if($lines[$i] =~ /\<\!-- End hexmap percapita --\>/){
+		push(@html,$lines[$i]);
+		$inhexmappercapita = 0;
 	}
 }
 
@@ -200,8 +214,12 @@ open(FILE,">",$dir."../hexmap.html");
 print FILE @html;
 close(FILE);
 
-open(FILE,">",$dir."local-authorities-confirmed-cases.svg");
-print FILE $svg;
+open(FILE,">",$dir."local-authorities-percapita.svg");
+print FILE $svg_percapita;
+close(FILE);
+
+open(FILE,">",$dir."local-authorities-cases.svg");
+print FILE $svg_cases;
 close(FILE);
 
 
