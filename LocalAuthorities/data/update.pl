@@ -163,12 +163,16 @@ if(@lines > 0){
 
 
 
-open(FILE,$dir."../hexmap.html");
-@lines = <FILE>;
-close(FILE);
-@html;
 
-# Create a hexmap
+
+
+open(FILE,$dir."../hexmap.html");
+@html = <FILE>;
+close(FILE);
+
+
+
+# Create hexmaps
 $hj = ODILeeds::HexJSON->new();
 # Load the HexJSON
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
@@ -190,30 +194,59 @@ $svg_cases = $hj->map(('width'=>'480'));
 
 
 
-for($i = 0; $i < @lines; $i++){
-	if(!$inhexmapcases && !$inhexmappercapita){
-		push(@html,$lines[$i]);
+#################################################
+# Read in keyworker data from ONS
+%keyworkers;
+open(FILE,$dir."ons-table19-keyworkers-2019.csv");
+@lines = <FILE>;
+close(FILE);
+# Split the headers and tidy
+$lines[0] =~ s/[\n\r]//g;
+#LA,LAD18CD,Population (thousand),Percent
+for($i = 1; $i < @lines; $i++){
+	$lines[$i] =~ s/[\n\r]//g;
+	(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
+	$keyworkers{$cols[1]} = { 'keyworkers'=>$cols[3],'population'=>$cols[2] };
+}
+# Create key worker map - the data are for 
+$hj->load('../resources/uk-local-authority-districts.hexjson');
+$hj->addData(%keyworkers);
+$hj->setPrimaryKey('keyworkers');
+$hj->setKeys('keyworkers');
+$hj->setColourScale('Viridis');
+$svg_keyworkers = $hj->map(('width'=>'480'));
+
+
+
+################################
+# Build HTML page
+@htmloutput;
+$inhexmap = 0;
+for($i = 0; $i < @html; $i++){
+	if(!$inhexmap){
+		push(@htmloutput,$html[$i]);
 	}
-	if($lines[$i] =~ /\<\!-- Begin hexmap cases --\>/){
-		push(@html,$svg_cases);
-		$inhexmapcases = 1;
+	if($html[$i] =~ /\<\!-- Begin hexmap cases --\>/){
+		push(@htmloutput,$svg_cases);
+		$inhexmap = 1;
 	}
-	if($lines[$i] =~ /\<\!-- End hexmap cases --\>/){
-		push(@html,$lines[$i]);
-		$inhexmapcases = 0;
+	if($html[$i] =~ /\<\!-- Begin hexmap percapita --\>/){
+		push(@htmloutput,$svg_percapita);
+		$inhexmap = 1;
 	}
-	if($lines[$i] =~ /\<\!-- Begin hexmap percapita --\>/){
-		push(@html,$svg_percapita);
-		$inhexmappercapita = 1;
+	if($html[$i] =~ /\<\!-- Begin hexmap keyworkers --\>/){
+	print "keyworkers\n";
+		push(@htmloutput,$svg_keyworkers."Test");
+		$inhexmap = 1;
 	}
-	if($lines[$i] =~ /\<\!-- End hexmap percapita --\>/){
-		push(@html,$lines[$i]);
-		$inhexmappercapita = 0;
+	if($html[$i] =~ /\<\!-- End hexmap /){
+		push(@htmloutput,$html[$i]);
+		$inhexmap = 0;
 	}
 }
 
 open(FILE,">",$dir."../hexmap.html");
-print FILE @html;
+print FILE @htmloutput;
 close(FILE);
 
 open(FILE,">",$dir."local-authorities-percapita.svg");
@@ -222,6 +255,10 @@ close(FILE);
 
 open(FILE,">",$dir."local-authorities-cases.svg");
 print FILE $svg_cases;
+close(FILE);
+
+open(FILE,">",$dir."local-authorities-keyworkers.svg");
+print FILE $svg_keyworkers;
 close(FILE);
 
 
