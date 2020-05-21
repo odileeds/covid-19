@@ -29,7 +29,7 @@ $conversion = JSON::XS->new->utf8->decode(join("\n",@lines));
 %conv = %{$conversion};
 %utla;
 foreach $la (keys(%conv)){
-	print "$la - $conv{$la}{'id'}\n";
+	#print "$la - $conv{$la}{'id'}\n";
 	if(!$utla{$conv{$la}{'id'}}){
 		%{$utla{$conv{$la}{'id'}}} = ('name'=>$conv{$la}{'n'},'la'=>());
 	}
@@ -129,14 +129,14 @@ if(@lines > 0){
 					$nla = @{$utla{$id}->{'la'}};
 					foreach $convla (@{$utla{$id}->{'la'}}){
 						if($pop{$id}){
-							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}/$nla};
+							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d},'cases'=>$LA{$id}{'dates'}{$d}/$nla,'UTLA'=>$LA{$id}{'name'}};
 						}else{
 							print "No population for $id\n";
 						}
 					}
 				}else{
 					if($pop{$id}){
-						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}};
+						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d},'casesUTLA'=>$LA{$id}{'dates'}{$d}};
 					}else{
 						print "No population for $id\n";
 					}
@@ -176,6 +176,7 @@ $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
 $hj->addData(%LAlast);
 # Set primary value keys
 $hj->setPrimaryKey('percapita');
+$hj->setKeys('percapita','UTLA');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
@@ -183,6 +184,7 @@ $svg_percapita = $hj->map(('width'=>'480'));
 
 # Set primary value keys
 $hj->setPrimaryKey('cases');
+$hj->setKeys('cases','casesUTLA','UTLA');
 # Create the SVG output
 $svg_cases = $hj->map(('width'=>'480'));
 
