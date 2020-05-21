@@ -114,9 +114,10 @@
 	.hexmap { position: relative; }
 	.hexmap svg { width: 100%; height: auto; }
 
-	figcaption { font-size: 0.8em; color: #444; line-height: 1.4em; }
-	figcaption h2, figure h2 { margin-top: 0; margin-bottom: 0.5em; }
-	figcaption p:last-child { margin-bottom: 0px; }
+	figcaption { margin-bottom: 1em; margin-top: 0.5em; }
+	figcaption, .notes { font-size: 0.8em; color: #444; line-height: 1.4em; }
+	figcaption h2, figure h2, .notes h2 { margin-top: 0; margin-bottom: 0.5em; }
+	.notes p:last-child { margin-bottom: 0px; }
 
 	.label {
 		transform: translate3d(0,-50%,0);
@@ -1000,6 +1001,7 @@
 		<div class="holder">
 			<h2>About these maps</h2>
 			<p>These <a href="https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-local-authority-districts-2019.hexjson">Local Authority hex cartograms</a> are created by <a href="https://odileeds.org/">ODI Leeds</a> to help Local Authorities (and similar) get an overview of how their area compares to other parts of the United Kingdom. A hex cartogram gives each Local Authority the same visual weight on the map at the expense of geography. This helps make geographically compact (but often big in population) Local Authorities more easily visible than a geographic map.</p>
+			<p>You can also get static SVG versions of the <a href="data/local-authorities-cases.svg">confirmed cases hex map</a> and the <a href="data/local-authorities-percapita.svg">per capita hex map</a>.</p>
 			<p>The code is released <a href="https://github.com/odileeds/covid-19">under an MIT Licence on Github</a>. Please add issues on Github.</p>
 		</div>
 	</footer>
