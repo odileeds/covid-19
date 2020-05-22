@@ -163,7 +163,7 @@ if(@lines > 0){
 
 
 
-
+%svg;
 
 
 open(FILE,$dir."../hexmap.html");
@@ -184,13 +184,73 @@ $hj->setKeys('percapita','UTLA');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg_percapita = $hj->map(('width'=>'480'));
+$svg{'percapita'} = $hj->map(('width'=>'480'));
 
 # Set primary value keys
 $hj->setPrimaryKey('cases');
 $hj->setKeys('cases','casesUTLA','UTLA');
 # Create the SVG output
-$svg_cases = $hj->map(('width'=>'480'));
+$svg{'cases'} = $hj->map(('width'=>'480'));
+
+
+
+################################
+# Read in ONS death data
+%deaths;
+$file = $dir."temp/deaths.csv";
+if(!-e $file){
+	$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/4.csv";
+	`wget -q --no-check-certificate -O "$file" "$url"`;
+	
+}
+open(FILE,$file);
+$i = 0;
+while (my $line = <FILE>) {
+    chomp $line;
+	if($i > 0 && $i < 160000 && $line =~ /\,/){
+		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+		#v4_1,Data Marking,calendar-years,time,admin-geography,geography,week-number,week,cause-of-death,causeofdeath,place-of-death,placeofdeath,registration-or-occurrence,registrationoroccurrence
+		if(!$deaths{$cols[4]}){
+			$deaths{$cols[4]} = { 'all-causes'=>0,'covid-19'=>0 };
+		}
+		if($cols[12] eq "registrations"){
+			if($cols[8] eq "all-causes"){
+				$deaths{$cols[4]}{'all-causes'} += $cols[0];
+			}elsif($cols[8] eq "covid-19"){
+				$deaths{$cols[4]}{'covid-19'} += $cols[0];
+			}
+		}
+	}
+	$i++;
+}
+foreach $id (keys(%deaths)){
+	if($pop{$id}){
+		# Normalise the numbers to per capita figures
+		$deaths{$id}{'covid-19-percapita'} = int($deaths{$id}{'covid-19'}*1e5/$pop{$id} + 0.5);
+		$deaths{$id}{'all-causes-percapita'} = int($deaths{$id}{'all-causes'}*1e5/$pop{$id} + 0.5);
+	}else{
+		$deaths{$id}{'covid-19-percapita'} = 0;
+		$deaths{$id}{'all-causes-percapita'} = 0;
+	}
+
+}
+
+# Add the data
+$hj->addData(%deaths);
+# Set primary value keys
+$hj->setPrimaryKey('covid-19-percapita');
+$hj->setKeys('covid-19','covid-19-percapita');
+# Create the SVG output
+$svg{'deaths-covid'} = $hj->map(('width'=>'480'));
+
+
+
+# Set primary value keys
+$hj->setPrimaryKey('all-causes-percapita');
+$hj->setKeys('all-causes','all-causes-percapita');
+# Create the SVG output
+$svg{'deaths-all'} = $hj->map(('width'=>'480'));
+
 
 
 
@@ -214,7 +274,7 @@ $hj->addData(%keyworkers);
 $hj->setPrimaryKey('keyworkers');
 $hj->setKeys('keyworkers');
 $hj->setColourScale('Viridis');
-$svg_keyworkers = $hj->map(('width'=>'480'));
+$svg{'keyworkers'} = $hj->map(('width'=>'480'));
 
 
 
@@ -226,17 +286,9 @@ for($i = 0; $i < @html; $i++){
 	if(!$inhexmap){
 		push(@htmloutput,$html[$i]);
 	}
-	if($html[$i] =~ /\<\!-- Begin hexmap cases --\>/){
-		push(@htmloutput,$svg_cases);
-		$inhexmap = 1;
-	}
-	if($html[$i] =~ /\<\!-- Begin hexmap percapita --\>/){
-		push(@htmloutput,$svg_percapita);
-		$inhexmap = 1;
-	}
-	if($html[$i] =~ /\<\!-- Begin hexmap keyworkers --\>/){
-	print "keyworkers\n";
-		push(@htmloutput,$svg_keyworkers);
+	if($html[$i] =~ /\<\!-- Begin hexmap ([^\s]*) --\>/){
+		print "Adding $1 svg\n";
+		push(@htmloutput,$svg{$1});
 		$inhexmap = 1;
 	}
 	if($html[$i] =~ /\<\!-- End hexmap /){
@@ -249,17 +301,12 @@ open(FILE,">",$dir."../hexmap.html");
 print FILE @htmloutput;
 close(FILE);
 
-open(FILE,">",$dir."local-authorities-percapita.svg");
-print FILE $svg_percapita;
-close(FILE);
-
-open(FILE,">",$dir."local-authorities-cases.svg");
-print FILE $svg_cases;
-close(FILE);
-
-open(FILE,">",$dir."local-authorities-keyworkers.svg");
-print FILE $svg_keyworkers;
-close(FILE);
+# Save SVG files
+foreach $t (keys(%svg)){
+	open(FILE,">",$dir."local-authorities-".$t.".svg");
+	print FILE $svg{$t};
+	close(FILE);
+}
 
 
 
