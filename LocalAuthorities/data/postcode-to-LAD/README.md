@@ -12,3 +12,7 @@ There is a [postcode lookup file from the ONS](https://geoportal.statistics.gov.
 2. Process each line of this file to extract the first four characters of the postcode. Note that I first remove any spaces as my guess was that NHS Digital didn't include the space as one of the four characters.
 3. For each four-character postcode keep a note of how many times it appears in each Local Authority (`ladcd`).
 4. Create a JSON file containing an object that uses the four-character postcode as the key and then each Local Authority listed with how many times it is connected with that four-character postcode.
+
+## Discussion
+
+Full postcodes contain ["on average 16 households and 36 people"](https://www.map-logic.co.uk/blogs/articles/16108237-what-are-postcode-areas-districts-and-sectors) so we are using them as a proxy for population. It would be better to use the actual populations but the [ONS 2011 Census figures of "usual resident population" by postcode](https://www.nomisweb.co.uk/census/2011/postcode_headcounts_and_household_estimates) are only for postcodes as they were at 27th March 2011. Aside from being 9-year-old data, there are many newer postcodes without population figures which would complicate things.
