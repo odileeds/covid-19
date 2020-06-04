@@ -2680,6 +2680,8 @@
 					allcausespc = (e.target.getAttribute('data-all-causes-percapita'));
 					covidpc = (e.target.getAttribute('data-covid-19-percapita'));
 					deathpc = (e.target.getAttribute('data-deaths-percent'));
+					if(!deathpc) deathpc = "?";
+					else deathpc = parseFloat(deathpc).toFixed(1);
 					if(!covid) covid = 0;
 					if(!allcauses) allcauses = 0;
 					v = '%title%'
@@ -2689,7 +2691,7 @@
 					else if(id.indexOf("keyworker")>=0) n = '%title%<br />'+(keyworkers ? keyworkers+'%':'');
 					else if(id.indexOf("deaths-covid")>=0) n = '%title%<br />'+parseFloat(covid).toLocaleString()+' deaths<br />('+(covidpc ? Math.round(parseFloat(covidpc))+'/100,000':'')+')';
 					else if(id.indexOf("deaths-all")>=0) n = '%title%<br />'+parseFloat(allcauses).toLocaleString()+' deaths<br />('+(allcausespc ? Math.round(parseFloat(allcausespc))+'/100,000':'')+')';
-					else if(id.indexOf("deaths-percent")>=0) n = '%title%<br />'+parseFloat(deathpc).toFixed(1)+'% of deaths';
+					else if(id.indexOf("deaths-percent")>=0) n = '%title%<br />'+deathpc+'% of deaths';
 					if(n) v = n;
 					v = v.replace(/\%title\%/g,(UTLA ? UTLA : e.target.querySelector('title').innerHTML));
 					tooltip.innerHTML = v;
