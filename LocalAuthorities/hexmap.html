@@ -104,6 +104,8 @@
 		padding: 0px;
 	}
 	ul.grid > li > figure { height: 100%; }
+	ul.grid > li > figure + a { line-height: 3em; font-size: 1em; top: -3em; position: relative; height: auto; padding: 0 1em; text-align: center; }
+	ul.grid > li > figure + a:hover { background: black; color: white; }
 	ul.grid > li > a { display:block; height: 100%; padding: 1.5em; text-decoration: none; }
 	ul.grid > li.fullwidth { grid-column: auto / span 3; }
 	ul.grid > li > a *:first-child { margin-top:0px; }
@@ -589,6 +591,7 @@
 					<p>Data are provided by "Upper Tier Local Authorities" in England &amp; Northern Ireland, and by Health Board in Wales &amp; Scotland. This map shows Local Authorities. In cases where the raw data are provided for a combination of Local Authorities (i.e. for Health Boards or some Upper Tier Local Authorities), each Local Authority in that group is given the same per-capita value (<a href="https://twitter.com/owenboswarva/status/1243606486024105985">UK geography is hard</a>).</p>
 				</div>
 			</figure>
+			<a href="data/local-authorities-cases.svg" class="c3-bg">Download as SVG</a>
 		</li>
 		<li>
 			<figure class="b5-bg doublepadded">
@@ -991,6 +994,7 @@
 					<p>Data are provided by "Upper Tier Local Authorities" in England &amp; Northern Ireland, and by Health Board in Wales &amp; Scotland. This map shows Local Authorities. In cases where the raw data are provided for a combination of Local Authorities (i.e. for Health Boards or some Upper Tier Local Authorities), each Local Authority in that group is given the same per-capita value (<a href="https://twitter.com/owenboswarva/status/1243606486024105985">UK geography is hard</a>).</p>
 				</div>
 			</figure>
+			<a href="data/local-authorities-percapita.svg" class="c3-bg">Download as SVG</a>
 		</li>
 		<li>
 			<figure class="b5-bg doublepadded">
@@ -1402,6 +1406,7 @@
 					<p>This comes from ONS estimates of the numbers and characteristics of those who could be considered as potential &quot;key workers&quot; in the response to the coronavirus (COVID-19). It is related to the percent of people in each Local Authority. The ONS tables were published for Local Authorities that existed in 2019 so we have used a hex map layout with those (other hex maps on this page may have different Local Authorities).</p>
 				</div>
 			</figure>
+			<a href="data/local-authorities-keyworkers.svg" class="c3-bg">Download as SVG</a>
 		</li>
 		<li>
 			<figure class="b5-bg doublepadded">
@@ -1805,6 +1810,7 @@
 					<p>The data from ONS only cover England and Wales. It includes all deaths registered from the start of 2020 up to <span class="deaths-date">02 June 2020</span>.</p>
 				</div>
 			</figure>
+			<a href="data/local-authorities-deaths-all.svg" class="c3-bg">Download as SVG</a>
 		</li>
 		<li>
 			<figure class="b5-bg doublepadded">
@@ -2208,7 +2214,9 @@
 					<p>The data from ONS only cover England and Wales. It includes all deaths registered from the start of 2020 up to <span class="deaths-date">02 June 2020</span>.</p>
 				</div>
 			</figure>
-		</li>		<li>
+			<a href="data/local-authorities-deaths-covid.svg" class="c3-bg">Download as SVG</a>
+		</li>
+		<li>
 			<figure class="b5-bg doublepadded">
 				<h2>COVID-19 deaths (%)</h2>
 				<div>
@@ -2610,6 +2618,7 @@
 					<p>This shows the percentage of deaths registered as being COVID-19 compared to all deaths. The data from ONS only cover England and Wales. It includes all deaths registered from the start of 2020 up to <span class="deaths-date">02 June 2020</span>. Note that it does <strong>not</strong> include &quot;excess deaths&quot; - that requires comparison with previous years for which we do not have access to the same level of granularity.</p>
 				</div>
 			</figure>
+			<a href="data/local-authorities-deaths-percent.svg" class="c3-bg">Download as SVG</a>
 		</li>
 		<li class="fullwidth">
 			<a href="https://odileeds.org/projects/open-data-saves-lives/covid19/data-hub/" class="c3-bg doublepadded">
@@ -2624,7 +2633,6 @@
 		<div class="holder">
 			<h2>About these maps</h2>
 			<p>These <a href="https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-local-authority-districts-2019.hexjson">Local Authority</a> <a href="https://github.com/odileeds/hexmaps">hex cartograms</a> are created by <a href="https://odileeds.org/">ODI Leeds</a> to help Local Authorities (and similar) get an overview of how their area compares to other parts of the United Kingdom. A hex cartogram gives each Local Authority the same visual weight on the map at the expense of geography. This helps make geographically compact (but often big in population) Local Authorities more easily visible than a geographic map.</p>
-			<p>You can also get static SVG versions of the <a href="data/local-authorities-cases.svg">confirmed cases hex map</a> and the <a href="data/local-authorities-percapita.svg">per capita hex map</a>.</p>
 			<p>The code is released <a href="https://github.com/odileeds/covid-19">under an MIT Licence on Github</a>. Please add issues on Github.</p>
 		</div>
 	</footer>
