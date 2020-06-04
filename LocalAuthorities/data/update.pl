@@ -197,12 +197,27 @@ $svg{'cases'} = $hj->map(('width'=>'480'));
 ################################
 # Read in ONS death data
 %deaths;
-$file = $dir."temp/deaths.csv";
-if(!-e $file){
-	$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/4.csv";
-	`wget -q --no-check-certificate -O "$file" "$url"`;
-	
+$latestversion = "0";
+$latestdate = "";
+@lines = `wget -q --no-check-certificate -O- "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions"`;
+foreach $line (@lines){
+	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*) \(latest\)<\/h2>/){
+		if($1 gt $latestversion){
+			$latestversion = $1;
+			$latestdate = $2;
+		}
+	}
 }
+$file = $dir."temp/deaths-version-$latestversion.csv";
+print "File: $file\n";
+if(!-e $file){
+	$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$latestversion.csv";
+	print "Getting deaths data as of $latestdate from $url\n";
+	`wget -q --no-check-certificate -O "$file" "$url"`;
+}
+
+
+
 open(FILE,$file);
 $i = 0;
 while (my $line = <FILE>) {
@@ -224,6 +239,10 @@ while (my $line = <FILE>) {
 	$i++;
 }
 foreach $id (keys(%deaths)){
+	$deaths{$id}{'deaths-percent'} = 0;
+	if($deaths{$id}{'all-causes'} > 0){
+		$deaths{$id}{'deaths-percent'} = 100*$deaths{$id}{'covid-19'}/$deaths{$id}{'all-causes'};
+	}
 	if($pop{$id}){
 		# Normalise the numbers to per capita figures
 		$deaths{$id}{'covid-19-percapita'} = int($deaths{$id}{'covid-19'}*1e5/$pop{$id} + 0.5);
@@ -250,6 +269,13 @@ $hj->setPrimaryKey('all-causes-percapita');
 $hj->setKeys('all-causes','all-causes-percapita');
 # Create the SVG output
 $svg{'deaths-all'} = $hj->map(('width'=>'480'));
+
+
+# Set primary value keys
+$hj->setPrimaryKey('deaths-percent');
+$hj->setKeys('deaths-percent');
+# Create the SVG output
+$svg{'deaths-percent'} = $hj->map(('width'=>'480'));
 
 
 
@@ -283,6 +309,8 @@ $svg{'keyworkers'} = $hj->map(('width'=>'480'));
 @htmloutput;
 $inhexmap = 0;
 for($i = 0; $i < @html; $i++){
+	# Replace the death date
+	$html[$i] =~ s/(<span class="deaths-date">)[^\<]*(<\/span>)/$1$latestdate$2/g;
 	if(!$inhexmap){
 		push(@htmloutput,$html[$i]);
 	}
