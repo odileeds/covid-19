@@ -59,7 +59,10 @@ sub colour {
 }
 
 sub d2h {
-	return sprintf("%X", $_[0]);
+	my $c = sprintf("%02X", $_[0]);
+
+	
+	return $c;
 }
 sub h2d {
 	return hex($_[0]);

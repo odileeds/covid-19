@@ -6,6 +6,9 @@ use JSON::XS;
 use lib "./lib/";
 use ODILeeds::HexJSON;
 
+
+
+
 # Get directory
 $dir = $0;
 if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1/g; }
@@ -184,13 +187,13 @@ $hj->setKeys('percapita','UTLA');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg{'percapita'} = $hj->map(('width'=>'480'));
+$svg{'percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita'));
 
 # Set primary value keys
 $hj->setPrimaryKey('cases');
 $hj->setKeys('cases','casesUTLA','UTLA');
 # Create the SVG output
-$svg{'cases'} = $hj->map(('width'=>'480'));
+$svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases'));
 
 
 
@@ -260,7 +263,7 @@ $hj->addData(%deaths);
 $hj->setPrimaryKey('covid-19-percapita');
 $hj->setKeys('covid-19','covid-19-percapita');
 # Create the SVG output
-$svg{'deaths-covid'} = $hj->map(('width'=>'480'));
+$svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-covid'));
 
 
 
@@ -268,14 +271,15 @@ $svg{'deaths-covid'} = $hj->map(('width'=>'480'));
 $hj->setPrimaryKey('all-causes-percapita');
 $hj->setKeys('all-causes','all-causes-percapita');
 # Create the SVG output
-$svg{'deaths-all'} = $hj->map(('width'=>'480'));
+$svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all'));
+#$svg{'deaths-all'} .= $hj->getColourScale();
 
 
 # Set primary value keys
 $hj->setPrimaryKey('deaths-percent');
 $hj->setKeys('deaths-percent');
 # Create the SVG output
-$svg{'deaths-percent'} = $hj->map(('width'=>'480'));
+$svg{'deaths-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-percent'));
 
 
 
@@ -300,7 +304,7 @@ $hj->addData(%keyworkers);
 $hj->setPrimaryKey('keyworkers');
 $hj->setKeys('keyworkers');
 $hj->setColourScale('Viridis');
-$svg{'keyworkers'} = $hj->map(('width'=>'480'));
+$svg{'keyworkers'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-keyworkers'));
 
 
 

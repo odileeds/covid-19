@@ -1,6 +1,19 @@
 <svg width="480" height="604" viewBox="0 0 1 0.866" xmlns="http://www.w3.org/2000/svg" style="overflow:display" preserveAspectRatio="xMinYMin meet" overflow="visible">
+<defs><linearGradient id="scalebar-keyworkers" x1="0" x2="0" y1="1" y2="0">
+	<stop offset="0%" stop-color="#440154"/>
+	<stop offset="10%" stop-color="#482374"/>
+	<stop offset="20%" stop-color="#404387"/>
+	<stop offset="30%" stop-color="#345E8D"/>
+	<stop offset="40%" stop-color="#29788E"/>
+	<stop offset="50%" stop-color="#208F8C"/>
+	<stop offset="60%" stop-color="#22A784"/>
+	<stop offset="70%" stop-color="#42BE71"/>
+	<stop offset="80%" stop-color="#79D151"/>
+	<stop offset="90%" stop-color="#BADE27"/>
+	<stop offset="100%" stop-color="#FDE724"/>
+</linearGradient>
 <style>path.hex { vector-effect: non-scaling-stroke; stroke: white; stroke-width: 1; } path.hex:hover { stroke: black; stroke-width: 4; }</style>
-<path d="M0.620,0.404 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="E06000001" data-keyworkers="34.3" fill="rgb(66,190,113)"><title>Hartlepool</title></path>
+</defs><path d="M0.620,0.404 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="E06000001" data-keyworkers="34.3" fill="rgb(66,190,113)"><title>Hartlepool</title></path>
 <path d="M0.640,0.439 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="E06000002" data-keyworkers="38.6" fill="rgb(121,209,81)"><title>Middlesbrough</title></path>
 <path d="M0.660,0.404 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="E06000003" data-keyworkers="34.5" fill="rgb(66,190,113)"><title>Redcar and Cleveland</title></path>
 <path d="M0.600,0.439 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="E06000004" data-keyworkers="34.7" fill="rgb(66,190,113)"><title>Stockton-on-Tees</title></path>
@@ -391,4 +404,4 @@
 <path d="M0.300,0.958 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="W06000022" data-keyworkers="33.7" fill="rgb(66,190,113)"><title>Newport</title></path>
 <path d="M0.340,0.820 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="W06000023" data-keyworkers="39.3" fill="rgb(121,209,81)"><title>Powys</title></path>
 <path d="M0.320,0.854 m -0.020,-0.012 l 0,0.023 0.020,0.012 0.020,-0.012 0,-0.023 -0.020,-0.012z" class="hex" data-id="W06000024" data-keyworkers="37.6" fill="rgb(121,209,81)"><title>Merthyr Tydfil</title></path>
-</svg>
+<rect x="0.96" y="0" width="0.04" height="0.26" fill="url(#scalebar-keyworkers)" /></svg>

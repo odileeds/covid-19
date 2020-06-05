@@ -110,12 +110,24 @@ sub setColourScale {
 	return $self;
 }
 
+sub getColourScale {
+	my ($html,$grad);
+	my ($self) = @_;
+
+	$grad = $self->{'colourscale'}->{'scales'}->{$self->{'scale'}}->{'str'};
+
+	$html = "<div class=\"key\"><div class=\"bar\" style=\"background: -moz-linear-gradient(left, $grad);background: -webkit-linear-gradient(left, $grad);background: linear-gradient(to right, $grad);\"></div><div class=\"range\"><span class=\"min\">$self->{'min'}</span><span class=\"max\">$self->{'max'}</span></div></div>\n";
+
+	return $html;
+}
+
 sub map {
 	my ($self, %props) = @_;
-	my ($hex,%hexes,$prop,$d,$svg,$dr,$dq,$q,$r,$w,$h,$path,$x,$y,$y2,$dx,$dy,$dy2,$hexpath,$oq,$or,$ratio,$f,$colour,$k,$ks,$ky);
+	my ($hex,%hexes,$prop,$d,$svg,$dr,$dq,$q,$r,$w,$h,$path,$x,$y,$y2,$dx,$dy,$dy2,$hexpath,$oq,$or,$ratio,$f,$colour,$k,$ks,$ky,$scalebar,@stops,$s);
 
 	$w = $props{'width'};
 	$h = $props{'height'};
+	$scalebar = $props{'scalebar'};
 
 	$dr = ($self->{'r'}{'max2'} - $self->{'r'}{'min2'});
 	$dq = ($self->{'q'}{'max2'} - $self->{'q'}{'min2'});
@@ -151,7 +163,17 @@ sub map {
 
 	# Build SVG
 	$svg = "<svg width=\"".sprintf("%d",$w)."\" height=\"".sprintf("%d",$h)."\" viewBox=\"0 0 1 ".sprintf("%0.3f",$f)."\" xmlns=\"http://www.w3.org/2000/svg\" style=\"overflow:display\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\">\n";
+	$svg .= "<defs>";
+	if($scalebar){
+		@stops = @{$self->{'colourscale'}->{'scales'}->{$self->{'scale'}}->{'stops'}};
+		$svg .= "<linearGradient id=\"$scalebar\" x1=\"0\" x2=\"0\" y1=\"1\" y2=\"0\">\n";
+		for($s = 0; $s < @stops; $s++){
+			$svg .= "\t<stop offset=\"".($stops[$s]->{'v'})."%\" stop-color=\"$stops[$s]->{'c'}->{'hex'}\"/>\n";
+		}
+		$svg .= "</linearGradient>\n";
+	}
 	$svg .= "<style>path.hex { vector-effect: non-scaling-stroke; stroke: white; stroke-width: 1; } path.hex:hover { stroke: black; stroke-width: 4; }</style>\n";
+	$svg .= "</defs>";
 	
 	foreach $hex (sort(keys(%{$self->{'hexes'}}))){
 		$q = ($self->{'hexes'}{$hex}{'q2'} - $self->{'q'}{'min2'} + $oq)/$dq;
@@ -169,6 +191,9 @@ sub map {
 			}
 		}
 		$svg .= " fill=\"".$colour."\"><title>$self->{'hexes'}{$hex}{'n'}</title></path>\n";
+	}
+	if($scalebar){
+		$svg .= "<rect x=\"0.96\" y=\"0\" width=\"0.04\" height=\"".sprintf("%.2f",$f*0.3)."\" fill=\"url(\#$scalebar)\" />";
 	}
 	$svg .= "</svg>\n";
 	

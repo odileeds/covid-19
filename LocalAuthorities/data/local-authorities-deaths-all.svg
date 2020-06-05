@@ -1,6 +1,19 @@
 <svg width="480" height="599" viewBox="0 0 1 0.866" xmlns="http://www.w3.org/2000/svg" style="overflow:display" preserveAspectRatio="xMinYMin meet" overflow="visible">
+<defs><linearGradient id="scalebar-deaths-all" x1="0" x2="0" y1="1" y2="0">
+	<stop offset="0%" stop-color="#440154"/>
+	<stop offset="10%" stop-color="#482374"/>
+	<stop offset="20%" stop-color="#404387"/>
+	<stop offset="30%" stop-color="#345E8D"/>
+	<stop offset="40%" stop-color="#29788E"/>
+	<stop offset="50%" stop-color="#208F8C"/>
+	<stop offset="60%" stop-color="#22A784"/>
+	<stop offset="70%" stop-color="#42BE71"/>
+	<stop offset="80%" stop-color="#79D151"/>
+	<stop offset="90%" stop-color="#BADE27"/>
+	<stop offset="100%" stop-color="#FDE724"/>
+</linearGradient>
 <style>path.hex { vector-effect: non-scaling-stroke; stroke: white; stroke-width: 1; } path.hex:hover { stroke: black; stroke-width: 4; }</style>
-<path d="M0.612,0.412 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="E06000001" data-all-causes="535" data-all-causes-percapita="572" fill="rgb(52,180,120)"><title>Hartlepool</title></path>
+</defs><path d="M0.612,0.412 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="E06000001" data-all-causes="535" data-all-causes-percapita="572" fill="rgb(52,180,120)"><title>Hartlepool</title></path>
 <path d="M0.633,0.448 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="E06000002" data-all-causes="869" data-all-causes-percapita="619" fill="rgb(87,197,100)"><title>Middlesbrough</title></path>
 <path d="M0.653,0.412 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="E06000003" data-all-causes="778" data-all-causes-percapita="564" fill="rgb(48,177,123)"><title>Redcar and Cleveland</title></path>
 <path d="M0.592,0.448 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="E06000004" data-all-causes="889" data-all-causes-percapita="448" fill="rgb(36,130,141)"><title>Stockton-on-Tees</title></path>
@@ -382,4 +395,4 @@
 <path d="M0.286,0.978 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="W06000022" data-all-causes="793" data-all-causes-percapita="517" fill="rgb(33,158,134)"><title>Newport</title></path>
 <path d="M0.327,0.837 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="W06000023" data-all-causes="822" data-all-causes-percapita="621" fill="rgb(89,198,99)"><title>Powys</title></path>
 <path d="M0.306,0.872 m -0.020,-0.012 l 0,0.024 0.020,0.012 0.020,-0.012 0,-0.024 -0.020,-0.012z" class="hex" data-id="W06000024" data-all-causes="337" data-all-causes-percapita="560" fill="rgb(46,175,124)"><title>Merthyr Tydfil</title></path>
-</svg>
+<rect x="0.96" y="0" width="0.04" height="0.26" fill="url(#scalebar-deaths-all)" /></svg>
