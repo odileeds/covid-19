@@ -193,7 +193,7 @@ sub map {
 		$svg .= " fill=\"".$colour."\"><title>$self->{'hexes'}{$hex}{'n'}</title></path>\n";
 	}
 	if($scalebar){
-		$svg .= "<rect x=\"0.96\" y=\"0\" width=\"0.04\" height=\"".sprintf("%.2f",$f*0.3)."\" fill=\"url(\#$scalebar)\" />";
+		$svg .= "<rect x=\"0.96\" y=\"0\" width=\"0.04\" height=\"".sprintf("%.2f",$f*0.3)."\" fill=\"url(\#$scalebar)\" stroke=\"black\" stroke-width=\"0.5\" vector-effect=\"non-scaling-stroke\" />";
 	}
 	$svg .= "</svg>\n";
 	
