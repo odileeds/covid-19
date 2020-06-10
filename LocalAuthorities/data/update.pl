@@ -7,8 +7,6 @@ use lib "./lib/";
 use ODILeeds::HexJSON;
 
 
-
-
 # Get directory
 $dir = $0;
 if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1/g; }
@@ -17,7 +15,9 @@ else{ $dir = "./"; }
 %LA;
 %headers;
 %LAlast;
-$mostrecent = "2000-01-01";
+%updates;
+$updates{'cases'} = "2000-01-01";
+$updates{'deaths'} = "2000-01-01";
 $mindate = "3000-01-01";
 $maxdate = "2000-01-01";
 
@@ -48,134 +48,24 @@ $pop = JSON::XS->new->utf8->decode(join("\n",@lines));
 %pop = %{$pop};
 
 
-# Get the CSV from Tom White
-$url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
-@lines = `wget -q --no-check-certificate -O- "$url"`;
-if(@lines > 0){
-
-
-	# Split the headers and tidy
-	$lines[0] =~ s/[\n\r]//g;
-	(@header) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[0]);
-	for($c = 0; $c < @header; $c++){
-		$header[$c] =~ s/(^\"|\"$)//g;
-		$headers{$header[$c]} = $c;
-	}
-
-	for($i = 1 ; $i < @lines; $i++){
-		chomp($lines[$i]);
-		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
-		$cols[$headers{'Area'}] =~ s/(^\"|\"$)//g;
-		if($cols[$headers{'TotalCases'}] =~ /[\s\D]/){ $cols[$headers{'TotalCases'}] = "\"$cols[$headers{'TotalCases'}]\""; }
-		$d = $cols[$headers{'Date'}];
-		#$d =~ s/\-//g;
-		
-		if($d lt $mindate){ $mindate = $d; }
-		if($d gt $maxdate){ $maxdate = $d; }
-		
-		$id = $cols[$headers{'AreaCode'}];
-		$oid = $id;
-		$name = $cols[$headers{'Area'}];
-		
-		if($id eq "E06000052" || $id eq "E06000053"){ $id = "E06000052-3"; $name = "Cornwall and Isles of Scilly" }
-		#if($id eq "E09000001" || $id eq "E09000012"){ $id = "E09000001-12"; $name = "Hackney and City of London"; }
-		
-		if(!$LA{$id}){ $LA{$id} = {'name'=>'','country'=>$cols[$headers{'Country'}],'dates'=>{}}; }
-		# Only add the date if it has a value
-		if($cols[$headers{'TotalCases'}] ne ""){
-			if(!$LA{$id}{'dates'}{$d} || $LA{$id}{'dates'}{$d} eq ""){ $LA{$id}{'dates'}{$d} = 0; }
-			$LA{$id}{'dates'}{$d} += $cols[$headers{'TotalCases'}];
-		}
-		$LA{$id}{'name'} = $name;
-		
-		if($cols[$headers{'Date'}] gt $mostrecent){ $mostrecent = $cols[$headers{'Date'}]; }
-	}
-	
-	@dates = ();
-	$min = getJulianFromISO($mindate);
-	$max = getJulianFromISO($maxdate);
-
-	$dt = getJulianFromISO($mindate);
-
-	print "$mindate - $maxdate ".$dt."\n";
-	
-	for($dt = $min; $dt <= $max; $dt++){
-		push(@dates,getDate($dt,"%Y-%m-%d"));
-	}
-	
-	$json = "";
-	for $id (sort(keys(%LA))){
-		if($id ne ""){
-
-			@dates = sort(keys(%{$LA{$id}{'dates'}}));
-			$n = @dates;
-
-			if($json){ $json .= ",\n";}
-			$json .= "\t\t\"$id\":{";
-			$json .= "\"n\":\"$LA{$id}{'name'}\",";
-			$json .= "\"c\":\"$LA{$id}{'country'}\",";
-			$json .= "\"mindate\":\"$dates[0]\",";
-			$json .= "\"maxdate\":\"".$dates[$n-1]."\",";
-			$json .= "\"v\":[";
-
-			$min = getJulianFromISO($dates[0]);
-			$max = getJulianFromISO($dates[$n-1]);
-			$dt = getJulianFromISO($dates[0]);
-			
-			for($i = 0; $dt <= $max; $i++, $dt++){
-				if($i > 0){
-					$json .= ",";
-				}
-				$d = getDate($dt,"%Y-%m-%d");
-				$json .= ($LA{$id}{'dates'}{$d} ? $LA{$id}{'dates'}{$d} : "null");
-				if($utla{$id}){
-					$nla = @{$utla{$id}->{'la'}};
-					foreach $convla (@{$utla{$id}->{'la'}}){
-						if($pop{$id}){
-							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d},'cases'=>$LA{$id}{'dates'}{$d}/$nla,'UTLA'=>$LA{$id}{'name'}};
-						}else{
-							print "No population for $id\n";
-						}
-					}
-				}else{
-					if($pop{$id}){
-						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d},'casesUTLA'=>$LA{$id}{'dates'}{$d}};
-					}else{
-						print "No population for $id\n";
-					}
-				}
-			}
-
-			$json .= $dates."]";
-			$json .= "}";
-		}
-	}
-	print "Save to $dir/utla.json\n";
-	open(FILE,">","$dir/utla.json");
-	print FILE "{\n";
-	print FILE "\t\"src\":{\"name\":\"Tom White\",\"url\":\"https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv\"},\n";
-	print FILE "\t\"lastupdate\":\"".$mostrecent."\",\n";
-	print FILE "\t\"data\": {\n";
-	print FILE $json."\n";
-	print FILE "\t}\n";
-	print FILE "}";
-	close(FILE);
-}else{
-	print "Empty file";
-}
-
+getCases();
 
 
 %svg;
 
-
+###########################
+# Read in the HTML
 open(FILE,$dir."../hexmap.html");
 @html = <FILE>;
 close(FILE);
 
 
-
+#################
 # Create hexmaps
+
+
+####################################
+# Make the cases/per-capita hexmaps
 $hj = ODILeeds::HexJSON->new();
 # Load the HexJSON
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
@@ -197,17 +87,16 @@ $svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases'));
 
 
 
-################################
+#########################
 # Read in ONS death data
 %deaths;
 $latestversion = "0";
-$latestdate = "";
 @lines = `wget -q --no-check-certificate -O- "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions"`;
 foreach $line (@lines){
 	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*) \(latest\)<\/h2>/){
 		if($1 gt $latestversion){
 			$latestversion = $1;
-			$latestdate = $2;
+			$updates{'deaths'} = $2;
 		}
 	}
 }
@@ -215,7 +104,7 @@ $file = $dir."temp/deaths-version-$latestversion.csv";
 print "File: $file\n";
 if(!-e $file){
 	$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$latestversion.csv";
-	print "Getting deaths data as of $latestdate from $url\n";
+	print "Getting deaths data as of $updates{'deaths'} from $url\n";
 	`wget -q --no-check-certificate -O "$file" "$url"`;
 }
 
@@ -225,17 +114,20 @@ open(FILE,$file);
 $i = 0;
 while (my $line = <FILE>) {
     chomp $line;
+	if($i == 0){
+		%headers = getHeaders($line);
+	}
 	if($i > 0 && $i < 160000 && $line =~ /\,/){
 		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
 		#v4_1,Data Marking,calendar-years,time,admin-geography,geography,week-number,week,cause-of-death,causeofdeath,place-of-death,placeofdeath,registration-or-occurrence,registrationoroccurrence
-		if(!$deaths{$cols[4]}){
-			$deaths{$cols[4]} = { 'all-causes'=>0,'covid-19'=>0 };
+		if(!$deaths{$cols[$headers{'admin-geography'}]}){
+			$deaths{$cols[$headers{'admin-geography'}]} = { 'all-causes'=>0,'covid-19'=>0 };
 		}
-		if($cols[12] eq "registrations"){
-			if($cols[8] eq "all-causes"){
-				$deaths{$cols[4]}{'all-causes'} += $cols[0];
-			}elsif($cols[8] eq "covid-19"){
-				$deaths{$cols[4]}{'covid-19'} += $cols[0];
+		if($cols[$headers{'registration-or-occurrence'}] eq "registrations"){
+			if($cols[$headers{'cause-of-death'}] eq "all-causes"){
+				$deaths{$cols[$headers{'admin-geography'}]}{'all-causes'} += $cols[$headers{'v4_1'}];
+			}elsif($cols[$headers{'cause-of-death'}] eq "covid-19"){
+				$deaths{$cols[$headers{'admin-geography'}]}{'covid-19'} += $cols[$headers{'v4_1'}];
 			}
 		}
 	}
@@ -314,7 +206,9 @@ $svg{'keyworkers'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-keyworkers')
 $inhexmap = 0;
 for($i = 0; $i < @html; $i++){
 	# Replace the death date
-	$html[$i] =~ s/(<span class="deaths-date">)[^\<]*(<\/span>)/$1$latestdate$2/g;
+	$html[$i] =~ s/(<span class="deaths-date">)[^\<]*(<\/span>)/$1$updates{'deaths'}$2/g;
+	# Replace the death date
+	$html[$i] =~ s/(<span class="cases-date">)[^\<]*(<\/span>)/$1$updates{'cases'}$2/g;
 	if(!$inhexmap){
 		push(@htmloutput,$html[$i]);
 	}
@@ -341,6 +235,142 @@ foreach $t (keys(%svg)){
 }
 
 
+
+
+
+sub getHeaders {
+	my ($str,@header,$c,%headers);
+	$str = $_[0];
+	# Split the headers and tidy
+	$str =~ s/[\n\r]//g;
+	(@header) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$str);
+	for($c = 0; $c < @header; $c++){
+		$header[$c] =~ s/(^\"|\"$)//g;
+		$headers{$header[$c]} = $c;
+	}
+	return %headers;
+}
+
+sub getCases {
+	my ($url,@lines,@header,$c,%headers,$i,@cols,$d,$id,$oid,$name,@dates,$min,$max,$dt,$json,$n);
+
+	# Get the CSV from Tom White
+	$url = "https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv";
+	@lines = `wget -q --no-check-certificate -O- "$url"`;
+	if(@lines > 0){
+
+
+		# Split the headers and tidy
+		$lines[0] =~ s/[\n\r]//g;
+		(@header) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[0]);
+		for($c = 0; $c < @header; $c++){
+			$header[$c] =~ s/(^\"|\"$)//g;
+			$headers{$header[$c]} = $c;
+		}
+
+		for($i = 1 ; $i < @lines; $i++){
+			chomp($lines[$i]);
+			(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
+			$cols[$headers{'Area'}] =~ s/(^\"|\"$)//g;
+			if($cols[$headers{'TotalCases'}] =~ /[\s\D]/){ $cols[$headers{'TotalCases'}] = "\"$cols[$headers{'TotalCases'}]\""; }
+			$d = $cols[$headers{'Date'}];
+			#$d =~ s/\-//g;
+			
+			if($d lt $mindate){ $mindate = $d; }
+			if($d gt $maxdate){ $maxdate = $d; }
+			
+			$id = $cols[$headers{'AreaCode'}];
+			$oid = $id;
+			$name = $cols[$headers{'Area'}];
+			
+			if($id eq "E06000052" || $id eq "E06000053"){ $id = "E06000052-3"; $name = "Cornwall and Isles of Scilly" }
+			#if($id eq "E09000001" || $id eq "E09000012"){ $id = "E09000001-12"; $name = "Hackney and City of London"; }
+			
+			if(!$LA{$id}){ $LA{$id} = {'name'=>'','country'=>$cols[$headers{'Country'}],'dates'=>{}}; }
+			# Only add the date if it has a value
+			if($cols[$headers{'TotalCases'}] ne ""){
+				if(!$LA{$id}{'dates'}{$d} || $LA{$id}{'dates'}{$d} eq ""){ $LA{$id}{'dates'}{$d} = 0; }
+				$LA{$id}{'dates'}{$d} += $cols[$headers{'TotalCases'}];
+			}
+			$LA{$id}{'name'} = $name;
+			
+			if($cols[$headers{'Date'}] gt $updates{'cases'}){ $updates{'cases'} = $cols[$headers{'Date'}]; }
+		}
+		
+		@dates = ();
+		$min = getJulianFromISO($mindate);
+		$max = getJulianFromISO($maxdate);
+
+		$dt = getJulianFromISO($mindate);
+
+		print "$mindate - $maxdate ".$dt."\n";
+		
+		for($dt = $min; $dt <= $max; $dt++){
+			push(@dates,getDate($dt,"%Y-%m-%d"));
+		}
+		
+		$json = "";
+		for $id (sort(keys(%LA))){
+			if($id ne ""){
+
+				@dates = sort(keys(%{$LA{$id}{'dates'}}));
+				$n = @dates;
+
+				if($json){ $json .= ",\n";}
+				$json .= "\t\t\"$id\":{";
+				$json .= "\"n\":\"$LA{$id}{'name'}\",";
+				$json .= "\"c\":\"$LA{$id}{'country'}\",";
+				$json .= "\"mindate\":\"$dates[0]\",";
+				$json .= "\"maxdate\":\"".$dates[$n-1]."\",";
+				$json .= "\"v\":[";
+
+				$min = getJulianFromISO($dates[0]);
+				$max = getJulianFromISO($dates[$n-1]);
+				$dt = getJulianFromISO($dates[0]);
+				
+				for($i = 0; $dt <= $max; $i++, $dt++){
+					if($i > 0){
+						$json .= ",";
+					}
+					$d = getDate($dt,"%Y-%m-%d");
+					$json .= ($LA{$id}{'dates'}{$d} ? $LA{$id}{'dates'}{$d} : "null");
+					if($utla{$id}){
+						$nla = @{$utla{$id}->{'la'}};
+						foreach $convla (@{$utla{$id}->{'la'}}){
+							if($pop{$id}){
+								$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d},'cases'=>$LA{$id}{'dates'}{$d}/$nla,'UTLA'=>$LA{$id}{'name'}};
+							}else{
+								print "No population for $id\n";
+							}
+						}
+					}else{
+						if($pop{$id}){
+							$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d},'casesUTLA'=>$LA{$id}{'dates'}{$d}};
+						}else{
+							print "No population for $id\n";
+						}
+					}
+				}
+
+				$json .= $dates."]";
+				$json .= "}";
+			}
+		}
+		print "Save to $dir/utla.json\n";
+		open(FILE,">","$dir/utla.json");
+		print FILE "{\n";
+		print FILE "\t\"src\":{\"name\":\"Tom White\",\"url\":\"https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv\"},\n";
+		print FILE "\t\"lastupdate\":\"".$updates{'cases'}."\",\n";
+		print FILE "\t\"data\": {\n";
+		print FILE $json."\n";
+		print FILE "\t}\n";
+		print FILE "}";
+		close(FILE);
+	}else{
+		print "Empty file";
+	}
+	return;
+}
 
 # Get the Julian Date from an ISO formatted date string
 sub getJulianFromISO {
