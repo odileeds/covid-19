@@ -7,6 +7,7 @@ use lib "./lib/";
 use ODILeeds::HexJSON;
 
 
+
 # Get directory
 $dir = $0;
 if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1/g; }
@@ -77,13 +78,13 @@ $hj->setKeys('percapita','UTLA');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg{'percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita'));
+$svg{'percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases'}));
 
 # Set primary value keys
 $hj->setPrimaryKey('cases');
 $hj->setKeys('cases','casesUTLA','UTLA');
 # Create the SVG output
-$svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases'));
+$svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases','date'=>$updates{'cases'}));
 
 
 
@@ -96,7 +97,7 @@ foreach $line (@lines){
 	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*) \(latest\)<\/h2>/){
 		if($1 gt $latestversion){
 			$latestversion = $1;
-			$updates{'deaths'} = $2;
+			$updates{'deaths'} = tidyDate($2);
 		}
 	}
 }
@@ -155,7 +156,7 @@ $hj->addData(%deaths);
 $hj->setPrimaryKey('covid-19-percapita');
 $hj->setKeys('covid-19','covid-19-percapita');
 # Create the SVG output
-$svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-covid'));
+$svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-covid','date'=>$updates{'deaths'}));
 
 
 
@@ -163,7 +164,7 @@ $svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-cov
 $hj->setPrimaryKey('all-causes-percapita');
 $hj->setKeys('all-causes','all-causes-percapita');
 # Create the SVG output
-$svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all'));
+$svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all','date'=>$updates{'deaths'}));
 #$svg{'deaths-all'} .= $hj->getColourScale();
 
 
@@ -171,7 +172,7 @@ $svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all')
 $hj->setPrimaryKey('deaths-percent');
 $hj->setKeys('deaths-percent');
 # Create the SVG output
-$svg{'deaths-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-percent'));
+$svg{'deaths-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-percent','date'=>$updates{'deaths'}));
 
 
 
@@ -196,7 +197,7 @@ $hj->addData(%keyworkers);
 $hj->setPrimaryKey('keyworkers');
 $hj->setKeys('keyworkers');
 $hj->setColourScale('Viridis');
-$svg{'keyworkers'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-keyworkers'));
+$svg{'keyworkers'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-keyworkers','date'=>'2020-05-15'));
 
 
 
@@ -588,6 +589,26 @@ sub getUnixDate {
 	return ($sec,$min,$hour,$day,$month,$year,$wday,$timezone);
 }
 
+sub tidyDate {
+	my ($m,$mm,$dd,$yy);
+	my $str = $_[0];
+	my @months = ('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+	my @monthslong = ('January','February','March','April','May','June','July','August','September','October','November','December');
+	
+	if($str =~ /([0-9]{1,2}) ([A-Za-z]*) ([0-9]{4})/){
+		$dd = $1;
+		$mm = $2;
+		$yy = $3;
+		for($m = 0; $m < @months; $m++){
+			if($mm eq $months[$m]){ $mm = sprintf("%02d",$m+1); }
+		}
+		for($m = 0; $m < @monthslong; $m++){
+			if($mm eq $monthslong[$m]){ $mm = sprintf("%02d",$m+1); }
+		}
+		$str = "$yy-$mm-$dd";
+	}
+	return $str;
+}
 
 sub getDate {
 	my $mytime = $_[0];

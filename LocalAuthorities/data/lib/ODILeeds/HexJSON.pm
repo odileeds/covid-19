@@ -123,11 +123,12 @@ sub getColourScale {
 
 sub map {
 	my ($self, %props) = @_;
-	my ($hex,%hexes,$prop,$d,$svg,$dr,$dq,$q,$r,$w,$h,$path,$x,$y,$y2,$dx,$dy,$dy2,$hexpath,$oq,$or,$ratio,$f,$colour,$k,$ks,$ky,$scalebar,@stops,$s);
+	my ($hex,%hexes,$prop,$d,$svg,$dr,$dq,$q,$r,$w,$h,$path,$x,$y,$y2,$dx,$dy,$dy2,$hexpath,$oq,$or,$ratio,$f,$colour,$k,$ks,$ky,$scalebar,@stops,$s,$showdate);
 
 	$w = $props{'width'};
 	$h = $props{'height'};
 	$scalebar = $props{'scalebar'};
+	$showdate = $props{'date'};
 
 	$dr = ($self->{'r'}{'max2'} - $self->{'r'}{'min2'});
 	$dq = ($self->{'q'}{'max2'} - $self->{'q'}{'min2'});
@@ -194,6 +195,9 @@ sub map {
 	}
 	if($scalebar){
 		$svg .= "<rect x=\"0.96\" y=\"0\" width=\"0.04\" height=\"".sprintf("%.2f",$f*0.3)."\" fill=\"url(\#$scalebar)\" stroke=\"black\" stroke-width=\"0.5\" vector-effect=\"non-scaling-stroke\" />";
+	}
+	if($showdate){
+		$svg .= "<text x=\"0\" y=\"0\" font-size=\"0.04\" dominant-baseline=\"hanging\" text-anchor=\"start\" fill=\"black\" vector-effect=\"non-scaling-stroke\">".$showdate."</text>";
 	}
 	$svg .= "</svg>\n";
 	
