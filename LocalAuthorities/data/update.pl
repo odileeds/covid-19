@@ -201,15 +201,87 @@ $svg{'keyworkers'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-keyworkers',
 
 
 
+
+#################################################
+# Read in job retention data from HMRC https://www.gov.uk/government/statistics/coronavirus-job-retention-scheme-statistics-june-2020
+%jobs;
+$updates{'jobs'} = "2020-06-11";
+open(FILE,$dir."hmrc-job-retention-scheme-statistics-june-2020.csv");
+@lines = <FILE>;
+close(FILE);
+# Split the headers and tidy
+$lines[0] =~ s/[\n\r]//g;
+#ONS code,County and district / unitary authority,Total number of employments furloughed
+for($i = 1; $i < @lines; $i++){
+	$lines[$i] =~ s/[\n\r]//g;
+	(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
+	$id = $cols[0];
+	$cols[1] =~ s/(^\"|\"$)//g;
+	$jobs{$id} = { 'furloughed'=>$cols[2], 'total'=>$cols[2], 'name'=>$cols[1], 'pc'=>0, 'UTLA'=>'','pop'=>0 };
+	if($pop{$id}){
+		$jobs{$id}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$id} + 0.5);
+		$jobs{$id}{'pop'} = $pop{$id};
+	}
+
+if($id eq "E09000033-1"){
+
+	print "=================\n";
+}
+	# If we have a UTLA with this code we'll populate the associated LAs unless they have been done
+	if($utla{$id}){
+		$nla = @{$utla{$id}->{'la'}};
+		foreach $convla (@{$utla{$id}->{'la'}}){
+			if(!$jobs{$convla}){
+				print "UTLA ($nla) $id - $convla - $jobs{$id}{'furloughed'} - $pop{$id} - YES\n";
+				$jobs{$convla}{'furloughed'} = $jobs{$id}{'furloughed'};
+				$jobs{$convla}{'total'} = $jobs{$id}{'furloughed'}/$nla;
+				$jobs{$convla}{'name'} = $cols[1];
+				$jobs{$convla}{'UTLA'} = $jobs{$id}{'name'};
+				if($pop{$id}){
+					$jobs{$convla}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$id} + 0.5);
+					$jobs{$convla}{'pop'} = $pop{$id};
+				#}elsif($pop{$convla}){
+					#$jobs{$convla}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$convla} + 0.5);
+					#$jobs{$convla}{'pop'} = $pop{$convla};
+				#	print "Using $pop{$convla}\n";
+				}else{
+					print "No population for $id - $convla - $pop{$convla} - $jobs{$id}{'furloughed'}\n";
+				}
+			}else{
+				print "UTLA ($nla) $id - $convla\n";
+			}
+		}
+	}
+	print "$id = $jobs{$id}{'furloughed'} - $jobs{$id}{'pc'} - $pop{$id}\n";
+}
+# Create furloughed worker map - the data are for 
+$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->addData(%jobs);
+$hj->setPrimaryKey('total');
+$hj->setKeys('furloughed','total','UTLA');
+$hj->setColourScale('Viridis');
+$svg{'furloughed-total'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-total','date'=>$updates{'jobs'}));
+
+
+# Create furloughed worker map - the data are for 
+$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->addData(%jobs);
+$hj->setPrimaryKey('pc');
+$hj->setKeys('pc','furloughed','pop','UTLA');
+$hj->setColourScale('Viridis');
+$svg{'furloughed-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-percapita','date'=>$updates{'jobs'}));
+
+
+
+
 ################################
 # Build HTML page
 @htmloutput;
 $inhexmap = 0;
 for($i = 0; $i < @html; $i++){
-	# Replace the death date
-	$html[$i] =~ s/(<span class="deaths-date">)[^\<]*(<\/span>)/$1$updates{'deaths'}$2/g;
-	# Replace the death date
-	$html[$i] =~ s/(<span class="cases-date">)[^\<]*(<\/span>)/$1$updates{'cases'}$2/g;
+	foreach $dstr (keys(%updates)){
+		$html[$i] =~ s/(<span class="$dstr-date">)[^\<]*(<\/span>)/$1$updates{$dstr}$2/g;
+	}
 	if(!$inhexmap){
 		push(@htmloutput,$html[$i]);
 	}

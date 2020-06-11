@@ -16,9 +16,11 @@ The populations for England mostly come from [ONS population estimates](https://
 * Created an UTLA `E06000052-3` composed of Cornwall (`E06000052`) and Isles of Scilly (`E06000053`);
 * Converted Dorset from `E10000009` to `E06000059`;
 * Combined the populations of Bournemouth (`E06000028`), Christchurch (`E07000048`) and Poole (`E06000029`) into `E06000058`.
+* Combined the populations of Aylesbury Vale (`E07000004`), Chiltern (`E07000005`), South Bucks (`E07000006`) and Wycombe (`E07000007`) into `E06000060`.
 * Added [a population for East Suffolk](https://www.citypopulation.de/en/uk/eastofengland/admin/E07000244__east_suffolk/) (`E07000244`) estimated at 2018-06-30.
 * Added [a population for West Suffolk](https://www.citypopulation.de/en/uk/admin/suffolk/E07000245__west_suffolk/) (`E07000245`) estimated at 2018-06-30.
 * Added [a population for Somerset West and Taunton](https://www.citypopulation.de/en/uk/admin/somerset/E07000246__somerset_west_and_taunton/) (`E07000246`) estimated at 2018-06-30.
+* Added [a population for Westminster and City of London](https://en.wikipedia.org/wiki/Cities_of_London_and_Westminster_%28UK_Parliament_constituency%29) estimated in 2011
 
 ### Wales, Scotland, and Northern Ireland
 

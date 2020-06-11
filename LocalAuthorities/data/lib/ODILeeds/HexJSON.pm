@@ -75,7 +75,7 @@ sub setPrimaryKey {
 	$max = -1e100;
 	$min = 1e100;
 	foreach $hex (keys(%{$self->{'data'}})){
-		if($self->{'data'}{$hex} && $self->{'data'}{$hex}->{$self->{'primarykey'}}){
+		if($self->{'data'}{$hex} && $self->{'data'}{$hex}->{$self->{'primarykey'}} && $self->{'hexes'}{$hex}){
 			if($self->{'data'}{$hex}->{$self->{'primarykey'}} > $max){ $max = $self->{'data'}{$hex}->{$self->{'primarykey'}}; }
 			if($self->{'data'}{$hex}->{$self->{'primarykey'}} < $min){ $min = $self->{'data'}{$hex}->{$self->{'primarykey'}}; }
 		}
