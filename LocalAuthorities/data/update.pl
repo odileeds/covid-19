@@ -223,10 +223,6 @@ for($i = 1; $i < @lines; $i++){
 		$jobs{$id}{'pop'} = $pop{$id};
 	}
 
-if($id eq "E09000033-1"){
-
-	print "=================\n";
-}
 	# If we have a UTLA with this code we'll populate the associated LAs unless they have been done
 	if($utla{$id}){
 		$nla = @{$utla{$id}->{'la'}};
@@ -252,7 +248,7 @@ if($id eq "E09000033-1"){
 			}
 		}
 	}
-	print "$id = $jobs{$id}{'furloughed'} - $jobs{$id}{'pc'} - $pop{$id}\n";
+	#print "$id = $jobs{$id}{'furloughed'} - $jobs{$id}{'pc'} - $pop{$id}\n";
 }
 # Create furloughed worker map - the data are for 
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
@@ -270,6 +266,74 @@ $hj->setPrimaryKey('pc');
 $hj->setKeys('pc','furloughed','pop','UTLA');
 $hj->setColourScale('Viridis');
 $svg{'furloughed-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-percapita','date'=>$updates{'jobs'}));
+
+
+
+
+#################################################
+# Read in self-employed data from HMRC https://www.gov.uk/government/statistics/self-employment-income-support-scheme-statistics-june-2020
+%selfemployed;
+$updates{'self-employed'} = "2020-06-11";
+open(FILE,$dir."hmrc-self-employment-income-support-scheme-statistics-june-2020.csv");
+@lines = <FILE>;
+close(FILE);
+# Split the headers and tidy
+$lines[0] =~ s/[\n\r]//g;
+#ONS code,Authority name,Total potentially eligible population,Total no. of claims made to 31/5/20,Total value of claims made to 31/5/20 (£),Average value of claims made to 31/5/20 (£),Take-Up Rate
+for($i = 1; $i < @lines; $i++){
+	$lines[$i] =~ s/[\n\r]//g;
+	(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
+	$id = $cols[0];
+	$cols[1] =~ s/(^\"|\"$)//g;
+	$selfemployed{$id} = { 'name'=>$cols[1],'potential'=>$cols[2],'claims'=>$cols[3],'claimsav'=>$cols[3],'value'=>$cols[4],'valueav'=>$cols[4],'average'=>$cols[5],'UTLA'=>'' };
+	if($pop{$id}){
+		$selfemployed{$id}{'pop'} = $pop{$id};
+	}
+
+	# If we have a UTLA with this code we'll populate the associated LAs unless they have been done
+	if($utla{$id}){
+		$nla = @{$utla{$id}->{'la'}};
+		foreach $convla (@{$utla{$id}->{'la'}}){
+			if(!$selfemployed{$convla}){
+				print "UTLA ($nla) $id - $convla - $selfemployed{$id}{'furloughed'} - $pop{$id} - YES\n";
+				$selfemployed{$convla}{'valueav'} = $selfemployed{$id}{'value'}/$nla;
+				$selfemployed{$convla}{'claimsav'} = $selfemployed{$id}{'claims'}/$nla;
+				$selfemployed{$convla}{'average'} = $selfemployed{$id}{'average'};
+				$selfemployed{$convla}{'name'} = $cols[1];
+				$selfemployed{$convla}{'UTLA'} = $selfemployed{$id}{'name'};
+			}else{
+				print "UTLA ($nla) $id - $convla\n";
+			}
+		}
+	}
+	print "$id = $selfemployed{$id}{'average'} - $pop{$id}\n";
+}
+# Create self-employed maps
+$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->addData(%selfemployed);
+$hj->setPrimaryKey('average');
+$hj->setKeys('average','UTLA');
+$hj->setColourScale('Viridis');
+$svg{'self-employed-average'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-average','date'=>$updates{'self-employed'}));
+
+
+$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->addData(%selfemployed);
+$hj->setPrimaryKey('valueav');
+$hj->setKeys('value','valueav','UTLA');
+$hj->setColourScale('Viridis');
+$svg{'self-employed-value'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-value','date'=>$updates{'self-employed'}));
+
+
+$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->addData(%selfemployed);
+$hj->setPrimaryKey('claimsav');
+$hj->setKeys('claims','claimsav','UTLA');
+$hj->setColourScale('Viridis');
+$svg{'self-employed-claims'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-claims','date'=>$updates{'self-employed'}));
+
+
+
 
 
 
