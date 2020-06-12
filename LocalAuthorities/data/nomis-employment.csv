@@ -1,0 +1,590 @@
+
+"annual population survey"
+"ONS Crown Copyright Reserved [from Nomis on 12 June 2020]"
+"Analysis   :","variable"
+"Confidence :","95% confidence interval of percent figure (+/-)"
+"Date       :","Jan 2019-Dec 2019"
+
+"Area","mnemonic","Numerator","Denominator","Employment rate - aged 16-64","Conf"
+
+"lacu:Darlington","E06000005",47200,63600,74.2,2.8
+"lacu:County Durham","E06000047",231000,324400,71.2,2.8
+"lacu:Hartlepool","E06000001",38100,56300,67.6,3.2
+"lacu:Middlesbrough","E06000002",55600,88400,62.9,3.1
+"lacu:Northumberland","E06000057",132600,183400,72.3,3.0
+"lacu:Redcar and Cleveland","E06000003",54300,80500,67.4,3.2
+"lacu:Stockton-on-Tees","E06000004",86000,120600,71.3,3.2
+"lacu:Gateshead","E08000037",93400,127800,73.1,3.1
+"lacu:Newcastle upon Tyne","E08000021",134100,199600,67.2,3.4
+"lacu:North Tyneside","E08000022",99500,127600,78.0,3.1
+"lacu:South Tyneside","E08000023",61800,90500,68.4,3.2
+"lacu:Sunderland","E08000024",120800,174500,69.3,3.0
+"lacu:Blackburn with Darwen","E06000008",62700,92200,68.0,2.8
+"lacu:Blackpool","E06000009",59600,81900,72.8,2.7
+"lacu:Cheshire East","E06000049",181600,224500,80.9,3.4
+"lacu:Cheshire West and Chester","E06000050",156600,203600,76.9,4.2
+"lacu:Halton","E06000006",60700,78100,77.6,3.0
+"lacu:Warrington","E06000007",104700,130300,80.4,2.9
+"lacu:Cumbria","E10000006",227400,289300,78.6,2.6
+"lacu:Bolton","E08000001",122100,177200,68.9,3.1
+"lacu:Bury","E08000002",84600,114300,74.0,2.9
+"lacu:Manchester","E08000003",259400,388400,66.8,3.1
+"lacu:Oldham","E08000004",101200,143400,70.5,3.0
+"lacu:Rochdale","E08000005",93200,132800,70.2,2.9
+"lacu:Salford","E08000006",125700,164100,76.6,2.9
+"lacu:Stockport","E08000007",134700,175600,76.7,3.2
+"lacu:Tameside","E08000008",105100,140100,75.0,2.9
+"lacu:Trafford","E08000009",114700,145900,78.6,2.8
+"lacu:Wigan","E08000010",156900,203200,77.2,2.9
+"lacu:Lancashire","E10000017",552800,721500,76.6,2.1
+"lacu:Knowsley","E08000011",70100,92700,75.6,3.0
+"lacu:Liverpool","E08000012",224600,333800,67.3,3.1
+"lacu:Sefton","E08000014",120900,161600,74.8,3.0
+"lacu:St. Helens","E08000013",81600,109600,74.5,3.1
+"lacu:Wirral","E08000015",146500,190800,76.8,2.9
+"lacu:East Riding of Yorkshire","E06000011",152300,193000,78.9,2.9
+"lacu:Kingston upon Hull, City of","E06000010",120200,169000,71.1,3.4
+"lacu:North East Lincolnshire","E06000012",67600,95500,70.8,3.0
+"lacu:North Lincolnshire","E06000013",74100,102400,72.3,3.2
+"lacu:York","E06000014",106900,134900,79.2,2.8
+"lacu:North Yorkshire","E10000023",278400,351600,79.2,2.6
+"lacu:Barnsley","E08000016",112900,152700,73.9,2.9
+"lacu:Doncaster","E08000017",133800,186700,71.7,3.2
+"lacu:Rotherham","E08000018",114200,160800,71.0,3.3
+"lacu:Sheffield","E08000019",282000,381200,74.0,3.0
+"lacu:Bradford","E08000032",216500,326600,66.3,3.1
+"lacu:Calderdale","E08000033",94000,130400,72.1,2.9
+"lacu:Kirklees","E08000034",197700,270900,73.0,2.9
+"lacu:Leeds","E08000035",384800,515500,74.6,2.5
+"lacu:Wakefield","E08000036",157100,208500,75.4,2.9
+"lacu:Derby","E06000015",119400,161000,74.2,2.9
+"lacu:Leicester","E06000016",168200,236700,71.1,3.3
+"lacu:Nottingham","E06000018",143400,224500,63.9,3.0
+"lacu:Rutland","E06000017",15700,20300,77.1,5.1
+"lacu:Derbyshire","E10000007",378000,481600,78.5,2.5
+"lacu:Leicestershire","E10000018",340600,423200,80.5,2.6
+"lacu:Lincolnshire","E10000019",337500,441800,76.4,2.8
+"lacu:Northamptonshire","E10000021",369500,455200,81.2,2.6
+"lacu:Nottinghamshire","E10000024",391700,498300,78.6,2.3
+"lacu:Herefordshire, County of","E06000019",90800,109400,83.0,2.6
+"lacu:Shropshire","E06000051",147100,182300,80.7,2.7
+"lacu:Stoke-on-Trent","E06000021",115400,159100,72.5,2.9
+"lacu:Telford and Wrekin","E06000020",84300,109800,76.8,2.8
+"lacu:Staffordshire","E10000028",414400,524000,79.1,2.5
+"lacu:Warwickshire","E10000031",275700,341500,80.7,2.6
+"lacu:Birmingham","E08000025",476400,730200,65.2,2.5
+"lacu:Coventry","E08000026",179300,245500,73.0,2.8
+"lacu:Dudley","E08000027",138600,191000,72.6,3.2
+"lacu:Sandwell","E08000028",145400,205500,70.7,3.0
+"lacu:Solihull","E08000029",97800,127800,76.5,2.8
+"lacu:Walsall","E08000030",121200,171800,70.6,3.1
+"lacu:Wolverhampton","E08000031",110200,164000,67.2,3.1
+"lacu:Worcestershire","E10000034",272200,349100,78.0,2.6
+"lacu:Bedford","E06000055",81600,106200,76.9,4.6
+"lacu:Central Bedfordshire","E06000056",145000,179400,80.8,3.4
+"lacu:Luton","E06000032",97900,139100,70.4,2.6
+"lacu:Peterborough","E06000031",92500,123800,74.7,3.0
+"lacu:Southend-on-Sea","E06000033",86700,112000,77.3,2.5
+"lacu:Thurrock","E06000034",84400,109500,77.1,2.9
+"lacu:Cambridgeshire","E10000003",320500,402100,79.7,2.7
+"lacu:Essex","E10000012",693300,893700,77.6,1.9
+"lacu:Hertfordshire","E10000015",588400,744200,79.1,2.2
+"lacu:Norfolk","E10000020",406400,524300,77.5,2.5
+"lacu:Suffolk","E10000029",342300,437300,78.3,2.5
+"lacu:Camden","E09000007",130300,185600,70.2,4.5
+"lacu:City of London","E09000001",7400,8500,87.2,"*"
+"lacu:Hackney","E09000012",149700,206600,72.4,4.1
+"lacu:Hammersmith and Fulham","E09000013",95900,126500,75.8,4.5
+"lacu:Haringey","E09000014",150400,195500,76.9,4.0
+"lacu:Islington","E09000019",135300,175500,77.1,4.1
+"lacu:Kensington and Chelsea","E09000020",68400,103800,65.9,4.8
+"lacu:Lambeth","E09000022",191300,244600,78.2,3.8
+"lacu:Lewisham","E09000023",172200,215700,79.9,3.6
+"lacu:Newham","E09000025",179000,251600,71.1,4.6
+"lacu:Southwark","E09000028",182700,234100,78.1,3.8
+"lacu:Tower Hamlets","E09000030",168200,235600,71.4,4.4
+"lacu:Wandsworth","E09000032",189800,235800,80.5,3.9
+"lacu:Westminster","E09000033",122800,172200,71.3,4.8
+"lacu:Barking and Dagenham","E09000002",95800,137200,69.8,4.5
+"lacu:Barnet","E09000003",191500,259200,73.9,4.3
+"lacu:Bexley","E09000004",118600,156900,75.6,3.8
+"lacu:Brent","E09000005",160800,220800,72.8,5.0
+"lacu:Bromley","E09000006",166400,209700,79.3,3.6
+"lacu:Croydon","E09000008",191500,251600,76.1,3.7
+"lacu:Ealing","E09000009",161600,221300,73.0,4.9
+"lacu:Enfield","E09000010",144400,219000,65.9,4.9
+"lacu:Greenwich","E09000011",150600,195900,76.8,3.8
+"lacu:Harrow","E09000015",107800,157100,68.6,5.1
+"lacu:Havering","E09000016",121200,161200,75.2,3.9
+"lacu:Hillingdon","E09000017",145200,200500,72.4,4.7
+"lacu:Hounslow","E09000018",130900,182300,71.8,5.4
+"lacu:Kingston upon Thames","E09000021",92600,118300,78.2,4.1
+"lacu:Merton","E09000024",111700,139000,80.3,3.6
+"lacu:Redbridge","E09000026",141900,202100,70.2,4.1
+"lacu:Richmond upon Thames","E09000027",101600,125100,81.3,4.0
+"lacu:Sutton","E09000029",103500,131800,78.5,3.6
+"lacu:Waltham Forest","E09000031",140600,188900,74.4,4.6
+"lacu:Bracknell Forest","E06000036",64300,76400,84.1,2.4
+"lacu:Brighton and Hove","E06000043",157500,206600,76.2,3.1
+"lacu:Isle of Wight","E06000046",56500,76500,73.8,3.0
+"lacu:Medway","E06000035",137200,176200,77.9,3.3
+"lacu:Milton Keynes","E06000042",133600,170700,78.3,2.7
+"lacu:Portsmouth","E06000044",102300,144500,70.8,3.2
+"lacu:Reading","E06000038",87900,110900,79.2,2.8
+"lacu:Slough","E06000039",72500,96600,75.1,3.0
+"lacu:Southampton","E06000045",130100,173500,75.0,2.8
+"lacu:West Berkshire","E06000037",80900,96900,83.5,2.7
+"lacu:Windsor and Maidenhead","E06000040",74100,91200,81.2,2.4
+"lacu:Wokingham","E06000041",81800,100900,81.1,2.6
+"lacu:Buckinghamshire","E06000060",259100,326700,79.3,2.7
+"lacu:East Sussex","E10000011",243700,316500,77.0,3.2
+"lacu:Hampshire","E10000014",653800,818800,79.8,1.9
+"lacu:Kent","E10000016",737300,942200,78.2,2.0
+"lacu:Oxfordshire","E10000025",350400,420200,83.4,2.4
+"lacu:Surrey","E10000030",592700,724500,81.8,2.0
+"lacu:West Sussex","E10000032",413500,504300,82.0,2.5
+"lacu:Bath and North East Somerset","E06000022",93400,120500,77.5,2.8
+"lacu:Bristol, City of","E06000023",245000,319500,76.7,2.6
+"lacu:Cornwall","E06000052",252900,327000,77.4,2.9
+"lacu:Isles of Scilly","E06000053",-,-,-,-
+"lacu:North Somerset","E06000024",99900,123800,80.7,2.7
+"lacu:Plymouth","E06000026",123400,166700,74.0,3.0
+"lacu:Bournemouth, Christchurch and Poole","E06000058",197500,243800,81.0,2.0
+"lacu:South Gloucestershire","E06000025",142600,173600,82.2,2.6
+"lacu:Swindon","E06000030",111600,139400,80.1,2.5
+"lacu:Torbay","E06000027",56900,76000,74.9,3.1
+"lacu:Wiltshire","E06000054",229300,290900,78.8,2.8
+"lacu:Devon","E10000008",366800,451500,81.2,2.4
+"lacu:Dorset","E06000059",153100,202000,75.8,3.4
+"lacu:Gloucestershire","E10000013",310300,378700,81.9,2.5
+"lacu:Somerset","E10000027",255400,317600,80.4,2.7
+"lacu:Isle of Anglesey","W06000001",30500,39500,77.1,2.9
+"lacu:Gwynedd","W06000002",53600,74200,72.2,3.4
+"lacu:Conwy","W06000003",48600,65000,74.8,3.3
+"lacu:Denbighshire","W06000004",39800,54800,72.5,3.2
+"lacu:Flintshire","W06000005",74100,93400,79.4,3.0
+"lacu:Wrexham","W06000006",64500,85800,75.1,3.1
+"lacu:Powys","W06000023",56000,73600,76.1,3.3
+"lacu:Ceredigion","W06000008",31000,47700,65.1,3.5
+"lacu:Pembrokeshire","W06000009",53400,71500,74.7,3.0
+"lacu:Carmarthenshire","W06000010",77400,107700,71.8,2.9
+"lacu:Swansea","W06000011",108500,155300,69.8,2.9
+"lacu:Neath Port Talbot","W06000012",63100,85900,73.5,3.3
+"lacu:Bridgend","W06000013",64900,87600,74.1,3.1
+"lacu:Vale of Glamorgan","W06000014",58600,76700,76.4,3.2
+"lacu:Cardiff","W06000015",187400,246700,76.0,2.9
+"lacu:Rhondda Cynon Taff","W06000016",101400,149500,67.9,3.1
+"lacu:Merthyr Tydfil","W06000024",26200,36800,71.2,3.8
+"lacu:Caerphilly","W06000018",78200,111700,70.0,3.0
+"lacu:Blaenau Gwent","W06000019",29700,43200,68.7,3.8
+"lacu:Torfaen","W06000020",40000,55900,71.5,3.2
+"lacu:Monmouthshire","W06000021",41500,53400,77.6,3.0
+"lacu:Newport","W06000022",69000,93400,73.8,2.9
+"lacu:Aberdeen City","S12000033",124700,157600,79.1,3.1
+"lacu:Aberdeenshire","S12000034",133000,164600,80.8,3.2
+"lacu:Angus","S12000041",52300,69000,75.7,3.0
+"lacu:Argyll and Bute","S12000035",37300,50000,74.6,3.3
+"lacu:Clackmannanshire","S12000005",23500,31500,74.4,4.1
+"lacu:Dumfries and Galloway","S12000006",64400,85800,75.1,3.5
+"lacu:Dundee City","S12000042",65400,95300,68.6,3.2
+"lacu:East Ayrshire","S12000008",55600,74800,74.3,3.5
+"lacu:East Dunbartonshire","S12000045",50500,65200,77.5,2.7
+"lacu:East Lothian","S12000010",51100,64700,78.9,3.3
+"lacu:East Renfrewshire","S12000011",42100,57400,73.4,3.5
+"lacu:City of Edinburgh","S12000036",267700,356300,75.1,3.0
+"lacu:Na h-Eileanan Siar","S12000013",12600,15300,82.3,4.3
+"lacu:Falkirk","S12000014",75200,101500,74.1,3.3
+"lacu:Fife","S12000047",168700,229100,73.7,3.2
+"lacu:Glasgow City","S12000049",291900,433500,67.3,2.9
+"lacu:Highland","S12000017",110100,139900,78.7,4.0
+"lacu:Inverclyde","S12000018",32600,47700,68.3,3.7
+"lacu:Midlothian","S12000019",45500,56700,80.4,3.2
+"lacu:Moray","S12000020",44300,59000,75.0,3.4
+"lacu:North Ayrshire","S12000021",56600,80300,70.5,3.5
+"lacu:North Lanarkshire","S12000050",161500,217400,74.3,3.1
+"lacu:Orkney Islands","S12000023",11100,12700,87.1,6.6
+"lacu:Perth and Kinross","S12000048",74800,89700,83.4,2.9
+"lacu:Renfrewshire","S12000038",85400,111100,76.9,3.2
+"lacu:Scottish Borders","S12000026",51600,67700,76.2,3.3
+"lacu:Shetland Islands","S12000027",10700,13800,77.6,9.8
+"lacu:South Ayrshire","S12000028",48100,65100,73.9,3.6
+"lacu:South Lanarkshire","S12000029",151000,197100,76.6,3.3
+"lacu:Stirling","S12000030",43500,59500,73.0,3.3
+"lacu:West Dunbartonshire","S12000039",41600,56300,73.9,3.0
+"lacu:West Lothian","S12000040",90600,116400,77.8,3.1
+"ladu:Darlington","E06000005",47200,63600,74.2,2.8
+"ladu:County Durham","E06000047",231000,324400,71.2,2.8
+"ladu:Hartlepool","E06000001",38100,56300,67.6,3.2
+"ladu:Middlesbrough","E06000002",55600,88400,62.9,3.1
+"ladu:Northumberland","E06000057",132600,183400,72.3,3.0
+"ladu:Redcar and Cleveland","E06000003",54300,80500,67.4,3.2
+"ladu:Stockton-on-Tees","E06000004",86000,120600,71.3,3.2
+"ladu:Gateshead","E08000037",93400,127800,73.1,3.1
+"ladu:Newcastle upon Tyne","E08000021",134100,199600,67.2,3.4
+"ladu:North Tyneside","E08000022",99500,127600,78.0,3.1
+"ladu:South Tyneside","E08000023",61800,90500,68.4,3.2
+"ladu:Sunderland","E08000024",120800,174500,69.3,3.0
+"ladu:Blackburn with Darwen","E06000008",62700,92200,68.0,2.8
+"ladu:Blackpool","E06000009",59600,81900,72.8,2.7
+"ladu:Cheshire East","E06000049",181600,224500,80.9,3.4
+"ladu:Cheshire West and Chester","E06000050",156600,203600,76.9,4.2
+"ladu:Halton","E06000006",60700,78100,77.6,3.0
+"ladu:Warrington","E06000007",104700,130300,80.4,2.9
+"ladu:Allerdale","E07000026",47200,56400,83.7,5.3
+"ladu:Barrow-in-Furness","E07000027",25300,39900,63.3,8.4
+"ladu:Carlisle","E07000028",51700,65300,79.2,5.9
+"ladu:Copeland","E07000029",28000,39600,70.7,8.0
+"ladu:Eden","E07000030",27200,30500,89.2,6.1
+"ladu:South Lakeland","E07000031",48000,57600,83.4,4.9
+"ladu:Bolton","E08000001",122100,177200,68.9,3.1
+"ladu:Bury","E08000002",84600,114300,74.0,2.9
+"ladu:Manchester","E08000003",259400,388400,66.8,3.1
+"ladu:Oldham","E08000004",101200,143400,70.5,3.0
+"ladu:Rochdale","E08000005",93200,132800,70.2,2.9
+"ladu:Salford","E08000006",125700,164100,76.6,2.9
+"ladu:Stockport","E08000007",134700,175600,76.7,3.2
+"ladu:Tameside","E08000008",105100,140100,75.0,2.9
+"ladu:Trafford","E08000009",114700,145900,78.6,2.8
+"ladu:Wigan","E08000010",156900,203200,77.2,2.9
+"ladu:Burnley","E07000117",37400,53400,70.0,8.1
+"ladu:Chorley","E07000118",52800,68400,77.3,6.8
+"ladu:Fylde","E07000119",38300,45100,85.0,7.2
+"ladu:Hyndburn","E07000120",39000,47900,81.3,7.5
+"ladu:Lancaster","E07000121",59900,90500,66.2,6.7
+"ladu:Pendle","E07000122",37400,52900,70.8,7.8
+"ladu:Preston","E07000123",71900,88900,80.9,6.6
+"ladu:Ribble Valley","E07000124",28700,35900,80.0,9.2
+"ladu:Rossendale","E07000125",33600,42200,79.6,7.4
+"ladu:South Ribble","E07000126",58700,66100,88.8,5.1
+"ladu:West Lancashire","E07000127",46100,68100,67.7,7.7
+"ladu:Wyre","E07000128",48900,62000,78.8,6.7
+"ladu:Knowsley","E08000011",70100,92700,75.6,3.0
+"ladu:Liverpool","E08000012",224600,333800,67.3,3.1
+"ladu:Sefton","E08000014",120900,161600,74.8,3.0
+"ladu:St. Helens","E08000013",81600,109600,74.5,3.1
+"ladu:Wirral","E08000015",146500,190800,76.8,2.9
+"ladu:East Riding of Yorkshire","E06000011",152300,193000,78.9,2.9
+"ladu:Kingston upon Hull, City of","E06000010",120200,169000,71.1,3.4
+"ladu:North East Lincolnshire","E06000012",67600,95500,70.8,3.0
+"ladu:North Lincolnshire","E06000013",74100,102400,72.3,3.2
+"ladu:York","E06000014",106900,134900,79.2,2.8
+"ladu:Craven","E07000163",23500,32200,73.2,9.8
+"ladu:Hambleton","E07000164",39900,49800,80.2,6.5
+"ladu:Harrogate","E07000165",79400,92200,86.1,4.5
+"ladu:Richmondshire","E07000166",22500,29700,75.7,11.8
+"ladu:Ryedale","E07000167",24900,31500,79.1,8.7
+"ladu:Scarborough","E07000168",48300,60400,80.0,6.0
+"ladu:Selby","E07000169",39900,55900,71.3,7.0
+"ladu:Barnsley","E08000016",112900,152700,73.9,2.9
+"ladu:Doncaster","E08000017",133800,186700,71.7,3.2
+"ladu:Rotherham","E08000018",114200,160800,71.0,3.3
+"ladu:Sheffield","E08000019",282000,381200,74.0,3.0
+"ladu:Bradford","E08000032",216500,326600,66.3,3.1
+"ladu:Calderdale","E08000033",94000,130400,72.1,2.9
+"ladu:Kirklees","E08000034",197700,270900,73.0,2.9
+"ladu:Leeds","E08000035",384800,515500,74.6,2.5
+"ladu:Wakefield","E08000036",157100,208500,75.4,2.9
+"ladu:Derby","E06000015",119400,161000,74.2,2.9
+"ladu:Leicester","E06000016",168200,236700,71.1,3.3
+"ladu:Nottingham","E06000018",143400,224500,63.9,3.0
+"ladu:Rutland","E06000017",15700,20300,77.1,5.1
+"ladu:Amber Valley","E07000032",64600,76700,84.2,5.7
+"ladu:Bolsover","E07000033",36800,48800,75.4,9.2
+"ladu:Chesterfield","E07000034",43600,65400,66.6,7.5
+"ladu:Derbyshire Dales","E07000035",32100,40400,79.4,7.8
+"ladu:Erewash","E07000036",58200,70100,83.0,5.5
+"ladu:High Peak","E07000037",41400,58400,70.9,8.0
+"ladu:North East Derbyshire","E07000038",45600,58300,78.2,7.7
+"ladu:South Derbyshire","E07000039",55800,63500,87.8,5.3
+"ladu:Blaby","E07000129",48500,59600,81.4,6.6
+"ladu:Charnwood","E07000130",93300,118300,78.8,5.2
+"ladu:Harborough","E07000131",45800,53500,85.6,6.2
+"ladu:Hinckley and Bosworth","E07000132",58500,66800,87.6,5.7
+"ladu:Melton","E07000133",24700,29500,83.6,7.9
+"ladu:North West Leicestershire","E07000134",45100,63000,71.5,7.7
+"ladu:Oadby and Wigston","E07000135",24800,32500,76.3,9.6
+"ladu:Boston","E07000136",32300,41100,78.4,9.9
+"ladu:East Lindsey","E07000137",52800,79800,66.2,7.5
+"ladu:Lincoln","E07000138",47500,64700,73.5,7.1
+"ladu:North Kesteven","E07000139",52500,65500,80.1,6.3
+"ladu:South Holland","E07000140",42800,54700,78.2,7.6
+"ladu:South Kesteven","E07000141",66200,82800,79.9,6.2
+"ladu:West Lindsey","E07000142",43500,53200,81.8,7.7
+"ladu:Corby","E07000150",38400,46300,82.9,7.6
+"ladu:Daventry","E07000151",43900,50200,87.3,6.2
+"ladu:East Northamptonshire","E07000152",48500,56400,85.9,6.5
+"ladu:Kettering","E07000153",47700,61100,78.1,7.5
+"ladu:Northampton","E07000154",114200,144900,78.8,5.0
+"ladu:South Northamptonshire","E07000155",41200,51400,80.3,7.1
+"ladu:Wellingborough","E07000156",35600,44800,79.3,8.8
+"ladu:Ashfield","E07000170",64300,82200,78.2,5.9
+"ladu:Bassetlaw","E07000171",54800,66700,82.2,6.2
+"ladu:Broxtowe","E07000172",53700,69300,77.5,6.0
+"ladu:Gedling","E07000173",58800,71300,82.5,5.8
+"ladu:Mansfield","E07000174",50300,66300,75.9,7.0
+"ladu:Newark and Sherwood","E07000175",53600,73200,73.2,6.4
+"ladu:Rushcliffe","E07000176",56100,69200,81.2,6.0
+"ladu:Herefordshire, County of","E06000019",90800,109400,83.0,2.6
+"ladu:Shropshire","E06000051",147100,182300,80.7,2.7
+"ladu:Stoke-on-Trent","E06000021",115400,159100,72.5,2.9
+"ladu:Telford and Wrekin","E06000020",84300,109800,76.8,2.8
+"ladu:Cannock Chase","E07000192",51000,61600,82.9,8.0
+"ladu:East Staffordshire","E07000193",59400,71000,83.7,5.5
+"ladu:Lichfield","E07000194",46100,59900,76.9,7.2
+"ladu:Newcastle-under-Lyme","E07000195",59400,81900,72.5,7.5
+"ladu:South Staffordshire","E07000196",53100,63700,83.4,6.7
+"ladu:Stafford","E07000197",60400,81500,74.1,6.8
+"ladu:Staffordshire Moorlands","E07000198",46400,57500,80.6,7.5
+"ladu:Tamworth","E07000199",38500,46800,82.2,7.1
+"ladu:North Warwickshire","E07000218",30000,37500,80.0,8.4
+"ladu:Nuneaton and Bedworth","E07000219",60000,77100,77.7,5.9
+"ladu:Rugby","E07000220",55000,66000,83.3,5.7
+"ladu:Stratford-on-Avon","E07000221",60300,71500,84.5,5.0
+"ladu:Warwick","E07000222",70500,89500,78.8,5.0
+"ladu:Birmingham","E08000025",476400,730200,65.2,2.5
+"ladu:Coventry","E08000026",179300,245500,73.0,2.8
+"ladu:Dudley","E08000027",138600,191000,72.6,3.2
+"ladu:Sandwell","E08000028",145400,205500,70.7,3.0
+"ladu:Solihull","E08000029",97800,127800,76.5,2.8
+"ladu:Walsall","E08000030",121200,171800,70.6,3.1
+"ladu:Wolverhampton","E08000031",110200,164000,67.2,3.1
+"ladu:Bromsgrove","E07000234",46000,57300,80.2,6.5
+"ladu:Malvern Hills","E07000235",31300,43600,71.8,8.5
+"ladu:Redditch","E07000236",41900,51400,81.5,6.0
+"ladu:Worcester","E07000237",53500,66700,80.2,5.6
+"ladu:Wychavon","E07000238",57000,72900,78.3,5.9
+"ladu:Wyre Forest","E07000239",42500,57200,74.3,6.9
+"ladu:Bedford","E06000055",81600,106200,76.9,4.6
+"ladu:Central Bedfordshire","E06000056",145000,179400,80.8,3.4
+"ladu:Luton","E06000032",97900,139100,70.4,2.6
+"ladu:Peterborough","E06000031",92500,123800,74.7,3.0
+"ladu:Southend-on-Sea","E06000033",86700,112000,77.3,2.5
+"ladu:Thurrock","E06000034",84400,109500,77.1,2.9
+"ladu:Cambridge","E07000008",68400,84800,80.6,5.8
+"ladu:East Cambridgeshire","E07000009",44200,51400,86.0,6.0
+"ladu:Fenland","E07000010",42900,61500,69.8,9.1
+"ladu:Huntingdonshire","E07000011",85500,107800,79.3,5.0
+"ladu:South Cambridgeshire","E07000012",79600,96600,82.4,5.2
+"ladu:Basildon","E07000066",88500,113200,78.2,5.3
+"ladu:Braintree","E07000067",70700,92000,76.8,6.2
+"ladu:Brentwood","E07000068",37400,46600,80.3,8.9
+"ladu:Castle Point","E07000069",43700,54300,80.5,8.2
+"ladu:Chelmsford","E07000070",87000,108400,80.2,5.6
+"ladu:Colchester","E07000071",90400,124100,72.9,5.2
+"ladu:Epping Forest","E07000072",64400,80500,80.0,6.3
+"ladu:Harlow","E07000073",37400,52500,71.2,8.1
+"ladu:Maldon","E07000074",31400,36600,85.9,8.0
+"ladu:Rochford","E07000075",44600,52800,84.5,7.0
+"ladu:Tendring","E07000076",53600,79700,67.2,7.1
+"ladu:Uttlesford","E07000077",44100,53100,83.1,7.1
+"ladu:Broxbourne","E07000095",47800,63400,75.4,8.5
+"ladu:Dacorum","E07000096",75900,94500,80.3,5.8
+"ladu:East Hertfordshire","E07000242",69300,91700,75.6,6.0
+"ladu:Hertsmere","E07000098",52400,64400,81.4,8.8
+"ladu:North Hertfordshire","E07000099",65800,81500,80.8,5.8
+"ladu:St Albans","E07000240",67900,91300,74.4,7.2
+"ladu:Stevenage","E07000243",44900,55700,80.7,7.1
+"ladu:Three Rivers","E07000102",45100,56900,79.3,8.0
+"ladu:Watford","E07000103",52200,63800,81.8,8.1
+"ladu:Welwyn Hatfield","E07000241",67100,81300,82.5,6.1
+"ladu:Breckland","E07000143",61400,79200,77.5,6.5
+"ladu:Broadland","E07000144",63600,75400,84.3,5.9
+"ladu:Great Yarmouth","E07000145",43000,59300,72.5,8.7
+"ladu:King's Lynn and West Norfolk","E07000146",66900,85400,78.3,5.7
+"ladu:North Norfolk","E07000147",38600,52700,73.3,8.7
+"ladu:Norwich","E07000148",67800,93800,72.3,6.5
+"ladu:South Norfolk","E07000149",65100,78500,83.0,5.6
+"ladu:Babergh","E07000200",37900,52200,72.7,7.2
+"ladu:Ipswich","E07000202",63800,87200,73.2,6.1
+"ladu:Mid Suffolk","E07000203",48500,57600,84.2,6.0
+"ladu:East Suffolk","E07000244",106200,134900,78.7,4.5
+"ladu:West Suffolk","E07000245",85800,105500,81.3,5.3
+"ladu:Camden","E09000007",130300,185600,70.2,4.5
+"ladu:City of London","E09000001",7400,8500,87.2,"*"
+"ladu:Hackney","E09000012",149700,206600,72.4,4.1
+"ladu:Hammersmith and Fulham","E09000013",95900,126500,75.8,4.5
+"ladu:Haringey","E09000014",150400,195500,76.9,4.0
+"ladu:Islington","E09000019",135300,175500,77.1,4.1
+"ladu:Kensington and Chelsea","E09000020",68400,103800,65.9,4.8
+"ladu:Lambeth","E09000022",191300,244600,78.2,3.8
+"ladu:Lewisham","E09000023",172200,215700,79.9,3.6
+"ladu:Newham","E09000025",179000,251600,71.1,4.6
+"ladu:Southwark","E09000028",182700,234100,78.1,3.8
+"ladu:Tower Hamlets","E09000030",168200,235600,71.4,4.4
+"ladu:Wandsworth","E09000032",189800,235800,80.5,3.9
+"ladu:Westminster","E09000033",122800,172200,71.3,4.8
+"ladu:Barking and Dagenham","E09000002",95800,137200,69.8,4.5
+"ladu:Barnet","E09000003",191500,259200,73.9,4.3
+"ladu:Bexley","E09000004",118600,156900,75.6,3.8
+"ladu:Brent","E09000005",160800,220800,72.8,5.0
+"ladu:Bromley","E09000006",166400,209700,79.3,3.6
+"ladu:Croydon","E09000008",191500,251600,76.1,3.7
+"ladu:Ealing","E09000009",161600,221300,73.0,4.9
+"ladu:Enfield","E09000010",144400,219000,65.9,4.9
+"ladu:Greenwich","E09000011",150600,195900,76.8,3.8
+"ladu:Harrow","E09000015",107800,157100,68.6,5.1
+"ladu:Havering","E09000016",121200,161200,75.2,3.9
+"ladu:Hillingdon","E09000017",145200,200500,72.4,4.7
+"ladu:Hounslow","E09000018",130900,182300,71.8,5.4
+"ladu:Kingston upon Thames","E09000021",92600,118300,78.2,4.1
+"ladu:Merton","E09000024",111700,139000,80.3,3.6
+"ladu:Redbridge","E09000026",141900,202100,70.2,4.1
+"ladu:Richmond upon Thames","E09000027",101600,125100,81.3,4.0
+"ladu:Sutton","E09000029",103500,131800,78.5,3.6
+"ladu:Waltham Forest","E09000031",140600,188900,74.4,4.6
+"ladu:Bracknell Forest","E06000036",64300,76400,84.1,2.4
+"ladu:Brighton and Hove","E06000043",157500,206600,76.2,3.1
+"ladu:Isle of Wight","E06000046",56500,76500,73.8,3.0
+"ladu:Medway","E06000035",137200,176200,77.9,3.3
+"ladu:Milton Keynes","E06000042",133600,170700,78.3,2.7
+"ladu:Portsmouth","E06000044",102300,144500,70.8,3.2
+"ladu:Reading","E06000038",87900,110900,79.2,2.8
+"ladu:Slough","E06000039",72500,96600,75.1,3.0
+"ladu:Southampton","E06000045",130100,173500,75.0,2.8
+"ladu:West Berkshire","E06000037",80900,96900,83.5,2.7
+"ladu:Windsor and Maidenhead","E06000040",74100,91200,81.2,2.4
+"ladu:Wokingham","E06000041",81800,100900,81.1,2.6
+"ladu:Buckinghamshire","E06000060",259100,326700,79.3,2.7
+"ladu:Eastbourne","E07000061",44700,60100,74.5,7.8
+"ladu:Hastings","E07000062",45000,57000,79.0,8.6
+"ladu:Lewes","E07000063",42200,57900,73.0,7.4
+"ladu:Rother","E07000064",40800,51700,78.9,7.6
+"ladu:Wealden","E07000065",70900,89900,78.8,5.4
+"ladu:Basingstoke and Deane","E07000084",92600,111500,83.0,4.9
+"ladu:East Hampshire","E07000085",56700,68700,82.5,6.1
+"ladu:Eastleigh","E07000086",62800,81300,77.2,6.3
+"ladu:Fareham","E07000087",57600,70000,82.4,5.7
+"ladu:Gosport","E07000088",41000,54800,74.9,8.2
+"ladu:Hart","E07000089",48000,54000,89.0,5.6
+"ladu:Havant","E07000090",52200,71800,72.7,8.0
+"ladu:New Forest","E07000091",80200,97100,82.6,5.0
+"ladu:Rushmoor","E07000092",51600,61900,83.4,6.3
+"ladu:Test Valley","E07000093",58100,74900,77.5,6.5
+"ladu:Winchester","E07000094",52900,72900,72.6,6.7
+"ladu:Ashford","E07000105",63200,80200,78.8,6.9
+"ladu:Canterbury","E07000106",71800,103600,69.3,6.6
+"ladu:Dartford","E07000107",62100,69900,88.8,6.0
+"ladu:Dover","E07000108",48600,66500,73.0,7.2
+"ladu:Gravesham","E07000109",53400,66200,80.7,7.9
+"ladu:Maidstone","E07000110",85600,104300,82.1,6.5
+"ladu:Sevenoaks","E07000111",55600,70300,79.1,8.5
+"ladu:Folkestone and Hythe","E07000112",52700,64000,82.3,7.0
+"ladu:Swale","E07000113",62400,86500,72.1,6.4
+"ladu:Thanet","E07000114",58100,81200,71.5,8.0
+"ladu:Tonbridge and Malling","E07000115",67400,79800,84.4,6.2
+"ladu:Tunbridge Wells","E07000116",56600,69700,81.1,7.0
+"ladu:Cherwell","E07000177",78000,90800,86.0,4.8
+"ladu:Oxford","E07000178",85200,105500,80.7,5.7
+"ladu:South Oxfordshire","E07000179",70500,84400,83.5,5.3
+"ladu:Vale of White Horse","E07000180",60900,75500,80.6,5.7
+"ladu:West Oxfordshire","E07000181",55900,64000,87.2,5.3
+"ladu:Elmbridge","E07000207",60600,81700,74.2,6.6
+"ladu:Epsom and Ewell","E07000208",39300,47400,82.8,7.4
+"ladu:Guildford","E07000209",82800,98700,83.9,5.7
+"ladu:Mole Valley","E07000210",43100,49600,86.9,6.3
+"ladu:Reigate and Banstead","E07000211",73200,88200,82.9,5.8
+"ladu:Runnymede","E07000212",45900,56600,81.1,8.0
+"ladu:Spelthorne","E07000213",51300,62100,82.6,6.3
+"ladu:Surrey Heath","E07000214",44200,54600,80.9,7.7
+"ladu:Tandridge","E07000215",41500,53600,77.5,8.4
+"ladu:Waverley","E07000216",58300,70000,83.3,5.9
+"ladu:Woking","E07000217",52600,62100,84.8,7.1
+"ladu:Adur","E07000223",34600,38200,90.4,7.7
+"ladu:Arun","E07000224",65600,86400,75.9,7.0
+"ladu:Chichester","E07000225",58500,68700,85.2,6.3
+"ladu:Crawley","E07000226",57500,72100,79.8,6.9
+"ladu:Horsham","E07000227",67400,81800,82.4,5.7
+"ladu:Mid Sussex","E07000228",77300,92000,84.0,6.2
+"ladu:Worthing","E07000229",52600,65000,80.9,6.7
+"ladu:Bath and North East Somerset","E06000022",93400,120500,77.5,2.8
+"ladu:Bristol, City of","E06000023",245000,319500,76.7,2.6
+"ladu:Cornwall","E06000052",252900,327000,77.4,2.9
+"ladu:Isles of Scilly","E06000053",-,-,-,-
+"ladu:North Somerset","E06000024",99900,123800,80.7,2.7
+"ladu:Plymouth","E06000026",123400,166700,74.0,3.0
+"ladu:South Gloucestershire","E06000025",142600,173600,82.2,2.6
+"ladu:Swindon","E06000030",111600,139400,80.1,2.5
+"ladu:Torbay","E06000027",56900,76000,74.9,3.1
+"ladu:Wiltshire","E06000054",229300,290900,78.8,2.8
+"ladu:East Devon","E07000040",62300,76100,81.9,5.3
+"ladu:Exeter","E07000041",69000,89100,77.5,6.1
+"ladu:Mid Devon","E07000042",38100,45300,84.1,6.6
+"ladu:North Devon","E07000043",45000,54400,82.7,7.8
+"ladu:South Hams","E07000044",36800,46700,78.7,9.0
+"ladu:Teignbridge","E07000045",58200,73900,78.7,6.0
+"ladu:Torridge","E07000046",33900,37400,90.9,6.6
+"ladu:West Devon","E07000047",23400,28500,82.1,8.9
+"ladu:Bournemouth, Christchurch and Poole","E06000058",197500,243800,81.0,2.0
+"ladu:Dorset","E06000059",153100,202000,75.8,3.4
+"ladu:Cheltenham","E07000078",61600,73200,84.3,5.5
+"ladu:Cotswold","E07000079",39500,50900,77.7,7.4
+"ladu:Forest of Dean","E07000080",39500,48800,80.9,7.2
+"ladu:Gloucester","E07000081",67700,81200,83.4,5.1
+"ladu:Stroud","E07000082",60800,72800,83.5,5.7
+"ladu:Tewkesbury","E07000083",41100,51900,79.3,6.5
+"ladu:Mendip","E07000187",56100,66500,84.4,5.6
+"ladu:Sedgemoor","E07000188",57400,71500,80.2,5.7
+"ladu:South Somerset","E07000189",76100,94500,80.6,5.1
+"ladu:Somerset West and Taunton","E07000246",65900,85200,77.3,5.4
+"ladu:Isle of Anglesey","W06000001",30500,39500,77.1,2.9
+"ladu:Gwynedd","W06000002",53600,74200,72.2,3.4
+"ladu:Conwy","W06000003",48600,65000,74.8,3.3
+"ladu:Denbighshire","W06000004",39800,54800,72.5,3.2
+"ladu:Flintshire","W06000005",74100,93400,79.4,3.0
+"ladu:Wrexham","W06000006",64500,85800,75.1,3.1
+"ladu:Powys","W06000023",56000,73600,76.1,3.3
+"ladu:Ceredigion","W06000008",31000,47700,65.1,3.5
+"ladu:Pembrokeshire","W06000009",53400,71500,74.7,3.0
+"ladu:Carmarthenshire","W06000010",77400,107700,71.8,2.9
+"ladu:Swansea","W06000011",108500,155300,69.8,2.9
+"ladu:Neath Port Talbot","W06000012",63100,85900,73.5,3.3
+"ladu:Bridgend","W06000013",64900,87600,74.1,3.1
+"ladu:Vale of Glamorgan","W06000014",58600,76700,76.4,3.2
+"ladu:Cardiff","W06000015",187400,246700,76.0,2.9
+"ladu:Rhondda Cynon Taff","W06000016",101400,149500,67.9,3.1
+"ladu:Merthyr Tydfil","W06000024",26200,36800,71.2,3.8
+"ladu:Caerphilly","W06000018",78200,111700,70.0,3.0
+"ladu:Blaenau Gwent","W06000019",29700,43200,68.7,3.8
+"ladu:Torfaen","W06000020",40000,55900,71.5,3.2
+"ladu:Monmouthshire","W06000021",41500,53400,77.6,3.0
+"ladu:Newport","W06000022",69000,93400,73.8,2.9
+"ladu:Aberdeen City","S12000033",124700,157600,79.1,3.1
+"ladu:Aberdeenshire","S12000034",133000,164600,80.8,3.2
+"ladu:Angus","S12000041",52300,69000,75.7,3.0
+"ladu:Argyll and Bute","S12000035",37300,50000,74.6,3.3
+"ladu:Clackmannanshire","S12000005",23500,31500,74.4,4.1
+"ladu:Dumfries and Galloway","S12000006",64400,85800,75.1,3.5
+"ladu:Dundee City","S12000042",65400,95300,68.6,3.2
+"ladu:East Ayrshire","S12000008",55600,74800,74.3,3.5
+"ladu:East Dunbartonshire","S12000045",50500,65200,77.5,2.7
+"ladu:East Lothian","S12000010",51100,64700,78.9,3.3
+"ladu:East Renfrewshire","S12000011",42100,57400,73.4,3.5
+"ladu:City of Edinburgh","S12000036",267700,356300,75.1,3.0
+"ladu:Na h-Eileanan Siar","S12000013",12600,15300,82.3,4.3
+"ladu:Falkirk","S12000014",75200,101500,74.1,3.3
+"ladu:Fife","S12000047",168700,229100,73.7,3.2
+"ladu:Glasgow City","S12000049",291900,433500,67.3,2.9
+"ladu:Highland","S12000017",110100,139900,78.7,4.0
+"ladu:Inverclyde","S12000018",32600,47700,68.3,3.7
+"ladu:Midlothian","S12000019",45500,56700,80.4,3.2
+"ladu:Moray","S12000020",44300,59000,75.0,3.4
+"ladu:North Ayrshire","S12000021",56600,80300,70.5,3.5
+"ladu:North Lanarkshire","S12000050",161500,217400,74.3,3.1
+"ladu:Orkney Islands","S12000023",11100,12700,87.1,6.6
+"ladu:Perth and Kinross","S12000048",74800,89700,83.4,2.9
+"ladu:Renfrewshire","S12000038",85400,111100,76.9,3.2
+"ladu:Scottish Borders","S12000026",51600,67700,76.2,3.3
+"ladu:Shetland Islands","S12000027",10700,13800,77.6,9.8
+"ladu:South Ayrshire","S12000028",48100,65100,73.9,3.6
+"ladu:South Lanarkshire","S12000029",151000,197100,76.6,3.3
+"ladu:Stirling","S12000030",43500,59500,73.0,3.3
+"ladu:West Dunbartonshire","S12000039",41600,56300,73.9,3.0
+"ladu:West Lothian","S12000040",90600,116400,77.8,3.1
+
+
+
+"*","Estimate and confidence interval unreliable since the group sample size is"
+"","small (3-9)"
+
+"-","These figures are missing."
+

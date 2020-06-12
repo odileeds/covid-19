@@ -205,6 +205,38 @@ $svg{'keyworkers'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-keyworkers',
 #################################################
 # Read in job retention data from HMRC https://www.gov.uk/government/statistics/coronavirus-job-retention-scheme-statistics-june-2020
 %jobs;
+%employment;
+# First get NOMIS figures on employment-income-support-scheme-statistics-june-2020
+open(FILE,$dir."nomis-employment.csv");
+@lines = <FILE>;
+close(FILE);
+#"Area","mnemonic","Numerator","Denominator","Employment rate - aged 16-64","Conf"
+for($i = 9; $i < @lines; $i++){
+	$lines[$i] =~ s/[\n\r]//g;
+	(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
+	$cols[1] =~ s/(^\"|\"$)//g;
+	$employment{$cols[1]} = $cols[2];
+}
+# Calculate UTLA employment figures 
+foreach $id (sort(keys(%utla))){
+	if(!$employment{$id}){
+		$nla = @{$utla{$id}->{'la'}};
+		$employment{$id} = 0;
+		foreach $convla (@{$utla{$id}->{'la'}}){
+			if($employment{$convla}){
+				$employment{$id} += $employment{$convla};
+			}else{
+				print "No employment for $convla so can't add to total for $id\n";
+			}
+		}
+		#print "Calculated employment from $nla authorities as $employment{$id}\n";
+	}else{
+		#print "Already got an employment figure for this group - $id - $employment{$id}\n";
+	}
+}
+# Manual fix for old ONS code
+$employment{'E10000002'} = $employment{'E06000060'};
+# Now get the HMRC data
 $updates{'jobs'} = "2020-06-11";
 open(FILE,$dir."hmrc-job-retention-scheme-statistics-june-2020.csv");
 @lines = <FILE>;
@@ -217,9 +249,11 @@ for($i = 1; $i < @lines; $i++){
 	(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
 	$id = $cols[0];
 	$cols[1] =~ s/(^\"|\"$)//g;
-	$jobs{$id} = { 'furloughed'=>$cols[2], 'total'=>$cols[2], 'name'=>$cols[1], 'pc'=>0, 'UTLA'=>'','pop'=>0 };
-	if($pop{$id}){
-		$jobs{$id}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$id} + 0.5);
+	$jobs{$id} = { 'furloughed'=>$cols[2], 'total'=>$cols[2], 'name'=>$cols[1], 'pc'=>0, 'UTLA'=>'','pop'=>0, 'employment'=>$employment{$id} };
+	if(!$employment{$id}){
+		#print "No employment figure for $id\n";
+	}else{
+		$jobs{$id}{'pc'} = int($jobs{$id}{'furloughed'}*100/$employment{$id} + 0.5);
 		$jobs{$id}{'pop'} = $pop{$id};
 	}
 
@@ -228,27 +262,33 @@ for($i = 1; $i < @lines; $i++){
 		$nla = @{$utla{$id}->{'la'}};
 		foreach $convla (@{$utla{$id}->{'la'}}){
 			if(!$jobs{$convla}){
-				print "UTLA ($nla) $id - $convla - $jobs{$id}{'furloughed'} - $pop{$id} - YES\n";
-				$jobs{$convla}{'furloughed'} = $jobs{$id}{'furloughed'};
-				$jobs{$convla}{'total'} = $jobs{$id}{'furloughed'}/$nla;
+				if(!$employment{$id}){
+					print "$convla - $id missing employment figure\n";
+				}
+				$jobs{$convla}{'employment'} = $employment{$id};			# LA gets total employment for the UTLA
+				$jobs{$convla}{'furloughed'} = $jobs{$id}{'furloughed'};	# LA gets total furloughed for the UTLA
+				$jobs{$convla}{'total'} = $jobs{$id}{'furloughed'}/$nla;	# LA gets the portion of the UTLA furloughed
 				$jobs{$convla}{'name'} = $cols[1];
 				$jobs{$convla}{'UTLA'} = $jobs{$id}{'name'};
+				if($employment{$id}){
+					$jobs{$convla}{'pc'} = int($jobs{$id}{'furloughed'}*100/$employment{$id} + 0.5);
+				}else{
+					print "No employment for $id - $convla\n";
+				}
 				if($pop{$id}){
-					$jobs{$convla}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$id} + 0.5);
 					$jobs{$convla}{'pop'} = $pop{$id};
 				#}elsif($pop{$convla}){
 					#$jobs{$convla}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$convla} + 0.5);
 					#$jobs{$convla}{'pop'} = $pop{$convla};
 				#	print "Using $pop{$convla}\n";
 				}else{
-					print "No population for $id - $convla - $pop{$convla} - $jobs{$id}{'furloughed'}\n";
+					print "No population for $id - $convla - $employment{$convla} - $jobs{$id}{'furloughed'}\n";
 				}
 			}else{
-				print "UTLA ($nla) $id - $convla\n";
+#				print "UTLA ($nla) $id - $convla\n";
 			}
 		}
 	}
-	#print "$id = $jobs{$id}{'furloughed'} - $jobs{$id}{'pc'} - $pop{$id}\n";
 }
 # Create furloughed worker map - the data are for 
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
@@ -263,7 +303,7 @@ $svg{'furloughed-total'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furlou
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
 $hj->addData(%jobs);
 $hj->setPrimaryKey('pc');
-$hj->setKeys('pc','furloughed','pop','UTLA');
+$hj->setKeys('pc','furloughed','employment','pop','UTLA');
 $hj->setColourScale('Viridis');
 $svg{'furloughed-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-percapita','date'=>$updates{'jobs'}));
 
@@ -295,18 +335,18 @@ for($i = 1; $i < @lines; $i++){
 		$nla = @{$utla{$id}->{'la'}};
 		foreach $convla (@{$utla{$id}->{'la'}}){
 			if(!$selfemployed{$convla}){
-				print "UTLA ($nla) $id - $convla - $selfemployed{$id}{'furloughed'} - $pop{$id} - YES\n";
+#				print "UTLA ($nla) $id - $convla - $selfemployed{$id}{'furloughed'} - $pop{$id} - YES\n";
 				$selfemployed{$convla}{'valueav'} = $selfemployed{$id}{'value'}/$nla;
 				$selfemployed{$convla}{'claimsav'} = $selfemployed{$id}{'claims'}/$nla;
 				$selfemployed{$convla}{'average'} = $selfemployed{$id}{'average'};
 				$selfemployed{$convla}{'name'} = $cols[1];
 				$selfemployed{$convla}{'UTLA'} = $selfemployed{$id}{'name'};
 			}else{
-				print "UTLA ($nla) $id - $convla\n";
+#				print "UTLA ($nla) $id - $convla\n";
 			}
 		}
 	}
-	print "$id = $selfemployed{$id}{'average'} - $pop{$id}\n";
+	#print "$id = $selfemployed{$id}{'average'} - $pop{$id}\n";
 }
 # Create self-employed maps
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
