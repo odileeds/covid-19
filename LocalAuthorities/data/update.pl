@@ -150,6 +150,10 @@ foreach $id (keys(%deaths)){
 
 }
 
+# Set to 2020 Local Authority layout
+$hj->load('../resources/uk-local-authority-districts-2020.hexjson');
+
+
 # Add the data
 $hj->addData(%deaths);
 # Set primary value keys
