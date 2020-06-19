@@ -17,10 +17,15 @@ else{ $dir = "./"; }
 %headers;
 %LAlast;
 %updates;
-$updates{'cases'} = "2000-01-01";
-$updates{'deaths'} = "2000-01-01";
+$updates{'cases-date'} = "2000-01-01";
+$updates{'deaths-date'} = "2000-01-01";
 $mindate = "3000-01-01";
 $maxdate = "2000-01-01";
+
+
+$hj = ODILeeds::HexJSON->new();
+
+
 
 
 
@@ -67,7 +72,6 @@ close(FILE);
 
 ####################################
 # Make the cases/per-capita hexmaps
-$hj = ODILeeds::HexJSON->new();
 # Load the HexJSON
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
 # Add the data
@@ -78,13 +82,13 @@ $hj->setKeys('percapita','UTLA');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg{'percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases'}));
+$svg{'percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-date'}));
 
 # Set primary value keys
 $hj->setPrimaryKey('cases');
 $hj->setKeys('cases','casesUTLA','UTLA');
 # Create the SVG output
-$svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases','date'=>$updates{'cases'}));
+$svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases','date'=>$updates{'cases-date'}));
 
 
 
@@ -97,7 +101,7 @@ foreach $line (@lines){
 	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*) \(latest\)<\/h2>/){
 		if($1 gt $latestversion){
 			$latestversion = $1;
-			$updates{'deaths'} = tidyDate($2);
+			$updates{'deaths-date'} = tidyDate($2);
 		}
 	}
 }
@@ -105,7 +109,7 @@ $file = $dir."temp/deaths-version-$latestversion.csv";
 print "File: $file\n";
 if(!-e $file){
 	$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$latestversion.csv";
-	print "Getting deaths data as of $updates{'deaths'} from $url\n";
+	print "Getting deaths data as of $updates{'deaths-date'} from $url\n";
 	`wget -q --no-check-certificate -O "$file" "$url"`;
 }
 
@@ -160,7 +164,7 @@ $hj->addData(%deaths);
 $hj->setPrimaryKey('covid-19-percapita');
 $hj->setKeys('covid-19','covid-19-percapita');
 # Create the SVG output
-$svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-covid','date'=>$updates{'deaths'}));
+$svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-covid','date'=>$updates{'deaths-date'}));
 
 
 
@@ -168,7 +172,7 @@ $svg{'deaths-covid'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-cov
 $hj->setPrimaryKey('all-causes-percapita');
 $hj->setKeys('all-causes','all-causes-percapita');
 # Create the SVG output
-$svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all','date'=>$updates{'deaths'}));
+$svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all','date'=>$updates{'deaths-date'}));
 #$svg{'deaths-all'} .= $hj->getColourScale();
 
 
@@ -176,7 +180,7 @@ $svg{'deaths-all'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-all',
 $hj->setPrimaryKey('deaths-percent');
 $hj->setKeys('deaths-percent');
 # Create the SVG output
-$svg{'deaths-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-percent','date'=>$updates{'deaths'}));
+$svg{'deaths-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-deaths-percent','date'=>$updates{'deaths-date'}));
 
 
 
@@ -241,7 +245,7 @@ foreach $id (sort(keys(%utla))){
 # Manual fix for old ONS code
 $employment{'E10000002'} = $employment{'E06000060'};
 # Now get the HMRC data
-$updates{'jobs'} = "2020-06-11";
+$updates{'jobs-date'} = "2020-06-11";
 open(FILE,$dir."hmrc-job-retention-scheme-statistics-june-2020.csv");
 @lines = <FILE>;
 close(FILE);
@@ -300,7 +304,7 @@ $hj->addData(%jobs);
 $hj->setPrimaryKey('total');
 $hj->setKeys('furloughed','total','UTLA');
 $hj->setColourScale('Viridis');
-$svg{'furloughed-total'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-total','date'=>$updates{'jobs'}));
+$svg{'furloughed-total'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-total','date'=>$updates{'jobs-date'}));
 
 
 # Create furloughed worker map - the data are for 
@@ -317,7 +321,7 @@ $svg{'furloughed-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furl
 #################################################
 # Read in self-employed data from HMRC https://www.gov.uk/government/statistics/self-employment-income-support-scheme-statistics-june-2020
 %selfemployed;
-$updates{'self-employed'} = "2020-06-11";
+$updates{'self-employed-date'} = "2020-06-11";
 open(FILE,$dir."hmrc-self-employment-income-support-scheme-statistics-june-2020.csv");
 @lines = <FILE>;
 close(FILE);
@@ -358,7 +362,7 @@ $hj->addData(%selfemployed);
 $hj->setPrimaryKey('average');
 $hj->setKeys('average','UTLA');
 $hj->setColourScale('Viridis');
-$svg{'self-employed-average'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-average','date'=>$updates{'self-employed'}));
+$svg{'self-employed-average'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-average','date'=>$updates{'self-employed-date'}));
 
 
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
@@ -366,7 +370,7 @@ $hj->addData(%selfemployed);
 $hj->setPrimaryKey('valueav');
 $hj->setKeys('value','valueav','UTLA');
 $hj->setColourScale('Viridis');
-$svg{'self-employed-value'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-value','date'=>$updates{'self-employed'}));
+$svg{'self-employed-value'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-value','date'=>$updates{'self-employed-date'}));
 
 
 $hj->load('../resources/uk-local-authority-districts-2019.hexjson');
@@ -374,7 +378,79 @@ $hj->addData(%selfemployed);
 $hj->setPrimaryKey('claimsav');
 $hj->setKeys('claims','claimsav','UTLA');
 $hj->setColourScale('Viridis');
-$svg{'self-employed-claims'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-claims','date'=>$updates{'self-employed'}));
+$svg{'self-employed-claims'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-self-employed-claims','date'=>$updates{'self-employed-date'}));
+
+
+
+
+
+###############################
+# Read in the 360 Giving data
+$file = "$dir/temp/grants.json";
+$dl = (-e $file ? 0 : 1);
+# If the file is older than a day (86400 seconds) we want to get a new copy
+$updates{'grants-date'} = "2000-01-01";#strftime('%%Y-%m-%d',(stat $file)[9]);
+if(time() - (stat $file)[9] >= 86400){ $dl = 1; }
+if($dl){
+	print "Getting 360 Giving data from https://covidtracker.threesixtygiving.org/data/grants.json\n";
+	`wget -q --no-check-certificate -O $file "https://covidtracker.threesixtygiving.org/data/grants.json"`
+}
+open(FILE,$file);
+@lines = <FILE>;
+close(FILE);
+$giving = JSON::XS->new->utf8->decode(join("\n",@lines));
+@grants = @{$giving->{'grants'}};
+%threesixtygiving;
+$updates{'grants-noarea'} = 0;
+$updates{'grants-area'} = 0;
+for($g = 0; $g < @grants; $g++){
+	#print "$g - $grants[$g]->{'title'}\n";
+	@geos = sort(keys(%{$grants[$g]->{'geo'}}));
+	if($grants[$g]->{'awardDate'} =~ /([0-9]{4}-[0-9]{2}-[0-9]{2})/){
+		if($1 gt $updates{'grants-date'}){ $updates{'grants-date'} = $1; }
+	}
+	if($grants[$g]->{'dateModified'} =~ /([0-9]{4}-[0-9]{2}-[0-9]{2})/){
+		if($1 gt $updates{'grants-date'}){ $updates{'grants-date'} = $1; }
+	}
+	if(@geos == 0){
+		$updates{'grants-noarea'} += $grants[$g]->{'amountAwarded'};
+		#print "\tNo geo - $g $grants[$g]->{'amountAwarded'}\n";
+#		print Dumper $grants[$g];
+	}else{
+		if(@geos > 1){
+			print "\tMultiple geographies\n";
+		}
+		foreach $geo (sort(keys(%{$grants[$g]->{'geo'}}))){
+			#print "\t".$geo."\n";
+			if($geo !~ /^[EWSN][0-9]*/){
+				print "Bad Geo $geo\n";
+			}
+			if($grants[$g]->{'geo'}{$geo}{'LAD20CD'} && $geo =~ /^[EWSN][0-9]*/){
+				if(!$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}}){
+					$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}} = {'amountAwarded'=>0,'blah'=>0};
+				}
+				$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}}{'amountAwarded'} += $grants[$g]->{'amountAwarded'};
+				$updates{'grants-area'} += $grants[$g]->{'amountAwarded'};
+				if(!$grants[$g]->{'amountAwarded'}){
+					print "No amount awarded $g\n";
+				}
+			}else{
+				print "NO LAD!!!!!! $g\n";
+				$updates{'grants-noarea'} += $grants[$g]->{'amountAwarded'};
+			}
+		}
+	}
+}
+$updates{'grants-noarea'} = niceSize($updates{'grants-noarea'});
+$updates{'grants-area'} = niceSize($updates{'grants-area'});
+print $updates{'grants-noarea'}." no area vs $updates{'grants-area'} area\n";
+$hj->load('../resources/uk-local-authority-districts-2020.hexjson');
+$hj->addData(%threesixtygiving);
+$hj->setPrimaryKey('amountAwarded');
+$hj->setKeys('amountAwarded');
+$hj->setColourScale('Viridis');
+$svg{'grantnav-awarded'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-grantnav-awarded','date'=>$updates{'grants-date'}));
+
 
 
 
@@ -388,7 +464,7 @@ $svg{'self-employed-claims'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-se
 $inhexmap = 0;
 for($i = 0; $i < @html; $i++){
 	foreach $dstr (keys(%updates)){
-		$html[$i] =~ s/(<span class="$dstr-date">)[^\<]*(<\/span>)/$1$updates{$dstr}$2/g;
+		$html[$i] =~ s/(<span class="$dstr">)[^\<]*(<\/span>)/$1$updates{$dstr}$2/g;
 	}
 	if(!$inhexmap){
 		push(@htmloutput,$html[$i]);
@@ -417,7 +493,17 @@ foreach $t (keys(%svg)){
 
 
 
-
+sub niceSize {
+	my $v = $_[0];
+	my $out = sprintf("%0.2f",$v);
+	if($v > 1e7){ $out = sprintf("%0.1f",$v/1e6)."M"; }
+	elsif($v > 1e6){ $out = sprintf("%0.1f",$v/1e6)."M"; }
+	elsif($v > 1e5){ $out = sprintf("%0f",$v/1e3)."k"; }
+	elsif($v > 1e4){ $out = sprintf("%0.1f",$v/1e3)."k"; }
+	elsif($v > 1e3){ $out = sprintf("%0.1f",$v/1e3)."k"; }
+	$out =~ s/\.0([A-Za-z])$/$1/g;
+	return $out;
+}
 
 sub getHeaders {
 	my ($str,@header,$c,%headers);
@@ -475,7 +561,7 @@ sub getCases {
 			}
 			$LA{$id}{'name'} = $name;
 			
-			if($cols[$headers{'Date'}] gt $updates{'cases'}){ $updates{'cases'} = $cols[$headers{'Date'}]; }
+			if($cols[$headers{'Date'}] gt $updates{'cases-date'}){ $updates{'cases-date'} = $cols[$headers{'Date'}]; }
 		}
 		
 		@dates = ();
@@ -541,7 +627,7 @@ sub getCases {
 		open(FILE,">","$dir/utla.json");
 		print FILE "{\n";
 		print FILE "\t\"src\":{\"name\":\"Tom White\",\"url\":\"https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv\"},\n";
-		print FILE "\t\"lastupdate\":\"".$updates{'cases'}."\",\n";
+		print FILE "\t\"lastupdate\":\"".$updates{'cases-date'}."\",\n";
 		print FILE "\t\"data\": {\n";
 		print FILE $json."\n";
 		print FILE "\t}\n";
