@@ -5299,7 +5299,7 @@
 					else if(id.indexOf("self-employed-value")>=0) n = '%title%<br />&pound;'+valueav.toLocaleString();
 					else if(id.indexOf("self-employed-average")>=0) n = '%title%<br />&pound;'+avclaim.toLocaleString();
 					else if(id.indexOf("self-employed-claims")>=0) n = '%title%<br />'+claimsav.toLocaleString()+' claims';
-					else if(id.indexOf("grantnav-awarded")>=0) n = '%title%<br />&pound;'+grantaward.toLocaleString()+'<br />&pound;'+grantawardexcl.toLocaleString()+' excl. grantmakers';
+					else if(id.indexOf("grantnav-awarded")>=0) n = '%title%<br />&pound;'+grantawardexcl.toLocaleString()+'<br />excluding grantmakers';
 					if(n) v = n;
 					v = v.replace(/\%title\%/g,(UTLA ? UTLA : e.target.querySelector('title').innerHTML));
 					tooltip.innerHTML = v;
