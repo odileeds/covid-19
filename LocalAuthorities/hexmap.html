@@ -5279,7 +5279,8 @@
 					value = (parseInt(e.target.getAttribute('data-value'))||0);
 					valueav = (parseInt(e.target.getAttribute('data-valueav'))||0);
 					avclaim = (parseInt(e.target.getAttribute('data-average'))||0);
-					grantaward = (parseInt(e.target.getAttribute('data-amountawarded'))||0)
+					grantaward = (parseInt(e.target.getAttribute('data-amountawarded'))||0);
+					grantawardexcl = (parseInt(e.target.getAttribute('data-amountawardedexcl'))||0);
 					if(!deathpc) deathpc = "?";
 					else deathpc = parseFloat(deathpc).toFixed(1);
 					if(!covid) covid = 0;
@@ -5298,7 +5299,7 @@
 					else if(id.indexOf("self-employed-value")>=0) n = '%title%<br />&pound;'+valueav.toLocaleString();
 					else if(id.indexOf("self-employed-average")>=0) n = '%title%<br />&pound;'+avclaim.toLocaleString();
 					else if(id.indexOf("self-employed-claims")>=0) n = '%title%<br />'+claimsav.toLocaleString()+' claims';
-					else if(id.indexOf("grantnav-awarded")>=0) n = '%title%<br />&pound;'+grantaward.toLocaleString()+'';
+					else if(id.indexOf("grantnav-awarded")>=0) n = '%title%<br />&pound;'+grantaward.toLocaleString()+'<br />&pound;'+grantawardexcl.toLocaleString()+' excl. grantmakers';
 					if(n) v = n;
 					v = v.replace(/\%title\%/g,(UTLA ? UTLA : e.target.querySelector('title').innerHTML));
 					tooltip.innerHTML = v;
