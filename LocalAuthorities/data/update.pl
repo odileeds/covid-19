@@ -395,6 +395,7 @@ if($dl){
 	print "Getting 360 Giving data from https://covidtracker.threesixtygiving.org/data/grants.json\n";
 	`wget -q --no-check-certificate -O $file "https://covidtracker.threesixtygiving.org/data/la.json"`
 }
+$updates{'grants-date'} = strftime('%Y-%m-%d',localtime((stat $file)[9]));
 open(FILE,$file);
 @lines = <FILE>;
 close(FILE);
