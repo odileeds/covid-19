@@ -393,61 +393,69 @@ $updates{'grants-date'} = "2000-01-01";#strftime('%%Y-%m-%d',(stat $file)[9]);
 if(time() - (stat $file)[9] >= 86400){ $dl = 1; }
 if($dl){
 	print "Getting 360 Giving data from https://covidtracker.threesixtygiving.org/data/grants.json\n";
-	`wget -q --no-check-certificate -O $file "https://covidtracker.threesixtygiving.org/data/grants.json"`
+	`wget -q --no-check-certificate -O $file "https://covidtracker.threesixtygiving.org/data/la.json"`
 }
 open(FILE,$file);
 @lines = <FILE>;
 close(FILE);
 $giving = JSON::XS->new->utf8->decode(join("\n",@lines));
-@grants = @{$giving->{'grants'}};
 %threesixtygiving;
 $updates{'grants-noarea'} = 0;
 $updates{'grants-area'} = 0;
-for($g = 0; $g < @grants; $g++){
-	#print "$g - $grants[$g]->{'title'}\n";
-	@geos = sort(keys(%{$grants[$g]->{'geo'}}));
-	if($grants[$g]->{'awardDate'} =~ /([0-9]{4}-[0-9]{2}-[0-9]{2})/){
-		if($1 gt $updates{'grants-date'}){ $updates{'grants-date'} = $1; }
-	}
-	if($grants[$g]->{'dateModified'} =~ /([0-9]{4}-[0-9]{2}-[0-9]{2})/){
-		if($1 gt $updates{'grants-date'}){ $updates{'grants-date'} = $1; }
-	}
-	if(@geos == 0){
-		$updates{'grants-noarea'} += $grants[$g]->{'amountAwarded'};
-		#print "\tNo geo - $g $grants[$g]->{'amountAwarded'}\n";
-#		print Dumper $grants[$g];
+foreach $la (keys(%{$giving})){
+	if($la ne "unknown"){
+		$threesixtygiving{$la} = {'amountAwardedExcl'=>$giving->{$la}->{'grant_amount_gbp_excluding_grantmakers'},'amountAwarded'=>$giving->{$la}->{'grant_amount_gbp'},'grants'=>$giving->{$la}->{'grant_count'},'grantsExcl'=>$giving->{$la}->{'grant_count_excluding_grantmakers'}};
+		$updates{'grants-area'} += $giving->{$la}->{'grant_amount_gbp_excluding_grantmakers'};
 	}else{
-		if(@geos > 1){
-			print "\tMultiple geographies\n";
-		}
-		foreach $geo (sort(keys(%{$grants[$g]->{'geo'}}))){
-			#print "\t".$geo."\n";
-			if($geo !~ /^[EWSN][0-9]*/){
-				print "Bad Geo $geo\n";
-			}
-			if($grants[$g]->{'geo'}{$geo}{'LAD20CD'} && $geo =~ /^[EWSN][0-9]*/){
-				if(!$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}}){
-					$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}} = {'amountAwarded'=>0,'blah'=>0};
-				}
-				$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}}{'amountAwarded'} += $grants[$g]->{'amountAwarded'};
-				$updates{'grants-area'} += $grants[$g]->{'amountAwarded'};
-				if(!$grants[$g]->{'amountAwarded'}){
-					print "No amount awarded $g\n";
-				}
-			}else{
-				print "NO LAD!!!!!! $g\n";
-				$updates{'grants-noarea'} += $grants[$g]->{'amountAwarded'};
-			}
-		}
+		$updates{'grants-noarea'} = $giving->{$la}->{'grant_amount_gbp_excluding_grantmakers'};
 	}
 }
+
+
+#for($g = 0; $g < @grants; $g++){
+#	#print "$g - $grants[$g]->{'title'}\n";
+#	@geos = sort(keys(%{$grants[$g]->{'geo'}}));
+#	if($grants[$g]->{'awardDate'} =~ /([0-9]{4}-[0-9]{2}-[0-9]{2})/){
+#		if($1 gt $updates{'grants-date'}){ $updates{'grants-date'} = $1; }
+#	}
+#	if($grants[$g]->{'dateModified'} =~ /([0-9]{4}-[0-9]{2}-[0-9]{2})/){
+#		if($1 gt $updates{'grants-date'}){ $updates{'grants-date'} = $1; }
+#	}
+#	if(@geos == 0){
+#		$updates{'grants-noarea'} += $grants[$g]->{'amountAwarded'};
+#		#print "\tNo geo - $g $grants[$g]->{'amountAwarded'}\n";
+#	}else{
+#		if(@geos > 1){
+#			print "\tMultiple geographies\n";
+#		}
+#		foreach $geo (sort(keys(%{$grants[$g]->{'geo'}}))){
+#			#print "\t".$geo."\n";
+#			if($geo !~ /^[EWSN][0-9]*/){
+#				print "Bad Geo $geo\n";
+#			}
+#			if($grants[$g]->{'geo'}{$geo}{'LAD20CD'} && $geo =~ /^[EWSN][0-9]*/){
+#				if(!$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}}){
+#					$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}} = {'amountAwarded'=>0,'blah'=>0};
+#				}
+#				$threesixtygiving{$grants[$g]->{'geo'}{$geo}{'LAD20CD'}}{'amountAwarded'} += $grants[$g]->{'amountAwarded'};
+#				$updates{'grants-area'} += $grants[$g]->{'amountAwarded'};
+#				if(!$grants[$g]->{'amountAwarded'}){
+#					print "No amount awarded $g\n";
+#				}
+#			}else{
+#				print "NO LAD!!!!!! $g\n";
+#				$updates{'grants-noarea'} += $grants[$g]->{'amountAwarded'};
+#			}
+#		}
+#	}
+#}
 $updates{'grants-noarea'} = niceSize($updates{'grants-noarea'});
 $updates{'grants-area'} = niceSize($updates{'grants-area'});
 print $updates{'grants-noarea'}." no area vs $updates{'grants-area'} area\n";
 $hj->load('../resources/uk-local-authority-districts-2020.hexjson');
 $hj->addData(%threesixtygiving);
-$hj->setPrimaryKey('amountAwarded');
-$hj->setKeys('amountAwarded');
+$hj->setPrimaryKey('amountAwardedExcl');
+$hj->setKeys('amountAwarded','amountAwardedExcl');
 $hj->setColourScale('Viridis');
 $svg{'grantnav-awarded'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-grantnav-awarded','date'=>$updates{'grants-date'}));
 
