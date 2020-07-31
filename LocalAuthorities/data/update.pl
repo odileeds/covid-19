@@ -404,12 +404,12 @@ $giving = JSON::XS->new->utf8->decode(join("\n",@lines));
 $updates{'grants-noarea'} = 0;
 $updates{'grants-area'} = 0;
 for($i = 0; $i < @{$giving}; $i++){
-	$la = $giving[$i]{'lacd'};
+	$la = $giving->[$i]->{'lacd'};
 	if($la ne "unknown"){
-		$threesixtygiving{$la} = {'amountAwardedExcl'=>$giving[$i]->{'grant_amount_gbp_excluding_grantmakers'},'amountAwarded'=>$giving[$i]->{'grant_amount_gbp'},'grants'=>$giving->[$i]->{'grant_count'},'grantsExcl'=>$giving->[$i]->{'grant_count_excluding_grantmakers'}};
-		$updates{'grants-area'} += $giving[$i]->{'grant_amount_gbp_excluding_grantmakers'};
+		$threesixtygiving{$la} = {'amountAwardedExcl'=>$giving->[$i]->{'grant_amount_gbp_excluding_grantmakers'},'amountAwarded'=>$giving->[$i]->{'grant_amount_gbp'},'grants'=>$giving->[$i]->{'grant_count'},'grantsExcl'=>$giving->[$i]->{'grant_count_excluding_grantmakers'}};
+		$updates{'grants-area'} += $giving->[$i]->{'grant_amount_gbp_excluding_grantmakers'};
 	}else{
-		$updates{'grants-noarea'} = $giving[$i]->{'grant_amount_gbp_excluding_grantmakers'};
+		$updates{'grants-noarea'} = $giving->[$i]->{'grant_amount_gbp_excluding_grantmakers'};
 	}
 }
 
