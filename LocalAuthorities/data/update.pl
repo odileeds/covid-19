@@ -16,6 +16,7 @@ else{ $dir = "./"; }
 %LA;
 %headers;
 %LAlast;
+%LAweek;
 %updates;
 %conv;
 $updates{'cases-date'} = "2000-01-01";
@@ -101,6 +102,15 @@ $hj->setKeys('daily','dailyUTLA','UTLA','update');
 # Create the SVG output
 $svg{'cases-daily'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases-daily','date'=>$updates{'cases-date'}));
 
+# Add the data
+$hj->addData(%LAweek);
+# Set primary value keys
+$hj->setPrimaryKey('cases');
+$hj->setKeys('cases','casesUTLA','days','update','d');
+# Set the colour scale to use
+$hj->setColourScale('Viridis');
+# Create the SVG output
+$svg{'cases-7day'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-date'}));
 
 
 
@@ -678,6 +688,7 @@ sub saveLAJSON {
 			$min = getJulianFromISO($dates[0]);
 			$max = getJulianFromISO($dates[$n-1]);
 			$dt = getJulianFromISO($dates[0]);
+			$week = $max-7;
 
 
 			
@@ -687,22 +698,36 @@ sub saveLAJSON {
 				}
 				$d = getDate($dt,"%Y-%m-%d");
 				$jsonla .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
-				if($utla{$id}){
-					$nla = @{$utla{$id}->{'la'}};
-					foreach $convla (@{$utla{$id}->{'la'}}){
-						if($pop{$id}){
-							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'cases'=>$LA{$id}{'dates'}{$d}{'total'}/$nla,'UTLA'=>$LA{$id}{'name'},'dailyUTLA'=>$LA{$id}{'dates'}{$d}{'daily'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'}/$nla,'update'=>$d};
-						}else{
-							print "No population for $id\n";
-						}
-					}
-				}else{
+#				if($utla{$id}){
+#					$nla = @{$utla{$id}->{'la'}};
+#					foreach $convla (@{$utla{$id}->{'la'}}){
+#						if($pop{$id}){
+#							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'cases'=>$LA{$id}{'dates'}{$d}{'total'}/$nla,'UTLA'=>$LA{$id}{'name'},'dailyUTLA'=>$LA{$id}{'dates'}{$d}{'daily'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'}/$nla,'update'=>$d};
+#							if($dt > $week){
+#								if(!$LAweek{$convla}){ $LAweek{$convla} = {'casesUTLA'=>0,'cases'=>0,'days'=>0,'update'=>''}; }
+#								$LAweek{$convla}{'casesUTLA'} += $LA{$id}{'dates'}{$d}{'daily'};
+#								$LAweek{$convla}{'cases'} += $LA{$id}{'dates'}{$d}{'daily'}/$nla;
+#								$LAweek{$convla}{'days'}++;
+#								$LAweek{$convla}{'update'} = $d;
+#							}
+#						}else{
+#							print "No population for $id\n";
+#						}
+#					}
+#				}else{
 					if($pop{$id}){
 						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
+						if($dt > $week){
+							if(!$LAweek{$id}){ $LAweek{$id} = {'cases'=>0,'days'=>0,'update'=>'','d'=>''}; }
+							$LAweek{$id}{'cases'} += $LA{$id}{'dates'}{$d}{'daily'};
+							$LAweek{$id}{'days'}++;
+							$LAweek{$id}{'d'} .= ", $d";
+							$LAweek{$id}{'update'} = $d;
+						}
 					}else{
 						print "No population for $id\n";
 					}
-				}
+#				}
 			}
 
 			$jsonla .= $dates."]";
