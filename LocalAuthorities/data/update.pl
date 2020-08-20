@@ -115,8 +115,8 @@ $svg{'cases-7day'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','
 # Add the data
 $hj->addData(%LAweek);
 # Set primary value keys
-$hj->setPrimaryKey('cases');
-$hj->setKeys('cases','update','percapita','population');
+$hj->setPrimaryKey('percapita');
+$hj->setKeys('update','percapita','population');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
