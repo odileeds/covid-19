@@ -95,6 +95,12 @@ $hj->setKeys('cases','casesUTLA','UTLA','update');
 # Create the SVG output
 $svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases','date'=>$updates{'cases-date'}));
 
+# Set primary value keys
+$hj->setPrimaryKey('daily');
+$hj->setKeys('daily','dailyUTLA','UTLA','update');
+# Create the SVG output
+$svg{'cases-daily'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases-daily','date'=>$updates{'cases-date'}));
+
 
 
 
@@ -685,14 +691,14 @@ sub saveLAJSON {
 					$nla = @{$utla{$id}->{'la'}};
 					foreach $convla (@{$utla{$id}->{'la'}}){
 						if($pop{$id}){
-							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'cases'=>$LA{$id}{'dates'}{$d}{'total'}/$nla,'UTLA'=>$LA{$id}{'name'},'update'=>$d};
+							$LAlast{$convla} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'cases'=>$LA{$id}{'dates'}{$d}{'total'}/$nla,'UTLA'=>$LA{$id}{'name'},'dailyUTLA'=>$LA{$id}{'dates'}{$d}{'daily'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'}/$nla,'update'=>$d};
 						}else{
 							print "No population for $id\n";
 						}
 					}
 				}else{
 					if($pop{$id}){
-						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'update'=>$d};
+						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
 					}else{
 						print "No population for $id\n";
 					}
