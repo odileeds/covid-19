@@ -2,7 +2,9 @@
 
 ## Confirmed cases
 
-Tom White compiles [UK historical data](https://github.com/tomwhite/covid-19-uk-data) from the various national agencies (England, Wales, Scotland, Northern Ireland). Previously we took data for England direct from the Public Health England dashboard but on 14th April they changed how that works and it no longer has a fixed URL to download the latest data from. We only use [Tom's UK data now](https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv). To keep page load down, we are creating [a processed version of Tom's data](utla.json) every 15 minutes.
+~~~Tom White compiles [UK historical data](https://github.com/tomwhite/covid-19-uk-data) from the various national agencies (England, Wales, Scotland, Northern Ireland). Previously we took data for England direct from the Public Health England dashboard but on 14th April they changed how that works and it no longer has a fixed URL to download the latest data from. We only use [Tom's UK data now](https://github.com/tomwhite/covid-19-uk-data/blob/master/data/covid-19-cases-uk.csv). To keep page load down, we are creating [a processed version of Tom's data](utla.json) every 15 minutes.~~~
+
+Following Tom White taking the [understandable decision](https://github.com/tomwhite/covid-19-uk-data/issues/68) to stop maintaining a compilation of UK-wide local data, [Giles Dring now grabs cases data](https://github.com/odileeds/covid-19-uk-datasets) for England and Scotland from their respective sources. The definition of cases may vary between England and Scotland and over time.
 
 ## Populations
 
