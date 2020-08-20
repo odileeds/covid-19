@@ -609,8 +609,9 @@ sub getCases {
 			if(!$LA{$id}){ $LA{$id} = {'name'=>'','country'=>'','dates'=>{}}; }
 			# Only add the date if it has a value
 			if(!$LA{$id}{'dates'}{$d}){ $LA{$id}{'dates'}{$d} = { 'total'=>0,'daily'=>0 }; }
-			if($cols[$headers{'TotalCases'}] ne ""){ $LA{$id}{'dates'}{$d}{'total'} += $cols[$headers{'TotalCases'}]; }
-			if($cols[$headers{'DailyCases'}] ne ""){ $LA{$id}{'dates'}{$d}{'daily'} += $cols[$headers{'DailyCases'}]; }
+			# Only count the first entry for this day
+			if($cols[$headers{'TotalCases'}] ne "" && $LA{$id}{'dates'}{$d}{'total'}==0){ $LA{$id}{'dates'}{$d}{'total'} = $cols[$headers{'TotalCases'}]; }
+			if($cols[$headers{'DailyCases'}] ne "" && $LA{$id}{'dates'}{$d}{'daily'}==0){ $LA{$id}{'dates'}{$d}{'daily'} = $cols[$headers{'DailyCases'}]; }
 
 			$cc = substr($id,0,1);
 			if($cc eq "E"){ $LA{$id}{'country'} = "England"; }
@@ -635,12 +636,11 @@ sub getCases {
 	}else{
 		print "Empty file";
 	}
-	
 	return;
 }
 
 sub saveLAJSON {
-	my (@dates,$min,$max,$dt,$id,$n,$json,$i,$d,$nla);
+	my (@dates,$min,$max,$dt,$id,$n,$json,$i,$d,$nla,$jsonla);
 
 	@dates = ();
 	$min = getJulianFromISO($mindate);
@@ -662,23 +662,25 @@ sub saveLAJSON {
 			$n = @dates;
 
 			if($json){ $json .= ",\n";}
-			$json .= "\t\t\"$id\":{";
-			$json .= "\"n\":\"$LA{$id}{'name'}\",";
-			$json .= "\"c\":\"$LA{$id}{'country'}\",";
-			$json .= "\"mindate\":\"$dates[0]\",";
-			$json .= "\"maxdate\":\"".$dates[$n-1]."\",";
-			$json .= "\"v\":[";
+			$jsonla = "\t\t\"$id\":{";
+			$jsonla .= "\"n\":\"$LA{$id}{'name'}\",";
+			$jsonla .= "\"c\":\"$LA{$id}{'country'}\",";
+			$jsonla .= "\"mindate\":\"$dates[0]\",";
+			$jsonla .= "\"maxdate\":\"".$dates[$n-1]."\",";
+			$jsonla .= "\"v\":[";
 
 			$min = getJulianFromISO($dates[0]);
 			$max = getJulianFromISO($dates[$n-1]);
 			$dt = getJulianFromISO($dates[0]);
+
+
 			
 			for($i = 0; $dt <= $max; $i++, $dt++){
 				if($i > 0){
-					$json .= ",";
+					$jsonla .= ",";
 				}
 				$d = getDate($dt,"%Y-%m-%d");
-				$json .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
+				$jsonla .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
 				if($utla{$id}){
 					$nla = @{$utla{$id}->{'la'}};
 					foreach $convla (@{$utla{$id}->{'la'}}){
@@ -697,8 +699,9 @@ sub saveLAJSON {
 				}
 			}
 
-			$json .= $dates."]";
-			$json .= "}";
+			$jsonla .= $dates."]";
+			$jsonla .= "}";
+			$json .= $jsonla;
 		}
 	}
 	print "Save to $dir/utla.json\n";
