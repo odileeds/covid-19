@@ -194,7 +194,7 @@ foreach $id (sort(keys(%deaths))){
 	@weeks = reverse(sort(keys(%{$deaths{$id}{'weeks'}})));
 	$wk = $weeks[0];
 	if($json){ $json .= ",\n"; }
-	$json .= "\t\"$id\": {\"total\":{\"all-causes\":$deaths{$id}{'all'},\"covid-19\":$deaths{$id}{'covid-19'}},\"week\":{\"text\":\"$wk\",\"all\":$deaths{$id}{'weeks'}{$wk}{'all-causes'},\"covid-19\":$deaths{$id}{'weeks'}{$wk}{'covid-19'}}}";
+	$json .= "\t\"$id\": {\"total\":{\"all\":$deaths{$id}{'all-causes'},\"covid-19\":$deaths{$id}{'covid-19'}},\"week\":{\"text\":\"$wk\",\"all\":$deaths{$id}{'weeks'}{$wk}{'all-causes'},\"covid-19\":$deaths{$id}{'weeks'}{$wk}{'covid-19'}}}";
 }
 
 open(FILE,">",$dir."death-summary.json");
