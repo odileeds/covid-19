@@ -154,23 +154,31 @@ while (my $line = <FILE>) {
 	if($i == 0){
 		%headers = getHeaders($line);
 	}
-	if($i > 0 && $i < 160000 && $line =~ /\,/){
+	if($i > 0 && $line =~ /\,/){
 		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+		$latmp = $cols[$headers{'admin-geography'}];
+		$wk = $cols[$headers{'week'}];
 		#v4_1,Data Marking,calendar-years,time,admin-geography,geography,week-number,week,cause-of-death,causeofdeath,place-of-death,placeofdeath,registration-or-occurrence,registrationoroccurrence
-		if(!$deaths{$cols[$headers{'admin-geography'}]}){
-			$deaths{$cols[$headers{'admin-geography'}]} = { 'all-causes'=>0,'covid-19'=>0 };
+		if(!$deaths{$latmp}){
+			$deaths{$latmp} = { 'all-causes'=>0,'covid-19'=>0,'weeks'=>{} };
 		}
 		if($cols[$headers{'registration-or-occurrence'}] eq "registrations"){
+			if(!$deaths{$latmp}{'weeks'}{$wk}){
+				$deaths{$latmp}{'weeks'}{$wk} = {'covid-19'=>0,'all-causes'=>0};
+			}
 			if($cols[$headers{'cause-of-death'}] eq "all-causes"){
-				$deaths{$cols[$headers{'admin-geography'}]}{'all-causes'} += $cols[$headers{'v4_1'}];
+				$deaths{$latmp}{'all-causes'} += $cols[$headers{'v4_1'}];
+				$deaths{$latmp}{'weeks'}{$wk}{'all-causes'} += $cols[$headers{'v4_1'}];
 			}elsif($cols[$headers{'cause-of-death'}] eq "covid-19"){
-				$deaths{$cols[$headers{'admin-geography'}]}{'covid-19'} += $cols[$headers{'v4_1'}];
+				$deaths{$latmp}{'covid-19'} += $cols[$headers{'v4_1'}];
+				$deaths{$latmp}{'weeks'}{$wk}{'covid-19'} += $cols[$headers{'v4_1'}];
 			}
 		}
 	}
 	$i++;
 }
-foreach $id (keys(%deaths)){
+$json = "";
+foreach $id (sort(keys(%deaths))){
 	$deaths{$id}{'deaths-percent'} = 0;
 	if($deaths{$id}{'all-causes'} > 0){
 		$deaths{$id}{'deaths-percent'} = 100*$deaths{$id}{'covid-19'}/$deaths{$id}{'all-causes'};
@@ -183,8 +191,16 @@ foreach $id (keys(%deaths)){
 		$deaths{$id}{'covid-19-percapita'} = 0;
 		$deaths{$id}{'all-causes-percapita'} = 0;
 	}
-
+	@weeks = reverse(sort(keys(%{$deaths{$id}{'weeks'}})));
+	$wk = $weeks[0];
+	if($json){ $json .= ",\n"; }
+	$json .= "\t\"$id\": {\"total\":{\"all-causes\":$deaths{$id}{'all'},\"covid-19\":$deaths{$id}{'covid-19'}},\"week\":{\"text\":\"$wk\",\"all\":$deaths{$id}{'weeks'}{$wk}{'all-causes'},\"covid-19\":$deaths{$id}{'weeks'}{$wk}{'covid-19'}}}";
 }
+
+open(FILE,">",$dir."death-summary.json");
+print FILE "{\n$json\n}";
+close(FILE);
+
 
 # Set to 2020 Local Authority layout
 $hj->load('../resources/uk-local-authority-districts-2020.hexjson');
