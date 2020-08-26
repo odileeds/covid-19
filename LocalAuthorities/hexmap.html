@@ -6556,28 +6556,4 @@
 					else if(id == "hexmap-cases-7day-percapita") n = '%title%<br />'+(update ? (percapita).toLocaleString()+"/100,000<br /><span class=\"small\">Week up to "+update+"</span>":"No data");
 					else if(id == "hexmap-keyworker") n = '%title%<br />'+(keyworkers ? keyworkers+'%':'');
 					else if(id == "hexmap-deaths-covid") n = '%title%<br />'+parseFloat(covid).toLocaleString()+' deaths<br />('+(covidpc ? Math.round(parseFloat(covidpc))+'/100,000':'')+')';
-					else if(id == "hexmap-deaths-all") n = '%title%<br />'+parseFloat(allcauses).toLocaleString()+' deaths<br />('+(allcausespc ? Math.round(parseFloat(allcausespc))+'/100,000':'')+')';
-					else if(id == "hexmap-deaths-percent") n = '%title%<br />'+deathpc+'% of deaths';
-					else if(id == "hexmap-furloughed-total") n = '%title%<br />'+(furloughed).toLocaleString()+'';
-					else if(id == "hexmap-furloughed-percent") n = '%title%: '+(furloughedpc).toLocaleString()+'%<br />Furloughed: '+(furloughed).toLocaleString()+'<br />Employment (16-64): '+(employment).toLocaleString()+'<br />Population: '+(pop).toLocaleString();
-					else if(id == "hexmap-self-employed-value") n = '%title%<br />&pound;'+valueav.toLocaleString();
-					else if(id == "hexmap-self-employed-average") n = '%title%<br />&pound;'+avclaim.toLocaleString();
-					else if(id == "hexmap-self-employed-claims") n = '%title%<br />'+claimsav.toLocaleString()+' claims';
-					else if(id == "hexmap-grantnav-awarded") n = '%title%<br />&pound;'+grantawardexcl.toLocaleString()+'<br />excluding grantmakers';
-					if(n) v = n;
-					v = v.replace(/\%title\%/g,(UTLA ? UTLA : e.target.querySelector('title').innerHTML));
-					tooltip.innerHTML = v;
-					bb = e.target.getBoundingClientRect();
-					tooltip.style.position = "absolute";
-					tooltip.style.left = Math.round(bb.left+(bb.width/2)-hexmaps[id].el.offsetLeft)+'px';
-					tooltip.style.top = Math.round(bb.y+bb.height+window.scrollY-hexmaps[id].el.offsetTop)+'px';
-		
-				});
-			}
-		
-		}
-	}
-	</script>
-
-</body>
-</html>
+					else if(id == "hexmap-deaths-all") n = '%title%<br />'+parseFloat(allcauses).toLocaleString()+' deaths<br />('+(allcausespc ? Math.round(parseFloat(allcausespc))+'/10
