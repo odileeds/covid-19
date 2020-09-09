@@ -6522,4 +6522,62 @@
 					casesUTLA = (parseInt(e.target.getAttribute('data-casesutla'))||0);
 					UTLA = e.target.getAttribute('data-utla');
 					keyworkers = e.target.getAttribute('data-keyworkers');
-					allcauses = (e.target.getAttribute('data-all-cause
+					allcauses = (e.target.getAttribute('data-all-causes'));
+					covid = (e.target.getAttribute('data-covid-19'));
+					allcausespc = (e.target.getAttribute('data-all-causes-percapita'));
+					covidpc = (e.target.getAttribute('data-covid-19-percapita'));
+					deathpc = (e.target.getAttribute('data-deaths-percent')||"?");
+					furloughed = (parseInt(e.target.getAttribute('data-furloughed'))||0);
+					furloughedpc = (parseFloat(e.target.getAttribute('data-pc'))||0);
+					employment = (parseFloat(e.target.getAttribute('data-employment'))||0);
+					pop = (e.target.getAttribute('data-pop'));
+					claims = (parseInt(e.target.getAttribute('data-claims'))||0);
+					claimsav = (parseInt(e.target.getAttribute('data-claimsav'))||0);
+					value = (parseInt(e.target.getAttribute('data-value'))||0);
+					valueav = (parseInt(e.target.getAttribute('data-valueav'))||0);
+					avclaim = (parseInt(e.target.getAttribute('data-average'))||0);
+					grantaward = (parseInt(e.target.getAttribute('data-amountawarded'))||0);
+					grantawardexcl = (parseInt(e.target.getAttribute('data-amountawardedexcl'))||0);
+					update = e.target.getAttribute('data-update')||"";
+					daily = (parseInt(e.target.getAttribute('data-daily'))||0);
+					dailyUTLA = (parseInt(e.target.getAttribute('data-dailyutla'))||0);
+					weekly = (parseInt(e.target.getAttribute('data-cases'))||0);
+					if(!deathpc) deathpc = "?";
+					else deathpc = parseFloat(deathpc).toFixed(1);
+					if(!covid) covid = 0;
+					if(!allcauses) allcauses = 0;
+					pop = (!pop ? 0 : parseInt(pop));
+					v = '%title%'
+					n = "";
+					if(id == "hexmap-percapita") n = '%title%<br />'+(update ? parseInt(Math.round(percapita)).toLocaleString()+'/100,000'+"<br /><span class=\"small\">As of "+update+"</span>":"No data");
+					else if(id == "hexmap-cases") n = '%title%<br />'+(update ? parseInt(casesUTLA ? casesUTLA : cases).toLocaleString()+"<br /><span class=\"small\">As of "+update+"</span>":"No data");
+					else if(id == "hexmap-cases-daily") n = '%title%<br />'+(update ? (dailyUTLA ? dailyUTLA : daily).toLocaleString()+"<br /><span class=\"small\">As of "+update+"</span>":"No data");
+					else if(id == "hexmap-cases-7day") n = '%title%<br />'+(update ? (Math.round(weekly/7)).toLocaleString()+"/day<br /><span class=\"small\">Week up to "+update+"</span>":"No data");
+					else if(id == "hexmap-cases-7day-percapita") n = '%title%<br />'+(update ? (percapita).toLocaleString()+"/100,000<br /><span class=\"small\">Week up to "+update+"</span>":"No data");
+					else if(id == "hexmap-keyworker") n = '%title%<br />'+(keyworkers ? keyworkers+'%':'');
+					else if(id == "hexmap-deaths-covid") n = '%title%<br />'+parseFloat(covid).toLocaleString()+' deaths<br />('+(covidpc ? Math.round(parseFloat(covidpc))+'/100,000':'')+')';
+					else if(id == "hexmap-deaths-all") n = '%title%<br />'+parseFloat(allcauses).toLocaleString()+' deaths<br />('+(allcausespc ? Math.round(parseFloat(allcausespc))+'/100,000':'')+')';
+					else if(id == "hexmap-deaths-percent") n = '%title%<br />'+deathpc+'% of deaths';
+					else if(id == "hexmap-furloughed-total") n = '%title%<br />'+(furloughed).toLocaleString()+'';
+					else if(id == "hexmap-furloughed-percent") n = '%title%: '+(furloughedpc).toLocaleString()+'%<br />Furloughed: '+(furloughed).toLocaleString()+'<br />Employment (16-64): '+(employment).toLocaleString()+'<br />Population: '+(pop).toLocaleString();
+					else if(id == "hexmap-self-employed-value") n = '%title%<br />&pound;'+valueav.toLocaleString();
+					else if(id == "hexmap-self-employed-average") n = '%title%<br />&pound;'+avclaim.toLocaleString();
+					else if(id == "hexmap-self-employed-claims") n = '%title%<br />'+claimsav.toLocaleString()+' claims';
+					else if(id == "hexmap-grantnav-awarded") n = '%title%<br />&pound;'+grantawardexcl.toLocaleString()+'<br />excluding grantmakers';
+					if(n) v = n;
+					v = v.replace(/\%title\%/g,(UTLA ? UTLA : e.target.querySelector('title').innerHTML));
+					tooltip.innerHTML = v;
+					bb = e.target.getBoundingClientRect();
+					tooltip.style.position = "absolute";
+					tooltip.style.left = Math.round(bb.left+(bb.width/2)-hexmaps[id].el.offsetLeft)+'px';
+					tooltip.style.top = Math.round(bb.y+bb.height+window.scrollY-hexmaps[id].el.offsetTop)+'px';
+		
+				});
+			}
+		
+		}
+	}
+	</script>
+
+</body>
+</html>
