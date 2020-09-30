@@ -128,24 +128,39 @@ $svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-pe
 # Read in ONS death data
 %deaths;
 $latestversion = "0";
+$version = "0";
+$file = "";
 @lines = `wget -q --no-check-certificate -O- "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions"`;
 foreach $line (@lines){
-	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*) \(latest\)<\/h2>/){
-		if($1 gt $latestversion){
-			$latestversion = $1;
-			$updates{'deaths-date'} = tidyDate($2);
+	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*)([^\<]*)<\/h2>/){
+		$version = $1+0;
+		$tempdate = $2;
+		if($version gt $latestversion){
+			$file = $dir."temp/deaths-version-$version.csv";
+			if(!-e $file){
+				$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$version.csv";
+				print "Getting deaths data as of $updates{'deaths-date'} from $url\n";
+				`wget -q --no-check-certificate -O "$file" "$url"`;
+			}
+			if(-s $file == 0){
+				# The file is empty so move on to the next one
+				$version = 0;
+			}else{
+				if($version > $latestversion){
+					$latestversion = $version;
+					$updates{'deaths-date'} = tidyDate($tempdate);
+				}
+			}
 		}
 	}
 }
+
 $file = $dir."temp/deaths-version-$latestversion.csv";
-print "File: $file\n";
+
 if(!-e $file){
-	$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$latestversion.csv";
-	print "Getting deaths data as of $updates{'deaths-date'} from $url\n";
-	`wget -q --no-check-certificate -O "$file" "$url"`;
+	print "Failed to find file $file\n";
+	exit;
 }
-
-
 
 open(FILE,$file);
 $i = 0;
@@ -293,8 +308,8 @@ foreach $id (sort(keys(%utla))){
 # Manual fix for old ONS code
 $employment{'E10000002'} = $employment{'E06000060'};
 # Now get the HMRC data
-$updates{'jobs-date'} = "2020-06-11";
-open(FILE,$dir."hmrc-job-retention-scheme-statistics-june-2020.csv");
+$updates{'jobs-date'} = "2020-08-21";
+open(FILE,$dir."hmrc-job-retention-scheme-statistics-august-2020.csv");
 @lines = <FILE>;
 close(FILE);
 # Split the headers and tidy
@@ -305,8 +320,8 @@ for($i = 1; $i < @lines; $i++){
 	(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
 	$id = $cols[0];
 	$cols[1] =~ s/(^\"|\"$)//g;
-	$jobs{$id} = { 'furloughed'=>$cols[2], 'total'=>$cols[2], 'name'=>$cols[1], 'pc'=>0, 'UTLA'=>'','pop'=>0, 'employment'=>$employment{$id} };
-	if(!$employment{$id}){
+	$jobs{$id} = { 'furloughed'=>$cols[2], 'total'=>$cols[2], 'name'=>$cols[1], 'pc'=>0, 'takeup'=>$cols[4], 'eligible'=>$cols[3], 'UTLA'=>'','pop'=>0, 'employment'=>$employment{$id} };
+	if(!$employment{$id} || $employment{$id}==0){
 		#print "No employment figure for $id\n";
 	}else{
 		$jobs{$id}{'pc'} = int($jobs{$id}{'furloughed'}*100/$employment{$id} + 0.5);
@@ -347,7 +362,7 @@ for($i = 1; $i < @lines; $i++){
 	}
 }
 # Create furloughed worker map - the data are for 
-$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->load('../resources/uk-local-authority-districts-2020.hexjson');
 $hj->addData(%jobs);
 $hj->setPrimaryKey('total');
 $hj->setKeys('furloughed','total','UTLA');
@@ -356,12 +371,12 @@ $svg{'furloughed-total'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furlou
 
 
 # Create furloughed worker map - the data are for 
-$hj->load('../resources/uk-local-authority-districts-2019.hexjson');
+$hj->load('../resources/uk-local-authority-districts-2020.hexjson');
 $hj->addData(%jobs);
-$hj->setPrimaryKey('pc');
-$hj->setKeys('pc','furloughed','employment','pop','UTLA');
+$hj->setPrimaryKey('takeup');
+$hj->setKeys('takeup','pc','furloughed','employment','pop','UTLA');
 $hj->setColourScale('Viridis');
-$svg{'furloughed-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-percapita','date'=>$updates{'jobs'}));
+$svg{'furloughed-percent'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-furloughed-percent','date'=>$updates{'jobs-date'}));
 
 
 
@@ -634,6 +649,7 @@ sub getCases {
 			$cols[$headers{'TotalCases'}] =~ s/(^\"|\"$)//g;
 			$cols[$headers{'Date'}] =~ s/(^\"|\"$)//g;
 			$cols[$headers{'DailyCases'}] =~ s/(^\"|\"$)//g;
+			#print "$cols[$headers{'Area'}]: $cols[$headers{'DailyCases'}]\n";
 			if($cols[$headers{'TotalCases'}] =~ /[\s\D]/){ $cols[$headers{'TotalCases'}] = "\"$cols[$headers{'TotalCases'}]\""; }
 			$d = $cols[$headers{'Date'}];
 			#$d =~ s/\-//g;
