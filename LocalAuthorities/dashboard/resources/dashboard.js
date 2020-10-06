@@ -172,7 +172,7 @@
 					}else{
 						lad[la].panels[id][bit].el.innerHTML = v;
 					}
-					if(lad[la].panels[id][bit].fit) window.fitText(lad[la].panels[id][bit].el,0.7,{'len':(v+"").length,'minFontSize':12,'minChar':4});
+					if(lad[la].panels[id][bit].fit) window.fitText(lad[la].panels[id][bit].el,0.7,{'len':(formatNumber(v)+"").length,'minFontSize':12,'minChar':4});
 				}
 			}
 		}
