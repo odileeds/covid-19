@@ -10,30 +10,37 @@
 		if(this.opts.daystoignore) this.opts.start = this.opts.daystoignore;
 
 		// Define Local Authority Districts
-		var auth = document.querySelectorAll('.authority');
-
 		var str = location.search.substr(1,).replace(/;$/,"");
 		
 		if(str) las = str.split(/;/);
 		else las = [];
+		var goodla = [];
 
+		// Only allow IDs that look valid
 		if(las.length > 0){
+			for(var i = 0; i < las.length; i++){
+				if(las[i].indexOf(/^[ENSW][0-9]{8}$/)) goodla.push(las[i]);
+			}
+		}
+		if(goodla.length > 0){
 			var container = document.querySelector('#dashboard .grid');
 			container.innerHTML = "";
 			var i,h2;
-			for(var i = 0; i < las.length; i++){
-				h2 = document.createElement('h2');
-				h2.setAttribute('id',las[i]);
-				h2.classList.add(las[i]);
-				h2.classList.add('cell');
-				h2.classList.add('row-1');
-				h2.classList.add('authority');
-				h2.setAttribute("tabindex",0);
-				h2.innerHTML = '<a href="https://findthatpostcode.uk/areas/'+las[i]+'.html">'+las[i]+'</a>';
-				container.appendChild(h2);
+			for(var i = 0; i < goodla.length; i++){
+				if(goodla[i].indexOf(/^[ENSW][0-9]{8}$/)){
+					h2 = document.createElement('h2');
+					h2.setAttribute('id',goodla[i]);
+					h2.classList.add(goodla[i]);
+					h2.classList.add('cell');
+					h2.classList.add('row-1');
+					h2.classList.add('authority');
+					h2.setAttribute("tabindex",0);
+					h2.innerHTML = '<a href="https://findthatpostcode.uk/areas/'+goodla[i]+'.html">'+goodla[i]+'</a>';
+					container.appendChild(h2);
+				}
 			}
-			auth = document.querySelectorAll('.authority');
 		}
+		var auth = document.querySelectorAll('.authority');
 
 		// Update styles
 		var style = document.createElement('style');
