@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<title>COVID-19 Dashboard</title>
+	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
+	<script src="resources/fittext.js"></script>
+	<script src="resources/clone.js"></script>
+	<script src="resources/dashboard.js"></script>
+</head>
+<body class="b1-bg">
+
+	<div class="b1-bg doublepadded">
+		<h1>COVID-19 Dashboard</h1>
+	</div>
+
+	<div id="dashboard">
+		<div class="b6-bg key">Levels of risk<sup><a href="#risk">[note]</a></sup>:
+			<ul>
+			<li class="key-item"><div class="key-block widespread"></div> Widespread</li>
+			<li class="key-item"><div class="key-block substantial"></div> Substantial</li>
+			<li class="key-item"><div class="key-block moderate"></div> Moderate</li>
+			<li class="key-item"><div class="key-block minimal"></div> Minimal</li>
+			</ul>
+		</div>
+		<section class="grid doublepadded b6-bg">
+			<h2 id="E08000032" class="E08000032 cell row-1 authority" tabindex="0"><a href="https://findthatpostcode.uk/areas/E08000032.html">Bradford</a></h2>
+			<h2 id="E08000033" class="E08000033 cell row-1 authority" tabindex="0"><a href="https://findthatpostcode.uk/areas/E08000033.html">Calderdale</a></h2>
+			<h2 id="E08000034" class="E08000034 cell row-1 authority" tabindex="0"><a href="https://findthatpostcode.uk/areas/E08000034.html">Kirklees</a></h2>
+			<h2 id="E08000035" class="E08000035 cell row-1 authority" tabindex="0"><a href="https://findthatpostcode.uk/areas/E08000035.html">Leeds</a></h2>
+			<h2 id="E08000036" class="E08000036 cell row-1 authority" tabindex="0"><a href="https://findthatpostcode.uk/areas/E08000036.html">Wakefield</a></h2>
+		</section>
+	</div>
+
+	<footer class="b1-bg">
+		<div class="holder">
+			<h2 id="risk">Levels of risk</h2>
+			<p>Column colours use <a href="https://covid19.ca.gov/safer-economy/">California's four levels of risk</a>. California use <em>positivity rate</em> and new daily cases per 100k. Unfortunately PHE don't publish the number of tests at Local Authority Level so we can't calculate a <em>positivity rate</em>; we use the daily cases per 100k. Because the most recent days in the data are under-reported (data still being collated) we use the average daily value from the latest week calculated above.</p>
+			<h2>Credits</h2>
+			<p>© 2020 <a href="https://odileeds.org/">ODI Leeds</a>. <a href="https://coronavirus.data.gov.uk/">Cases data comes from Public Health England</a> and <a href="https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions">death data comes from ONS</a>.
+			<br />Code released under an MIT license. <a href="https://github.com/odileeds/covid-19-west-yorks">Source on Github</a>.
+			<p><a href="https://github.com/odileeds/covid-19/tree/master/LocalAuthorities/data">We process the ONS weekly death data</a> - England and Wales - for our <a href="https://odileeds.github.io/covid-19/LocalAuthorities/hexmap.html">UK local authority hexmaps</a> (<a href="https://odileeds.github.io/covid-19/LocalAuthorities/data/death-summary.json">json</a>). ONS tend to publish the death data once per week on Tuesdays so the dates are given in each panel. Data on confirmed cases are from five requests (<a href="https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000032&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json">Bradford</a>, <a href="https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000033&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json">Calderdale</a>, <a href="https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000034&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json">Kirklees</a>, <a href="https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000035&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json">Leeds</a>, and <a href="https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000036&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=json">Wakefield</a>) to <a href="https://coronavirus.data.gov.uk/developers-guide">Public Health England's API</a>.</p>
+		</div>
+	</footer>
+
+	<script>
+	var start = 5;
+	var dashboard = Dashboard({
+		'daystoignore': start,
+		'panel':{
+			'population': [
+				{'tagname':'h3','key':'title','html':'Population'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.population||'?'); },'fit':true}
+			],
+			'total': [
+				{'tagname':'h3','key':'title','html':'Total cases'},
+				{'tagname':'div','key':'number','html':function(la){ return this.data.cases.days[0].tot; },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return this.data.cases.days[0].date; }}
+			],
+			'total-percapita': [
+				{'tagname':'h3','key':'title','html':'Total cases/100,000'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.population ? Math.round(this.data.cases.days[0].tot*1e5/this.data.population) : '?'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return this.data.cases.days[0].date; }}
+			],
+			'weekly': [
+				{'tagname':'h3','key':'title','html':'Weekly cases<br/><span class="small">Ignoring most recent '+start+' days</small>'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.weeks[0].days == 7 ? this.weeks[0].total : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return 'Up to '+this.weeks[0].upto; }}
+			],
+			'weekly-change': [
+				{'tagname':'h3','key':'title','html':'Change on previous week<br/><span class="small">Ignoring most recent '+start+' days</small>'},
+				{'tagname':'div','key':'number','html':function(la){ var diff = (this.weeks[0].total - this.weeks[1].total); return (this.weeks[0].days==7 && this.weeks[1].days==7 ? (diff < 0 ? '-':'+')+diff : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.weeks[0].days==7 && this.weeks[1].days==7 ? this.weeks[0].upto+' vs '+this.weeks[1].upto : "Missing data"); }}
+			],
+			'weekly-percapita': [
+				{'tagname':'h3','key':'title','html':'Weekly cases/100,000<br/><span class="small">Ignoring most recent '+start+' days</small>'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.weeks[0].days == 7 && this.data.population ? Math.round(this.weeks[0].total*1e5/this.data.population) : '?'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return 'Up to '+this.weeks[0].upto; }}
+			],
+			'daily-percapita-graph': [
+				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
+				{'tagname':'div','key':'graph','html':function(la){
+					fetch("svg/"+la+".svg",{'method':'GET'})
+					.then(response => { return response.text() })
+					.then(text => {
+						document.querySelector('.'+la+' .graph').innerHTML = text;
+					}).catch(error => {
+						console.error(error,url);
+					});
+					
+					return "";
+				}},
+				{'tagname':'div','key':'updated','html':function(la){ return this.data.cases.days[0].date; }}
+			],
+			'weekly-deaths': [
+				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? this.data.deaths.weeks[0].cov : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.weeks[0].txt : '?'); }}
+			],
+			'total-deaths-covid': [
+				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? this.data.deaths.cov : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.updated : '?'); }}
+			],
+			'total-deaths-all': [
+				{'tagname':'h3','key':'title','html':'Total deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? this.data.deaths.all : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.updated : ''); }}
+			],
+			'total-deaths-pc': [
+				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.updated : ''); }}
+			]
+		},
+		'colour': function(lad){
+			var v,i,cls,la;
+			for(la in lad){
+				// Use smoothed value
+				v = (lad[la].data.population ? Math.round((lad[la].weeks[0].total*1e5/lad[la].data.population)/7) : 0);
+				panels = document.querySelectorAll('.'+la);
+				for(i = 0; i < panels.length; i++){
+					cls = "";
+					// Definitions from https://covid19.ca.gov/safer-economy/
+					if(v >= 7) cls = "widespread";
+					else if(v >= 4 && v < 7) cls = "substantial";
+					else if(v >= 1 && v < 4) cls = "moderate";
+					else cls = "minimal";
+					if(cls) panels[i].classList.add(cls);
+				}
+			}
+			return;
+		}
+	});
+	</script>
+</body>
+</html>

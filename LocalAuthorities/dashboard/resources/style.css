@@ -1,0 +1,173 @@
+/* ODI Site Styles. Last updated 2019-12-18 */
+
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1em; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* apply a natural box layout model to all elements */
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* End of reset */
+
+
+
+/* Main site styling */
+body {
+	background-color: #000000;
+	font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	font-size: 16px;
+	color: #efefef;
+	margin: 0px;
+	padding: 0px;
+	line-height: 1.44em;
+	text-rendering: optimizeLegibility;
+}
+h1 { font-size: 2em; margin-top: 1em; line-height:1em; }
+h2 { font-size: 1.7em; margin-top: 1.7647058823529411em; font-weight: 500; line-height:1em; }
+h3 { font-size: 1.4em; margin-top: 1.428571em; line-height:1em; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+h2 a, h3 a,p a { color: #2254F4; text-decoration: underline; }
+p, time, li, td, th, footer, div { font-weight: 300; }
+h1 { margin-top: 0; }
+h2 { margin-top: 0; padding: 0.25em 0; text-align: center; }
+footer { width: 100%; padding: 1em; padding-bottom: 3em; }
+footer a { color: white; }
+footer h2 { text-align: left; margin-top: 1em; }
+h2 a, h2 a:visited { color: inherit; }
+
+
+.c1-bg, .elsewhere .facebook:hover, .c1-bg-hover:hover, .c1-bg:visited { background-color: #2254F4; color: white; }
+.c2-bg, .c2-bg-hover:hover, .c2-bg:visited { background-color: #178CFF; color: black; }
+.c3-bg, .elsewhere .twitter:hover, .c3-bg-hover:hover, .c3-bg:visited { background-color: #00B6FF; color: black; }
+.c4-bg, .c4-bg-hover:hover, .c4-bg:visited { background-color: #08DEF9; color: black; }
+.c5-bg, .c5-bg-hover:hover, .c5-bg:visited { background-color: #1DD3A7; color: black; }
+.c6-bg, .c6-bg-hover:hover, .c6-bg:visited { background-color: #0DBC37; color: black; }
+.c7-bg, .c7-bg-hover:hover, .c7-bg:visited, .seasonal-accent, .seasonal-accent:hover, .seasonal-accent:visited { background-color: #67E767; color: black; }
+.c8-bg, .c8-bg-hover:hover, .c8-bg:visited { background-color: #722EA5; color: white; }
+.c9-bg, .c9-bg-hover:hover, .c9-bg:visited, .instagram:hover { background-color: #E6007C; color: white; }
+.c10-bg, .c10-bg-hover:hover, .c10-bg:visited, .flickr:hover, .seasonal, .seasonal:visited, .seasonal:hover { background-color: #EF3AAB; color: black; }
+.c11-bg, .c11-bg-hover:hover, .c11-bg:visited { background-color: #D73058; color: white; }
+.c12-bg, .c12-bg-hover:hover, .c12-bg:visited, .youtube:hover { background-color: #D60303; color: white; }
+.c13-bg, .c13-bg-hover:hover, .c13-bg:visited { background-color: #FF6700; color: black; }
+.c14-bg, .c14-bg-hover:hover, .c14-bg:visited { background-color: #F9BC26; color: black; }
+.s1-bg, .s1-bg-hover:hover, .s1-bg a:visited { background-color: #2f529f; color: white!important; }
+.s2-bg, .s2-bg-hover:hover, .s2-bg a:visited { background-color: #00ace8; color: black; }
+.s3-bg, .s3-bg-hover:hover, .s3-bg a:visited { background-color: #7dc5ea; color: black; }
+.b1-bg { background-color: #000000; color: white!important; }
+.b2-bg { background-color: #333333; color: white!important; }
+.bk-bg { background-color: #6D6D6D; color: white!important; }
+.b3-bg, .github:hover { background-color: #999999; color: black!important; }
+.b4-bg { background-color: #bbbbbb; color: black!important; }
+.b5-bg { background-color: #dfdfdf; color: black!important; }
+.b6-bg { background-color: #ffffff; color: black!important; }
+a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
+.c1-bg .button, .c2-bg .button, .c3-bg .button, .c4-bg .button, .c5-bg .button, .c6-bg .button, .c7-bg .button, .c8-bg .button, .c9-bg .button, .c10-bg .button, .c11-bg .button, .c12-bg .button, .c13-bg .button, .c14-bg .button { background-color: #efefef; color: black!important; }
+.b6-bg .button { background-color: black; color: white!important; }
+
+.widespread, .grid .widespread { background: #802f67!important; color: white!important; stroke: white; fill: white; }
+.substantial, .grid .substantial { background: #c43d53!important; color: white!important; stroke: white; fill: white; }
+.moderate, .grid .moderate { background: #d97641!important; color: black!important; stroke: black; fill: black; }
+.minimal, .grid .minimal { background: #e6b735!important; color: black!important; stroke: black; fill: black; }
+
+.data-series path, .graph-grid line { vector-effect: non-scaling-stroke; }
+.widespread .data-series path.line, .widespread .graph-grid line, .substantial .data-series path.line, .substantial .graph-grid line { stroke: white; }
+
+.holder { position: relative; width: 1080px; max-width: 100%; margin: auto; }
+.padded { padding: 1em; }
+.doublepadded { padding: 2em; }
+
+
+/* Use CSS Grid */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: auto auto;
+	grid-gap: 1px;
+	order: 1;
+	margin: 0px;
+}
+.grid .cell { background: white; min-width: 200px; }
+.grid .padded { }
+/* End of CSS Grid */
+
+
+.key { padding: 1em 2em 0 2em; }
+.key ul { display: inline-block; }
+.key-item { display: inline-block; line-height:1em; margin-right: 1em; }
+.key-block { width: 1em; height: 1em; float: left; display: inline-block; margin-right: 0.25em; }
+
+
+.output { position: relative; padding: 0.5em; }
+
+section > div > div {
+	text-align: center;
+}
+.number {
+	position: relative;
+	line-height: 1em;
+	margin: auto;
+	text-align: center;
+	display: block;
+	font-size: 1.25em;
+}
+.graph svg {
+	width: 100%;
+	height: auto;
+}
+.small {
+	font-size: 0.7em;
+}
+.title {
+	display: block;
+	line-height: 1em;
+	font-size: 1em;
+	margin-bottom: 0.5em;
+	text-align: center;
+	margin-top: 0;
+	opacity: 0.5;
+}
+.updated {
+	left: 0px;
+	bottom: 0.25em;
+	font-size: 0.75em;
+	width: 100%;
+	text-align: center;
+	color: inherit;
+	line-height: 1.5em;
+	opacity: 0.5;
+}
+div:hover > .updated, div:hover > .title, div:focus > .updated, div:focus > .title {
+	opacity: 1;
+}
+*:focus {
+	background: black!important;
+}
+
+
+@media only screen and (max-width: 640px) {
+
+	.key { padding: 1em 1em 0 1em; font-size: 0.85em; }
+	.doublepadded { padding: 1em; }
+	.key-item { margin-right: 0.5em; }
+	.grid h2.authority { margin-top: 1em; }
+	
+	.grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+	}
+	.grid .cell { grid-row: auto!important; }
+}

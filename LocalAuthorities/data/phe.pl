@@ -45,7 +45,7 @@ for($i = 0; $i < @las; $i++){
 	$head = $dir."raw/$la.head";
 	print "$la:\n";
 	# If it is older than 12 hours we grab a new copy
-	if(time() - (stat $file)[9] >= 43200){
+	if(time() - (stat $file)[9] >= 3600){
 		print "\tGetting URL\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
@@ -59,6 +59,7 @@ for($i = 0; $i < @las; $i++){
 			open(FILE,">",$file);
 			print FILE $str;
 			close(FILE);
+			@lines = split(/\n/,$str);
 		}else{
 			print "Opening previous\n";
 			# Open the previous version
@@ -94,7 +95,7 @@ for($i = 0; $i < @las; $i++){
 	%data = getArea($la);
 
 	
-	$file = $dir."processed/$la.json";
+	$file = $dir."../dashboard/data/$la.json";
 	$names{$la} = $data{'data'}{'attributes'}{'name'};
 
 	open(FILE,">",$file);
@@ -128,6 +129,7 @@ for($i = 0; $i < @las; $i++){
 		print FILE "\t\t\"days\":[\n";
 		for($l = 0; $l < @lines; $l++){
 			chomp($lines[$l]);
+			#print "line $l - $lines[$l]\n";
 			if($lines[$l] =~ /\"date\"/){
 				$lines[$l] =~ s/\,"(areaName|areaCode)":"[^\"]*"//g;
 				# Remove rate (as we can calculate it
@@ -175,7 +177,7 @@ sub makeGraph {
 	@raw = [];
 	@smooth = [];
 	
-	$file = $dir."processed/$la.json";
+	$file = $dir."../dashboard/data/$la.json";
 	# Get the populations data
 	open(FILE,$file);
 	@lines = <FILE>;
@@ -213,7 +215,7 @@ sub makeGraph {
 		unshift(@recent,@smooth[@smooth-1]);
 		unshift(@recentraw,$raw[@raw-1]);
 		# Create the SVG output
-		$file = $dir."processed/$la.svg";
+		$file = $dir."../dashboard/svg/$la.svg";
 		$graph = ODILeeds::Graph->new();
 		$graph->addSeries({'title'=>'New cases',
 					'data'=>\@smooth,
