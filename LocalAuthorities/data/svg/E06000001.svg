@@ -1,0 +1,47 @@
+<svg width="480" height="400" viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" style="overflow:display" preserveAspectRatio="xMinYMin meet" overflow="visible">
+<defs>
+	<style>
+	.data-series path.line { fill-opacity: 0; stroke: black; }
+	.data-series path.line.dotted { stroke-dasharray: 12 20 }
+	.data-series circle { display: none; }
+	.data-series:hover path.line, .data-series.on path.line { stroke-width: 1; }
+	.data-series:hover circle, .data-series.on circle { display: inline; }
+	.data-series circle:hover, .data-series circle.on { r: 1px!important; }
+	.graph-grid { font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; }
+	.graph-grid line { stroke: black; stroke-width: 1; stroke-linecap: round; }
+	.graph-grid.graph-grid-x text { text-anchor: middle; dominant-baseline: hanging; transform: translateY(10px); }
+	.graph-grid.graph-grid-y text { text-anchor: end; dominant-baseline: middle; transform: translateX(-10px); }
+	</style>
+</defs>
+<g class="graph-grid graph-grid-y">
+	<line x1="15" y1="375" x2="470" y2="375" data-left="15"></line>
+	<text x="25" y="375" text-anchor="end">0</text>
+	<text x="25" y="262.365476415094" text-anchor="end">10</text>
+	<text x="25" y="149.730952830189" text-anchor="end">20</text>
+	<text x="25" y="37.096429245283" text-anchor="end">30</text>
+	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
+</g>
+<g class="graph-grid graph-grid-x">
+	<line class="tick" x1="51.039603960396" y1="375" x2="51.039603960396" y2="380"></line>
+	<text x="51.039603960396" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="118.613861386139" y1="375" x2="118.613861386139" y2="380"></line>
+	<text x="118.613861386139" y="375" text-anchor="middle">M</text>
+	<line class="tick" x1="188.440594059406" y1="375" x2="188.440594059406" y2="380"></line>
+	<text x="188.440594059406" y="375" text-anchor="middle">J</text>
+	<line class="tick" x1="256.014851485149" y1="375" x2="256.014851485149" y2="380"></line>
+	<text x="256.014851485149" y="375" text-anchor="middle">J</text>
+	<line class="tick" x1="325.841584158416" y1="375" x2="325.841584158416" y2="380"></line>
+	<text x="325.841584158416" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="395.668316831683" y1="375" x2="395.668316831683" y2="380"></line>
+	<text x="395.668316831683" y="375" text-anchor="middle">S</text>
+	<line class="tick" x1="463.242574257426" y1="375" x2="463.242574257426" y2="380"></line>
+	<text x="463.242574257426" y="375" text-anchor="middle">O</text>
+	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
+</g>
+<g data-series="new-cases" class="data-series">
+	<path d="M 15.00,368.97L 17.25,367.77L 19.50,368.97L 21.76,369.83L 24.01,371.56L 26.26,371.56L 28.51,369.83L 30.77,368.11L 33.02,366.39L 35.27,361.23L 37.52,359.50L 39.78,350.90L 42.03,345.73L 44.28,344.01L 46.53,342.29L 48.79,335.40L 51.04,330.24L 53.29,326.79L 55.54,319.91L 57.80,306.13L 60.05,300.97L 62.30,288.92L 64.55,292.36L 66.81,295.80L 69.06,290.64L 71.31,299.25L 73.56,304.41L 75.82,299.25L 78.07,297.52L 80.32,297.52L 82.57,259.65L 84.83,249.32L 87.08,237.26L 89.33,232.10L 91.58,226.93L 93.84,204.55L 96.09,189.06L 98.34,209.72L 100.59,206.27L 102.85,209.72L 105.10,197.67L 107.35,183.89L 109.60,204.55L 111.86,213.16L 114.11,223.49L 116.36,235.54L 118.61,235.54L 120.87,256.20L 123.12,264.81L 125.37,254.48L 127.62,257.92L 129.88,256.20L 132.13,242.43L 134.38,240.71L 136.63,223.49L 138.89,232.10L 141.14,230.38L 143.39,226.93L 145.64,233.82L 147.90,254.48L 150.15,249.32L 152.40,269.98L 154.65,278.58L 156.91,306.13L 159.16,311.30L 161.41,318.18L 163.66,321.63L 165.92,344.01L 168.17,338.84L 170.42,338.84L 172.67,340.57L 174.93,340.57L 177.18,338.84L 179.43,338.84L 181.68,330.24L 183.94,338.84L 186.19,333.68L 188.44,331.96L 190.69,333.68L 192.95,335.40L 195.20,333.68L 197.45,338.84L 199.70,338.84L 201.96,350.90L 204.21,349.17L 206.46,352.62L 208.71,349.17L 210.97,349.17L 213.22,350.90L 215.47,352.62L 217.72,352.62L 219.98,357.78L 222.23,361.23L 224.48,364.67L 226.73,368.11L 228.99,364.67L 231.24,362.95L 233.49,362.95L 235.74,362.95L 238.00,362.95L 240.25,364.67L 242.50,364.67L 244.75,369.83L 247.00,373.28L 249.26,373.28L 251.51,371.56L 253.76,371.56L 256.01,371.56L 258.27,371.56L 260.52,371.56L 262.77,369.83L 265.02,371.56L 267.28,371.56L 269.53,371.56L 271.78,371.56L 274.03,369.83L 276.29,369.83L 278.54,371.56L 280.79,368.11L 283.04,369.83L 285.30,368.11L 287.55,368.11L 289.80,364.67L 292.05,361.23L 294.31,357.78L 296.56,357.78L 298.81,356.06L 301.06,352.62L 303.32,349.17L 305.57,352.62L 307.82,356.06L 310.07,357.78L 312.33,357.78L 314.58,357.78L 316.83,361.23L 319.08,364.67L 321.34,364.67L 323.59,359.50L 325.84,361.23L 328.09,364.67L 330.35,364.67L 332.60,362.95L 334.85,362.95L 337.10,362.95L 339.36,364.67L 341.61,361.23L 343.86,361.23L 346.11,357.78L 348.37,359.50L 350.62,359.50L 352.87,361.23L 355.12,361.23L 357.38,362.95L 359.63,359.50L 361.88,362.95L 364.13,362.95L 366.39,362.95L 368.64,361.23L 370.89,362.95L 373.14,362.95L 375.40,362.95L 377.65,361.23L 379.90,357.78L 382.15,352.62L 384.41,347.45L 386.66,340.57L 388.91,331.96L 391.16,314.74L 393.42,302.69L 395.67,292.36L 397.92,292.36L 400.17,290.64L 402.43,280.31L 404.68,276.86L 406.93,287.19L 409.18,283.75L 411.44,290.64L 413.69,282.03L 415.94,285.47L 418.19,299.25L 420.45,302.69L 422.70,297.52L 424.95,304.41L 427.20,292.36L 429.46,285.47L 431.71,247.59L 433.96,226.93L 436.21,201.11L 438.47,195.94L 440.72,170.12L 442.97,164.95L 445.22,142.57L 447.48,128.80L 449.73,99.53L 451.98,85.75L 454.23,53.04L 456.49,27.22L 458.74,10.00" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
+</g>
+<g data-series="new-cases" class="data-series">
+	<path d="M 458.74,10.00L 460.99,30.66L 463.24,87.48L 465.50,103.83L 467.75,119.50L 470.00,149.03" id="New cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,5"><title>New cases</title></path>
+</g>
+</svg>

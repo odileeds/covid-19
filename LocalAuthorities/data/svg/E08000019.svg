@@ -1,0 +1,51 @@
+<svg width="480" height="400" viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" style="overflow:display" preserveAspectRatio="xMinYMin meet" overflow="visible">
+<defs>
+	<style>
+	.data-series path.line { fill-opacity: 0; stroke: black; }
+	.data-series path.line.dotted { stroke-dasharray: 12 20 }
+	.data-series circle { display: none; }
+	.data-series:hover path.line, .data-series.on path.line { stroke-width: 1; }
+	.data-series:hover circle, .data-series.on circle { display: inline; }
+	.data-series circle:hover, .data-series circle.on { r: 1px!important; }
+	.graph-grid { font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; }
+	.graph-grid line { stroke: black; stroke-width: 1; stroke-linecap: round; }
+	.graph-grid.graph-grid-x text { text-anchor: middle; dominant-baseline: hanging; transform: translateY(10px); }
+	.graph-grid.graph-grid-y text { text-anchor: end; dominant-baseline: middle; transform: translateX(-10px); }
+	</style>
+</defs>
+<g class="graph-grid graph-grid-y">
+	<line x1="15" y1="375" x2="470" y2="375" data-left="15"></line>
+	<text x="25" y="375" text-anchor="end">0</text>
+	<text x="25" y="285.100892004773" text-anchor="end">10</text>
+	<text x="25" y="195.201784009547" text-anchor="end">20</text>
+	<text x="25" y="105.30267601432" text-anchor="end">30</text>
+	<text x="25" y="15.4035680190931" text-anchor="end">40</text>
+	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
+</g>
+<g class="graph-grid graph-grid-x">
+	<line x1="15" y1="375" x2="15" y2="10" data-left="15"></line>
+	<line class="tick" x1="15" y1="375" x2="15" y2="380"></line>
+	<text x="15" y="375" text-anchor="middle">M</text>
+	<line class="tick" x1="80" y1="375" x2="80" y2="380"></line>
+	<text x="80" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="142.903225806452" y1="375" x2="142.903225806452" y2="380"></line>
+	<text x="142.903225806452" y="375" text-anchor="middle">M</text>
+	<line class="tick" x1="207.903225806452" y1="375" x2="207.903225806452" y2="380"></line>
+	<text x="207.903225806452" y="375" text-anchor="middle">J</text>
+	<line class="tick" x1="270.806451612903" y1="375" x2="270.806451612903" y2="380"></line>
+	<text x="270.806451612903" y="375" text-anchor="middle">J</text>
+	<line class="tick" x1="335.806451612903" y1="375" x2="335.806451612903" y2="380"></line>
+	<text x="335.806451612903" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="400.806451612903" y1="375" x2="400.806451612903" y2="380"></line>
+	<text x="400.806451612903" y="375" text-anchor="middle">S</text>
+	<line class="tick" x1="463.709677419355" y1="375" x2="463.709677419355" y2="380"></line>
+	<text x="463.709677419355" y="375" text-anchor="middle">O</text>
+	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
+</g>
+<g data-series="new-cases" class="data-series">
+	<path d="M 15.00,373.86L 17.10,373.48L 19.19,373.73L 21.29,373.26L 23.39,372.82L 25.48,372.82L 27.58,371.73L 29.68,371.95L 31.77,371.95L 33.87,371.08L 35.97,370.43L 38.06,369.77L 40.16,366.72L 42.26,365.20L 44.35,361.28L 46.45,356.05L 48.55,351.48L 50.65,344.73L 52.74,336.45L 54.84,326.22L 56.94,316.20L 59.03,309.67L 61.13,305.09L 63.23,304.44L 65.32,298.34L 67.42,294.64L 69.52,291.59L 71.61,280.48L 73.71,277.22L 75.81,275.91L 77.90,272.64L 80.00,277.65L 82.10,276.56L 84.19,278.96L 86.29,292.24L 88.39,295.29L 90.48,295.29L 92.58,292.24L 94.68,289.63L 96.77,295.95L 98.87,294.64L 100.97,294.42L 103.06,288.32L 105.16,288.98L 107.26,292.68L 109.35,289.63L 111.45,285.71L 113.55,287.02L 115.65,288.11L 117.74,290.07L 119.84,294.64L 121.94,290.50L 124.03,289.41L 126.13,290.72L 128.23,290.28L 130.32,290.72L 132.42,290.28L 134.52,283.10L 136.61,286.80L 138.71,292.03L 140.81,291.59L 142.90,300.30L 145.00,300.95L 147.10,306.83L 149.19,313.37L 151.29,315.55L 153.39,320.77L 155.48,327.09L 157.58,326.22L 159.68,327.96L 161.77,331.01L 163.87,332.32L 165.97,333.19L 168.06,333.40L 170.16,335.80L 172.26,340.37L 174.35,342.33L 176.45,341.68L 178.55,342.33L 180.65,344.29L 182.74,345.60L 184.84,342.33L 186.94,340.16L 189.03,336.45L 191.13,338.85L 193.23,337.54L 195.32,338.85L 197.42,339.07L 199.52,340.37L 201.61,341.24L 203.71,342.77L 205.81,342.77L 207.90,343.64L 210.00,344.08L 212.10,343.86L 214.19,343.42L 216.29,341.24L 218.39,344.08L 220.48,343.64L 222.58,343.20L 224.68,341.24L 226.77,338.63L 228.87,337.54L 230.97,339.07L 233.06,337.98L 235.16,339.28L 237.26,340.37L 239.35,341.68L 241.45,345.38L 243.55,348.43L 245.65,348.87L 247.74,350.83L 249.84,348.65L 251.94,348.87L 254.03,346.69L 256.13,342.55L 258.23,342.77L 260.32,341.68L 262.42,339.07L 264.52,341.24L 266.61,343.20L 268.71,346.91L 270.81,352.57L 272.90,353.22L 275.00,356.05L 277.10,359.32L 279.19,359.10L 281.29,357.36L 283.39,356.92L 285.48,357.36L 287.58,357.14L 289.68,357.36L 291.77,356.92L 293.87,358.23L 295.97,360.63L 298.06,359.54L 300.16,358.01L 302.26,355.84L 304.35,354.31L 306.45,355.40L 308.55,353.66L 310.65,351.48L 312.74,350.39L 314.84,350.39L 316.94,353.22L 319.03,352.13L 321.13,350.39L 323.23,352.35L 325.32,351.92L 327.42,354.53L 329.52,356.27L 331.61,357.14L 333.71,359.54L 335.81,361.28L 337.90,361.72L 340.00,361.93L 342.10,359.54L 344.19,356.71L 346.29,353.44L 348.39,348.87L 350.48,345.82L 352.58,346.04L 354.68,346.91L 356.77,348.21L 358.87,348.65L 360.97,352.13L 363.06,354.31L 365.16,358.67L 367.26,358.45L 369.35,359.10L 371.45,360.19L 373.55,360.41L 375.65,359.54L 377.74,362.15L 379.84,360.84L 381.94,360.63L 384.03,358.67L 386.13,356.49L 388.23,351.04L 390.32,348.21L 392.42,344.95L 394.52,342.55L 396.61,338.85L 398.71,336.89L 400.81,329.92L 402.90,329.92L 405.00,326.43L 407.10,317.07L 409.19,309.88L 411.29,305.96L 413.39,304.66L 415.48,306.18L 417.58,305.96L 419.68,305.96L 421.77,315.98L 423.87,320.12L 425.97,317.29L 428.06,313.59L 430.16,309.01L 432.26,306.83L 434.35,295.95L 436.45,283.53L 438.55,275.47L 440.65,266.98L 442.74,258.05L 444.84,246.51L 446.94,232.35L 449.03,221.46L 451.13,185.97L 453.23,157.87L 455.32,109.96L 457.42,52.03L 459.52,10.00" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
+</g>
+<g data-series="new-cases" class="data-series">
+	<path d="M 459.52,10.00L 461.61,13.70L 463.71,41.36L 465.81,46.48L 467.90,42.06L 470.00,79.64" id="New cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,5"><title>New cases</title></path>
+</g>
+</svg>
