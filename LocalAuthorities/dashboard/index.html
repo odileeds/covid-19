@@ -70,7 +70,7 @@
 			],
 			'weekly-change': [
 				{'tagname':'h3','key':'title','html':'Change on previous week<br/><span class="small">Ignoring most recent '+start+' days</small>'},
-				{'tagname':'div','key':'number','html':function(la){ var diff = (this.weeks[0].total - this.weeks[1].total); return (this.weeks[0].days==7 && this.weeks[1].days==7 ? (diff < 0 ? '-':'+')+diff : ''); },'fit':true},
+				{'tagname':'div','key':'number','html':function(la){ var diff = (this.weeks[0].total - this.weeks[1].total); return (this.weeks[0].days==7 && this.weeks[1].days==7 ? (diff < 0 ? '':'+')+diff : ''); },'fit':true},
 				{'tagname':'div','key':'updated','html':function(la){ return (this.weeks[0].days==7 && this.weeks[1].days==7 ? this.weeks[0].upto+' vs '+this.weeks[1].upto : "Missing data"); }}
 			],
 			'weekly-percapita': [
@@ -95,23 +95,23 @@
 			],
 			'weekly-deaths': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? this.data.deaths.weeks[0].cov : ''); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.weeks[0].txt : '?'); }}
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].cov : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].txt : '?'); }}
 			],
 			'total-deaths-covid': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? this.data.deaths.cov : ''); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.updated : '?'); }}
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.cov : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.updated : '?'); }}
 			],
 			'total-deaths-all': [
 				{'tagname':'h3','key':'title','html':'Total deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? this.data.deaths.all : ''); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.updated : ''); }}
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.all : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.updated : ''); }}
 			],
 			'total-deaths-pc': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : ''); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths ? this.data.deaths.updated : ''); }}
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.tot > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.tot > 0 ? this.data.deaths.updated : ''); }}
 			]
 		},
 		'colour': function(lad){
