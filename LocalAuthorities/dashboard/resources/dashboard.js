@@ -302,14 +302,16 @@ ready(function(){
 			'daily-percapita-graph': [
 				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
 				{'tagname':'div','key':'graph','html':function(la){
-					url = "svg/"+la+".svg"
-					fetch(url,{'method':'GET'})
-					.then(response => { return response.text() })
-					.then(text => {
-						document.querySelector('.'+la+' .graph').innerHTML = text;
-					}).catch(error => {
-						console.error(error,url);
-					});
+					url = "svg/"+la+".svg";
+					if(this.data.cases.days){
+						fetch(url,{'method':'GET'})
+						.then(response => { return response.text() })
+						.then(text => {
+							document.querySelector('.'+la+' .graph').innerHTML = text;
+						}).catch(error => {
+							console.error(error,url);
+						});
+					}
 					
 					return "";
 				}},
