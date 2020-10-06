@@ -11,13 +11,34 @@
 
 		// Define Local Authority Districts
 		var auth = document.querySelectorAll('.authority');
-		
+
+		las = location.search.substr(1,).replace(/;$/,"").split(/;/);
+		//if(las.length == 0) las = ["E08000032","E08000033","E08000034","E08000035","E08000036"]
+		if(las.length > 0){
+			var container = document.querySelector('#dashboard .grid');
+			container.innerHTML = "";
+			var i,h2;
+			for(var i = 0; i < las.length; i++){
+				h2 = document.createElement('h2');
+				h2.setAttribute('id',las[i]);
+				h2.classList.add(las[i]);
+				h2.classList.add('cell');
+				h2.classList.add('row-1');
+				h2.classList.add('authority');
+				h2.setAttribute("tabindex",0);
+				h2.innerHTML = '<a href="https://findthatpostcode.uk/areas/'+las[i]+'.html">'+las[i]+'</a>';
+				container.appendChild(h2);
+			}
+			auth = document.querySelectorAll('.authority');
+		}
+
 		// Update styles
 		var style = document.createElement('style');
 		style.innerHTML = ".grid { grid-template-columns: repeat("+auth.length+", 1fr); }";
 		for(var i = 0; i < auth.length; i++){
 			la = auth[i].getAttribute('id');
 			lad[la] = {};
+			lad[la].head = auth[i];
 			style.innerHTML += '.'+la+' { grid-column: '+(i+1)+' }';
 		}
 		// Set grid row styling
@@ -37,8 +58,6 @@
 		style.innerHTML += '}'
 		// append the style to the DOM in <head> section
 		document.head.appendChild(style);
-
-
 		
 		// Get death data (from other repo)
 		for(var la in lad) this.getDataForLA(la);
@@ -111,7 +130,7 @@
 			console.error('No JSON for '+la);
 			return;
 		}
-
+		
 		// Work out weekly totals
 		var latest = new Date(lad[la].data.cases.days[this.opts.start].date);
 		var weeks = [{'total':0,'days':0,'upto':lad[la].data.cases.days[this.opts.start].date}];
@@ -155,6 +174,7 @@
 		url = url.replace(/\{\{LA\}\}/,la);
 		lad[la].url = url;
 		lad[la].panels = clone(this.opts.panel);
+
 		this.initPanels(la);
 		
 		console.info('Getting data for '+la+' from '+url);
@@ -162,6 +182,8 @@
 		.then(response => { return response.json() })
 		.then(json => {
 			lad[la].data = json;
+			lad[la].head.innerHTML = json.name;
+
 			this.displayLA(la);
 			var i = 0;
 			var n = 0;
