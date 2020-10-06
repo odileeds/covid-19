@@ -142,7 +142,7 @@
 		}
 		
 		// Work out weekly totals
-		if(lad[la].data.cases && lad[la].data.cases.updated){
+		if(lad[la].data.cases && lad[la].data.cases.days){
 			var latest = new Date(lad[la].data.cases.days[this.opts.start].date);
 			var weeks = [{'total':0,'days':0,'upto':lad[la].data.cases.days[this.opts.start].date}];
 			for(var i = this.opts.start; i < lad[la].data.cases.days.length; i++){
@@ -259,3 +259,103 @@
 	}
 
 })(window || this);
+
+function ready(f){
+	if(/in/.test(document.readyState)) setTimeout('ready('+f+')',9);
+	else f();
+};
+
+ready(function(){
+	var start = 5;
+	var dashboard = Dashboard({
+		'daystoignore': start,
+		'panel':{
+			'population': [
+				{'tagname':'h3','key':'title','html':'Population'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.population||'?'); },'fit':true}
+			],
+			'total': [
+				{'tagname':'h3','key':'title','html':'Total cases'},
+				{'tagname':'div','key':'number','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].tot; },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
+			],
+			'total-percapita': [
+				{'tagname':'h3','key':'title','html':'Total cases/100,000'},
+				{'tagname':'div','key':'number','html':function(la){ if(!this.data.cases.days){ return ""; } return (this.data.population && this.data.cases.days ? Math.round(this.data.cases.days[0].tot*1e5/this.data.population) : '?'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
+			],
+			'weekly': [
+				{'tagname':'h3','key':'title','html':'Weekly cases<br/><span class="small">Ignoring most recent '+start+' days</small>'},
+				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks && this.weeks[0].days == 7 ? this.weeks[0].total : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks ? 'Up to '+this.weeks[0].upto : ''); }}
+			],
+			'weekly-change': [
+				{'tagname':'h3','key':'title','html':'Change on previous week<br/><span class="small">Ignoring most recent '+start+' days</small>'},
+				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks){ return ""; } var diff = (this.weeks ? this.weeks[0].total - this.weeks[1].total : 0); return (this.weeks && this.weeks[0].days==7 && this.weeks[1].days==7 ? (diff < 0 ? '':'+')+diff : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks[0].days==7 && this.weeks[1].days==7 ? this.weeks[0].upto+' vs '+this.weeks[1].upto : "Missing data"); }}
+			],
+			'weekly-percapita': [
+				{'tagname':'h3','key':'title','html':'Weekly cases/100,000<br/><span class="small">Ignoring most recent '+start+' days</small>'},
+				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks && this.weeks[0].days == 7 && this.data.population ? Math.round(this.weeks[0].total*1e5/this.data.population) : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks ? 'Up to '+this.weeks[0].upto : '?'); }}
+			],
+			'daily-percapita-graph': [
+				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
+				{'tagname':'div','key':'graph','html':function(la){
+					url = "svg/"+la+".svg"
+					fetch(url,{'method':'GET'})
+					.then(response => { return response.text() })
+					.then(text => {
+						document.querySelector('.'+la+' .graph').innerHTML = text;
+					}).catch(error => {
+						console.error(error,url);
+					});
+					
+					return "";
+				}},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
+			],
+			'weekly-deaths': [
+				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].cov : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].txt : '?'); }}
+			],
+			'total-deaths-covid': [
+				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.cov : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.updated : '?'); }}
+			],
+			'total-deaths-all': [
+				{'tagname':'h3','key':'title','html':'Total deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.all : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.updated : ''); }}
+			],
+			'total-deaths-pc': [
+				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.cov > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.cov > 0 ? this.data.deaths.updated : ''); }}
+			]
+		},
+		'colour': function(lad){
+			var v,i,cls,la;
+			for(la in lad){
+				// Use smoothed value
+				v = 0;
+				if(lad[la].weeks){
+					v = (lad[la].data.population ? Math.round((lad[la].weeks[0].total*1e5/lad[la].data.population)/7) : 0);
+				}
+				panels = document.querySelectorAll('.'+la);
+				for(i = 0; i < panels.length; i++){
+					cls = "";
+					// Definitions from https://covid19.ca.gov/safer-economy/
+					if(v >= 7) cls = "widespread";
+					else if(v >= 4 && v < 7) cls = "substantial";
+					else if(v >= 1 && v < 4) cls = "moderate";
+					else cls = "minimal";
+					if(cls) panels[i].classList.add(cls);
+				}
+			}
+			return;
+		}
+	});
+});
