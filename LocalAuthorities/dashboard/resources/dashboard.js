@@ -182,7 +182,7 @@
 		.then(response => { return response.json() })
 		.then(json => {
 			lad[la].data = json;
-			lad[la].head.innerHTML = json.name;
+			lad[la].head.querySelector('a').innerHTML = json.name;
 
 			this.displayLA(la);
 			var i = 0;
