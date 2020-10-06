@@ -55,33 +55,34 @@
 			],
 			'total': [
 				{'tagname':'h3','key':'title','html':'Total cases'},
-				{'tagname':'div','key':'number','html':function(la){ return this.data.cases.days[0].tot; },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return this.data.cases.days[0].date; }}
+				{'tagname':'div','key':'number','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].tot; },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
 			],
 			'total-percapita': [
 				{'tagname':'h3','key':'title','html':'Total cases/100,000'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.population ? Math.round(this.data.cases.days[0].tot*1e5/this.data.population) : '?'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return this.data.cases.days[0].date; }}
+				{'tagname':'div','key':'number','html':function(la){ if(!this.data.cases.days){ return ""; } return (this.data.population && this.data.cases.updated ? Math.round(this.data.cases.days[0].tot*1e5/this.data.population) : '?'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
 			],
 			'weekly': [
 				{'tagname':'h3','key':'title','html':'Weekly cases<br/><span class="small">Ignoring most recent '+start+' days</small>'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.weeks[0].days == 7 ? this.weeks[0].total : ''); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return 'Up to '+this.weeks[0].upto; }}
+				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks && this.weeks[0].days == 7 ? this.weeks[0].total : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks ? 'Up to '+this.weeks[0].upto : ''); }}
 			],
 			'weekly-change': [
 				{'tagname':'h3','key':'title','html':'Change on previous week<br/><span class="small">Ignoring most recent '+start+' days</small>'},
-				{'tagname':'div','key':'number','html':function(la){ var diff = (this.weeks[0].total - this.weeks[1].total); return (this.weeks[0].days==7 && this.weeks[1].days==7 ? (diff < 0 ? '':'+')+diff : ''); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.weeks[0].days==7 && this.weeks[1].days==7 ? this.weeks[0].upto+' vs '+this.weeks[1].upto : "Missing data"); }}
+				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks) return ""; var diff = (this.weeks ? this.weeks[0].total - this.weeks[1].total : 0); return (this.weeks && this.weeks[0].days==7 && this.weeks[1].days==7 ? (diff < 0 ? '':'+')+diff : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks) return ""; return (this.weeks[0].days==7 && this.weeks[1].days==7 ? this.weeks[0].upto+' vs '+this.weeks[1].upto : "Missing data"); }}
 			],
 			'weekly-percapita': [
 				{'tagname':'h3','key':'title','html':'Weekly cases/100,000<br/><span class="small">Ignoring most recent '+start+' days</small>'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.weeks[0].days == 7 && this.data.population ? Math.round(this.weeks[0].total*1e5/this.data.population) : '?'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return 'Up to '+this.weeks[0].upto; }}
+				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks) return ""; return (this.weeks && this.weeks[0].days == 7 && this.data.population ? Math.round(this.weeks[0].total*1e5/this.data.population) : ''); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks) return ""; return (this.weeks ? 'Up to '+this.weeks[0].upto : '?'); }}
 			],
 			'daily-percapita-graph': [
 				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
 				{'tagname':'div','key':'graph','html':function(la){
-					fetch("svg/"+la+".svg",{'method':'GET'})
+					url = "svg/"+la+".svg"
+					fetch(url,{'method':'GET'})
 					.then(response => { return response.text() })
 					.then(text => {
 						document.querySelector('.'+la+' .graph').innerHTML = text;
@@ -91,7 +92,7 @@
 					
 					return "";
 				}},
-				{'tagname':'div','key':'updated','html':function(la){ return this.data.cases.days[0].date; }}
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
 			],
 			'weekly-deaths': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
@@ -110,15 +111,18 @@
 			],
 			'total-deaths-pc': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.tot > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.tot > 0 ? this.data.deaths.updated : ''); }}
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.cov > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.cov > 0 ? this.data.deaths.updated : ''); }}
 			]
 		},
 		'colour': function(lad){
 			var v,i,cls,la;
 			for(la in lad){
 				// Use smoothed value
-				v = (lad[la].data.population ? Math.round((lad[la].weeks[0].total*1e5/lad[la].data.population)/7) : 0);
+				v = 0;
+				if(lad[la].weeks){
+					v = (lad[la].data.population ? Math.round((lad[la].weeks[0].total*1e5/lad[la].data.population)/7) : 0);
+				}
 				panels = document.querySelectorAll('.'+la);
 				for(i = 0; i < panels.length; i++){
 					cls = "";

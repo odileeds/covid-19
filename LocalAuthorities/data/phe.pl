@@ -45,8 +45,8 @@ for($i = 0; $i < @las; $i++){
 	$head = $dir."raw/$la.head";
 	print "$la:\n";
 	# If it is older than 12 hours we grab a new copy
-	if(time() - (stat $file)[9] >= 3600){
-		print "\tGetting URL\n";
+	if(time() - (stat $file)[9] >= 43200){
+		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
 		$str = join("",@lines);

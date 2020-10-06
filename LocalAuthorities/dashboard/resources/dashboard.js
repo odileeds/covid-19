@@ -142,16 +142,18 @@
 		}
 		
 		// Work out weekly totals
-		var latest = new Date(lad[la].data.cases.days[this.opts.start].date);
-		var weeks = [{'total':0,'days':0,'upto':lad[la].data.cases.days[this.opts.start].date}];
-		for(var i = this.opts.start; i < lad[la].data.cases.days.length; i++){
-			d = new Date(lad[la].data.cases.days[i].date);
-			w = Math.floor(((latest-d)/86400000)/7);
-			if(weeks.length <= w) weeks.push({'total':0,'days':0,'upto':lad[la].data.cases.days[i].date});
-			weeks[w].total += lad[la].data.cases.days[i].day;
-			weeks[w].days++;
+		if(lad[la].data.cases && lad[la].data.cases.updated){
+			var latest = new Date(lad[la].data.cases.days[this.opts.start].date);
+			var weeks = [{'total':0,'days':0,'upto':lad[la].data.cases.days[this.opts.start].date}];
+			for(var i = this.opts.start; i < lad[la].data.cases.days.length; i++){
+				d = new Date(lad[la].data.cases.days[i].date);
+				w = Math.floor(((latest-d)/86400000)/7);
+				if(weeks.length <= w) weeks.push({'total':0,'days':0,'upto':lad[la].data.cases.days[i].date});
+				weeks[w].total += lad[la].data.cases.days[i].day;
+				weeks[w].days++;
+			}
+			lad[la].weeks = weeks;
 		}
-		lad[la].weeks = weeks;
 
 		// Update the panels
 		var v,id,bit;
@@ -159,9 +161,10 @@
 			for(bit in lad[la].panels[id]){
 				if(bit != "_parent"){
 					v = "";
-					if(typeof lad[la].panels[id][bit].html==="string") v = lad[la].panels[id][bit].html;
-					else if(typeof lad[la].panels[id][bit].html==="function") v = lad[la].panels[id][bit].html.call(lad[la],la);
-					
+					if(lad[la].panels[id][bit].html){
+						if(typeof lad[la].panels[id][bit].html==="string") v = lad[la].panels[id][bit].html;
+						else if(typeof lad[la].panels[id][bit].html==="function") v = lad[la].panels[id][bit].html.call(lad[la],la);
+					}
 					if(bit == "number"){
 						if(typeof v==="number"){
 							animateNumber(lad[la].panels[id][bit].el,v,300,'','');
@@ -198,7 +201,7 @@
 			var i = 0;
 			var n = 0;
 			for(l in lad){
-				if(typeof lad[l].weeks==="object") i++;
+				if(typeof lad[l].data==="object") i++;
 				n++;
 			}
 			if(i==n && typeof this.opts.colour==="function") this.opts.colour.call(this,lad);
