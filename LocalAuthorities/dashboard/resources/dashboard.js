@@ -12,8 +12,11 @@
 		// Define Local Authority Districts
 		var auth = document.querySelectorAll('.authority');
 
-		las = location.search.substr(1,).replace(/;$/,"").split(/;/);
-		//if(las.length == 0) las = ["E08000032","E08000033","E08000034","E08000035","E08000036"]
+		var str = location.search.substr(1,).replace(/;$/,"");
+		
+		if(str) las = str.split(/;/);
+		else las = [];
+
 		if(las.length > 0){
 			var container = document.querySelector('#dashboard .grid');
 			container.innerHTML = "";
