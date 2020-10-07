@@ -150,6 +150,16 @@ section > div > div {
 	line-height: 1.5em;
 	opacity: 0.5;
 }
+.list a { color: inherit; }
+ul.restrictions { 
+	list-style: none;
+}
+ul.restrictions li {
+	display: block;
+	width: auto;
+	position: relative;
+}
+ul.restrictions li svg { width: auto; height: 1em; vertical-align: middle; margin-bottom: 0.3em; margin-right: 0.3em; }
 div:hover > .updated, div:hover > .title, div:focus > .updated, div:focus > .title {
 	opacity: 1;
 }
