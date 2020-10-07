@@ -4,6 +4,8 @@ As part of #OpenDataSavesLives at [ODI Leeds](https://odileeds.org/) we are crea
 
 ## Tools and visualisations
 
+* [Local Authority Dashboard](https://odileeds.github.io/covid-19/LocalAuthorities/dashboard/)
+* [Local Authority Hexmaps](https://odileeds.github.io/covid-19/LocalAuthorities/hexmap.html)
 
 ## Data
 
