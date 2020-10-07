@@ -29,10 +29,19 @@
 	<text x="437.028985507246" y="375" text-anchor="middle">O</text>
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
 </g>
+<g data-series="widespread" class="data-series">
+	<path d="M 15.00,262.73L 470.00,262.73" id="S12000036-level-0" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Widespread</title></path>
+</g>
+<g data-series="substantial" class="data-series">
+	<path d="M 15.00,310.85L 470.00,310.85" id="S12000036-level-1" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Substantial</title></path>
+</g>
+<g data-series="moderate" class="data-series">
+	<path d="M 15.00,358.96L 470.00,358.96" id="S12000036-level-2" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Moderate</title></path>
+</g>
 <g data-series="new-cases" class="data-series">
 	<path d="M 15.00,370.36L 21.59,368.81L 28.19,368.81L 34.78,370.58L 41.38,370.14L 47.97,370.14L 54.57,371.46L 61.16,371.46L 67.75,371.46L 74.35,371.46L 80.94,370.58L 87.54,369.26L 94.13,368.81L 100.72,367.93L 107.32,367.93L 113.91,368.37L 120.51,369.26L 127.10,367.93L 133.70,368.37L 140.29,368.81L 146.88,368.37L 153.48,368.37L 160.07,367.05L 166.67,366.16L 173.26,364.84L 179.86,362.19L 186.45,362.19L 193.04,361.30L 199.64,361.30L 206.23,360.86L 212.83,357.32L 219.42,353.79L 226.01,352.02L 232.61,351.58L 239.20,349.81L 245.80,346.72L 252.39,345.39L 258.99,346.28L 265.58,348.04L 272.17,346.72L 278.77,343.18L 285.36,338.32L 291.96,336.56L 298.55,336.11L 305.14,338.32L 311.74,329.04L 318.33,327.28L 324.93,320.65L 331.52,321.09L 338.12,301.20L 344.71,288.39L 351.30,281.76L 357.90,281.32L 364.49,274.25L 371.09,266.74L 377.68,243.76L 384.28,234.48L 390.87,238.46L 397.46,228.73L 404.06,179.24L 410.65,145.22L 417.25,115.17L 423.84,90.42L 430.43,84.24L 437.03,37.40" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
 </g>
-<g data-series="new-cases" class="data-series">
-	<path d="M 437.03,37.40L 443.62,10.00L 450.22,21.93L 456.81,21.34L 463.41,18.04L 470.00,27.01" id="New cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,5"><title>New cases</title></path>
+<g data-series="recent-cases" class="data-series">
+	<path d="M 437.03,37.40L 443.62,10.00L 450.22,21.93L 456.81,21.34L 463.41,18.04L 470.00,27.01" id="Recent cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,5"><title>Recent cases</title></path>
 </g>
 </svg>

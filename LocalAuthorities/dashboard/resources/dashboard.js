@@ -338,6 +338,13 @@ ready(function(){
 			],
 			'daily-percapita-graph': [
 				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
+				{'tagname':'div','key':'number','html':function(la){
+					var v = "";
+					if(this.weeks){
+						v = (this.data.population ? Math.round((this.weeks[0].total*1e5/this.data.population)/7) : 0);
+					}
+					return v;
+				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la){
 					url = "svg/"+la+".svg";
 					if(this.data.cases.days){

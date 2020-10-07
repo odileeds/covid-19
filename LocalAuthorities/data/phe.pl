@@ -321,6 +321,23 @@ sub makeGraph {
 		# Create the SVG output
 		$file = $dir."../dashboard/svg/$la.svg";
 		$graph = ODILeeds::Graph->new();
+		
+		# Add lines denoting levels
+		@levels = ({'v'=>7,'title'=>'Widespread'},{'v'=>4,'title'=>'Substantial'},{'v'=>1,'title'=>'Moderate'});
+		for($l = 0; $l < @levels; $l++){
+			$graph->addSeries({'title'=>$levels[$l]{'title'},
+					'id'=>$la.'-level-'.$l,
+					'data'=>[{'x'=>$smooth[0]{'x'},'y'=>$levels[$l]{'v'}},{'x'=>$recent[@recent-1]{'x'},'y'=>$levels[$l]{'v'}}],
+					'raw'=>[{'x'=>$smooth[0]{'x'},'y'=>$levels[$l]{'v'}},{'x'=>$recent[@recent-1]{'x'},'y'=>$levels[$l]{'v'}}],
+					'color'=>'#fff',
+					'stroke'=>1,
+					'strokehover'=>3,
+					'stroke-dasharray'=>'3,3',
+					'opacity'=>0.3,
+					'fill-opacity'=>0.3,
+					'line'=>1
+			});
+		}
 		$graph->addSeries({'title'=>'New cases',
 					'data'=>\@smooth,
 					'raw'=>\@raw,
@@ -331,7 +348,7 @@ sub makeGraph {
 					'pointhover'=>5,
 					'line'=>1
 		});
-		$graph->addSeries({'title'=>'New cases',
+		$graph->addSeries({'title'=>'Recent cases',
 					'data'=>\@recent,
 					'raw'=>\@recentraw,
 					'color'=>'white',

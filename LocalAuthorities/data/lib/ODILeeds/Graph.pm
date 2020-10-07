@@ -43,7 +43,7 @@ sub addSeries {
 # Draw the graph
 sub draw {
 	my ($self, $props) = @_;
-	my ($n,$r,$w,$h,@lines,$svg,@header,%headers,$c,@cols,@rows,$i,$s,$series,$safeseries,$minx,$maxx,$miny,$maxy,$path,$y,$xrange,$yrange,$xpos,$ypos,$t,@pos,$circles,%ticks,@a,@b,$left,$right,$top,$bottom);
+	my ($n,$r,$w,$h,@lines,$svg,@header,%headers,$c,@cols,@rows,$i,$s,$series,$safeseries,$minx,$maxx,$miny,$maxy,$path,$y,$xrange,$yrange,$xpos,$ypos,$t,@pos,$circles,%ticks,@a,@b,$left,$right,$top,$bottom,$style);
 
 	$w = ($props->{'width'}||400);
 	$h = ($props->{'height'}||300);
@@ -104,6 +104,7 @@ sub draw {
 		$path = "";
 		$svg .= "<g data-series=\"".($self->{'series'}[$s]{'css'}||safeID($series))."\" class=\"data-series\">";
 		$circles = "";
+		$style = "";
 		for($i = 0; $i < @{$self->{'series'}[$s]{'data'}}; $i++){
 			if($self->{'series'}[$s]{'data'}[$i]){
 				@pos = getXY(('x'=>$self->{'series'}[$s]{'data'}[$i]{'x'},'y'=>$self->{'series'}[$s]{'data'}[$i]{'y'},'width'=>$w,'height'=>$h,'left'=>$left,'right'=>$right,'bottom'=>$bottom,'top'=>$top,'xmin'=>$minx,'xmax'=>$maxx,'ymin'=>$miny,'ymax'=>$maxy));
@@ -116,15 +117,19 @@ sub draw {
 			}
 		}
 
-		$svg .= "\n\t<path d=\"".$path."\" id=\"".$safeseries."\" class=\"line\"";
+		$svg .= "\n\t<path d=\"".$path."\" id=\"".($self->{'series'}[$s]{'id'}||$safeseries)."\" class=\"line\"";
 		if($self->{'series'}[$s]{'stroke'}){
 			$svg .= " stroke-width=\"".$self->{'series'}[$s]{'stroke'}."\"";
 		}
+		if($self->{'series'}[$s]{'fill'}){ $style .= " fill=\"".$self->{'series'}[$s]{'fill'}."\""; }
+		if($self->{'series'}[$s]{'fill-opacity'}){ $style .= " fill-opacity=\"".$self->{'series'}[$s]{'fill-opacity'}."\""; }
+		if($self->{'series'}[$s]{'opacity'}){ $style .= " opacity=\"".$self->{'series'}[$s]{'opacity'}."\""; }
 		$svg .= " stroke-linecap=\"round\"";
-		if($self->{'series'}[$s]{'stroke-dasharray'}){
-			$svg .= " stroke-dasharray=\"".$self->{'series'}[$s]{'stroke-dasharray'}."\"";
+		if($self->{'series'}[$s]{'stroke-dasharray'}){ $svg .= " stroke-dasharray=\"".$self->{'series'}[$s]{'stroke-dasharray'}."\""; }
+		$svg .= $style."><title>".$safeseries."</title></path>\n";
+		if($self->{'series'}[$s]{'tag'}){
+			$svg .= '<text><textPath href="#'.($self->{'series'}[$s]{'id'}||$safeseries).'"'.$style.'>'.$series.'</textPath></text>';
 		}
-		$svg .= "><title>".$safeseries."</title></path>\n";
 		$svg .= $circles;
 		$svg .= "</g>\n";
 	}
