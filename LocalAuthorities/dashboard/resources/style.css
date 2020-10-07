@@ -103,7 +103,7 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 .grid .cell { background: white; min-width: 200px; }
 .grid .padded { }
 /* End of CSS Grid */
-
+.grid .cell a { color: inherit; }
 
 .key { padding: 1em 2em 0 2em; }
 .key ul { display: inline-block; }
@@ -150,7 +150,6 @@ section > div > div {
 	line-height: 1.5em;
 	opacity: 0.5;
 }
-.list a { color: inherit; }
 ul.restrictions { 
 	list-style: none;
 }
