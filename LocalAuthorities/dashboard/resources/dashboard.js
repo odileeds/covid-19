@@ -270,9 +270,29 @@ ready(function(){
 	var dashboard = Dashboard({
 		'daystoignore': start,
 		'panel':{
-			'population': [
-				{'tagname':'h3','key':'title','html':'Population'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.population||'?'); }}
+			'daily-percapita-graph': [
+				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
+				{'tagname':'div','key':'number','html':function(la){
+					var v = 0;
+					// Smooth the value using a 7-day rolling average
+					for(var i = start-3; i <= start+3; i++) v += this.data.cases.days[i].day;
+					return Math.round((v/7)*1e5/this.data.population);
+				},'fit':true},
+				{'tagname':'div','key':'graph','html':function(la){
+					url = "svg/"+la+".svg";
+					if(this.data.cases.days){
+						fetch(url,{'method':'GET'})
+						.then(response => { return response.text() })
+						.then(text => {
+							document.querySelector('.'+la+' .graph').innerHTML = text;
+						}).catch(error => {
+							console.error(error,url);
+						});
+					}
+					
+					return "";
+				}},
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
 			],
 			'restrictions': [
 				{'tagname':'h3','key':'title','html':'Restrictions'},
@@ -336,31 +356,6 @@ ready(function(){
 				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks && this.weeks[0].days == 7 && this.data.population ? Math.round(this.weeks[0].total*1e5/this.data.population) : ''); },'fit':true},
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks ? 'Up to '+this.weeks[0].upto : '?'); }}
 			],
-			'daily-percapita-graph': [
-				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
-				{'tagname':'div','key':'number','html':function(la){
-					var v = "";
-					if(this.weeks){
-						v = (this.data.population ? Math.round((this.weeks[0].total*1e5/this.data.population)/7) : 0);
-					}
-					return v;
-				},'fit':true},
-				{'tagname':'div','key':'graph','html':function(la){
-					url = "svg/"+la+".svg";
-					if(this.data.cases.days){
-						fetch(url,{'method':'GET'})
-						.then(response => { return response.text() })
-						.then(text => {
-							document.querySelector('.'+la+' .graph').innerHTML = text;
-						}).catch(error => {
-							console.error(error,url);
-						});
-					}
-					
-					return "";
-				}},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].date; }}
-			],
 			'weekly-deaths': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].cov : '-'); },'fit':true},
@@ -380,16 +375,20 @@ ready(function(){
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.cov > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
 				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.cov > 0 ? this.data.deaths.updated : ''); }}
+			],
+			'population': [
+				{'tagname':'h3','key':'title','html':'Population'},
+				{'tagname':'div','key':'number','html':function(la){ return (this.data.population||'?'); }}
 			]
 		},
 		'colour': function(lad){
 			var v,i,cls,la;
 			for(la in lad){
-				// Use smoothed value
-				v = 0;
-				if(lad[la].weeks){
-					v = (lad[la].data.population ? Math.round((lad[la].weeks[0].total*1e5/lad[la].data.population)/7) : 0);
-				}
+				// Smooth the value using a 7-day rolling average
+				var v = 0;
+				for(var i = start-3; i <= start+3; i++) v += lad[la].data.cases.days[i].day;
+				v = Math.round((v/7)*1e5/lad[la].data.population);
+
 				panels = document.querySelectorAll('.'+la);
 				for(i = 0; i < panels.length; i++){
 					cls = "";
