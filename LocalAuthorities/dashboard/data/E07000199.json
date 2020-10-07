@@ -1,6 +1,18 @@
 {
 	"name":"Tamworth",
 	"population": 76454,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-10-06T16:07:25Z",
+		"url": {"local":"","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
+		"local": {},
+		"national": {
+			"businessclosures": true,
+			"openinghours": true,
+			"raves": true,
+			"ruleofsix": true
+		}
+	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/24",
 		"updated": "2020-10-06",
@@ -52,15 +64,16 @@
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000199&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
 		"updated":"2020-10-06T14:16:39Z",
 		"type":"SpecimenDate",
-		"n": 201,
+		"n": 202,
 		"days":[
-			{"date":"2020-10-04","day":0,"tot":487},
-			{"date":"2020-10-03","day":4,"tot":487},
-			{"date":"2020-10-02","day":7,"tot":483},
-			{"date":"2020-10-01","day":6,"tot":476},
-			{"date":"2020-09-30","day":8,"tot":470},
-			{"date":"2020-09-29","day":3,"tot":462},
-			{"date":"2020-09-28","day":2,"tot":459},
+			{"date":"2020-10-05","day":0,"tot":499},
+			{"date":"2020-10-04","day":5,"tot":499},
+			{"date":"2020-10-03","day":7,"tot":494},
+			{"date":"2020-10-02","day":9,"tot":487},
+			{"date":"2020-10-01","day":6,"tot":478},
+			{"date":"2020-09-30","day":8,"tot":472},
+			{"date":"2020-09-29","day":4,"tot":464},
+			{"date":"2020-09-28","day":3,"tot":460},
 			{"date":"2020-09-27","day":0,"tot":457},
 			{"date":"2020-09-26","day":3,"tot":457},
 			{"date":"2020-09-25","day":0,"tot":454},

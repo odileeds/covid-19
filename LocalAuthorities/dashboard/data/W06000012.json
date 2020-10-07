@@ -1,6 +1,20 @@
 {
 	"name":"Neath Port Talbot",
 	"population": 142906,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-10-06T16:07:25Z",
+		"url": {"local":"https://gov.wales/neath-port-talbot-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
+		"local": {
+			"householdmixing": true,
+			"stayinglocal": true
+		},
+		"national": {
+			"businessclosures": true,
+			"gatherings": true,
+			"openinghours": true
+		}
+	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/24",
 		"updated": "2020-10-06",

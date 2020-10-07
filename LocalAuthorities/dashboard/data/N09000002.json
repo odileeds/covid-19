@@ -1,6 +1,18 @@
 {
 	"name":"Armagh City, Banbridge and Craigavon",
 	"population": 214090,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-10-06T16:07:25Z",
+		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
+		"local": {},
+		"national": {
+			"businessclosures": true,
+			"gatherings": true,
+			"householdmixing": true,
+			"openinghours": true
+		}
+	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/24",
 		"updated": "2020-10-06",
@@ -12,15 +24,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=N09000002&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"",
+		"updated":"2020-10-06T14:16:39Z",
 		"type":"SpecimenDate",
-		"n": 241,
+		"n": 242,
 		"days":[
-			{"date":"2020-10-04","day":14,"tot":1533},
-			{"date":"2020-10-03","day":35,"tot":1519},
-			{"date":"2020-10-02","day":43,"tot":1484},
-			{"date":"2020-10-01","day":51,"tot":1441},
-			{"date":"2020-09-30","day":50,"tot":1390},
+			{"date":"2020-10-05","day":24,"tot":1573},
+			{"date":"2020-10-04","day":31,"tot":1549},
+			{"date":"2020-10-03","day":35,"tot":1518},
+			{"date":"2020-10-02","day":45,"tot":1483},
+			{"date":"2020-10-01","day":49,"tot":1438},
+			{"date":"2020-09-30","day":49,"tot":1389},
 			{"date":"2020-09-29","day":34,"tot":1340},
 			{"date":"2020-09-28","day":21,"tot":1306},
 			{"date":"2020-09-27","day":18,"tot":1285},

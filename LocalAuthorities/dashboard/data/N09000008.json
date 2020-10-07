@@ -1,6 +1,18 @@
 {
 	"name":"Mid and East Antrim",
 	"population": 138773,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-10-06T16:07:25Z",
+		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
+		"local": {},
+		"national": {
+			"businessclosures": true,
+			"gatherings": true,
+			"householdmixing": true,
+			"openinghours": true
+		}
+	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/24",
 		"updated": "2020-10-06",

@@ -33,6 +33,77 @@ close(FILE);
 %pop = %{JSON::XS->new->utf8->decode(join("\n",@lines))};
 
 
+# Get the names data
+open(FILE,$dir."names.json");
+@lines = <FILE>;
+close(FILE);
+%names = %{JSON::XS->new->utf8->decode(join("\n",@lines))};
+
+
+
+# Get local restrictions
+$url = "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/commonslibrary-coronavirus-restrictions-data.csv";
+$file = $dir."commonslibrary-coronavirus-restrictions-data.csv";
+$head = $dir."commonslibrary-coronavirus-restrictions-data.head";
+`curl -sI "$url" > $head`;
+`curl -s "$url" > $file`;
+open(FILE,$head);
+@headlines = <FILE>;
+close(FILE);
+$strhead = join("",@headlines);
+$strhead =~ /Last-Modified: (.*)\n/i;
+$restrictionsdate = tidyDate($1);
+open(FILE,$file);
+@lines = <FILE>;
+close(FILE);
+$i = 0;
+%restrictions;
+@header;
+%headerlookup;
+foreach $line (@lines){
+	$line =~ s/[\n\r]//g;
+
+	if($i == 0){
+		@header = split(/\,/,$line);
+		for($j = 0; $j < @header; $j++){
+			$header[$j] =~ s/^l_//g;
+			$headerlookup{$header[$j]} = $j;
+		}
+	}else{
+		@cols = split(/\,/,$line);
+		$la = "";
+		if($cols[$headerlookup{'restrictions'}] eq "National"){
+			# Loop over all authorities finding any with the country letter
+			foreach $l (keys(%names)){
+				if($l =~ /^$cols[$headerlookup{'Country'}]/){
+					# If we've not created an empty holder do that now
+					if(!$restrictions{$l}){ $restrictions{$l} = {}; }
+					for($j = 0; $j < @cols; $j++){
+						# If we haven't set the restriction do that (don't over-write any that have already been processed)
+						if(!$restrictions{$l}{$header[$j]}){
+							$restrictions{$l}{$header[$j]} = $cols[$j];
+						}
+					}
+				}
+			}
+		}
+		foreach $l (keys(%names)){
+			if($names{$l}{'name'} eq $cols[$headerlookup{'Category'}]){
+				$la = $l;
+			}
+		}
+		if(!$la){
+			print "Didn't find $cols[$headerlookup{'Category'}]\n";
+		}else{
+			if(!$restrictions{$la}){ $restrictions{$la} = {}; }
+			for($j = 0; $j < @cols; $j++){
+				$restrictions{$la}{$header[$j]} = $cols[$j];
+			}
+		}
+	}
+	$i++;
+}
+
 # Get the death data
 %deaths = processDeaths();
 
@@ -102,6 +173,39 @@ for($i = 0; $i < @las; $i++){
 	print FILE "{\n";
 	print FILE "\t\"name\":\"$names{$la}\",\n";
 	print FILE "\t\"population\": ".($pop{$la}||0).",\n";
+	if($restrictions{$la}){
+		print FILE "\t\"restrictions\":{\n";
+		print FILE "\t\t\"src\": \"https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/\",\n";
+		print FILE "\t\t\"updated\": \"$restrictionsdate\",\n";
+		print FILE "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
+		print FILE "\t\t\"local\": {";
+		$r = 0;
+		#l_local_ruleofsix,l_local_householdmixing,l_local_raves,l_local_stayinglocal,l_local_stayinghome,l_local_notstayingaway,l_local_businessclosures,l_local_openinghours,l_national_ruleofsix,l_national_householdmixing,l_national_raves,l_national_stayinglocal,l_national_stayinghome,l_national_notstayingaway,l_national_businessclosures,l_national_openinghours,l_national_gatherings
+		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
+			if($restrict =~ /local_/ && $restrictions{$la}{$restrict} eq "1"){
+				if($r > 0){ print FILE ","; }
+				$restrict =~ s/^local\_//;
+				print FILE "\n\t\t\t\"$restrict\": true";
+				$r++;
+			}
+		}
+		if($r > 0){
+			print FILE "\n\t\t";
+		}
+		print FILE "},\n";
+		print FILE "\t\t\"national\": {\n";
+		$r = 0;
+		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
+			if($restrict =~ /national_/ && $restrictions{$la}{$restrict} eq "1"){
+				if($r > 0){ print FILE ",\n"; }
+				$restrict =~ s/^national\_//;
+				print FILE "\t\t\t\"$restrict\": true";
+				$r++;
+			}
+		}
+		print FILE "\n\t\t}\n";
+		print FILE "\t},\n";
+	}
 	if($deaths{$la}){
 		#"E06000001": {"total":{"date":"2020-09-24","all":819,"covid-19":110},"week":{"text":"Week 37","all":16,"covid-19":0}},
 		print FILE "\t\"deaths\":{\n";

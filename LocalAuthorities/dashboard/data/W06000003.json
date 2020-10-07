@@ -1,6 +1,20 @@
 {
 	"name":"Conwy",
 	"population": 117181,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-10-06T16:07:25Z",
+		"url": {"local":"https://gov.wales/conwy-county-borough-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
+		"local": {
+			"householdmixing": true,
+			"stayinglocal": true
+		},
+		"national": {
+			"businessclosures": true,
+			"gatherings": true,
+			"openinghours": true
+		}
+	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/24",
 		"updated": "2020-10-06",
@@ -50,7 +64,7 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000003&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"",
+		"updated":"2020-10-06T14:16:39Z",
 		"type":"SpecimenDate",
 		"n": 222,
 		"days":[
