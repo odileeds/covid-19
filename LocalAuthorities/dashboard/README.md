@@ -1,6 +1,10 @@
-# Dashboard data
+# Dashboard
 
-We have a job that updates the data each day and stores the current state in [JSON files per Local Authority](data/). The data are sourced from:
+We have a job that updates the data each day and stores the current state in [JSON files per Local Authority](data/).
+
+## Sources
+
+The data are sourced from:
 
 * __restrictions__ from the [House of Commons Library's CSV file of restrictions](https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/commonslibrary-coronavirus-restrictions-data.csv) (they also have [a nice map](https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/))
 * __cases__ from the [Public Health England API](https://coronavirus.data.gov.uk/developers-guide)
@@ -8,7 +12,9 @@ We have a job that updates the data each day and stores the current state in [JS
 * __populations__ from [ONS population estimates for England](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/localauthoritiesinenglandtable2) and [a conversion file on DropBox](https://www.dropbox.com/s/s2en5rf72zpdbag/Health%20Board%20to%20LA%20Look%20Up.xlsx?dl=0). These are extracted to [populations.csv](../data/populations.csv).
 
 
-Each Local Authority JSON file is of the format:
+## Data
+
+The data directory contains each Local Authority's data in JSON format:
 
 ```[type=javascript]
 {
@@ -84,3 +90,8 @@ where:
     * `date` is the ISO8601 date
 	* `day` is the `newCasesBySpecimenDate` from the PHE API
 	* `tot` is the `cumCasesBySpecimenDate` from the PHE API
+
+
+## Graphs
+
+The `svg` sub-directory contains an SVG graph of cumulative cases per 100,000 for each authority. These will be re-generated when the data files are.
