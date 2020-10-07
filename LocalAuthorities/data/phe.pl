@@ -115,8 +115,8 @@ for($i = 0; $i < @las; $i++){
 	$file = $dir."raw/$la.json";
 	$head = $dir."raw/$la.head";
 	print "$la:\n";
-	# If it is older than 12 hours we grab a new copy
-	if(time() - (stat $file)[9] >= 43200){
+	# If it is older than 2 hours we grab a new copy
+	if(time() - (stat $file)[9] >= 7200){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
