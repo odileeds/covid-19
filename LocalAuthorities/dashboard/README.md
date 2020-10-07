@@ -1,6 +1,6 @@
 # Dashboard
 
-We have a job that updates the data each day and stores the current state in [JSON files per Local Authority](data/).
+The [Local Authority COVID-19 dashboard](https://odileeds.github.io/covid-19/LocalAuthorities/dashboard/) shows summary stats (and basic graphs) for UK Local Authorities*. It relies on data sourced from several places. A few times a day a script `[phe.pl](../data/phe.pl)` is run which updates this directory and sub-directories storeing the current state in [JSON files per Local Authority](data/).
 
 ## Sources
 
@@ -95,3 +95,6 @@ where:
 ## Graphs
 
 The `svg` sub-directory contains an SVG graph of cumulative cases per 100,000 for each authority. These will be re-generated when the data files are.
+
+
+*where possible
