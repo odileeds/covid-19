@@ -284,7 +284,7 @@ ready(function(){
 						fetch(url,{'method':'GET'})
 						.then(response => { return response.text() })
 						.then(text => {
-							document.querySelector('.'+la+' .graph').innerHTML = text;
+							document.querySelector('.'+la+' .graph').innerHTML = '<a href="'+url+'">'+text+'</a>';
 						}).catch(error => {
 							console.error(error,url);
 						});
