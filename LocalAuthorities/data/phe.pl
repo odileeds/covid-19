@@ -114,9 +114,25 @@ for($i = 0; $i < @las; $i++){
 	$url = "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=$la&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json";
 	$file = $dir."raw/$la.json";
 	$head = $dir."raw/$la.head";
-	print "$la:\n";
+	
+	# Find the age of the file in hours
+	if(-e $head){
+		open(FILE,$head);
+		@headlines = <FILE>;
+		close(FILE);
+		$strhead = join("",@headlines);
+		$strhead =~ /Last-Modified: (.*)\n/;
+		$jd = getJulianFromISO(tidyDate($1));
+		$now = getJulianDate();
+		$diff = (($now-$jd)*24);
+	}else{
+		$diff = 24;
+	}
+
+
+	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
 	# If it is older than 2 hours we grab a new copy
-	if(time() - (stat $file)[9] >= 7200){
+	if($diff > 2){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;

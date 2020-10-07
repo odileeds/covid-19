@@ -174,10 +174,10 @@ sub buildAxis {
 			if($a[1] >= 0 && $a[0] >= $conf->{'left'}){
 				if($a[0] < $conf->{'width'}){
 					if(($t == 0 && $props->{'line'} > 0) || $props->{'lines'}){
-						$svg .= "\t<line x1=\"".$a[0]."\" y1=\"".$a[1]."\" x2=\"".$b[0]."\" y2=\"".$b[1]."\" data-left=\"".$conf->{'left'}."\"></line>\n";
+						$svg .= "\t<line x1=\"".sprintf("%0.2f",$a[0])."\" y1=\"".sprintf("%0.2f",$a[1])."\" x2=\"".sprintf("%0.2f",$b[0])."\" y2=\"".sprintf("%0.2f",$b[1])."\" data-left=\"".$conf->{'left'}."\"></line>\n";
 					}
 					if($props->{'ticks'}){
-						$svg .= "\t<line class=\"tick\" x1=\"$a[0]\" y1=\"$a[1]\" x2=\"".($a[0]-($axis eq "y" ? $tick : 0))."\" y2=\"".($a[1]+($axis eq "y" ? 0 : $tick))."\"></line>\n";
+						$svg .= "\t<line class=\"tick\" x1=\"".sprintf("%0.2f",$a[0])."\" y1=\"".sprintf("%0.2f",$a[1])."\" x2=\"".sprintf("%0.2f",($a[0]-($axis eq "y" ? $tick : 0)))."\" y2=\"".sprintf("%0.2f",($a[1]+($axis eq "y" ? 0 : $tick)))."\"></line>\n";
 					}
 					$label = $ticks{'data-'.$t};
 					if($ticks{'label-'.$t}){
