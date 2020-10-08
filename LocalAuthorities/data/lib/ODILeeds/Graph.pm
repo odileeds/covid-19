@@ -4,8 +4,8 @@ use strict;
 use warnings;
 use Data::Dumper;
 use ODILeeds::Colour;
+use ODILeeds::DateTime;
 use List::Util qw[min max];
-use DateTime;
 
 
 sub new {
@@ -231,7 +231,7 @@ sub getXY {
 # @param {number} mx - the maximum value
 sub makeTicks(){
 	my ($mn,$mx,%opts) = @_;
-	my ($v,$l,$i,$d,$vmx,%ticks,$ss,$mm,$hh,$dom,$m,$yy,$sow,$soy,$dst,$sm,$em,$t,$dt);
+	my ($v,$l,$i,$d,$vmx,%ticks,$ss,$mm,$hh,$dom,$m,$yy,$sow,$soy,$dst,$sm,$em,$t,$dt,$jd);
 	my @months = ('J','F','M','A','M','J','J','A','S','O','N','D');
 
 	# If the range is negative we cowardly quit
@@ -240,6 +240,7 @@ sub makeTicks(){
 	#if(isNaN(mn) || isNaN(mx)) return ticks;
 
 	%ticks = ('length'=>0);
+	$dt = ODILeeds::DateTime->new();
 
 	if($opts{'type'} && $opts{'type'} eq "date"){
 		($ss,$mm,$hh,$dom,$m,$yy,$sow,$soy,$dst) = localtime($mn);
@@ -250,12 +251,8 @@ sub makeTicks(){
 		$i = 0;
 		while($m <= $em){
 			$t = ($m % 12);
-			$dt = DateTime->new(
-				year       => 1900+int($m/12),
-				month      => $t+1,
-				day        => 1,
-			);
-			$ticks{'data-'.$i} = $dt->epoch;
+			$jd = $dt->getJulianDate(1900+int($m/12),$t+1,1,0,0);
+			$ticks{'data-'.$i} = $dt->convertJulianToUnix($jd);
 			$ticks{'label-'.$i} = $months[$t];
 			$ticks{'length'}++;
 			$m++;
