@@ -116,6 +116,11 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 section > div > div {
 	text-align: center;
 }
+.grid h2 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .number {
 	position: relative;
 	line-height: 1em;
