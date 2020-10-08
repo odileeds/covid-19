@@ -368,7 +368,7 @@ ready(function(){
 		'daystoignore': start,
 		'panel':{
 			'daily-percapita-graph': [
-				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Recent days are under-estimates.</span>'},
+				{'tagname':'h3','key':'title','html':'Daily cases/100,000<br /><span class="small">Rolling 7-day average. Value as of '+start+' days ago as recent days are under-estimates. </span>'},
 				{'tagname':'div','key':'number','html':function(la){
 					var v = 0;
 					// Smooth the value using a 7-day rolling average
