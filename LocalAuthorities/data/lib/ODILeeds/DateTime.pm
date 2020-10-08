@@ -282,5 +282,4 @@ sub floorInt {
 	return int($_[0]);
 }
 
-
 1;
