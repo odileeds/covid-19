@@ -96,7 +96,7 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: auto auto;
-	grid-gap: 1px;
+	grid-gap: 1px 4px;
 	order: 1;
 	margin: 0px;
 }
