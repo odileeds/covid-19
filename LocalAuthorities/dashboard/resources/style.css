@@ -136,7 +136,6 @@ section > div > div {
 	display: block;
 	line-height: 1em;
 	font-size: 1em;
-	margin-bottom: 0.5em;
 	text-align: center;
 	margin-top: 0;
 	opacity: 0.5;
@@ -166,14 +165,23 @@ div:hover > .updated, div:hover > .title, div:focus > .updated, div:focus > .tit
 *:focus {
 	background: black!important;
 }
+.fixed {
+	padding-top: 0;
+	padding-bottom: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
 
 
 @media only screen and (max-width: 640px) {
 
 	.key { padding: 1em 1em 0 1em; font-size: 0.85em; }
 	.doublepadded { padding: 1em; }
+	.fixed.doublepadded { padding-top: 0; padding-bottom: 0; }
 	.key-item { margin-right: 0.5em; }
 	.grid h2.authority { margin-top: 1em; }
+	.grid.fixed h2.authority { margin-top: 0; }
 	
 	.grid {
 		grid-template-columns: 1fr;

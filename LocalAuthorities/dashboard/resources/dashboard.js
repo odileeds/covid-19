@@ -71,7 +71,7 @@
 		
 		// Get death data (from other repo)
 		for(var la in lad) this.getDataForLA(la);
-
+		
 		return this;
 	}
 
@@ -162,15 +162,17 @@
 				if(bit != "_parent"){
 					v = "";
 					if(lad[la].panels[id][bit].html){
-						if(typeof lad[la].panels[id][bit].html==="string") v = lad[la].panels[id][bit].html;
-						else if(typeof lad[la].panels[id][bit].html==="function") v = lad[la].panels[id][bit].html.call(lad[la],la);
+						if(typeof lad[la].panels[id][bit].html==="string"){
+							v = lad[la].panels[id][bit].html;
+						}else if(typeof lad[la].panels[id][bit].html==="function"){
+							v = lad[la].panels[id][bit].html.call(lad[la],la,{'this':this},function(){ this.header.updateHeaders(); });
+						}
 					}
 					if(bit == "number"){
 						if(typeof v==="number"){
 							animateNumber(lad[la].panels[id][bit].el,v,300,'','');
 						}else{
 							lad[la].panels[id][bit].el.innerHTML = v;
-							//if(lad[la].panels[id][bit].fit) window.fitText(lad[la].panels[id][bit].el,0.7,{'len':v.length,'minFontSize':12,'minChar':4});
 						}
 					}else{
 						lad[la].panels[id][bit].el.innerHTML = v;
@@ -182,6 +184,17 @@
 
 		return this;
 	}
+	
+	Dashboard.prototype.done = function(lad){
+
+		if(typeof this.opts.colour==="function") this.opts.colour.call(this,lad);
+
+		// Create the header
+		this.header = new Header('section.grid h2');
+
+		return this;
+	}
+
 	Dashboard.prototype.getDataForLA = function(la){
 		url = "data/{{LA}}.json";
 		url = url.replace(/\{\{LA\}\}/,la);
@@ -204,13 +217,97 @@
 				if(typeof lad[l].data==="object") i++;
 				n++;
 			}
-			if(i==n && typeof this.opts.colour==="function") this.opts.colour.call(this,lad);
+			if(i==n) this.done(lad);
 		}).catch(error => {
 			console.error(error,url);
 			lad[la] = {};
 		});
 	}
 
+	function Header(str){
+		var headings = document.querySelectorAll(str);
+		this.headings = new Array(headings.length);
+		// Create a fake section for the header
+		this.header = document.createElement('section');
+		this.header.classList.add('fixed');
+		this.header.classList.add('grid');
+		this.header.classList.add('doublepadded');
+		this.header.classList.add('b6-bg');
+		this.header.style.setProperty('display','none');
+		document.body.insertBefore(this.header, document.body.firstChild);
+
+		var h,id;
+		for(h = 0; h < headings.length; h++){
+			id = headings[h].getAttribute('id');
+			this.headings[h] = {'orig':headings[h],'id':id};
+			// Clone the heading and remove the ID
+			this.headings[h].el = headings[h].cloneNode(true);
+			this.headings[h].el.removeAttribute('id');
+			this.headings[h].el.style.setProperty('display','none');
+			this.header.appendChild(this.headings[h].el);
+		}
+		var _obj = this;
+
+		// Detect vertical scroll position
+		window.addEventListener('scroll', function(e){ _obj.update(); });
+		// Detect vertical scroll position
+		window.addEventListener('resize', function(e){
+			console.log('resize');
+			_obj.updateHeaders();
+			_obj.update();
+		});
+		this.updateHeaders();
+		this.update();
+		return this;
+	}
+
+	Header.prototype.updateHeaders = function(){
+		for(var h = 0; h < this.headings.length; h++){
+			id = this.headings[h].id
+			this.updateHeader(id);
+		}
+		return this;
+	}
+
+	Header.prototype.updateHeader = function(la){
+		for(var h = 0; h < this.headings.length; h++){
+			id = this.headings[h].id
+			if(this.headings[h].id == la){
+				panels = document.querySelectorAll('.'+id);
+				this.headings[h].top = this.headings[h].orig.offsetTop;
+				this.headings[h].bottom = panels[panels.length-1].offsetTop+panels[panels.length-1].offsetHeight;
+			}
+		}
+		return this;
+	}
+
+	Header.prototype.update = function(){
+		var nvis = 0;
+		for(var i = 0; i < this.headings.length; i++){
+			// It is in the page if it has a parent
+			// this.headings[i].el.parent
+			// Should the heading be visible?
+			visible = false;
+			if(typeof this.headings[i].top==="number" && typeof this.headings[i].bottom==="number"){
+				if(window.scrollY > this.headings[i].top && window.scrollY < this.headings[i].bottom){
+					visible = true;
+				}
+			}
+			if(visible) nvis++;
+			headvis = (window.getComputedStyle(this.headings[i].el).getPropertyValue('display')!="none");
+			if(visible && !headvis){
+				// Need to show heading
+				this.headings[i].el.style.setProperty('display','');
+			}else if(!visible && headvis){
+				// Need to hide heading
+				this.headings[i].el.style.setProperty('display','none');
+			}
+
+		}
+		// If the header contains nothing we hide it
+		this.header.style.setProperty('display',(nvis > 0 ? '':'none'));
+		return this;
+	}
 	// shim layer with setTimeout fallback
 	window.requestAnimFrame = (function(){
 		return  window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){ window.setTimeout(callback, 1000 / 60); };
@@ -278,16 +375,19 @@ ready(function(){
 					for(var i = start-3; i <= start+3; i++) v += this.data.cases.days[i].day;
 					return Math.round((v/7)*1e5/this.data.population);
 				},'fit':true},
-				{'tagname':'div','key':'graph','html':function(la){
+				{'tagname':'div','key':'graph','html':function(la,props,callback){
 					url = "svg/"+la+".svg";
 					if(this.data.cases.days){
 						fetch(url,{'method':'GET'})
 						.then(response => { return response.text() })
 						.then(text => {
 							document.querySelector('.'+la+' .graph').innerHTML = '<a href="'+url+'">'+text+'</a>';
+							if(typeof callback==="function") callback.call((props['this']||this),props);
 						}).catch(error => {
 							console.error(error,url);
 						});
+					}else{
+						if(typeof callback==="function") callback.call((props['this']||this),props);
 					}
 					
 					return "";
