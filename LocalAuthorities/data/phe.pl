@@ -134,7 +134,7 @@ for($i = 0; $i < @las; $i++){
 
 	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
 	# If it is older than 2 hours we grab a new copy
-	if($diff > 200){
+	if($diff > 2){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
