@@ -10,9 +10,9 @@ x-xss-protection: 1; mode=block
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Content-Type-Options: nosniff
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Frame-Options: deny
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+X-Frame-Options: deny
 x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-Date: Sat, 10 Oct 2020 07:14:00 GMT
+Date: Sat, 10 Oct 2020 15:13:55 GMT
 
