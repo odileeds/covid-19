@@ -198,7 +198,7 @@ for($i = 0; $i < @las; $i++){
 		print FILE "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
 		print FILE "\t\t\"local\": {";
 		$r = 0;
-		#l_local_ruleofsix,l_local_householdmixing,l_local_raves,l_local_stayinglocal,l_local_stayinghome,l_local_notstayingaway,l_local_businessclosures,l_local_openinghours,l_national_ruleofsix,l_national_householdmixing,l_national_raves,l_national_stayinglocal,l_national_stayinghome,l_national_notstayingaway,l_national_businessclosures,l_national_openinghours,l_national_gatherings
+		#l_local_ruleofsix,l_local_householdmixing,l_local_raves,l_local_stayinglocal,l_local_stayinghome,l_local_notstayingaway,l_local_businessclosures,l_local_openinghours,l_local_alcoholsalesrestrictions,l_national_ruleofsix,l_national_householdmixing,l_national_raves,l_national_stayinglocal,l_national_stayinghome,l_national_notstayingaway,l_national_businessclosures,l_national_openinghours,l_national_gatherings,l_national_alcoholsalesrestrictions
 		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
 			if($restrict =~ /local_/ && $restrictions{$la}{$restrict} eq "1"){
 				if($r > 0){ print FILE ","; }
