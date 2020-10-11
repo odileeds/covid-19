@@ -3,7 +3,7 @@
 	"population": 151394,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-09T16:52:45Z",
+		"updated": "2020-10-10T16:45:22Z",
 		"url": {"local":"https://www.gov.uk/guidance/north-east-of-england-local-restrictions","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
 		"local": {
 			"householdmixing": true
@@ -64,14 +64,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000023&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-09T14:14:33Z",
+		"updated":"2020-10-10T18:57:27Z",
 		"type":"SpecimenDate",
-		"n": 208,
+		"n": 209,
 		"days":[
-			{"date":"2020-10-08","day":0,"tot":2484},
-			{"date":"2020-10-07","day":31,"tot":2484},
-			{"date":"2020-10-06","day":45,"tot":2453},
-			{"date":"2020-10-05","day":58,"tot":2408},
+			{"date":"2020-10-09","day":8,"tot":2555},
+			{"date":"2020-10-08","day":52,"tot":2547},
+			{"date":"2020-10-07","day":37,"tot":2495},
+			{"date":"2020-10-06","day":49,"tot":2458},
+			{"date":"2020-10-05","day":59,"tot":2409},
 			{"date":"2020-10-04","day":50,"tot":2350},
 			{"date":"2020-10-03","day":58,"tot":2300},
 			{"date":"2020-10-02","day":64,"tot":2242},

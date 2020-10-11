@@ -3,7 +3,7 @@
 	"population": 246466,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-09T16:52:45Z",
+		"updated": "2020-10-10T16:45:22Z",
 		"url": {"local":"https://gov.wales/swansea-council-area-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {
 			"householdmixing": true,
@@ -64,15 +64,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000011&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-09T14:14:33Z",
+		"updated":"2020-10-10T18:57:27Z",
 		"type":"SpecimenDate",
-		"n": 225,
+		"n": 226,
 		"days":[
-			{"date":"2020-10-08","day":0,"tot":2252},
-			{"date":"2020-10-07","day":13,"tot":2252},
-			{"date":"2020-10-06","day":30,"tot":2239},
-			{"date":"2020-10-05","day":51,"tot":2209},
-			{"date":"2020-10-04","day":64,"tot":2158},
+			{"date":"2020-10-09","day":0,"tot":2296},
+			{"date":"2020-10-08","day":1,"tot":2296},
+			{"date":"2020-10-07","day":46,"tot":2295},
+			{"date":"2020-10-06","day":37,"tot":2249},
+			{"date":"2020-10-05","day":53,"tot":2212},
+			{"date":"2020-10-04","day":65,"tot":2159},
 			{"date":"2020-10-03","day":34,"tot":2094},
 			{"date":"2020-10-02","day":54,"tot":2060},
 			{"date":"2020-10-01","day":64,"tot":2006},

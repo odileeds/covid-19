@@ -3,7 +3,7 @@
 	"population": 214090,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-09T16:52:45Z",
+		"updated": "2020-10-10T16:45:22Z",
 		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
 		"local": {},
 		"national": {
@@ -24,7 +24,7 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=N09000002&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-09T14:14:33Z",
+		"updated":"2020-10-10T18:57:27Z",
 		"type":"SpecimenDate",
 		"n": 245,
 		"days":[

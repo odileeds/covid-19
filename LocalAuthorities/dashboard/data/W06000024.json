@@ -3,7 +3,7 @@
 	"population": 60183,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-09T16:52:45Z",
+		"updated": "2020-10-10T16:45:22Z",
 		"url": {"local":"https://gov.wales/merthyr-tydfil-county-borough-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {
 			"householdmixing": true,
@@ -64,14 +64,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000024&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-09T14:14:33Z",
+		"updated":"2020-10-10T18:57:27Z",
 		"type":"SpecimenDate",
-		"n": 225,
+		"n": 226,
 		"days":[
-			{"date":"2020-10-08","day":0,"tot":1072},
-			{"date":"2020-10-07","day":4,"tot":1072},
-			{"date":"2020-10-06","day":12,"tot":1068},
-			{"date":"2020-10-05","day":28,"tot":1056},
+			{"date":"2020-10-09","day":0,"tot":1105},
+			{"date":"2020-10-08","day":6,"tot":1105},
+			{"date":"2020-10-07","day":18,"tot":1099},
+			{"date":"2020-10-06","day":23,"tot":1081},
+			{"date":"2020-10-05","day":30,"tot":1058},
 			{"date":"2020-10-04","day":18,"tot":1028},
 			{"date":"2020-10-03","day":15,"tot":1010},
 			{"date":"2020-10-02","day":18,"tot":995},

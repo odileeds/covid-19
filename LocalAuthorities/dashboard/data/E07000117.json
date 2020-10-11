@@ -3,7 +3,7 @@
 	"population": 89278,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-09T16:52:45Z",
+		"updated": "2020-10-10T16:45:22Z",
 		"url": {"local":"https://www.gov.uk/guidance/north-west-england-local-restrictions","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
 		"local": {
 			"householdmixing": true
@@ -64,18 +64,19 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000117&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-09T14:14:33Z",
+		"updated":"2020-10-10T18:57:27Z",
 		"type":"SpecimenDate",
-		"n": 204,
+		"n": 205,
 		"days":[
-			{"date":"2020-10-08","day":1,"tot":1848},
-			{"date":"2020-10-07","day":8,"tot":1847},
-			{"date":"2020-10-06","day":77,"tot":1839},
-			{"date":"2020-10-05","day":84,"tot":1762},
-			{"date":"2020-10-04","day":33,"tot":1678},
-			{"date":"2020-10-03","day":62,"tot":1645},
-			{"date":"2020-10-02","day":46,"tot":1583},
-			{"date":"2020-10-01","day":48,"tot":1537},
+			{"date":"2020-10-09","day":0,"tot":1946},
+			{"date":"2020-10-08","day":16,"tot":1946},
+			{"date":"2020-10-07","day":76,"tot":1930},
+			{"date":"2020-10-06","day":88,"tot":1854},
+			{"date":"2020-10-05","day":87,"tot":1766},
+			{"date":"2020-10-04","day":33,"tot":1679},
+			{"date":"2020-10-03","day":62,"tot":1646},
+			{"date":"2020-10-02","day":46,"tot":1584},
+			{"date":"2020-10-01","day":49,"tot":1538},
 			{"date":"2020-09-30","day":64,"tot":1489},
 			{"date":"2020-09-29","day":57,"tot":1425},
 			{"date":"2020-09-28","day":58,"tot":1368},
