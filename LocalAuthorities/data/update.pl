@@ -15,6 +15,7 @@ else{ $dir = "./"; }
 %areas;
 %LA;
 %headers;
+%LArecent;
 %LAlast;
 %LAweek;
 %updates;
@@ -57,10 +58,10 @@ $jsonblob = JSON::XS->new->utf8->decode(join("\n",@lines));
 
 
 
+getCasesPHE();
 
-
-getCases("https://raw.githubusercontent.com/odileeds/covid-19-uk-datasets/master/data/england-cases.csv");
-getCases("https://raw.githubusercontent.com/odileeds/covid-19-uk-datasets/master/data/scotland-cases.csv");
+#getCases("https://raw.githubusercontent.com/odileeds/covid-19-uk-datasets/master/data/england-cases.csv");
+#getCases("https://raw.githubusercontent.com/odileeds/covid-19-uk-datasets/master/data/scotland-cases.csv");
 saveLAJSON();
 
 %svg;
@@ -97,10 +98,12 @@ $hj->setKeys('cases','casesUTLA','UTLA','update');
 $svg{'cases'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases','date'=>$updates{'cases-date'}));
 
 # Set primary value keys
+# Add the data
+$hj->addData(%LArecent);
 $hj->setPrimaryKey('daily');
 $hj->setKeys('daily','update');
 # Create the SVG output
-$svg{'cases-daily'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases-daily','date'=>$updates{'cases-date'}));
+$svg{'cases-daily'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-cases-daily','date'=>$updates{'cases-recent'}));
 
 # Add the data
 $hj->addData(%LAweek);
@@ -110,7 +113,7 @@ $hj->setKeys('cases','update');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg{'cases-7day'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-date'}));
+$svg{'cases-7day'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-recent'}));
 
 # Add the data
 $hj->addData(%LAweek);
@@ -120,7 +123,12 @@ $hj->setKeys('update','percapita','population');
 # Set the colour scale to use
 $hj->setColourScale('Viridis');
 # Create the SVG output
-$svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-date'}));
+$svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-recent'}));
+
+
+########################################
+# Read the Arts Council England funding
+# XLSX file at https://www.artscouncil.org.uk/publication/culture-recovery-fund-data
 
 
 
@@ -625,6 +633,70 @@ sub getHeaders {
 	return %headers;
 }
 
+sub getCasesPHE {
+	my ($filename,$fdir,$file,@lines,%names,$jsonblob,$id,$d,$i,$cc,$oid,$id,$name);
+
+	$fdir = $dir."../dashboard/data/";
+	# BLAH
+	opendir(DIR,$fdir);
+	while(($filename = readdir(DIR))){
+		if($filename =~ /^([ENSW][0-9]{8})\.json/){
+			$id = $1;
+			$file = $fdir.$filename;
+			open(FILE,$file);
+			@lines = <FILE>;
+			close(FILE);
+			$jsonblob = JSON::XS->new->utf8->decode(join("\n",@lines));
+
+			$oid = $id;
+			$name = $jsonblob->{'name'};
+			#if($id eq "E06000052" || $id eq "E06000053"){ $id = "E06000052-3"; $name = "Cornwall and Isles of Scilly" }
+			#if($id eq "E09000001" || $id eq "E09000012"){ $id = "E09000001-12"; $name = "Hackney and City of London"; }
+
+			if(!$LA{$id}){ $LA{$id} = {'name'=>$name,'country'=>'','dates'=>{},'population'=>$jsonblob->{'population'}}; }
+			$cc = substr($id,0,1);
+			if($cc eq "E"){ $LA{$id}{'country'} = "England"; }
+			elsif($cc eq "S"){ $LA{$id}{'country'} = "Scotland"; }
+			elsif($cc eq "W"){ $LA{$id}{'country'} = "Wales"; }
+			elsif($cc eq "N"){ $LA{$id}{'country'} = "Northern Ireland"; }
+
+
+			if(!$LA{$id}{'name'}){
+				if($name ne $id){
+					print "Using $name for $id\n";
+					$LA{$id}{'name'} = $name;
+				}else{
+					%json = getArea($id);
+					$LA{$id}{'name'} = $json{'data'}{'attributes'}{'name'};
+					print "Got name for $id - $LA{$id}{'name'}\n";
+				}
+			}
+
+			if($jsonblob->{'cases'}{'updated'} gt $updates{'cases-date'}){ $updates{'cases-date'} = $jsonblob->{'cases'}{'updated'}; }
+			
+			for($i = 0; $i < @{$jsonblob->{'cases'}{'days'}}; $i++){
+				
+				$d = $jsonblob->{'cases'}{'days'}[$i]{'date'};
+				#print "\t$i = $d\n";
+
+				if($d lt $mindate){ $mindate = $d; }
+				if($d gt $maxdate){ $maxdate = $d; }
+
+				# Only add the date if it has a value
+				if(!$LA{$id}{'dates'}{$d}){ $LA{$id}{'dates'}{$d} = { 'total'=>0,'daily'=>0 }; }
+				# Only count the first entry for this day
+				if($jsonblob->{'cases'}{'days'}[$i]{'tot'} ne "" && $LA{$id}{'dates'}{$d}{'total'}==0){ $LA{$id}{'dates'}{$d}{'total'} = $jsonblob->{'cases'}{'days'}[$i]{'tot'}; }
+				if($jsonblob->{'cases'}{'days'}[$i]{'day'} ne "" && $LA{$id}{'dates'}{$d}{'daily'}==0){ $LA{$id}{'dates'}{$d}{'daily'} = $jsonblob->{'cases'}{'days'}[$i]{'day'}; }
+
+
+			}
+		}
+	}
+	closedir(DIR);
+
+	return;
+}
+
 sub getCases {
 	my ($url,@lines,@header,$c,$cc,%headers,$i,@cols,$d,$id,$oid,$name,@dates,$min,$max,$dt,$json,$n,%json);
 
@@ -698,11 +770,15 @@ sub getCases {
 }
 
 sub saveLAJSON {
-	my (@dates,$min,$max,$dt,$id,$n,$json,$i,$d,$nla,$jsonla);
+	my (@dates,$min,$max,$dt,$id,$n,$json,$i,$d,$nla,$jsonla,$recent,@smooth);
 
 	@dates = ();
 	$min = getJulianFromISO($mindate);
 	$max = getJulianFromISO($maxdate);
+	$recent = $max-5;	# 5 days ago
+
+
+	$updates{'cases-recent'} = getDate($recent,"%Y-%m-%d");
 
 	$dt = getJulianFromISO($mindate);
 
@@ -719,6 +795,7 @@ sub saveLAJSON {
 			@dates = sort(keys(%{$LA{$id}{'dates'}}));
 			$n = @dates;
 
+
 			if($json){ $json .= ",\n";}
 			$jsonla = "\t\t\"$id\":{";
 			$jsonla .= "\"n\":\"$LA{$id}{'name'}\",";
@@ -730,10 +807,9 @@ sub saveLAJSON {
 			$min = getJulianFromISO($dates[0]);
 			$max = getJulianFromISO($dates[$n-1]);
 			$dt = getJulianFromISO($dates[0]);
-			$week = $max-7;
+			$week = $recent-7;
 
-
-			
+			@smooth = "";
 			for($i = 0; $dt <= $max; $i++, $dt++){
 				if($i > 0){
 					$jsonla .= ",";
@@ -741,8 +817,15 @@ sub saveLAJSON {
 				$d = getDate($dt,"%Y-%m-%d");
 				$jsonla .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
 				if($pop{$id}){
-					$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
-					if($dt > $week){
+					
+					if($dt == $max){
+						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
+					}
+
+					if($dt >= $recent-3 && $dt <= $recent+3){
+						push(@smooth,$LA{$id}{'dates'}{$d}{'daily'});
+					}
+					if($dt > $week && $dt <= $recent){
 						if(!$LAweek{$id}){ $LAweek{$id} = {'cases'=>0,'days'=>0,'update'=>'','percapita'=>0}; }
 						$LAweek{$id}{'cases'} += $LA{$id}{'dates'}{$d}{'daily'};
 						$LAweek{$id}{'days'}++;
@@ -752,6 +835,23 @@ sub saveLAJSON {
 					print "No population for $id\n";
 				}
 			}
+
+			$d = getDate($recent,"%Y-%m-%d");
+			$av = 0;
+			$n = 0;
+			for($i = 0; $i < @smooth; $i++){
+				if($smooth[$i]){
+					$av += $smooth[$i];
+					$n++;
+				}
+			}
+			if($n > 0){
+				$av /= $n;
+			}else{
+				print "No recent days for $id\n";
+			}
+			
+			$LArecent{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>int($av*1e5/$LA{$id}{'population'} + 0.5),'update'=>$d};
 
 			$jsonla .= $dates."]";
 			$jsonla .= "}";
