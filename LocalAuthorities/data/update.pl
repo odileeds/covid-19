@@ -20,6 +20,7 @@ else{ $dir = "./"; }
 %LAweek;
 %updates;
 %conv;
+%culture;
 $updates{'cases-date'} = "2000-01-01";
 $updates{'deaths-date'} = "2000-01-01";
 $mindate = "3000-01-01";
@@ -27,10 +28,6 @@ $maxdate = "2000-01-01";
 
 
 $hj = ODILeeds::HexJSON->new();
-
-
-
-
 
 
 # Get the conversion file from UTLA to LA
@@ -124,11 +121,6 @@ $hj->setKeys('update','percapita','population');
 $hj->setColourScale('Viridis');
 # Create the SVG output
 $svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-percapita','date'=>$updates{'cases-recent'}));
-
-
-########################################
-# Read the Arts Council England funding
-# XLSX file at https://www.artscouncil.org.uk/publication/culture-recovery-fund-data
 
 
 
@@ -537,6 +529,26 @@ $svg{'grantnav-awarded'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-grantn
 
 
 
+########################################
+# Read the Arts Council England funding
+# XLSX file from https://www.artscouncil.org.uk/publication/culture-recovery-fund-data
+getCultureRecovery();
+$hj->load('../resources/uk-local-authority-districts-2020.hexjson');
+$hj->addData(%culture);
+$hj->setPrimaryKey('total');
+$hj->setKeys('total','n');
+$hj->setColourScale('Viridis');
+$svg{'culture-recovery-fund'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-culture-recovery-fund','date'=>'2020-10-12'));
+
+$hj->setPrimaryKey('percapita');
+$hj->setKeys('percapita');
+$hj->setColourScale('Viridis');
+$svg{'culture-recovery-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-culture-recovery-percapita','date'=>'2020-10-12'));
+
+
+
+
+
 
 
 ################################
@@ -631,6 +643,48 @@ sub getHeaders {
 		$headers{$header[$c]} = $c;
 	}
 	return %headers;
+}
+
+sub getCultureRecovery {
+	my (@lines,%names2id,$jsonblob,$id,$i,$line,$name,%headers);
+
+	open(FILE,$dir."names.json");
+	@lines = <FILE>;
+	close(FILE);
+	$jsonblob = JSON::XS->new->utf8->decode(join("\n",@lines));
+	foreach $id (sort(keys(%{$jsonblob}))){
+		$names2id{$jsonblob->{$id}{'name'}} = $id;
+	}
+	open(FILE,$dir."culture-recovery-fund.csv");
+	$i = 0;
+	while ($line = <FILE>) {
+		chomp $line;
+		if($i == 0){
+			%headers = getHeaders($line);
+		}
+		if($i > 0 && $line =~ /\,/){
+			(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+			$name = $cols[$headers{'Local Authority Name'}];
+			$name =~ s/(^\"|\"$)//g;
+			if($name && $names2id{$name}){
+				$id = $names2id{$name};
+				if(!$culture{$id}){
+					$culture{$id} = {'total'=>0,'n'=>0,'name'=>$name,'percaptia'=>0};
+				}
+				$culture{$id}{'total'} += $cols[$headers{'Award offered'}];
+				if($pop{$id}){
+					$culture{$id}{'percapita'} = sprintf("%0.2f",$culture{$id}{'total'}/$pop{$id});
+				}else{
+					print "No population for $id in ACE funding\n";
+				}
+				$culture{$id}{'n'}++;
+			}else{
+				print "Couldn't match $cols[$headers{'Local Authority Name'}]\n";
+			}
+		}
+		$i++;
+	}
+	close(FILE);
 }
 
 sub getCasesPHE {
