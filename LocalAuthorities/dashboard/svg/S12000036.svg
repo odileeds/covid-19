@@ -21,12 +21,12 @@
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
 </g>
 <g class="graph-grid graph-grid-x">
-	<line class="tick" x1="32.96" y1="375.00" x2="32.96" y2="380.00"></line>
-	<text x="32.9605263157895" y="375" text-anchor="middle">A</text>
-	<line class="tick" x1="218.55" y1="375.00" x2="218.55" y2="380.00"></line>
-	<text x="218.552631578947" y="375" text-anchor="middle">S</text>
-	<line class="tick" x1="398.16" y1="375.00" x2="398.16" y2="380.00"></line>
-	<text x="398.157894736842" y="375" text-anchor="middle">O</text>
+	<line class="tick" x1="32.73" y1="375.00" x2="32.73" y2="380.00"></line>
+	<text x="32.7272727272727" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="215.91" y1="375.00" x2="215.91" y2="380.00"></line>
+	<text x="215.909090909091" y="375" text-anchor="middle">S</text>
+	<line class="tick" x1="393.18" y1="375.00" x2="393.18" y2="380.00"></line>
+	<text x="393.181818181818" y="375" text-anchor="middle">O</text>
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
 </g>
 <g data-series="widespread" class="data-series">
@@ -39,9 +39,9 @@
 	<path d="M 15.00,358.96L 470.00,358.96" id="S12000036-level-2" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Moderate</title></path>
 </g>
 <g data-series="new-cases" class="data-series">
-	<path d="M 15.00,370.36L 20.99,368.81L 26.97,368.81L 32.96,370.58L 38.95,370.14L 44.93,370.14L 50.92,371.46L 56.91,371.46L 62.89,371.46L 68.88,371.46L 74.87,370.58L 80.86,369.26L 86.84,368.81L 92.83,367.93L 98.82,367.93L 104.80,368.37L 110.79,369.26L 116.78,367.93L 122.76,368.37L 128.75,368.81L 134.74,368.37L 140.72,368.37L 146.71,367.05L 152.70,366.16L 158.68,364.84L 164.67,362.19L 170.66,362.19L 176.64,361.30L 182.63,361.30L 188.62,360.86L 194.61,357.32L 200.59,353.79L 206.58,352.02L 212.57,351.58L 218.55,349.81L 224.54,346.72L 230.53,345.39L 236.51,346.28L 242.50,348.04L 248.49,346.72L 254.47,343.18L 260.46,338.32L 266.45,336.56L 272.43,336.11L 278.42,338.32L 284.41,329.04L 290.39,327.28L 296.38,320.65L 302.37,321.09L 308.36,301.20L 314.34,288.39L 320.33,281.76L 326.32,281.32L 332.30,274.25L 338.29,266.74L 344.28,243.76L 350.26,234.48L 356.25,238.46L 362.24,228.73L 368.22,179.24L 374.21,145.22L 380.20,115.17L 386.18,90.42L 392.17,84.24L 398.16,37.40L 404.14,10.00L 410.13,21.93L 416.12,21.49L 422.11,19.28L 428.09,20.61L 434.08,19.72L 440.07,38.28" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
+	<path d="M 15.00,370.36L 20.91,368.81L 26.82,368.81L 32.73,370.58L 38.64,370.14L 44.55,370.14L 50.45,371.46L 56.36,371.46L 62.27,371.46L 68.18,371.46L 74.09,370.58L 80.00,369.26L 85.91,368.81L 91.82,367.93L 97.73,367.93L 103.64,368.37L 109.55,369.26L 115.45,367.93L 121.36,368.37L 127.27,368.81L 133.18,368.37L 139.09,368.37L 145.00,367.05L 150.91,366.16L 156.82,364.84L 162.73,362.19L 168.64,362.19L 174.55,361.30L 180.45,361.30L 186.36,360.86L 192.27,357.32L 198.18,353.79L 204.09,352.02L 210.00,351.58L 215.91,349.81L 221.82,346.72L 227.73,345.39L 233.64,346.28L 239.55,348.04L 245.45,346.72L 251.36,343.18L 257.27,338.32L 263.18,336.56L 269.09,336.11L 275.00,338.32L 280.91,329.04L 286.82,327.28L 292.73,320.65L 298.64,321.09L 304.55,301.20L 310.45,288.39L 316.36,281.76L 322.27,281.32L 328.18,274.25L 334.09,266.74L 340.00,243.76L 345.91,234.48L 351.82,238.46L 357.73,228.73L 363.64,179.24L 369.55,145.22L 375.45,115.17L 381.36,90.42L 387.27,84.24L 393.18,37.40L 399.09,10.00L 405.00,21.93L 410.91,21.49L 416.82,19.28L 422.73,20.61L 428.64,19.72L 434.55,38.28L 440.45,46.23" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
 </g>
 <g data-series="recent-cases" class="data-series">
-	<path d="M 440.07,38.28L 446.05,46.23L 452.04,45.79L 458.03,49.70L 464.01,55.16L 470.00,71.09" id="Recent cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,5"><title>Recent cases</title></path>
+	<path d="M 440.45,46.23L 446.36,45.79L 452.27,31.21L 458.18,32.68L 464.09,40.93L 470.00,31.65" id="Recent cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,5"><title>Recent cases</title></path>
 </g>
 </svg>
