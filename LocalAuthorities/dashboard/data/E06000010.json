@@ -3,14 +3,16 @@
 	"population": 261184,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-10T16:45:22Z",
-		"url": {"local":"","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
-		"local": {},
-		"national": {
+		"updated": "2020-10-13T20:57:24Z",
+		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-levels-what-you-need-to-know","national":""},
+		"local": {
 			"businessclosures": true,
 			"openinghours": true,
 			"raves": true,
 			"ruleofsix": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -62,17 +64,17 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000010&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-12T14:31:28Z",
+		"updated":"2020-10-13T14:29:57Z",
 		"type":"SpecimenDate",
 		"n": 226,
 		"days":[
-			{"date":"2020-10-12","day":0,"tot":2223},
-			{"date":"2020-10-11","day":0,"tot":2223},
-			{"date":"2020-10-10","day":11,"tot":2223},
-			{"date":"2020-10-09","day":10,"tot":2212},
-			{"date":"2020-10-08","day":26,"tot":2202},
-			{"date":"2020-10-07","day":48,"tot":2176},
-			{"date":"2020-10-06","day":36,"tot":2128},
+			{"date":"2020-10-12","day":0,"tot":2266},
+			{"date":"2020-10-11","day":2,"tot":2266},
+			{"date":"2020-10-10","day":14,"tot":2264},
+			{"date":"2020-10-09","day":34,"tot":2250},
+			{"date":"2020-10-08","day":31,"tot":2216},
+			{"date":"2020-10-07","day":56,"tot":2185},
+			{"date":"2020-10-06","day":37,"tot":2129},
 			{"date":"2020-10-05","day":40,"tot":2092},
 			{"date":"2020-10-04","day":17,"tot":2052},
 			{"date":"2020-10-03","day":28,"tot":2035},

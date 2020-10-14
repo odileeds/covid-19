@@ -3,7 +3,7 @@
 	"population": 116040,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-10T16:45:22Z",
+		"updated": "2020-10-13T20:57:24Z",
 		"url": {"local":"","national":"https://www.gov.scot/publications/coronavirus-covid-19-what-you-can-and-cannot-do/"},
 		"local": {},
 		"national": {
@@ -25,10 +25,11 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000041&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-12T14:31:28Z",
+		"updated":"2020-10-13T14:29:57Z",
 		"type":"SpecimenDate",
-		"n": 76,
+		"n": 77,
 		"days":[
+			{"date":"2020-10-13","day":14,"tot":638},
 			{"date":"2020-10-12","day":5,"tot":624},
 			{"date":"2020-10-11","day":4,"tot":619},
 			{"date":"2020-10-10","day":6,"tot":615},

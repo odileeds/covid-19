@@ -3,14 +3,16 @@
 	"population": 342195,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-10T16:45:22Z",
-		"url": {"local":"","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
-		"local": {},
-		"national": {
+		"updated": "2020-10-13T20:57:24Z",
+		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-levels-what-you-need-to-know","national":""},
+		"local": {
 			"businessclosures": true,
 			"openinghours": true,
 			"raves": true,
 			"ruleofsix": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -62,21 +64,21 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000011&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-12T14:31:28Z",
+		"updated":"2020-10-13T14:29:57Z",
 		"type":"SpecimenDate",
 		"n": 217,
 		"days":[
-			{"date":"2020-10-12","day":0,"tot":2756},
-			{"date":"2020-10-11","day":3,"tot":2756},
-			{"date":"2020-10-10","day":35,"tot":2753},
-			{"date":"2020-10-09","day":12,"tot":2718},
-			{"date":"2020-10-08","day":52,"tot":2706},
-			{"date":"2020-10-07","day":75,"tot":2654},
-			{"date":"2020-10-06","day":64,"tot":2579},
-			{"date":"2020-10-05","day":68,"tot":2515},
-			{"date":"2020-10-04","day":54,"tot":2447},
-			{"date":"2020-10-03","day":54,"tot":2393},
-			{"date":"2020-10-02","day":48,"tot":2339},
+			{"date":"2020-10-12","day":0,"tot":2817},
+			{"date":"2020-10-11","day":19,"tot":2817},
+			{"date":"2020-10-10","day":39,"tot":2798},
+			{"date":"2020-10-09","day":38,"tot":2759},
+			{"date":"2020-10-08","day":61,"tot":2721},
+			{"date":"2020-10-07","day":79,"tot":2660},
+			{"date":"2020-10-06","day":64,"tot":2581},
+			{"date":"2020-10-05","day":69,"tot":2517},
+			{"date":"2020-10-04","day":54,"tot":2448},
+			{"date":"2020-10-03","day":54,"tot":2394},
+			{"date":"2020-10-02","day":49,"tot":2340},
 			{"date":"2020-10-01","day":52,"tot":2291},
 			{"date":"2020-09-30","day":58,"tot":2239},
 			{"date":"2020-09-29","day":52,"tot":2181},

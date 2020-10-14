@@ -3,14 +3,16 @@
 	"population": 197246,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-10T16:45:22Z",
-		"url": {"local":"","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
-		"local": {},
-		"national": {
+		"updated": "2020-10-13T20:57:24Z",
+		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-levels-what-you-need-to-know","national":""},
+		"local": {
 			"businessclosures": true,
 			"openinghours": true,
 			"raves": true,
 			"ruleofsix": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -62,15 +64,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000071&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-12T14:31:28Z",
+		"updated":"2020-10-13T14:29:57Z",
 		"type":"SpecimenDate",
 		"n": 217,
 		"days":[
-			{"date":"2020-10-12","day":0,"tot":979},
-			{"date":"2020-10-11","day":0,"tot":979},
-			{"date":"2020-10-10","day":1,"tot":979},
-			{"date":"2020-10-09","day":10,"tot":978},
-			{"date":"2020-10-08","day":7,"tot":968},
+			{"date":"2020-10-12","day":0,"tot":994},
+			{"date":"2020-10-11","day":1,"tot":994},
+			{"date":"2020-10-10","day":5,"tot":993},
+			{"date":"2020-10-09","day":16,"tot":988},
+			{"date":"2020-10-08","day":11,"tot":972},
 			{"date":"2020-10-07","day":16,"tot":961},
 			{"date":"2020-10-06","day":17,"tot":945},
 			{"date":"2020-10-05","day":21,"tot":928},
@@ -175,8 +177,8 @@
 			{"date":"2020-06-28","day":1,"tot":699},
 			{"date":"2020-06-27","day":0,"tot":698},
 			{"date":"2020-06-26","day":2,"tot":698},
-			{"date":"2020-06-25","day":1,"tot":696},
-			{"date":"2020-06-24","day":1,"tot":695},
+			{"date":"2020-06-25","day":2,"tot":696},
+			{"date":"2020-06-24","day":0,"tot":694},
 			{"date":"2020-06-23","day":0,"tot":694},
 			{"date":"2020-06-22","day":0,"tot":694},
 			{"date":"2020-06-21","day":0,"tot":694},

@@ -3,14 +3,16 @@
 	"population": 187964,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-10T16:45:22Z",
-		"url": {"local":"","national":"https://www.gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"},
-		"local": {},
-		"national": {
+		"updated": "2020-10-13T20:57:24Z",
+		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-levels-what-you-need-to-know","national":""},
+		"local": {
 			"businessclosures": true,
 			"openinghours": true,
 			"raves": true,
 			"ruleofsix": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -62,16 +64,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000066&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-12T14:31:28Z",
+		"updated":"2020-10-13T14:29:57Z",
 		"type":"SpecimenDate",
 		"n": 214,
 		"days":[
-			{"date":"2020-10-12","day":0,"tot":1237},
-			{"date":"2020-10-11","day":0,"tot":1237},
-			{"date":"2020-10-10","day":4,"tot":1237},
-			{"date":"2020-10-09","day":8,"tot":1233},
-			{"date":"2020-10-08","day":17,"tot":1225},
-			{"date":"2020-10-07","day":19,"tot":1208},
+			{"date":"2020-10-12","day":0,"tot":1262},
+			{"date":"2020-10-11","day":4,"tot":1262},
+			{"date":"2020-10-10","day":6,"tot":1258},
+			{"date":"2020-10-09","day":18,"tot":1252},
+			{"date":"2020-10-08","day":21,"tot":1234},
+			{"date":"2020-10-07","day":24,"tot":1213},
 			{"date":"2020-10-06","day":16,"tot":1189},
 			{"date":"2020-10-05","day":26,"tot":1173},
 			{"date":"2020-10-04","day":15,"tot":1147},
