@@ -117,23 +117,30 @@ for($i = 0; $i < @las; $i++){
 	$file = $dir."raw/$la.json";
 	$head = $dir."raw/$la.head";
 	
-	# Find the age of the file in hours
+	# Find the file age in hours
 	if(-e $head){
 		open(FILE,$head);
 		@headlines = <FILE>;
 		close(FILE);
-		$strhead = join("",@headlines);
-		$strhead =~ /Last-Modified: (.*)\n/;
-		$jd = $datetime->getJulianFromISO($datetime->parseISO($1));
+		$strhead = join("===",@headlines);
+
 		$now = $datetime->getJulianDate();
+
+		$strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i;
+		$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
 		$diff = (($now-$jd)*24);
+		# Get the last check date
+		if($strhead =~ /(^|===)date: ([^\n]*)\n/i){
+			$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
+			$diff = (($now-$jd)*24);
+		}
 	}else{
 		$diff = 24;
 	}
 
 
 	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
-	# If it is older than 2 hours we grab a new copy
+	# If we last checks more than 2 hours ago we grab a new copy
 	if($diff > 2){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
