@@ -208,7 +208,7 @@
 		.then(response => { return response.json() })
 		.then(json => {
 			lad[la].data = json;
-			lad[la].head.querySelector('a').innerHTML = json.name;
+			lad[la].head.querySelector('a').innerHTML = (this.opts.head ? (typeof this.opts.head.html==="function" ? this.opts.head.html.call(this,lad[la]) : (typeof this.opts.head.html==="string" ? this.opts.head.html : '?')) : json.name);
 
 			this.displayLA(la);
 			var i = 0;
@@ -397,6 +397,18 @@ ready(function(){
 			'restrictions': [
 				{'tagname':'h3','key':'title','html':'Restrictions'},
 				{'tagname':'div','key':'list','html':function(la){
+					var i,r,str,tier;
+					str = '';
+					tier = this.data.restrictions.tier||"";
+					if(tier){
+						str += '<span class="tier">';
+						if(tier=="Very High") str += 'Tier 3: Very high';
+						else if(tier=="High") str += 'Tier 2: High';
+						else if(tier=="Medium") str += 'Tier 1: Medium';
+						else str += '?';
+						str += '</span>';
+					}
+
 					var icons = {
 						'ruleofsix': {'title':'Rule of 6','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M14.886 2l-4.438 7.686A6.5 6.5 0 1 1 6.4 12.7L12.576 2h2.31zM12 11.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"></path></svg>'},
 						'householdmixing': {'title':'Household mixing','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"></path><path fill="white" d="M2 22a8 8 0 1 1 16 0H2zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm7.363 2.233A7.505 7.505 0 0 1 22.983 22H20c0-2.61-1-4.986-2.637-6.767zm-2.023-2.276A7.98 7.98 0 0 0 18 7a7.964 7.964 0 0 0-1.015-3.903A5 5 0 0 1 21 8a4.999 4.999 0 0 1-5.66 4.957z"></path></svg>'},
@@ -410,8 +422,7 @@ ready(function(){
 						'gatherings': {'title':'Gatherings','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 11a5 5 0 0 1 5 5v6H7v-6a5 5 0 0 1 5-5zm-6.712 3.006a6.983 6.983 0 0 0-.28 1.65L5 16v6H2v-4.5a3.5 3.5 0 0 1 3.119-3.48l.17-.014zm13.424 0A3.501 3.501 0 0 1 22 17.5V22h-3v-6c0-.693-.1-1.362-.288-1.994zM5.5 8a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm13 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM12 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"></path></svg>'}
 						
 					};
-					var str = '<ul class="restrictions">';
-					var i,r;
+					str += '<ul class="restrictions">';
 					if(this.data.restrictions.url.local){
 						for(r in this.data.restrictions.local){
 							str += '<li>'+(icons[r] ? icons[r].svg+icons[r].title : r)+' (local)</li>';
@@ -482,6 +493,9 @@ ready(function(){
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.population||'?'); }}
 			]
 		},
+		'head': {'html':function(lad){
+			return lad.data.name;
+		}},
 		'colour': function(lad){
 			var v,i,cls,la;
 			for(la in lad){

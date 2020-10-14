@@ -1,22 +1,21 @@
-HTTP/1.1 200 OK
-Date: Wed, 14 Oct 2020 07:10:04 GMT
-Content-Type: text/csv
-Content-Length: 19557
-Connection: keep-alive
-Set-Cookie: __cfduid=d78d521c7282937d715a553342b5d09c51602659404; expires=Fri, 13-Nov-20 07:10:04 GMT; path=/; domain=.parliament.uk; HttpOnly; SameSite=Lax
+HTTP/2 200 
+date: Wed, 14 Oct 2020 09:44:20 GMT
+content-type: text/csv
+content-length: 19557
+set-cookie: __cfduid=d51595e96a0ff335813aa6acd6a9cc24a1602668660; expires=Fri, 13-Nov-20 09:44:20 GMT; path=/; domain=.parliament.uk; HttpOnly; SameSite=Lax
 x-amz-id-2: URlPMJl6Vi3pN7DAY+c/Jj39fkM1GNE9hoS1HtrmX6OssoxU/JoBq7uCVFJgLmhms0xbk34DKoQ=
 x-amz-request-id: E1A1805D5220A440
-Last-Modified: Tue, 13 Oct 2020 20:57:24 GMT
+last-modified: Tue, 13 Oct 2020 20:57:24 GMT
 x-amz-version-id: FHh39ZUG3cbu5UVGrrL9Eo9LQkL455Fu
-ETag: "0d7f751787c4767798a5efd5bbbca4d6"
-CF-Cache-Status: HIT
-Age: 1927
-Expires: Wed, 14 Oct 2020 11:10:04 GMT
-Cache-Control: public, max-age=14400
-Accept-Ranges: bytes
-cf-request-id: 05c78ae1940000ce3fc1b1b200000001
-Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-Server: cloudflare
-CF-RAY: 5e1f7a7c2c50ce3f-LHR
+etag: "0d7f751787c4767798a5efd5bbbca4d6"
+cf-cache-status: HIT
+age: 3397
+expires: Wed, 14 Oct 2020 13:44:20 GMT
+cache-control: public, max-age=14400
+accept-ranges: bytes
+cf-request-id: 05c8181e0e0000072238903200000001
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+server: cloudflare
+cf-ray: 5e205c767ba80722-LHR
 alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
 

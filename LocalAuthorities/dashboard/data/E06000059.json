@@ -5,6 +5,7 @@
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-10-13T20:57:24Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-levels-what-you-need-to-know","national":""},
+		"tier": "Medium",
 		"local": {
 			"businessclosures": true,
 			"openinghours": true,
@@ -16,11 +17,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/24",
-		"updated": "2020-10-06",
-		"all": 3699,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
+		"updated": "2020-10-13",
+		"all": 3783,
 		"cov": 162,
 		"weeks":[
+			{"txt":"Week 40","all":84,"cov":0},
 			{"txt":"Week 39","all":70,"cov":0},
 			{"txt":"Week 38","all":74,"cov":0},
 			{"txt":"Week 37","all":97,"cov":0},
@@ -64,7 +66,7 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000059&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-13T14:29:57Z",
+		"updated":"2020-10-13T20:57:24Z",
 		"type":"SpecimenDate",
 		"n": 217,
 		"days":[
