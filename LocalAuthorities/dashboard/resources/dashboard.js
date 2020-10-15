@@ -492,7 +492,7 @@ ready(function(){
 				{'tagname':'h3','key':'title','html':'Population'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.population||'?'); }}
 			],
-			'population': [
+			'src': [
 				{'tagname':'h3','key':'title','html':'Data'},
 				{'tagname':'div','key':'number','html':function(la){ return '<a href="data/'+la+'.json">JSON file</a>'; }}
 			]
