@@ -116,6 +116,7 @@ for($i = 0; $i < @las; $i++){
 	$url = "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=$la&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json";
 	$file = $dir."raw/$la.json";
 	$head = $dir."raw/$la.head";
+	$lastupdated = "";
 	
 	# Find the file age in hours
 	if(-e $head){
@@ -123,11 +124,11 @@ for($i = 0; $i < @las; $i++){
 		@headlines = <FILE>;
 		close(FILE);
 		$strhead = join("===",@headlines);
-
 		$now = $datetime->getJulianDate();
-
 		$strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i;
-		$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
+		$lastupdated = $datetime->parseISO($2);
+		$jd = $datetime->getJulianFromISO($lastupdated);
+		
 		$diff = (($now-$jd)*24);
 		# Get the last check date
 		if($strhead =~ /(^|===)date: ([^\n]*)\n/i){
@@ -140,7 +141,7 @@ for($i = 0; $i < @las; $i++){
 
 
 	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
-	# If we last checks more than 2 hours ago we grab a new copy
+	# If we last checked more than 2 hours ago we grab a new copy
 	if($diff > 2){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
@@ -174,10 +175,12 @@ for($i = 0; $i < @las; $i++){
 	open(FILE,$head);
 	@headlines = <FILE>;
 	close(FILE);
-	$strhead = join("",@headlines);
-	
-	$strhead =~ /Last-Modified: (.*)\n/;
-	$casesdate = $datetime->parseISO($1);
+	$strhead = join("===",@headlines);
+	if($strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i){
+		$lastupdated = $datetime->parseISO($2);
+	}
+	print "\tLast updated = $lastupdated\n";
+	$casesdate = $lastupdated;
 	
 	
 	# Find number of lines
