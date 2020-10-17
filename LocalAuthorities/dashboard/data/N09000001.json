@@ -3,13 +3,15 @@
 	"population": 142492,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-13T20:57:24Z",
+		"updated": "2020-10-16T16:46:59Z",
 		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
 		"local": {},
 		"national": {
+			"alcoholsalesrestrictions": true,
 			"businessclosures": true,
 			"gatherings": true,
 			"householdmixing": true,
+			"notstayingaway": true,
 			"openinghours": true
 		}
 	},
