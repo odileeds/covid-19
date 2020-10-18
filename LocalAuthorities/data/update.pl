@@ -859,7 +859,6 @@ sub saveLAJSON {
 				$jsonla .= "\"maxdate\":\"".$dates[$n-1]."\",";
 				$jsonla .= "\"v\":[";
 
-print "862: $id = $dates[0], ".$dates[$n-1]."\n";
 				$min = getJulianFromISO($dates[0]);
 				$max = getJulianFromISO($dates[$n-1]);
 				$dt = getJulianFromISO($dates[0]);
