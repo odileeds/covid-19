@@ -854,60 +854,61 @@ sub saveLAJSON {
 			$jsonla = "\t\t\"$id\":{";
 			$jsonla .= "\"n\":\"$LA{$id}{'name'}\",";
 			$jsonla .= "\"c\":\"$LA{$id}{'country'}\",";
-			$jsonla .= "\"mindate\":\"$dates[0]\",";
-			$jsonla .= "\"maxdate\":\"".$dates[$n-1]."\",";
-			$jsonla .= "\"v\":[";
-
-			$min = getJulianFromISO($dates[0]);
-			$max = getJulianFromISO($dates[$n-1]);
-			$dt = getJulianFromISO($dates[0]);
-			$week = $recent-7;
-
-			@smooth = "";
-			for($i = 0; $dt <= $max; $i++, $dt++){
-				if($i > 0){
-					$jsonla .= ",";
-				}
-				$d = getDate($dt,"%Y-%m-%d");
-				$jsonla .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
-				if($pop{$id}){
-					
-					if($dt == $max){
-						$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
-					}
-
-					if($dt >= $recent-3 && $dt <= $recent+3){
-						push(@smooth,$LA{$id}{'dates'}{$d}{'daily'});
-					}
-					if($dt > $week && $dt <= $recent){
-						if(!$LAweek{$id}){ $LAweek{$id} = {'cases'=>0,'days'=>0,'update'=>'','percapita'=>0}; }
-						$LAweek{$id}{'cases'} += $LA{$id}{'dates'}{$d}{'daily'};
-						$LAweek{$id}{'days'}++;
-						$LAweek{$id}{'update'} = $d;
-					}
-				}else{
-					print "No population for $id\n";
-				}
-			}
-
-			$d = getDate($recent,"%Y-%m-%d");
-			$av = 0;
-			$n = 0;
-			for($i = 0; $i < @smooth; $i++){
-				if($smooth[$i]){
-					$av += $smooth[$i];
-					$n++;
-				}
-			}
 			if($n > 0){
+				$jsonla .= "\"mindate\":\"$dates[0]\",";
+				$jsonla .= "\"maxdate\":\"".$dates[$n-1]."\",";
+				$jsonla .= "\"v\":[";
+
+print "862: $id = $dates[0], ".$dates[$n-1]."\n";
+				$min = getJulianFromISO($dates[0]);
+				$max = getJulianFromISO($dates[$n-1]);
+				$dt = getJulianFromISO($dates[0]);
+				$week = $recent-7;
+
+				@smooth = "";
+				for($i = 0; $dt <= $max; $i++, $dt++){
+					if($i > 0){
+						$jsonla .= ",";
+					}
+					$d = getDate($dt,"%Y-%m-%d");
+					$jsonla .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
+					if($pop{$id}){
+						if($dt == $max){
+							$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
+						}
+
+						if($dt >= $recent-3 && $dt <= $recent+3){
+							push(@smooth,$LA{$id}{'dates'}{$d}{'daily'});
+						}
+						if($dt > $week && $dt <= $recent){
+							if(!$LAweek{$id}){ $LAweek{$id} = {'cases'=>0,'days'=>0,'update'=>'','percapita'=>0}; }
+							$LAweek{$id}{'cases'} += $LA{$id}{'dates'}{$d}{'daily'};
+							$LAweek{$id}{'days'}++;
+							$LAweek{$id}{'update'} = $d;
+						}
+					}else{
+						print "No population for $id\n";
+					}
+				}
+
+				$d = getDate($recent,"%Y-%m-%d");
+				$av = 0;
+				$n = 0;
+				for($i = 0; $i < @smooth; $i++){
+					if($smooth[$i]){
+						$av += $smooth[$i];
+						$n++;
+					}
+				}
 				$av /= $n;
+				$LArecent{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>int($av*1e5/$LA{$id}{'population'} + 0.5),'update'=>$d};
+				$jsonla .= $dates."]";
 			}else{
 				print "No recent days for $id\n";
+				$LArecent{$id} = {'percapita'=>'','cases'=>0,'casesUTLA'=>'','daily'=>'','update'=>''};
 			}
 			
-			$LArecent{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>int($av*1e5/$LA{$id}{'population'} + 0.5),'update'=>$d};
 
-			$jsonla .= $dates."]";
 			$jsonla .= "}";
 			$json .= $jsonla;
 		}
