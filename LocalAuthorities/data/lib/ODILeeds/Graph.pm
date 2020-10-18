@@ -71,13 +71,10 @@ sub draw {
 	$svg = "<svg width=\"".sprintf("%d",$w)."\" height=\"".sprintf("%d",$h)."\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" style=\"overflow:display\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\">\n";
 	$svg .= "<defs>\n";
 	$svg .= "\t<style>\n";
-
 	$svg .= "\t.data-series path.line { fill-opacity: 0; stroke: black; }\n";
 	$svg .= "\t.data-series path.line.dotted { stroke-dasharray: 12 20 }\n";
-	$svg .= "\t.data-series circle { display: none; }\n";
 	$svg .= "\t.data-series:hover path.line, .data-series.on path.line { stroke-width: ".($props->{'strokehover'}||1)."; }\n";
 	$svg .= "\t.data-series:hover circle, .data-series.on circle { display: inline; }\n";
-	$svg .= "\t.data-series circle:hover, .data-series circle.on { r: ".($props->{'pointhover'}||1)."px!important; }\n";
 	$svg .= "\t.graph-grid { font-family: \"Helvetica Neue\",Helvetica,Arial,\"Lucida Grande\",sans-serif; }\n";
 	$svg .= "\t.graph-grid line { stroke: black; stroke-width: ".($props->{'line'}||1)."; stroke-linecap: round; }\n";
 	$svg .= "\t.graph-grid.graph-grid-x text { text-anchor: middle; dominant-baseline: hanging; transform: translateY(".($props->{'tick'}*2)."px); }\n";
@@ -111,8 +108,14 @@ sub draw {
 				$xpos = $pos[0];
 				$ypos = $pos[1];
 				$path .= ($i == 0 ? "M":"L")." ".sprintf("%0.2f",$xpos).",".sprintf("%0.2f",$ypos);
-				if($props->{'point'} && $props->{'point'}>0){
-					$circles .= "\t<circle cx=\"".sprintf("%0.2f",$xpos)."\" cy=\"".sprintf("%0.2f",$ypos)."\" data-y=\"".$self->{'series'}[$s]{'data'}[$i]{'y'}."\" data-x=\"".$self->{'series'}[$s]{'data'}[$i]{'x'}."\" r=\"".$props->{'point'}."\" fill=\"".($self->{'series'}[$s]{'color'}||"#cc0935")."\"><title>".($self->{'series'}[$s]{'data'}[$i]{'x'}.": ".$self->{'series'}[$s]{'data'}[$i]{'y'})."</title></circle>\n";
+				if($self->{'series'}[$s]{'point'} && $self->{'series'}[$s]{'point'} > 0){
+					$circles .= "\t<circle cx=\"".sprintf("%0.2f",$xpos)."\" cy=\"".sprintf("%0.2f",$ypos)."\" data-y=\"".sprintf("%0.".($self->{'series'}[$s]{'pointprec'}||2)."f",$self->{'series'}[$s]{'data'}[$i]{'y'})."\" data-x=\"".$self->{'series'}[$s]{'data'}[$i]{'x'}."\" r=\"".$self->{'series'}[$s]{'point'}."\" fill=\"".($self->{'series'}[$s]{'color'}||"#cc0935")."\">";
+					if($self->{'series'}[$s]{'data'}[$i]{'title'}){
+						$circles .= "<title>".($self->{'series'}[$s]{'data'}[$i]{'title'})."</title>";
+					}else{
+						$circles .= "<title>".($self->{'series'}[$s]{'data'}[$i]{'x'}.": ".$self->{'series'}[$s]{'data'}[$i]{'y'})."</title>";
+					}
+					$circles .= "</circle>\n";
 				}
 			}
 		}

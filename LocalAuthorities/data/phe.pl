@@ -308,7 +308,6 @@ sub makeGraph {
 	my $la = $_[0];
 	my ($file,%ladata,@lines,$i,$j,$n,@smooth,@raw,@recent,@recentraw,$graph);
 
-	
 	@raw = [];
 	@smooth = [];
 	
@@ -322,7 +321,7 @@ sub makeGraph {
 	$n = @{$ladata{'cases'}{'days'}};
 	
 	for($i = $n-1, $j = 0; $i>= 0; $i--,$j++){
-		$raw[$j] = {'x'=>(($datetime->getJulianFromISO($ladata{'cases'}{'days'}[$i]{'date'}) + 0  - 2440587.5)*86400),'y'=>($ladata{'cases'}{'days'}[$i]{'day'}||0)};
+		$raw[$j] = {'x'=>(($datetime->getJulianFromISO($ladata{'cases'}{'days'}[$i]{'date'}) + 0  - 2440587.5)*86400),'y'=>($ladata{'cases'}{'days'}[$i]{'day'}||0),'date'=>$ladata{'cases'}{'days'}[$i]{'date'}};
 	}
 	if($la eq "E06000053"){
 		print Dumper %ladata;
@@ -342,6 +341,7 @@ sub makeGraph {
 			if($ladata{'population'}){
 				$smooth[$i]{'y'} *= 1e5/$ladata{'population'};
 			}
+			$smooth[$i]{'title'} = $raw[$i]{'date'}.": ".sprintf("%0.0f",$smooth[$i]{'y'});
 		}
 		
 		@recent = splice(@smooth,@smooth-$start,$start);
@@ -375,8 +375,7 @@ sub makeGraph {
 					'color'=>'white',
 					'stroke'=>1,
 					'strokehover'=>3,
-					'point'=>3,
-					'pointhover'=>5,
+					'point'=>1,
 					'line'=>1
 		});
 		$graph->addSeries({'title'=>'Recent cases',
@@ -385,9 +384,7 @@ sub makeGraph {
 					'color'=>'white',
 					'stroke'=>1,
 					'strokehover'=>3,
-					'stroke-dasharray'=>'5,5',
-					'point'=>3,
-					'pointhover'=>5,
+					'stroke-dasharray'=>'4,6',
 					'line'=>1
 		});
 		$svg = $graph->draw({'width'=>480,'height'=>400,'left'=>15,'bottom'=>25,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>1,'ticks'=>true}}});
