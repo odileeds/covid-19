@@ -85,6 +85,7 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 
 .data-series path, .graph-grid line { vector-effect: non-scaling-stroke; }
 .widespread .data-series path.line, .widespread .graph-grid line, .substantial .data-series path.line, .substantial .graph-grid line { stroke: white; }
+.data-series:hover circle { r:3px; }
 .data-series circle:hover { r: 5px; }
 
 
