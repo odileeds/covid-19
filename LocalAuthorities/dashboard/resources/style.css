@@ -49,6 +49,8 @@ footer a { color: white; }
 footer h2 { text-align: left; margin-top: 1em; }
 h2 a, h2 a:visited { color: inherit; }
 
+button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; vertical-align: top; line-height: 1.25em; }
+
 
 .c1-bg, .elsewhere .facebook:hover, .c1-bg-hover:hover, .c1-bg:visited { background-color: #2254F4; color: white; }
 .c2-bg, .c2-bg-hover:hover, .c2-bg:visited { background-color: #178CFF; color: black; }
@@ -76,7 +78,6 @@ h2 a, h2 a:visited { color: inherit; }
 .b6-bg { background-color: #ffffff; color: black!important; }
 a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
 .c1-bg .button, .c2-bg .button, .c3-bg .button, .c4-bg .button, .c5-bg .button, .c6-bg .button, .c7-bg .button, .c8-bg .button, .c9-bg .button, .c10-bg .button, .c11-bg .button, .c12-bg .button, .c13-bg .button, .c14-bg .button { background-color: #efefef; color: black!important; }
-.b6-bg .button { background-color: black; color: white!important; }
 
 .widespread, .grid .widespread { background: #802f67!important; color: white!important; stroke: white; fill: white; }
 .substantial, .grid .substantial { background: #c43d53!important; color: white!important; stroke: white; fill: white; }
