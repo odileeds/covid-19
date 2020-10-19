@@ -191,6 +191,7 @@ div:hover > .updated, div:hover > .title, div:focus > .updated, div:focus > .tit
 	.doublepadded { padding: 1em; }
 	.fixed.doublepadded { padding-top: 0; padding-bottom: 0; }
 	.key-item { margin-right: 0.5em; }
+	.grid h2.authority:first-child { margin-top: 0; }
 
 	.grid h2.authority { margin-top: 1em; }
 	.grid.fixed h2.authority { margin-top: 0; }
