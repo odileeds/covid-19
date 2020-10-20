@@ -129,6 +129,7 @@ sub draw {
 		if($self->{'series'}[$s]{'opacity'}){ $style .= " opacity=\"".$self->{'series'}[$s]{'opacity'}."\""; }
 		$svg .= " stroke-linecap=\"round\"";
 		if($self->{'series'}[$s]{'stroke-dasharray'}){ $svg .= " stroke-dasharray=\"".$self->{'series'}[$s]{'stroke-dasharray'}."\""; }
+		if($self->{'series'}[$s]{'stroke-dashoffset'}){ $svg .= " stroke-dashoffset=\"".$self->{'series'}[$s]{'stroke-dashoffset'}."\""; }
 		$svg .= $style."><title>".$safeseries."</title></path>\n";
 		if($self->{'series'}[$s]{'tag'}){
 			$svg .= '<text><textPath href="#'.($self->{'series'}[$s]{'id'}||$safeseries).'"'.$style.'>'.$series.'</textPath></text>';

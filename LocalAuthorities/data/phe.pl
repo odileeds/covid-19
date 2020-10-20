@@ -385,6 +385,7 @@ sub makeGraph {
 					'stroke'=>1,
 					'strokehover'=>3,
 					'stroke-dasharray'=>'4,6',
+					'stroke-dashoffset'=>4,
 					'line'=>1
 		});
 		$svg = $graph->draw({'width'=>480,'height'=>400,'left'=>15,'bottom'=>25,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>1,'ticks'=>true}}});

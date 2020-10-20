@@ -35,8 +35,8 @@ body {
 	line-height: 1.44em;
 	text-rendering: optimizeLegibility;
 }
-h1 { font-size: 2em; margin-top: 1em; line-height:1em; }
-h2 { font-size: 1.7em; margin-top: 1.7647058823529411em; font-weight: 500; line-height:1em; }
+h1 { font-size: 1.8em; margin-top: 1em; line-height:1em; font-weight: bold; }
+h2 { font-size: 1.6em; margin-top: 1.7647058823529411em; font-weight: 500; line-height:1em; }
 h3 { font-size: 1.4em; margin-top: 1.428571em; line-height:1em; }
 strong { font-weight: 700; }
 em { font-style: italic; }
@@ -182,7 +182,7 @@ div:hover > .updated, div:hover > .title, div:focus > .updated, div:focus > .tit
 	z-index: 1000;
 }
 .tier { background: white; color: black; display: inline-block; padding: 0 0.5em; margin: 0.25em 0;}
-
+svg g.data-series[data-series=new-cases] circle:last-child { r: 6px; }
 
 @media only screen and (max-width: 640px) {
 
