@@ -3,7 +3,7 @@
 	"population": 149190,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-very-high","national":""},
 		"tier": "Very High",
 		"local": {
@@ -18,11 +18,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 1098,
-		"cov": 109,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 1127,
+		"cov": 112,
 		"weeks":[
+			{"txt":"Week 41","all":29,"cov":3},
 			{"txt":"Week 40","all":25,"cov":3},
 			{"txt":"Week 39","all":26,"cov":3},
 			{"txt":"Week 38","all":29,"cov":0},
@@ -67,14 +68,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000008&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 220,
+		"n": 221,
 		"days":[
-			{"date":"2020-10-18","day":4,"tot":4449},
-			{"date":"2020-10-17","day":73,"tot":4445},
-			{"date":"2020-10-16","day":96,"tot":4372},
-			{"date":"2020-10-15","day":126,"tot":4276},
+			{"date":"2020-10-19","day":1,"tot":4604},
+			{"date":"2020-10-18","day":83,"tot":4603},
+			{"date":"2020-10-17","day":122,"tot":4520},
+			{"date":"2020-10-16","day":121,"tot":4398},
+			{"date":"2020-10-15","day":127,"tot":4277},
 			{"date":"2020-10-14","day":137,"tot":4150},
 			{"date":"2020-10-13","day":96,"tot":4013},
 			{"date":"2020-10-12","day":135,"tot":3917},

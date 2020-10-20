@@ -3,7 +3,7 @@
 	"population": 115012,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-high","national":""},
 		"tier": "High",
 		"local": {
@@ -18,11 +18,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 956,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 983,
 		"cov": 105,
 		"weeks":[
+			{"txt":"Week 41","all":27,"cov":0},
 			{"txt":"Week 40","all":24,"cov":1},
 			{"txt":"Week 39","all":24,"cov":0},
 			{"txt":"Week 38","all":17,"cov":0},
@@ -67,14 +68,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000172&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 226,
+		"n": 227,
 		"days":[
-			{"date":"2020-10-18","day":2,"tot":1530},
-			{"date":"2020-10-17","day":23,"tot":1528},
-			{"date":"2020-10-16","day":30,"tot":1505},
-			{"date":"2020-10-15","day":48,"tot":1475},
+			{"date":"2020-10-19","day":10,"tot":1612},
+			{"date":"2020-10-18","day":35,"tot":1602},
+			{"date":"2020-10-17","day":42,"tot":1567},
+			{"date":"2020-10-16","day":49,"tot":1525},
+			{"date":"2020-10-15","day":49,"tot":1476},
 			{"date":"2020-10-14","day":50,"tot":1427},
 			{"date":"2020-10-13","day":60,"tot":1377},
 			{"date":"2020-10-12","day":64,"tot":1317},

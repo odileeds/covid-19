@@ -3,7 +3,7 @@
 	"population": 87095,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
 		"tier": "Medium",
 		"local": {
@@ -17,11 +17,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 854,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 871,
 		"cov": 105,
 		"weeks":[
+			{"txt":"Week 41","all":17,"cov":0},
 			{"txt":"Week 40","all":16,"cov":0},
 			{"txt":"Week 39","all":13,"cov":0},
 			{"txt":"Week 38","all":18,"cov":0},
@@ -66,15 +67,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000210&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 223,
+		"n": 224,
 		"days":[
-			{"date":"2020-10-18","day":0,"tot":587},
-			{"date":"2020-10-17","day":3,"tot":587},
-			{"date":"2020-10-16","day":13,"tot":584},
-			{"date":"2020-10-15","day":9,"tot":571},
-			{"date":"2020-10-14","day":10,"tot":562},
+			{"date":"2020-10-19","day":0,"tot":596},
+			{"date":"2020-10-18","day":0,"tot":596},
+			{"date":"2020-10-17","day":8,"tot":596},
+			{"date":"2020-10-16","day":16,"tot":588},
+			{"date":"2020-10-15","day":9,"tot":572},
+			{"date":"2020-10-14","day":11,"tot":563},
 			{"date":"2020-10-13","day":12,"tot":552},
 			{"date":"2020-10-12","day":11,"tot":540},
 			{"date":"2020-10-11","day":6,"tot":529},

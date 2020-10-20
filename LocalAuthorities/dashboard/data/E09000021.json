@@ -3,7 +3,7 @@
 	"population": 177731,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-high","national":""},
 		"tier": "High",
 		"local": {
@@ -18,11 +18,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 953,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 961,
 		"cov": 133,
 		"weeks":[
+			{"txt":"Week 41","all":8,"cov":0},
 			{"txt":"Week 40","all":14,"cov":1},
 			{"txt":"Week 39","all":13,"cov":0},
 			{"txt":"Week 38","all":15,"cov":1},
@@ -67,17 +68,18 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E09000021&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 233,
+		"n": 234,
 		"days":[
-			{"date":"2020-10-18","day":0,"tot":1477},
-			{"date":"2020-10-17","day":1,"tot":1477},
-			{"date":"2020-10-16","day":25,"tot":1476},
-			{"date":"2020-10-15","day":31,"tot":1451},
-			{"date":"2020-10-14","day":56,"tot":1420},
-			{"date":"2020-10-13","day":37,"tot":1364},
-			{"date":"2020-10-12","day":24,"tot":1327},
+			{"date":"2020-10-19","day":5,"tot":1517},
+			{"date":"2020-10-18","day":11,"tot":1512},
+			{"date":"2020-10-17","day":16,"tot":1501},
+			{"date":"2020-10-16","day":33,"tot":1485},
+			{"date":"2020-10-15","day":31,"tot":1452},
+			{"date":"2020-10-14","day":56,"tot":1421},
+			{"date":"2020-10-13","day":37,"tot":1365},
+			{"date":"2020-10-12","day":25,"tot":1328},
 			{"date":"2020-10-11","day":16,"tot":1303},
 			{"date":"2020-10-10","day":13,"tot":1287},
 			{"date":"2020-10-09","day":29,"tot":1274},

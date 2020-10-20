@@ -3,7 +3,7 @@
 	"population": 240131,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://gov.wales/rhondda-cynon-taf-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {
 			"householdmixing": true,
@@ -16,11 +16,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 2214,
-		"cov": 316,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 2280,
+		"cov": 334,
 		"weeks":[
+			{"txt":"Week 41","all":66,"cov":18},
 			{"txt":"Week 40","all":54,"cov":10},
 			{"txt":"Week 39","all":47,"cov":6},
 			{"txt":"Week 38","all":36,"cov":1},
@@ -65,17 +66,18 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000016&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 235,
+		"n": 236,
 		"days":[
-			{"date":"2020-10-18","day":0,"tot":4397},
-			{"date":"2020-10-17","day":2,"tot":4397},
-			{"date":"2020-10-16","day":16,"tot":4395},
-			{"date":"2020-10-15","day":30,"tot":4379},
-			{"date":"2020-10-14","day":85,"tot":4349},
-			{"date":"2020-10-13","day":101,"tot":4264},
-			{"date":"2020-10-12","day":54,"tot":4163},
+			{"date":"2020-10-19","day":0,"tot":4547},
+			{"date":"2020-10-18","day":6,"tot":4547},
+			{"date":"2020-10-17","day":5,"tot":4541},
+			{"date":"2020-10-16","day":94,"tot":4536},
+			{"date":"2020-10-15","day":64,"tot":4442},
+			{"date":"2020-10-14","day":86,"tot":4378},
+			{"date":"2020-10-13","day":118,"tot":4292},
+			{"date":"2020-10-12","day":65,"tot":4174},
 			{"date":"2020-10-11","day":53,"tot":4109},
 			{"date":"2020-10-10","day":56,"tot":4056},
 			{"date":"2020-10-09","day":90,"tot":4000},

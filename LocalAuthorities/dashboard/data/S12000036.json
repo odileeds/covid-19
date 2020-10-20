@@ -3,7 +3,7 @@
 	"population": 518500,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://www.gov.scot/news/new-moves-to-stop-covid-19-spread/","national":"https://www.gov.scot/publications/coronavirus-covid-19-what-you-can-and-cannot-do/"},
 		"local": {
 			"alcoholsalesrestrictions": true,
@@ -18,8 +18,8 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
 		"all": 0,
 		"cov": 0,
 		"weeks":[
@@ -28,14 +28,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000036&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 234,
+		"n": 235,
 		"days":[
-			{"date":"2020-10-18","day":0,"tot":4756},
-			{"date":"2020-10-17","day":3,"tot":4756},
-			{"date":"2020-10-16","day":68,"tot":4753},
-			{"date":"2020-10-15","day":71,"tot":4685},
+			{"date":"2020-10-19","day":19,"tot":4843},
+			{"date":"2020-10-18","day":8,"tot":4824},
+			{"date":"2020-10-17","day":49,"tot":4816},
+			{"date":"2020-10-16","day":80,"tot":4767},
+			{"date":"2020-10-15","day":73,"tot":4687},
 			{"date":"2020-10-14","day":83,"tot":4614},
 			{"date":"2020-10-13","day":95,"tot":4531},
 			{"date":"2020-10-12","day":120,"tot":4436},

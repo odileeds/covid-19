@@ -3,7 +3,7 @@
 	"population": 160864,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
 		"local": {},
 		"national": {
@@ -16,8 +16,8 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
 		"all": 0,
 		"cov": 0,
 		"weeks":[
@@ -26,12 +26,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=N09000011&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 255,
+		"n": 256,
 		"days":[
-			{"date":"2020-10-18","day":24,"tot":1286},
-			{"date":"2020-10-17","day":29,"tot":1262},
+			{"date":"2020-10-19","day":36,"tot":1329},
+			{"date":"2020-10-18","day":30,"tot":1293},
+			{"date":"2020-10-17","day":30,"tot":1263},
 			{"date":"2020-10-16","day":48,"tot":1233},
 			{"date":"2020-10-15","day":45,"tot":1185},
 			{"date":"2020-10-14","day":40,"tot":1140},

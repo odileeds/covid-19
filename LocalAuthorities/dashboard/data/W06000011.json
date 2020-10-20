@@ -3,7 +3,7 @@
 	"population": 246466,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://gov.wales/swansea-council-area-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {
 			"householdmixing": true,
@@ -16,11 +16,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 2212,
-		"cov": 205,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 2254,
+		"cov": 208,
 		"weeks":[
+			{"txt":"Week 41","all":42,"cov":3},
 			{"txt":"Week 40","all":57,"cov":2},
 			{"txt":"Week 39","all":41,"cov":0},
 			{"txt":"Week 38","all":31,"cov":0},
@@ -65,15 +66,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000011&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 235,
+		"n": 236,
 		"days":[
-			{"date":"2020-10-18","day":0,"tot":2820},
-			{"date":"2020-10-17","day":0,"tot":2820},
-			{"date":"2020-10-16","day":10,"tot":2820},
-			{"date":"2020-10-15","day":54,"tot":2810},
-			{"date":"2020-10-14","day":69,"tot":2756},
+			{"date":"2020-10-19","day":0,"tot":2910},
+			{"date":"2020-10-18","day":3,"tot":2910},
+			{"date":"2020-10-17","day":10,"tot":2907},
+			{"date":"2020-10-16","day":70,"tot":2897},
+			{"date":"2020-10-15","day":64,"tot":2827},
+			{"date":"2020-10-14","day":76,"tot":2763},
 			{"date":"2020-10-13","day":61,"tot":2687},
 			{"date":"2020-10-12","day":49,"tot":2626},
 			{"date":"2020-10-11","day":52,"tot":2577},

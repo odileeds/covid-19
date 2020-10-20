@@ -3,7 +3,7 @@
 	"population": 364248,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://gov.wales/cardiff-council-area-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {
 			"householdmixing": true,
@@ -12,15 +12,17 @@
 		"national": {
 			"businessclosures": true,
 			"gatherings": true,
-			"openinghours": true
+			"openinghours": true,
+			"travelrestrictions": true
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 2402,
-		"cov": 391,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 2447,
+		"cov": 395,
 		"weeks":[
+			{"txt":"Week 41","all":45,"cov":4},
 			{"txt":"Week 40","all":63,"cov":3},
 			{"txt":"Week 39","all":46,"cov":1},
 			{"txt":"Week 38","all":42,"cov":0},
@@ -65,17 +67,18 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000015&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 235,
+		"n": 236,
 		"days":[
-			{"date":"2020-10-18","day":0,"tot":5187},
-			{"date":"2020-10-17","day":0,"tot":5187},
-			{"date":"2020-10-16","day":33,"tot":5187},
-			{"date":"2020-10-15","day":92,"tot":5154},
-			{"date":"2020-10-14","day":189,"tot":5062},
-			{"date":"2020-10-13","day":206,"tot":4873},
-			{"date":"2020-10-12","day":140,"tot":4667},
+			{"date":"2020-10-19","day":1,"tot":5410},
+			{"date":"2020-10-18","day":23,"tot":5409},
+			{"date":"2020-10-17","day":9,"tot":5386},
+			{"date":"2020-10-16","day":150,"tot":5377},
+			{"date":"2020-10-15","day":157,"tot":5227},
+			{"date":"2020-10-14","day":194,"tot":5070},
+			{"date":"2020-10-13","day":207,"tot":4876},
+			{"date":"2020-10-12","day":142,"tot":4669},
 			{"date":"2020-10-11","day":182,"tot":4527},
 			{"date":"2020-10-10","day":136,"tot":4345},
 			{"date":"2020-10-09","day":111,"tot":4209},

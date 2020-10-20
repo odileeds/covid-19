@@ -3,7 +3,7 @@
 	"population": 180012,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
 		"local": {},
 		"national": {
@@ -16,8 +16,8 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
 		"all": 0,
 		"cov": 0,
 		"weeks":[
@@ -26,18 +26,19 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=N09000010&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 236,
+		"n": 237,
 		"days":[
-			{"date":"2020-10-18","day":62,"tot":2659},
-			{"date":"2020-10-17","day":61,"tot":2597},
-			{"date":"2020-10-16","day":99,"tot":2536},
-			{"date":"2020-10-15","day":90,"tot":2437},
-			{"date":"2020-10-14","day":90,"tot":2347},
-			{"date":"2020-10-13","day":106,"tot":2257},
-			{"date":"2020-10-12","day":97,"tot":2151},
-			{"date":"2020-10-11","day":62,"tot":2054},
+			{"date":"2020-10-19","day":31,"tot":2703},
+			{"date":"2020-10-18","day":76,"tot":2672},
+			{"date":"2020-10-17","day":61,"tot":2596},
+			{"date":"2020-10-16","day":100,"tot":2535},
+			{"date":"2020-10-15","day":90,"tot":2435},
+			{"date":"2020-10-14","day":90,"tot":2345},
+			{"date":"2020-10-13","day":106,"tot":2255},
+			{"date":"2020-10-12","day":97,"tot":2149},
+			{"date":"2020-10-11","day":60,"tot":2052},
 			{"date":"2020-10-10","day":85,"tot":1992},
 			{"date":"2020-10-09","day":72,"tot":1907},
 			{"date":"2020-10-08","day":100,"tot":1835},

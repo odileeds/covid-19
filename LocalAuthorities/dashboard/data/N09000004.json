@@ -3,7 +3,7 @@
 	"population": 144246,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
 		"local": {},
 		"national": {
@@ -16,8 +16,8 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
 		"all": 0,
 		"cov": 0,
 		"weeks":[
@@ -26,16 +26,17 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=N09000004&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-19T16:34:37Z",
+		"updated":"2020-10-20T14:11:15Z",
 		"type":"SpecimenDate",
-		"n": 255,
+		"n": 256,
 		"days":[
-			{"date":"2020-10-18","day":16,"tot":1337},
-			{"date":"2020-10-17","day":45,"tot":1321},
-			{"date":"2020-10-16","day":55,"tot":1276},
-			{"date":"2020-10-15","day":71,"tot":1221},
-			{"date":"2020-10-14","day":62,"tot":1150},
-			{"date":"2020-10-13","day":67,"tot":1088},
+			{"date":"2020-10-19","day":57,"tot":1424},
+			{"date":"2020-10-18","day":48,"tot":1367},
+			{"date":"2020-10-17","day":44,"tot":1319},
+			{"date":"2020-10-16","day":55,"tot":1275},
+			{"date":"2020-10-15","day":71,"tot":1220},
+			{"date":"2020-10-14","day":62,"tot":1149},
+			{"date":"2020-10-13","day":66,"tot":1087},
 			{"date":"2020-10-12","day":65,"tot":1021},
 			{"date":"2020-10-11","day":52,"tot":956},
 			{"date":"2020-10-10","day":35,"tot":904},

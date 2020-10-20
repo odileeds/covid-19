@@ -3,7 +3,7 @@
 	"population": 545926,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-16T16:46:59Z",
+		"updated": "2020-10-20T11:12:40Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
 		"tier": "Medium",
 		"local": {
@@ -17,11 +17,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/25",
-		"updated": "2020-10-13",
-		"all": 3805,
-		"cov": 414,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
+		"updated": "2020-10-20",
+		"all": 3879,
+		"cov": 415,
 		"weeks":[
+			{"txt":"Week 41","all":74,"cov":1},
 			{"txt":"Week 40","all":77,"cov":3},
 			{"txt":"Week 39","all":79,"cov":0},
 			{"txt":"Week 38","all":78,"cov":2},
