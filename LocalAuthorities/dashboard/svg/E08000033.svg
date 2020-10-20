@@ -12,263 +12,269 @@
 	</style>
 </defs>
 <g class="graph-grid graph-grid-y">
-	<line x1="15.00" y1="375.00" x2="470.00" y2="375.00" data-left="15"></line>
-	<text x="25" y="375" text-anchor="end">0</text>
-	<text x="25" y="285.4655" text-anchor="end">10</text>
-	<text x="25" y="195.931" text-anchor="end">20</text>
-	<text x="25" y="106.3965" text-anchor="end">30</text>
-	<text x="25" y="16.862" text-anchor="end">40</text>
+	<line x1="25.00" y1="375.00" x2="470.00" y2="375.00" data-left="25"></line>
+	<text x="35" y="375" text-anchor="end">0</text>
+	<text x="35" y="285.4655" text-anchor="end">10</text>
+	<text x="35" y="195.931" text-anchor="end">20</text>
+	<text x="35" y="106.3965" text-anchor="end">30</text>
+	<text x="35" y="16.862" text-anchor="end">40</text>
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
 </g>
 <g class="graph-grid graph-grid-x">
-	<line class="tick" x1="59.89" y1="375.00" x2="59.89" y2="380.00"></line>
-	<text x="59.8878923766816" y="375" text-anchor="middle">A</text>
-	<line class="tick" x1="121.10" y1="375.00" x2="121.10" y2="380.00"></line>
-	<text x="121.09865470852" y="375" text-anchor="middle">M</text>
-	<line class="tick" x1="184.35" y1="375.00" x2="184.35" y2="380.00"></line>
-	<text x="184.349775784753" y="375" text-anchor="middle">J</text>
-	<line class="tick" x1="245.56" y1="375.00" x2="245.56" y2="380.00"></line>
-	<text x="245.560538116592" y="375" text-anchor="middle">J</text>
-	<line class="tick" x1="308.81" y1="375.00" x2="308.81" y2="380.00"></line>
-	<text x="308.811659192825" y="375" text-anchor="middle">A</text>
-	<line class="tick" x1="372.06" y1="375.00" x2="372.06" y2="380.00"></line>
-	<text x="372.062780269058" y="375" text-anchor="middle">S</text>
-	<line class="tick" x1="433.27" y1="375.00" x2="433.27" y2="380.00"></line>
-	<text x="433.273542600897" y="375" text-anchor="middle">O</text>
+	<line class="tick" x1="68.90" y1="375.00" x2="68.90" y2="380.00"></line>
+	<text x="68.9013452914798" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="128.77" y1="375.00" x2="128.77" y2="380.00"></line>
+	<text x="128.766816143498" y="375" text-anchor="middle">M</text>
+	<line class="tick" x1="190.63" y1="375.00" x2="190.63" y2="380.00"></line>
+	<text x="190.627802690583" y="375" text-anchor="middle">J</text>
+	<line class="tick" x1="250.49" y1="375.00" x2="250.49" y2="380.00"></line>
+	<text x="250.493273542601" y="375" text-anchor="middle">J</text>
+	<line class="tick" x1="312.35" y1="375.00" x2="312.35" y2="380.00"></line>
+	<text x="312.354260089686" y="375" text-anchor="middle">A</text>
+	<line class="tick" x1="374.22" y1="375.00" x2="374.22" y2="380.00"></line>
+	<text x="374.215246636771" y="375" text-anchor="middle">S</text>
+	<line class="tick" x1="434.08" y1="375.00" x2="434.08" y2="380.00"></line>
+	<text x="434.080717488789" y="375" text-anchor="middle">O</text>
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(192.5px) rotate(-90deg);"></text>
 </g>
 <g data-series="widespread" class="data-series">
-	<path d="M 15.00,312.33L 470.00,312.33" id="E08000033-level-0" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Widespread</title></path>
+	<path d="M 25.00,312.33L 470.00,312.33" id="E08000033-level-0" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Widespread</title></path>
 </g>
 <g data-series="substantial" class="data-series">
-	<path d="M 15.00,339.19L 470.00,339.19" id="E08000033-level-1" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Substantial</title></path>
+	<path d="M 25.00,339.19L 470.00,339.19" id="E08000033-level-1" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Substantial</title></path>
 </g>
 <g data-series="moderate" class="data-series">
-	<path d="M 15.00,366.05L 470.00,366.05" id="E08000033-level-2" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Moderate</title></path>
+	<path d="M 25.00,366.05L 470.00,366.05" id="E08000033-level-2" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="3,3" fill-opacity="0.3" opacity="0.3"><title>Moderate</title></path>
 </g>
 <g data-series="new-cases" class="data-series">
-	<path d="M 15.00,371.82L 17.04,372.45L 19.08,372.88L 21.12,371.97L 23.16,372.57L 25.20,373.79L 27.24,373.79L 29.28,373.79L 31.32,372.57L 33.36,372.57L 35.40,372.57L 37.44,371.97L 39.48,369.54L 41.52,365.91L 43.57,362.27L 45.61,360.45L 47.65,354.99L 49.69,348.93L 51.73,346.50L 53.77,345.29L 55.81,342.26L 57.85,338.62L 59.89,336.80L 61.93,340.44L 63.97,341.65L 66.01,340.44L 68.05,338.01L 70.09,341.05L 72.13,341.05L 74.17,344.08L 76.21,341.05L 78.25,343.47L 80.29,342.87L 82.33,337.41L 84.37,334.38L 86.41,333.16L 88.45,331.35L 90.49,333.16L 92.53,333.77L 94.57,330.74L 96.61,332.56L 98.65,334.38L 100.70,337.41L 102.74,336.80L 104.78,337.41L 106.82,336.20L 108.86,334.98L 110.90,342.26L 112.94,336.20L 114.98,329.53L 117.02,330.74L 119.06,328.92L 121.10,329.53L 123.14,328.92L 125.18,328.92L 127.22,330.74L 129.26,340.44L 131.30,342.26L 133.34,340.44L 135.38,336.80L 137.42,338.01L 139.46,334.98L 141.50,340.44L 143.54,339.83L 145.58,338.62L 147.62,339.83L 149.66,343.47L 151.70,347.72L 153.74,349.53L 155.78,352.57L 157.83,352.57L 159.87,348.93L 161.91,351.96L 163.95,353.17L 165.99,353.78L 168.03,353.78L 170.07,353.17L 172.11,354.99L 174.15,359.84L 176.19,361.66L 178.23,361.66L 180.27,365.30L 182.31,366.51L 184.35,364.69L 186.39,364.09L 188.43,364.69L 190.47,361.05L 192.51,360.45L 194.55,359.24L 196.59,359.24L 198.63,360.45L 200.67,358.02L 202.71,357.42L 204.75,360.45L 206.79,361.05L 208.83,361.05L 210.87,360.45L 212.91,357.42L 214.96,361.66L 217.00,360.45L 219.04,359.24L 221.08,360.45L 223.12,355.60L 225.16,356.81L 227.20,359.24L 229.24,353.17L 231.28,353.17L 233.32,351.96L 235.36,350.14L 237.40,353.17L 239.44,353.78L 241.48,354.99L 243.52,359.24L 245.56,359.84L 247.60,361.05L 249.64,360.45L 251.68,356.20L 253.72,354.99L 255.76,353.17L 257.80,349.53L 259.84,347.11L 261.88,345.90L 263.92,344.68L 265.96,347.72L 268.00,342.26L 270.04,342.26L 272.09,344.08L 274.13,345.29L 276.17,345.29L 278.21,348.32L 280.25,346.50L 282.29,345.90L 284.33,345.29L 286.37,344.08L 288.41,342.26L 290.45,336.20L 292.49,330.13L 294.53,318.61L 296.57,318.01L 298.61,319.22L 300.65,323.46L 302.69,324.68L 304.73,324.07L 306.77,315.58L 308.81,325.28L 310.85,328.92L 312.89,320.43L 314.93,313.16L 316.97,311.34L 319.01,317.40L 321.05,325.89L 323.09,325.28L 325.13,319.83L 327.17,322.86L 329.22,323.46L 331.26,324.68L 333.30,324.68L 335.34,328.92L 337.38,331.95L 339.42,334.38L 341.46,336.80L 343.50,337.41L 345.54,335.59L 347.58,337.41L 349.62,333.77L 351.66,337.41L 353.70,344.08L 355.74,344.08L 357.78,347.11L 359.82,350.75L 361.86,346.50L 363.90,348.32L 365.94,344.08L 367.98,333.77L 370.02,330.13L 372.06,326.50L 374.10,322.25L 376.14,316.79L 378.18,307.70L 380.22,299.82L 382.26,304.06L 384.30,299.21L 386.35,301.03L 388.39,294.97L 390.43,299.21L 392.47,306.49L 394.51,313.76L 396.55,309.52L 398.59,310.73L 400.63,302.24L 402.67,291.33L 404.71,280.42L 406.75,273.75L 408.79,263.44L 410.83,260.41L 412.87,247.67L 414.91,242.22L 416.95,252.52L 418.99,250.10L 421.03,239.19L 423.07,230.70L 425.11,221.60L 427.15,214.33L 429.19,190.68L 431.23,167.64L 433.27,152.48L 435.31,128.84L 437.35,101.55L 439.39,68.81L 441.43,54.87L 443.48,64.57L 445.52,63.36L 447.56,63.96L 449.60,63.36L 451.64,53.65L 453.68,50.02L 455.72,46.38L 457.76,22.73L 459.80,13.03" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
-	<circle cx="15.00" cy="371.82" data-y="0.36" data-x="1583798400" r="1" fill="white"><title>2020-03-10: 0</title></circle>
-	<circle cx="17.04" cy="372.45" data-y="0.28" data-x="1583884800" r="1" fill="white"><title>2020-03-11: 0</title></circle>
-	<circle cx="19.08" cy="372.88" data-y="0.24" data-x="1583971200" r="1" fill="white"><title>2020-03-12: 0</title></circle>
-	<circle cx="21.12" cy="371.97" data-y="0.34" data-x="1584057600" r="1" fill="white"><title>2020-03-13: 0</title></circle>
-	<circle cx="23.16" cy="372.57" data-y="0.27" data-x="1584144000" r="1" fill="white"><title>2020-03-14: 0</title></circle>
-	<circle cx="25.20" cy="373.79" data-y="0.14" data-x="1584230400" r="1" fill="white"><title>2020-03-15: 0</title></circle>
-	<circle cx="27.24" cy="373.79" data-y="0.14" data-x="1584316800" r="1" fill="white"><title>2020-03-16: 0</title></circle>
-	<circle cx="29.28" cy="373.79" data-y="0.14" data-x="1584403200" r="1" fill="white"><title>2020-03-17: 0</title></circle>
-	<circle cx="31.32" cy="372.57" data-y="0.27" data-x="1584489600" r="1" fill="white"><title>2020-03-18: 0</title></circle>
-	<circle cx="33.36" cy="372.57" data-y="0.27" data-x="1584576000" r="1" fill="white"><title>2020-03-19: 0</title></circle>
-	<circle cx="35.40" cy="372.57" data-y="0.27" data-x="1584662400" r="1" fill="white"><title>2020-03-20: 0</title></circle>
-	<circle cx="37.44" cy="371.97" data-y="0.34" data-x="1584748800" r="1" fill="white"><title>2020-03-21: 0</title></circle>
-	<circle cx="39.48" cy="369.54" data-y="0.61" data-x="1584835200" r="1" fill="white"><title>2020-03-22: 1</title></circle>
-	<circle cx="41.52" cy="365.91" data-y="1.02" data-x="1584921600" r="1" fill="white"><title>2020-03-23: 1</title></circle>
-	<circle cx="43.57" cy="362.27" data-y="1.42" data-x="1585008000" r="1" fill="white"><title>2020-03-24: 1</title></circle>
-	<circle cx="45.61" cy="360.45" data-y="1.63" data-x="1585094400" r="1" fill="white"><title>2020-03-25: 2</title></circle>
-	<circle cx="47.65" cy="354.99" data-y="2.23" data-x="1585180800" r="1" fill="white"><title>2020-03-26: 2</title></circle>
-	<circle cx="49.69" cy="348.93" data-y="2.91" data-x="1585267200" r="1" fill="white"><title>2020-03-27: 3</title></circle>
-	<circle cx="51.73" cy="346.50" data-y="3.18" data-x="1585353600" r="1" fill="white"><title>2020-03-28: 3</title></circle>
-	<circle cx="53.77" cy="345.29" data-y="3.32" data-x="1585440000" r="1" fill="white"><title>2020-03-29: 3</title></circle>
-	<circle cx="55.81" cy="342.26" data-y="3.66" data-x="1585526400" r="1" fill="white"><title>2020-03-30: 4</title></circle>
-	<circle cx="57.85" cy="338.62" data-y="4.06" data-x="1585612800" r="1" fill="white"><title>2020-03-31: 4</title></circle>
-	<circle cx="59.89" cy="336.80" data-y="4.27" data-x="1585699200" r="1" fill="white"><title>2020-04-01: 4</title></circle>
-	<circle cx="61.93" cy="340.44" data-y="3.86" data-x="1585785600" r="1" fill="white"><title>2020-04-02: 4</title></circle>
-	<circle cx="63.97" cy="341.65" data-y="3.72" data-x="1585872000" r="1" fill="white"><title>2020-04-03: 4</title></circle>
-	<circle cx="66.01" cy="340.44" data-y="3.86" data-x="1585958400" r="1" fill="white"><title>2020-04-04: 4</title></circle>
-	<circle cx="68.05" cy="338.01" data-y="4.13" data-x="1586044800" r="1" fill="white"><title>2020-04-05: 4</title></circle>
-	<circle cx="70.09" cy="341.05" data-y="3.79" data-x="1586131200" r="1" fill="white"><title>2020-04-06: 4</title></circle>
-	<circle cx="72.13" cy="341.05" data-y="3.79" data-x="1586217600" r="1" fill="white"><title>2020-04-07: 4</title></circle>
-	<circle cx="74.17" cy="344.08" data-y="3.45" data-x="1586304000" r="1" fill="white"><title>2020-04-08: 3</title></circle>
-	<circle cx="76.21" cy="341.05" data-y="3.79" data-x="1586390400" r="1" fill="white"><title>2020-04-09: 4</title></circle>
-	<circle cx="78.25" cy="343.47" data-y="3.52" data-x="1586476800" r="1" fill="white"><title>2020-04-10: 4</title></circle>
-	<circle cx="80.29" cy="342.87" data-y="3.59" data-x="1586563200" r="1" fill="white"><title>2020-04-11: 4</title></circle>
-	<circle cx="82.33" cy="337.41" data-y="4.20" data-x="1586649600" r="1" fill="white"><title>2020-04-12: 4</title></circle>
-	<circle cx="84.37" cy="334.38" data-y="4.54" data-x="1586736000" r="1" fill="white"><title>2020-04-13: 5</title></circle>
-	<circle cx="86.41" cy="333.16" data-y="4.67" data-x="1586822400" r="1" fill="white"><title>2020-04-14: 5</title></circle>
-	<circle cx="88.45" cy="331.35" data-y="4.88" data-x="1586908800" r="1" fill="white"><title>2020-04-15: 5</title></circle>
-	<circle cx="90.49" cy="333.16" data-y="4.67" data-x="1586995200" r="1" fill="white"><title>2020-04-16: 5</title></circle>
-	<circle cx="92.53" cy="333.77" data-y="4.60" data-x="1587081600" r="1" fill="white"><title>2020-04-17: 5</title></circle>
-	<circle cx="94.57" cy="330.74" data-y="4.94" data-x="1587168000" r="1" fill="white"><title>2020-04-18: 5</title></circle>
-	<circle cx="96.61" cy="332.56" data-y="4.74" data-x="1587254400" r="1" fill="white"><title>2020-04-19: 5</title></circle>
-	<circle cx="98.65" cy="334.38" data-y="4.54" data-x="1587340800" r="1" fill="white"><title>2020-04-20: 5</title></circle>
-	<circle cx="100.70" cy="337.41" data-y="4.20" data-x="1587427200" r="1" fill="white"><title>2020-04-21: 4</title></circle>
-	<circle cx="102.74" cy="336.80" data-y="4.27" data-x="1587513600" r="1" fill="white"><title>2020-04-22: 4</title></circle>
-	<circle cx="104.78" cy="337.41" data-y="4.20" data-x="1587600000" r="1" fill="white"><title>2020-04-23: 4</title></circle>
-	<circle cx="106.82" cy="336.20" data-y="4.33" data-x="1587686400" r="1" fill="white"><title>2020-04-24: 4</title></circle>
-	<circle cx="108.86" cy="334.98" data-y="4.47" data-x="1587772800" r="1" fill="white"><title>2020-04-25: 4</title></circle>
-	<circle cx="110.90" cy="342.26" data-y="3.66" data-x="1587859200" r="1" fill="white"><title>2020-04-26: 4</title></circle>
-	<circle cx="112.94" cy="336.20" data-y="4.33" data-x="1587945600" r="1" fill="white"><title>2020-04-27: 4</title></circle>
-	<circle cx="114.98" cy="329.53" data-y="5.08" data-x="1588032000" r="1" fill="white"><title>2020-04-28: 5</title></circle>
-	<circle cx="117.02" cy="330.74" data-y="4.94" data-x="1588118400" r="1" fill="white"><title>2020-04-29: 5</title></circle>
-	<circle cx="119.06" cy="328.92" data-y="5.15" data-x="1588204800" r="1" fill="white"><title>2020-04-30: 5</title></circle>
-	<circle cx="121.10" cy="329.53" data-y="5.08" data-x="1588291200" r="1" fill="white"><title>2020-05-01: 5</title></circle>
-	<circle cx="123.14" cy="328.92" data-y="5.15" data-x="1588377600" r="1" fill="white"><title>2020-05-02: 5</title></circle>
-	<circle cx="125.18" cy="328.92" data-y="5.15" data-x="1588464000" r="1" fill="white"><title>2020-05-03: 5</title></circle>
-	<circle cx="127.22" cy="330.74" data-y="4.94" data-x="1588550400" r="1" fill="white"><title>2020-05-04: 5</title></circle>
-	<circle cx="129.26" cy="340.44" data-y="3.86" data-x="1588636800" r="1" fill="white"><title>2020-05-05: 4</title></circle>
-	<circle cx="131.30" cy="342.26" data-y="3.66" data-x="1588723200" r="1" fill="white"><title>2020-05-06: 4</title></circle>
-	<circle cx="133.34" cy="340.44" data-y="3.86" data-x="1588809600" r="1" fill="white"><title>2020-05-07: 4</title></circle>
-	<circle cx="135.38" cy="336.80" data-y="4.27" data-x="1588896000" r="1" fill="white"><title>2020-05-08: 4</title></circle>
-	<circle cx="137.42" cy="338.01" data-y="4.13" data-x="1588982400" r="1" fill="white"><title>2020-05-09: 4</title></circle>
-	<circle cx="139.46" cy="334.98" data-y="4.47" data-x="1589068800" r="1" fill="white"><title>2020-05-10: 4</title></circle>
-	<circle cx="141.50" cy="340.44" data-y="3.86" data-x="1589155200" r="1" fill="white"><title>2020-05-11: 4</title></circle>
-	<circle cx="143.54" cy="339.83" data-y="3.93" data-x="1589241600" r="1" fill="white"><title>2020-05-12: 4</title></circle>
-	<circle cx="145.58" cy="338.62" data-y="4.06" data-x="1589328000" r="1" fill="white"><title>2020-05-13: 4</title></circle>
-	<circle cx="147.62" cy="339.83" data-y="3.93" data-x="1589414400" r="1" fill="white"><title>2020-05-14: 4</title></circle>
-	<circle cx="149.66" cy="343.47" data-y="3.52" data-x="1589500800" r="1" fill="white"><title>2020-05-15: 4</title></circle>
-	<circle cx="151.70" cy="347.72" data-y="3.05" data-x="1589587200" r="1" fill="white"><title>2020-05-16: 3</title></circle>
-	<circle cx="153.74" cy="349.53" data-y="2.84" data-x="1589673600" r="1" fill="white"><title>2020-05-17: 3</title></circle>
-	<circle cx="155.78" cy="352.57" data-y="2.51" data-x="1589760000" r="1" fill="white"><title>2020-05-18: 3</title></circle>
-	<circle cx="157.83" cy="352.57" data-y="2.51" data-x="1589846400" r="1" fill="white"><title>2020-05-19: 3</title></circle>
-	<circle cx="159.87" cy="348.93" data-y="2.91" data-x="1589932800" r="1" fill="white"><title>2020-05-20: 3</title></circle>
-	<circle cx="161.91" cy="351.96" data-y="2.57" data-x="1590019200" r="1" fill="white"><title>2020-05-21: 3</title></circle>
-	<circle cx="163.95" cy="353.17" data-y="2.44" data-x="1590105600" r="1" fill="white"><title>2020-05-22: 2</title></circle>
-	<circle cx="165.99" cy="353.78" data-y="2.37" data-x="1590192000" r="1" fill="white"><title>2020-05-23: 2</title></circle>
-	<circle cx="168.03" cy="353.78" data-y="2.37" data-x="1590278400" r="1" fill="white"><title>2020-05-24: 2</title></circle>
-	<circle cx="170.07" cy="353.17" data-y="2.44" data-x="1590364800" r="1" fill="white"><title>2020-05-25: 2</title></circle>
-	<circle cx="172.11" cy="354.99" data-y="2.23" data-x="1590451200" r="1" fill="white"><title>2020-05-26: 2</title></circle>
-	<circle cx="174.15" cy="359.84" data-y="1.69" data-x="1590537600" r="1" fill="white"><title>2020-05-27: 2</title></circle>
-	<circle cx="176.19" cy="361.66" data-y="1.49" data-x="1590624000" r="1" fill="white"><title>2020-05-28: 1</title></circle>
-	<circle cx="178.23" cy="361.66" data-y="1.49" data-x="1590710400" r="1" fill="white"><title>2020-05-29: 1</title></circle>
-	<circle cx="180.27" cy="365.30" data-y="1.08" data-x="1590796800" r="1" fill="white"><title>2020-05-30: 1</title></circle>
-	<circle cx="182.31" cy="366.51" data-y="0.95" data-x="1590883200" r="1" fill="white"><title>2020-05-31: 1</title></circle>
-	<circle cx="184.35" cy="364.69" data-y="1.15" data-x="1590969600" r="1" fill="white"><title>2020-06-01: 1</title></circle>
-	<circle cx="186.39" cy="364.09" data-y="1.22" data-x="1591056000" r="1" fill="white"><title>2020-06-02: 1</title></circle>
-	<circle cx="188.43" cy="364.69" data-y="1.15" data-x="1591142400" r="1" fill="white"><title>2020-06-03: 1</title></circle>
-	<circle cx="190.47" cy="361.05" data-y="1.56" data-x="1591228800" r="1" fill="white"><title>2020-06-04: 2</title></circle>
-	<circle cx="192.51" cy="360.45" data-y="1.63" data-x="1591315200" r="1" fill="white"><title>2020-06-05: 2</title></circle>
-	<circle cx="194.55" cy="359.24" data-y="1.76" data-x="1591401600" r="1" fill="white"><title>2020-06-06: 2</title></circle>
-	<circle cx="196.59" cy="359.24" data-y="1.76" data-x="1591488000" r="1" fill="white"><title>2020-06-07: 2</title></circle>
-	<circle cx="198.63" cy="360.45" data-y="1.63" data-x="1591574400" r="1" fill="white"><title>2020-06-08: 2</title></circle>
-	<circle cx="200.67" cy="358.02" data-y="1.90" data-x="1591660800" r="1" fill="white"><title>2020-06-09: 2</title></circle>
-	<circle cx="202.71" cy="357.42" data-y="1.96" data-x="1591747200" r="1" fill="white"><title>2020-06-10: 2</title></circle>
-	<circle cx="204.75" cy="360.45" data-y="1.63" data-x="1591833600" r="1" fill="white"><title>2020-06-11: 2</title></circle>
-	<circle cx="206.79" cy="361.05" data-y="1.56" data-x="1591920000" r="1" fill="white"><title>2020-06-12: 2</title></circle>
-	<circle cx="208.83" cy="361.05" data-y="1.56" data-x="1592006400" r="1" fill="white"><title>2020-06-13: 2</title></circle>
-	<circle cx="210.87" cy="360.45" data-y="1.63" data-x="1592092800" r="1" fill="white"><title>2020-06-14: 2</title></circle>
-	<circle cx="212.91" cy="357.42" data-y="1.96" data-x="1592179200" r="1" fill="white"><title>2020-06-15: 2</title></circle>
-	<circle cx="214.96" cy="361.66" data-y="1.49" data-x="1592265600" r="1" fill="white"><title>2020-06-16: 1</title></circle>
-	<circle cx="217.00" cy="360.45" data-y="1.63" data-x="1592352000" r="1" fill="white"><title>2020-06-17: 2</title></circle>
-	<circle cx="219.04" cy="359.24" data-y="1.76" data-x="1592438400" r="1" fill="white"><title>2020-06-18: 2</title></circle>
-	<circle cx="221.08" cy="360.45" data-y="1.63" data-x="1592524800" r="1" fill="white"><title>2020-06-19: 2</title></circle>
-	<circle cx="223.12" cy="355.60" data-y="2.17" data-x="1592611200" r="1" fill="white"><title>2020-06-20: 2</title></circle>
-	<circle cx="225.16" cy="356.81" data-y="2.03" data-x="1592697600" r="1" fill="white"><title>2020-06-21: 2</title></circle>
-	<circle cx="227.20" cy="359.24" data-y="1.76" data-x="1592784000" r="1" fill="white"><title>2020-06-22: 2</title></circle>
-	<circle cx="229.24" cy="353.17" data-y="2.44" data-x="1592870400" r="1" fill="white"><title>2020-06-23: 2</title></circle>
-	<circle cx="231.28" cy="353.17" data-y="2.44" data-x="1592956800" r="1" fill="white"><title>2020-06-24: 2</title></circle>
-	<circle cx="233.32" cy="351.96" data-y="2.57" data-x="1593043200" r="1" fill="white"><title>2020-06-25: 3</title></circle>
-	<circle cx="235.36" cy="350.14" data-y="2.78" data-x="1593129600" r="1" fill="white"><title>2020-06-26: 3</title></circle>
-	<circle cx="237.40" cy="353.17" data-y="2.44" data-x="1593216000" r="1" fill="white"><title>2020-06-27: 2</title></circle>
-	<circle cx="239.44" cy="353.78" data-y="2.37" data-x="1593302400" r="1" fill="white"><title>2020-06-28: 2</title></circle>
-	<circle cx="241.48" cy="354.99" data-y="2.23" data-x="1593388800" r="1" fill="white"><title>2020-06-29: 2</title></circle>
-	<circle cx="243.52" cy="359.24" data-y="1.76" data-x="1593475200" r="1" fill="white"><title>2020-06-30: 2</title></circle>
-	<circle cx="245.56" cy="359.84" data-y="1.69" data-x="1593561600" r="1" fill="white"><title>2020-07-01: 2</title></circle>
-	<circle cx="247.60" cy="361.05" data-y="1.56" data-x="1593648000" r="1" fill="white"><title>2020-07-02: 2</title></circle>
-	<circle cx="249.64" cy="360.45" data-y="1.63" data-x="1593734400" r="1" fill="white"><title>2020-07-03: 2</title></circle>
-	<circle cx="251.68" cy="356.20" data-y="2.10" data-x="1593820800" r="1" fill="white"><title>2020-07-04: 2</title></circle>
-	<circle cx="253.72" cy="354.99" data-y="2.23" data-x="1593907200" r="1" fill="white"><title>2020-07-05: 2</title></circle>
-	<circle cx="255.76" cy="353.17" data-y="2.44" data-x="1593993600" r="1" fill="white"><title>2020-07-06: 2</title></circle>
-	<circle cx="257.80" cy="349.53" data-y="2.84" data-x="1594080000" r="1" fill="white"><title>2020-07-07: 3</title></circle>
-	<circle cx="259.84" cy="347.11" data-y="3.12" data-x="1594166400" r="1" fill="white"><title>2020-07-08: 3</title></circle>
-	<circle cx="261.88" cy="345.90" data-y="3.25" data-x="1594252800" r="1" fill="white"><title>2020-07-09: 3</title></circle>
-	<circle cx="263.92" cy="344.68" data-y="3.39" data-x="1594339200" r="1" fill="white"><title>2020-07-10: 3</title></circle>
-	<circle cx="265.96" cy="347.72" data-y="3.05" data-x="1594425600" r="1" fill="white"><title>2020-07-11: 3</title></circle>
-	<circle cx="268.00" cy="342.26" data-y="3.66" data-x="1594512000" r="1" fill="white"><title>2020-07-12: 4</title></circle>
-	<circle cx="270.04" cy="342.26" data-y="3.66" data-x="1594598400" r="1" fill="white"><title>2020-07-13: 4</title></circle>
-	<circle cx="272.09" cy="344.08" data-y="3.45" data-x="1594684800" r="1" fill="white"><title>2020-07-14: 3</title></circle>
-	<circle cx="274.13" cy="345.29" data-y="3.32" data-x="1594771200" r="1" fill="white"><title>2020-07-15: 3</title></circle>
-	<circle cx="276.17" cy="345.29" data-y="3.32" data-x="1594857600" r="1" fill="white"><title>2020-07-16: 3</title></circle>
-	<circle cx="278.21" cy="348.32" data-y="2.98" data-x="1594944000" r="1" fill="white"><title>2020-07-17: 3</title></circle>
-	<circle cx="280.25" cy="346.50" data-y="3.18" data-x="1595030400" r="1" fill="white"><title>2020-07-18: 3</title></circle>
-	<circle cx="282.29" cy="345.90" data-y="3.25" data-x="1595116800" r="1" fill="white"><title>2020-07-19: 3</title></circle>
-	<circle cx="284.33" cy="345.29" data-y="3.32" data-x="1595203200" r="1" fill="white"><title>2020-07-20: 3</title></circle>
-	<circle cx="286.37" cy="344.08" data-y="3.45" data-x="1595289600" r="1" fill="white"><title>2020-07-21: 3</title></circle>
-	<circle cx="288.41" cy="342.26" data-y="3.66" data-x="1595376000" r="1" fill="white"><title>2020-07-22: 4</title></circle>
-	<circle cx="290.45" cy="336.20" data-y="4.33" data-x="1595462400" r="1" fill="white"><title>2020-07-23: 4</title></circle>
-	<circle cx="292.49" cy="330.13" data-y="5.01" data-x="1595548800" r="1" fill="white"><title>2020-07-24: 5</title></circle>
-	<circle cx="294.53" cy="318.61" data-y="6.30" data-x="1595635200" r="1" fill="white"><title>2020-07-25: 6</title></circle>
-	<circle cx="296.57" cy="318.01" data-y="6.37" data-x="1595721600" r="1" fill="white"><title>2020-07-26: 6</title></circle>
-	<circle cx="298.61" cy="319.22" data-y="6.23" data-x="1595808000" r="1" fill="white"><title>2020-07-27: 6</title></circle>
-	<circle cx="300.65" cy="323.46" data-y="5.76" data-x="1595894400" r="1" fill="white"><title>2020-07-28: 6</title></circle>
-	<circle cx="302.69" cy="324.68" data-y="5.62" data-x="1595980800" r="1" fill="white"><title>2020-07-29: 6</title></circle>
-	<circle cx="304.73" cy="324.07" data-y="5.69" data-x="1596067200" r="1" fill="white"><title>2020-07-30: 6</title></circle>
-	<circle cx="306.77" cy="315.58" data-y="6.64" data-x="1596153600" r="1" fill="white"><title>2020-07-31: 7</title></circle>
-	<circle cx="308.81" cy="325.28" data-y="5.55" data-x="1596240000" r="1" fill="white"><title>2020-08-01: 6</title></circle>
-	<circle cx="310.85" cy="328.92" data-y="5.15" data-x="1596326400" r="1" fill="white"><title>2020-08-02: 5</title></circle>
-	<circle cx="312.89" cy="320.43" data-y="6.09" data-x="1596412800" r="1" fill="white"><title>2020-08-03: 6</title></circle>
-	<circle cx="314.93" cy="313.16" data-y="6.91" data-x="1596499200" r="1" fill="white"><title>2020-08-04: 7</title></circle>
-	<circle cx="316.97" cy="311.34" data-y="7.11" data-x="1596585600" r="1" fill="white"><title>2020-08-05: 7</title></circle>
-	<circle cx="319.01" cy="317.40" data-y="6.43" data-x="1596672000" r="1" fill="white"><title>2020-08-06: 6</title></circle>
-	<circle cx="321.05" cy="325.89" data-y="5.49" data-x="1596758400" r="1" fill="white"><title>2020-08-07: 5</title></circle>
-	<circle cx="323.09" cy="325.28" data-y="5.55" data-x="1596844800" r="1" fill="white"><title>2020-08-08: 6</title></circle>
-	<circle cx="325.13" cy="319.83" data-y="6.16" data-x="1596931200" r="1" fill="white"><title>2020-08-09: 6</title></circle>
-	<circle cx="327.17" cy="322.86" data-y="5.82" data-x="1597017600" r="1" fill="white"><title>2020-08-10: 6</title></circle>
-	<circle cx="329.22" cy="323.46" data-y="5.76" data-x="1597104000" r="1" fill="white"><title>2020-08-11: 6</title></circle>
-	<circle cx="331.26" cy="324.68" data-y="5.62" data-x="1597190400" r="1" fill="white"><title>2020-08-12: 6</title></circle>
-	<circle cx="333.30" cy="324.68" data-y="5.62" data-x="1597276800" r="1" fill="white"><title>2020-08-13: 6</title></circle>
-	<circle cx="335.34" cy="328.92" data-y="5.15" data-x="1597363200" r="1" fill="white"><title>2020-08-14: 5</title></circle>
-	<circle cx="337.38" cy="331.95" data-y="4.81" data-x="1597449600" r="1" fill="white"><title>2020-08-15: 5</title></circle>
-	<circle cx="339.42" cy="334.38" data-y="4.54" data-x="1597536000" r="1" fill="white"><title>2020-08-16: 5</title></circle>
-	<circle cx="341.46" cy="336.80" data-y="4.27" data-x="1597622400" r="1" fill="white"><title>2020-08-17: 4</title></circle>
-	<circle cx="343.50" cy="337.41" data-y="4.20" data-x="1597708800" r="1" fill="white"><title>2020-08-18: 4</title></circle>
-	<circle cx="345.54" cy="335.59" data-y="4.40" data-x="1597795200" r="1" fill="white"><title>2020-08-19: 4</title></circle>
-	<circle cx="347.58" cy="337.41" data-y="4.20" data-x="1597881600" r="1" fill="white"><title>2020-08-20: 4</title></circle>
-	<circle cx="349.62" cy="333.77" data-y="4.60" data-x="1597968000" r="1" fill="white"><title>2020-08-21: 5</title></circle>
-	<circle cx="351.66" cy="337.41" data-y="4.20" data-x="1598054400" r="1" fill="white"><title>2020-08-22: 4</title></circle>
-	<circle cx="353.70" cy="344.08" data-y="3.45" data-x="1598140800" r="1" fill="white"><title>2020-08-23: 3</title></circle>
-	<circle cx="355.74" cy="344.08" data-y="3.45" data-x="1598227200" r="1" fill="white"><title>2020-08-24: 3</title></circle>
-	<circle cx="357.78" cy="347.11" data-y="3.12" data-x="1598313600" r="1" fill="white"><title>2020-08-25: 3</title></circle>
-	<circle cx="359.82" cy="350.75" data-y="2.71" data-x="1598400000" r="1" fill="white"><title>2020-08-26: 3</title></circle>
-	<circle cx="361.86" cy="346.50" data-y="3.18" data-x="1598486400" r="1" fill="white"><title>2020-08-27: 3</title></circle>
-	<circle cx="363.90" cy="348.32" data-y="2.98" data-x="1598572800" r="1" fill="white"><title>2020-08-28: 3</title></circle>
-	<circle cx="365.94" cy="344.08" data-y="3.45" data-x="1598659200" r="1" fill="white"><title>2020-08-29: 3</title></circle>
-	<circle cx="367.98" cy="333.77" data-y="4.60" data-x="1598745600" r="1" fill="white"><title>2020-08-30: 5</title></circle>
-	<circle cx="370.02" cy="330.13" data-y="5.01" data-x="1598832000" r="1" fill="white"><title>2020-08-31: 5</title></circle>
-	<circle cx="372.06" cy="326.50" data-y="5.42" data-x="1598918400" r="1" fill="white"><title>2020-09-01: 5</title></circle>
-	<circle cx="374.10" cy="322.25" data-y="5.89" data-x="1599004800" r="1" fill="white"><title>2020-09-02: 6</title></circle>
-	<circle cx="376.14" cy="316.79" data-y="6.50" data-x="1599091200" r="1" fill="white"><title>2020-09-03: 7</title></circle>
-	<circle cx="378.18" cy="307.70" data-y="7.52" data-x="1599177600" r="1" fill="white"><title>2020-09-04: 8</title></circle>
-	<circle cx="380.22" cy="299.82" data-y="8.40" data-x="1599264000" r="1" fill="white"><title>2020-09-05: 8</title></circle>
-	<circle cx="382.26" cy="304.06" data-y="7.92" data-x="1599350400" r="1" fill="white"><title>2020-09-06: 8</title></circle>
-	<circle cx="384.30" cy="299.21" data-y="8.46" data-x="1599436800" r="1" fill="white"><title>2020-09-07: 8</title></circle>
-	<circle cx="386.35" cy="301.03" data-y="8.26" data-x="1599523200" r="1" fill="white"><title>2020-09-08: 8</title></circle>
-	<circle cx="388.39" cy="294.97" data-y="8.94" data-x="1599609600" r="1" fill="white"><title>2020-09-09: 9</title></circle>
-	<circle cx="390.43" cy="299.21" data-y="8.46" data-x="1599696000" r="1" fill="white"><title>2020-09-10: 8</title></circle>
-	<circle cx="392.47" cy="306.49" data-y="7.65" data-x="1599782400" r="1" fill="white"><title>2020-09-11: 8</title></circle>
-	<circle cx="394.51" cy="313.76" data-y="6.84" data-x="1599868800" r="1" fill="white"><title>2020-09-12: 7</title></circle>
-	<circle cx="396.55" cy="309.52" data-y="7.31" data-x="1599955200" r="1" fill="white"><title>2020-09-13: 7</title></circle>
-	<circle cx="398.59" cy="310.73" data-y="7.18" data-x="1600041600" r="1" fill="white"><title>2020-09-14: 7</title></circle>
-	<circle cx="400.63" cy="302.24" data-y="8.13" data-x="1600128000" r="1" fill="white"><title>2020-09-15: 8</title></circle>
-	<circle cx="402.67" cy="291.33" data-y="9.35" data-x="1600214400" r="1" fill="white"><title>2020-09-16: 9</title></circle>
-	<circle cx="404.71" cy="280.42" data-y="10.56" data-x="1600300800" r="1" fill="white"><title>2020-09-17: 11</title></circle>
-	<circle cx="406.75" cy="273.75" data-y="11.31" data-x="1600387200" r="1" fill="white"><title>2020-09-18: 11</title></circle>
-	<circle cx="408.79" cy="263.44" data-y="12.46" data-x="1600473600" r="1" fill="white"><title>2020-09-19: 12</title></circle>
-	<circle cx="410.83" cy="260.41" data-y="12.80" data-x="1600560000" r="1" fill="white"><title>2020-09-20: 13</title></circle>
-	<circle cx="412.87" cy="247.67" data-y="14.22" data-x="1600646400" r="1" fill="white"><title>2020-09-21: 14</title></circle>
-	<circle cx="414.91" cy="242.22" data-y="14.83" data-x="1600732800" r="1" fill="white"><title>2020-09-22: 15</title></circle>
-	<circle cx="416.95" cy="252.52" data-y="13.68" data-x="1600819200" r="1" fill="white"><title>2020-09-23: 14</title></circle>
-	<circle cx="418.99" cy="250.10" data-y="13.95" data-x="1600905600" r="1" fill="white"><title>2020-09-24: 14</title></circle>
-	<circle cx="421.03" cy="239.19" data-y="15.17" data-x="1600992000" r="1" fill="white"><title>2020-09-25: 15</title></circle>
-	<circle cx="423.07" cy="230.70" data-y="16.12" data-x="1601078400" r="1" fill="white"><title>2020-09-26: 16</title></circle>
-	<circle cx="425.11" cy="221.60" data-y="17.13" data-x="1601164800" r="1" fill="white"><title>2020-09-27: 17</title></circle>
-	<circle cx="427.15" cy="214.33" data-y="17.95" data-x="1601251200" r="1" fill="white"><title>2020-09-28: 18</title></circle>
-	<circle cx="429.19" cy="190.68" data-y="20.59" data-x="1601337600" r="1" fill="white"><title>2020-09-29: 21</title></circle>
-	<circle cx="431.23" cy="167.64" data-y="23.16" data-x="1601424000" r="1" fill="white"><title>2020-09-30: 23</title></circle>
-	<circle cx="433.27" cy="152.48" data-y="24.85" data-x="1601510400" r="1" fill="white"><title>2020-10-01: 25</title></circle>
-	<circle cx="435.31" cy="128.84" data-y="27.49" data-x="1601596800" r="1" fill="white"><title>2020-10-02: 27</title></circle>
-	<circle cx="437.35" cy="101.55" data-y="30.54" data-x="1601683200" r="1" fill="white"><title>2020-10-03: 31</title></circle>
-	<circle cx="439.39" cy="68.81" data-y="34.20" data-x="1601769600" r="1" fill="white"><title>2020-10-04: 34</title></circle>
-	<circle cx="441.43" cy="54.87" data-y="35.76" data-x="1601856000" r="1" fill="white"><title>2020-10-05: 36</title></circle>
-	<circle cx="443.48" cy="64.57" data-y="34.67" data-x="1601942400" r="1" fill="white"><title>2020-10-06: 35</title></circle>
-	<circle cx="445.52" cy="63.36" data-y="34.81" data-x="1602028800" r="1" fill="white"><title>2020-10-07: 35</title></circle>
-	<circle cx="447.56" cy="63.96" data-y="34.74" data-x="1602115200" r="1" fill="white"><title>2020-10-08: 35</title></circle>
-	<circle cx="449.60" cy="63.36" data-y="34.81" data-x="1602201600" r="1" fill="white"><title>2020-10-09: 35</title></circle>
-	<circle cx="451.64" cy="53.65" data-y="35.89" data-x="1602288000" r="1" fill="white"><title>2020-10-10: 36</title></circle>
-	<circle cx="453.68" cy="50.02" data-y="36.30" data-x="1602374400" r="1" fill="white"><title>2020-10-11: 36</title></circle>
-	<circle cx="455.72" cy="46.38" data-y="36.70" data-x="1602460800" r="1" fill="white"><title>2020-10-12: 37</title></circle>
-	<circle cx="457.76" cy="22.73" data-y="39.34" data-x="1602547200" r="1" fill="white"><title>2020-10-13: 39</title></circle>
-	<circle cx="459.80" cy="13.03" data-y="40.43" data-x="1602633600" r="1" fill="white"><title>2020-10-14: 40</title></circle>
+	<path d="M 25.00,371.82L 27.00,372.45L 28.99,372.88L 30.99,371.97L 32.98,372.57L 34.98,373.79L 36.97,373.79L 38.97,373.79L 40.96,372.57L 42.96,372.57L 44.96,372.57L 46.95,371.97L 48.95,369.54L 50.94,365.91L 52.94,362.27L 54.93,360.45L 56.93,354.99L 58.92,348.93L 60.92,346.50L 62.91,345.29L 64.91,342.26L 66.91,338.62L 68.90,336.80L 70.90,340.44L 72.89,341.65L 74.89,340.44L 76.88,338.01L 78.88,341.05L 80.87,341.05L 82.87,344.08L 84.87,341.05L 86.86,343.47L 88.86,342.87L 90.85,337.41L 92.85,334.38L 94.84,333.16L 96.84,331.35L 98.83,333.16L 100.83,333.77L 102.83,330.74L 104.82,332.56L 106.82,334.38L 108.81,337.41L 110.81,336.80L 112.80,337.41L 114.80,336.20L 116.79,334.98L 118.79,342.26L 120.78,336.20L 122.78,329.53L 124.78,330.74L 126.77,328.92L 128.77,329.53L 130.76,328.92L 132.76,328.92L 134.75,330.74L 136.75,340.44L 138.74,342.26L 140.74,340.44L 142.74,336.80L 144.73,338.01L 146.73,334.98L 148.72,340.44L 150.72,339.83L 152.71,338.62L 154.71,339.83L 156.70,343.47L 158.70,347.72L 160.70,349.53L 162.69,352.57L 164.69,352.57L 166.68,348.93L 168.68,351.96L 170.67,353.17L 172.67,353.78L 174.66,353.78L 176.66,353.17L 178.65,354.99L 180.65,359.84L 182.65,361.66L 184.64,361.66L 186.64,365.30L 188.63,366.51L 190.63,364.69L 192.62,364.09L 194.62,364.69L 196.61,361.05L 198.61,360.45L 200.61,359.24L 202.60,359.24L 204.60,360.45L 206.59,358.02L 208.59,357.42L 210.58,360.45L 212.58,361.05L 214.57,361.05L 216.57,360.45L 218.57,357.42L 220.56,361.66L 222.56,360.45L 224.55,359.24L 226.55,360.45L 228.54,355.60L 230.54,356.81L 232.53,359.24L 234.53,353.17L 236.52,353.17L 238.52,351.96L 240.52,350.14L 242.51,353.17L 244.51,353.78L 246.50,354.99L 248.50,359.24L 250.49,359.84L 252.49,361.05L 254.48,360.45L 256.48,356.20L 258.48,354.99L 260.47,353.17L 262.47,349.53L 264.46,347.11L 266.46,345.90L 268.45,344.68L 270.45,347.72L 272.44,342.26L 274.44,342.26L 276.43,344.08L 278.43,345.29L 280.43,345.29L 282.42,348.32L 284.42,346.50L 286.41,345.90L 288.41,345.29L 290.40,344.08L 292.40,342.26L 294.39,336.20L 296.39,330.13L 298.39,318.61L 300.38,318.01L 302.38,319.22L 304.37,323.46L 306.37,324.68L 308.36,324.07L 310.36,315.58L 312.35,325.28L 314.35,328.92L 316.35,320.43L 318.34,313.16L 320.34,311.34L 322.33,317.40L 324.33,325.89L 326.32,325.28L 328.32,319.83L 330.31,322.86L 332.31,323.46L 334.30,324.68L 336.30,324.68L 338.30,328.92L 340.29,331.95L 342.29,334.38L 344.28,336.80L 346.28,337.41L 348.27,335.59L 350.27,337.41L 352.26,333.77L 354.26,337.41L 356.26,344.08L 358.25,344.08L 360.25,347.11L 362.24,350.75L 364.24,346.50L 366.23,348.32L 368.23,344.08L 370.22,333.77L 372.22,330.13L 374.22,326.50L 376.21,322.25L 378.21,316.79L 380.20,307.70L 382.20,299.82L 384.19,304.06L 386.19,299.21L 388.18,301.03L 390.18,294.97L 392.17,299.21L 394.17,306.49L 396.17,313.76L 398.16,309.52L 400.16,310.73L 402.15,302.24L 404.15,291.33L 406.14,280.42L 408.14,273.75L 410.13,263.44L 412.13,260.41L 414.13,247.67L 416.12,242.22L 418.12,252.52L 420.11,250.10L 422.11,239.19L 424.10,230.70L 426.10,221.60L 428.09,214.33L 430.09,190.68L 432.09,167.64L 434.08,152.48L 436.08,128.84L 438.07,101.55L 440.07,68.81L 442.06,54.87L 444.06,64.57L 446.05,63.36L 448.05,63.96L 450.04,63.36L 452.04,53.65L 454.04,50.02L 456.03,46.38L 458.03,22.73L 460.02,13.03" id="New cases" class="line" stroke-width="1" stroke-linecap="round"><title>New cases</title></path>
+	<circle cx="25.00" cy="371.82" data-y="0.36" data-x="1583798400" r="1" fill="white"><title>2020-03-10: 0</title></circle>
+	<circle cx="27.00" cy="372.45" data-y="0.28" data-x="1583884800" r="1" fill="white"><title>2020-03-11: 0</title></circle>
+	<circle cx="28.99" cy="372.88" data-y="0.24" data-x="1583971200" r="1" fill="white"><title>2020-03-12: 0</title></circle>
+	<circle cx="30.99" cy="371.97" data-y="0.34" data-x="1584057600" r="1" fill="white"><title>2020-03-13: 0</title></circle>
+	<circle cx="32.98" cy="372.57" data-y="0.27" data-x="1584144000" r="1" fill="white"><title>2020-03-14: 0</title></circle>
+	<circle cx="34.98" cy="373.79" data-y="0.14" data-x="1584230400" r="1" fill="white"><title>2020-03-15: 0</title></circle>
+	<circle cx="36.97" cy="373.79" data-y="0.14" data-x="1584316800" r="1" fill="white"><title>2020-03-16: 0</title></circle>
+	<circle cx="38.97" cy="373.79" data-y="0.14" data-x="1584403200" r="1" fill="white"><title>2020-03-17: 0</title></circle>
+	<circle cx="40.96" cy="372.57" data-y="0.27" data-x="1584489600" r="1" fill="white"><title>2020-03-18: 0</title></circle>
+	<circle cx="42.96" cy="372.57" data-y="0.27" data-x="1584576000" r="1" fill="white"><title>2020-03-19: 0</title></circle>
+	<circle cx="44.96" cy="372.57" data-y="0.27" data-x="1584662400" r="1" fill="white"><title>2020-03-20: 0</title></circle>
+	<circle cx="46.95" cy="371.97" data-y="0.34" data-x="1584748800" r="1" fill="white"><title>2020-03-21: 0</title></circle>
+	<circle cx="48.95" cy="369.54" data-y="0.61" data-x="1584835200" r="1" fill="white"><title>2020-03-22: 1</title></circle>
+	<circle cx="50.94" cy="365.91" data-y="1.02" data-x="1584921600" r="1" fill="white"><title>2020-03-23: 1</title></circle>
+	<circle cx="52.94" cy="362.27" data-y="1.42" data-x="1585008000" r="1" fill="white"><title>2020-03-24: 1</title></circle>
+	<circle cx="54.93" cy="360.45" data-y="1.63" data-x="1585094400" r="1" fill="white"><title>2020-03-25: 2</title></circle>
+	<circle cx="56.93" cy="354.99" data-y="2.23" data-x="1585180800" r="1" fill="white"><title>2020-03-26: 2</title></circle>
+	<circle cx="58.92" cy="348.93" data-y="2.91" data-x="1585267200" r="1" fill="white"><title>2020-03-27: 3</title></circle>
+	<circle cx="60.92" cy="346.50" data-y="3.18" data-x="1585353600" r="1" fill="white"><title>2020-03-28: 3</title></circle>
+	<circle cx="62.91" cy="345.29" data-y="3.32" data-x="1585440000" r="1" fill="white"><title>2020-03-29: 3</title></circle>
+	<circle cx="64.91" cy="342.26" data-y="3.66" data-x="1585526400" r="1" fill="white"><title>2020-03-30: 4</title></circle>
+	<circle cx="66.91" cy="338.62" data-y="4.06" data-x="1585612800" r="1" fill="white"><title>2020-03-31: 4</title></circle>
+	<circle cx="68.90" cy="336.80" data-y="4.27" data-x="1585699200" r="1" fill="white"><title>2020-04-01: 4</title></circle>
+	<circle cx="70.90" cy="340.44" data-y="3.86" data-x="1585785600" r="1" fill="white"><title>2020-04-02: 4</title></circle>
+	<circle cx="72.89" cy="341.65" data-y="3.72" data-x="1585872000" r="1" fill="white"><title>2020-04-03: 4</title></circle>
+	<circle cx="74.89" cy="340.44" data-y="3.86" data-x="1585958400" r="1" fill="white"><title>2020-04-04: 4</title></circle>
+	<circle cx="76.88" cy="338.01" data-y="4.13" data-x="1586044800" r="1" fill="white"><title>2020-04-05: 4</title></circle>
+	<circle cx="78.88" cy="341.05" data-y="3.79" data-x="1586131200" r="1" fill="white"><title>2020-04-06: 4</title></circle>
+	<circle cx="80.87" cy="341.05" data-y="3.79" data-x="1586217600" r="1" fill="white"><title>2020-04-07: 4</title></circle>
+	<circle cx="82.87" cy="344.08" data-y="3.45" data-x="1586304000" r="1" fill="white"><title>2020-04-08: 3</title></circle>
+	<circle cx="84.87" cy="341.05" data-y="3.79" data-x="1586390400" r="1" fill="white"><title>2020-04-09: 4</title></circle>
+	<circle cx="86.86" cy="343.47" data-y="3.52" data-x="1586476800" r="1" fill="white"><title>2020-04-10: 4</title></circle>
+	<circle cx="88.86" cy="342.87" data-y="3.59" data-x="1586563200" r="1" fill="white"><title>2020-04-11: 4</title></circle>
+	<circle cx="90.85" cy="337.41" data-y="4.20" data-x="1586649600" r="1" fill="white"><title>2020-04-12: 4</title></circle>
+	<circle cx="92.85" cy="334.38" data-y="4.54" data-x="1586736000" r="1" fill="white"><title>2020-04-13: 5</title></circle>
+	<circle cx="94.84" cy="333.16" data-y="4.67" data-x="1586822400" r="1" fill="white"><title>2020-04-14: 5</title></circle>
+	<circle cx="96.84" cy="331.35" data-y="4.88" data-x="1586908800" r="1" fill="white"><title>2020-04-15: 5</title></circle>
+	<circle cx="98.83" cy="333.16" data-y="4.67" data-x="1586995200" r="1" fill="white"><title>2020-04-16: 5</title></circle>
+	<circle cx="100.83" cy="333.77" data-y="4.60" data-x="1587081600" r="1" fill="white"><title>2020-04-17: 5</title></circle>
+	<circle cx="102.83" cy="330.74" data-y="4.94" data-x="1587168000" r="1" fill="white"><title>2020-04-18: 5</title></circle>
+	<circle cx="104.82" cy="332.56" data-y="4.74" data-x="1587254400" r="1" fill="white"><title>2020-04-19: 5</title></circle>
+	<circle cx="106.82" cy="334.38" data-y="4.54" data-x="1587340800" r="1" fill="white"><title>2020-04-20: 5</title></circle>
+	<circle cx="108.81" cy="337.41" data-y="4.20" data-x="1587427200" r="1" fill="white"><title>2020-04-21: 4</title></circle>
+	<circle cx="110.81" cy="336.80" data-y="4.27" data-x="1587513600" r="1" fill="white"><title>2020-04-22: 4</title></circle>
+	<circle cx="112.80" cy="337.41" data-y="4.20" data-x="1587600000" r="1" fill="white"><title>2020-04-23: 4</title></circle>
+	<circle cx="114.80" cy="336.20" data-y="4.33" data-x="1587686400" r="1" fill="white"><title>2020-04-24: 4</title></circle>
+	<circle cx="116.79" cy="334.98" data-y="4.47" data-x="1587772800" r="1" fill="white"><title>2020-04-25: 4</title></circle>
+	<circle cx="118.79" cy="342.26" data-y="3.66" data-x="1587859200" r="1" fill="white"><title>2020-04-26: 4</title></circle>
+	<circle cx="120.78" cy="336.20" data-y="4.33" data-x="1587945600" r="1" fill="white"><title>2020-04-27: 4</title></circle>
+	<circle cx="122.78" cy="329.53" data-y="5.08" data-x="1588032000" r="1" fill="white"><title>2020-04-28: 5</title></circle>
+	<circle cx="124.78" cy="330.74" data-y="4.94" data-x="1588118400" r="1" fill="white"><title>2020-04-29: 5</title></circle>
+	<circle cx="126.77" cy="328.92" data-y="5.15" data-x="1588204800" r="1" fill="white"><title>2020-04-30: 5</title></circle>
+	<circle cx="128.77" cy="329.53" data-y="5.08" data-x="1588291200" r="1" fill="white"><title>2020-05-01: 5</title></circle>
+	<circle cx="130.76" cy="328.92" data-y="5.15" data-x="1588377600" r="1" fill="white"><title>2020-05-02: 5</title></circle>
+	<circle cx="132.76" cy="328.92" data-y="5.15" data-x="1588464000" r="1" fill="white"><title>2020-05-03: 5</title></circle>
+	<circle cx="134.75" cy="330.74" data-y="4.94" data-x="1588550400" r="1" fill="white"><title>2020-05-04: 5</title></circle>
+	<circle cx="136.75" cy="340.44" data-y="3.86" data-x="1588636800" r="1" fill="white"><title>2020-05-05: 4</title></circle>
+	<circle cx="138.74" cy="342.26" data-y="3.66" data-x="1588723200" r="1" fill="white"><title>2020-05-06: 4</title></circle>
+	<circle cx="140.74" cy="340.44" data-y="3.86" data-x="1588809600" r="1" fill="white"><title>2020-05-07: 4</title></circle>
+	<circle cx="142.74" cy="336.80" data-y="4.27" data-x="1588896000" r="1" fill="white"><title>2020-05-08: 4</title></circle>
+	<circle cx="144.73" cy="338.01" data-y="4.13" data-x="1588982400" r="1" fill="white"><title>2020-05-09: 4</title></circle>
+	<circle cx="146.73" cy="334.98" data-y="4.47" data-x="1589068800" r="1" fill="white"><title>2020-05-10: 4</title></circle>
+	<circle cx="148.72" cy="340.44" data-y="3.86" data-x="1589155200" r="1" fill="white"><title>2020-05-11: 4</title></circle>
+	<circle cx="150.72" cy="339.83" data-y="3.93" data-x="1589241600" r="1" fill="white"><title>2020-05-12: 4</title></circle>
+	<circle cx="152.71" cy="338.62" data-y="4.06" data-x="1589328000" r="1" fill="white"><title>2020-05-13: 4</title></circle>
+	<circle cx="154.71" cy="339.83" data-y="3.93" data-x="1589414400" r="1" fill="white"><title>2020-05-14: 4</title></circle>
+	<circle cx="156.70" cy="343.47" data-y="3.52" data-x="1589500800" r="1" fill="white"><title>2020-05-15: 4</title></circle>
+	<circle cx="158.70" cy="347.72" data-y="3.05" data-x="1589587200" r="1" fill="white"><title>2020-05-16: 3</title></circle>
+	<circle cx="160.70" cy="349.53" data-y="2.84" data-x="1589673600" r="1" fill="white"><title>2020-05-17: 3</title></circle>
+	<circle cx="162.69" cy="352.57" data-y="2.51" data-x="1589760000" r="1" fill="white"><title>2020-05-18: 3</title></circle>
+	<circle cx="164.69" cy="352.57" data-y="2.51" data-x="1589846400" r="1" fill="white"><title>2020-05-19: 3</title></circle>
+	<circle cx="166.68" cy="348.93" data-y="2.91" data-x="1589932800" r="1" fill="white"><title>2020-05-20: 3</title></circle>
+	<circle cx="168.68" cy="351.96" data-y="2.57" data-x="1590019200" r="1" fill="white"><title>2020-05-21: 3</title></circle>
+	<circle cx="170.67" cy="353.17" data-y="2.44" data-x="1590105600" r="1" fill="white"><title>2020-05-22: 2</title></circle>
+	<circle cx="172.67" cy="353.78" data-y="2.37" data-x="1590192000" r="1" fill="white"><title>2020-05-23: 2</title></circle>
+	<circle cx="174.66" cy="353.78" data-y="2.37" data-x="1590278400" r="1" fill="white"><title>2020-05-24: 2</title></circle>
+	<circle cx="176.66" cy="353.17" data-y="2.44" data-x="1590364800" r="1" fill="white"><title>2020-05-25: 2</title></circle>
+	<circle cx="178.65" cy="354.99" data-y="2.23" data-x="1590451200" r="1" fill="white"><title>2020-05-26: 2</title></circle>
+	<circle cx="180.65" cy="359.84" data-y="1.69" data-x="1590537600" r="1" fill="white"><title>2020-05-27: 2</title></circle>
+	<circle cx="182.65" cy="361.66" data-y="1.49" data-x="1590624000" r="1" fill="white"><title>2020-05-28: 1</title></circle>
+	<circle cx="184.64" cy="361.66" data-y="1.49" data-x="1590710400" r="1" fill="white"><title>2020-05-29: 1</title></circle>
+	<circle cx="186.64" cy="365.30" data-y="1.08" data-x="1590796800" r="1" fill="white"><title>2020-05-30: 1</title></circle>
+	<circle cx="188.63" cy="366.51" data-y="0.95" data-x="1590883200" r="1" fill="white"><title>2020-05-31: 1</title></circle>
+	<circle cx="190.63" cy="364.69" data-y="1.15" data-x="1590969600" r="1" fill="white"><title>2020-06-01: 1</title></circle>
+	<circle cx="192.62" cy="364.09" data-y="1.22" data-x="1591056000" r="1" fill="white"><title>2020-06-02: 1</title></circle>
+	<circle cx="194.62" cy="364.69" data-y="1.15" data-x="1591142400" r="1" fill="white"><title>2020-06-03: 1</title></circle>
+	<circle cx="196.61" cy="361.05" data-y="1.56" data-x="1591228800" r="1" fill="white"><title>2020-06-04: 2</title></circle>
+	<circle cx="198.61" cy="360.45" data-y="1.63" data-x="1591315200" r="1" fill="white"><title>2020-06-05: 2</title></circle>
+	<circle cx="200.61" cy="359.24" data-y="1.76" data-x="1591401600" r="1" fill="white"><title>2020-06-06: 2</title></circle>
+	<circle cx="202.60" cy="359.24" data-y="1.76" data-x="1591488000" r="1" fill="white"><title>2020-06-07: 2</title></circle>
+	<circle cx="204.60" cy="360.45" data-y="1.63" data-x="1591574400" r="1" fill="white"><title>2020-06-08: 2</title></circle>
+	<circle cx="206.59" cy="358.02" data-y="1.90" data-x="1591660800" r="1" fill="white"><title>2020-06-09: 2</title></circle>
+	<circle cx="208.59" cy="357.42" data-y="1.96" data-x="1591747200" r="1" fill="white"><title>2020-06-10: 2</title></circle>
+	<circle cx="210.58" cy="360.45" data-y="1.63" data-x="1591833600" r="1" fill="white"><title>2020-06-11: 2</title></circle>
+	<circle cx="212.58" cy="361.05" data-y="1.56" data-x="1591920000" r="1" fill="white"><title>2020-06-12: 2</title></circle>
+	<circle cx="214.57" cy="361.05" data-y="1.56" data-x="1592006400" r="1" fill="white"><title>2020-06-13: 2</title></circle>
+	<circle cx="216.57" cy="360.45" data-y="1.63" data-x="1592092800" r="1" fill="white"><title>2020-06-14: 2</title></circle>
+	<circle cx="218.57" cy="357.42" data-y="1.96" data-x="1592179200" r="1" fill="white"><title>2020-06-15: 2</title></circle>
+	<circle cx="220.56" cy="361.66" data-y="1.49" data-x="1592265600" r="1" fill="white"><title>2020-06-16: 1</title></circle>
+	<circle cx="222.56" cy="360.45" data-y="1.63" data-x="1592352000" r="1" fill="white"><title>2020-06-17: 2</title></circle>
+	<circle cx="224.55" cy="359.24" data-y="1.76" data-x="1592438400" r="1" fill="white"><title>2020-06-18: 2</title></circle>
+	<circle cx="226.55" cy="360.45" data-y="1.63" data-x="1592524800" r="1" fill="white"><title>2020-06-19: 2</title></circle>
+	<circle cx="228.54" cy="355.60" data-y="2.17" data-x="1592611200" r="1" fill="white"><title>2020-06-20: 2</title></circle>
+	<circle cx="230.54" cy="356.81" data-y="2.03" data-x="1592697600" r="1" fill="white"><title>2020-06-21: 2</title></circle>
+	<circle cx="232.53" cy="359.24" data-y="1.76" data-x="1592784000" r="1" fill="white"><title>2020-06-22: 2</title></circle>
+	<circle cx="234.53" cy="353.17" data-y="2.44" data-x="1592870400" r="1" fill="white"><title>2020-06-23: 2</title></circle>
+	<circle cx="236.52" cy="353.17" data-y="2.44" data-x="1592956800" r="1" fill="white"><title>2020-06-24: 2</title></circle>
+	<circle cx="238.52" cy="351.96" data-y="2.57" data-x="1593043200" r="1" fill="white"><title>2020-06-25: 3</title></circle>
+	<circle cx="240.52" cy="350.14" data-y="2.78" data-x="1593129600" r="1" fill="white"><title>2020-06-26: 3</title></circle>
+	<circle cx="242.51" cy="353.17" data-y="2.44" data-x="1593216000" r="1" fill="white"><title>2020-06-27: 2</title></circle>
+	<circle cx="244.51" cy="353.78" data-y="2.37" data-x="1593302400" r="1" fill="white"><title>2020-06-28: 2</title></circle>
+	<circle cx="246.50" cy="354.99" data-y="2.23" data-x="1593388800" r="1" fill="white"><title>2020-06-29: 2</title></circle>
+	<circle cx="248.50" cy="359.24" data-y="1.76" data-x="1593475200" r="1" fill="white"><title>2020-06-30: 2</title></circle>
+	<circle cx="250.49" cy="359.84" data-y="1.69" data-x="1593561600" r="1" fill="white"><title>2020-07-01: 2</title></circle>
+	<circle cx="252.49" cy="361.05" data-y="1.56" data-x="1593648000" r="1" fill="white"><title>2020-07-02: 2</title></circle>
+	<circle cx="254.48" cy="360.45" data-y="1.63" data-x="1593734400" r="1" fill="white"><title>2020-07-03: 2</title></circle>
+	<circle cx="256.48" cy="356.20" data-y="2.10" data-x="1593820800" r="1" fill="white"><title>2020-07-04: 2</title></circle>
+	<circle cx="258.48" cy="354.99" data-y="2.23" data-x="1593907200" r="1" fill="white"><title>2020-07-05: 2</title></circle>
+	<circle cx="260.47" cy="353.17" data-y="2.44" data-x="1593993600" r="1" fill="white"><title>2020-07-06: 2</title></circle>
+	<circle cx="262.47" cy="349.53" data-y="2.84" data-x="1594080000" r="1" fill="white"><title>2020-07-07: 3</title></circle>
+	<circle cx="264.46" cy="347.11" data-y="3.12" data-x="1594166400" r="1" fill="white"><title>2020-07-08: 3</title></circle>
+	<circle cx="266.46" cy="345.90" data-y="3.25" data-x="1594252800" r="1" fill="white"><title>2020-07-09: 3</title></circle>
+	<circle cx="268.45" cy="344.68" data-y="3.39" data-x="1594339200" r="1" fill="white"><title>2020-07-10: 3</title></circle>
+	<circle cx="270.45" cy="347.72" data-y="3.05" data-x="1594425600" r="1" fill="white"><title>2020-07-11: 3</title></circle>
+	<circle cx="272.44" cy="342.26" data-y="3.66" data-x="1594512000" r="1" fill="white"><title>2020-07-12: 4</title></circle>
+	<circle cx="274.44" cy="342.26" data-y="3.66" data-x="1594598400" r="1" fill="white"><title>2020-07-13: 4</title></circle>
+	<circle cx="276.43" cy="344.08" data-y="3.45" data-x="1594684800" r="1" fill="white"><title>2020-07-14: 3</title></circle>
+	<circle cx="278.43" cy="345.29" data-y="3.32" data-x="1594771200" r="1" fill="white"><title>2020-07-15: 3</title></circle>
+	<circle cx="280.43" cy="345.29" data-y="3.32" data-x="1594857600" r="1" fill="white"><title>2020-07-16: 3</title></circle>
+	<circle cx="282.42" cy="348.32" data-y="2.98" data-x="1594944000" r="1" fill="white"><title>2020-07-17: 3</title></circle>
+	<circle cx="284.42" cy="346.50" data-y="3.18" data-x="1595030400" r="1" fill="white"><title>2020-07-18: 3</title></circle>
+	<circle cx="286.41" cy="345.90" data-y="3.25" data-x="1595116800" r="1" fill="white"><title>2020-07-19: 3</title></circle>
+	<circle cx="288.41" cy="345.29" data-y="3.32" data-x="1595203200" r="1" fill="white"><title>2020-07-20: 3</title></circle>
+	<circle cx="290.40" cy="344.08" data-y="3.45" data-x="1595289600" r="1" fill="white"><title>2020-07-21: 3</title></circle>
+	<circle cx="292.40" cy="342.26" data-y="3.66" data-x="1595376000" r="1" fill="white"><title>2020-07-22: 4</title></circle>
+	<circle cx="294.39" cy="336.20" data-y="4.33" data-x="1595462400" r="1" fill="white"><title>2020-07-23: 4</title></circle>
+	<circle cx="296.39" cy="330.13" data-y="5.01" data-x="1595548800" r="1" fill="white"><title>2020-07-24: 5</title></circle>
+	<circle cx="298.39" cy="318.61" data-y="6.30" data-x="1595635200" r="1" fill="white"><title>2020-07-25: 6</title></circle>
+	<circle cx="300.38" cy="318.01" data-y="6.37" data-x="1595721600" r="1" fill="white"><title>2020-07-26: 6</title></circle>
+	<circle cx="302.38" cy="319.22" data-y="6.23" data-x="1595808000" r="1" fill="white"><title>2020-07-27: 6</title></circle>
+	<circle cx="304.37" cy="323.46" data-y="5.76" data-x="1595894400" r="1" fill="white"><title>2020-07-28: 6</title></circle>
+	<circle cx="306.37" cy="324.68" data-y="5.62" data-x="1595980800" r="1" fill="white"><title>2020-07-29: 6</title></circle>
+	<circle cx="308.36" cy="324.07" data-y="5.69" data-x="1596067200" r="1" fill="white"><title>2020-07-30: 6</title></circle>
+	<circle cx="310.36" cy="315.58" data-y="6.64" data-x="1596153600" r="1" fill="white"><title>2020-07-31: 7</title></circle>
+	<circle cx="312.35" cy="325.28" data-y="5.55" data-x="1596240000" r="1" fill="white"><title>2020-08-01: 6</title></circle>
+	<circle cx="314.35" cy="328.92" data-y="5.15" data-x="1596326400" r="1" fill="white"><title>2020-08-02: 5</title></circle>
+	<circle cx="316.35" cy="320.43" data-y="6.09" data-x="1596412800" r="1" fill="white"><title>2020-08-03: 6</title></circle>
+	<circle cx="318.34" cy="313.16" data-y="6.91" data-x="1596499200" r="1" fill="white"><title>2020-08-04: 7</title></circle>
+	<circle cx="320.34" cy="311.34" data-y="7.11" data-x="1596585600" r="1" fill="white"><title>2020-08-05: 7</title></circle>
+	<circle cx="322.33" cy="317.40" data-y="6.43" data-x="1596672000" r="1" fill="white"><title>2020-08-06: 6</title></circle>
+	<circle cx="324.33" cy="325.89" data-y="5.49" data-x="1596758400" r="1" fill="white"><title>2020-08-07: 5</title></circle>
+	<circle cx="326.32" cy="325.28" data-y="5.55" data-x="1596844800" r="1" fill="white"><title>2020-08-08: 6</title></circle>
+	<circle cx="328.32" cy="319.83" data-y="6.16" data-x="1596931200" r="1" fill="white"><title>2020-08-09: 6</title></circle>
+	<circle cx="330.31" cy="322.86" data-y="5.82" data-x="1597017600" r="1" fill="white"><title>2020-08-10: 6</title></circle>
+	<circle cx="332.31" cy="323.46" data-y="5.76" data-x="1597104000" r="1" fill="white"><title>2020-08-11: 6</title></circle>
+	<circle cx="334.30" cy="324.68" data-y="5.62" data-x="1597190400" r="1" fill="white"><title>2020-08-12: 6</title></circle>
+	<circle cx="336.30" cy="324.68" data-y="5.62" data-x="1597276800" r="1" fill="white"><title>2020-08-13: 6</title></circle>
+	<circle cx="338.30" cy="328.92" data-y="5.15" data-x="1597363200" r="1" fill="white"><title>2020-08-14: 5</title></circle>
+	<circle cx="340.29" cy="331.95" data-y="4.81" data-x="1597449600" r="1" fill="white"><title>2020-08-15: 5</title></circle>
+	<circle cx="342.29" cy="334.38" data-y="4.54" data-x="1597536000" r="1" fill="white"><title>2020-08-16: 5</title></circle>
+	<circle cx="344.28" cy="336.80" data-y="4.27" data-x="1597622400" r="1" fill="white"><title>2020-08-17: 4</title></circle>
+	<circle cx="346.28" cy="337.41" data-y="4.20" data-x="1597708800" r="1" fill="white"><title>2020-08-18: 4</title></circle>
+	<circle cx="348.27" cy="335.59" data-y="4.40" data-x="1597795200" r="1" fill="white"><title>2020-08-19: 4</title></circle>
+	<circle cx="350.27" cy="337.41" data-y="4.20" data-x="1597881600" r="1" fill="white"><title>2020-08-20: 4</title></circle>
+	<circle cx="352.26" cy="333.77" data-y="4.60" data-x="1597968000" r="1" fill="white"><title>2020-08-21: 5</title></circle>
+	<circle cx="354.26" cy="337.41" data-y="4.20" data-x="1598054400" r="1" fill="white"><title>2020-08-22: 4</title></circle>
+	<circle cx="356.26" cy="344.08" data-y="3.45" data-x="1598140800" r="1" fill="white"><title>2020-08-23: 3</title></circle>
+	<circle cx="358.25" cy="344.08" data-y="3.45" data-x="1598227200" r="1" fill="white"><title>2020-08-24: 3</title></circle>
+	<circle cx="360.25" cy="347.11" data-y="3.12" data-x="1598313600" r="1" fill="white"><title>2020-08-25: 3</title></circle>
+	<circle cx="362.24" cy="350.75" data-y="2.71" data-x="1598400000" r="1" fill="white"><title>2020-08-26: 3</title></circle>
+	<circle cx="364.24" cy="346.50" data-y="3.18" data-x="1598486400" r="1" fill="white"><title>2020-08-27: 3</title></circle>
+	<circle cx="366.23" cy="348.32" data-y="2.98" data-x="1598572800" r="1" fill="white"><title>2020-08-28: 3</title></circle>
+	<circle cx="368.23" cy="344.08" data-y="3.45" data-x="1598659200" r="1" fill="white"><title>2020-08-29: 3</title></circle>
+	<circle cx="370.22" cy="333.77" data-y="4.60" data-x="1598745600" r="1" fill="white"><title>2020-08-30: 5</title></circle>
+	<circle cx="372.22" cy="330.13" data-y="5.01" data-x="1598832000" r="1" fill="white"><title>2020-08-31: 5</title></circle>
+	<circle cx="374.22" cy="326.50" data-y="5.42" data-x="1598918400" r="1" fill="white"><title>2020-09-01: 5</title></circle>
+	<circle cx="376.21" cy="322.25" data-y="5.89" data-x="1599004800" r="1" fill="white"><title>2020-09-02: 6</title></circle>
+	<circle cx="378.21" cy="316.79" data-y="6.50" data-x="1599091200" r="1" fill="white"><title>2020-09-03: 7</title></circle>
+	<circle cx="380.20" cy="307.70" data-y="7.52" data-x="1599177600" r="1" fill="white"><title>2020-09-04: 8</title></circle>
+	<circle cx="382.20" cy="299.82" data-y="8.40" data-x="1599264000" r="1" fill="white"><title>2020-09-05: 8</title></circle>
+	<circle cx="384.19" cy="304.06" data-y="7.92" data-x="1599350400" r="1" fill="white"><title>2020-09-06: 8</title></circle>
+	<circle cx="386.19" cy="299.21" data-y="8.46" data-x="1599436800" r="1" fill="white"><title>2020-09-07: 8</title></circle>
+	<circle cx="388.18" cy="301.03" data-y="8.26" data-x="1599523200" r="1" fill="white"><title>2020-09-08: 8</title></circle>
+	<circle cx="390.18" cy="294.97" data-y="8.94" data-x="1599609600" r="1" fill="white"><title>2020-09-09: 9</title></circle>
+	<circle cx="392.17" cy="299.21" data-y="8.46" data-x="1599696000" r="1" fill="white"><title>2020-09-10: 8</title></circle>
+	<circle cx="394.17" cy="306.49" data-y="7.65" data-x="1599782400" r="1" fill="white"><title>2020-09-11: 8</title></circle>
+	<circle cx="396.17" cy="313.76" data-y="6.84" data-x="1599868800" r="1" fill="white"><title>2020-09-12: 7</title></circle>
+	<circle cx="398.16" cy="309.52" data-y="7.31" data-x="1599955200" r="1" fill="white"><title>2020-09-13: 7</title></circle>
+	<circle cx="400.16" cy="310.73" data-y="7.18" data-x="1600041600" r="1" fill="white"><title>2020-09-14: 7</title></circle>
+	<circle cx="402.15" cy="302.24" data-y="8.13" data-x="1600128000" r="1" fill="white"><title>2020-09-15: 8</title></circle>
+	<circle cx="404.15" cy="291.33" data-y="9.35" data-x="1600214400" r="1" fill="white"><title>2020-09-16: 9</title></circle>
+	<circle cx="406.14" cy="280.42" data-y="10.56" data-x="1600300800" r="1" fill="white"><title>2020-09-17: 11</title></circle>
+	<circle cx="408.14" cy="273.75" data-y="11.31" data-x="1600387200" r="1" fill="white"><title>2020-09-18: 11</title></circle>
+	<circle cx="410.13" cy="263.44" data-y="12.46" data-x="1600473600" r="1" fill="white"><title>2020-09-19: 12</title></circle>
+	<circle cx="412.13" cy="260.41" data-y="12.80" data-x="1600560000" r="1" fill="white"><title>2020-09-20: 13</title></circle>
+	<circle cx="414.13" cy="247.67" data-y="14.22" data-x="1600646400" r="1" fill="white"><title>2020-09-21: 14</title></circle>
+	<circle cx="416.12" cy="242.22" data-y="14.83" data-x="1600732800" r="1" fill="white"><title>2020-09-22: 15</title></circle>
+	<circle cx="418.12" cy="252.52" data-y="13.68" data-x="1600819200" r="1" fill="white"><title>2020-09-23: 14</title></circle>
+	<circle cx="420.11" cy="250.10" data-y="13.95" data-x="1600905600" r="1" fill="white"><title>2020-09-24: 14</title></circle>
+	<circle cx="422.11" cy="239.19" data-y="15.17" data-x="1600992000" r="1" fill="white"><title>2020-09-25: 15</title></circle>
+	<circle cx="424.10" cy="230.70" data-y="16.12" data-x="1601078400" r="1" fill="white"><title>2020-09-26: 16</title></circle>
+	<circle cx="426.10" cy="221.60" data-y="17.13" data-x="1601164800" r="1" fill="white"><title>2020-09-27: 17</title></circle>
+	<circle cx="428.09" cy="214.33" data-y="17.95" data-x="1601251200" r="1" fill="white"><title>2020-09-28: 18</title></circle>
+	<circle cx="430.09" cy="190.68" data-y="20.59" data-x="1601337600" r="1" fill="white"><title>2020-09-29: 21</title></circle>
+	<circle cx="432.09" cy="167.64" data-y="23.16" data-x="1601424000" r="1" fill="white"><title>2020-09-30: 23</title></circle>
+	<circle cx="434.08" cy="152.48" data-y="24.85" data-x="1601510400" r="1" fill="white"><title>2020-10-01: 25</title></circle>
+	<circle cx="436.08" cy="128.84" data-y="27.49" data-x="1601596800" r="1" fill="white"><title>2020-10-02: 27</title></circle>
+	<circle cx="438.07" cy="101.55" data-y="30.54" data-x="1601683200" r="1" fill="white"><title>2020-10-03: 31</title></circle>
+	<circle cx="440.07" cy="68.81" data-y="34.20" data-x="1601769600" r="1" fill="white"><title>2020-10-04: 34</title></circle>
+	<circle cx="442.06" cy="54.87" data-y="35.76" data-x="1601856000" r="1" fill="white"><title>2020-10-05: 36</title></circle>
+	<circle cx="444.06" cy="64.57" data-y="34.67" data-x="1601942400" r="1" fill="white"><title>2020-10-06: 35</title></circle>
+	<circle cx="446.05" cy="63.36" data-y="34.81" data-x="1602028800" r="1" fill="white"><title>2020-10-07: 35</title></circle>
+	<circle cx="448.05" cy="63.96" data-y="34.74" data-x="1602115200" r="1" fill="white"><title>2020-10-08: 35</title></circle>
+	<circle cx="450.04" cy="63.36" data-y="34.81" data-x="1602201600" r="1" fill="white"><title>2020-10-09: 35</title></circle>
+	<circle cx="452.04" cy="53.65" data-y="35.89" data-x="1602288000" r="1" fill="white"><title>2020-10-10: 36</title></circle>
+	<circle cx="454.04" cy="50.02" data-y="36.30" data-x="1602374400" r="1" fill="white"><title>2020-10-11: 36</title></circle>
+	<circle cx="456.03" cy="46.38" data-y="36.70" data-x="1602460800" r="1" fill="white"><title>2020-10-12: 37</title></circle>
+	<circle cx="458.03" cy="22.73" data-y="39.34" data-x="1602547200" r="1" fill="white"><title>2020-10-13: 39</title></circle>
+	<circle cx="460.02" cy="13.03" data-y="40.43" data-x="1602633600" r="1" fill="white"><title>2020-10-14: 40</title></circle>
 </g>
 <g data-series="recent-cases" class="data-series">
-	<path d="M 459.80,13.03L 461.84,10.00L 463.88,54.26L 465.92,73.66L 467.96,98.28L 470.00,117.17" id="Recent cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="4,6" stroke-dashoffset="4"><title>Recent cases</title></path>
+	<path d="M 460.02,13.03L 462.02,10.00L 464.01,54.26L 466.01,73.66L 468.00,98.28L 470.00,117.17" id="Recent cases" class="line" stroke-width="1" stroke-linecap="round" stroke-dasharray="4,6" stroke-dashoffset="4"><title>Recent cases</title></path>
+	<circle cx="460.02" cy="13.03" data-y="40.43" data-x="1602633600" r="2.5" fill="white"><title>2020-10-14: 40</title></circle>
+	<circle cx="462.02" cy="10.00" data-y="40.77" data-x="1602720000" r="2.5" fill="white"><title>2020-10-15: 41</title></circle>
+	<circle cx="464.01" cy="54.26" data-y="35.82" data-x="1602806400" r="2.5" fill="white"><title>2020-10-16: 36</title></circle>
+	<circle cx="466.01" cy="73.66" data-y="33.66" data-x="1602892800" r="2.5" fill="white"><title>2020-10-17: 34</title></circle>
+	<circle cx="468.00" cy="98.28" data-y="30.91" data-x="1602979200" r="2.5" fill="white"><title>2020-10-18: 31</title></circle>
+	<circle cx="470.00" cy="117.17" data-y="28.80" data-x="1603065600" r="2.5" fill="white"><title>2020-10-19: 29</title></circle>
 </g>
 </svg>

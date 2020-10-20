@@ -119,7 +119,6 @@ sub draw {
 				}
 			}
 		}
-
 		$svg .= "\n\t<path d=\"".$path."\" id=\"".($self->{'series'}[$s]{'id'}||$safeseries)."\" class=\"line\"";
 		if($self->{'series'}[$s]{'stroke'}){
 			$svg .= " stroke-width=\"".$self->{'series'}[$s]{'stroke'}."\"";

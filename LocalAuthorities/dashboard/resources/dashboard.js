@@ -392,7 +392,7 @@ ready(function(){
 					
 					return "";
 				}},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return 'Value as of '+this.data.cases.days[start].date+'. Recent days (to '+this.data.cases.days[0].date+') are under-estimates and are shown by the dashed line.'; }}
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return 'Value as of '+this.data.cases.days[start].date+'. Recent days (to '+this.data.cases.days[0].date+') are under-estimates and are shown by smaller dots.'; }}
 			],
 			'restrictions': [
 				{'tagname':'h3','key':'title','html':'Restrictions'},
