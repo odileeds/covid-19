@@ -186,6 +186,10 @@ svg g.data-series[data-series=new-cases] circle:last-child { r: 6px; }
 svg g.data-series[data-series=recent-cases] circle { r: 0px; }
 svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 
+footer p { margin-bottom: 1em; }
+footer p:last-child { margin-bottom: 0; }
+
+
 @media only screen and (max-width: 640px) {
 
 	.key { padding: 1em 1em 0 1em; }

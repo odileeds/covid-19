@@ -376,6 +376,7 @@ ready(function(){
 					return Math.round((v/7)*1e5/this.data.population);
 				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la,props,callback){
+					url = "svg/"+la+".svg";
 					if(this.data.cases.days){
 						fetch(url,{'method':'GET'})
 						.then(response => { return response.text() })
