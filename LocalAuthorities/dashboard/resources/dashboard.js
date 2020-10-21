@@ -376,12 +376,11 @@ ready(function(){
 					return Math.round((v/7)*1e5/this.data.population);
 				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la,props,callback){
-					url = "svg/"+la+".svg";
 					if(this.data.cases.days){
 						fetch(url,{'method':'GET'})
 						.then(response => { return response.text() })
 						.then(text => {
-							document.querySelector('.'+la+' .graph').innerHTML = '<a href="'+url+'">'+text+'</a>';
+							document.querySelector('.'+la+' .graph').innerHTML = text;
 							if(typeof callback==="function") callback.call((props['this']||this),props);
 						}).catch(error => {
 							console.error(error,url);
@@ -392,7 +391,7 @@ ready(function(){
 					
 					return "";
 				}},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return 'Value as of '+this.data.cases.days[start].date+'. Recent days (to '+this.data.cases.days[0].date+') are under-estimates and are shown by smaller dots.'; }}
+				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return 'Value as of '+this.data.cases.days[start].date+'. Data last updated on '+this.data.cases.updated+'. <a href="svg/'+la+'.svg">Graph for '+this.data.name+'</a>. <a href="#notes">See notes</a>.'; }}
 			],
 			'restrictions': [
 				{'tagname':'h3','key':'title','html':'Restrictions'},

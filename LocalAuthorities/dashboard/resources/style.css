@@ -183,6 +183,8 @@ div:hover > .updated, div:hover > .title, div:focus > .updated, div:focus > .tit
 }
 .tier { background: white; color: black; display: inline-block; padding: 0 0.5em; margin: 0.25em 0;}
 svg g.data-series[data-series=new-cases] circle:last-child { r: 6px; }
+svg g.data-series[data-series=recent-cases] circle { r: 0px; }
+svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 
 @media only screen and (max-width: 640px) {
 
