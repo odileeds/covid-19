@@ -62,13 +62,14 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000076&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-22T15:01:01Z",
+		"updated":"2020-10-23T15:07:06Z",
 		"type":"SpecimenDate",
-		"n": 217,
+		"n": 218,
 		"days":[
-			{"date":"2020-10-21","day":1,"tot":1110},
-			{"date":"2020-10-20","day":3,"tot":1109},
-			{"date":"2020-10-19","day":40,"tot":1106},
+			{"date":"2020-10-22","day":1,"tot":1144},
+			{"date":"2020-10-21","day":13,"tot":1143},
+			{"date":"2020-10-20","day":17,"tot":1130},
+			{"date":"2020-10-19","day":47,"tot":1113},
 			{"date":"2020-10-18","day":13,"tot":1066},
 			{"date":"2020-10-17","day":11,"tot":1053},
 			{"date":"2020-10-16","day":22,"tot":1042},
@@ -278,10 +279,10 @@
 			{"date":"2020-03-26","day":7,"tot":32},
 			{"date":"2020-03-25","day":4,"tot":25},
 			{"date":"2020-03-24","day":1,"tot":21},
-			{"date":"2020-03-23","day":9,"tot":20},
-			{"date":"2020-03-22","day":3,"tot":11},
-			{"date":"2020-03-21","day":6,"tot":8},
-			{"date":"2020-03-20","day":1,"tot":2},
+			{"date":"2020-03-23","day":10,"tot":20},
+			{"date":"2020-03-22","day":3,"tot":10},
+			{"date":"2020-03-21","day":4,"tot":7},
+			{"date":"2020-03-20","day":2,"tot":3},
 			{"date":"2020-03-19","day":1,"tot":1}
 		]
 	}
