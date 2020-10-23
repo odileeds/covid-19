@@ -3,15 +3,11 @@
 	"population": 371910,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-20T11:12:40Z",
+		"updated": "2020-10-22T19:53:20Z",
 		"url": {"local":"","national":"https://www.gov.scot/publications/coronavirus-covid-19-what-you-can-and-cannot-do/"},
 		"local": {},
 		"national": {
-			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
+
 		}
 	},
 	"deaths":{
@@ -25,18 +21,19 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000047&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-21T18:53:17Z",
+		"updated":"2020-10-22T15:01:01Z",
 		"type":"SpecimenDate",
-		"n": 236,
+		"n": 237,
 		"days":[
-			{"date":"2020-10-20","day":0,"tot":1939},
-			{"date":"2020-10-19","day":30,"tot":1939},
-			{"date":"2020-10-18","day":22,"tot":1909},
-			{"date":"2020-10-17","day":24,"tot":1887},
-			{"date":"2020-10-16","day":30,"tot":1863},
-			{"date":"2020-10-15","day":28,"tot":1833},
-			{"date":"2020-10-14","day":31,"tot":1805},
-			{"date":"2020-10-13","day":36,"tot":1774},
+			{"date":"2020-10-21","day":10,"tot":2005},
+			{"date":"2020-10-20","day":46,"tot":1995},
+			{"date":"2020-10-19","day":31,"tot":1949},
+			{"date":"2020-10-18","day":22,"tot":1918},
+			{"date":"2020-10-17","day":23,"tot":1896},
+			{"date":"2020-10-16","day":30,"tot":1873},
+			{"date":"2020-10-15","day":28,"tot":1843},
+			{"date":"2020-10-14","day":31,"tot":1815},
+			{"date":"2020-10-13","day":46,"tot":1784},
 			{"date":"2020-10-12","day":34,"tot":1738},
 			{"date":"2020-10-11","day":36,"tot":1704},
 			{"date":"2020-10-10","day":27,"tot":1668},

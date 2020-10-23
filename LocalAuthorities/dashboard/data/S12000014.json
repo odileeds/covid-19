@@ -3,18 +3,11 @@
 	"population": 160340,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-20T11:12:40Z",
+		"updated": "2020-10-22T19:53:20Z",
 		"url": {"local":"https://www.gov.scot/news/new-moves-to-stop-covid-19-spread/","national":"https://www.gov.scot/publications/coronavirus-covid-19-what-you-can-and-cannot-do/"},
-		"local": {
-			"alcoholsalesrestrictions": true,
-			"businessclosures": true
-		},
+		"local": {},
 		"national": {
-			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
+
 		}
 	},
 	"deaths":{
@@ -28,14 +21,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000014&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-21T18:53:17Z",
+		"updated":"2020-10-22T15:01:01Z",
 		"type":"SpecimenDate",
-		"n": 236,
+		"n": 237,
 		"days":[
-			{"date":"2020-10-20","day":5,"tot":1271},
-			{"date":"2020-10-19","day":18,"tot":1266},
-			{"date":"2020-10-18","day":19,"tot":1248},
-			{"date":"2020-10-17","day":13,"tot":1229},
+			{"date":"2020-10-21","day":3,"tot":1307},
+			{"date":"2020-10-20","day":35,"tot":1304},
+			{"date":"2020-10-19","day":20,"tot":1269},
+			{"date":"2020-10-18","day":19,"tot":1249},
+			{"date":"2020-10-17","day":14,"tot":1230},
 			{"date":"2020-10-16","day":17,"tot":1216},
 			{"date":"2020-10-15","day":19,"tot":1199},
 			{"date":"2020-10-14","day":19,"tot":1180},

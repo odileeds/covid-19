@@ -3,15 +3,10 @@
 	"population": 125809,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-20T11:12:40Z",
+		"updated": "2020-10-22T19:53:20Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
 		"tier": "Medium",
-		"local": {
-			"businessclosures": true,
-			"openinghours": true,
-			"raves": true,
-			"ruleofsix": true
-		},
+		"local": {},
 		"national": {
 
 		}
@@ -67,19 +62,20 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000094&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-21T18:53:17Z",
+		"updated":"2020-10-22T15:01:01Z",
 		"type":"SpecimenDate",
-		"n": 229,
+		"n": 230,
 		"days":[
-			{"date":"2020-10-20","day":0,"tot":823},
-			{"date":"2020-10-19","day":6,"tot":823},
-			{"date":"2020-10-18","day":13,"tot":817},
-			{"date":"2020-10-17","day":13,"tot":804},
-			{"date":"2020-10-16","day":13,"tot":791},
-			{"date":"2020-10-15","day":18,"tot":778},
-			{"date":"2020-10-14","day":15,"tot":760},
-			{"date":"2020-10-13","day":11,"tot":745},
-			{"date":"2020-10-12","day":14,"tot":734},
+			{"date":"2020-10-21","day":0,"tot":848},
+			{"date":"2020-10-20","day":3,"tot":848},
+			{"date":"2020-10-19","day":22,"tot":845},
+			{"date":"2020-10-18","day":13,"tot":823},
+			{"date":"2020-10-17","day":13,"tot":810},
+			{"date":"2020-10-16","day":17,"tot":797},
+			{"date":"2020-10-15","day":18,"tot":780},
+			{"date":"2020-10-14","day":15,"tot":762},
+			{"date":"2020-10-13","day":11,"tot":747},
+			{"date":"2020-10-12","day":16,"tot":736},
 			{"date":"2020-10-11","day":5,"tot":720},
 			{"date":"2020-10-10","day":13,"tot":715},
 			{"date":"2020-10-09","day":16,"tot":702},

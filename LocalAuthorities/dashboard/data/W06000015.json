@@ -3,17 +3,11 @@
 	"population": 364248,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-20T11:12:40Z",
+		"updated": "2020-10-22T19:53:20Z",
 		"url": {"local":"https://gov.wales/cardiff-council-area-lockdown-frequently-asked-questions","national":"https://gov.wales/coronavirus-regulations-guidance"},
-		"local": {
-			"householdmixing": true,
-			"stayinglocal": true
-		},
+		"local": {},
 		"national": {
-			"businessclosures": true,
-			"gatherings": true,
-			"openinghours": true,
-			"travelrestrictions": true
+
 		}
 	},
 	"deaths":{
@@ -67,16 +61,17 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000015&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-21T18:53:17Z",
+		"updated":"2020-10-22T15:01:01Z",
 		"type":"SpecimenDate",
-		"n": 237,
+		"n": 238,
 		"days":[
-			{"date":"2020-10-20","day":2,"tot":5633},
-			{"date":"2020-10-19","day":23,"tot":5631},
-			{"date":"2020-10-18","day":52,"tot":5608},
-			{"date":"2020-10-17","day":142,"tot":5556},
-			{"date":"2020-10-16","day":180,"tot":5414},
-			{"date":"2020-10-15","day":157,"tot":5234},
+			{"date":"2020-10-21","day":0,"tot":5854},
+			{"date":"2020-10-20","day":5,"tot":5854},
+			{"date":"2020-10-19","day":148,"tot":5849},
+			{"date":"2020-10-18","day":129,"tot":5701},
+			{"date":"2020-10-17","day":151,"tot":5572},
+			{"date":"2020-10-16","day":186,"tot":5421},
+			{"date":"2020-10-15","day":158,"tot":5235},
 			{"date":"2020-10-14","day":194,"tot":5077},
 			{"date":"2020-10-13","day":208,"tot":4883},
 			{"date":"2020-10-12","day":142,"tot":4675},

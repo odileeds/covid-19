@@ -3,15 +3,10 @@
 	"population": 130515,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-20T11:12:40Z",
+		"updated": "2020-10-22T19:53:20Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
 		"tier": "Medium",
-		"local": {
-			"businessclosures": true,
-			"openinghours": true,
-			"raves": true,
-			"ruleofsix": true
-		},
+		"local": {},
 		"national": {
 
 		}
@@ -67,19 +62,20 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000081&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-21T18:53:17Z",
+		"updated":"2020-10-22T15:01:01Z",
 		"type":"SpecimenDate",
-		"n": 227,
+		"n": 228,
 		"days":[
-			{"date":"2020-10-20","day":0,"tot":918},
-			{"date":"2020-10-19","day":6,"tot":918},
-			{"date":"2020-10-18","day":9,"tot":912},
-			{"date":"2020-10-17","day":10,"tot":903},
-			{"date":"2020-10-16","day":23,"tot":893},
-			{"date":"2020-10-15","day":8,"tot":870},
-			{"date":"2020-10-14","day":15,"tot":862},
-			{"date":"2020-10-13","day":17,"tot":847},
-			{"date":"2020-10-12","day":12,"tot":830},
+			{"date":"2020-10-21","day":0,"tot":931},
+			{"date":"2020-10-20","day":3,"tot":931},
+			{"date":"2020-10-19","day":10,"tot":928},
+			{"date":"2020-10-18","day":8,"tot":918},
+			{"date":"2020-10-17","day":10,"tot":910},
+			{"date":"2020-10-16","day":23,"tot":900},
+			{"date":"2020-10-15","day":9,"tot":877},
+			{"date":"2020-10-14","day":16,"tot":868},
+			{"date":"2020-10-13","day":18,"tot":852},
+			{"date":"2020-10-12","day":16,"tot":834},
 			{"date":"2020-10-11","day":5,"tot":818},
 			{"date":"2020-10-10","day":16,"tot":813},
 			{"date":"2020-10-09","day":15,"tot":797},
