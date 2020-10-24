@@ -6,7 +6,13 @@
 		"updated": "2020-10-23T16:36:48Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-high","national":""},
 		"tier": "High",
-		"local": {},
+		"local": {
+			"businessclosures": true,
+			"householdmixing": true,
+			"openinghours": true,
+			"raves": true,
+			"ruleofsix": true
+		},
 		"national": {
 
 		}
