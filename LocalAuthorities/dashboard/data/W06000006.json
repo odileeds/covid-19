@@ -3,7 +3,7 @@
 	"population": 136126,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-26T21:11:36Z",
+		"updated": "2020-10-29T21:22:04Z",
 		"url": {"local":"","national":"https://gov.wales/coronavirus-firebreak-frequently-asked-questions"},
 		"local": {},
 		"national": {
@@ -67,14 +67,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000006&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-28T15:33:30Z",
+		"updated":"2020-10-29T17:29:28Z",
 		"type":"SpecimenDate",
-		"n": 244,
+		"n": 245,
 		"days":[
-			{"date":"2020-10-27","day":0,"tot":2606},
-			{"date":"2020-10-26","day":6,"tot":2606},
-			{"date":"2020-10-25","day":27,"tot":2600},
-			{"date":"2020-10-24","day":33,"tot":2573},
+			{"date":"2020-10-28","day":0,"tot":2686},
+			{"date":"2020-10-27","day":6,"tot":2686},
+			{"date":"2020-10-26","day":77,"tot":2680},
+			{"date":"2020-10-25","day":29,"tot":2603},
+			{"date":"2020-10-24","day":34,"tot":2574},
 			{"date":"2020-10-23","day":47,"tot":2540},
 			{"date":"2020-10-22","day":49,"tot":2493},
 			{"date":"2020-10-21","day":52,"tot":2444},

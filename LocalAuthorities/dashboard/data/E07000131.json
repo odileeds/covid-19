@@ -3,7 +3,7 @@
 	"population": 94635,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-26T21:11:36Z",
+		"updated": "2020-10-29T21:22:04Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
 		"tier": "Medium",
 		"local": {
@@ -67,14 +67,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000131&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-10-28T15:33:30Z",
+		"updated":"2020-10-29T17:29:28Z",
 		"type":"SpecimenDate",
-		"n": 236,
+		"n": 237,
 		"days":[
-			{"date":"2020-10-27","day":0,"tot":1022},
-			{"date":"2020-10-26","day":11,"tot":1022},
-			{"date":"2020-10-25","day":19,"tot":1011},
-			{"date":"2020-10-24","day":25,"tot":992},
+			{"date":"2020-10-28","day":0,"tot":1056},
+			{"date":"2020-10-27","day":22,"tot":1056},
+			{"date":"2020-10-26","day":22,"tot":1034},
+			{"date":"2020-10-25","day":19,"tot":1012},
+			{"date":"2020-10-24","day":26,"tot":993},
 			{"date":"2020-10-23","day":22,"tot":967},
 			{"date":"2020-10-22","day":15,"tot":945},
 			{"date":"2020-10-21","day":21,"tot":930},
