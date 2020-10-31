@@ -3,13 +3,14 @@
 	"population": 105790,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-29T21:22:04Z",
+		"updated": "2020-10-30T21:08:41Z",
 		"url": {"local":"https://www.gov.scot/news/new-moves-to-stop-covid-19-spread/","national":"https://www.gov.scot/publications/coronavirus-covid-19-what-you-can-and-cannot-do/"},
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"businessclosures": true
 		},
 		"national": {
+			"alcoholsalesrestrictions": true,
 			"businessclosures": true,
 			"householdmixing": true,
 			"openinghours": true,
