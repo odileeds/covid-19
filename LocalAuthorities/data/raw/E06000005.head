@@ -10,10 +10,10 @@ x-xss-protection: 1; mode=block
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Content-Type-Options: nosniff
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 X-Frame-Options: deny
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-X-Azure-Ref: 0S5KdXwAAAADxDiridlVBQ46YEsJBXBRBTUFOMzBFREdFMDMxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 31 Oct 2020 16:35:23 GMT
+X-Azure-Ref: 0TnOeXwAAAAB4N3zd9+k3SpZs1ojD/AOTTUFOMzBFREdFMDMxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 01 Nov 2020 08:35:26 GMT
 
