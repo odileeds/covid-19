@@ -3,7 +3,7 @@
 	"population": 96274,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-30T21:08:41Z",
+		"updated": "2020-11-02T11:16:17Z",
 		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
 		"tier": "Medium",
 		"local": {
@@ -17,25 +17,41 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
-		"updated": "2020-10-20",
-		"all": 0,
-		"cov": 0,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/1",
+		"updated": "2020-10-27",
+		"all": 354,
+		"cov": 52,
 		"weeks":[
-
+			{"txt":"Week 16","all":34,"cov":16},
+			{"txt":"Week 15","all":40,"cov":22},
+			{"txt":"Week 14","all":30,"cov":10},
+			{"txt":"Week 13","all":19,"cov":3},
+			{"txt":"Week 12","all":28,"cov":1},
+			{"txt":"Week 11","all":17,"cov":0},
+			{"txt":"Week 10","all":22,"cov":0},
+			{"txt":"Week 09","all":15,"cov":0},
+			{"txt":"Week 08","all":20,"cov":0},
+			{"txt":"Week 07","all":18,"cov":0},
+			{"txt":"Week 06","all":19,"cov":0},
+			{"txt":"Week 05","all":24,"cov":0},
+			{"txt":"Week 04","all":16,"cov":0},
+			{"txt":"Week 03","all":20,"cov":0},
+			{"txt":"Week 02","all":12,"cov":0},
+			{"txt":"Week 01","all":20,"cov":0}
 		]
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000005&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-01T15:50:42Z",
+		"updated":"2020-11-02T15:36:22Z",
 		"type":"SpecimenDate",
-		"n": 252,
+		"n": 253,
 		"days":[
-			{"date":"2020-10-31","day":0,"tot":837},
-			{"date":"2020-10-30","day":10,"tot":837},
-			{"date":"2020-10-29","day":13,"tot":827},
-			{"date":"2020-10-28","day":12,"tot":814},
-			{"date":"2020-10-27","day":9,"tot":802},
+			{"date":"2020-11-01","day":0,"tot":854},
+			{"date":"2020-10-31","day":5,"tot":854},
+			{"date":"2020-10-30","day":19,"tot":849},
+			{"date":"2020-10-29","day":15,"tot":830},
+			{"date":"2020-10-28","day":12,"tot":815},
+			{"date":"2020-10-27","day":10,"tot":803},
 			{"date":"2020-10-26","day":21,"tot":793},
 			{"date":"2020-10-25","day":6,"tot":772},
 			{"date":"2020-10-24","day":7,"tot":766},

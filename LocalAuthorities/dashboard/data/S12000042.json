@@ -3,20 +3,23 @@
 	"population": 148750,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-10-30T21:08:41Z",
-		"url": {"local":"","national":"https://www.gov.scot/publications/coronavirus-covid-19-what-you-can-and-cannot-do/"},
-		"local": {},
-		"national": {
+		"updated": "2020-11-02T11:16:17Z",
+		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
+		"tier": "3",
+		"local": {
 			"alcoholsalesrestrictions": true,
 			"businessclosures": true,
 			"householdmixing": true,
 			"openinghours": true,
 			"ruleofsix": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/26",
-		"updated": "2020-10-20",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/1",
+		"updated": "2020-10-27",
 		"all": 0,
 		"cov": 0,
 		"weeks":[
@@ -25,12 +28,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000042&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-01T15:50:42Z",
+		"updated":"2020-11-02T15:36:22Z",
 		"type":"SpecimenDate",
-		"n": 247,
+		"n": 248,
 		"days":[
-			{"date":"2020-10-31","day":2,"tot":2410},
-			{"date":"2020-10-30","day":22,"tot":2408},
+			{"date":"2020-11-01","day":1,"tot":2424},
+			{"date":"2020-10-31","day":13,"tot":2423},
+			{"date":"2020-10-30","day":24,"tot":2410},
 			{"date":"2020-10-29","day":36,"tot":2386},
 			{"date":"2020-10-28","day":55,"tot":2350},
 			{"date":"2020-10-27","day":30,"tot":2295},
