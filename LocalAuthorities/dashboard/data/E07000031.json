@@ -17,11 +17,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/1",
-		"updated": "2020-10-27",
-		"all": 574,
-		"cov": 82,
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/2",
+		"updated": "2020-11-03",
+		"all": 625,
+		"cov": 99,
 		"weeks":[
+			{"txt":"Week 17","all":51,"cov":17},
 			{"txt":"Week 16","all":85,"cov":31},
 			{"txt":"Week 15","all":68,"cov":29},
 			{"txt":"Week 14","all":63,"cov":18},
