@@ -135,6 +135,9 @@ for($i = 0; $i < @las; $i++){
 			$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
 			$diff = (($now-$jd)*24);
 		}
+		if($diff == 0){
+			print "$la - $jd\n";
+		}
 	}else{
 		$diff = 24;
 	}
@@ -142,7 +145,7 @@ for($i = 0; $i < @las; $i++){
 
 	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
 	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 2){
+	if($diff > 2 || -s $head==0){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
@@ -190,6 +193,7 @@ for($i = 0; $i < @las; $i++){
 	}else{
 		$len = 0;
 		print "\tERROR: No lines\n";
+		print $str." $file\n";
 	}
 	%data = getArea($la);
 
