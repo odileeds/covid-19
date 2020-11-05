@@ -3,17 +3,16 @@
 	"population": 174720,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-02T11:16:17Z",
-		"url": {"local":"https://www.gov.uk/guidance/local-covid-alert-level-medium","national":""},
-		"tier": "Medium",
-		"local": {
+		"updated": "2020-11-04T21:10:29Z",
+		"url": {"local":"","national":"https://www.gov.uk/guidance/new-national-restrictions-from-5-november"},
+		"local": {},
+		"national": {
+			"alcoholsalesrestrictions": true,
 			"businessclosures": true,
 			"openinghours": true,
 			"raves": true,
-			"ruleofsix": true
-		},
-		"national": {
-
+			"socialgatherings": true,
+			"stayinghome": true
 		}
 	},
 	"deaths":{
