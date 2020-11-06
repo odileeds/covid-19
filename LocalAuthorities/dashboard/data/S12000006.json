@@ -1,22 +1,6 @@
 {
 	"name":"Dumfries and Galloway",
 	"population": 148790,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-04T21:10:29Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-2/","national":""},
-		"tier": "2",
-		"local": {
-			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
-		},
-		"national": {
-
-		}
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/2",
 		"updated": "2020-11-03",
@@ -28,12 +12,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000006&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-05T21:15:08Z",
+		"updated":"2020-11-06T15:36:05Z",
 		"type":"SpecimenDate",
-		"n": 251,
+		"n": 252,
 		"days":[
-			{"date":"2020-11-04","day":5,"tot":935},
-			{"date":"2020-11-03","day":10,"tot":930},
+			{"date":"2020-11-05","day":7,"tot":958},
+			{"date":"2020-11-04","day":19,"tot":951},
+			{"date":"2020-11-03","day":12,"tot":932},
 			{"date":"2020-11-02","day":19,"tot":920},
 			{"date":"2020-11-01","day":6,"tot":901},
 			{"date":"2020-10-31","day":9,"tot":895},

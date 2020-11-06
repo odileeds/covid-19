@@ -1,8 +1,9 @@
-{"length":231,"maxPageLimit":2500,"data":[
-	{"date":"2020-11-04","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":1,"cumCasesBySpecimenDate":1304,"cumCasesBySpecimenDateRate":889.7},
-	{"date":"2020-11-03","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":8,"cumCasesBySpecimenDate":1303,"cumCasesBySpecimenDateRate":889},
-	{"date":"2020-11-02","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":12,"cumCasesBySpecimenDate":1295,"cumCasesBySpecimenDateRate":883.6},
-	{"date":"2020-11-01","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":9,"cumCasesBySpecimenDate":1283,"cumCasesBySpecimenDateRate":875.4},
+{"length":232,"maxPageLimit":2500,"data":[
+	{"date":"2020-11-05","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":0,"cumCasesBySpecimenDate":1317,"cumCasesBySpecimenDateRate":898.6},
+	{"date":"2020-11-04","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":6,"cumCasesBySpecimenDate":1317,"cumCasesBySpecimenDateRate":898.6},
+	{"date":"2020-11-03","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":15,"cumCasesBySpecimenDate":1311,"cumCasesBySpecimenDateRate":894.5},
+	{"date":"2020-11-02","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":12,"cumCasesBySpecimenDate":1296,"cumCasesBySpecimenDateRate":884.3},
+	{"date":"2020-11-01","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":10,"cumCasesBySpecimenDate":1284,"cumCasesBySpecimenDateRate":876.1},
 	{"date":"2020-10-31","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":6,"cumCasesBySpecimenDate":1274,"cumCasesBySpecimenDateRate":869.3},
 	{"date":"2020-10-30","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":11,"cumCasesBySpecimenDate":1268,"cumCasesBySpecimenDateRate":865.2},
 	{"date":"2020-10-29","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":15,"cumCasesBySpecimenDate":1257,"cumCasesBySpecimenDateRate":857.7},
@@ -225,9 +226,9 @@
 	{"date":"2020-03-26","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":7,"cumCasesBySpecimenDate":32,"cumCasesBySpecimenDateRate":21.8},
 	{"date":"2020-03-25","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":4,"cumCasesBySpecimenDate":25,"cumCasesBySpecimenDateRate":17.1},
 	{"date":"2020-03-24","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":1,"cumCasesBySpecimenDate":21,"cumCasesBySpecimenDateRate":14.3},
-	{"date":"2020-03-23","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":9,"cumCasesBySpecimenDate":20,"cumCasesBySpecimenDateRate":13.6},
-	{"date":"2020-03-22","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":3,"cumCasesBySpecimenDate":11,"cumCasesBySpecimenDateRate":7.5},
-	{"date":"2020-03-21","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":5,"cumCasesBySpecimenDate":8,"cumCasesBySpecimenDateRate":5.5},
-	{"date":"2020-03-20","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":2,"cumCasesBySpecimenDate":3,"cumCasesBySpecimenDateRate":2},
+	{"date":"2020-03-23","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":10,"cumCasesBySpecimenDate":20,"cumCasesBySpecimenDateRate":13.6},
+	{"date":"2020-03-22","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":3,"cumCasesBySpecimenDate":10,"cumCasesBySpecimenDateRate":6.8},
+	{"date":"2020-03-21","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":5,"cumCasesBySpecimenDate":7,"cumCasesBySpecimenDateRate":4.8},
+	{"date":"2020-03-20","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":1,"cumCasesBySpecimenDate":2,"cumCasesBySpecimenDateRate":1.4},
 	{"date":"2020-03-19","areaName":"Tendring","areaCode":"E07000076","newCasesBySpecimenDate":1,"cumCasesBySpecimenDate":1,"cumCasesBySpecimenDateRate":0.7}
 ],"pagination":{"current":"/v1/data?filters=areaType=ltla;areaCode=E07000076&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1","next":null,"previous":null,"first":"/v1/data?filters=areaType=ltla;areaCode=E07000076&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1","last":"/v1/data?filters=areaType=ltla;areaCode=E07000076&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1"}}
