@@ -5,20 +5,20 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://uks-covid19-pubdash-prod.azure-api.net/v1/data?filters=areaType=ltla;areaCode=E07000068&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Mon, 09 Nov 2020 08:40:54 GMT
+Expires: Mon, 09 Nov 2020 16:40:55 GMT
 Last-Modified: Sun, 08 Nov 2020 15:19:00 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:10ef5909-f7e8-4267-86f0-f575a2bdc89e
-X-Content-Type-Options: nosniff
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Frame-Options: deny
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-phe-media-type: PHE-COVID19.v1
-x-xss-protection: 1; mode=block
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+X-Frame-Options: deny
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+x-xss-protection: 1; mode=block
+x-phe-media-type: PHE-COVID19.v1
+X-Content-Type-Options: nosniff
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 5310
-X-Azure-Ref-OriginShield: 0PACpXwAAAADCYDey9e1aRbqbQfI1AhbhTE9OMjFFREdFMDIwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0PACpXwAAAAD6EbAXCEzDTbUR6m8wBBzsTUFOMzBFREdFMDcwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Mon, 09 Nov 2020 08:39:24 GMT
+PHE-API-Cache-Duration: 15902
+X-Azure-Ref-OriginShield: 0vXCpXwAAAAB4pQ3k2II2So9uSgv0zEHgTE9OMjFFREdFMDIxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0vXCpXwAAAAC2He7589I0RKhY+PeP1c5ATUFOMzBFREdFMDMxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 09 Nov 2020 16:39:25 GMT
 
