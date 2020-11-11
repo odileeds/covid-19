@@ -471,7 +471,22 @@ ready(function(){
 			'weekly-deaths': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].cov : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].txt : '?'); }}
+				{'tagname':'div','key':'graph','html':function(la){
+					var str = '<div class="barchart" style="grid-template-columns: repeat('+this.data.deaths.weeks.length+', 1fr);">';
+					var mx = -1e100;
+					for(var i = 0; i < this.data.deaths.weeks.length; i++) mx = Math.max(mx,this.data.deaths.weeks[i].cov);
+
+					var tall = 150;
+					for(var i = this.data.deaths.weeks.length-1; i >= 0 ; i--){
+						wk = parseInt(this.data.deaths.weeks[i].txt.replace(/Week 0?/,""));
+						h = Math.round(tall*this.data.deaths.weeks[i].cov/mx);
+						h2 = tall-h;
+						str += '<div class="col" style="height:'+tall+'px;"><div class="antibar" style="height:'+h2+'px;"></div><div class="bar" style="height:'+(tall*this.data.deaths.weeks[i].cov/mx).toFixed(1)+'px;"><span class="label" style="">'+(this.data.deaths.weeks[i].txt)+': '+this.data.deaths.weeks[i].cov+'</span></div></div>';
+					}
+					str += '</div>';
+					return str;
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].txt : '?'); }}
 			],
 			'total-deaths-covid': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths'},

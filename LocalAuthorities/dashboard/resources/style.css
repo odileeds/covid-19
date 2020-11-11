@@ -186,6 +186,52 @@ svg g.data-series[data-series=new-cases] circle:last-child { r: 6px; }
 svg g.data-series[data-series=recent-cases] circle { r: 0px; }
 svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 
+.barchart {
+	border-bottom: 1px solid white;
+	margin-bottom: 1em;
+	display: grid;
+	grid-gap: 1px;
+}
+.barchart .antibar {
+	position:relative;
+	display: block;
+}
+.barchart .bar {
+	position:relative;
+	display:block;
+	background:white;
+	align-self:end;
+}
+.barchart .label {
+	position:absolute;
+	top:-1em;
+	left:50%;
+	transform:translate3d(-50%,-100%,0);
+	display: none;
+	background: black;
+	white-space: nowrap;
+	padding: 0.25em 0.5em;
+	z-index: 1000;
+}
+.barchart .label::after {
+	content: '';
+	position: absolute;
+	bottom: auto;
+	width: 0;
+	height: 0;
+	border: 0.5em solid transparent;
+	left: 50%;
+	top: 100%;
+	transform: translate3d(-50%,0,0);
+	border-color: transparent;
+	border-top-color: black;
+}
+.barchart .col:hover .label {
+	display: block;
+}
+
+
+
 footer p { margin-bottom: 1em; }
 footer p:last-child { margin-bottom: 0; }
 
