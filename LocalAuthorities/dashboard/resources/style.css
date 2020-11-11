@@ -192,6 +192,7 @@ svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 	display: grid;
 	grid-gap: 1px;
 }
+.barchart .col { cursor: pointer; }
 .barchart .antibar {
 	position:relative;
 	display: block;
@@ -226,9 +227,8 @@ svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 	border-color: transparent;
 	border-top-color: black;
 }
-.barchart .col:hover .label {
-	display: block;
-}
+.barchart .col:hover .label { display: block; }
+.barchart .col:hover .antibar { background: rgba(255,255,255,0.2); }
 
 
 

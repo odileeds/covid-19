@@ -481,7 +481,7 @@ ready(function(){
 						wk = parseInt(this.data.deaths.weeks[i].txt.replace(/Week 0?/,""));
 						h = Math.round(tall*this.data.deaths.weeks[i].cov/mx);
 						h2 = tall-h;
-						str += '<div class="col" style="height:'+tall+'px;"><div class="antibar" style="height:'+h2+'px;"></div><div class="bar" style="height:'+(tall*this.data.deaths.weeks[i].cov/mx).toFixed(1)+'px;"><span class="label" style="">'+(this.data.deaths.weeks[i].txt)+': '+this.data.deaths.weeks[i].cov+'</span></div></div>';
+						str += '<div class="col" style="height:'+tall+'px;"><div class="antibar" style="height:'+h2+'px;"></div><div class="bar" style="height:'+h+'px;"><span class="label" style="">'+(this.data.deaths.weeks[i].txt)+': '+this.data.deaths.weeks[i].cov+'</span></div></div>';
 					}
 					str += '</div>';
 					return str;

@@ -168,7 +168,7 @@ for($i = 0; $i < @las; $i++){
 			close(FILE);
 			$str = join("",@lines);
 		}
-		sleep rand(3) + 1;
+		sleep rand(2) + 1;
 	}else{
 		open(FILE,$file);
 		@lines = <FILE>;
@@ -425,22 +425,34 @@ sub getArea {
 
 sub processDeaths {
 	
-	my ($file,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$la);
+	my ($file,$filename,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
 	$latestversion = 0;
+	$latestdate = "";
 	print "Processing deaths...";
+
 	@lines = `wget -q --no-check-certificate -O- "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions"`;
 	foreach $line (@lines){
 		if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*)([^\<]*)<\/h2>/){
 			$v = $1+0;
-			$ofile = $dir."temp/deaths-version-$v.csv";
-			if($v > $latestversion && -s $ofile > 0){
-				$latestversion = $v;
-				$date = $datetime->parseISO($2);
-				$file = $ofile;
+			$tempdate = $2;
+			$tempdate2 = $datetime->parseISO($tempdate);
+			
+			if($tempdate2 gt $latestdate){
+
+				$ofile = $dir."temp/deaths-$tempdate2.csv";
+
+				$latestdate = $tempdate2;
+				$date = $tempdate2;
+
+				if($v > $latestversion && -s $ofile > 0){
+					$latestversion = $v;
+					$date = $latestdate;
+					$file = $ofile;
+				}
 			}
 		}
 	}
-	print " version $latestversion ";
+
 	$deathurl = "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/$latestversion";
 	# Set default values
 	%deaths = {};
@@ -462,10 +474,10 @@ sub processDeaths {
 			}
 			if($i > 0 && $line =~ /\,/){
 				(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
-				$latmp = $cols[$headers{'admin-geography'}];
+				$latmp = $cols[$headers{'administrative-geography'}];
 				
 				#{"date":"2020-09-24","week":{"label":"Week 37","all":16,"covid-19":0},"total":{"all":819,"covid-19":110}
-				$wk = $cols[$headers{'week'}];
+				$wk = $cols[$headers{'Week'}];
 
 
 				#v4_1,Data Marking,calendar-years,time,admin-geography,geography,week-number,week,cause-of-death,causeofdeath,place-of-death,placeofdeath,registration-or-occurrence,registrationoroccurrence
@@ -488,6 +500,7 @@ sub processDeaths {
 		close(FILE);
 	}
 	print "done\n";
+	
 	return %deaths;
 }
 
@@ -503,4 +516,67 @@ sub getHeaders {
 		$headers{$header[$c]} = $c;
 	}
 	return %headers;
+}
+
+sub getISOFromString {
+	my (%monthmap,$y,$m,$mon,$str,$lmon);
+	%monthmap = ('January'=>"01",'February'=>'02','March'=>'03','April'=>'04','May'=>'05','June'=>'06','July'=>'07','August'=>'08','September'=>'09','October'=>'10','November'=>'11','December'=>'12','Sept'=>'09','Jan'=>"01",'Feb'=>'02','Mar'=>'03','Apr'=>'04','May'=>'05','Jun'=>'06','Jul'=>'07','Aug'=>'08','Sep'=>'09','Oct'=>'10','Nov'=>'11','Dec'=>'12');
+	$str = $_[0];
+	$y = "";
+	$m = "00";
+	$d = "00";
+
+	# Sometimes we might get a filename that contains multiple dates (e.g. Cabinet Office's 2019_01_31_Annex_B_Expenditure_over__25000_31-10-2018__Oct18_.csv)
+	# In this case, the text-based months are more likely to be the subject of the file than the YYYY_MM_DD datestamp so we check those first
+	foreach $mon (keys(%monthmap)){
+		$lmon = lc($mon);
+		if(lc($str) =~ /(^| |[^a-z])$lmon( |[^a-z]|$)/){
+			$m = $monthmap{$mon};
+			if(lc($str) =~ /$lmon\D?([0-9]{4})/){
+				$y = $1;
+			}
+			if(lc($str) =~ /(^|\D)([0-9]{1,2})\D/){
+				$d = "20".sprintf("%02d",$1);
+			}
+		}
+	}
+
+	# Does it seem to contain a YYYY-MM-DD type number?
+	if($str =~ /(^|\D)([0-9]{4})-([0-9]{2})-([0-9]{2})(\D|$)/){
+		# Double check that the month is in range
+		if($3 lt "13" && $3 gt "00"){
+			return $2."-".$3."-".$4;
+		}
+	}
+	
+	# Does it seem to contain a YYYY-MM type number?
+	if($str =~ /(^|\D)([0-9]{4})-([0-9]{2})(\D|$)/){
+		# Double check that the month is in range
+		if($3 lt "13" && $3 gt "00"){
+			return $2."-".$3;
+		}
+	}
+
+	# Does it seem to contain a DD-MM-YYYY type number?
+	if($str =~ /(^|\D)([0-9]{2})-([0-9]{2})-([0-9]{4})(\D|$)/){
+		# Double check that the month is in range
+		if($3 lt "13" && $3 gt "00"){
+			return $4."-".$3."-".$2;
+		}
+	}
+	
+	if($str =~ /(^|\D)([0-9]{1,2})\D/){
+		$d = $2;
+	}
+	if($str =~ /(^| |[^0-9])([0-9]{4})(\.|[^0-9]|$)/){
+		$y = $2;
+	}
+	if(!$y && $str =~ /(^| |[^0-9])([0-9]{2})\-([0-9]{2})\./){
+		$y = "20".$2;
+	}
+	if($m eq "00"){
+		print "Failed to find month for $str\n";
+		return "";
+	}
+	return "$y-$m-".sprintf("%02d",$d);
 }

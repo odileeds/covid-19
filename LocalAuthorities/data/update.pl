@@ -135,8 +135,10 @@ foreach $line (@lines){
 	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*)([^\<]*)<\/h2>/){
 		$version = $1+0;
 		$tempdate = $2;
-		if($version gt $latestversion){
-			$file = $dir."temp/deaths-version-$version.csv";
+		$tempdate2 = getISOFromString($tempdate);
+
+		if($tempdate =~ /latest/){
+			$file = $dir."temp/deaths-$tempdate2.csv";
 			if(!-e $file){
 				$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$version.csv";
 				print "Getting deaths data as of $updates{'deaths-date'} from $url\n";
@@ -155,8 +157,6 @@ foreach $line (@lines){
 	}
 }
 
-$file = $dir."temp/deaths-version-$latestversion.csv";
-
 if(!-e $file){
 	print "Failed to find file $file\n";
 	exit;
@@ -171,8 +171,8 @@ while (my $line = <FILE>) {
 	}
 	if($i > 0 && $line =~ /\,/){
 		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
-		$latmp = $cols[$headers{'admin-geography'}];
-		$wk = $cols[$headers{'week'}];
+		$latmp = $cols[$headers{'administrative-geography'}];
+		$wk = $cols[$headers{'Week'}];
 		#v4_1,Data Marking,calendar-years,time,admin-geography,geography,week-number,week,cause-of-death,causeofdeath,place-of-death,placeofdeath,registration-or-occurrence,registrationoroccurrence
 		if(!$deaths{$latmp}){
 			$deaths{$latmp} = { 'all-causes'=>0,'covid-19'=>0,'weeks'=>{} };
@@ -1256,4 +1256,68 @@ sub getDate {
 		$date =~ s/\%z/$newtz/g;
 	}else{	$date = "$days[$wday] $mday$ext $months[$mon-1] $year ($shorttime)"; }
 	return $date;
+}
+
+
+sub getISOFromString {
+	my (%monthmap,$y,$m,$mon,$str,$lmon);
+	%monthmap = ('January'=>"01",'February'=>'02','March'=>'03','April'=>'04','May'=>'05','June'=>'06','July'=>'07','August'=>'08','September'=>'09','October'=>'10','November'=>'11','December'=>'12','Sept'=>'09','Jan'=>"01",'Feb'=>'02','Mar'=>'03','Apr'=>'04','May'=>'05','Jun'=>'06','Jul'=>'07','Aug'=>'08','Sep'=>'09','Oct'=>'10','Nov'=>'11','Dec'=>'12');
+	$str = $_[0];
+	$y = "";
+	$m = "00";
+	$d = "00";
+
+	# Sometimes we might get a filename that contains multiple dates (e.g. Cabinet Office's 2019_01_31_Annex_B_Expenditure_over__25000_31-10-2018__Oct18_.csv)
+	# In this case, the text-based months are more likely to be the subject of the file than the YYYY_MM_DD datestamp so we check those first
+	foreach $mon (keys(%monthmap)){
+		$lmon = lc($mon);
+		if(lc($str) =~ /(^| |[^a-z])$lmon( |[^a-z]|$)/){
+			$m = $monthmap{$mon};
+			if(lc($str) =~ /$lmon\D?([0-9]{4})/){
+				$y = $1;
+			}
+			if(lc($str) =~ /(^|\D)([0-9]{1,2})\D/){
+				$d = "20".sprintf("%02d",$1);
+			}
+		}
+	}
+
+	# Does it seem to contain a YYYY-MM-DD type number?
+	if($str =~ /(^|\D)([0-9]{4})-([0-9]{2})-([0-9]{2})(\D|$)/){
+		# Double check that the month is in range
+		if($3 lt "13" && $3 gt "00"){
+			return $2."-".$3."-".$4;
+		}
+	}
+	
+	# Does it seem to contain a YYYY-MM type number?
+	if($str =~ /(^|\D)([0-9]{4})-([0-9]{2})(\D|$)/){
+		# Double check that the month is in range
+		if($3 lt "13" && $3 gt "00"){
+			return $2."-".$3;
+		}
+	}
+
+	# Does it seem to contain a DD-MM-YYYY type number?
+	if($str =~ /(^|\D)([0-9]{2})-([0-9]{2})-([0-9]{4})(\D|$)/){
+		# Double check that the month is in range
+		if($3 lt "13" && $3 gt "00"){
+			return $4."-".$3."-".$2;
+		}
+	}
+	
+	if($str =~ /(^|\D)([0-9]{1,2})\D/){
+		$d = $2;
+	}
+	if($str =~ /(^| |[^0-9])([0-9]{4})(\.|[^0-9]|$)/){
+		$y = $2;
+	}
+	if(!$y && $str =~ /(^| |[^0-9])([0-9]{2})\-([0-9]{2})\./){
+		$y = "20".$2;
+	}
+	if($m eq "00"){
+		print "Failed to find month for $str\n";
+		return "";
+	}
+	return "$y-$m-".sprintf("%02d",$d);
 }
