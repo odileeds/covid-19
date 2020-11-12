@@ -1,8 +1,24 @@
 {
 	"name":"Fife",
 	"population": 371910,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-11-10T17:28:43Z",
+		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-2/","national":""},
+		"tier": "2",
+		"local": {
+			"alcoholsalesrestrictions": true,
+			"businessclosures": true,
+			"householdmixing": true,
+			"openinghours": true,
+			"ruleofsix": true
+		},
+		"national": {
+
+		}
+	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/3",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/4",
 		"updated": "2020-11-10",
 		"all": 0,
 		"cov": 0,

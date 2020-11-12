@@ -15,7 +15,7 @@
 		}
 	},
 	"deaths":{
-		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/3",
+		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/4",
 		"updated": "2020-11-10",
 		"all": 1721,
 		"cov": 177,
@@ -68,15 +68,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000014&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-10T17:27:59Z",
+		"updated":"2020-11-11T15:50:33Z",
 		"type":"SpecimenDate",
-		"n": 285,
+		"n": 286,
 		"days":[
-			{"date":"2020-11-09","day":0,"tot":4228},
-			{"date":"2020-11-08","day":33,"tot":4228},
-			{"date":"2020-11-07","day":39,"tot":4195},
-			{"date":"2020-11-06","day":46,"tot":4156},
-			{"date":"2020-11-05","day":59,"tot":4110},
+			{"date":"2020-11-10","day":0,"tot":4282},
+			{"date":"2020-11-09","day":50,"tot":4282},
+			{"date":"2020-11-08","day":34,"tot":4232},
+			{"date":"2020-11-07","day":40,"tot":4198},
+			{"date":"2020-11-06","day":46,"tot":4158},
+			{"date":"2020-11-05","day":61,"tot":4112},
 			{"date":"2020-11-04","day":52,"tot":4051},
 			{"date":"2020-11-03","day":60,"tot":3999},
 			{"date":"2020-11-02","day":61,"tot":3939},
