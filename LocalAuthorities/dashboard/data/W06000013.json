@@ -3,7 +3,7 @@
 	"population": 144876,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-10T17:28:43Z",
+		"updated": "2020-11-12T20:54:20Z",
 		"url": {"local":"","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {},
 		"national": {
@@ -69,7 +69,7 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000013&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-12T15:37:08Z",
+		"updated":"2020-11-12T18:52:20Z",
 		"type":"SpecimenDate",
 		"n": 259,
 		"days":[
