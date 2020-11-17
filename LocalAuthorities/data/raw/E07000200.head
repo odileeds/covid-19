@@ -5,20 +5,20 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://uks-covid19-pubdash-prod.azure-api.net/v1/data?filters=areaType=ltla;areaCode=E07000200&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Mon, 16 Nov 2020 16:44:38 GMT
-Last-Modified: Sun, 15 Nov 2020 15:33:00 GMT
+Expires: Tue, 17 Nov 2020 08:45:00 GMT
+Last-Modified: Mon, 16 Nov 2020 17:50:25 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:10ef5909-f7e8-4267-86f0-f575a2bdc89e
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Frame-Options: deny
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-phe-media-type: PHE-COVID19.v1
 X-Content-Type-Options: nosniff
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
 x-xss-protection: 1; mode=block
+x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 20912
-X-Azure-Ref-OriginShield: 0G6yyXwAAAAD6178pcBRwSrWaPW1jlZoiTE9OMjFFREdFMTUwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0G6yyXwAAAAAiDD6eEFF0R7OgVAw9+y7QTUFOMzBFREdFMDMxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Mon, 16 Nov 2020 16:43:08 GMT
+PHE-API-Cache-Duration: 19437
+X-Azure-Ref-OriginShield: 0Mo2zXwAAAADBiV+WolTkQ4P9Fkjsgr8MTE9OMjFFREdFMDExMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0Mo2zXwAAAAA6NYshqEGVTaISy4QFo5JfTUFOMzBFREdFMDMwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Tue, 17 Nov 2020 08:43:30 GMT
 
