@@ -8,6 +8,18 @@
 	<style>
 	form p { margin-bottom: 1em; }
 	form input[type=submit] { margin-top: 1em; }
+	.grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+	.grid .row { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+
+	@media only screen and (max-width: 1080px) {
+		.grid { grid-template-columns: repeat(3, 1fr); }
+	}
+	@media only screen and (max-width: 800px) {
+		.grid { grid-template-columns: repeat(2, 1fr); }
+	}
+	@media only screen and (max-width: 640px) {
+		.grid { grid-template-columns: 100%; }
+	}
 	</style>
 </head>
 <body class="b1-bg">
@@ -19,6 +31,7 @@
 	<div class="b6-bg">
 		<form action="index.html" method="GET" class="holder padded">
 			<p>Select the Local Authorities you'd like to appear on the dashboard:</p>
+			<div class="grid">
 			<div class="row"><input type="checkbox" value="S12000033" id="S12000033" name="lad" /><label for="S12000033">Aberdeen City</label></div>
 			<div class="row"><input type="checkbox" value="S12000034" id="S12000034" name="lad" /><label for="S12000034">Aberdeenshire</label></div>
 			<div class="row"><input type="checkbox" value="E07000223" id="E07000223" name="lad" /><label for="E07000223">Adur</label></div>
@@ -374,6 +387,7 @@
 			<div class="row"><input type="checkbox" value="E07000128" id="E07000128" name="lad" /><label for="E07000128">Wyre</label></div>
 			<div class="row"><input type="checkbox" value="E07000239" id="E07000239" name="lad" /><label for="E07000239">Wyre Forest</label></div>
 			<div class="row"><input type="checkbox" value="E06000014" id="E06000014" name="lad" /><label for="E06000014">York</label></div>
+			</div>
 			<input type="submit" value="Update" class="button c9-bg" />
 		</form>
 	</div>
