@@ -3,7 +3,7 @@
 	"population": 159996,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-12T20:54:20Z",
+		"updated": "2020-11-20T17:39:15Z",
 		"url": {"local":"","national":"https://www.gov.uk/guidance/new-national-restrictions-from-5-november"},
 		"local": {},
 		"national": {
@@ -69,15 +69,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000012&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-19T15:32:55Z",
+		"updated":"2020-11-20T16:53:34Z",
 		"type":"SpecimenDate",
-		"n": 246,
+		"n": 247,
 		"days":[
-			{"date":"2020-11-18","day":2,"tot":4475},
-			{"date":"2020-11-17","day":75,"tot":4473},
-			{"date":"2020-11-16","day":133,"tot":4398},
-			{"date":"2020-11-15","day":77,"tot":4265},
-			{"date":"2020-11-14","day":83,"tot":4188},
+			{"date":"2020-11-19","day":3,"tot":4574},
+			{"date":"2020-11-18","day":67,"tot":4571},
+			{"date":"2020-11-17","day":101,"tot":4504},
+			{"date":"2020-11-16","day":136,"tot":4403},
+			{"date":"2020-11-15","day":77,"tot":4267},
+			{"date":"2020-11-14","day":85,"tot":4190},
 			{"date":"2020-11-13","day":101,"tot":4105},
 			{"date":"2020-11-12","day":121,"tot":4004},
 			{"date":"2020-11-11","day":128,"tot":3883},
