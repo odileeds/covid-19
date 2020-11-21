@@ -3,7 +3,7 @@
 	"population": 148750,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-12T20:54:20Z",
+		"updated": "2020-11-20T17:39:15Z",
 		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
 		"tier": "3",
 		"local": {
@@ -11,10 +11,11 @@
 			"businessclosures": true,
 			"householdmixing": true,
 			"openinghours": true,
-			"ruleofsix": true
+			"ruleofsix": true,
+			"stayinglocal": true
 		},
 		"national": {
-
+			"travelrestrictions": true
 		}
 	},
 	"deaths":{
@@ -28,16 +29,17 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000042&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-19T15:32:55Z",
+		"updated":"2020-11-20T16:53:34Z",
 		"type":"SpecimenDate",
-		"n": 265,
+		"n": 266,
 		"days":[
-			{"date":"2020-11-18","day":2,"tot":2898},
-			{"date":"2020-11-17","day":19,"tot":2896},
-			{"date":"2020-11-16","day":31,"tot":2877},
-			{"date":"2020-11-15","day":20,"tot":2846},
-			{"date":"2020-11-14","day":21,"tot":2826},
-			{"date":"2020-11-13","day":21,"tot":2805},
+			{"date":"2020-11-19","day":9,"tot":2923},
+			{"date":"2020-11-18","day":15,"tot":2914},
+			{"date":"2020-11-17","day":21,"tot":2899},
+			{"date":"2020-11-16","day":31,"tot":2878},
+			{"date":"2020-11-15","day":20,"tot":2847},
+			{"date":"2020-11-14","day":21,"tot":2827},
+			{"date":"2020-11-13","day":22,"tot":2806},
 			{"date":"2020-11-12","day":29,"tot":2784},
 			{"date":"2020-11-11","day":36,"tot":2755},
 			{"date":"2020-11-10","day":44,"tot":2719},

@@ -3,18 +3,17 @@
 	"population": 182140,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-12T20:54:20Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
-		"tier": "3",
+		"updated": "2020-11-20T17:39:15Z",
+		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-4/","national":""},
+		"tier": "4",
 		"local": {
-			"alcoholsalesrestrictions": true,
 			"businessclosures": true,
 			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
+			"ruleofsix": true,
+			"stayinglocal": true
 		},
 		"national": {
-
+			"travelrestrictions": true
 		}
 	},
 	"deaths":{
@@ -28,17 +27,18 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000040&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-19T15:32:55Z",
+		"updated":"2020-11-20T16:53:34Z",
 		"type":"SpecimenDate",
-		"n": 265,
+		"n": 266,
 		"days":[
-			{"date":"2020-11-18","day":12,"tot":3070},
-			{"date":"2020-11-17","day":55,"tot":3058},
-			{"date":"2020-11-16","day":73,"tot":3003},
-			{"date":"2020-11-15","day":34,"tot":2930},
-			{"date":"2020-11-14","day":45,"tot":2896},
-			{"date":"2020-11-13","day":40,"tot":2851},
-			{"date":"2020-11-12","day":50,"tot":2811},
+			{"date":"2020-11-19","day":9,"tot":3119},
+			{"date":"2020-11-18","day":36,"tot":3110},
+			{"date":"2020-11-17","day":67,"tot":3074},
+			{"date":"2020-11-16","day":76,"tot":3007},
+			{"date":"2020-11-15","day":34,"tot":2931},
+			{"date":"2020-11-14","day":45,"tot":2897},
+			{"date":"2020-11-13","day":40,"tot":2852},
+			{"date":"2020-11-12","day":51,"tot":2812},
 			{"date":"2020-11-11","day":37,"tot":2761},
 			{"date":"2020-11-10","day":47,"tot":2724},
 			{"date":"2020-11-09","day":51,"tot":2677},
