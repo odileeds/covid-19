@@ -1,21 +1,6 @@
 {
 	"name":"Highland",
 	"population": 235540,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-20T17:39:15Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-1/","national":""},
-		"tier": "1",
-		"local": {
-			"businessclosures": true,
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
-		},
-		"national": {
-			"travelrestrictions": true
-		}
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/5",
 		"updated": "2020-11-17",
@@ -27,11 +12,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000017&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-11-21T15:13:48Z",
+		"updated":"2020-11-22T16:05:54Z",
 		"type":"SpecimenDate",
-		"n": 267,
+		"n": 268,
 		"days":[
-			{"date":"2020-11-20","day":0,"tot":760},
+			{"date":"2020-11-21","day":0,"tot":764},
+			{"date":"2020-11-20","day":4,"tot":764},
 			{"date":"2020-11-19","day":3,"tot":760},
 			{"date":"2020-11-18","day":3,"tot":757},
 			{"date":"2020-11-17","day":4,"tot":754},
