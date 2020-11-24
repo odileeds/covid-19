@@ -3,16 +3,15 @@
 	"population": 91340,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-20T17:39:15Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
-		"tier": "3",
+		"updated": "2020-11-24T08:22:45Z",
+		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-2/","national":""},
+		"tier": "2",
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"businessclosures": true,
 			"householdmixing": true,
 			"openinghours": true,
-			"ruleofsix": true,
-			"stayinglocal": true
+			"ruleofsix": true
 		},
 		"national": {
 			"travelrestrictions": true
