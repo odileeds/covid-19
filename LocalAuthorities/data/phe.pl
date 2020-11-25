@@ -436,7 +436,7 @@ sub processDeaths {
 			$v = $1+0;
 			$tempdate = $2;
 			$tempdate2 = $datetime->parseISO($tempdate);
-			
+
 			if($tempdate2 gt $latestdate){
 
 				$ofile = $dir."temp/deaths-$tempdate2.csv";
@@ -444,16 +444,26 @@ sub processDeaths {
 				$latestdate = $tempdate2;
 				$date = $tempdate2;
 
-				if($v > $latestversion && -s $ofile > 0){
-					$latestversion = $v;
-					$date = $latestdate;
-					$file = $ofile;
-				}
+				$latestversion = $v;
+				$date = $latestdate;
+				$file = $ofile;
 			}
+		}
+		if($line =~ /<a href="([^\"]*\/time-series\/versions\/$latestversion\.csv)">/){
+			$deathurl = $1;
 		}
 	}
 
-	$deathurl = "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions/$latestversion";
+	if($latestversion eq "0"){
+		print "Unlikely version for deaths\n";
+		exit;
+	}
+
+	if(!-e $file || -s $file == 0){
+		print "Getting latest deaths from $deathurl\n";
+		`wget -q --no-check-certificate -O $file "$deathurl"`;
+	}
+
 	# Set default values
 	%deaths = {};
 	for($i = 0; $i < @las; $i++){
@@ -462,9 +472,9 @@ sub processDeaths {
 			$deaths{$la} = { 'date'=>$date,'all-causes'=>0,'covid-19'=>0,'weeks'=>{} };
 		}
 	}
-	
-	
+
 	if(-e $file && -s $file > 0){
+		print "Open $file\n";
 		open(FILE,$file);
 		$i = 0;
 		while (my $line = <FILE>) {
