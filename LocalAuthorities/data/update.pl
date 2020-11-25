@@ -57,8 +57,6 @@ $jsonblob = JSON::XS->new->utf8->decode(join("\n",@lines));
 
 getCasesPHE();
 
-#getCases("https://raw.githubusercontent.com/odileeds/covid-19-uk-datasets/master/data/england-cases.csv");
-#getCases("https://raw.githubusercontent.com/odileeds/covid-19-uk-datasets/master/data/scotland-cases.csv");
 saveLAJSON();
 
 %svg;
@@ -127,38 +125,22 @@ $svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-pe
 #########################
 # Read in ONS death data
 %deaths;
-$latestversion = "0";
-$version = "0";
-$file = "";
-@lines = `wget -q --no-check-certificate -O- "https://www.ons.gov.uk/datasets/weekly-deaths-local-authority/editions/time-series/versions"`;
-foreach $line (@lines){
-	if($line =~ /<a href="\/datasets\/weekly-deaths-local-authority\/editions\/time-series\/versions\/([0-9]*)"><h2 [^\>]*>([^\)]*)([^\<]*)<\/h2>/){
-		$version = $1+0;
-		$tempdate = $2;
-		$tempdate2 = getISOFromString($tempdate);
-
-		if($tempdate =~ /latest/){
-			$file = $dir."temp/deaths-$tempdate2.csv";
-			if(!-e $file){
-				$url = "https://download.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/$version.csv";
-				print "Getting deaths data as of $updates{'deaths-date'} from $url\n";
-				`wget -q --no-check-certificate -O "$file" "$url"`;
-			}
-			if(-s $file == 0){
-				# The file is empty so move on to the next one
-				$version = 0;
-			}else{
-				if($version > $latestversion){
-					$latestversion = $version;
-					$updates{'deaths-date'} = tidyDate($tempdate);
-				}
-			}
+opendir(DIR,"temp/");
+$tempdate = "";
+while(($filename = readdir(DIR))){
+	if($filename =~ /deaths-([0-9]{4}-[0-9]{2}-[0-9]{2}).csv/){
+		if($1 gt $tempdate){
+			$tempdate = $1;
+			$updates{'deaths-date'} = $1;
+			$file = "temp/".$filename;
 		}
 	}
 }
+closedir(DIR);
+
 
 if(!-e $file){
-	print "Failed to find file $file\n";
+	print "Failed to find deaths data file $file\n";
 	exit;
 }
 
@@ -715,6 +697,7 @@ sub getCasesPHE {
 			elsif($cc eq "N"){ $LA{$id}{'country'} = "Northern Ireland"; }
 
 
+
 			if(!$LA{$id}{'name'}){
 				if($name ne $id){
 					print "Using $name for $id\n";
@@ -731,7 +714,6 @@ sub getCasesPHE {
 			for($i = 0; $i < @{$jsonblob->{'cases'}{'days'}}; $i++){
 				
 				$d = $jsonblob->{'cases'}{'days'}[$i]{'date'};
-				#print "\t$i = $d\n";
 
 				if($d lt $mindate){ $mindate = $d; }
 				if($d gt $maxdate){ $maxdate = $d; }
@@ -741,7 +723,6 @@ sub getCasesPHE {
 				# Only count the first entry for this day
 				if($jsonblob->{'cases'}{'days'}[$i]{'tot'} ne "" && $LA{$id}{'dates'}{$d}{'total'}==0){ $LA{$id}{'dates'}{$d}{'total'} = $jsonblob->{'cases'}{'days'}[$i]{'tot'}; }
 				if($jsonblob->{'cases'}{'days'}[$i]{'day'} ne "" && $LA{$id}{'dates'}{$d}{'daily'}==0){ $LA{$id}{'dates'}{$d}{'daily'} = $jsonblob->{'cases'}{'days'}[$i]{'day'}; }
-
 
 			}
 		}
@@ -835,8 +816,6 @@ sub saveLAJSON {
 	$updates{'cases-recent'} = getDate($recent,"%Y-%m-%d");
 
 	$dt = getJulianFromISO($mindate);
-
-	print "$mindate - $maxdate ".$dt."\n";
 	
 	for($dt = $min; $dt <= $max; $dt++){
 		push(@dates,getDate($dt,"%Y-%m-%d"));
@@ -848,7 +827,6 @@ sub saveLAJSON {
 
 			@dates = sort(keys(%{$LA{$id}{'dates'}}));
 			$n = @dates;
-
 
 			if($json){ $json .= ",\n";}
 			$jsonla = "\t\t\"$id\":{";
@@ -899,7 +877,11 @@ sub saveLAJSON {
 						$n++;
 					}
 				}
-				$av /= $n;
+				if($n > 0){
+					$av /= $n;
+				}else{
+					print "No average value for $id\n";
+				}
 				$LArecent{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>int($av*1e5/$LA{$id}{'population'} + 0.5),'update'=>$d};
 				$jsonla .= $dates."]";
 			}else{
