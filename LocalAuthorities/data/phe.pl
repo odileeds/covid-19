@@ -3,14 +3,16 @@
 use Data::Dumper;
 use POSIX qw(strftime);
 use JSON::XS;
-use lib "./lib/";
+use vars qw($lib);
+BEGIN {$lib = $0; $lib =~ s/[^\/\\]+$//}
+use lib $lib . 'lib';
 use ODILeeds::Graph;
 use ODILeeds::DateTime;
 
 
 # Get directory
 $dir = $0;
-if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1/g; }
+if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1\//g; }
 else{ $dir = "./"; }
 
 # Create a DateTime object
@@ -20,7 +22,7 @@ $datetime = ODILeeds::DateTime->new();
 $deathurl = "";
 @las;
 %names;
-open(FILE,"la.csv");
+open(FILE,$dir."la.csv");
 @lines = <FILE>;
 close(FILE);
 foreach $line (@lines){
@@ -66,13 +68,13 @@ foreach $line (@lines){
 	$line =~ s/[\n\r]//g;
 
 	if($i == 0){
-		@header = split(/\,/,$line);
+		@header = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
 		for($j = 0; $j < @header; $j++){
 			$header[$j] =~ s/^l_//g;
 			$headerlookup{$header[$j]} = $j;
 		}
 	}else{
-		@cols = split(/\,/,$line);
+		@cols = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,,$line);
 		$la = "";
 		if($cols[$headerlookup{'restrictions'}] eq "National"){
 			# Loop over all authorities finding any with the country letter
@@ -89,13 +91,14 @@ foreach $line (@lines){
 				}
 			}
 		}
-		foreach $l (keys(%names)){
-			if($names{$l}{'name'} eq $cols[$headerlookup{'Category'}]){
-				$la = $l;
-			}
-		}
+		$la = $cols[$headerlookup{'lacode'}];
+		#foreach $l (keys(%names)){
+		#	if($names{$l}{'name'} eq $cols[$headerlookup{'lacode'}]){
+		#		$la = $l;
+		#	}
+		#}
 		if(!$la){
-			print "Didn't find $cols[$headerlookup{'Category'}]\n";
+			print "Didn't find $cols[$headerlookup{'lacode'}]\n";
 		}else{
 			if(!$restrictions{$la}){ $restrictions{$la} = {}; }
 			for($j = 0; $j < @cols; $j++){
@@ -211,6 +214,7 @@ for($i = 0; $i < @las; $i++){
 		print FILE "\t\t\"updated\": \"$restrictionsdate\",\n";
 		print FILE "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
 		if($restrictions{$la}{'tier'}){
+print "$la - $restrictions{$la}{'tier'}\n";
 			print FILE "\t\t\"tier\": \"$restrictions{$la}{'tier'}\",\n";
 		}
 		print FILE "\t\t\"local\": {";
