@@ -3,14 +3,17 @@
 use Data::Dumper;
 use POSIX qw(strftime);
 use JSON::XS;
-use lib "./lib/";
+use vars qw($lib);
+BEGIN {$lib = $0; $lib =~ s/[^\/\\]+$//}
+use lib $lib . 'lib';
 use ODILeeds::HexJSON;
 
 
 # Get directory
 $dir = $0;
-if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1/g; }
+if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1\//g; }
 else{ $dir = "./"; }
+
 
 %areas;
 %LA;
