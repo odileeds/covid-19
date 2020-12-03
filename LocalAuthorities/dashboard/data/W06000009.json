@@ -3,14 +3,14 @@
 	"population": 125055,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-24T08:22:45Z",
+		"updated": "2020-12-02T09:50:20Z",
 		"url": {"local":"","national":"https://gov.wales/coronavirus-regulations-guidance"},
 		"local": {},
 		"national": {
 			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
+			"hospitalityclosures": true,
 			"householdmixing": true,
-			"raves": true,
+			"largegatherings": true,
 			"smallgatherings": true,
 			"travelrestrictions": true
 		}
@@ -72,13 +72,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000009&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 277,
+		"n": 279,
 		"days":[
-			{"date":"2020-11-29","day":0,"tot":987},
-			{"date":"2020-11-28","day":19,"tot":987},
-			{"date":"2020-11-27","day":26,"tot":968},
+			{"date":"2020-12-01","day":0,"tot":1035},
+			{"date":"2020-11-30","day":13,"tot":1035},
+			{"date":"2020-11-29","day":31,"tot":1022},
+			{"date":"2020-11-28","day":19,"tot":991},
+			{"date":"2020-11-27","day":30,"tot":972},
 			{"date":"2020-11-26","day":21,"tot":942},
 			{"date":"2020-11-25","day":37,"tot":921},
 			{"date":"2020-11-24","day":28,"tot":884},

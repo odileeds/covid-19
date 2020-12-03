@@ -3,15 +3,18 @@
 	"population": 131412,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-24T08:22:45Z",
-		"url": {"local":"","national":"https://www.gov.uk/guidance/new-national-restrictions-from-5-november"},
-		"local": {},
-		"national": {
+		"updated": "2020-12-02T09:50:20Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-2-high-alert","national":""},
+		"tier": "High",
+		"local": {
 			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"raves": true,
-			"socialgatherings": true,
-			"stayinghome": true
+			"hospitalityclosures": true,
+			"householdmixing": true,
+			"largegatherings": true,
+			"openinghours": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -71,13 +74,14 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000238&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 265,
+		"n": 266,
 		"days":[
-			{"date":"2020-11-30","day":3,"tot":1887},
-			{"date":"2020-11-29","day":7,"tot":1884},
-			{"date":"2020-11-28","day":9,"tot":1877},
+			{"date":"2020-12-01","day":2,"tot":1902},
+			{"date":"2020-11-30","day":16,"tot":1900},
+			{"date":"2020-11-29","day":8,"tot":1884},
+			{"date":"2020-11-28","day":8,"tot":1876},
 			{"date":"2020-11-27","day":15,"tot":1868},
 			{"date":"2020-11-26","day":24,"tot":1853},
 			{"date":"2020-11-25","day":15,"tot":1829},
@@ -319,16 +323,16 @@
 			{"date":"2020-04-03","day":7,"tot":84},
 			{"date":"2020-04-02","day":5,"tot":77},
 			{"date":"2020-04-01","day":8,"tot":72},
-			{"date":"2020-03-31","day":10,"tot":64},
-			{"date":"2020-03-30","day":8,"tot":54},
-			{"date":"2020-03-29","day":6,"tot":46},
-			{"date":"2020-03-28","day":8,"tot":40},
-			{"date":"2020-03-27","day":5,"tot":32},
-			{"date":"2020-03-26","day":4,"tot":27},
-			{"date":"2020-03-25","day":2,"tot":23},
-			{"date":"2020-03-24","day":5,"tot":21},
-			{"date":"2020-03-23","day":3,"tot":16},
-			{"date":"2020-03-22","day":2,"tot":13},
+			{"date":"2020-03-31","day":9,"tot":64},
+			{"date":"2020-03-30","day":8,"tot":55},
+			{"date":"2020-03-29","day":6,"tot":47},
+			{"date":"2020-03-28","day":8,"tot":41},
+			{"date":"2020-03-27","day":5,"tot":33},
+			{"date":"2020-03-26","day":4,"tot":28},
+			{"date":"2020-03-25","day":2,"tot":24},
+			{"date":"2020-03-24","day":5,"tot":22},
+			{"date":"2020-03-23","day":3,"tot":17},
+			{"date":"2020-03-22","day":3,"tot":14},
 			{"date":"2020-03-21","day":3,"tot":11},
 			{"date":"2020-03-20","day":3,"tot":8},
 			{"date":"2020-03-19","day":1,"tot":5},

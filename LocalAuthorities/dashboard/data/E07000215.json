@@ -3,15 +3,18 @@
 	"population": 88285,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-24T08:22:45Z",
-		"url": {"local":"","national":"https://www.gov.uk/guidance/new-national-restrictions-from-5-november"},
-		"local": {},
-		"national": {
+		"updated": "2020-12-02T09:50:20Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-2-high-alert","national":""},
+		"tier": "High",
+		"local": {
 			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"raves": true,
-			"socialgatherings": true,
-			"stayinghome": true
+			"hospitalityclosures": true,
+			"householdmixing": true,
+			"largegatherings": true,
+			"openinghours": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -71,21 +74,22 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000215&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 270,
+		"n": 271,
 		"days":[
-			{"date":"2020-11-30","day":2,"tot":1148},
-			{"date":"2020-11-29","day":4,"tot":1146},
-			{"date":"2020-11-28","day":8,"tot":1142},
+			{"date":"2020-12-01","day":4,"tot":1177},
+			{"date":"2020-11-30","day":24,"tot":1173},
+			{"date":"2020-11-29","day":6,"tot":1149},
+			{"date":"2020-11-28","day":9,"tot":1143},
 			{"date":"2020-11-27","day":22,"tot":1134},
-			{"date":"2020-11-26","day":6,"tot":1112},
-			{"date":"2020-11-25","day":8,"tot":1106},
-			{"date":"2020-11-24","day":14,"tot":1098},
-			{"date":"2020-11-23","day":13,"tot":1084},
-			{"date":"2020-11-22","day":8,"tot":1071},
-			{"date":"2020-11-21","day":9,"tot":1063},
-			{"date":"2020-11-20","day":14,"tot":1054},
+			{"date":"2020-11-26","day":7,"tot":1112},
+			{"date":"2020-11-25","day":8,"tot":1105},
+			{"date":"2020-11-24","day":14,"tot":1097},
+			{"date":"2020-11-23","day":13,"tot":1083},
+			{"date":"2020-11-22","day":8,"tot":1070},
+			{"date":"2020-11-21","day":9,"tot":1062},
+			{"date":"2020-11-20","day":13,"tot":1053},
 			{"date":"2020-11-19","day":7,"tot":1040},
 			{"date":"2020-11-18","day":13,"tot":1033},
 			{"date":"2020-11-17","day":23,"tot":1020},

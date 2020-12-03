@@ -3,12 +3,12 @@
 	"population": 138773,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-24T08:22:45Z",
+		"updated": "2020-12-02T09:50:20Z",
 		"url": {"local":"","national":"https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you"},
 		"local": {},
 		"national": {
 			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
+			"hospitalityclosures": true,
 			"householdmixing": true,
 			"notstayingaway": true,
 			"openinghours": true,
@@ -26,11 +26,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=N09000008&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 298,
+		"n": 299,
 		"days":[
-			{"date":"2020-11-30","day":72,"tot":2812},
+			{"date":"2020-12-01","day":38,"tot":2864},
+			{"date":"2020-11-30","day":86,"tot":2826},
 			{"date":"2020-11-29","day":32,"tot":2740},
 			{"date":"2020-11-28","day":43,"tot":2708},
 			{"date":"2020-11-27","day":39,"tot":2665},

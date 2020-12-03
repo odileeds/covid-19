@@ -3,15 +3,18 @@
 	"population": 129825,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-24T08:22:45Z",
-		"url": {"local":"","national":"https://www.gov.uk/guidance/new-national-restrictions-from-5-november"},
-		"local": {},
-		"national": {
+		"updated": "2020-12-02T09:50:20Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
+		"tier": "Very High",
+		"local": {
 			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"raves": true,
-			"socialgatherings": true,
-			"stayinghome": true
+			"hospitalityclosures": true,
+			"householdmixing": true,
+			"largegatherings": true,
+			"openinghours": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -71,13 +74,14 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000170&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 262,
+		"n": 263,
 		"days":[
-			{"date":"2020-11-30","day":3,"tot":3557},
-			{"date":"2020-11-29","day":13,"tot":3554},
-			{"date":"2020-11-28","day":15,"tot":3541},
+			{"date":"2020-12-01","day":2,"tot":3585},
+			{"date":"2020-11-30","day":18,"tot":3583},
+			{"date":"2020-11-29","day":23,"tot":3565},
+			{"date":"2020-11-28","day":16,"tot":3542},
 			{"date":"2020-11-27","day":26,"tot":3526},
 			{"date":"2020-11-26","day":31,"tot":3500},
 			{"date":"2020-11-25","day":36,"tot":3469},

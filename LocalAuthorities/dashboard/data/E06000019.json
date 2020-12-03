@@ -4,19 +4,18 @@
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-02T09:50:20Z",
-		"url": {"local":"https://www.gov.uk/guidance/tier-2-high-alert","national":"0"},
-		"tier": "E",
+		"url": {"local":"https://www.gov.uk/guidance/tier-2-high-alert","national":""},
+		"tier": "High",
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"hospitalityclosures": true,
 			"householdmixing": true,
 			"largegatherings": true,
 			"openinghours": true,
-			"stayinghome": true
+			"ruleofsix": true
 		},
 		"national": {
-			"ruleofsix": true,
-			"socialgatherings": true
+
 		}
 	},
 	"deaths":{

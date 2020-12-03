@@ -3,15 +3,18 @@
 	"population": 118349,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-11-24T08:22:45Z",
-		"url": {"local":"","national":"https://www.gov.uk/guidance/new-national-restrictions-from-5-november"},
-		"local": {},
-		"national": {
+		"updated": "2020-12-02T09:50:20Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
+		"tier": "Very High",
+		"local": {
 			"alcoholsalesrestrictions": true,
-			"businessclosures": true,
-			"raves": true,
-			"socialgatherings": true,
-			"stayinghome": true
+			"hospitalityclosures": true,
+			"householdmixing": true,
+			"largegatherings": true,
+			"openinghours": true
+		},
+		"national": {
+
 		}
 	},
 	"deaths":{
@@ -71,16 +74,17 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000139&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 267,
+		"n": 268,
 		"days":[
-			{"date":"2020-11-30","day":8,"tot":2136},
-			{"date":"2020-11-29","day":27,"tot":2128},
-			{"date":"2020-11-28","day":30,"tot":2101},
-			{"date":"2020-11-27","day":31,"tot":2071},
-			{"date":"2020-11-26","day":32,"tot":2040},
-			{"date":"2020-11-25","day":32,"tot":2008},
+			{"date":"2020-12-01","day":4,"tot":2166},
+			{"date":"2020-11-30","day":26,"tot":2162},
+			{"date":"2020-11-29","day":34,"tot":2136},
+			{"date":"2020-11-28","day":30,"tot":2102},
+			{"date":"2020-11-27","day":31,"tot":2072},
+			{"date":"2020-11-26","day":32,"tot":2041},
+			{"date":"2020-11-25","day":33,"tot":2009},
 			{"date":"2020-11-24","day":28,"tot":1976},
 			{"date":"2020-11-23","day":50,"tot":1948},
 			{"date":"2020-11-22","day":29,"tot":1898},

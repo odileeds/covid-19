@@ -1,6 +1,23 @@
 {
 	"name":"Fife",
 	"population": 371910,
+	"restrictions":{
+		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
+		"updated": "2020-12-02T09:50:20Z",
+		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
+		"tier": "3",
+		"local": {
+			"alcoholsalesrestrictions": true,
+			"hospitalityclosures": true,
+			"householdmixing": true,
+			"openinghours": true,
+			"ruleofsix": true,
+			"stayinglocal": true
+		},
+		"national": {
+			"travelrestrictions": true
+		}
+	},
 	"deaths":{
 		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/7.csv",
 		"updated": "2020-12-01",
@@ -12,14 +29,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000047&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-01T15:27:26Z",
+		"updated":"2020-12-02T15:30:39Z",
 		"type":"SpecimenDate",
-		"n": 277,
+		"n": 278,
 		"days":[
-			{"date":"2020-11-30","day":18,"tot":4299},
-			{"date":"2020-11-29","day":46,"tot":4281},
-			{"date":"2020-11-28","day":39,"tot":4235},
-			{"date":"2020-11-27","day":42,"tot":4196},
+			{"date":"2020-12-01","day":26,"tot":4369},
+			{"date":"2020-11-30","day":58,"tot":4343},
+			{"date":"2020-11-29","day":49,"tot":4285},
+			{"date":"2020-11-28","day":39,"tot":4236},
+			{"date":"2020-11-27","day":43,"tot":4197},
 			{"date":"2020-11-26","day":58,"tot":4154},
 			{"date":"2020-11-25","day":61,"tot":4096},
 			{"date":"2020-11-24","day":62,"tot":4035},
