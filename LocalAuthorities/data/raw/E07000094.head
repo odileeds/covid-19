@@ -1,25 +1,24 @@
 HTTP/1.1 200 OK
 Cache-Control: public, must-revalidate, max-age=90
-Pragma: no-cache
 Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
-Content-Location: https://uks-covid19-pubdash-prod.azure-api.net/v1/data?filters=areaType=ltla;areaCode=E07000094&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Fri, 04 Dec 2020 11:00:19 GMT
-Last-Modified: Thu, 03 Dec 2020 15:28:43 GMT
+Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000094&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
+Expires: Sat, 05 Dec 2020 15:22:49 GMT
+Last-Modified: Fri, 04 Dec 2020 16:00:48 GMT
 X-Cache: TCP_MISS
-Request-Context: appId=cid-v1:10ef5909-f7e8-4267-86f0-f575a2bdc89e
-phe-server-loc: UKS
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-X-Frame-Options: deny
+Request-Context: appId=cid-v1:0fde6fa4-674f-45b5-b2c1-cb45db3c4eeb
 X-Content-Type-Options: nosniff
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 x-xss-protection: 1; mode=block
 x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+X-Frame-Options: deny
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+phe-server-loc: UKS_fe01
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 4158
-X-Azure-Ref-OriginShield: 0aRbKXwAAAADRB+fUrWqITr05ucoJoavjTE9OMjFFREdFMTUwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0aRbKXwAAAAD1yFweQExUTJi2oUdZ6MTWTUFOMzBFREdFMDMxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Fri, 04 Dec 2020 10:58:49 GMT
+PHE-API-Cache-Duration: 17723
+X-Azure-Ref-OriginShield: 0b6XLXwAAAABnSg6rSeCAT4aJNrtkLt1lTE9OMjFFREdFMTUxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0b6XLXwAAAAAkJEkRmugnRoP6X8f9tFOTTUFOMzBFREdFMDcwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 05 Dec 2020 15:21:18 GMT
 

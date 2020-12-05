@@ -3,7 +3,7 @@
 	"population": 111060,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-02T09:50:20Z",
+		"updated": "2020-12-04T16:05:26Z",
 		"url": {"local":"https://www.gov.uk/guidance/tier-2-high-alert","national":""},
 		"tier": "High",
 		"local": {
@@ -74,7 +74,7 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000181&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-03T15:28:43Z",
+		"updated":"2020-12-04T16:00:48Z",
 		"type":"SpecimenDate",
 		"n": 275,
 		"days":[
