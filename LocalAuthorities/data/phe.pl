@@ -3,9 +3,10 @@
 use Data::Dumper;
 use POSIX qw(strftime);
 use JSON::XS;
-use vars qw($lib);
-BEGIN {$lib = $0; $lib =~ s/[^\/\\]+$//}
-use lib $lib . 'lib';
+use lib "./lib/";
+#use vars qw($lib);
+#BEGIN {$lib = $0; $lib =~ s/[^\/\\]+$//}
+#use lib $lib . 'lib';
 use ODILeeds::Graph;
 use ODILeeds::DateTime;
 
