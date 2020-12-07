@@ -4,21 +4,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000094&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 05 Dec 2020 15:22:49 GMT
-Last-Modified: Fri, 04 Dec 2020 16:00:48 GMT
+Expires: Mon, 07 Dec 2020 18:38:04 GMT
+Last-Modified: Mon, 07 Dec 2020 15:38:14 GMT
 X-Cache: TCP_MISS
-Request-Context: appId=cid-v1:0fde6fa4-674f-45b5-b2c1-cb45db3c4eeb
-X-Content-Type-Options: nosniff
+Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-xss-protection: 1; mode=block
+X-Content-Type-Options: nosniff
+phe-server-loc: UKS_fe01
 x-phe-media-type: PHE-COVID19.v1
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 X-Frame-Options: deny
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-phe-server-loc: UKS_fe01
+x-xss-protection: 1; mode=block
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 17723
-X-Azure-Ref-OriginShield: 0b6XLXwAAAABnSg6rSeCAT4aJNrtkLt1lTE9OMjFFREdFMTUxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0b6XLXwAAAAAkJEkRmugnRoP6X8f9tFOTTUFOMzBFREdFMDcwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 05 Dec 2020 15:21:18 GMT
+PHE-API-Cache-Duration: 20863
+X-Azure-Ref-OriginShield: 0MnbOXwAAAAD17LvD6FIWSq1097BBl4D7TE9OMjFFREdFMDIyMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0MnbOXwAAAAAqVZ0H+gwNSKql36foaSa+TUFOMzBFREdFMDcxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 07 Dec 2020 18:36:34 GMT
 

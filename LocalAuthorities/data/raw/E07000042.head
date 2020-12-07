@@ -4,21 +4,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000042&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 05 Dec 2020 15:21:19 GMT
-Last-Modified: Fri, 04 Dec 2020 16:00:48 GMT
+Expires: Mon, 07 Dec 2020 18:36:30 GMT
+Last-Modified: Mon, 07 Dec 2020 15:38:14 GMT
 X-Cache: TCP_MISS
-Request-Context: appId=cid-v1:0fde6fa4-674f-45b5-b2c1-cb45db3c4eeb
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-x-phe-media-type: PHE-COVID19.v1
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-xss-protection: 1; mode=block
+Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 X-Frame-Options: deny
+phe-server-loc: UKW_fe01
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+x-xss-protection: 1; mode=block
 X-Content-Type-Options: nosniff
-phe-server-loc: UKS_fe02
+x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 17324
-X-Azure-Ref-OriginShield: 0FaXLXwAAAAD6iFzjjO8FTYFnDNvkk52+TE9OMjFFREdFMDExNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0FaXLXwAAAAAJSFPAgLP7R7qKBPO+AfMYTUFOMzBFREdFMDMyMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 05 Dec 2020 15:19:48 GMT
+PHE-API-Cache-Duration: 4382
+X-Azure-Ref-OriginShield: 01HXOXwAAAABf5weG5NHIS4L70jT/c1ksTE9OMjFFREdFMTUxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 01HXOXwAAAAA6o4+R38Z/QLO+ZpFnvTXuTUFOMzBFREdFMDMwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 07 Dec 2020 18:35:00 GMT
 

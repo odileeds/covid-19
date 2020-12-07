@@ -1,22 +1,24 @@
-HTTP/1.1 204 No Content
+HTTP/1.1 200 OK
 Cache-Control: public, must-revalidate, max-age=90
-Content-Length: 0
+Transfer-Encoding: chunked
+Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
+Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E08000013&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 05 Dec 2020 15:28:04 GMT
-Last-Modified: Fri, 04 Dec 2020 16:00:48 GMT
+Expires: Mon, 07 Dec 2020 18:43:43 GMT
+Last-Modified: Mon, 07 Dec 2020 15:38:14 GMT
 X-Cache: TCP_MISS
-Request-Context: appId=cid-v1:0fde6fa4-674f-45b5-b2c1-cb45db3c4eeb
+Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+X-Frame-Options: deny
+x-phe-media-type: PHE-COVID19.v1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+phe-server-loc: UKW_fe01
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 x-xss-protection: 1; mode=block
-phe-server-loc: UKS_fe02
-X-Content-Type-Options: nosniff
-X-Frame-Options: deny
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 9731
-X-Azure-Ref-OriginShield: 0qqbLXwAAAADiChCQ4RWnQb8FSEKDujBaTE9OMjFFREdFMDEwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0qqbLXwAAAACa6femUnakR4n97LGHF9OTTUFOMzBFREdFMDMyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 05 Dec 2020 15:26:33 GMT
+PHE-API-Cache-Duration: 14995
+X-Azure-Ref-OriginShield: 0hXfOXwAAAAAgYfNy9smlQZd25vgPsN2NTE9OMjFFREdFMDIxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0hXfOXwAAAACNvlEWRNGgQqzSvycFr0cMTUFOMzBFREdFMDcwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 07 Dec 2020 18:42:12 GMT
 
