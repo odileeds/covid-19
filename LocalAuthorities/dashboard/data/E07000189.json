@@ -18,11 +18,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/7.csv",
-		"updated": "2020-12-01",
-		"all": 1702,
-		"cov": 63,
+		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/8.csv",
+		"updated": "2020-12-08",
+		"all": 1737,
+		"cov": 72,
 		"weeks":[
+			{"txt":"Week 48","all":36,"cov":9},
 			{"txt":"Week 47","all":39,"cov":1},
 			{"txt":"Week 46","all":38,"cov":2},
 			{"txt":"Week 45","all":36,"cov":1},
@@ -68,21 +69,22 @@
 			{"txt":"Week 05","all":42,"cov":0},
 			{"txt":"Week 04","all":47,"cov":0},
 			{"txt":"Week 03","all":40,"cov":0},
-			{"txt":"Week 02","all":50,"cov":0},
+			{"txt":"Week 02","all":49,"cov":0},
 			{"txt":"Week 01","all":40,"cov":0}
 		]
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000189&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-07T15:38:14Z",
+		"updated":"2020-12-08T15:56:10Z",
 		"type":"SpecimenDate",
-		"n": 272,
+		"n": 273,
 		"days":[
-			{"date":"2020-12-06","day":0,"tot":1655},
-			{"date":"2020-12-05","day":6,"tot":1655},
-			{"date":"2020-12-04","day":19,"tot":1649},
-			{"date":"2020-12-03","day":29,"tot":1630},
-			{"date":"2020-12-02","day":34,"tot":1601},
+			{"date":"2020-12-07","day":1,"tot":1673},
+			{"date":"2020-12-06","day":11,"tot":1672},
+			{"date":"2020-12-05","day":11,"tot":1661},
+			{"date":"2020-12-04","day":19,"tot":1650},
+			{"date":"2020-12-03","day":29,"tot":1631},
+			{"date":"2020-12-02","day":35,"tot":1602},
 			{"date":"2020-12-01","day":49,"tot":1567},
 			{"date":"2020-11-30","day":23,"tot":1518},
 			{"date":"2020-11-29","day":14,"tot":1495},

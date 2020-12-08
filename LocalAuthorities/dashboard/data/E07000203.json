@@ -18,13 +18,14 @@
 		}
 	},
 	"deaths":{
-		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/7.csv",
-		"updated": "2020-12-01",
-		"all": 1011,
-		"cov": 79,
+		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/8.csv",
+		"updated": "2020-12-08",
+		"all": 1017,
+		"cov": 82,
 		"weeks":[
+			{"txt":"Week 48","all":18,"cov":3},
 			{"txt":"Week 47","all":21,"cov":0},
-			{"txt":"Week 46","all":18,"cov":1},
+			{"txt":"Week 46","all":10,"cov":1},
 			{"txt":"Week 45","all":23,"cov":0},
 			{"txt":"Week 44","all":15,"cov":0},
 			{"txt":"Week 43","all":20,"cov":0},
@@ -69,22 +70,23 @@
 			{"txt":"Week 04","all":25,"cov":0},
 			{"txt":"Week 03","all":27,"cov":0},
 			{"txt":"Week 02","all":18,"cov":0},
-			{"txt":"Week 01","all":23,"cov":0}
+			{"txt":"Week 01","all":19,"cov":0}
 		]
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000203&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-07T15:38:14Z",
+		"updated":"2020-12-08T15:56:10Z",
 		"type":"SpecimenDate",
-		"n": 275,
+		"n": 276,
 		"days":[
-			{"date":"2020-12-06","day":0,"tot":854},
-			{"date":"2020-12-05","day":4,"tot":854},
-			{"date":"2020-12-04","day":7,"tot":850},
-			{"date":"2020-12-03","day":9,"tot":843},
-			{"date":"2020-12-02","day":2,"tot":834},
-			{"date":"2020-12-01","day":9,"tot":832},
-			{"date":"2020-11-30","day":11,"tot":823},
+			{"date":"2020-12-07","day":1,"tot":859},
+			{"date":"2020-12-06","day":1,"tot":858},
+			{"date":"2020-12-05","day":5,"tot":857},
+			{"date":"2020-12-04","day":8,"tot":852},
+			{"date":"2020-12-03","day":9,"tot":844},
+			{"date":"2020-12-02","day":2,"tot":835},
+			{"date":"2020-12-01","day":9,"tot":833},
+			{"date":"2020-11-30","day":12,"tot":824},
 			{"date":"2020-11-29","day":7,"tot":812},
 			{"date":"2020-11-28","day":2,"tot":805},
 			{"date":"2020-11-27","day":8,"tot":803},

@@ -18,11 +18,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/7.csv",
-		"updated": "2020-12-01",
-		"all": 864,
-		"cov": 100,
+		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/8.csv",
+		"updated": "2020-12-08",
+		"all": 886,
+		"cov": 102,
 		"weeks":[
+			{"txt":"Week 48","all":22,"cov":3},
 			{"txt":"Week 47","all":19,"cov":2},
 			{"txt":"Week 46","all":16,"cov":1},
 			{"txt":"Week 45","all":17,"cov":1},
@@ -47,7 +48,7 @@
 			{"txt":"Week 26","all":7,"cov":2},
 			{"txt":"Week 25","all":13,"cov":2},
 			{"txt":"Week 24","all":17,"cov":2},
-			{"txt":"Week 23","all":23,"cov":5},
+			{"txt":"Week 23","all":23,"cov":4},
 			{"txt":"Week 22","all":23,"cov":7},
 			{"txt":"Week 21","all":23,"cov":4},
 			{"txt":"Week 20","all":19,"cov":7},
@@ -74,11 +75,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000075&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-07T15:38:14Z",
+		"updated":"2020-12-08T15:56:10Z",
 		"type":"SpecimenDate",
-		"n": 261,
+		"n": 262,
 		"days":[
-			{"date":"2020-12-06","day":0,"tot":1204},
+			{"date":"2020-12-07","day":1,"tot":1222},
+			{"date":"2020-12-06","day":17,"tot":1221},
 			{"date":"2020-12-05","day":18,"tot":1204},
 			{"date":"2020-12-04","day":30,"tot":1186},
 			{"date":"2020-12-03","day":27,"tot":1156},

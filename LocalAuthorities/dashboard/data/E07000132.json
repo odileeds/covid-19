@@ -18,11 +18,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/7.csv",
-		"updated": "2020-12-01",
-		"all": 1069,
-		"cov": 120,
+		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/8.csv",
+		"updated": "2020-12-08",
+		"all": 1098,
+		"cov": 123,
 		"weeks":[
+			{"txt":"Week 48","all":16,"cov":3},
 			{"txt":"Week 47","all":18,"cov":5},
 			{"txt":"Week 46","all":23,"cov":5},
 			{"txt":"Week 45","all":16,"cov":0},
@@ -53,7 +54,7 @@
 			{"txt":"Week 20","all":45,"cov":15},
 			{"txt":"Week 19","all":26,"cov":7},
 			{"txt":"Week 18","all":31,"cov":14},
-			{"txt":"Week 17","all":38,"cov":15},
+			{"txt":"Week 17","all":52,"cov":15},
 			{"txt":"Week 16","all":43,"cov":7},
 			{"txt":"Week 15","all":30,"cov":10},
 			{"txt":"Week 14","all":29,"cov":5},
@@ -69,17 +70,18 @@
 			{"txt":"Week 04","all":31,"cov":0},
 			{"txt":"Week 03","all":26,"cov":0},
 			{"txt":"Week 02","all":27,"cov":0},
-			{"txt":"Week 01","all":35,"cov":0}
+			{"txt":"Week 01","all":34,"cov":0}
 		]
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000132&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-07T15:38:14Z",
+		"updated":"2020-12-08T15:56:10Z",
 		"type":"SpecimenDate",
-		"n": 271,
+		"n": 272,
 		"days":[
-			{"date":"2020-12-06","day":3,"tot":2628},
-			{"date":"2020-12-05","day":20,"tot":2625},
+			{"date":"2020-12-07","day":0,"tot":2636},
+			{"date":"2020-12-06","day":8,"tot":2636},
+			{"date":"2020-12-05","day":23,"tot":2628},
 			{"date":"2020-12-04","day":13,"tot":2605},
 			{"date":"2020-12-03","day":23,"tot":2592},
 			{"date":"2020-12-02","day":19,"tot":2569},
