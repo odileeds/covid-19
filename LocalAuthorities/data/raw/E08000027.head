@@ -4,21 +4,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E08000027&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Tue, 08 Dec 2020 17:49:14 GMT
+Expires: Wed, 09 Dec 2020 08:48:44 GMT
 Last-Modified: Tue, 08 Dec 2020 15:56:10 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-phe-server-loc: UKW_fe02
-x-xss-protection: 1; mode=block
-x-phe-media-type: PHE-COVID19.v1
 X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+x-phe-media-type: PHE-COVID19.v1
+phe-server-loc: UKS_fe02
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+x-xss-protection: 1; mode=block
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 5484
-X-Azure-Ref-OriginShield: 0QLzPXwAAAAAvoibjstPpSI7KBxli0LoFTE9OMjFFREdFMTUxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0QLzPXwAAAAB3Gz63lfyMTa7bgX5MdRhrTUFOMzBFREdFMDcxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Tue, 08 Dec 2020 17:47:43 GMT
+PHE-API-Cache-Duration: 5700
+X-Azure-Ref-OriginShield: 0Eo/QXwAAAAC8C5eG/lnCSKg6oXni7klxTE9OMjFFREdFMDEwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0Eo/QXwAAAAC+wGL5pUSPSY0LktyUFn/TTUFOMzBFREdFMDMxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Wed, 09 Dec 2020 08:47:14 GMT
 
