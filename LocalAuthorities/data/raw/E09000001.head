@@ -2,21 +2,22 @@ HTTP/1.1 204 No Content
 Cache-Control: public, must-revalidate, max-age=90
 Content-Length: 0
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E09000001&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 12 Dec 2020 12:20:36 GMT
-Last-Modified: Fri, 11 Dec 2020 17:37:52 GMT
+Expires: Sat, 12 Dec 2020 17:49:31 GMT
+Last-Modified: Sat, 12 Dec 2020 15:17:40 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-x-phe-media-type: PHE-COVID19.v1
 X-Content-Type-Options: nosniff
-x-xss-protection: 1; mode=block
 X-Frame-Options: deny
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+x-phe-media-type: PHE-COVID19.v1
+phe-server-loc: UKS_fe01
+x-xss-protection: 1; mode=block
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-phe-server-loc: UKW_fe02
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 3822
-X-Azure-Ref-OriginShield: 0OrXUXwAAAACyTPFoevv7TImgrzxD7FTjTE9OMjFFREdFMDIyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0OrXUXwAAAAAee50AfpRaRYVIjHAij7s9TUFOMzBFREdFMDcxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 12 Dec 2020 12:19:05 GMT
+PHE-API-Cache-Duration: 16150
+tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+X-Azure-Ref-OriginShield: 0UQLVXwAAAACIHHdJmgwfQKETGdrYqp0VTE9OMjFFREdFMDExMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0UQLVXwAAAACHpp6FfaLmR7X4P0VWa7pATUFOMzBFREdFMDMxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 12 Dec 2020 17:48:01 GMT
 
