@@ -4,21 +4,22 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000005&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 13 Dec 2020 12:12:51 GMT
-Last-Modified: Sat, 12 Dec 2020 15:17:40 GMT
+Expires: Sun, 13 Dec 2020 17:41:54 GMT
+Last-Modified: Sun, 13 Dec 2020 15:24:07 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 x-phe-media-type: PHE-COVID19.v1
-x-xss-protection: 1; mode=block
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKS_fe01
-X-Frame-Options: deny
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
+x-xss-protection: 1; mode=block
+phe-server-loc: UKS_fe02
+X-Frame-Options: deny
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 12741
+PHE-API-Cache-Duration: 11912
 tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref: 06QTWXwAAAADSoYtxcbbdRbvG5vZGGaRfTE9OMjFFREdFMDIwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 13 Dec 2020 12:11:21 GMT
+X-Azure-Ref-OriginShield: 0CFLWXwAAAACQugfmrUVCTZbZQ7LEWB2mTE9OMjFFREdFMDIwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0CFLWXwAAAADZqSOrfMkzR4PJksXE6p/bTUFOMzBFREdFMDcxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 13 Dec 2020 17:40:24 GMT
 
