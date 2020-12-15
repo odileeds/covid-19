@@ -5,22 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000187&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Mon, 14 Dec 2020 17:46:01 GMT
-Last-Modified: Sun, 13 Dec 2020 15:24:07 GMT
+Expires: Tue, 15 Dec 2020 08:46:15 GMT
+Last-Modified: Mon, 14 Dec 2020 18:36:16 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Content-Type-Options: nosniff
+x-phe-media-type: PHE-COVID19.v1
+phe-server-loc: UKW_fe01
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 X-Frame-Options: deny
 x-xss-protection: 1; mode=block
-x-phe-media-type: PHE-COVID19.v1
-phe-server-loc: UKS_fe02
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 10390
-tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref-OriginShield: 0fqTXXwAAAAAPvkluGIoTQpgGom3mIeZBTE9OMjFFREdFMTUxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0fqTXXwAAAAD3Z8WWviarRIwyr1fmpI9dTUFOMzBFREdFMDcxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Mon, 14 Dec 2020 17:44:30 GMT
+PHE-API-Cache-Duration: 11051
+X-Azure-Ref-OriginShield: 0fHfYXwAAAACOgtTfgnlGTIagDhjcVUOTTE9OMjFFREdFMTUwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0fHfYXwAAAADbFbUUQwgMRLNKrr+AOKFmTUFOMzBFREdFMDMxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Tue, 15 Dec 2020 08:44:44 GMT
 
