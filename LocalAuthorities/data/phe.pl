@@ -114,6 +114,7 @@ foreach $line (@lines){
 %deaths = processDeaths();
 
 $start = 5;
+%LAD;
 
 for($i = 0; $i < @las; $i++){
 	$la = $las[$i];
@@ -149,7 +150,7 @@ for($i = 0; $i < @las; $i++){
 
 	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
 	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 2 || -s $head==0){
+	if($diff > 3 || -s $head==0){
 		print "\tGetting URL $url\n";
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
@@ -290,9 +291,34 @@ print "$la - $restrictions{$la}{'tier'}\n";
 	print FILE "}\n";
 	close(FILE);
 	
-	
 	makeGraph($la);
 
+	# Work out the latest (as of 5 days ago in the data) 7-day-smoothed values for each LA
+	# Load the data back in
+	open(FILE,$file);
+	@lines = <FILE>;
+	close(FILE);
+	%lajson = %{JSON::XS->new->utf8->decode(join("\n",@lines))};
+	$LAD{$la} = { %lajson };
+	$t = 0;
+	for($d = 2; $d <= 8; $d++){
+		$t += $LAD{$la}{"cases"}{"days"}[$d]{"day"};
+	}
+	$LAD{$la}{'cases'}{'latest_smoothed_100k'} = int(($t/7)*1e5/$LAD{$la}{'population'} + 0.5);
+	$LAD{$la}{'deaths'}{'latest_100k'} = sprintf("%0.1f",$LAD{$la}{'deaths'}{'weeks'}[0]{'cov'}*1e5/$LAD{$la}{'population'});
+	$start = 5;
+	$w = 0;
+	$w2 = 0;
+	for($d = $start; $d < $start+7; $d++){
+		$w += $LAD{$la}{"cases"}{"days"}[$d]{"day"};
+	}
+	for($d = $start+7; $d < $start+14; $d++){
+		$w2 += $LAD{$la}{"cases"}{"days"}[$d]{"day"};
+	}
+	$LAD{$la}{'cases'}{'weekly'} = int($w*1e5/$LAD{$la}{'population'} + 0.5);
+	$LAD{$la}{'cases'}{'weekly_change'} = int(($w-$w2)*1e5/$LAD{$la}{'population'} + 0.5);
+	
+	$updateday = $LAD{$la}{"cases"}{"days"}[$start]{"date"};
 }
 
 open(FILE,">","processed/index.json");
@@ -307,10 +333,29 @@ print FILE "\n\}\n";
 close(FILE);
 
 
-
-
-
-
+$table = "\t\t\t<p>As of: $updateday</p>\n\t\t\t<table class=\"js-sort-table\">\n\t\t\t\t<tr><th>Local Authority</th><th class=\"js-sort-number\">Cases/100k</th><th class=\"js-sort-number\">Weekly cases/100k</th><th class=\"js-sort-number\">Weekly change/100k</th><th class=\"js-sort-number\">Weekly deaths/100k</th><th class=\"js-sort-number\">Tier</th></tr>\n";
+foreach $la (reverse(sort{ $LAD{$a}{'cases'}{'latest_smoothed_100k'} <=> $LAD{$b}{'cases'}{'latest_smoothed_100k'}}keys(%LAD))){
+	$lvl = "0";
+	if($LAD{$la}{'restrictions'}{'tier'} eq "Very High"){
+		$lvl = 3;
+	}elsif($LAD{$la}{'restrictions'}{'tier'} eq "High"){
+		$lvl = 2;
+	}elsif($LAD{$la}{'restrictions'}{'tier'} eq "Medium"){
+		$lvl = 1;
+	}
+	$cls = "";
+	$v = $LAD{$la}{'cases'}{'latest_smoothed_100k'};
+	# Definitions from https://covid19.ca.gov/safer-economy/
+	if($v >= 7){ $cls = "widespread"; }
+	elsif($v >= 4 && $v < 7){ $cls = "substantial"; }
+	elsif($v >= 1 && $v < 4){ $cls = "moderate"; }
+	else{ $cls = "minimal"; }
+	$table .= "\t\t\t\t<tr class=\"$cls\"><td>$LAD{$la}{'name'}</td><td>$LAD{$la}{'cases'}{'latest_smoothed_100k'}</td><td>$LAD{$la}{'cases'}{'weekly'}</td><td>$LAD{$la}{'cases'}{'weekly_change'}</td><td>$LAD{$la}{'deaths'}{'latest_100k'}</td><td>$lvl</td></tr>\n";
+}
+$table .= "\t\t\t</table>\n";
+open(FILE,">",$dir."../dashboard/table.txt");
+print FILE $table;
+close(FILE);
 
 
 
