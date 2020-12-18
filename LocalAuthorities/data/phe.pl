@@ -11,10 +11,20 @@ use ODILeeds::Graph;
 use ODILeeds::DateTime;
 
 
+logIt("Started");
+
 # Get directory
 $dir = $0;
 if($dir =~ /\//){ $dir =~ s/^(.*)\/([^\/]*)/$1\//g; }
 else{ $dir = "./"; }
+if($ARGV[0] eq "debug"){
+	$debug = 1;
+}else{
+	$debug = 0;
+}
+
+
+logIt("Using directory: $dir");
 
 # Create a DateTime object
 $datetime = ODILeeds::DateTime->new();
@@ -52,6 +62,7 @@ $file = $dir."commonslibrary-coronavirus-restrictions-data.csv";
 $head = $dir."commonslibrary-coronavirus-restrictions-data.head";
 `curl -sI "$url" > $head`;
 `curl -s "$url" > $file`;
+logIt("Saved $head");
 open(FILE,$head);
 @headlines = <FILE>;
 close(FILE);
@@ -112,6 +123,7 @@ foreach $line (@lines){
 
 # Get the death data
 %deaths = processDeaths();
+logIt("Processed deaths");
 
 $start = 5;
 %LAD;
@@ -148,10 +160,10 @@ for($i = 0; $i < @las; $i++){
 	}
 
 
-	print "$la (".sprintf("%0.1f",$diff)." hours old):\n";
+	logIt("$la (".sprintf("%0.1f",$diff)." hours old)");
 	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 3 || -s $head==0){
-		print "\tGetting URL $url\n";
+	if($diff > 2 || -s $head==0){
+		logIt("\tGetting URL $url");
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
 		$str = join("",@lines);
@@ -291,6 +303,7 @@ print "$la - $restrictions{$la}{'tier'}\n";
 	print FILE "}\n";
 	close(FILE);
 	
+ 
 	makeGraph($la);
 
 	# Work out the latest (as of 5 days ago in the data) 7-day-smoothed values for each LA
@@ -333,6 +346,7 @@ print FILE "\n\}\n";
 close(FILE);
 
 
+
 $table = "\t\t\t<p>As of: $updateday</p>\n\t\t\t<table class=\"js-sort-table\">\n\t\t\t\t<tr><th>Local Authority</th><th class=\"js-sort-number\">Cases/100k</th><th class=\"js-sort-number\">Weekly cases/100k</th><th class=\"js-sort-number\">Weekly change/100k</th><th class=\"js-sort-number\">Weekly deaths/100k</th><th class=\"js-sort-number\">Tier</th></tr>\n";
 foreach $la (reverse(sort{ $LAD{$a}{'cases'}{'latest_smoothed_100k'} <=> $LAD{$b}{'cases'}{'latest_smoothed_100k'}}keys(%LAD))){
 	$lvl = "0";
@@ -358,6 +372,22 @@ print FILE $table;
 close(FILE);
 
 
+
+
+#####################
+# SUBROUTINES
+
+sub logIt {
+	my $msg = $_[0];
+	my $file = "/home/slowe/tmp/update-covid.log";
+	my $t = strftime("%FT%T",gmtime);
+	print "$t $msg\n";
+	if(-e $file){
+		open(LOG,">>","/home/slowe/tmp/update-covid.log");
+		print LOG "$t $msg\n";
+		close(LOG);
+	}
+}
 
 sub makeGraph {
 	my $la = $_[0];
