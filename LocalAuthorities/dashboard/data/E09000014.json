@@ -3,13 +3,15 @@
 	"population": 271984,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-15T21:30:05Z",
+		"updated": "2020-12-18T18:21:04Z",
 		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
 		"tier": "Very High",
 		"local": {
+			"alcoholsalesrestrictions": true,
 			"hospitalityclosures": true,
 			"householdmixing": true,
-			"largegatherings": true
+			"largegatherings": true,
+			"openinghours": true
 		},
 		"national": {
 
