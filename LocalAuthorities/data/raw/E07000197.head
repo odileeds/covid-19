@@ -5,21 +5,22 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000197&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 20 Dec 2020 17:50:36 GMT
+Expires: Mon, 21 Dec 2020 08:47:56 GMT
 Last-Modified: Sun, 20 Dec 2020 15:33:08 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Content-Type-Options: nosniff
-x-phe-media-type: PHE-COVID19.v1
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-xss-protection: 1; mode=block
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-phe-server-loc: UKW_fe02
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+phe-server-loc: UKS_fe02
+x-xss-protection: 1; mode=block
+x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 19676
-X-Azure-Ref-OriginShield: 0ko7fXwAAAABcMSfa6yVVRKrIaYOZaZvETE9OMjFFREdFMDEwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0ko7fXwAAAACp6b0SuGq1QJJJ5iY3fvobTUFOMzBFREdFMDMyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 20 Dec 2020 17:49:06 GMT
+PHE-API-Cache-Duration: 6228
+tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+X-Azure-Ref-OriginShield: 04WDgXwAAAACRUVm6v2PgRYOStRRZXb0nTE9OMjFFREdFMDIxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 04WDgXwAAAAAhgSzp4dWdQalLYrm+bsPoTUFOMzBFREdFMDMxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 21 Dec 2020 08:46:25 GMT
 
