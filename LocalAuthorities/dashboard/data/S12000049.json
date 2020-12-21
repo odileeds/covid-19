@@ -3,7 +3,7 @@
 	"population": 626410,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-18T18:21:04Z",
+		"updated": "2020-12-21T16:10:42Z",
 		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
 		"tier": "3",
 		"local": {
@@ -28,15 +28,16 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000049&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-20T15:33:08Z",
+		"updated":"2020-12-21T15:35:43Z",
 		"type":"SpecimenDate",
-		"n": 296,
+		"n": 297,
 		"days":[
-			{"date":"2020-12-19","day":1,"tot":22681},
-			{"date":"2020-12-18","day":27,"tot":22680},
-			{"date":"2020-12-17","day":113,"tot":22653},
-			{"date":"2020-12-16","day":131,"tot":22540},
-			{"date":"2020-12-15","day":132,"tot":22409},
+			{"date":"2020-12-20","day":11,"tot":22904},
+			{"date":"2020-12-19","day":72,"tot":22893},
+			{"date":"2020-12-18","day":126,"tot":22821},
+			{"date":"2020-12-17","day":134,"tot":22695},
+			{"date":"2020-12-16","day":151,"tot":22561},
+			{"date":"2020-12-15","day":133,"tot":22410},
 			{"date":"2020-12-14","day":159,"tot":22277},
 			{"date":"2020-12-13","day":99,"tot":22118},
 			{"date":"2020-12-12","day":109,"tot":22019},

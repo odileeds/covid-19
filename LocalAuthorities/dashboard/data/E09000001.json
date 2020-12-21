@@ -3,15 +3,16 @@
 	"population": 8712,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-18T18:21:04Z",
-		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
-		"tier": "Very High",
+		"updated": "2020-12-21T16:10:42Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-4-stay-at-home","national":""},
+		"tier": "Stay at home",
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"hospitalityclosures": true,
 			"householdmixing": true,
 			"largegatherings": true,
-			"openinghours": true
+			"socialgatheringsban": true,
+			"stayinghome": true
 		},
 		"national": {
 

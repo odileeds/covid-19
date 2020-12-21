@@ -3,15 +3,16 @@
 	"population": 65305,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-18T18:21:04Z",
-		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
-		"tier": "Very High",
+		"updated": "2020-12-21T16:10:42Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-4-stay-at-home","national":""},
+		"tier": "Stay at home",
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"hospitalityclosures": true,
 			"householdmixing": true,
 			"largegatherings": true,
-			"openinghours": true
+			"socialgatheringsban": true,
+			"stayinghome": true
 		},
 		"national": {
 
@@ -76,14 +77,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000074&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-20T15:33:08Z",
+		"updated":"2020-12-21T15:35:43Z",
 		"type":"SpecimenDate",
-		"n": 280,
+		"n": 281,
 		"days":[
-			{"date":"2020-12-19","day":0,"tot":998},
-			{"date":"2020-12-18","day":29,"tot":998},
-			{"date":"2020-12-17","day":42,"tot":969},
-			{"date":"2020-12-16","day":43,"tot":927},
+			{"date":"2020-12-20","day":1,"tot":1063},
+			{"date":"2020-12-19","day":27,"tot":1062},
+			{"date":"2020-12-18","day":51,"tot":1035},
+			{"date":"2020-12-17","day":55,"tot":984},
+			{"date":"2020-12-16","day":45,"tot":929},
 			{"date":"2020-12-15","day":60,"tot":884},
 			{"date":"2020-12-14","day":45,"tot":824},
 			{"date":"2020-12-13","day":34,"tot":779},
@@ -351,9 +353,9 @@
 			{"date":"2020-03-26","day":1,"tot":16},
 			{"date":"2020-03-25","day":3,"tot":15},
 			{"date":"2020-03-24","day":1,"tot":12},
-			{"date":"2020-03-23","day":4,"tot":11},
-			{"date":"2020-03-22","day":3,"tot":7},
-			{"date":"2020-03-21","day":2,"tot":4},
+			{"date":"2020-03-23","day":3,"tot":11},
+			{"date":"2020-03-22","day":3,"tot":8},
+			{"date":"2020-03-21","day":3,"tot":5},
 			{"date":"2020-03-20","day":0,"tot":2},
 			{"date":"2020-03-19","day":1,"tot":2},
 			{"date":"2020-03-18","day":0,"tot":1},

@@ -3,15 +3,16 @@
 	"population": 280316,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-18T18:21:04Z",
-		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
-		"tier": "Very High",
+		"updated": "2020-12-21T16:10:42Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-4-stay-at-home","national":""},
+		"tier": "Stay at home",
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"hospitalityclosures": true,
 			"householdmixing": true,
 			"largegatherings": true,
-			"openinghours": true
+			"socialgatheringsban": true,
+			"stayinghome": true
 		},
 		"national": {
 
@@ -76,16 +77,17 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E09000031&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-20T15:33:08Z",
+		"updated":"2020-12-21T15:35:43Z",
 		"type":"SpecimenDate",
-		"n": 290,
+		"n": 291,
 		"days":[
-			{"date":"2020-12-19","day":8,"tot":9173},
-			{"date":"2020-12-18","day":131,"tot":9165},
-			{"date":"2020-12-17","day":232,"tot":9034},
-			{"date":"2020-12-16","day":335,"tot":8802},
-			{"date":"2020-12-15","day":373,"tot":8467},
-			{"date":"2020-12-14","day":353,"tot":8094},
+			{"date":"2020-12-20","day":16,"tot":9532},
+			{"date":"2020-12-19","day":108,"tot":9516},
+			{"date":"2020-12-18","day":190,"tot":9408},
+			{"date":"2020-12-17","day":390,"tot":9218},
+			{"date":"2020-12-16","day":358,"tot":8828},
+			{"date":"2020-12-15","day":375,"tot":8470},
+			{"date":"2020-12-14","day":354,"tot":8095},
 			{"date":"2020-12-13","day":240,"tot":7741},
 			{"date":"2020-12-12","day":203,"tot":7501},
 			{"date":"2020-12-11","day":225,"tot":7298},
@@ -200,8 +202,8 @@
 			{"date":"2020-08-24","day":6,"tot":1149},
 			{"date":"2020-08-23","day":1,"tot":1143},
 			{"date":"2020-08-22","day":3,"tot":1142},
-			{"date":"2020-08-21","day":4,"tot":1139},
-			{"date":"2020-08-20","day":4,"tot":1135},
+			{"date":"2020-08-21","day":5,"tot":1139},
+			{"date":"2020-08-20","day":3,"tot":1134},
 			{"date":"2020-08-19","day":0,"tot":1131},
 			{"date":"2020-08-18","day":8,"tot":1131},
 			{"date":"2020-08-17","day":8,"tot":1123},

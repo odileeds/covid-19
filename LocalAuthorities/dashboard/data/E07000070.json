@@ -3,15 +3,16 @@
 	"population": 180245,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-18T18:21:04Z",
-		"url": {"local":"https://www.gov.uk/guidance/tier-3-very-high-alert","national":""},
-		"tier": "Very High",
+		"updated": "2020-12-21T16:10:42Z",
+		"url": {"local":"https://www.gov.uk/guidance/tier-4-stay-at-home","national":""},
+		"tier": "Stay at home",
 		"local": {
 			"alcoholsalesrestrictions": true,
 			"hospitalityclosures": true,
 			"householdmixing": true,
 			"largegatherings": true,
-			"openinghours": true
+			"socialgatheringsban": true,
+			"stayinghome": true
 		},
 		"national": {
 
@@ -76,19 +77,20 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000070&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2020-12-20T15:33:08Z",
+		"updated":"2020-12-21T15:35:43Z",
 		"type":"SpecimenDate",
-		"n": 291,
+		"n": 292,
 		"days":[
-			{"date":"2020-12-19","day":1,"tot":4129},
-			{"date":"2020-12-18","day":91,"tot":4128},
-			{"date":"2020-12-17","day":112,"tot":4037},
-			{"date":"2020-12-16","day":185,"tot":3925},
-			{"date":"2020-12-15","day":179,"tot":3740},
-			{"date":"2020-12-14","day":187,"tot":3561},
-			{"date":"2020-12-13","day":118,"tot":3374},
-			{"date":"2020-12-12","day":84,"tot":3256},
-			{"date":"2020-12-11","day":106,"tot":3172},
+			{"date":"2020-12-20","day":2,"tot":4350},
+			{"date":"2020-12-19","day":69,"tot":4348},
+			{"date":"2020-12-18","day":148,"tot":4279},
+			{"date":"2020-12-17","day":196,"tot":4131},
+			{"date":"2020-12-16","day":194,"tot":3935},
+			{"date":"2020-12-15","day":179,"tot":3741},
+			{"date":"2020-12-14","day":187,"tot":3562},
+			{"date":"2020-12-13","day":120,"tot":3375},
+			{"date":"2020-12-12","day":84,"tot":3255},
+			{"date":"2020-12-11","day":105,"tot":3171},
 			{"date":"2020-12-10","day":85,"tot":3066},
 			{"date":"2020-12-09","day":109,"tot":2981},
 			{"date":"2020-12-08","day":86,"tot":2872},
