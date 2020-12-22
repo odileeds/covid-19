@@ -21,11 +21,12 @@
 		}
 	},
 	"deaths":{
-		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/9.csv",
-		"updated": "2020-12-15",
-		"all": 874,
-		"cov": 140,
+		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/10.csv",
+		"updated": "2020-12-22",
+		"all": 896,
+		"cov": 144,
 		"weeks":[
+			{"txt":"Week 50","all":22,"cov":4},
 			{"txt":"Week 49","all":21,"cov":10},
 			{"txt":"Week 48","all":17,"cov":11},
 			{"txt":"Week 47","all":19,"cov":7},
