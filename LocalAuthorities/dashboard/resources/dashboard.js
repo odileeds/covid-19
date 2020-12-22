@@ -402,7 +402,7 @@ ready(function(){
 					tier = this.data.restrictions.tier||"";
 					if(tier){
 						str += '<span class="tier">';
-						if(tier=="Stay At Home") str += 'Tier 4: Stay at home';
+						if(tier=="Stay at home") str += 'Tier 4: Stay at home';
 						else if(tier=="Very High") str += 'Tier 3: Very high';
 						else if(tier=="High") str += 'Tier 2: High';
 						else if(tier=="Medium") str += 'Tier 1: Medium';
