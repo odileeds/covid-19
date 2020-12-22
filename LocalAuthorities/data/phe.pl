@@ -350,12 +350,16 @@ close(FILE);
 $table = "\t\t\t<p>As of: $updateday</p>\n\t\t\t<table class=\"js-sort-table\">\n\t\t\t\t<tr><th>Local Authority</th><th class=\"js-sort-number\">Cases/100k</th><th class=\"js-sort-number\">Weekly cases/100k</th><th class=\"js-sort-number\">Weekly change/100k</th><th class=\"js-sort-number\">Weekly deaths/100k</th><th class=\"js-sort-number\">Tier</th></tr>\n";
 foreach $la (reverse(sort{ $LAD{$a}{'cases'}{'latest_smoothed_100k'} <=> $LAD{$b}{'cases'}{'latest_smoothed_100k'}}keys(%LAD))){
 	$lvl = "0";
-	if($LAD{$la}{'restrictions'}{'tier'} eq "Very High"){
+	if($LAD{$la}{'restrictions'}{'tier'} eq "Stay At Home"){
+		$lvl = 3;
+	}elsif($LAD{$la}{'restrictions'}{'tier'} eq "Very High"){
 		$lvl = 3;
 	}elsif($LAD{$la}{'restrictions'}{'tier'} eq "High"){
 		$lvl = 2;
 	}elsif($LAD{$la}{'restrictions'}{'tier'} eq "Medium"){
 		$lvl = 1;
+	}else{
+		$lvl = $LAD{$la}{'restrictions'}{'tier'};
 	}
 	$cls = "";
 	$v = $LAD{$la}{'cases'}{'latest_smoothed_100k'};
