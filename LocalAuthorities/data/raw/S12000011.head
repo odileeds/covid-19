@@ -5,22 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=S12000011&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Wed, 23 Dec 2020 12:25:45 GMT
-Last-Modified: Tue, 22 Dec 2020 15:34:38 GMT
+Expires: Wed, 23 Dec 2020 17:51:35 GMT
+Last-Modified: Wed, 23 Dec 2020 15:43:01 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-phe-server-loc: UKS_fe02
-x-xss-protection: 1; mode=block
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
 x-phe-media-type: PHE-COVID19.v1
-X-Frame-Options: deny
+x-xss-protection: 1; mode=block
+phe-server-loc: UKW_fe01
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 8770
-tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref-OriginShield: 07zbjXwAAAADmT7mL9DGiSqfgXFQCzMYzTE9OMjFFREdFMDIxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 07zbjXwAAAABX9DOJMa9xSZ3PXGkGgmhDTUFOMzBFREdFMDcxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Wed, 23 Dec 2020 12:24:14 GMT
+PHE-API-Cache-Duration: 17697
+X-Azure-Ref-OriginShield: 0TYPjXwAAAAD+CliXxSgESJkfcH3E/UY4TE9OMjFFREdFMTUxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0TYPjXwAAAAB/Q3FySlcIQ537tZXyTVWyTUFOMzBFREdFMDMxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Wed, 23 Dec 2020 17:50:05 GMT
 
