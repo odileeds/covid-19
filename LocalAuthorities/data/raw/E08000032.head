@@ -5,22 +5,22 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E08000032&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 26 Dec 2020 12:20:05 GMT
-Last-Modified: Fri, 25 Dec 2020 15:24:41 GMT
+Expires: Sat, 26 Dec 2020 17:49:11 GMT
+Last-Modified: Sat, 26 Dec 2020 15:03:15 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-xss-protection: 1; mode=block
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-x-phe-media-type: PHE-COVID19.v1
-phe-server-loc: UKS_fe02
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Frame-Options: deny
+phe-server-loc: UKS_fe01
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+x-phe-media-type: PHE-COVID19.v1
+X-Content-Type-Options: nosniff
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+x-xss-protection: 1; mode=block
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 16759
+PHE-API-Cache-Duration: 14788
 tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref-OriginShield: 0GyrnXwAAAABMwKwTBe3zQp4Yibn0oLooTE9OMjFFREdFMTUwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0GyrnXwAAAACUOPzQzd8NRq6NCKgnwiDzTUFOMzBFREdFMDcwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 26 Dec 2020 12:18:35 GMT
+X-Azure-Ref-OriginShield: 0PXfnXwAAAABOaRWISwueRJ9oc1Z0224kTE9OMjFFREdFMDIwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0PXfnXwAAAAAyNxh/4d9AQ42xUw0J3UxbTUFOMzBFREdFMDcxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 26 Dec 2020 17:47:40 GMT
 
