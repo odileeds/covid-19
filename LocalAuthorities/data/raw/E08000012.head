@@ -5,22 +5,22 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E08000012&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Mon, 28 Dec 2020 17:48:20 GMT
+Expires: Tue, 29 Dec 2020 08:48:07 GMT
 Last-Modified: Mon, 28 Dec 2020 15:04:07 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 x-xss-protection: 1; mode=block
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-phe-media-type: PHE-COVID19.v1
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Frame-Options: deny
 phe-server-loc: UKS_fe02
+x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 14891
+PHE-API-Cache-Duration: 17303
 tracestate: cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref-OriginShield: 0ChrqXwAAAADwOUaN2OnDSYLFatSSOMpUTE9OMjFFREdFMTUxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0ChrqXwAAAADWiE3sua1ZRL+2Uifn5ZTPTUFOMzBFREdFMDMxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Mon, 28 Dec 2020 17:46:50 GMT
+X-Azure-Ref-OriginShield: 07ezqXwAAAAA0AYeSy70iRokP6z7H0SOhTE9OMjFFREdFMTUxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 07ezqXwAAAACLM6v9J9N/SbajKPf1y12ZTUFOMzBFREdFMDMxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Tue, 29 Dec 2020 08:46:37 GMT
 

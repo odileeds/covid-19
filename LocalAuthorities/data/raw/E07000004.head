@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000004&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Mon, 28 Dec 2020 17:40:45 GMT
+Expires: Tue, 29 Dec 2020 08:40:51 GMT
 Last-Modified: Mon, 28 Dec 2020 15:04:07 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 phe-server-loc: UKW_fe02
-x-phe-media-type: PHE-COVID19.v1
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Frame-Options: deny
 X-Content-Type-Options: nosniff
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 x-xss-protection: 1; mode=block
+x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 16011
-X-Azure-Ref-OriginShield: 0QxjqXwAAAACHuFhfRbOWQ5ocUrc1oqjrTE9OMjFFREdFMDEwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0QxjqXwAAAABsCHSYxGwpSYFkFHnxdAdQTUFOMzBFREdFMDcxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Mon, 28 Dec 2020 17:39:15 GMT
+PHE-API-Cache-Duration: 7447
+X-Azure-Ref-OriginShield: 0OOvqXwAAAACt6TInhDwlSIJ2CFe9j0STTE9OMjFFREdFMDIxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0OOvqXwAAAACfnNVRb+VFT4QhWJ42KdQdTUFOMzBFREdFMDMyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Tue, 29 Dec 2020 08:39:21 GMT
 
