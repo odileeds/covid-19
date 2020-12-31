@@ -2,21 +2,21 @@ HTTP/1.1 204 No Content
 Cache-Control: public, must-revalidate, max-age=90
 Content-Length: 0
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E09000001&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Thu, 31 Dec 2020 12:20:08 GMT
-Last-Modified: Wed, 30 Dec 2020 15:05:43 GMT
+Expires: Thu, 31 Dec 2020 17:49:09 GMT
+Last-Modified: Thu, 31 Dec 2020 15:49:24 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-phe-media-type: PHE-COVID19.v1
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKW_fe01
-X-Frame-Options: deny
-x-xss-protection: 1; mode=block
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+x-phe-media-type: PHE-COVID19.v1
+x-xss-protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+phe-server-loc: UKW_fe01
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 13822
-X-Azure-Ref-OriginShield: 0nsHtXwAAAAA7EeNlNIZyTKJzwplYnSoCTE9OMjFFREdFMDExNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0nsHtXwAAAAD9RuC/jgibS6U2kmwp+o82TUFOMzBFREdFMDMwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Thu, 31 Dec 2020 12:18:38 GMT
+PHE-API-Cache-Duration: 11601
+X-Azure-Ref-OriginShield: 0uw7uXwAAAAB9Cps+DRSSQI4SXia5AU0iTE9OMjFFREdFMTUwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0uw7uXwAAAAAw6UgGkf8gT7hPb21I+kBsTUFOMzBFREdFMDMyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 31 Dec 2020 17:47:39 GMT
 
