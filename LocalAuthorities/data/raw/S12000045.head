@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=S12000045&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Wed, 06 Jan 2021 12:23:33 GMT
-Last-Modified: Tue, 05 Jan 2021 15:54:50 GMT
+Expires: Wed, 06 Jan 2021 17:52:46 GMT
+Last-Modified: Wed, 06 Jan 2021 15:14:22 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 phe-server-loc: UKW_fe01
-x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 x-xss-protection: 1; mode=block
 X-Frame-Options: deny
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 15508
-X-Azure-Ref-OriginShield: 0a6v1XwAAAACgRGS6BS8wTaPdwVuqZ9JOTE9OMjFFREdFMDExMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0a6v1XwAAAACBmQfcHHmaSIb/SOTjq7jlTUFOMzBFREdFMDcwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Wed, 06 Jan 2021 12:22:03 GMT
+PHE-API-Cache-Duration: 5667
+X-Azure-Ref-OriginShield: 0lPj1XwAAAACKH0k50KQbQqXGp/yvRUOlTE9OMjFFREdFMTUxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0lPj1XwAAAADbG9RZwm4zRL5e58GFQjZVTUFOMzBFREdFMDMxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Wed, 06 Jan 2021 17:51:16 GMT
 
