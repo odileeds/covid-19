@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E06000045&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Thu, 07 Jan 2021 12:11:43 GMT
-Last-Modified: Wed, 06 Jan 2021 15:14:22 GMT
+Expires: Thu, 07 Jan 2021 17:40:25 GMT
+Last-Modified: Thu, 07 Jan 2021 15:45:14 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-phe-media-type: PHE-COVID19.v1
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-x-xss-protection: 1; mode=block
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-phe-server-loc: UKW_fe01
+x-phe-media-type: PHE-COVID19.v1
 X-Frame-Options: deny
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 X-Content-Type-Options: nosniff
+phe-server-loc: UKW_fe01
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+x-xss-protection: 1; mode=block
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 16095
-X-Azure-Ref-OriginShield: 0Jfr2XwAAAABuPFLI05WpQKwTwij9aN88TE9OMjFFREdFMDExNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0Jfr2XwAAAAAQ1hysbtBXT45pv3KvtPXPTUFOMzBFREdFMDcxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Thu, 07 Jan 2021 12:10:13 GMT
+PHE-API-Cache-Duration: 15930
+X-Azure-Ref-OriginShield: 0L0f3XwAAAACQMfstip3TQ4uE5YLW80e0TE9OMjFFREdFMDIxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0L0f3XwAAAADlDt+of52cSLQi//WAoX+RTUFOMzBFREdFMDMyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 07 Jan 2021 17:38:54 GMT
 
