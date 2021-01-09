@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000109&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 09 Jan 2021 12:14:46 GMT
-Last-Modified: Fri, 08 Jan 2021 15:26:38 GMT
+Expires: Sat, 09 Jan 2021 17:44:04 GMT
+Last-Modified: Sat, 09 Jan 2021 15:10:41 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-phe-media-type: PHE-COVID19.v1
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-xss-protection: 1; mode=block
-phe-server-loc: UKS_fe02
 X-Frame-Options: deny
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+x-xss-protection: 1; mode=block
+phe-server-loc: UKW_fe02
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+x-phe-media-type: PHE-COVID19.v1
 X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 20784
-X-Azure-Ref-OriginShield: 03J35XwAAAAAN4MZ1kK0hQ7YatFf1ocW8TE9OMjFFREdFMDExOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 03J35XwAAAABBNR2u2dmjSbH1KECz/aPQTUFOMzBFREdFMDMyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 09 Jan 2021 12:13:16 GMT
+PHE-API-Cache-Duration: 12177
+X-Azure-Ref-OriginShield: 0Cuv5XwAAAAC6P9rhnMibQL8xB6xEymQqTE9OMjFFREdFMTUxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0Cuv5XwAAAAA8OmuIAlWXRJzAbe9kszuwTUFOMzBFREdFMDcxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 09 Jan 2021 17:42:34 GMT
 
