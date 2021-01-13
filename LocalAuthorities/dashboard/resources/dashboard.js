@@ -393,7 +393,7 @@ ready(function(){
 					return "";
 				}},
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return 'Value as of '+this.data.cases.days[start].date+'. Data last updated on '+this.data.cases.updated+'. <a href="svg/'+la+'.svg">Graph for '+this.data.name+'</a>. <a href="#notes">See notes</a>.'; }}
-			],
+			],/*
 			'restrictions': [
 				{'tagname':'h3','key':'title','html':'Restrictions'},
 				{'tagname':'div','key':'list','html':function(la){
@@ -443,7 +443,7 @@ ready(function(){
 					return str;
 				}},
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.restrictions.updated){ return ""; } return '<a href="'+this.data.restrictions.src+'">As of '+this.data.restrictions.updated.substr(0,10)+'</a>'; }}
-			],
+			],*/
 			'total': [
 				{'tagname':'h3','key':'title','html':'Total cases'},
 				{'tagname':'div','key':'number','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].tot; },'fit':true},
