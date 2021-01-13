@@ -18,8 +18,8 @@
 		}
 	},
 	"deaths":{
-		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/12.csv",
-		"updated": "2021-01-06",
+		"src": "https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-local-authority/editions/time-series/versions/13.csv",
+		"updated": "2021-01-12",
 		"all": 0,
 		"cov": 0,
 		"weeks":[
@@ -28,13 +28,19 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000028&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-01-06T15:14:22Z",
+		"updated":"2021-01-12T16:27:13Z",
 		"type":"SpecimenDate",
-		"n": 313,
+		"n": 319,
 		"days":[
-			{"date":"2021-01-05","day":19,"tot":2700},
-			{"date":"2021-01-04","day":53,"tot":2681},
-			{"date":"2021-01-03","day":42,"tot":2628},
+			{"date":"2021-01-11","day":8,"tot":2925},
+			{"date":"2021-01-10","day":37,"tot":2917},
+			{"date":"2021-01-09","day":24,"tot":2880},
+			{"date":"2021-01-08","day":41,"tot":2856},
+			{"date":"2021-01-07","day":36,"tot":2815},
+			{"date":"2021-01-06","day":38,"tot":2779},
+			{"date":"2021-01-05","day":57,"tot":2741},
+			{"date":"2021-01-04","day":55,"tot":2684},
+			{"date":"2021-01-03","day":43,"tot":2629},
 			{"date":"2021-01-02","day":40,"tot":2586},
 			{"date":"2021-01-01","day":32,"tot":2546},
 			{"date":"2020-12-31","day":29,"tot":2514},
