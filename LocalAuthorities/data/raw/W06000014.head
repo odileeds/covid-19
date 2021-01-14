@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=W06000014&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Thu, 14 Jan 2021 12:25:48 GMT
+Expires: Thu, 14 Jan 2021 17:53:01 GMT
 Last-Modified: Wed, 13 Jan 2021 14:55:25 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Frame-Options: deny
+phe-server-loc: UKW_fe02
 x-phe-media-type: PHE-COVID19.v1
-phe-server-loc: UKS_fe01
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+X-Frame-Options: deny
 X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 x-xss-protection: 1; mode=block
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 18360
-X-Azure-Ref-OriginShield: 08jcAYAAAAAC/YHDgGvOBQp2p8c05xpFqTE9OMjFFREdFMDIxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 08jcAYAAAAAA4TjrE6bTeQ7tEZ2QUARLgTUFOMzBFREdFMDcyMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Thu, 14 Jan 2021 12:24:18 GMT
+PHE-API-Cache-Duration: 13567
+X-Azure-Ref-OriginShield: 0o4QAYAAAAABB1ysnQ5XOTJqRnn2RL/BgTE9OMjFFREdFMDIxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0o4QAYAAAAACGVkrTgu0EQ7X8HEWOUDbXTUFOMzBFREdFMDMxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 14 Jan 2021 17:51:31 GMT
 
