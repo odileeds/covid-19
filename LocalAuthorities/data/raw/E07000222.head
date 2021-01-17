@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://c19dashpuksglobfd01.azurefd.net/api/api/v1/data?filters=areaType=ltla;areaCode=E07000222&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 17 Jan 2021 08:47:04 GMT
+Expires: Sun, 17 Jan 2021 12:18:47 GMT
 Last-Modified: Sat, 16 Jan 2021 15:13:38 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 x-phe-media-type: PHE-COVID19.v1
-X-Frame-Options: deny
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-xss-protection: 1; mode=block
 phe-server-loc: UKS_fe02
+x-xss-protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 6965
-X-Azure-Ref-OriginShield: 0LvkDYAAAAACSdkCmBU7hSK3ED6EucDGDTE9OMjFFREdFMDEwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0LvkDYAAAAACQSomHweH+S48nPz3MiEdiTUFOMzBFREdFMDMxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 17 Jan 2021 08:45:34 GMT
+PHE-API-Cache-Duration: 18561
+X-Azure-Ref-OriginShield: 0zSoEYAAAAAAzyrrXbkd0RbNZuz6x9JMgTE9OMjFFREdFMDIxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0zSoEYAAAAAAeOTNkKaCCTqC9/M/m/NVyTUFOMzBFREdFMDMxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 17 Jan 2021 12:17:16 GMT
 
