@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000115&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Fri, 22 Jan 2021 17:44:18 GMT
+Expires: Sat, 23 Jan 2021 08:43:45 GMT
 Last-Modified: Fri, 22 Jan 2021 15:14:11 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKW_fe02
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-phe-media-type: PHE-COVID19.v1
-X-Frame-Options: deny
 X-Content-Type-Options: nosniff
 x-xss-protection: 1; mode=block
+X-Frame-Options: deny
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+phe-server-loc: UKW_fe01
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+x-phe-media-type: PHE-COVID19.v1
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 17296
-X-Azure-Ref-OriginShield: 0mA4LYAAAAACl98S3v7piQJGzEMOt5e5hTE9OMjFFREdFMTUxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0mA4LYAAAAAAs+XYtPadURJGou7XnE1CuTUFOMzBFREdFMDcxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Fri, 22 Jan 2021 17:42:48 GMT
+PHE-API-Cache-Duration: 12425
+X-Azure-Ref-OriginShield: 0Z+ELYAAAAABc65HcsFibR4xv5/5NDxgWTE9OMjFFREdFMDIxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0Z+ELYAAAAABA2W6Qs/5tTJ1mOCvZSFLgTUFOMzBFREdFMDcxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 23 Jan 2021 08:42:15 GMT
 
