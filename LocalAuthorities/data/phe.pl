@@ -368,7 +368,7 @@ foreach $la (reverse(sort{ $LAD{$a}{'cases'}{'latest_smoothed_100k'} <=> $LAD{$b
 	elsif($v >= 4 && $v < 7){ $cls = "substantial"; }
 	elsif($v >= 1 && $v < 4){ $cls = "moderate"; }
 	else{ $cls = "minimal"; }
-	$table .= "\t\t\t\t<tr class=\"$cls\"><td><a href=\"\">$LAD{$la}{'name'}</a></td><td>$LAD{$la}{'cases'}{'latest_smoothed_100k'}</td><td>$LAD{$la}{'cases'}{'weekly'}</td><td>$LAD{$la}{'cases'}{'weekly_change'}</td><td>$LAD{$la}{'deaths'}{'latest_100k'}</td><td>$lvl</td></tr>\n";
+	$table .= "\t\t\t\t<tr class=\"$cls\"><td><a href=\"data/$la.json\">$LAD{$la}{'name'}</a></td><td>$LAD{$la}{'cases'}{'latest_smoothed_100k'}</td><td>$LAD{$la}{'cases'}{'weekly'}</td><td>$LAD{$la}{'cases'}{'weekly_change'}</td><td>$LAD{$la}{'deaths'}{'latest_100k'}</td><td>$lvl</td></tr>\n";
 }
 $table .= "\t\t\t</table>\n";
 open(FILE,">",$dir."../dashboard/table.txt");
