@@ -10,6 +10,13 @@
 	.grid img, .grid svg { width: 100%; height: auto; }
 	svg path.active { stroke: black; stroke-width: 2px; }
 	.map { position: relative; }
+	figure h2 { margin-top: 0; }
+	@media only screen and (max-width: 1080px) {
+		.grid { grid-template-columns: repeat(2, 1fr); }
+	}
+	@media only screen and (max-width: 700px) {
+		.grid { grid-template-columns: repeat(1, 1fr); }
+	}
 	</style>
 	<script src="resources/vaccines.js"></script>
 </head>
@@ -22,38 +29,38 @@
 	<div class="b6-bg">
 		<div class="padded">
 			<div class="grid">
-				<div>
+				<figure class="b5-bg doublepadded">
 					<h2>1st dose under 80</h2>
 					<img src="resources/vaccine-1st-dose-under-80.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>1st dose under 80 (%)</h2>
 					<img src="resources/vaccine-1st-dose-under-80-pc.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>1st dose 80+</h2>
 					<img src="resources/vaccine-1st-dose-80.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>1st dose 80+ (%)</h2>
 					<img src="resources/vaccine-1st-dose-80-pc.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>2nd dose under 80</h2>
 					<img src="resources/vaccine-2nd-dose-under-80.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>2nd dose under 80 (%)</h2>
 					<img src="resources/vaccine-2nd-dose-under-80-pc.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>2nd dose 80+</h2>
 					<img src="resources/vaccine-2nd-dose-80.svg" class="svg" />
-				</div>
-				<div>
+				</figure>
+				<figure class="b5-bg doublepadded">
 					<h2>2nd dose 80+ (%)</h2>
 					<img src="resources/vaccine-2nd-dose-80-pc.svg" class="svg" />
-				</div>
+				</figure>
 			</div>
 		</div>
 	</div>
