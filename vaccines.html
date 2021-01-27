@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<title>COVID-19 Local Authority Table</title>
+	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
+	<style>
+	.grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.grid img, .grid svg { width: 100%; height: auto; }
+	svg path.active { stroke: black; stroke-width: 2px; }
+	.map { position: relative; }
+	</style>
+	<script src="resources/vaccines.js"></script>
+</head>
+<body class="b1-bg">
+
+	<div class="b1-bg doublepadded">
+		<h1>COVID-19 Vaccines</h1>
+	</div>
+
+	<div class="b6-bg">
+		<div class="padded">
+			<div class="grid">
+				<div>
+					<h2>1st dose under 80</h2>
+					<img src="resources/vaccine-1st-dose-under-80.svg" class="svg" />
+				</div>
+				<div>
+					<h2>1st dose under 80 (%)</h2>
+					<img src="resources/vaccine-1st-dose-under-80-pc.svg" class="svg" />
+				</div>
+				<div>
+					<h2>1st dose 80+</h2>
+					<img src="resources/vaccine-1st-dose-80.svg" class="svg" />
+				</div>
+				<div>
+					<h2>1st dose 80+ (%)</h2>
+					<img src="resources/vaccine-1st-dose-80-pc.svg" class="svg" />
+				</div>
+				<div>
+					<h2>2nd dose under 80</h2>
+					<img src="resources/vaccine-2nd-dose-under-80.svg" class="svg" />
+				</div>
+				<div>
+					<h2>2nd dose under 80 (%)</h2>
+					<img src="resources/vaccine-2nd-dose-under-80-pc.svg" class="svg" />
+				</div>
+				<div>
+					<h2>2nd dose 80+</h2>
+					<img src="resources/vaccine-2nd-dose-80.svg" class="svg" />
+				</div>
+				<div>
+					<h2>2nd dose 80+ (%)</h2>
+					<img src="resources/vaccine-2nd-dose-80-pc.svg" class="svg" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="b1-bg">
+		<div class="holder">
+			<h2 id="notes">Notes</h2>
+			<p>Vaccine data is published weekly by NHS England by NHS ICS/STP. We've used ONS population estimates for CCGs (mid-2019) to calculate how many people are under 80 and how many are over 80 in each ICS/STP. This allows us to work out the percentage of each age group vaccinated.</p>
+			<h2>Credits</h2>
+			<p>Visualisation &copy; 2020 <a href="https://odileeds.org/">ODI Leeds</a>. Code released under an MIT license. <a href="https://github.com/odileeds/covid-19/">Source on Github</a>.
+			<p><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/">Vaccine data</a> &copy NHS England OGL v3</p>
+			<p><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/clinicalcommissioninggroupmidyearpopulationestimates">Population data</a> &copy; ONS OGL v3</p>
+			<p><a href="https://geoportal.statistics.gov.uk/datasets/sustainability-and-transformation-partnerships-april-2020-boundaries-en-buc">ICS/STP boundaries (April 2020) from ONS Geoportal</a> &copy; Office for National Statistics licensed under the Open Government Licence v.3.0. Contains OS data &copy; Crown copyright and database right 2020</p>
+		</div>
+	</footer>
+
+	<script src="https://odileeds.org/resources/odi.log.js"></script>
+	<script>
+	ODI.log.setup({'id':'odileeds','target':['odileeds.github.io']}).add('action=view');
+	</script>
+
+</body>
+</html>

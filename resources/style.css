@@ -1,0 +1,116 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1em; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* apply a natural box layout model to all elements */
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* End of reset */
+
+html, body {
+	padding: 0px;
+	margin: 0px;
+	min-height: 100%!important;
+	height: 100%!important;
+	background-color: #ffffff;
+	font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	font-size: 16px;
+	color: #333;
+	line-height: 1.44em;
+}
+h1 { font-size: 1.7em; font-weight: 600; }
+h2 { font-size: 1.4em; margin-top: 1.4285em; font-weight: 600; }
+h3 { font-size: 1.2em; margin-top: 1.666em; }
+h1 + p, h2 + p, h3 + p { margin-top: 1em; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+h2 a, h3 a,p a { color: #2254F4; text-decoration: underline; }
+p, time, li, td, th, footer, div { font-weight: 300; }
+p { margin-bottom: 1em; }
+button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; vertical-align: top; line-height: 1.25em; }
+a:hover, a:focus { text-decoration: underline; }
+a:visited { color: inherit; }
+header a { text-decoration: none; }
+footer { width: 100%; padding: 1em; padding-bottom: 3em; }
+footer h2 + p { margin-top: 1em; }
+header a { line-height: 0; }
+.msg { text-align:center; padding: 0.5em; }
+#main { padding: 1em; }
+
+.holder { position: relative; width: 1080px; max-width: 100%; margin: auto; }
+button, .button { margin-top: 0.25em; border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; }
+a.button:hover, button:hover, button:focus, a.button:focus { background-color: #333333!important; color: #efefef!important; }
+.b1-bg { background-color: #000000; color: white!important; }
+.b2-bg { background-color: #333333; color: white!important; }
+.bk-bg { background-color: #6D6D6D; color: white!important; }
+.b3-bg, .github:hover { background-color: #999999; color: black!important; }
+.b4-bg { background-color: #bbbbbb; color: black!important; }
+.b5-bg, .off label { background-color: #dfdfdf; color: black!important; }
+.b6-bg { background-color: #ffffff; color: black!important; }
+.c1-bg, .elsewhere .facebook:hover, .c1-bg-hover:hover, .c1-bg:visited, .seasonal, .seasonal:visited, .seasonal:hover { background-color: #2254F4; color: white; }
+.c2-bg, .c2-bg-hover:hover, .c2-bg:visited { background-color: #178CFF; color: black; }
+.c3-bg, .elsewhere .twitter:hover, .c3-bg-hover:hover, .c3-bg:visited { background-color: #00B6FF; color: black; }
+.c4-bg, .c4-bg-hover:hover, .c4-bg:visited, .seasonal-accent, .seasonal-accent:hover, .seasonal-accent:visited { background-color: #08DEF9; color: black; }
+.c5-bg, .c5-bg-hover:hover, .c5-bg:visited { background-color: #1DD3A7; color: black; }
+.c6-bg, .c6-bg-hover:hover, .c6-bg:visited { background-color: #0DBC37; color: black; }
+.c7-bg, .c7-bg-hover:hover, .c7-bg:visited { background-color: #67E767; color: black; }
+.c8-bg, .c8-bg-hover:hover, .c8-bg:visited { background-color: #722EA5; color: white; }
+.c9-bg, .c9-bg-hover:hover, .c9-bg:visited, .instagram:hover { background-color: #E6007C; color: white; }
+.c10-bg, .c10-bg-hover:hover, .c10-bg:visited, .flickr:hover { background-color: #EF3AAB; color: black; }
+.c11-bg, .c11-bg-hover:hover, .c11-bg:visited { background-color: #D73058; color: white; }
+.c12-bg, .c12-bg-hover:hover, .c12-bg:visited, .youtube:hover { background-color: #D60303; color: white; }
+.c13-bg, .c13-bg-hover:hover, .c13-bg:visited { background-color: #FF6700; color: black; }
+.c14-bg, .c14-bg-hover:hover, .c14-bg:visited { background-color: #F9BC26; color: black; }
+.c12-bg, .on label { background-color: #D60303; color: white; }
+.c12-bg:hover, .c12-bg:focus { background: #444; color: white; }
+.padded { padding: 1em; }
+.padded-bottom { padding: 1em; margin-bottom: 1em; }
+.doublepadded { padding: 2em; }
+
+
+/* Use CSS Grid */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: minmax(204px, auto);
+	grid-gap: 1em;
+	list-style: none;
+	order: 1;
+	margin: 0px;
+	padding: 0px;
+}
+
+.label {
+	transform: translate3d(0,-50%,0);
+	margin-left: -0.75em;
+	padding: 0.25em 0.5em;
+	font-weight: bold;
+	line-height: 1.25em;
+	text-shadow: 2px 2px 0 #dfdfdf, 2px -2px 0 #dfdfdf, -2px 2px 0 #dfdfdf, -2px -2px 0 #dfdfdf, 2px 0px 0 #dfdfdf, 0px 2px 0 #dfdfdf, -2px 0px 0 #dfdfdf, 0px -2px 0 #dfdfdf;
+	font-size: 0.8em;
+}
+.tooltip { white-space: nowrap; background-color: black; color: white; padding: 0.325em 0.5em; transform: translate3d(-50%,0.5em,0); z-index: 100; position: absolute; z-index: 98; }
+.tooltip:before { content: ""; border: 0.5em solid transparent; border-bottom: 0.5em solid black; border-top: 0px; left: 50%; top: 0; transform: translate3d(-50%,-0.5em,0); position: absolute; display: block; width: 0px; height: 0px; }
+	
+
+@media only screen and (max-width: 1080px) {
+	ul.grid { grid-template-columns: repeat(1, 1fr); }
+	.doublepadded { padding: 1em; }
+}
