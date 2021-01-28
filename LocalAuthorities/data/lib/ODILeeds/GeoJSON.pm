@@ -112,9 +112,7 @@ sub getBounds {
 
 sub drawSVG {
 	my ($self, $props) = @_;
-	my($w,$h,%b,$ratio,$i,$j,$k,$p,@order,$dlat,$dlon,$mlat,$corr,$slat,$slon,$l,%layer,$n,$nc,$f,%feature,@c,$svg,$path,$lat,$lon,$pad);
-
-	print "Draw\n";
+	my($w,$h,%b,$ratio,$i,$j,$k,$p,@order,$dlat,$dlon,$mlat,$corr,$slat,$slon,$l,%layer,$n,$nc,$f,%feature,@c,$svg,$path,$lat,$lon,$pad,$idt);
 
 	$w = $self->{'width'};
 	if($props->{'bounds'}){
@@ -124,6 +122,7 @@ sub drawSVG {
 	}
 	
 	$pad = $props->{'padding'}||5;
+	$idt = "\t".($props->{'indent'}||"");
 
 	$dlat = ($b{'_northEast'}{'lat'} - $b{'_southWest'}{'lat'});
 	$dlon = ($b{'_northEast'}{'lng'} - $b{'_southWest'}{'lng'});
@@ -142,8 +141,6 @@ sub drawSVG {
 	$svg = "";
 
 	for($l = 0; $l < @order; $l++){
-		
-		print "$l - $order[$l]\n";
 		
 		%layer = %{$self->{'layers'}{$order[$l]}};
 
@@ -195,7 +192,7 @@ sub drawSVG {
 					}
 				}
 				if($path){
-					$svg .= "\t<path d=\"$path\"";
+					$svg .= "$idt<path d=\"$path\"";
 					if($layer{'options'}{'stroke'}){ $svg .= " stroke=\"$layer{'options'}{'stroke'}\""; }
 					if($layer{'options'}{'strokeWidth'}){ $svg .= " stroke-width=\"$layer{'options'}{'strokeWidth'}\""; }
 					if($layer{'options'}{'strokeLinecap'}){ $svg .= " stroke-linecap=\"$layer{'options'}{'strokeLinecap'}\""; }
@@ -203,6 +200,7 @@ sub drawSVG {
 						$svg .= " fill=\"";
 						if(defined($layer{'options'}{'fill'})){
 							$svg .= $layer{'options'}{'fill'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'});
+							
 						}else{
 							$svg .= $layer{'options'}{'fill'};
 						}
@@ -225,7 +223,7 @@ sub drawSVG {
 		}
 		
 	}
-	$svg = "<svg width=\"$w\" height=\"$h\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\"".($props->{'data'} ? " data=\"".$props->{'data'}."\"" : "").">\n$svg</svg>";
+	$svg = "<svg width=\"$w\" height=\"$h\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\"".($props->{'data'} ? " data=\"".$props->{'data'}."\"" : "").">\n$svg\t</svg>";
 	return $svg;
 }
 
