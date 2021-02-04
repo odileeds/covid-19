@@ -48,6 +48,19 @@
 				paths[p].addEventListener('click', highlight);
 			}
 		}
+		
+		pc = document.getElementById('pc');
+		to = document.getElementById('total');
+		pc.addEventListener('change',function(e){
+			els = document.querySelectorAll('figure.pc');
+			on = e.target.checked;
+			els.forEach(function(e){ e.style.display = (on?'block':'none') });
+		});
+		to.addEventListener('change',function(e){
+			els = document.querySelectorAll('figure.total');
+			on = e.target.checked;
+			els.forEach(function(e){ e.style.display = (on?'block':'none') });
+		});
 	});
 
 })(window || this);
