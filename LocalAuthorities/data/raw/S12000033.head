@@ -7,7 +7,7 @@ Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000033&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
 Expires: Sun, 07 Feb 2021 12:24:01 GMT
 Last-Modified: Sat, 06 Feb 2021 15:17:55 GMT
-X-Cache: TCP_MISS
+X-Cache: TCP_HIT
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 X-Content-Type-Options: nosniff
 phe-server-loc: UKW_fe01
@@ -20,6 +20,6 @@ referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
 PHE-API-Cache-Duration: 18183
 X-Azure-Ref-OriginShield: 0h9sfYAAAAABK9nBw44ZvQJveO2GUNljeTE9OMjFFREdFMTUxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0h9sfYAAAAAAjpEw4KIe5QpgVPLgZRYUkTUFOMzBFREdFMDcxMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 07 Feb 2021 12:22:30 GMT
+X-Azure-Ref: 06iggYAAAAABu/1CqEHIAQIzhqgHGPDJiTUFOMzBFREdFMDcxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 07 Feb 2021 17:52:42 GMT
 
