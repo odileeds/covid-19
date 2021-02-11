@@ -138,9 +138,14 @@ sub getColourFromScale {
 	$match = -1;
 	$len = @cs;
 
+	# Fix for anything that goes above the colour scale
+	if($v2 > 100){
+		$v2 = 100;
+	}
 	if($v==$max){
 		$colour = 'rgba('.$cs[$len-1]->{'c'}->{'rgb'}[0].', '.$cs[$len-1]->{'c'}{'rgb'}[1].', '.$cs[$len-1]->{'c'}{'rgb'}[2].', '.($v2/100).")";
 	}else{
+		
 
 		if($len == 1){
 			$colour = 'rgba('.$cs[0]{'c'}->{'rgb'}[0]+', '+$cs[0]{'c'}->{'rgb'}[1]+', '+$cs[0]{'c'}->{'rgb'}[2]+', ' + ($v2/100) + ")";
