@@ -5,21 +5,23 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000030&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Fri, 12 Feb 2021 17:49:21 GMT
+Expires: Sat, 13 Feb 2021 08:49:17 GMT
 Last-Modified: Fri, 12 Feb 2021 14:56:26 GMT
 X-Cache: TCP_MISS
+X-XCacheP2C-OriginUrl: https://c19dashpuksfe02apim01.azure-api.net:443/api/v1/data?filters=areaType=ltla;areaCode=E08000030&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json
+X-XCacheP2C-OriginIp: 51.132.246.66
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-phe-media-type: PHE-COVID19.v1
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-xss-protection: 1; mode=block
-X-Content-Type-Options: nosniff
-phe-server-loc: UKW_fe01
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Frame-Options: deny
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+X-Content-Type-Options: nosniff
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+x-phe-media-type: PHE-COVID19.v1
+x-xss-protection: 1; mode=block
+phe-server-loc: UKS_fe02
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 13003
-X-Azure-Ref-OriginShield: 0R78mYAAAAABJs+hefa4mQqmdhEEeCt+ETE9OMjFFREdFMDIyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0Rr8mYAAAAABB345B/qXiQa9S3QrpCTOqTUFOMzBFREdFMDcxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Fri, 12 Feb 2021 17:47:50 GMT
+PHE-API-Cache-Duration: 9181
+X-Azure-Ref-OriginShield: 0M5InYAAAAAAKAq+d3t+NRrCBrcknnoohTE9OMjFFREdFMDIxMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0M5InYAAAAADY6M7CBVbsQa5rGp9czM1ATUFOMzBFREdFMDMxNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 13 Feb 2021 08:47:47 GMT
 
