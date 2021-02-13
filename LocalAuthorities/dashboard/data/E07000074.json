@@ -81,12 +81,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000074&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-02-12T14:56:26Z",
+		"updated":"2021-02-13T15:17:50Z",
 		"type":"SpecimenDate",
-		"n": 334,
+		"n": 335,
 		"days":[
-			{"date":"2021-02-11","day":3,"tot":3601},
-			{"date":"2021-02-10","day":7,"tot":3598},
+			{"date":"2021-02-12","day":2,"tot":3612},
+			{"date":"2021-02-11","day":11,"tot":3610},
+			{"date":"2021-02-10","day":8,"tot":3599},
 			{"date":"2021-02-09","day":7,"tot":3591},
 			{"date":"2021-02-08","day":7,"tot":3584},
 			{"date":"2021-02-07","day":10,"tot":3577},
