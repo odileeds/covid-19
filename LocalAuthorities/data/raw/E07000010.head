@@ -5,9 +5,11 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000010&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 14 Feb 2021 08:41:19 GMT
+Expires: Sun, 14 Feb 2021 12:12:09 GMT
 Last-Modified: Sat, 13 Feb 2021 15:17:50 GMT
 X-Cache: TCP_MISS
+X-XCacheP2C-OriginUrl: https://c19dashpukwfe02apim01.azure-api.net:443/api/v1/data?filters=areaType=ltla;areaCode=E07000010&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json
+X-XCacheP2C-OriginIp: 51.104.59.128
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 X-Content-Type-Options: nosniff
 phe-server-loc: UKW_fe02
@@ -19,7 +21,7 @@ Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
 PHE-API-Cache-Duration: 20061
-X-Azure-Ref-OriginShield: 01OEoYAAAAAArg1TPk1bATYiiW+fZAT1mTE9OMjFFREdFMTUxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 01OEoYAAAAAAwTStLhdjNSKQPOAPVYz53TUFOMzBFREdFMDcxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 14 Feb 2021 08:39:48 GMT
+X-Azure-Ref-OriginShield: 0PxMpYAAAAABReErrf7e/RLuQil4jiXVHTE9OMjFFREdFMDEwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0PxMpYAAAAAD7I8Xa2HD3Q7kGX+drpcGjTUFOMzBFREdFMDMxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 14 Feb 2021 12:10:38 GMT
 
