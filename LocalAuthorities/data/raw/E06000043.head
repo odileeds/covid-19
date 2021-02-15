@@ -5,23 +5,23 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000043&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 14 Feb 2021 17:40:36 GMT
+Expires: Mon, 15 Feb 2021 08:40:57 GMT
 Last-Modified: Sun, 14 Feb 2021 15:24:08 GMT
 X-Cache: TCP_MISS
-X-XCacheP2C-OriginUrl: https://c19dashpuksfe01apim01.azure-api.net:443/api/v1/data?filters=areaType=ltla;areaCode=E06000043&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json
-X-XCacheP2C-OriginIp: 20.49.207.248
+X-XCacheP2C-OriginUrl: https://c19dashpukwfe02apim01.azure-api.net:443/api/v1/data?filters=areaType=ltla;areaCode=E06000043&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json
+X-XCacheP2C-OriginIp: 51.104.59.128
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+phe-server-loc: UKW_fe02
 X-Frame-Options: deny
-x-xss-protection: 1; mode=block
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 x-phe-media-type: PHE-COVID19.v1
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKS_fe01
 X-Content-Type-Options: nosniff
+x-xss-protection: 1; mode=block
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 4256
-X-Azure-Ref-OriginShield: 0OmApYAAAAAAtdpLjLYY1Q6rPtpm5l08KTE9OMjFFREdFMDEwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0OmApYAAAAACw+jtCINYyT7JhOzoqehdtTUFOMzBFREdFMDMwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 14 Feb 2021 17:39:05 GMT
+PHE-API-Cache-Duration: 19522
+X-Azure-Ref-OriginShield: 0PjMqYAAAAAAoMgu1zsD9Q4yDS/ef41+4TE9OMjFFREdFMTUxNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0PjMqYAAAAACm9XY28sWTSoGBg2mdCrw4TUFOMzBFREdFMDMxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 15 Feb 2021 08:39:26 GMT
 
