@@ -1,6 +1,24 @@
-HTTP/1.1 504 Gateway Timeout
-Content-Length: 25
-X-Azure-ExternalError: 0x830c1002, A request timeout occurred while connected to the origin.
-X-Azure-Ref: 05rwrYAAAAAAmLplh7gVQT7ngxgIFNhgFTUFOMzBFREdFMDMyMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Tue, 16 Feb 2021 12:39:03 GMT
+HTTP/2 200 
+cache-control: public, must-revalidate, max-age=90
+pragma: no-cache
+content-type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
+content-encoding: gzip
+content-location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000137&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
+expires: Tue, 16 Feb 2021 15:38:21 GMT
+last-modified: Mon, 15 Feb 2021 15:18:27 GMT
+x-cache: TCP_MISS
+request-context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+x-content-type-options: nosniff
+content-security-policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-xss-protection: 1; mode=block
+x-frame-options: deny
+phe-server-loc: UKS_fe01
+phe-website-request: 0
+phe-api-cache-duration: 10752
+x-azure-ref-originshield: 0k+YrYAAAAAAZgM0JdcxPTZX3f0L5egOyRVdSMzBFREdFMDUwOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+x-azure-ref: 0kuYrYAAAAACbfz7HGA/VQaWi6onNJKeuQlJVMzBFREdFMDQxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+date: Tue, 16 Feb 2021 15:36:50 GMT
 

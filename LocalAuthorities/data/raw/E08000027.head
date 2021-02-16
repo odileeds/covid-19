@@ -1,0 +1,24 @@
+HTTP/2 200 
+cache-control: public, must-revalidate, max-age=90
+pragma: no-cache
+content-type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
+content-encoding: gzip
+content-location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000027&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
+expires: Tue, 16 Feb 2021 14:08:11 GMT
+last-modified: Mon, 15 Feb 2021 15:18:27 GMT
+x-cache: TCP_MISS
+request-context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+x-frame-options: deny
+content-security-policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+phe-server-loc: UKW_fe01
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+x-phe-media-type: PHE-COVID19.v1
+phe-website-request: 0
+phe-api-cache-duration: 16829
+x-azure-ref-originshield: 0cdErYAAAAAAYUHV48fsKR4seZ/44bxbZRVdSMzBFREdFMDYyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+x-azure-ref: 0cdErYAAAAADhij6vJxFfRYpRPkPEHln4QlJVMzBFREdFMDQyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+date: Tue, 16 Feb 2021 14:06:41 GMT
+

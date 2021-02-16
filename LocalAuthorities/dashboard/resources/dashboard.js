@@ -348,8 +348,6 @@
 		if(typeof val==="number") frame();
 		return;			
 	}
-	
-
 
 	window.Dashboard = function(opts){
 		return new Dashboard(opts);
@@ -363,6 +361,31 @@ function ready(f){
 };
 
 ready(function(){
+
+	function getDateOfONSWeek(s){
+		var a = s.split('-W');
+		y = parseInt(a[0]);
+		w = parseInt(a[1]);
+		var d = (1 + (w - 1) * 7); // 1st of January + 7 days for each week
+		d = new Date(y,0,d);
+		dow = d.getDay();
+		if(dow < 5) d.setDate(d.getDate() - d.getDay() + 5)
+		else d.setDate(d.getDate() + 7 - d.getDay() + 5);
+		return d;
+	}
+	function getDateOfWeek(w, y){
+		var d = (1 + (w - 1) * 7); // 1st of January + 7 days for each week
+		return new Date(y, 0, d);
+	}
+	function getDateOfISOWeek(w, y) {
+		var simple = new Date(y, 0, 1 + (w - 1) * 7);
+		console.log(simple)
+		var dow = simple.getDay();
+		var ISOweekStart = simple;
+		if(dow <= 4) ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+		else ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+		return ISOweekStart;
+	}
 	var start = 5;
 	var dashboard = Dashboard({
 		'daystoignore': start,
@@ -482,7 +505,8 @@ ready(function(){
 						wk = parseInt(this.data.deaths.weeks[i].txt.replace(/Week 0?/,""));
 						h = Math.round(tall*this.data.deaths.weeks[i].cov/mx);
 						h2 = tall-h;
-						str += '<div class="col" style="height:'+tall+'px;"><div class="antibar" style="height:'+h2+'px;"></div><div class="bar" style="height:'+h+'px;"><span class="label" style="">'+(this.data.deaths.weeks[i].txt)+': '+this.data.deaths.weeks[i].cov+'</span></div></div>';
+						d = getDateOfONSWeek(this.data.deaths.weeks[i].txt);
+						str += '<div class="col" style="height:'+tall+'px;"><div class="antibar" style="height:'+h2+'px;"></div><div class="bar" style="height:'+h+'px;"><span class="label" style="">'+(this.data.deaths.weeks[i].txt)+': '+this.data.deaths.weeks[i].cov+'<br />(week ending '+d.toISOString().substr(0,10)+')</span></div></div>';
 					}
 					str += '</div>';
 					return str;

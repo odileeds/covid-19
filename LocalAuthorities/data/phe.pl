@@ -509,6 +509,63 @@ sub getArea {
 
 sub processDeaths {
 	
+	my (@files,$file,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
+	$latestversion = 0;
+	$latestdate = "";
+	print "Processing deaths...\n";
+	@files = ('temp/deaths-2020-registrations.csv','temp/deaths-2021-registrations.csv');
+	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime();
+	$year = $year+1900;
+
+	for($y = 2020; $y <= $year; $y++){
+		$filename = "temp/deaths-$y-registrations.csv";
+		if(-e $filename && -s $filename > 0){
+			print "\t$filename\n";
+			open(FILE,$filename);
+			$i = 0;
+			$hi = -1;
+			while (my $line = <FILE>){
+				$line =~ s/[\n\r]//g;
+				if($line =~ /^\,+$/){
+					$commas = 1;
+				}else{
+					$commas = 0;
+				}
+				if($hi < 0 && $commas){
+					$hi = $i + 1;
+				}
+				if($hi == $i){
+					%headers = getHeaders($line);
+				}
+				if($i > $hi && !$commas){
+					(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+					$latmp = $cols[$headers{'Area code'}];
+					$wk = $y."-W".sprintf("%02d",$cols[$headers{'Week number'}]);
+
+					if(!$deaths{$latmp}{'weeks'}{$wk}){
+						$deaths{$latmp}{'weeks'}{$wk} = {'covid-19'=>0,'all-causes'=>0};
+					}
+					if($cols[$headers{'Cause of death'}] eq "All causes"){
+						$deaths{$latmp}{'all-causes'} += $cols[$headers{'Number of deaths'}];
+						$deaths{$latmp}{'weeks'}{$wk}{'all-causes'} += $cols[$headers{'Number of deaths'}];
+					}elsif($cols[$headers{'Cause of death'}] eq "COVID 19"){
+						$deaths{$latmp}{'covid-19'} += $cols[$headers{'Number of deaths'}];
+						$deaths{$latmp}{'weeks'}{$wk}{'covid-19'} += $cols[$headers{'Number of deaths'}];
+					}
+					#print "$latmp - $wk - $line\n";
+				}
+				$i++;
+			}
+			close(FILE);
+		}
+		
+	}
+
+	return %deaths;
+}
+
+sub processDeathsOld {
+	
 	my ($file,$filename,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
 	$latestversion = 0;
 	$latestdate = "";
