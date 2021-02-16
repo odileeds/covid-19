@@ -510,10 +510,16 @@ sub getArea {
 sub processDeaths {
 	
 	my (@files,$file,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
-	$latestversion = 0;
-	$latestdate = "";
+
 	print "Processing deaths...\n";
-	@files = ('temp/deaths-2020-registrations.csv','temp/deaths-2021-registrations.csv');
+	# Set default values
+	%deaths = {};
+	for($i = 0; $i < @las; $i++){
+		$la = $las[$i];
+		if(!$deaths{$la}){
+			$deaths{$la} = { 'date'=>'','all-causes'=>0,'covid-19'=>0,'weeks'=>{} };
+		}
+	}
 	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime();
 	$year = $year+1900;
 
@@ -541,7 +547,7 @@ sub processDeaths {
 					(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
 					$latmp = $cols[$headers{'Area code'}];
 					$wk = $y."-W".sprintf("%02d",$cols[$headers{'Week number'}]);
-
+					if($wk gt $deaths{$latmp}{'date'}){ $deaths{$latmp}{'date'} = $wk; }
 					if(!$deaths{$latmp}{'weeks'}{$wk}){
 						$deaths{$latmp}{'weeks'}{$wk} = {'covid-19'=>0,'all-causes'=>0};
 					}
