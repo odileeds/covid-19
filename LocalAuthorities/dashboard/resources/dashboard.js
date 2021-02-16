@@ -511,27 +511,27 @@ ready(function(){
 					str += '</div>';
 					return str;
 				},'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].txt : '?'); }}
+				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? getDateOfONSWeek(this.data.deaths.weeks[0].txt).toISOString().substr(0,10) : '?'); }}
 			],
 			'weekly-deaths-percapita': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths/100,000'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? (this.data.deaths.weeks[0].cov*(this.data.population ? 1e5/this.data.population : 1)).toFixed(1) : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].txt : '?'); }}
+				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? getDateOfONSWeek(this.data.deaths.weeks[0].txt).toISOString().substr(0,10) : '?'); }}
 			],
 			'total-deaths-covid': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.cov : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? 'Up to '+this.data.deaths.updated : '?'); }}
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : '?'); }}
 			],
 			'total-deaths-all': [
 				{'tagname':'h3','key':'title','html':'Deaths from all causes'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.all : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? 'Up to '+this.data.deaths.updated : ''); }}
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : ''); }}
 			],
 			'total-deaths-pc': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
 				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.cov > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.cov > 0 ? 'Up to '+this.data.deaths.updated : ''); }}
+				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.cov > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : ''); }}
 			],
 			'population': [
 				{'tagname':'h3','key':'title','html':'Population'},
