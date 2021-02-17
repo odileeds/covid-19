@@ -110,6 +110,7 @@
 		-ms-transform: rotate(45deg);
 		transform: rotate(45deg);
 	}
+	header a, header a:visited { color: inherit; }
 	@media only screen and (max-width: 1080px) {
 		.grid { grid-template-columns: repeat(2, 1fr); }
 	}
@@ -122,9 +123,18 @@
 </head>
 <body class="b1-bg">
 
-	<div class="b1-bg doublepadded">
-		<h1>COVID-19 Vaccines</h1>
-	</div>
+
+	<header>
+		<div class="b1-bg padded">
+			<div class="holder" style="text-align:center;">
+				<a href="https://odileeds.org/"><img src="https://odileeds.org/resources/images/odileeds.svg" /></a>
+				<h1>COVID-19 Vaccines in England</h1>
+			</div>
+		</div>
+		<div class="c14-bg" style="padding:0.5em;text-align:center;">
+			<div class="holder">Also see our <a href="LocalAuthorities/dashboard/index.html">Local Authority Dashboard</a>, our <a href="table.html">table of Local Authorities</a>, and our <a href="../hexmap.html">Local Authority hex maps</a>.</div>
+		</div>
+	</header>
 
 	<div class="b6-bg">
 		<div class="padded">
