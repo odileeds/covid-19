@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000044&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Wed, 17 Feb 2021 12:11:36 GMT
-Last-Modified: Tue, 16 Feb 2021 15:06:24 GMT
+Expires: Wed, 17 Feb 2021 17:40:17 GMT
+Last-Modified: Wed, 17 Feb 2021 14:59:55 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-xss-protection: 1; mode=block
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Content-Type-Options: nosniff
-x-phe-media-type: PHE-COVID19.v1
-phe-server-loc: UKW_fe01
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+phe-server-loc: UKW_fe01
+x-phe-media-type: PHE-COVID19.v1
+x-xss-protection: 1; mode=block
+X-Content-Type-Options: nosniff
 X-Frame-Options: deny
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 5512
-X-Azure-Ref-OriginShield: 0ngctYAAAAACF/tdHDCb+SrfemSXDHqKHTE9OMjFFREdFMTUxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0nQctYAAAAADAc8/bQp5QRYD/K4IOzMq+TUFOMzBFREdFMDcxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Wed, 17 Feb 2021 12:10:05 GMT
+PHE-API-Cache-Duration: 10029
+X-Azure-Ref-OriginShield: 0p1QtYAAAAABP5arWofKLQJrhTjrzTmqGTE9OMjFFREdFMDExMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0p1QtYAAAAACmaC3QCjrVTLNKIQrMNP6ATUFOMzBFREdFMDcxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Wed, 17 Feb 2021 17:38:47 GMT
 
