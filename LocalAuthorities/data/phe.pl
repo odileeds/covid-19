@@ -29,6 +29,19 @@ logIt("Using directory: $dir");
 $datetime = ODILeeds::DateTime->new();
 
 
+# Load coordinates for LADs
+open(FILE,$dir."lad20cd-coordinates.csv");
+@lines = <FILE>;
+close(FILE);
+%coords;
+foreach $line (@lines){
+	$line =~ s/[\n\r]//g;
+	($la,$lon,$lat) = split(/\,/,$line);
+	$coords{$la} = {'lat'=>$lat,'lon'=>$lon};
+}
+
+
+
 $deathurl = "";
 @las;
 %names;
@@ -162,7 +175,7 @@ for($i = 0; $i < @las; $i++){
 
 	logIt("$la (".sprintf("%0.1f",$diff)." hours old)");
 	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 2 || -s $head==0){
+	if($diff > 6 || -s $head==0){
 		logIt("\tGetting URL $url");
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
@@ -339,11 +352,13 @@ print "$la - $restrictions{$la}{'tier'}\n";
 	@{$pulsarplot[@pulsarplot - 1]->{'data'}} = @smooth;
 }
 
+makePulsarPlot(2024,200,4,200,"cases-plot.svg",@pulsarplot);
+# Sort by latitude
+@pulsarplot = (sort{ $coords{$a->{'id'}}->{'lat'} <=> $coords{$b->{'id'}}->{'lat'} }(@pulsarplot));
+makePulsarPlot(2024,200,4,200,"cases-plot-by-latitude.svg",@pulsarplot);
 
-makePulsarPlot(2024,200,4,200,@pulsarplot);
 
-
-open(FILE,">","processed/index.json");
+open(FILE,">",$dir."processed/index.json");
 print FILE "{\n";
 $i = 0;
 foreach $la (sort(keys(%names))){
@@ -498,7 +513,7 @@ sub makeGraph {
 }
 
 sub makePulsarPlot {
-	my ($w,$p,$offset,$dy,@output) = @_;
+	my ($w,$p,$offset,$dy,$file,@output) = @_;
 	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$svg,$x,$y);
 	$minx = 1e100;
 	$maxx = -1e100;
@@ -557,7 +572,7 @@ sub makePulsarPlot {
 	$svg .= "\t<text x=\"".($w-20)."\" y=\"".($h-20)."\">Credit: Data from PHE, Visualisation by ODI Leeds</text>\n";
 
 	$svg .= "</svg>";
-	open(SVG,">","cases-plot.svg");
+	open(SVG,">",$dir.$file);
 	print SVG $svg;
 	close(SVG);
 	
