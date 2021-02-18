@@ -528,7 +528,8 @@ sub makePulsarPlot {
 	$svg .= "\t<style>\n";
 	#$svg .= "\tpath.line { stroke: white; stroke-width: 1px; }\n";
 	$svg .= "\tpath.area:hover { stroke: #1DD3A7; stroke-width: 3px; }\n";
-	$svg .= "\ttext {display: none; text-anchor: start; fill: white; font-family: sans-serif; }\n";
+	$svg .= "\ttext { fill: white; font-family: sans-serif; text-anchor: end; }\n";
+	$svg .= "\tg text { display: none; text-anchor: start; }\n";
 	$svg .= "\tg:hover text {display: block;}\n";
 	$svg .= "\t</style>\n";
 	$svg .= "</defs>\n";
@@ -553,6 +554,8 @@ sub makePulsarPlot {
 		$n++;
 	}
 	$svg =~ s/\.0([L\,])/$1/g;
+	$svg .= "\t<text x=\"".($w-20)."\" y=\"".($h-20)."\">Credit: Data from PHE, Visualisation by ODI Leeds</text>\n";
+
 	$svg .= "</svg>";
 	open(SVG,">","cases-plot.svg");
 	print SVG $svg;
