@@ -24,6 +24,7 @@ else{ $dir = "./"; }
 %updates;
 %conv;
 %culture;
+%funding;
 $updates{'cases-date'} = "2000-01-01";
 $updates{'deaths-date'} = "2000-01-01";
 $mindate = "3000-01-01";
@@ -534,6 +535,37 @@ $svg{'culture-recovery-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scale
 
 
 
+################################################
+# Read in House of Commons Library funding data
+# CSV from https://commonslibrary.parliament.uk/covid-19-search-funding-for-local-authorities-in-england/
+getFunding();
+$updates{'hoc-funding-total-date'} = "2021-02-17";
+$hj->load('../resources/uk-local-authority-districts-2020.hexjson');
+$hj->addData(%funding);
+$hj->setPrimaryKey('total');
+$hj->setKeys('total','percapita');
+$hj->setColourScale('Viridis');
+$svg{'hoc-funding-total'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-hoc-funding-total','date'=>$updates{'hoc-funding-total-date'}));
+
+$hj->setPrimaryKey('percapita');
+$hj->setKeys('percapita','individual','business');
+$hj->setColourScale('Viridis');
+$svg{'hoc-funding-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-hoc-funding-percapita','date'=>$updates{'hoc-funding-total-date'}));
+
+$hj->setPrimaryKey('individual');
+$hj->setKeys('individual');
+$hj->setColourScale('Viridis');
+$svg{'hoc-funding-individual'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-hoc-funding-individual','date'=>$updates{'hoc-funding-total-date'}));
+
+
+
+
+
+
+
+
+
+
 
 
 ################################
@@ -654,7 +686,7 @@ sub getCultureRecovery {
 			if($name && $names2id{$name}){
 				$id = $names2id{$name};
 				if(!$culture{$id}){
-					$culture{$id} = {'total'=>0,'n'=>0,'name'=>$name,'percaptia'=>0};
+					$culture{$id} = {'total'=>0,'n'=>0,'name'=>$name,'percapita'=>0};
 				}
 				$culture{$id}{'total'} += $cols[$headers{'Award offered'}];
 				if($pop{$id}){
@@ -669,6 +701,54 @@ sub getCultureRecovery {
 		}
 		$i++;
 	}
+	close(FILE);
+}
+
+
+sub getFunding {
+	my (@lines,%names2id,$jsonblob,$id,$i,$line,$name,%headers);
+
+	open(FILE,$dir."Local-authority-covid-funding.csv");
+	$i = 0;
+	while ($line = <FILE>) {
+		chomp $line;
+		if($i == 0){
+			# ONS code,Local authority name,Fund,Fund type,Last updated,Amount
+			%headers = getHeaders($line);
+		}
+		if($i > 0 && $line =~ /\,/){
+			(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+			$name = $cols[$headers{'Local authority name'}];
+			$name =~ s/(^\"|\"$)//g;
+			$id = $cols[$headers{'ONS code'}];
+		#	if($utla{$id}){
+				if(!$funding{$id}){
+					$funding{$id} = {'name'=>$name,'total'=>0,'percapita'=>0,'direct'=>0,'business'=>0,'individual'=>0};
+				}
+				$funding{$id}{'total'} += $cols[$headers{'Amount'}]+0;
+				if($cols[$headers{'Fund type'}] eq "Direct support"){ $funding{$id}{'direct'} += $cols[$headers{'Amount'}]; }
+				if($cols[$headers{'Fund type'}] eq "Grants to businesses via local authorities"){ $funding{$id}{'business'} += $cols[$headers{'Amount'}]; }
+				if($cols[$headers{'Fund type'}] eq "Grants to individuals via local authorities"){ $funding{$id}{'individual'} += $cols[$headers{'Amount'}]; }
+#				if($pop{$id}){
+#					$funding{$id}{'percapita'} = sprintf("%0.2f",$funding{$id}{'total'}/$pop{$id});
+#				}else{
+#					print "No population for $id in funding\n";
+#				}
+		#	}
+			#$culture{$id}{'n'}++;
+		}
+		$i++;
+	}
+	foreach $id (keys(%funding)){
+		if($pop{$id}){
+				$funding{$id}{'percapita'} = sprintf("%0.2f",$funding{$id}{'total'}/$pop{$id});
+			$funding{$id}{'individual'} = sprintf("%0.2f",$funding{$id}{'individual'}/$pop{$id});
+		}else{
+			print "No population for $id in funding\n";
+			$funding{$id}{'individual'} = -1;
+		}
+	}
+	
 	close(FILE);
 }
 
