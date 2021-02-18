@@ -23,7 +23,6 @@ if($ARGV[0] eq "debug"){
 	$debug = 0;
 }
 
-
 logIt("Using directory: $dir");
 
 # Create a DateTime object
@@ -127,6 +126,7 @@ logIt("Processed deaths");
 
 $start = 5;
 %LAD;
+@pulsarplot;
 
 for($i = 0; $i < @las; $i++){
 	$la = $las[$i];
@@ -304,7 +304,7 @@ print "$la - $restrictions{$la}{'tier'}\n";
 	close(FILE);
 	
  
-	makeGraph($la);
+	@smooth = makeGraph($la);
 
 	# Work out the latest (as of 5 days ago in the data) 7-day-smoothed values for each LA
 	# Load the data back in
@@ -332,7 +332,16 @@ print "$la - $restrictions{$la}{'tier'}\n";
 	$LAD{$la}{'cases'}{'weekly_change'} = int(($w-$w2)*1e5/$LAD{$la}{'population'} + 0.5);
 	
 	$updateday = $LAD{$la}{"cases"}{"days"}[$start]{"date"};
+	
+	
+	push(@pulsarplot,{'id'=>$la,'name'=>$names{$la},'data'=>[]});
+
+	@{$pulsarplot[@pulsarplot - 1]->{'data'}} = @smooth;
 }
+
+
+makePulsarPlot(2024,200,4,200,@pulsarplot);
+
 
 open(FILE,">","processed/index.json");
 print FILE "{\n";
@@ -395,7 +404,7 @@ sub logIt {
 
 sub makeGraph {
 	my $la = $_[0];
-	my ($file,%ladata,@lines,$i,$j,$n,@smooth,@raw,@recent,@recentraw,$graph);
+	my ($file,%ladata,@lines,$i,$j,$n,@smooth,@raw,@recent,@recentraw,$graph,@output);
 
 	@raw = [];
 	@smooth = [];
@@ -431,6 +440,7 @@ sub makeGraph {
 				$smooth[$i]{'y'} *= 1e5/$ladata{'population'};
 			}
 			$smooth[$i]{'title'} = $raw[$i]{'date'}.": ".sprintf("%0.0f",$smooth[$i]{'y'});
+			push(@output,[$smooth[$i]{'x'},$smooth[$i]{'y'}]);
 		}
 		
 		@recent = splice(@smooth,@smooth-$start,$start);
@@ -484,9 +494,72 @@ sub makeGraph {
 		print FILE "$svg";
 		close(FILE);
 	}
-	return;
+	return @output;
 }
 
+sub makePulsarPlot {
+	my ($w,$p,$offset,$dy,@output) = @_;
+	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$svg,$x,$y);
+	$minx = 1e100;
+	$maxx = -1e100;
+	$miny = 1e100;
+	$maxy = -1e100;
+	$n = 0;
+	for($l = 0; $l < @output; $l++){
+		$la = $output[$l]->{'id'};
+		for($i = 0; $i < @{$output[$l]->{'data'}}; $i++){
+			if($output[$l]->{'data'}[$i][0] < $minx){ $minx = $output[$l]->{'data'}[$i][0]; }
+			if($output[$l]->{'data'}[$i][0] > $maxx){ $maxx = $output[$l]->{'data'}[$i][0]; }
+			if($output[$l]->{'data'}[$i][1] < $miny){ $miny = $output[$l]->{'data'}[$i][1]; }
+			if($output[$l]->{'data'}[$i][1] > $maxy){ $maxy = $output[$l]->{'data'}[$i][1]; }
+		}
+		$n++;
+	}
+	# Hardcode a start
+	$minx = 1582761600;
+	$rangex = $maxx-$minx;
+	$rangey = $maxy-$miny;
+	$h = $dy + ($n-1)*$offset + 1.5*$p;
+	print "$h - $offset\n";
+
+	$svg = "<svg width=\"".sprintf("%d",$w)."\" height=\"".sprintf("%d",$h)."\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" style=\"overflow:display\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\">\n";
+	$svg .= "\t<rect x=\"0\" y=\"0\" width=\"$w\" height=\"$h\" fill=\"black\"></rect>\n";
+	$svg .= "<defs>\n";
+	$svg .= "\t<style>\n";
+	#$svg .= "\tpath.line { stroke: white; stroke-width: 1px; }\n";
+	$svg .= "\tpath.area:hover { stroke: #1DD3A7; stroke-width: 3px; }\n";
+	$svg .= "\ttext {display: none; text-anchor: start; fill: white; font-family: sans-serif; }\n";
+	$svg .= "\tg:hover text {display: block;}\n";
+	$svg .= "\t</style>\n";
+	$svg .= "</defs>\n";
+
+	$n = 0;
+	for($l = @output - 1; $l >= 0; $l--){
+		$path = "";
+		$j = 0;
+		for($i = 0; $i < @{$output[$l]->{'data'}}; $i++){
+			if($output[$l]->{'data'}[$i][0] >= $minx){
+				$x = $p + ($w-2*$p)*($output[$l]->{'data'}[$i][0]-$minx)/$rangex;
+				$y = 0.5*$p + $dy + ($n-1)*$offset;
+				$path .= ($j == 0 ? "M" : "L")."".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
+				$j++;
+			}
+		}
+		$svg .= "\t<g>\n";
+		$svg .= "\t\t<path d=\"$path L$x,$y\" class=\"area\" stroke=\"white\" stroke-width=\"1px\" fill=\"black\" fill-opacity=\"0.8\"><title id=\"$output[$l]->{'id'}\">$output[$l]->{'name'}</title></path>\n";
+		#$svg .= "\t\t<path d=\"$path\" class=\"line\" stroke=\"white\" fill=\"transparent\" stroke-width=\"1\"><title id=\"$output[$l]->{'id'}\">$output[$l]->{'name'}</title></path>\n";
+		$svg .= "\t\t<text x=\"$p\" y=\"".($y - $offset*0.2)."\">$output[$l]->{'name'}</text>\n";
+		$svg .= "\t</g>\n";
+		$n++;
+	}
+	$svg =~ s/\.0([L\,])/$1/g;
+	$svg .= "</svg>";
+	open(SVG,">","cases-plot.svg");
+	print SVG $svg;
+	close(SVG);
+	
+	return $svg;
+}
 sub getArea {
 	my $la = $_[0];
 	my $file = $dir."areas/$la.json";
