@@ -30,7 +30,7 @@ $datetime = ODILeeds::DateTime->new();
 
 
 # Load coordinates for LADs
-open(FILE,$dir."lad20cd-coordinates.csv");
+open(FILE,$dir."lad20-coordinates.csv");
 @lines = <FILE>;
 close(FILE);
 %coords;
