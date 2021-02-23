@@ -355,7 +355,23 @@ print "$la - $restrictions{$la}{'tier'}\n";
 makePulsarPlot(2024,200,4,200,"cases-plot.svg",@pulsarplot);
 # Sort by latitude
 @pulsarplot = (sort{ $coords{$a->{'id'}}->{'lat'} <=> $coords{$b->{'id'}}->{'lat'} }(@pulsarplot));
-makePulsarPlot(2024,200,4,200,"cases-plot-by-latitude.svg",@pulsarplot);
+@dates = makePulsarPlot(2024,200,4,200,"cases-plot-by-latitude.svg",@pulsarplot);
+
+$sdate = strftime('%A %e %B %Y',gmtime($dates[0]));
+$edate = strftime('%A %e %B %Y',gmtime($dates[1]));
+$siso = strftime('%Y-%m-%d',gmtime($dates[0]));
+$eiso = strftime('%Y-%m-%d',gmtime($dates[1]));
+open(FILE,$dir."../cases.html");
+@lines = <FILE>;
+close(FILE);
+$str = join("",@lines);
+$str =~ s/(<!-- begin -->).*(<!-- end begin -->)/$1<time datetime="$siso">$sdate<\/time>$2/g;
+$str =~ s/(<!-- upto -->).*(<!-- end upto -->)/$1<time datetime="$eiso">$edate<\/time>$2/g;
+open(FILE,">",$dir."../cases.html");
+print FILE $str;
+close(FILE);
+
+
 
 
 open(FILE,">",$dir."processed/index.json");
@@ -514,7 +530,7 @@ sub makeGraph {
 
 sub makePulsarPlot {
 	my ($w,$p,$offset,$dy,$file,@output) = @_;
-	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$svg,$x,$y);
+	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$svg,$x,$y,$sdate,$edate);
 	$minx = 1e100;
 	$maxx = -1e100;
 	$miny = 1e100;
@@ -576,8 +592,9 @@ sub makePulsarPlot {
 	print SVG $svg;
 	close(SVG);
 	
-	return $svg;
+	return ($minx,$maxx);
 }
+
 sub getArea {
 	my $la = $_[0];
 	my $file = $dir."areas/$la.json";
