@@ -632,7 +632,7 @@ sub processDeaths {
 	$year = $year+1900;
 
 	for($y = 2020; $y <= $year; $y++){
-		$filename = "temp/deaths-$y-registrations.csv";
+		$filename = "deaths/deaths-$y-registrations.csv";
 		if(-e $filename && -s $filename > 0){
 			print "\t$filename\n";
 			open(FILE,$filename);
