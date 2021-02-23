@@ -9,8 +9,8 @@
 	<title>COVID-19 Cases by Local Authority</title>
 	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
 	<style>
-		.stackedplot, svg { width: 100%; height: auto; }
-		svg .area { display: auto; }
+		#stackedplot svg { width: 100%; height: auto; }
+		#stackedplot svg .area { display: auto; }
 	</style>
 </head>
 <body class="b1-bg">
@@ -30,7 +30,7 @@
 
 	<div class="b6-bg">
 		<div class="padded">
-			<div class="holder">
+			<div class="holder" id="stackedplot">
 {% include_relative data/cases-plot-by-latitude.svg %}
 			</div>
 		</div>
