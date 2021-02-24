@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000080&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Wed, 24 Feb 2021 08:43:35 GMT
-Last-Modified: Tue, 23 Feb 2021 15:12:54 GMT
+Expires: Wed, 24 Feb 2021 17:43:10 GMT
+Last-Modified: Wed, 24 Feb 2021 15:08:22 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-xss-protection: 1; mode=block
-x-phe-media-type: PHE-COVID19.v1
-X-Frame-Options: deny
-X-Content-Type-Options: nosniff
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+phe-server-loc: UKW_fe02
+x-xss-protection: 1; mode=block
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-phe-server-loc: UKW_fe01
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 14985
-X-Azure-Ref-OriginShield: 0XRE2YAAAAAAOGRxr13VPRKHhJw0p9c8CTE9OMjFFREdFMDExMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0XRE2YAAAAADU6U1wp6ANSK6Wb3zpp/FATUFOMzBFREdFMDcxMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Wed, 24 Feb 2021 08:42:05 GMT
+PHE-API-Cache-Duration: 13974
+X-Azure-Ref-OriginShield: 01I82YAAAAAB4KvJTFqrjQL9ZKh4OUX89TE9OMjFFREdFMTUxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 00482YAAAAADko1whgQRgSaZoYsWrzZdHTUFOMzBFREdFMDMxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Wed, 24 Feb 2021 17:41:40 GMT
 
