@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000144&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 28 Feb 2021 08:45:24 GMT
-Last-Modified: Sat, 27 Feb 2021 15:15:03 GMT
+Expires: Sun, 28 Feb 2021 17:45:05 GMT
+Last-Modified: Sun, 28 Feb 2021 15:22:03 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-phe-server-loc: UKW_fe01
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-phe-media-type: PHE-COVID19.v1
-X-Content-Type-Options: nosniff
-x-xss-protection: 1; mode=block
 X-Frame-Options: deny
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+x-xss-protection: 1; mode=block
+X-Content-Type-Options: nosniff
+phe-server-loc: UKW_fe02
+x-phe-media-type: PHE-COVID19.v1
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 11341
-X-Azure-Ref-OriginShield: 0ylc7YAAAAABAGVzbaVbLQbszLqR08ZFpTE9OMjFFREdFMDIxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0ylc7YAAAAACb7C7F30P3Tqn67eAQgT9KTUFOMzBFREdFMDcxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 28 Feb 2021 08:43:54 GMT
+PHE-API-Cache-Duration: 11230
+X-Azure-Ref-OriginShield: 0R9Y7YAAAAAD8DEy8OD6dQr7enpB77SbzTE9OMjFFREdFMDIyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0R9Y7YAAAAAC8Y6BwJZwoTJp5ycFb+7X5TUFOMzBFREdFMDMwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 28 Feb 2021 17:43:34 GMT
 
