@@ -22,10 +22,11 @@
 	},
 	"deaths":{
 		"src": "",
-		"updated": "2021-W06",
-		"all": 2301,
-		"cov": 198,
+		"updated": "2021-W07",
+		"all": 2340,
+		"cov": 206,
 		"weeks":[
+			{"txt":"2021-W07","all":39,"cov":8},
 			{"txt":"2021-W06","all":62,"cov":23},
 			{"txt":"2021-W05","all":66,"cov":32},
 			{"txt":"2021-W04","all":59,"cov":29},
@@ -89,12 +90,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000246&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-03-01T15:15:56Z",
+		"updated":"2021-03-02T15:23:39Z",
 		"type":"SpecimenDate",
-		"n": 355,
+		"n": 356,
 		"days":[
-			{"date":"2021-02-28","day":6,"tot":5784},
-			{"date":"2021-02-27","day":4,"tot":5778},
+			{"date":"2021-03-01","day":1,"tot":5787},
+			{"date":"2021-02-28","day":7,"tot":5786},
+			{"date":"2021-02-27","day":5,"tot":5779},
 			{"date":"2021-02-26","day":12,"tot":5774},
 			{"date":"2021-02-25","day":10,"tot":5762},
 			{"date":"2021-02-24","day":8,"tot":5752},
