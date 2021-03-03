@@ -112,7 +112,7 @@ sub getBounds {
 
 sub drawSVG {
 	my ($self, $props) = @_;
-	my($w,$h,%b,$ratio,$i,$j,$k,$p,@order,$dlat,$dlon,$mlat,$corr,$slat,$slon,$l,%layer,$n,$nc,$f,%feature,@c,$svg,$path,$lat,$lon,$pad,$idt);
+	my($w,$h,%b,$ratio,$i,$j,$k,$p,@order,$dlat,$dlon,$mlat,$corr,$slat,$slon,$l,%layer,$n,$nc,$f,%feature,@c,$svg,$path,$lat,$lon,$pad,$idt,$fillcolour,$prec,$min,$max,%rtn);
 
 	$w = $self->{'width'};
 	if($props->{'bounds'}){
@@ -143,6 +143,7 @@ sub drawSVG {
 	for($l = 0; $l < @order; $l++){
 		
 		%layer = %{$self->{'layers'}{$order[$l]}};
+		$prec = "%0.".($layer{'options'}{'precision'}||0)."f";
 
 		if(!$layer{'data'}){
 			print "ERROR: No data for layer $order[$l]\n";
@@ -150,6 +151,8 @@ sub drawSVG {
 		}
 		
 		$n = @{$layer{'data'}{'features'}};
+		$min = "";
+		$max = "";
 		for($f = 0; $f < $n; $f++){
 			if($layer{'data'}{'features'}[$f]){
 				%feature = %{$layer{'data'}{'features'}[$f]};
@@ -160,8 +163,8 @@ sub drawSVG {
 					for($i = 0; $i < $nc; $i++){
 						for($j = 0; $j < @{$c[$i]}; $j++){
 							for($k = 0; $k < @{$c[$i][$j]}; $k++){
-								$lat = sprintf("%0.0f",$h - $pad - (($c[$i][$j][$k][1] - $b{'_southWest'}{'lat'})*$slat));
-								$lon = sprintf("%0.0f",$pad + (($c[$i][$j][$k][0] - $b{'_southWest'}{'lng'})*$slon));
+								$lat = sprintf($prec,$h - $pad - (($c[$i][$j][$k][1] - $b{'_southWest'}{'lat'})*$slat));
+								$lon = sprintf($prec,$pad + (($c[$i][$j][$k][0] - $b{'_southWest'}{'lng'})*$slon));
 								if($k==0){
 									$path .= "M $lon $lat";
 								}elsif($k==1){
@@ -177,8 +180,8 @@ sub drawSVG {
 						for($j = 0; $j < @{$c[$i]}; $j++){
 							for($k = 0; $k < @{$c[$i][$j]}; $k++){
 								for($p = 0; $p < @{$c[$i][$j][$k]}; $p++){
-									$lat = sprintf("%0.0f",$h - $pad - (($c[$i][$j][$k][$p][1] - $b{'_southWest'}{'lat'})*$slat));
-									$lon = sprintf("%0.0f",$pad + (($c[$i][$j][$k][$p][0] - $b{'_southWest'}{'lng'})*$slon));
+									$lat = sprintf($prec,$h - $pad - (($c[$i][$j][$k][$p][1] - $b{'_southWest'}{'lat'})*$slat));
+									$lon = sprintf($prec,$pad + (($c[$i][$j][$k][$p][0] - $b{'_southWest'}{'lng'})*$slon));
 									if($p==0){
 										$path .= "M $lon $lat";
 									}elsif($p==1){
@@ -191,21 +194,23 @@ sub drawSVG {
 						}
 					}
 				}
-				if($path){
+				$fillcolour = "";
+				if($layer{'options'}{'fill'}){
+					if(defined($layer{'options'}{'fill'})){
+						%rtn = $layer{'options'}{'fill'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'},$min,$max);
+						if($rtn{'fill'}){ $fillcolour = $rtn{'fill'}; }
+						$min = ($rtn{'min'}||"");
+						$max = ($rtn{'max'}||"");
+					}else{
+						$fillcolour = $layer{'options'}{'fill'};
+					}
+				}
+				if($path && $fillcolour ne ""){
 					$svg .= "$idt<path d=\"$path\"";
 					if($layer{'options'}{'stroke'}){ $svg .= " stroke=\"$layer{'options'}{'stroke'}\""; }
 					if($layer{'options'}{'strokeWidth'}){ $svg .= " stroke-width=\"$layer{'options'}{'strokeWidth'}\""; }
 					if($layer{'options'}{'strokeLinecap'}){ $svg .= " stroke-linecap=\"$layer{'options'}{'strokeLinecap'}\""; }
-					if($layer{'options'}{'fill'}){
-						$svg .= " fill=\"";
-						if(defined($layer{'options'}{'fill'})){
-							$svg .= $layer{'options'}{'fill'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'});
-							
-						}else{
-							$svg .= $layer{'options'}{'fill'};
-						}
-						$svg .= "\"";
-					}
+					$svg .= " fill=\"$fillcolour\"";
 					if($layer{'options'}{'fillOpacity'}){ $svg .= " fill-opacity=\"$layer{'options'}{'fillOpacity'}\""; }
 					foreach $p (sort(keys(%{$layer{'data'}{'features'}[$f]{'properties'}}))){
 						$svg .= " data-$p=\"$layer{'data'}{'features'}[$f]{'properties'}{$p}\"";
@@ -218,10 +223,8 @@ sub drawSVG {
 #				map.ctx.fillStyle = hex2rgba(this.options.color,this.options.fillOpacity);
 #				map.ctx.strokeStyle = hex2rgba(this.options.color,this.options.opacity);
 #				map.ctx.lineWidth = this.options.weight;
-
 			}
 		}
-		
 	}
 	$svg = "<svg width=\"$w\" height=\"$h\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\"".($props->{'data'} ? " data=\"".$props->{'data'}."\"" : "").">\n$svg\t</svg>";
 	return $svg;
