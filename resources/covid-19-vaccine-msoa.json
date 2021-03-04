@@ -1,7 +1,7 @@
 {
 	"geojson":"https://odileeds.github.io/covid-19/resources/vaccine-msoa.geojson",
 	"name":"Covid-19 vaccine data by MSOA",
-	"desc":"NHS England data on vaccine uptake broken down by age group and MSOA. Period: 8th December 2020 to 21st February 2021.",
+	"desc":"NHS England data on vaccine uptake broken down by age group and MSOA. Period: 8th December 2020 to 28th February 2021.",
 	"url":"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 	"owner":"nhs-england",
 	"credit": { "text": "&copy; NHS England, ONS, OS", "src": "NHS England" },
@@ -9,7 +9,7 @@
 	"format": { "type": "chloropleth", "keys":["0-69","0-69 %","70-74","70-74 %","75-79","75-79 %","80+","80+ %"] },
 	"size": 4381000,
 	"odbl": false,
-	"date": "2021-02-25",
+	"date": "2021-03-04",
 	"colour":"#2254F4",
 	"popup":"function test(f){ return '<h3>'+(f.properties['MSOA11NM'] ? f.properties['MSOA11NM']:'?')+'</h3><p>Number of people vaccinated with at least 1 dose.</p><table class=\"odi\"><tr><th>0-69</th><th>70-74</th><th>75-79</th><th>80+</th></tr><tr><td>'+(f.properties['0-69'])+'</td><td>'+(f.properties['70-74'])+'</td><td>'+(f.properties['75-79'])+'</td><td>'+(f.properties['80+'])+'</td></tr><tr><td>'+(f.properties['0-69 %'])+'%</td><td>'+(f.properties['70-74 %'])+'%</td><td>'+(f.properties['75-79 %'])+'%</td><td>'+(f.properties['80+ %'])+'%</td></tr></table><p class=\"footer\">Note that percentages are calculated by using populations for MSOAs from ONS in 2019 (latest). As populations in 2021 are likely larger, the percentages can over-estimate.</p>'; }"
 }
