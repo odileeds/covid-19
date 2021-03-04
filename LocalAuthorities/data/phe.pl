@@ -294,7 +294,7 @@ for($i = 0; $i < @las; $i++){
 		$w = 0;
 		foreach $wk (reverse(sort(keys(%{$vaccines{$la}})))){
 			if($w > 0){ print FILE "\,\n"; }
-			print FILE "\t\t\t{\"txt\":\"$wk\",\"ages\":{";
+			print FILE "\t\t\t{\"date\":\"$wk\",\"ages\":{";
 			$k = 0;
 			foreach $ky (sort(keys(%{$vaccines{$la}{$wk}}))){
 				if($k > 0){ print FILE "\,"; }
