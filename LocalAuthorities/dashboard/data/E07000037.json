@@ -1,6 +1,6 @@
 {
 	"name":"High Peak",
-	"population": 92932,
+	"population": 95510,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11478,"pop":75204,"%":15.3},"65-69":{"n":4405,"pop":5687,"%":77.5},"70-74":{"n":5396,"pop":5668,"%":95.2},"75-79":{"n":3924,"pop":4060,"%":96.7},"80+":{"n":4664,"pop":4891,"%":95.4},"all":{"n":29867,"pop":95510,"%":31.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":12464,"pop":80891,"%":15.4},"70-74":{"n":5370,"pop":5668,"%":94.7},"75-79":{"n":3919,"pop":4060,"%":96.5},"80+":{"n":4659,"pop":4891,"%":95.3},"all":{"n":26412,"pop":95510,"%":27.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11478,"pop":75204,"%":15.3},"65-69":{"n":4405,"pop":5687,"%":77.5},"70-74":{"n":5396,"pop":5668,"%":95.2},"75-79":{"n":3924,"pop":4060,"%":96.7},"80+":{"n":4664,"pop":4891,"%":95.4},"all":{"n":29867,"pop":95510,"%":31.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":12464,"pop":80891,"%":15.4},"70-74":{"n":5370,"pop":5668,"%":94.7},"75-79":{"n":3919,"pop":4060,"%":96.5},"80+":{"n":4659,"pop":4891,"%":95.3},"all":{"n":26412,"pop":95510,"%":27.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1255,
 		"cov": 255,

@@ -1,6 +1,6 @@
 {
 	"name":"Sutton",
-	"population": 206866,
+	"population": 222463,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":28600,"pop":189269,"%":15.1},"65-69":{"n":7556,"pop":9085,"%":83.2},"70-74":{"n":7819,"pop":8692,"%":90.0},"75-79":{"n":5583,"pop":6138,"%":91.0},"80+":{"n":8396,"pop":9279,"%":90.5},"all":{"n":57954,"pop":222463,"%":26.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":28463,"pop":198354,"%":14.3},"70-74":{"n":7740,"pop":8692,"%":89.0},"75-79":{"n":5552,"pop":6138,"%":90.5},"80+":{"n":8364,"pop":9279,"%":90.1},"all":{"n":50119,"pop":222463,"%":22.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":28600,"pop":189269,"%":15.1},"65-69":{"n":7556,"pop":9085,"%":83.2},"70-74":{"n":7819,"pop":8692,"%":90.0},"75-79":{"n":5583,"pop":6138,"%":91.0},"80+":{"n":8396,"pop":9279,"%":90.5},"all":{"n":57954,"pop":222463,"%":26.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":28463,"pop":198354,"%":14.3},"70-74":{"n":7740,"pop":8692,"%":89.0},"75-79":{"n":5552,"pop":6138,"%":90.5},"80+":{"n":8364,"pop":9279,"%":90.1},"all":{"n":50119,"pop":222463,"%":22.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2151,
 		"cov": 464,

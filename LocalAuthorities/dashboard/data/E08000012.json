@@ -1,6 +1,6 @@
 {
 	"name":"Liverpool",
-	"population": 502326,
+	"population": 545875,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":79090,"pop":468086,"%":16.9},"65-69":{"n":18906,"pop":23838,"%":79.3},"70-74":{"n":18654,"pop":20889,"%":89.3},"75-79":{"n":12395,"pop":13688,"%":90.6},"80+":{"n":17617,"pop":19374,"%":90.9},"all":{"n":146662,"pop":545875,"%":26.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":77810,"pop":491924,"%":15.8},"70-74":{"n":18420,"pop":20889,"%":88.2},"75-79":{"n":12293,"pop":13688,"%":89.8},"80+":{"n":17478,"pop":19374,"%":90.2},"all":{"n":126001,"pop":545875,"%":23.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":79090,"pop":468086,"%":16.9},"65-69":{"n":18906,"pop":23838,"%":79.3},"70-74":{"n":18654,"pop":20889,"%":89.3},"75-79":{"n":12395,"pop":13688,"%":90.6},"80+":{"n":17617,"pop":19374,"%":90.9},"all":{"n":146662,"pop":545875,"%":26.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":77810,"pop":491924,"%":15.8},"70-74":{"n":18420,"pop":20889,"%":88.2},"75-79":{"n":12293,"pop":13688,"%":89.8},"80+":{"n":17478,"pop":19374,"%":90.2},"all":{"n":126001,"pop":545875,"%":23.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 6413,
 		"cov": 1322,

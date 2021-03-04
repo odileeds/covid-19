@@ -1,6 +1,6 @@
 {
 	"name":"Rochdale",
-	"population": 223372,
+	"population": 240234,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":33968,"pop":201945,"%":16.8},"65-69":{"n":9251,"pop":11289,"%":81.9},"70-74":{"n":9609,"pop":10676,"%":90.0},"75-79":{"n":6528,"pop":7187,"%":90.8},"80+":{"n":8099,"pop":9137,"%":88.6},"all":{"n":67455,"pop":240234,"%":28.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":35532,"pop":213234,"%":16.7},"70-74":{"n":9500,"pop":10676,"%":89.0},"75-79":{"n":6474,"pop":7187,"%":90.1},"80+":{"n":8040,"pop":9137,"%":88.0},"all":{"n":59546,"pop":240234,"%":24.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":33968,"pop":201945,"%":16.8},"65-69":{"n":9251,"pop":11289,"%":81.9},"70-74":{"n":9609,"pop":10676,"%":90.0},"75-79":{"n":6528,"pop":7187,"%":90.8},"80+":{"n":8099,"pop":9137,"%":88.6},"all":{"n":67455,"pop":240234,"%":28.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":35532,"pop":213234,"%":16.7},"70-74":{"n":9500,"pop":10676,"%":89.0},"75-79":{"n":6474,"pop":7187,"%":90.1},"80+":{"n":8040,"pop":9137,"%":88.0},"all":{"n":59546,"pop":240234,"%":24.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2926,
 		"cov": 610,

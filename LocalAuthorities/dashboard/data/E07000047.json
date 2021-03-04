@@ -1,6 +1,6 @@
 {
 	"name":"West Devon",
-	"population": 56249,
+	"population": 58088,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":9095,"pop":41626,"%":21.8},"65-69":{"n":3669,"pop":4192,"%":87.5},"70-74":{"n":4263,"pop":4481,"%":95.1},"75-79":{"n":3252,"pop":3407,"%":95.5},"80+":{"n":4209,"pop":4382,"%":96.1},"all":{"n":24488,"pop":58088,"%":42.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":10168,"pop":45818,"%":22.2},"70-74":{"n":4236,"pop":4481,"%":94.5},"75-79":{"n":3250,"pop":3407,"%":95.4},"80+":{"n":4203,"pop":4382,"%":95.9},"all":{"n":21857,"pop":58088,"%":37.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":9095,"pop":41626,"%":21.8},"65-69":{"n":3669,"pop":4192,"%":87.5},"70-74":{"n":4263,"pop":4481,"%":95.1},"75-79":{"n":3252,"pop":3407,"%":95.5},"80+":{"n":4209,"pop":4382,"%":96.1},"all":{"n":24488,"pop":58088,"%":42.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":10168,"pop":45818,"%":22.2},"70-74":{"n":4236,"pop":4481,"%":94.5},"75-79":{"n":3250,"pop":3407,"%":95.4},"80+":{"n":4203,"pop":4382,"%":95.9},"all":{"n":21857,"pop":58088,"%":37.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 838,
 		"cov": 36,

@@ -1,6 +1,6 @@
 {
 	"name":"Islington",
-	"population": 244497,
+	"population": 272288,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":23541,"pop":249508,"%":9.4},"65-69":{"n":5229,"pop":7231,"%":72.3},"70-74":{"n":4801,"pop":6047,"%":79.4},"75-79":{"n":3234,"pop":4041,"%":80.0},"80+":{"n":4221,"pop":5461,"%":77.3},"all":{"n":41026,"pop":272288,"%":15.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":22461,"pop":256739,"%":8.7},"70-74":{"n":4731,"pop":6047,"%":78.2},"75-79":{"n":3186,"pop":4041,"%":78.8},"80+":{"n":4176,"pop":5461,"%":76.5},"all":{"n":34554,"pop":272288,"%":12.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":23541,"pop":249508,"%":9.4},"65-69":{"n":5229,"pop":7231,"%":72.3},"70-74":{"n":4801,"pop":6047,"%":79.4},"75-79":{"n":3234,"pop":4041,"%":80.0},"80+":{"n":4221,"pop":5461,"%":77.3},"all":{"n":41026,"pop":272288,"%":15.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":22461,"pop":256739,"%":8.7},"70-74":{"n":4731,"pop":6047,"%":78.2},"75-79":{"n":3186,"pop":4041,"%":78.8},"80+":{"n":4176,"pop":5461,"%":76.5},"all":{"n":34554,"pop":272288,"%":12.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1551,
 		"cov": 341,

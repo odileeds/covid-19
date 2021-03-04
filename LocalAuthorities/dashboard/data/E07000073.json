@@ -1,6 +1,6 @@
 {
 	"name":"Harlow",
-	"population": 87425,
+	"population": 98684,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11049,"pop":84483,"%":13.1},"65-69":{"n":3512,"pop":4194,"%":83.7},"70-74":{"n":3217,"pop":3575,"%":90.0},"75-79":{"n":2308,"pop":2508,"%":92.0},"80+":{"n":3569,"pop":3924,"%":91.0},"all":{"n":23655,"pop":98684,"%":24.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":12267,"pop":88677,"%":13.8},"70-74":{"n":3162,"pop":3575,"%":88.4},"75-79":{"n":2294,"pop":2508,"%":91.5},"80+":{"n":3529,"pop":3924,"%":89.9},"all":{"n":21252,"pop":98684,"%":21.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11049,"pop":84483,"%":13.1},"65-69":{"n":3512,"pop":4194,"%":83.7},"70-74":{"n":3217,"pop":3575,"%":90.0},"75-79":{"n":2308,"pop":2508,"%":92.0},"80+":{"n":3569,"pop":3924,"%":91.0},"all":{"n":23655,"pop":98684,"%":24.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":12267,"pop":88677,"%":13.8},"70-74":{"n":3162,"pop":3575,"%":88.4},"75-79":{"n":2294,"pop":2508,"%":91.5},"80+":{"n":3529,"pop":3924,"%":89.9},"all":{"n":21252,"pop":98684,"%":21.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1000,
 		"cov": 196,

@@ -1,6 +1,6 @@
 {
 	"name":"Havering",
-	"population": 261922,
+	"population": 272627,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":31382,"pop":224626,"%":14.0},"65-69":{"n":9470,"pop":12341,"%":76.7},"70-74":{"n":11353,"pop":12651,"%":89.7},"75-79":{"n":8289,"pop":9056,"%":91.5},"80+":{"n":12692,"pop":13953,"%":91.0},"all":{"n":73186,"pop":272627,"%":26.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":30587,"pop":236967,"%":12.9},"70-74":{"n":11253,"pop":12651,"%":88.9},"75-79":{"n":8226,"pop":9056,"%":90.8},"80+":{"n":12589,"pop":13953,"%":90.2},"all":{"n":62655,"pop":272627,"%":23.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":31382,"pop":224626,"%":14.0},"65-69":{"n":9470,"pop":12341,"%":76.7},"70-74":{"n":11353,"pop":12651,"%":89.7},"75-79":{"n":8289,"pop":9056,"%":91.5},"80+":{"n":12692,"pop":13953,"%":91.0},"all":{"n":73186,"pop":272627,"%":26.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":30587,"pop":236967,"%":12.9},"70-74":{"n":11253,"pop":12651,"%":88.9},"75-79":{"n":8226,"pop":9056,"%":90.8},"80+":{"n":12589,"pop":13953,"%":90.2},"all":{"n":62655,"pop":272627,"%":23.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3568,
 		"cov": 878,

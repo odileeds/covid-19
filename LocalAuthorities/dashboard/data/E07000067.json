@@ -1,6 +1,6 @@
 {
 	"name":"Braintree",
-	"population": 152370,
+	"population": 157127,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16388,"pop":125046,"%":13.1},"65-69":{"n":7269,"pop":8471,"%":85.8},"70-74":{"n":8430,"pop":9053,"%":93.1},"75-79":{"n":6065,"pop":6417,"%":94.5},"80+":{"n":7625,"pop":8140,"%":93.7},"all":{"n":45777,"pop":157127,"%":29.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":18316,"pop":133517,"%":13.7},"70-74":{"n":8304,"pop":9053,"%":91.7},"75-79":{"n":6016,"pop":6417,"%":93.8},"80+":{"n":7500,"pop":8140,"%":92.1},"all":{"n":40136,"pop":157127,"%":25.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16388,"pop":125046,"%":13.1},"65-69":{"n":7269,"pop":8471,"%":85.8},"70-74":{"n":8430,"pop":9053,"%":93.1},"75-79":{"n":6065,"pop":6417,"%":94.5},"80+":{"n":7625,"pop":8140,"%":93.7},"all":{"n":45777,"pop":157127,"%":29.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":18316,"pop":133517,"%":13.7},"70-74":{"n":8304,"pop":9053,"%":91.7},"75-79":{"n":6016,"pop":6417,"%":93.8},"80+":{"n":7500,"pop":8140,"%":92.1},"all":{"n":40136,"pop":157127,"%":25.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2066,
 		"cov": 409,

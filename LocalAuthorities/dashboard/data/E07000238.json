@@ -1,6 +1,6 @@
 {
 	"name":"Wychavon",
-	"population": 131412,
+	"population": 136780,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":19822,"pop":103331,"%":19.2},"65-69":{"n":7997,"pop":8583,"%":93.2},"70-74":{"n":8707,"pop":9117,"%":95.5},"75-79":{"n":6571,"pop":6793,"%":96.7},"80+":{"n":8648,"pop":8956,"%":96.6},"all":{"n":51745,"pop":136780,"%":37.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":21373,"pop":111914,"%":19.1},"70-74":{"n":8673,"pop":9117,"%":95.1},"75-79":{"n":6557,"pop":6793,"%":96.5},"80+":{"n":8642,"pop":8956,"%":96.5},"all":{"n":45245,"pop":136780,"%":33.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":19822,"pop":103331,"%":19.2},"65-69":{"n":7997,"pop":8583,"%":93.2},"70-74":{"n":8707,"pop":9117,"%":95.5},"75-79":{"n":6571,"pop":6793,"%":96.7},"80+":{"n":8648,"pop":8956,"%":96.6},"all":{"n":51745,"pop":136780,"%":37.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":21373,"pop":111914,"%":19.1},"70-74":{"n":8673,"pop":9117,"%":95.1},"75-79":{"n":6557,"pop":6793,"%":96.5},"80+":{"n":8642,"pop":8956,"%":96.5},"all":{"n":45245,"pop":136780,"%":33.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1751,
 		"cov": 258,

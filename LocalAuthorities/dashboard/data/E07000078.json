@@ -1,6 +1,6 @@
 {
 	"name":"Cheltenham",
-	"population": 117416,
+	"population": 125909,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":17048,"pop":102189,"%":16.7},"65-69":{"n":5303,"pop":5911,"%":89.7},"70-74":{"n":5606,"pop":5964,"%":94.0},"75-79":{"n":4378,"pop":4566,"%":95.9},"80+":{"n":6927,"pop":7279,"%":95.2},"all":{"n":39262,"pop":125909,"%":31.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":18266,"pop":108100,"%":16.9},"70-74":{"n":5576,"pop":5964,"%":93.5},"75-79":{"n":4361,"pop":4566,"%":95.5},"80+":{"n":6916,"pop":7279,"%":95.0},"all":{"n":35119,"pop":125909,"%":27.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":17048,"pop":102189,"%":16.7},"65-69":{"n":5303,"pop":5911,"%":89.7},"70-74":{"n":5606,"pop":5964,"%":94.0},"75-79":{"n":4378,"pop":4566,"%":95.9},"80+":{"n":6927,"pop":7279,"%":95.2},"all":{"n":39262,"pop":125909,"%":31.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":18266,"pop":108100,"%":16.9},"70-74":{"n":5576,"pop":5964,"%":93.5},"75-79":{"n":4361,"pop":4566,"%":95.5},"80+":{"n":6916,"pop":7279,"%":95.0},"all":{"n":35119,"pop":125909,"%":27.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1559,
 		"cov": 237,

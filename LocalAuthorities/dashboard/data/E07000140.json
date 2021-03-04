@@ -1,6 +1,6 @@
 {
 	"name":"South Holland",
-	"population": 95886,
+	"population": 99567,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":9558,"pop":76450,"%":12.5},"65-69":{"n":5093,"pop":5758,"%":88.5},"70-74":{"n":5966,"pop":6331,"%":94.2},"75-79":{"n":4424,"pop":4616,"%":95.8},"80+":{"n":6119,"pop":6412,"%":95.4},"all":{"n":31160,"pop":99567,"%":31.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":11608,"pop":82208,"%":14.1},"70-74":{"n":5901,"pop":6331,"%":93.2},"75-79":{"n":4365,"pop":4616,"%":94.6},"80+":{"n":6085,"pop":6412,"%":94.9},"all":{"n":27959,"pop":99567,"%":28.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":9558,"pop":76450,"%":12.5},"65-69":{"n":5093,"pop":5758,"%":88.5},"70-74":{"n":5966,"pop":6331,"%":94.2},"75-79":{"n":4424,"pop":4616,"%":95.8},"80+":{"n":6119,"pop":6412,"%":95.4},"all":{"n":31160,"pop":99567,"%":31.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":11608,"pop":82208,"%":14.1},"70-74":{"n":5901,"pop":6331,"%":93.2},"75-79":{"n":4365,"pop":4616,"%":94.6},"80+":{"n":6085,"pop":6412,"%":94.9},"all":{"n":27959,"pop":99567,"%":28.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1403,
 		"cov": 181,

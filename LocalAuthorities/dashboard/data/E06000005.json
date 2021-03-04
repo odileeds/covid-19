@@ -1,6 +1,6 @@
 {
 	"name":"Darlington",
-	"population": 106828,
+	"population": 112878,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":10666,"pop":90201,"%":11.8},"65-69":{"n":5027,"pop":6129,"%":82.0},"70-74":{"n":5671,"pop":6128,"%":92.5},"75-79":{"n":4059,"pop":4272,"%":95.0},"80+":{"n":5853,"pop":6148,"%":95.2},"all":{"n":31276,"pop":112878,"%":27.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13789,"pop":96330,"%":14.3},"70-74":{"n":5642,"pop":6128,"%":92.1},"75-79":{"n":4046,"pop":4272,"%":94.7},"80+":{"n":5837,"pop":6148,"%":94.9},"all":{"n":29314,"pop":112878,"%":26.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":10666,"pop":90201,"%":11.8},"65-69":{"n":5027,"pop":6129,"%":82.0},"70-74":{"n":5671,"pop":6128,"%":92.5},"75-79":{"n":4059,"pop":4272,"%":95.0},"80+":{"n":5853,"pop":6148,"%":95.2},"all":{"n":31276,"pop":112878,"%":27.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13789,"pop":96330,"%":14.3},"70-74":{"n":5642,"pop":6128,"%":92.1},"75-79":{"n":4046,"pop":4272,"%":94.7},"80+":{"n":5837,"pop":6148,"%":94.9},"all":{"n":29314,"pop":112878,"%":26.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1604,
 		"cov": 262,

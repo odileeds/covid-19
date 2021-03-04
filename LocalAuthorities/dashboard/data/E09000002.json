@@ -1,6 +1,6 @@
 {
 	"name":"Barking and Dagenham",
-	"population": 214681,
+	"population": 244158,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":24239,"pop":223217,"%":10.9},"65-69":{"n":4409,"pop":6690,"%":65.9},"70-74":{"n":4122,"pop":5205,"%":79.2},"75-79":{"n":2856,"pop":3563,"%":80.2},"80+":{"n":4521,"pop":5483,"%":82.5},"all":{"n":40147,"pop":244158,"%":16.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":23286,"pop":229907,"%":10.1},"70-74":{"n":4059,"pop":5205,"%":78.0},"75-79":{"n":2805,"pop":3563,"%":78.7},"80+":{"n":4478,"pop":5483,"%":81.7},"all":{"n":34628,"pop":244158,"%":14.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":24239,"pop":223217,"%":10.9},"65-69":{"n":4409,"pop":6690,"%":65.9},"70-74":{"n":4122,"pop":5205,"%":79.2},"75-79":{"n":2856,"pop":3563,"%":80.2},"80+":{"n":4521,"pop":5483,"%":82.5},"all":{"n":40147,"pop":244158,"%":16.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":23286,"pop":229907,"%":10.1},"70-74":{"n":4059,"pop":5205,"%":78.0},"75-79":{"n":2805,"pop":3563,"%":78.7},"80+":{"n":4478,"pop":5483,"%":81.7},"all":{"n":34628,"pop":244158,"%":14.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1919,
 		"cov": 518,

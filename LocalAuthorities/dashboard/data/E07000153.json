@@ -1,6 +1,6 @@
 {
 	"name":"Kettering",
-	"population": 103649,
+	"population": 110030,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14948,"pop":90192,"%":16.6},"65-69":{"n":4162,"pop":5310,"%":78.4},"70-74":{"n":5106,"pop":5543,"%":92.1},"75-79":{"n":3818,"pop":4055,"%":94.2},"80+":{"n":4624,"pop":4930,"%":93.8},"all":{"n":32658,"pop":110030,"%":29.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13707,"pop":95502,"%":14.4},"70-74":{"n":5057,"pop":5543,"%":91.2},"75-79":{"n":3808,"pop":4055,"%":93.9},"80+":{"n":4611,"pop":4930,"%":93.5},"all":{"n":27183,"pop":110030,"%":24.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14948,"pop":90192,"%":16.6},"65-69":{"n":4162,"pop":5310,"%":78.4},"70-74":{"n":5106,"pop":5543,"%":92.1},"75-79":{"n":3818,"pop":4055,"%":94.2},"80+":{"n":4624,"pop":4930,"%":93.8},"all":{"n":32658,"pop":110030,"%":29.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13707,"pop":95502,"%":14.4},"70-74":{"n":5057,"pop":5543,"%":91.2},"75-79":{"n":3808,"pop":4055,"%":93.9},"80+":{"n":4611,"pop":4930,"%":93.5},"all":{"n":27183,"pop":110030,"%":24.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1273,
 		"cov": 210,

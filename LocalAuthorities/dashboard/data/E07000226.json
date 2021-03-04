@@ -1,6 +1,6 @@
 {
 	"name":"Crawley",
-	"population": 113531,
+	"population": 124107,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":15827,"pop":107774,"%":14.7},"65-69":{"n":4125,"pop":4879,"%":84.5},"70-74":{"n":3966,"pop":4313,"%":92.0},"75-79":{"n":2539,"pop":2741,"%":92.6},"80+":{"n":4078,"pop":4400,"%":92.7},"all":{"n":30535,"pop":124107,"%":24.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":14870,"pop":112653,"%":13.2},"70-74":{"n":3912,"pop":4313,"%":90.7},"75-79":{"n":2524,"pop":2741,"%":92.1},"80+":{"n":4055,"pop":4400,"%":92.2},"all":{"n":25361,"pop":124107,"%":20.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":15827,"pop":107774,"%":14.7},"65-69":{"n":4125,"pop":4879,"%":84.5},"70-74":{"n":3966,"pop":4313,"%":92.0},"75-79":{"n":2539,"pop":2741,"%":92.6},"80+":{"n":4078,"pop":4400,"%":92.7},"all":{"n":30535,"pop":124107,"%":24.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":14870,"pop":112653,"%":13.2},"70-74":{"n":3912,"pop":4313,"%":90.7},"75-79":{"n":2524,"pop":2741,"%":92.1},"80+":{"n":4055,"pop":4400,"%":92.2},"all":{"n":25361,"pop":124107,"%":20.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1044,
 		"cov": 204,

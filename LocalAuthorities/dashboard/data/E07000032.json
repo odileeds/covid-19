@@ -1,6 +1,6 @@
 {
 	"name":"Amber Valley",
-	"population": 128575,
+	"population": 129930,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16350,"pop":100955,"%":16.2},"65-69":{"n":6988,"pop":7648,"%":91.4},"70-74":{"n":7899,"pop":8263,"%":95.6},"75-79":{"n":5763,"pop":5953,"%":96.8},"80+":{"n":6827,"pop":7111,"%":96.0},"all":{"n":43827,"pop":129930,"%":33.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17515,"pop":108603,"%":16.1},"70-74":{"n":7839,"pop":8263,"%":94.9},"75-79":{"n":5731,"pop":5953,"%":96.3},"80+":{"n":6800,"pop":7111,"%":95.6},"all":{"n":37885,"pop":129930,"%":29.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16350,"pop":100955,"%":16.2},"65-69":{"n":6988,"pop":7648,"%":91.4},"70-74":{"n":7899,"pop":8263,"%":95.6},"75-79":{"n":5763,"pop":5953,"%":96.8},"80+":{"n":6827,"pop":7111,"%":96.0},"all":{"n":43827,"pop":129930,"%":33.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17515,"pop":108603,"%":16.1},"70-74":{"n":7839,"pop":8263,"%":94.9},"75-79":{"n":5731,"pop":5953,"%":96.3},"80+":{"n":6800,"pop":7111,"%":95.6},"all":{"n":37885,"pop":129930,"%":29.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1843,
 		"cov": 321,

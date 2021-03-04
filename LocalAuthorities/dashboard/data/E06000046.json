@@ -1,6 +1,6 @@
 {
 	"name":"Isle of Wight",
-	"population": 143140,
+	"population": 146989,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":23290,"pop":105183,"%":22.1},"65-69":{"n":9038,"pop":10585,"%":85.4},"70-74":{"n":10681,"pop":11406,"%":93.6},"75-79":{"n":8379,"pop":8828,"%":94.9},"80+":{"n":10336,"pop":10987,"%":94.1},"all":{"n":61724,"pop":146989,"%":42.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":26674,"pop":115768,"%":23.0},"70-74":{"n":10602,"pop":11406,"%":93.0},"75-79":{"n":8329,"pop":8828,"%":94.3},"80+":{"n":10283,"pop":10987,"%":93.6},"all":{"n":55888,"pop":146989,"%":38.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":23290,"pop":105183,"%":22.1},"65-69":{"n":9038,"pop":10585,"%":85.4},"70-74":{"n":10681,"pop":11406,"%":93.6},"75-79":{"n":8379,"pop":8828,"%":94.9},"80+":{"n":10336,"pop":10987,"%":94.1},"all":{"n":61724,"pop":146989,"%":42.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":26674,"pop":115768,"%":23.0},"70-74":{"n":10602,"pop":11406,"%":93.0},"75-79":{"n":8329,"pop":8828,"%":94.3},"80+":{"n":10283,"pop":10987,"%":93.6},"all":{"n":55888,"pop":146989,"%":38.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2404,
 		"cov": 262,

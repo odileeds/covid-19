@@ -1,6 +1,6 @@
 {
 	"name":"Rossendale",
-	"population": 71887,
+	"population": 73773,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":8471,"pop":59929,"%":14.1},"65-69":{"n":3060,"pop":3967,"%":77.1},"70-74":{"n":3734,"pop":4031,"%":92.6},"75-79":{"n":2504,"pop":2648,"%":94.6},"80+":{"n":3011,"pop":3198,"%":94.2},"all":{"n":20780,"pop":73773,"%":28.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":8987,"pop":63896,"%":14.1},"70-74":{"n":3710,"pop":4031,"%":92.0},"75-79":{"n":2490,"pop":2648,"%":94.0},"80+":{"n":2999,"pop":3198,"%":93.8},"all":{"n":18186,"pop":73773,"%":24.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":8471,"pop":59929,"%":14.1},"65-69":{"n":3060,"pop":3967,"%":77.1},"70-74":{"n":3734,"pop":4031,"%":92.6},"75-79":{"n":2504,"pop":2648,"%":94.6},"80+":{"n":3011,"pop":3198,"%":94.2},"all":{"n":20780,"pop":73773,"%":28.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":8987,"pop":63896,"%":14.1},"70-74":{"n":3710,"pop":4031,"%":92.0},"75-79":{"n":2490,"pop":2648,"%":94.0},"80+":{"n":2999,"pop":3198,"%":93.8},"all":{"n":18186,"pop":73773,"%":24.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 933,
 		"cov": 162,

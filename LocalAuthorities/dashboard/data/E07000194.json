@@ -1,6 +1,6 @@
 {
 	"name":"Lichfield",
-	"population": 104858,
+	"population": 108137,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14048,"pop":82341,"%":17.1},"65-69":{"n":5550,"pop":6232,"%":89.1},"70-74":{"n":6657,"pop":7004,"%":95.0},"75-79":{"n":5622,"pop":5837,"%":96.3},"80+":{"n":6392,"pop":6723,"%":95.1},"all":{"n":38269,"pop":108137,"%":35.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":14193,"pop":88573,"%":16.0},"70-74":{"n":6600,"pop":7004,"%":94.2},"75-79":{"n":5596,"pop":5837,"%":95.9},"80+":{"n":6367,"pop":6723,"%":94.7},"all":{"n":32756,"pop":108137,"%":30.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14048,"pop":82341,"%":17.1},"65-69":{"n":5550,"pop":6232,"%":89.1},"70-74":{"n":6657,"pop":7004,"%":95.0},"75-79":{"n":5622,"pop":5837,"%":96.3},"80+":{"n":6392,"pop":6723,"%":95.1},"all":{"n":38269,"pop":108137,"%":35.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":14193,"pop":88573,"%":16.0},"70-74":{"n":6600,"pop":7004,"%":94.2},"75-79":{"n":5596,"pop":5837,"%":95.9},"80+":{"n":6367,"pop":6723,"%":94.7},"all":{"n":32756,"pop":108137,"%":30.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1508,
 		"cov": 283,

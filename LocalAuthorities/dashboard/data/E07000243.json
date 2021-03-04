@@ -1,6 +1,6 @@
 {
 	"name":"Stevenage",
-	"population": 88214,
+	"population": 95202,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11124,"pop":81090,"%":13.7},"65-69":{"n":3269,"pop":3938,"%":83.0},"70-74":{"n":3279,"pop":3573,"%":91.8},"75-79":{"n":2439,"pop":2611,"%":93.4},"80+":{"n":3746,"pop":3990,"%":93.9},"all":{"n":23857,"pop":95202,"%":25.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":11272,"pop":85028,"%":13.3},"70-74":{"n":3237,"pop":3573,"%":90.6},"75-79":{"n":2417,"pop":2611,"%":92.6},"80+":{"n":3700,"pop":3990,"%":92.7},"all":{"n":20626,"pop":95202,"%":21.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11124,"pop":81090,"%":13.7},"65-69":{"n":3269,"pop":3938,"%":83.0},"70-74":{"n":3279,"pop":3573,"%":91.8},"75-79":{"n":2439,"pop":2611,"%":93.4},"80+":{"n":3746,"pop":3990,"%":93.9},"all":{"n":23857,"pop":95202,"%":25.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":11272,"pop":85028,"%":13.3},"70-74":{"n":3237,"pop":3573,"%":90.6},"75-79":{"n":2417,"pop":2611,"%":92.6},"80+":{"n":3700,"pop":3990,"%":92.7},"all":{"n":20626,"pop":95202,"%":21.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 987,
 		"cov": 151,

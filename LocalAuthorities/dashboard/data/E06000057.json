@@ -1,6 +1,6 @@
 {
 	"name":"Northumberland",
-	"population": 322852,
+	"population": 330100,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":39241,"pop":247418,"%":15.9},"65-69":{"n":16977,"pop":22784,"%":74.5},"70-74":{"n":22080,"pop":23187,"%":95.2},"75-79":{"n":15473,"pop":16011,"%":96.6},"80+":{"n":19803,"pop":20700,"%":95.7},"all":{"n":113574,"pop":330100,"%":34.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":45904,"pop":270202,"%":17.0},"70-74":{"n":21826,"pop":23187,"%":94.1},"75-79":{"n":15392,"pop":16011,"%":96.1},"80+":{"n":19709,"pop":20700,"%":95.2},"all":{"n":102831,"pop":330100,"%":31.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":39241,"pop":247418,"%":15.9},"65-69":{"n":16977,"pop":22784,"%":74.5},"70-74":{"n":22080,"pop":23187,"%":95.2},"75-79":{"n":15473,"pop":16011,"%":96.6},"80+":{"n":19803,"pop":20700,"%":95.7},"all":{"n":113574,"pop":330100,"%":34.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":45904,"pop":270202,"%":17.0},"70-74":{"n":21826,"pop":23187,"%":94.1},"75-79":{"n":15392,"pop":16011,"%":96.1},"80+":{"n":19709,"pop":20700,"%":95.2},"all":{"n":102831,"pop":330100,"%":31.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 4758,
 		"cov": 728,

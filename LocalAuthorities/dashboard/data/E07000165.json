@@ -1,6 +1,6 @@
 {
 	"name":"Harrogate",
-	"population": 160644,
+	"population": 173562,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":22228,"pop":134450,"%":16.5},"65-69":{"n":8255,"pop":9846,"%":83.8},"70-74":{"n":9894,"pop":10475,"%":94.5},"75-79":{"n":7237,"pop":7615,"%":95.0},"80+":{"n":10679,"pop":11176,"%":95.6},"all":{"n":58293,"pop":173562,"%":33.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":21057,"pop":144296,"%":14.6},"70-74":{"n":9829,"pop":10475,"%":93.8},"75-79":{"n":7216,"pop":7615,"%":94.8},"80+":{"n":10651,"pop":11176,"%":95.3},"all":{"n":48753,"pop":173562,"%":28.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":22228,"pop":134450,"%":16.5},"65-69":{"n":8255,"pop":9846,"%":83.8},"70-74":{"n":9894,"pop":10475,"%":94.5},"75-79":{"n":7237,"pop":7615,"%":95.0},"80+":{"n":10679,"pop":11176,"%":95.6},"all":{"n":58293,"pop":173562,"%":33.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":21057,"pop":144296,"%":14.6},"70-74":{"n":9829,"pop":10475,"%":93.8},"75-79":{"n":7216,"pop":7615,"%":94.8},"80+":{"n":10651,"pop":11176,"%":95.3},"all":{"n":48753,"pop":173562,"%":28.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2191,
 		"cov": 289,

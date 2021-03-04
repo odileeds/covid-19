@@ -1,6 +1,6 @@
 {
 	"name":"Mid Devon",
-	"population": 83533,
+	"population": 85842,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":10362,"pop":65602,"%":15.8},"65-69":{"n":3941,"pop":5278,"%":74.7},"70-74":{"n":5208,"pop":5484,"%":95.0},"75-79":{"n":3922,"pop":4084,"%":96.0},"80+":{"n":5179,"pop":5394,"%":96.0},"all":{"n":28612,"pop":85842,"%":33.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":10077,"pop":70880,"%":14.2},"70-74":{"n":5173,"pop":5484,"%":94.3},"75-79":{"n":3916,"pop":4084,"%":95.9},"80+":{"n":5175,"pop":5394,"%":95.9},"all":{"n":24341,"pop":85842,"%":28.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":10362,"pop":65602,"%":15.8},"65-69":{"n":3941,"pop":5278,"%":74.7},"70-74":{"n":5208,"pop":5484,"%":95.0},"75-79":{"n":3922,"pop":4084,"%":96.0},"80+":{"n":5179,"pop":5394,"%":96.0},"all":{"n":28612,"pop":85842,"%":33.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":10077,"pop":70880,"%":14.2},"70-74":{"n":5173,"pop":5484,"%":94.3},"75-79":{"n":3916,"pop":4084,"%":95.9},"80+":{"n":5175,"pop":5394,"%":95.9},"all":{"n":24341,"pop":85842,"%":28.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1011,
 		"cov": 74,

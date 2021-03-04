@@ -1,6 +1,6 @@
 {
 	"name":"Epsom and Ewell",
-	"population": 80555,
+	"population": 86987,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11721,"pop":71674,"%":16.4},"65-69":{"n":3326,"pop":3823,"%":87.0},"70-74":{"n":3785,"pop":4134,"%":91.6},"75-79":{"n":2786,"pop":2995,"%":93.0},"80+":{"n":4036,"pop":4361,"%":92.5},"all":{"n":25654,"pop":86987,"%":29.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":11627,"pop":75497,"%":15.4},"70-74":{"n":3755,"pop":4134,"%":90.8},"75-79":{"n":2774,"pop":2995,"%":92.6},"80+":{"n":3998,"pop":4361,"%":91.7},"all":{"n":22154,"pop":86987,"%":25.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11721,"pop":71674,"%":16.4},"65-69":{"n":3326,"pop":3823,"%":87.0},"70-74":{"n":3785,"pop":4134,"%":91.6},"75-79":{"n":2786,"pop":2995,"%":93.0},"80+":{"n":4036,"pop":4361,"%":92.5},"all":{"n":25654,"pop":86987,"%":29.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":11627,"pop":75497,"%":15.4},"70-74":{"n":3755,"pop":4134,"%":90.8},"75-79":{"n":2774,"pop":2995,"%":92.6},"80+":{"n":3998,"pop":4361,"%":91.7},"all":{"n":22154,"pop":86987,"%":25.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 902,
 		"cov": 216,

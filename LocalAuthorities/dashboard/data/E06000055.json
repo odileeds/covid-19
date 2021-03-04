@@ -1,6 +1,6 @@
 {
 	"name":"Bedford",
-	"population": 174720,
+	"population": 195792,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":23598,"pop":163628,"%":14.4},"65-69":{"n":7535,"pop":8724,"%":86.4},"70-74":{"n":7955,"pop":8630,"%":92.2},"75-79":{"n":5619,"pop":6007,"%":93.5},"80+":{"n":8093,"pop":8803,"%":91.9},"all":{"n":52800,"pop":195792,"%":27.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":24603,"pop":172352,"%":14.3},"70-74":{"n":7849,"pop":8630,"%":91.0},"75-79":{"n":5575,"pop":6007,"%":92.8},"80+":{"n":8056,"pop":8803,"%":91.5},"all":{"n":46083,"pop":195792,"%":23.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":23598,"pop":163628,"%":14.4},"65-69":{"n":7535,"pop":8724,"%":86.4},"70-74":{"n":7955,"pop":8630,"%":92.2},"75-79":{"n":5619,"pop":6007,"%":93.5},"80+":{"n":8093,"pop":8803,"%":91.9},"all":{"n":52800,"pop":195792,"%":27.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":24603,"pop":172352,"%":14.3},"70-74":{"n":7849,"pop":8630,"%":91.0},"75-79":{"n":5575,"pop":6007,"%":92.8},"80+":{"n":8056,"pop":8803,"%":91.5},"all":{"n":46083,"pop":195792,"%":23.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2192,
 		"cov": 487,

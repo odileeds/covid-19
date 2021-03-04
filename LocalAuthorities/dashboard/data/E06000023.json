@@ -1,6 +1,6 @@
 {
 	"name":"Bristol, City of",
-	"population": 471344,
+	"population": 518200,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":59235,"pop":454138,"%":13.0},"65-69":{"n":15008,"pop":18145,"%":82.7},"70-74":{"n":15229,"pop":16769,"%":90.8},"75-79":{"n":10951,"pop":11859,"%":92.3},"80+":{"n":16108,"pop":17289,"%":93.2},"all":{"n":116531,"pop":518200,"%":22.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":58769,"pop":472283,"%":12.4},"70-74":{"n":15082,"pop":16769,"%":89.9},"75-79":{"n":10889,"pop":11859,"%":91.8},"80+":{"n":16036,"pop":17289,"%":92.8},"all":{"n":100776,"pop":518200,"%":19.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":59235,"pop":454138,"%":13.0},"65-69":{"n":15008,"pop":18145,"%":82.7},"70-74":{"n":15229,"pop":16769,"%":90.8},"75-79":{"n":10951,"pop":11859,"%":92.3},"80+":{"n":16108,"pop":17289,"%":93.2},"all":{"n":116531,"pop":518200,"%":22.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":58769,"pop":472283,"%":12.4},"70-74":{"n":15082,"pop":16769,"%":89.9},"75-79":{"n":10889,"pop":11859,"%":91.8},"80+":{"n":16036,"pop":17289,"%":92.8},"all":{"n":100776,"pop":518200,"%":19.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 4275,
 		"cov": 579,

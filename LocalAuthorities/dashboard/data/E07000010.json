@@ -1,6 +1,6 @@
 {
 	"name":"Fenland",
-	"population": 103621,
+	"population": 110007,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11902,"pop":85935,"%":13.9},"65-69":{"n":4887,"pop":6381,"%":76.6},"70-74":{"n":6022,"pop":6466,"%":93.1},"75-79":{"n":4577,"pop":4832,"%":94.7},"80+":{"n":6013,"pop":6393,"%":94.1},"all":{"n":33401,"pop":110007,"%":30.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13116,"pop":92316,"%":14.2},"70-74":{"n":5898,"pop":6466,"%":91.2},"75-79":{"n":4532,"pop":4832,"%":93.8},"80+":{"n":5912,"pop":6393,"%":92.5},"all":{"n":29458,"pop":110007,"%":26.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11902,"pop":85935,"%":13.9},"65-69":{"n":4887,"pop":6381,"%":76.6},"70-74":{"n":6022,"pop":6466,"%":93.1},"75-79":{"n":4577,"pop":4832,"%":94.7},"80+":{"n":6013,"pop":6393,"%":94.1},"all":{"n":33401,"pop":110007,"%":30.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13116,"pop":92316,"%":14.2},"70-74":{"n":5898,"pop":6466,"%":91.2},"75-79":{"n":4532,"pop":4832,"%":93.8},"80+":{"n":5912,"pop":6393,"%":92.5},"all":{"n":29458,"pop":110007,"%":26.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1602,
 		"cov": 217,

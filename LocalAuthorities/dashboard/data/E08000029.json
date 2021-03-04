@@ -1,6 +1,6 @@
 {
 	"name":"Solihull",
-	"population": 217713,
+	"population": 229483,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":29575,"pop":182664,"%":16.2},"65-69":{"n":10148,"pop":11249,"%":90.2},"70-74":{"n":11602,"pop":12331,"%":94.1},"75-79":{"n":9138,"pop":9670,"%":94.5},"80+":{"n":12792,"pop":13569,"%":94.3},"all":{"n":73255,"pop":229483,"%":31.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":30453,"pop":193913,"%":15.7},"70-74":{"n":11539,"pop":12331,"%":93.6},"75-79":{"n":9088,"pop":9670,"%":94.0},"80+":{"n":12727,"pop":13569,"%":93.8},"all":{"n":63807,"pop":229483,"%":27.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":29575,"pop":182664,"%":16.2},"65-69":{"n":10148,"pop":11249,"%":90.2},"70-74":{"n":11602,"pop":12331,"%":94.1},"75-79":{"n":9138,"pop":9670,"%":94.5},"80+":{"n":12792,"pop":13569,"%":94.3},"all":{"n":73255,"pop":229483,"%":31.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":30453,"pop":193913,"%":15.7},"70-74":{"n":11539,"pop":12331,"%":93.6},"75-79":{"n":9088,"pop":9670,"%":94.0},"80+":{"n":12727,"pop":13569,"%":93.8},"all":{"n":63807,"pop":229483,"%":27.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2972,
 		"cov": 579,

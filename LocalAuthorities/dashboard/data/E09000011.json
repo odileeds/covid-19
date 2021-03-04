@@ -1,6 +1,6 @@
 {
 	"name":"Greenwich",
-	"population": 292964,
+	"population": 316342,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":37057,"pop":284039,"%":13.0},"65-69":{"n":7737,"pop":10100,"%":76.6},"70-74":{"n":7241,"pop":8572,"%":84.5},"75-79":{"n":5096,"pop":5914,"%":86.2},"80+":{"n":6621,"pop":7717,"%":85.8},"all":{"n":63752,"pop":316342,"%":20.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":35315,"pop":294139,"%":12.0},"70-74":{"n":7104,"pop":8572,"%":82.9},"75-79":{"n":5009,"pop":5914,"%":84.7},"80+":{"n":6576,"pop":7717,"%":85.2},"all":{"n":54004,"pop":316342,"%":17.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":37057,"pop":284039,"%":13.0},"65-69":{"n":7737,"pop":10100,"%":76.6},"70-74":{"n":7241,"pop":8572,"%":84.5},"75-79":{"n":5096,"pop":5914,"%":86.2},"80+":{"n":6621,"pop":7717,"%":85.8},"all":{"n":63752,"pop":316342,"%":20.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":35315,"pop":294139,"%":12.0},"70-74":{"n":7104,"pop":8572,"%":82.9},"75-79":{"n":5009,"pop":5914,"%":84.7},"80+":{"n":6576,"pop":7717,"%":85.2},"all":{"n":54004,"pop":316342,"%":17.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2277,
 		"cov": 478,

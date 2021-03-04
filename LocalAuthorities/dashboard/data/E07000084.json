@@ -1,6 +1,6 @@
 {
 	"name":"Basingstoke and Deane",
-	"population": 176563,
+	"population": 191654,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":22064,"pop":158811,"%":13.9},"65-69":{"n":7932,"pop":8790,"%":90.2},"70-74":{"n":8615,"pop":9140,"%":94.3},"75-79":{"n":6138,"pop":6520,"%":94.1},"80+":{"n":7942,"pop":8393,"%":94.6},"all":{"n":52691,"pop":191654,"%":27.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":23393,"pop":167601,"%":14.0},"70-74":{"n":8527,"pop":9140,"%":93.3},"75-79":{"n":6093,"pop":6520,"%":93.5},"80+":{"n":7909,"pop":8393,"%":94.2},"all":{"n":45922,"pop":191654,"%":24.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":22064,"pop":158811,"%":13.9},"65-69":{"n":7932,"pop":8790,"%":90.2},"70-74":{"n":8615,"pop":9140,"%":94.3},"75-79":{"n":6138,"pop":6520,"%":94.1},"80+":{"n":7942,"pop":8393,"%":94.6},"all":{"n":52691,"pop":191654,"%":27.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":23393,"pop":167601,"%":14.0},"70-74":{"n":8527,"pop":9140,"%":93.3},"75-79":{"n":6093,"pop":6520,"%":93.5},"80+":{"n":7909,"pop":8393,"%":94.2},"all":{"n":45922,"pop":191654,"%":24.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1930,
 		"cov": 300,

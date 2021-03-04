@@ -1,6 +1,6 @@
 {
 	"name":"Hertsmere",
-	"population": 104850,
+	"population": 117791,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16774,"pop":97407,"%":17.2},"65-69":{"n":4422,"pop":5221,"%":84.7},"70-74":{"n":4719,"pop":5232,"%":90.2},"75-79":{"n":3567,"pop":3889,"%":91.7},"80+":{"n":5514,"pop":6042,"%":91.3},"all":{"n":34996,"pop":117791,"%":29.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16865,"pop":102628,"%":16.4},"70-74":{"n":4689,"pop":5232,"%":89.6},"75-79":{"n":3539,"pop":3889,"%":91.0},"80+":{"n":5480,"pop":6042,"%":90.7},"all":{"n":30573,"pop":117791,"%":26.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16774,"pop":97407,"%":17.2},"65-69":{"n":4422,"pop":5221,"%":84.7},"70-74":{"n":4719,"pop":5232,"%":90.2},"75-79":{"n":3567,"pop":3889,"%":91.7},"80+":{"n":5514,"pop":6042,"%":91.3},"all":{"n":34996,"pop":117791,"%":29.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16865,"pop":102628,"%":16.4},"70-74":{"n":4689,"pop":5232,"%":89.6},"75-79":{"n":3539,"pop":3889,"%":91.0},"80+":{"n":5480,"pop":6042,"%":90.7},"all":{"n":30573,"pop":117791,"%":26.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1395,
 		"cov": 330,

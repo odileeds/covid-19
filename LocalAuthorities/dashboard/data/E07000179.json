@@ -1,6 +1,6 @@
 {
 	"name":"South Oxfordshire",
-	"population": 141881,
+	"population": 155011,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16974,"pop":123772,"%":13.7},"65-69":{"n":6387,"pop":7855,"%":81.3},"70-74":{"n":7613,"pop":8049,"%":94.6},"75-79":{"n":6177,"pop":6453,"%":95.7},"80+":{"n":8518,"pop":8882,"%":95.9},"all":{"n":45669,"pop":155011,"%":29.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16870,"pop":131627,"%":12.8},"70-74":{"n":7576,"pop":8049,"%":94.1},"75-79":{"n":6162,"pop":6453,"%":95.5},"80+":{"n":8514,"pop":8882,"%":95.9},"all":{"n":39122,"pop":155011,"%":25.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16974,"pop":123772,"%":13.7},"65-69":{"n":6387,"pop":7855,"%":81.3},"70-74":{"n":7613,"pop":8049,"%":94.6},"75-79":{"n":6177,"pop":6453,"%":95.7},"80+":{"n":8518,"pop":8882,"%":95.9},"all":{"n":45669,"pop":155011,"%":29.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16870,"pop":131627,"%":12.8},"70-74":{"n":7576,"pop":8049,"%":94.1},"75-79":{"n":6162,"pop":6453,"%":95.5},"80+":{"n":8514,"pop":8882,"%":95.9},"all":{"n":39122,"pop":155011,"%":25.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1528,
 		"cov": 213,

@@ -1,6 +1,6 @@
 {
 	"name":"South Tyneside",
-	"population": 151394,
+	"population": 158264,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":23013,"pop":126736,"%":18.2},"65-69":{"n":7984,"pop":9007,"%":88.6},"70-74":{"n":8026,"pop":8506,"%":94.4},"75-79":{"n":5383,"pop":5665,"%":95.0},"80+":{"n":7856,"pop":8350,"%":94.1},"all":{"n":52262,"pop":158264,"%":33.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":26089,"pop":135743,"%":19.2},"70-74":{"n":7983,"pop":8506,"%":93.9},"75-79":{"n":5365,"pop":5665,"%":94.7},"80+":{"n":7834,"pop":8350,"%":93.8},"all":{"n":47271,"pop":158264,"%":29.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":23013,"pop":126736,"%":18.2},"65-69":{"n":7984,"pop":9007,"%":88.6},"70-74":{"n":8026,"pop":8506,"%":94.4},"75-79":{"n":5383,"pop":5665,"%":95.0},"80+":{"n":7856,"pop":8350,"%":94.1},"all":{"n":52262,"pop":158264,"%":33.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":26089,"pop":135743,"%":19.2},"70-74":{"n":7983,"pop":8506,"%":93.9},"75-79":{"n":5365,"pop":5665,"%":94.7},"80+":{"n":7834,"pop":8350,"%":93.8},"all":{"n":47271,"pop":158264,"%":29.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2352,
 		"cov": 449,

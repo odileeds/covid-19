@@ -1,6 +1,6 @@
 {
 	"name":"Fylde",
-	"population": 81343,
+	"population": 84628,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11029,"pop":61528,"%":17.9},"65-69":{"n":4969,"pop":5617,"%":88.5},"70-74":{"n":5766,"pop":6132,"%":94.0},"75-79":{"n":4543,"pop":4784,"%":95.0},"80+":{"n":6271,"pop":6567,"%":95.5},"all":{"n":32578,"pop":84628,"%":38.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":12683,"pop":67145,"%":18.9},"70-74":{"n":5740,"pop":6132,"%":93.6},"75-79":{"n":4515,"pop":4784,"%":94.4},"80+":{"n":6252,"pop":6567,"%":95.2},"all":{"n":29190,"pop":84628,"%":34.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11029,"pop":61528,"%":17.9},"65-69":{"n":4969,"pop":5617,"%":88.5},"70-74":{"n":5766,"pop":6132,"%":94.0},"75-79":{"n":4543,"pop":4784,"%":95.0},"80+":{"n":6271,"pop":6567,"%":95.5},"all":{"n":32578,"pop":84628,"%":38.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":12683,"pop":67145,"%":18.9},"70-74":{"n":5740,"pop":6132,"%":93.6},"75-79":{"n":4515,"pop":4784,"%":94.4},"80+":{"n":6252,"pop":6567,"%":95.2},"all":{"n":29190,"pop":84628,"%":34.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1447,
 		"cov": 252,

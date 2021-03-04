@@ -1,6 +1,6 @@
 {
 	"name":"Redbridge",
-	"population": 305599,
+	"population": 350236,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":40214,"pop":309537,"%":13.0},"65-69":{"n":9262,"pop":12239,"%":75.7},"70-74":{"n":8737,"pop":10395,"%":84.1},"75-79":{"n":6126,"pop":7082,"%":86.5},"80+":{"n":9529,"pop":10983,"%":86.8},"all":{"n":73868,"pop":350236,"%":21.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":34081,"pop":321776,"%":10.6},"70-74":{"n":8563,"pop":10395,"%":82.4},"75-79":{"n":6041,"pop":7082,"%":85.3},"80+":{"n":9432,"pop":10983,"%":85.9},"all":{"n":58117,"pop":350236,"%":16.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":40214,"pop":309537,"%":13.0},"65-69":{"n":9262,"pop":12239,"%":75.7},"70-74":{"n":8737,"pop":10395,"%":84.1},"75-79":{"n":6126,"pop":7082,"%":86.5},"80+":{"n":9529,"pop":10983,"%":86.8},"all":{"n":73868,"pop":350236,"%":21.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":34081,"pop":321776,"%":10.6},"70-74":{"n":8563,"pop":10395,"%":82.4},"75-79":{"n":6041,"pop":7082,"%":85.3},"80+":{"n":9432,"pop":10983,"%":85.9},"all":{"n":58117,"pop":350236,"%":16.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2863,
 		"cov": 815,

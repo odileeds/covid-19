@@ -1,6 +1,6 @@
 {
 	"name":"Reigate and Banstead",
-	"population": 149936,
+	"population": 159711,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":20174,"pop":131884,"%":15.3},"65-69":{"n":6172,"pop":7090,"%":87.1},"70-74":{"n":6783,"pop":7357,"%":92.2},"75-79":{"n":4919,"pop":5255,"%":93.6},"80+":{"n":7568,"pop":8125,"%":93.1},"all":{"n":45616,"pop":159711,"%":28.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":19900,"pop":138974,"%":14.3},"70-74":{"n":6726,"pop":7357,"%":91.4},"75-79":{"n":4895,"pop":5255,"%":93.1},"80+":{"n":7522,"pop":8125,"%":92.6},"all":{"n":39043,"pop":159711,"%":24.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":20174,"pop":131884,"%":15.3},"65-69":{"n":6172,"pop":7090,"%":87.1},"70-74":{"n":6783,"pop":7357,"%":92.2},"75-79":{"n":4919,"pop":5255,"%":93.6},"80+":{"n":7568,"pop":8125,"%":93.1},"all":{"n":45616,"pop":159711,"%":28.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19900,"pop":138974,"%":14.3},"70-74":{"n":6726,"pop":7357,"%":91.4},"75-79":{"n":4895,"pop":5255,"%":93.1},"80+":{"n":7522,"pop":8125,"%":92.6},"all":{"n":39043,"pop":159711,"%":24.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1893,
 		"cov": 418,

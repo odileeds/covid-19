@@ -1,6 +1,6 @@
 {
 	"name":"Cambridge",
-	"population": 125473,
+	"population": 181223,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":17809,"pop":163402,"%":10.9},"65-69":{"n":3744,"pop":5085,"%":73.6},"70-74":{"n":3870,"pop":4461,"%":86.8},"75-79":{"n":2956,"pop":3288,"%":89.9},"80+":{"n":4520,"pop":4987,"%":90.6},"all":{"n":32899,"pop":181223,"%":18.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16526,"pop":168487,"%":9.8},"70-74":{"n":3815,"pop":4461,"%":85.5},"75-79":{"n":2920,"pop":3288,"%":88.8},"80+":{"n":4464,"pop":4987,"%":89.5},"all":{"n":27725,"pop":181223,"%":15.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":17809,"pop":163402,"%":10.9},"65-69":{"n":3744,"pop":5085,"%":73.6},"70-74":{"n":3870,"pop":4461,"%":86.8},"75-79":{"n":2956,"pop":3288,"%":89.9},"80+":{"n":4520,"pop":4987,"%":90.6},"all":{"n":32899,"pop":181223,"%":18.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16526,"pop":168487,"%":9.8},"70-74":{"n":3815,"pop":4461,"%":85.5},"75-79":{"n":2920,"pop":3288,"%":88.8},"80+":{"n":4464,"pop":4987,"%":89.5},"all":{"n":27725,"pop":181223,"%":15.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 953,
 		"cov": 125,

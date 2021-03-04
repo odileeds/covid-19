@@ -1,6 +1,6 @@
 {
 	"name":"South Lakeland",
-	"population": 105351,
+	"population": 108758,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":13965,"pop":79186,"%":17.6},"65-69":{"n":6361,"pop":7282,"%":87.4},"70-74":{"n":7672,"pop":8079,"%":95.0},"75-79":{"n":5766,"pop":5990,"%":96.3},"80+":{"n":7945,"pop":8221,"%":96.6},"all":{"n":41709,"pop":108758,"%":38.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15638,"pop":86468,"%":18.1},"70-74":{"n":7632,"pop":8079,"%":94.5},"75-79":{"n":5751,"pop":5990,"%":96.0},"80+":{"n":7932,"pop":8221,"%":96.5},"all":{"n":36953,"pop":108758,"%":34.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":13965,"pop":79186,"%":17.6},"65-69":{"n":6361,"pop":7282,"%":87.4},"70-74":{"n":7672,"pop":8079,"%":95.0},"75-79":{"n":5766,"pop":5990,"%":96.3},"80+":{"n":7945,"pop":8221,"%":96.6},"all":{"n":41709,"pop":108758,"%":38.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15638,"pop":86468,"%":18.1},"70-74":{"n":7632,"pop":8079,"%":94.5},"75-79":{"n":5751,"pop":5990,"%":96.0},"80+":{"n":7932,"pop":8221,"%":96.5},"all":{"n":36953,"pop":108758,"%":34.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1749,
 		"cov": 288,

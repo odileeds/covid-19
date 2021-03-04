@@ -1,6 +1,6 @@
 {
 	"name":"Gosport",
-	"population": 85168,
+	"population": 83946,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":10925,"pop":65943,"%":16.6},"65-69":{"n":4192,"pop":4667,"%":89.8},"70-74":{"n":4646,"pop":4930,"%":94.2},"75-79":{"n":3359,"pop":3524,"%":95.3},"80+":{"n":4641,"pop":4882,"%":95.1},"all":{"n":27763,"pop":83946,"%":33.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":11694,"pop":70610,"%":16.6},"70-74":{"n":4622,"pop":4930,"%":93.8},"75-79":{"n":3352,"pop":3524,"%":95.1},"80+":{"n":4629,"pop":4882,"%":94.8},"all":{"n":24297,"pop":83946,"%":28.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":10925,"pop":65943,"%":16.6},"65-69":{"n":4192,"pop":4667,"%":89.8},"70-74":{"n":4646,"pop":4930,"%":94.2},"75-79":{"n":3359,"pop":3524,"%":95.3},"80+":{"n":4641,"pop":4882,"%":95.1},"all":{"n":27763,"pop":83946,"%":33.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":11694,"pop":70610,"%":16.6},"70-74":{"n":4622,"pop":4930,"%":93.8},"75-79":{"n":3352,"pop":3524,"%":95.1},"80+":{"n":4629,"pop":4882,"%":94.8},"all":{"n":24297,"pop":83946,"%":28.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1111,
 		"cov": 166,

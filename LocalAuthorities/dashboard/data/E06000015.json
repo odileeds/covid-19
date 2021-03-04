@@ -1,6 +1,6 @@
 {
 	"name":"Derby",
-	"population": 258710,
+	"population": 284459,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":36705,"pop":240312,"%":15.3},"65-69":{"n":10192,"pop":11832,"%":86.1},"70-74":{"n":10454,"pop":11424,"%":91.5},"75-79":{"n":7755,"pop":8323,"%":93.2},"80+":{"n":11710,"pop":12568,"%":93.2},"all":{"n":76816,"pop":284459,"%":27.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":38545,"pop":252144,"%":15.3},"70-74":{"n":10355,"pop":11424,"%":90.6},"75-79":{"n":7685,"pop":8323,"%":92.3},"80+":{"n":11560,"pop":12568,"%":92.0},"all":{"n":68145,"pop":284459,"%":24.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":36705,"pop":240312,"%":15.3},"65-69":{"n":10192,"pop":11832,"%":86.1},"70-74":{"n":10454,"pop":11424,"%":91.5},"75-79":{"n":7755,"pop":8323,"%":93.2},"80+":{"n":11710,"pop":12568,"%":93.2},"all":{"n":76816,"pop":284459,"%":27.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":38545,"pop":252144,"%":15.3},"70-74":{"n":10355,"pop":11424,"%":90.6},"75-79":{"n":7685,"pop":8323,"%":92.3},"80+":{"n":11560,"pop":12568,"%":92.0},"all":{"n":68145,"pop":284459,"%":24.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3293,
 		"cov": 724,

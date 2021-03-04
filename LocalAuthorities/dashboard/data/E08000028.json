@@ -1,6 +1,6 @@
 {
 	"name":"Sandwell",
-	"population": 331717,
+	"population": 366087,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":41154,"pop":314032,"%":13.1},"65-69":{"n":11850,"pop":14650,"%":80.9},"70-74":{"n":11680,"pop":13196,"%":88.5},"75-79":{"n":9057,"pop":10092,"%":89.7},"80+":{"n":12399,"pop":14117,"%":87.8},"all":{"n":86140,"pop":366087,"%":23.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":40835,"pop":328682,"%":12.4},"70-74":{"n":11519,"pop":13196,"%":87.3},"75-79":{"n":8968,"pop":10092,"%":88.9},"80+":{"n":12282,"pop":14117,"%":87.0},"all":{"n":73604,"pop":366087,"%":20.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":41154,"pop":314032,"%":13.1},"65-69":{"n":11850,"pop":14650,"%":80.9},"70-74":{"n":11680,"pop":13196,"%":88.5},"75-79":{"n":9057,"pop":10092,"%":89.7},"80+":{"n":12399,"pop":14117,"%":87.8},"all":{"n":86140,"pop":366087,"%":23.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":40835,"pop":328682,"%":12.4},"70-74":{"n":11519,"pop":13196,"%":87.3},"75-79":{"n":8968,"pop":10092,"%":88.9},"80+":{"n":12282,"pop":14117,"%":87.0},"all":{"n":73604,"pop":366087,"%":20.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 4461,
 		"cov": 996,

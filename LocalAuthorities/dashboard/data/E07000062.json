@@ -1,6 +1,6 @@
 {
 	"name":"Hastings",
-	"population": 92984,
+	"population": 96615,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":13164,"pop":77557,"%":17.0},"65-69":{"n":3575,"pop":5420,"%":66.0},"70-74":{"n":4685,"pop":5301,"%":88.4},"75-79":{"n":3253,"pop":3629,"%":89.6},"80+":{"n":4187,"pop":4708,"%":88.9},"all":{"n":28864,"pop":96615,"%":29.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13501,"pop":82977,"%":16.3},"70-74":{"n":4605,"pop":5301,"%":86.9},"75-79":{"n":3209,"pop":3629,"%":88.4},"80+":{"n":4170,"pop":4708,"%":88.6},"all":{"n":25485,"pop":96615,"%":26.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":13164,"pop":77557,"%":17.0},"65-69":{"n":3575,"pop":5420,"%":66.0},"70-74":{"n":4685,"pop":5301,"%":88.4},"75-79":{"n":3253,"pop":3629,"%":89.6},"80+":{"n":4187,"pop":4708,"%":88.9},"all":{"n":28864,"pop":96615,"%":29.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13501,"pop":82977,"%":16.3},"70-74":{"n":4605,"pop":5301,"%":86.9},"75-79":{"n":3209,"pop":3629,"%":88.4},"80+":{"n":4170,"pop":4708,"%":88.6},"all":{"n":25485,"pop":96615,"%":26.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1393,
 		"cov": 261,

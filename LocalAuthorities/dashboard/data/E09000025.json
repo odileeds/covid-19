@@ -1,6 +1,6 @@
 {
 	"name":"Newham",
-	"population": 358969,
+	"population": 431220,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":35448,"pop":402812,"%":8.8},"65-69":{"n":6709,"pop":10457,"%":64.2},"70-74":{"n":5295,"pop":7091,"%":74.7},"75-79":{"n":3380,"pop":4481,"%":75.4},"80+":{"n":4778,"pop":6379,"%":74.9},"all":{"n":55610,"pop":431220,"%":12.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":30478,"pop":413269,"%":7.4},"70-74":{"n":5172,"pop":7091,"%":72.9},"75-79":{"n":3319,"pop":4481,"%":74.1},"80+":{"n":4697,"pop":6379,"%":73.6},"all":{"n":43666,"pop":431220,"%":10.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":35448,"pop":402812,"%":8.8},"65-69":{"n":6709,"pop":10457,"%":64.2},"70-74":{"n":5295,"pop":7091,"%":74.7},"75-79":{"n":3380,"pop":4481,"%":75.4},"80+":{"n":4778,"pop":6379,"%":74.9},"all":{"n":55610,"pop":431220,"%":12.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":30478,"pop":413269,"%":7.4},"70-74":{"n":5172,"pop":7091,"%":72.9},"75-79":{"n":3319,"pop":4481,"%":74.1},"80+":{"n":4697,"pop":6379,"%":73.6},"all":{"n":43666,"pop":431220,"%":10.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2332,
 		"cov": 742,

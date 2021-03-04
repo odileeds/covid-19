@@ -1,6 +1,6 @@
 {
 	"name":"East Devon",
-	"population": 148493,
+	"population": 152953,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":20017,"pop":107193,"%":18.7},"65-69":{"n":9303,"pop":10474,"%":88.8},"70-74":{"n":11454,"pop":11987,"%":95.6},"75-79":{"n":9140,"pop":9483,"%":96.4},"80+":{"n":13311,"pop":13816,"%":96.3},"all":{"n":63225,"pop":152953,"%":41.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":23422,"pop":117667,"%":19.9},"70-74":{"n":11378,"pop":11987,"%":94.9},"75-79":{"n":9117,"pop":9483,"%":96.1},"80+":{"n":13266,"pop":13816,"%":96.0},"all":{"n":57183,"pop":152953,"%":37.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":20017,"pop":107193,"%":18.7},"65-69":{"n":9303,"pop":10474,"%":88.8},"70-74":{"n":11454,"pop":11987,"%":95.6},"75-79":{"n":9140,"pop":9483,"%":96.4},"80+":{"n":13311,"pop":13816,"%":96.3},"all":{"n":63225,"pop":152953,"%":41.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":23422,"pop":117667,"%":19.9},"70-74":{"n":11378,"pop":11987,"%":94.9},"75-79":{"n":9117,"pop":9483,"%":96.1},"80+":{"n":13266,"pop":13816,"%":96.0},"all":{"n":57183,"pop":152953,"%":37.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2236,
 		"cov": 192,

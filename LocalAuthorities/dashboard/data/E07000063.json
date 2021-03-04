@@ -1,6 +1,6 @@
 {
 	"name":"Lewes",
-	"population": 103925,
+	"population": 105663,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14781,"pop":78650,"%":18.8},"65-69":{"n":5757,"pop":6571,"%":87.6},"70-74":{"n":6593,"pop":7133,"%":92.4},"75-79":{"n":5045,"pop":5372,"%":93.9},"80+":{"n":7381,"pop":7937,"%":93.0},"all":{"n":39557,"pop":105663,"%":37.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16109,"pop":85221,"%":18.9},"70-74":{"n":6539,"pop":7133,"%":91.7},"75-79":{"n":5026,"pop":5372,"%":93.6},"80+":{"n":7353,"pop":7937,"%":92.6},"all":{"n":35027,"pop":105663,"%":33.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14781,"pop":78650,"%":18.8},"65-69":{"n":5757,"pop":6571,"%":87.6},"70-74":{"n":6593,"pop":7133,"%":92.4},"75-79":{"n":5045,"pop":5372,"%":93.9},"80+":{"n":7381,"pop":7937,"%":93.0},"all":{"n":39557,"pop":105663,"%":37.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16109,"pop":85221,"%":18.9},"70-74":{"n":6539,"pop":7133,"%":91.7},"75-79":{"n":5026,"pop":5372,"%":93.6},"80+":{"n":7353,"pop":7937,"%":92.6},"all":{"n":35027,"pop":105663,"%":33.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1583,
 		"cov": 279,

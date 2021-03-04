@@ -1,6 +1,6 @@
 {
 	"name":"Gedling",
-	"population": 119267,
+	"population": 121833,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":19509,"pop":95928,"%":20.3},"65-69":{"n":6096,"pop":6774,"%":90.0},"70-74":{"n":6655,"pop":7087,"%":93.9},"75-79":{"n":4767,"pop":4996,"%":95.4},"80+":{"n":6674,"pop":7048,"%":94.7},"all":{"n":43701,"pop":121833,"%":35.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":19260,"pop":102702,"%":18.8},"70-74":{"n":6586,"pop":7087,"%":92.9},"75-79":{"n":4724,"pop":4996,"%":94.6},"80+":{"n":6636,"pop":7048,"%":94.2},"all":{"n":37206,"pop":121833,"%":30.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":19509,"pop":95928,"%":20.3},"65-69":{"n":6096,"pop":6774,"%":90.0},"70-74":{"n":6655,"pop":7087,"%":93.9},"75-79":{"n":4767,"pop":4996,"%":95.4},"80+":{"n":6674,"pop":7048,"%":94.7},"all":{"n":43701,"pop":121833,"%":35.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19260,"pop":102702,"%":18.8},"70-74":{"n":6586,"pop":7087,"%":92.9},"75-79":{"n":4724,"pop":4996,"%":94.6},"80+":{"n":6636,"pop":7048,"%":94.2},"all":{"n":37206,"pop":121833,"%":30.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1639,
 		"cov": 307,

@@ -1,6 +1,6 @@
 {
 	"name":"Barnet",
-	"population": 399641,
+	"population": 441894,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":60265,"pop":381149,"%":15.8},"65-69":{"n":13197,"pop":16950,"%":77.9},"70-74":{"n":12939,"pop":15576,"%":83.1},"75-79":{"n":9549,"pop":11194,"%":85.3},"80+":{"n":14490,"pop":17025,"%":85.1},"all":{"n":110440,"pop":441894,"%":25.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":58281,"pop":398099,"%":14.6},"70-74":{"n":12806,"pop":15576,"%":82.2},"75-79":{"n":9464,"pop":11194,"%":84.5},"80+":{"n":14383,"pop":17025,"%":84.5},"all":{"n":94934,"pop":441894,"%":21.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":60265,"pop":381149,"%":15.8},"65-69":{"n":13197,"pop":16950,"%":77.9},"70-74":{"n":12939,"pop":15576,"%":83.1},"75-79":{"n":9549,"pop":11194,"%":85.3},"80+":{"n":14490,"pop":17025,"%":85.1},"all":{"n":110440,"pop":441894,"%":25.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":58281,"pop":398099,"%":14.6},"70-74":{"n":12806,"pop":15576,"%":82.2},"75-79":{"n":9464,"pop":11194,"%":84.5},"80+":{"n":14383,"pop":17025,"%":84.5},"all":{"n":94934,"pop":441894,"%":21.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3649,
 		"cov": 904,

@@ -1,6 +1,6 @@
 {
 	"name":"West Berkshire",
-	"population": 158474,
+	"population": 169405,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16696,"pop":137133,"%":12.2},"65-69":{"n":6847,"pop":8702,"%":78.7},"70-74":{"n":8309,"pop":8778,"%":94.7},"75-79":{"n":6158,"pop":6443,"%":95.6},"80+":{"n":7961,"pop":8349,"%":95.4},"all":{"n":45971,"pop":169405,"%":27.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17382,"pop":145835,"%":11.9},"70-74":{"n":8253,"pop":8778,"%":94.0},"75-79":{"n":6139,"pop":6443,"%":95.3},"80+":{"n":7931,"pop":8349,"%":95.0},"all":{"n":39705,"pop":169405,"%":23.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16696,"pop":137133,"%":12.2},"65-69":{"n":6847,"pop":8702,"%":78.7},"70-74":{"n":8309,"pop":8778,"%":94.7},"75-79":{"n":6158,"pop":6443,"%":95.6},"80+":{"n":7961,"pop":8349,"%":95.4},"all":{"n":45971,"pop":169405,"%":27.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17382,"pop":145835,"%":11.9},"70-74":{"n":8253,"pop":8778,"%":94.0},"75-79":{"n":6139,"pop":6443,"%":95.3},"80+":{"n":7931,"pop":8349,"%":95.0},"all":{"n":39705,"pop":169405,"%":23.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1692,
 		"cov": 226,

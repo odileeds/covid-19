@@ -61,6 +61,42 @@ close(FILE);
 
 
 
+# Get population data from NIMS
+%nims;
+open(FILE,$dir."vaccines/NIMS-LTLA-population.csv");
+@lines = <FILE>;
+close(FILE);
+$i = 0;
+foreach $line (@lines){
+	if($i == 0){
+		%header = getHeaders($line);
+	}elsif($i > 0){
+		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+		$latmp = $cols[$header{'LTLA Code'}];
+		if(!$nims{$latmp}){
+			$nims{$latmp} = {};
+			foreach $h (keys(%header)){
+				if($h =~ /[0-9]/){
+					$h2 = $h;
+					if($h2 =~ /Under ([0-9]+)/i){
+						$h2 = "0-".($1-1);
+					}
+					$cols[$header{$h}] =~ s/(^\"|\"$)//g;
+					$cols[$header{$h}] =~ s/[\,\s]//g;
+					$cols[$header{$h}] =~ s/\"//g;
+					$nims{$latmp}{$h2} = $cols[$header{$h}];
+				}
+			}
+			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'};
+			$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'}+$nims{$latmp}{'65-69'};
+			$nims{$latmp}{'all'} = $nims{$latmp}{'0-69'}+$nims{$latmp}{'70-74'}+$nims{$latmp}{'75-79'}+$nims{$latmp}{'80+'};
+		}
+	}
+	$i++;
+}
+
+
+
 # Get the vaccine data
 %vaccines = processVaccines();
 logIt("Processed vaccines");
@@ -241,7 +277,8 @@ for($i = 0; $i < @las; $i++){
 	open(FILE,">",$file);
 	print FILE "{\n";
 	print FILE "\t\"name\":\"$names{$la}\",\n";
-	print FILE "\t\"population\": ".($pop{$la}||0).",\n";
+	print "HERE $la - $nims{$la}{'all'}\n";
+	print FILE "\t\"population\": ".($nims{$la}{'all'}||$pop{$la}||0).",\n";
 	if($restrictions{$la}){
 		print FILE "\t\"restrictions\":{\n";
 		print FILE "\t\t\"src\": \"https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/\",\n";
@@ -302,7 +339,6 @@ for($i = 0; $i < @las; $i++){
 				$p = ($vaccines{$la}{$wk}{$ky}{'pop'}||0);
 				$pc = ($vaccines{$la}{$wk}{$ky}{'%'}||0);
 				$n =~ s/\"//g;	# Extra tidy
-				print "\t$n\t$p\t$pc\n";
 				print FILE "\"$ky\":{\"n\":$n,\"pop\":$p,\"%\":$pc}";
 				$k++;
 			}
@@ -655,41 +691,9 @@ sub getArea {
 
 sub processVaccines {
 	
-	my ($vdir,%nims,@files,$file,$h,$h2,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
+	my ($vdir,@files,$file,$h,$h2,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
 
 	$vdir = $dir."vaccines/";
-
-	# Get population data from NIMS
-	open(FILE,$vdir."NIMS-LTLA-population.csv");
-	@lines = <FILE>;
-	close(FILE);
-	$i = 0;
-	foreach $line (@lines){
-		if($i == 0){
-			%header = getHeaders($line);
-		}elsif($i > 0){
-			(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
-			$latmp = $cols[$header{'LTLA Code'}];
-			if(!$nims{$latmp}){
-				$nims{$latmp} = {};
-				foreach $h (keys(%header)){
-					if($h =~ /[0-9]/){
-						$h2 = $h;
-						if($h2 =~ /Under ([0-9]+)/i){
-							$h2 = "0-".($1-1);
-						}
-						$cols[$header{$h}] =~ s/(^\"|\"$)//g;
-						$cols[$header{$h}] =~ s/[\,\s]//g;
-						$cols[$header{$h}] =~ s/\"//g;
-						$nims{$latmp}{$h2} = $cols[$header{$h}];
-					}
-				}
-				$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'};
-				$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'}+$nims{$latmp}{'65-69'};
-			}
-		}
-		$i++;
-	}
 
 	print "Processing vaccines...\n";
 	# Set default values
@@ -740,8 +744,6 @@ sub processVaccines {
 		}
 	}
 	closedir(DIR);
-	print Dumper %vaccines;
-
 	return %vaccines;
 }
 

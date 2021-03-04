@@ -1,6 +1,6 @@
 {
 	"name":"Bromley",
-	"population": 334612,
+	"population": 354435,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":50828,"pop":293373,"%":17.3},"65-69":{"n":12917,"pop":15324,"%":84.3},"70-74":{"n":14588,"pop":16114,"%":90.5},"75-79":{"n":10723,"pop":11653,"%":92.0},"80+":{"n":16488,"pop":17971,"%":91.7},"all":{"n":105544,"pop":354435,"%":29.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":51223,"pop":308697,"%":16.6},"70-74":{"n":14478,"pop":16114,"%":89.8},"75-79":{"n":10654,"pop":11653,"%":91.4},"80+":{"n":16405,"pop":17971,"%":91.3},"all":{"n":92760,"pop":354435,"%":26.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":50828,"pop":293373,"%":17.3},"65-69":{"n":12917,"pop":15324,"%":84.3},"70-74":{"n":14588,"pop":16114,"%":90.5},"75-79":{"n":10723,"pop":11653,"%":92.0},"80+":{"n":16488,"pop":17971,"%":91.7},"all":{"n":105544,"pop":354435,"%":29.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":51223,"pop":308697,"%":16.6},"70-74":{"n":14478,"pop":16114,"%":89.8},"75-79":{"n":10654,"pop":11653,"%":91.4},"80+":{"n":16405,"pop":17971,"%":91.3},"all":{"n":92760,"pop":354435,"%":26.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3579,
 		"cov": 723,

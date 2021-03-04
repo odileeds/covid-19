@@ -1,6 +1,6 @@
 {
 	"name":"Leicester",
-	"population": 360557,
+	"population": 410105,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":46024,"pop":363981,"%":12.6},"65-69":{"n":11697,"pop":14990,"%":78.0},"70-74":{"n":10316,"pop":11880,"%":86.8},"75-79":{"n":6758,"pop":7672,"%":88.1},"80+":{"n":10122,"pop":11582,"%":87.4},"all":{"n":84917,"pop":410105,"%":20.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":44298,"pop":378971,"%":11.7},"70-74":{"n":10149,"pop":11880,"%":85.4},"75-79":{"n":6686,"pop":7672,"%":87.1},"80+":{"n":10023,"pop":11582,"%":86.5},"all":{"n":71156,"pop":410105,"%":17.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":46024,"pop":363981,"%":12.6},"65-69":{"n":11697,"pop":14990,"%":78.0},"70-74":{"n":10316,"pop":11880,"%":86.8},"75-79":{"n":6758,"pop":7672,"%":88.1},"80+":{"n":10122,"pop":11582,"%":87.4},"all":{"n":84917,"pop":410105,"%":20.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":44298,"pop":378971,"%":11.7},"70-74":{"n":10149,"pop":11880,"%":85.4},"75-79":{"n":6686,"pop":7672,"%":87.1},"80+":{"n":10023,"pop":11582,"%":86.5},"all":{"n":71156,"pop":410105,"%":17.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3713,
 		"cov": 781,

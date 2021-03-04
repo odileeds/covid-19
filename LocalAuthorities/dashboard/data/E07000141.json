@@ -1,6 +1,6 @@
 {
 	"name":"South Kesteven",
-	"population": 143347,
+	"population": 148728,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16214,"pop":114987,"%":14.1},"65-69":{"n":7648,"pop":8783,"%":87.1},"70-74":{"n":8776,"pop":9257,"%":94.8},"75-79":{"n":6655,"pop":6965,"%":95.5},"80+":{"n":8373,"pop":8736,"%":95.8},"all":{"n":47666,"pop":148728,"%":32.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":19078,"pop":123770,"%":15.4},"70-74":{"n":8718,"pop":9257,"%":94.2},"75-79":{"n":6625,"pop":6965,"%":95.1},"80+":{"n":8346,"pop":8736,"%":95.5},"all":{"n":42767,"pop":148728,"%":28.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16214,"pop":114987,"%":14.1},"65-69":{"n":7648,"pop":8783,"%":87.1},"70-74":{"n":8776,"pop":9257,"%":94.8},"75-79":{"n":6655,"pop":6965,"%":95.5},"80+":{"n":8373,"pop":8736,"%":95.8},"all":{"n":47666,"pop":148728,"%":32.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19078,"pop":123770,"%":15.4},"70-74":{"n":8718,"pop":9257,"%":94.2},"75-79":{"n":6625,"pop":6965,"%":95.1},"80+":{"n":8346,"pop":8736,"%":95.5},"all":{"n":42767,"pop":148728,"%":28.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1963,
 		"cov": 280,

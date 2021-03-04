@@ -1,6 +1,6 @@
 {
 	"name":"Wellingborough",
-	"population": 80721,
+	"population": 88344,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":9538,"pop":72199,"%":13.2},"65-69":{"n":3685,"pop":4422,"%":83.3},"70-74":{"n":4195,"pop":4521,"%":92.8},"75-79":{"n":3034,"pop":3249,"%":93.4},"80+":{"n":3606,"pop":3953,"%":91.2},"all":{"n":24058,"pop":88344,"%":27.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":9877,"pop":76621,"%":12.9},"70-74":{"n":4164,"pop":4521,"%":92.1},"75-79":{"n":3014,"pop":3249,"%":92.8},"80+":{"n":3578,"pop":3953,"%":90.5},"all":{"n":20633,"pop":88344,"%":23.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":9538,"pop":72199,"%":13.2},"65-69":{"n":3685,"pop":4422,"%":83.3},"70-74":{"n":4195,"pop":4521,"%":92.8},"75-79":{"n":3034,"pop":3249,"%":93.4},"80+":{"n":3606,"pop":3953,"%":91.2},"all":{"n":24058,"pop":88344,"%":27.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":9877,"pop":76621,"%":12.9},"70-74":{"n":4164,"pop":4521,"%":92.1},"75-79":{"n":3014,"pop":3249,"%":92.8},"80+":{"n":3578,"pop":3953,"%":90.5},"all":{"n":20633,"pop":88344,"%":23.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1036,
 		"cov": 158,

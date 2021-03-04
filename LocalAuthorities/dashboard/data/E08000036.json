@@ -1,6 +1,6 @@
 {
 	"name":"Wakefield",
-	"population": 352983,
+	"population": 371917,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":44357,"pop":303621,"%":14.6},"65-69":{"n":16850,"pop":19000,"%":88.7},"70-74":{"n":17708,"pop":18827,"%":94.1},"75-79":{"n":12875,"pop":13502,"%":95.4},"80+":{"n":16014,"pop":16967,"%":94.4},"all":{"n":107804,"pop":371917,"%":29.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":48973,"pop":322621,"%":15.2},"70-74":{"n":17590,"pop":18827,"%":93.4},"75-79":{"n":12818,"pop":13502,"%":94.9},"80+":{"n":15980,"pop":16967,"%":94.2},"all":{"n":95361,"pop":371917,"%":25.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":44357,"pop":303621,"%":14.6},"65-69":{"n":16850,"pop":19000,"%":88.7},"70-74":{"n":17708,"pop":18827,"%":94.1},"75-79":{"n":12875,"pop":13502,"%":95.4},"80+":{"n":16014,"pop":16967,"%":94.4},"all":{"n":107804,"pop":371917,"%":29.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":48973,"pop":322621,"%":15.2},"70-74":{"n":17590,"pop":18827,"%":93.4},"75-79":{"n":12818,"pop":13502,"%":94.9},"80+":{"n":15980,"pop":16967,"%":94.2},"all":{"n":95361,"pop":371917,"%":25.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 4778,
 		"cov": 820,

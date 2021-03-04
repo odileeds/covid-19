@@ -1,6 +1,6 @@
 {
 	"name":"Charnwood",
-	"population": 187556,
+	"population": 192436,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":21741,"pop":157132,"%":13.8},"65-69":{"n":8016,"pop":9541,"%":84.0},"70-74":{"n":8967,"pop":9475,"%":94.6},"75-79":{"n":6693,"pop":7015,"%":95.4},"80+":{"n":8824,"pop":9273,"%":95.2},"all":{"n":54241,"pop":192436,"%":28.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":23454,"pop":166673,"%":14.1},"70-74":{"n":8917,"pop":9475,"%":94.1},"75-79":{"n":6662,"pop":7015,"%":95.0},"80+":{"n":8797,"pop":9273,"%":94.9},"all":{"n":47830,"pop":192436,"%":24.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":21741,"pop":157132,"%":13.8},"65-69":{"n":8016,"pop":9541,"%":84.0},"70-74":{"n":8967,"pop":9475,"%":94.6},"75-79":{"n":6693,"pop":7015,"%":95.4},"80+":{"n":8824,"pop":9273,"%":95.2},"all":{"n":54241,"pop":192436,"%":28.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":23454,"pop":166673,"%":14.1},"70-74":{"n":8917,"pop":9475,"%":94.1},"75-79":{"n":6662,"pop":7015,"%":95.0},"80+":{"n":8797,"pop":9273,"%":94.9},"all":{"n":47830,"pop":192436,"%":24.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2039,
 		"cov": 330,

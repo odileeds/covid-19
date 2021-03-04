@@ -1,6 +1,6 @@
 {
 	"name":"East Suffolk",
-	"population": 248249,
+	"population": 258422,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":41141,"pop":188850,"%":21.8},"65-69":{"n":14756,"pop":16910,"%":87.3},"70-74":{"n":17974,"pop":18966,"%":94.8},"75-79":{"n":13640,"pop":14233,"%":95.8},"80+":{"n":18473,"pop":19463,"%":94.9},"all":{"n":105984,"pop":258422,"%":41.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":44612,"pop":205760,"%":21.7},"70-74":{"n":17766,"pop":18966,"%":93.7},"75-79":{"n":13560,"pop":14233,"%":95.3},"80+":{"n":18374,"pop":19463,"%":94.4},"all":{"n":94312,"pop":258422,"%":36.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":41141,"pop":188850,"%":21.8},"65-69":{"n":14756,"pop":16910,"%":87.3},"70-74":{"n":17974,"pop":18966,"%":94.8},"75-79":{"n":13640,"pop":14233,"%":95.8},"80+":{"n":18473,"pop":19463,"%":94.9},"all":{"n":105984,"pop":258422,"%":41.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":44612,"pop":205760,"%":21.7},"70-74":{"n":17766,"pop":18966,"%":93.7},"75-79":{"n":13560,"pop":14233,"%":95.3},"80+":{"n":18374,"pop":19463,"%":94.4},"all":{"n":94312,"pop":258422,"%":36.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3974,
 		"cov": 499,

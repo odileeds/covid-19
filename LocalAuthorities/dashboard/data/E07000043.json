@@ -1,6 +1,6 @@
 {
 	"name":"North Devon",
-	"population": 97703,
+	"population": 103867,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14647,"pop":77856,"%":18.8},"65-69":{"n":4657,"pop":6438,"%":72.3},"70-74":{"n":6639,"pop":7038,"%":94.3},"75-79":{"n":5180,"pop":5416,"%":95.6},"80+":{"n":6853,"pop":7119,"%":96.3},"all":{"n":37976,"pop":103867,"%":36.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":14487,"pop":84294,"%":17.2},"70-74":{"n":6521,"pop":7038,"%":92.7},"75-79":{"n":5141,"pop":5416,"%":94.9},"80+":{"n":6764,"pop":7119,"%":95.0},"all":{"n":32913,"pop":103867,"%":31.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14647,"pop":77856,"%":18.8},"65-69":{"n":4657,"pop":6438,"%":72.3},"70-74":{"n":6639,"pop":7038,"%":94.3},"75-79":{"n":5180,"pop":5416,"%":95.6},"80+":{"n":6853,"pop":7119,"%":96.3},"all":{"n":37976,"pop":103867,"%":36.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":14487,"pop":84294,"%":17.2},"70-74":{"n":6521,"pop":7038,"%":92.7},"75-79":{"n":5141,"pop":5416,"%":94.9},"80+":{"n":6764,"pop":7119,"%":95.0},"all":{"n":32913,"pop":103867,"%":31.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1368,
 		"cov": 70,

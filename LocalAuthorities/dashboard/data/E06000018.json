@@ -1,6 +1,6 @@
 {
 	"name":"Nottingham",
-	"population": 333963,
+	"population": 368812,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":41121,"pop":328921,"%":12.5},"65-69":{"n":9308,"pop":11636,"%":80.0},"70-74":{"n":8952,"pop":10258,"%":87.3},"75-79":{"n":6399,"pop":7168,"%":89.3},"80+":{"n":9618,"pop":10829,"%":88.8},"all":{"n":75398,"pop":368812,"%":20.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":35624,"pop":340557,"%":10.5},"70-74":{"n":8776,"pop":10258,"%":85.6},"75-79":{"n":6294,"pop":7168,"%":87.8},"80+":{"n":9451,"pop":10829,"%":87.3},"all":{"n":60145,"pop":368812,"%":16.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":41121,"pop":328921,"%":12.5},"65-69":{"n":9308,"pop":11636,"%":80.0},"70-74":{"n":8952,"pop":10258,"%":87.3},"75-79":{"n":6399,"pop":7168,"%":89.3},"80+":{"n":9618,"pop":10829,"%":88.8},"all":{"n":75398,"pop":368812,"%":20.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":35624,"pop":340557,"%":10.5},"70-74":{"n":8776,"pop":10258,"%":85.6},"75-79":{"n":6294,"pop":7168,"%":87.8},"80+":{"n":9451,"pop":10829,"%":87.3},"all":{"n":60145,"pop":368812,"%":16.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3215,
 		"cov": 639,

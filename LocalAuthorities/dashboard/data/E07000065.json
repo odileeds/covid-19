@@ -1,6 +1,6 @@
 {
 	"name":"Wealden",
-	"population": 162447,
+	"population": 165869,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":20222,"pop":122544,"%":16.5},"65-69":{"n":9082,"pop":10540,"%":86.2},"70-74":{"n":10956,"pop":11701,"%":93.6},"75-79":{"n":8555,"pop":9013,"%":94.9},"80+":{"n":11366,"pop":12071,"%":94.2},"all":{"n":60181,"pop":165869,"%":36.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":24319,"pop":133084,"%":18.3},"70-74":{"n":10873,"pop":11701,"%":92.9},"75-79":{"n":8512,"pop":9013,"%":94.4},"80+":{"n":11331,"pop":12071,"%":93.9},"all":{"n":55035,"pop":165869,"%":33.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":20222,"pop":122544,"%":16.5},"65-69":{"n":9082,"pop":10540,"%":86.2},"70-74":{"n":10956,"pop":11701,"%":93.6},"75-79":{"n":8555,"pop":9013,"%":94.9},"80+":{"n":11366,"pop":12071,"%":94.2},"all":{"n":60181,"pop":165869,"%":36.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":24319,"pop":133084,"%":18.3},"70-74":{"n":10873,"pop":11701,"%":92.9},"75-79":{"n":8512,"pop":9013,"%":94.4},"80+":{"n":11331,"pop":12071,"%":93.9},"all":{"n":55035,"pop":165869,"%":33.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2358,
 		"cov": 405,

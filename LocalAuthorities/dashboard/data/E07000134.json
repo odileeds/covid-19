@@ -1,6 +1,6 @@
 {
 	"name":"North West Leicestershire",
-	"population": 105669,
+	"population": 105717,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":12322,"pop":84327,"%":14.6},"65-69":{"n":5199,"pop":5781,"%":89.9},"70-74":{"n":5817,"pop":6109,"%":95.2},"75-79":{"n":4217,"pop":4411,"%":95.6},"80+":{"n":4848,"pop":5089,"%":95.3},"all":{"n":32403,"pop":105717,"%":30.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13640,"pop":90108,"%":15.1},"70-74":{"n":5779,"pop":6109,"%":94.6},"75-79":{"n":4194,"pop":4411,"%":95.1},"80+":{"n":4829,"pop":5089,"%":94.9},"all":{"n":28442,"pop":105717,"%":26.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":12322,"pop":84327,"%":14.6},"65-69":{"n":5199,"pop":5781,"%":89.9},"70-74":{"n":5817,"pop":6109,"%":95.2},"75-79":{"n":4217,"pop":4411,"%":95.6},"80+":{"n":4848,"pop":5089,"%":95.3},"all":{"n":32403,"pop":105717,"%":30.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13640,"pop":90108,"%":15.1},"70-74":{"n":5779,"pop":6109,"%":94.6},"75-79":{"n":4194,"pop":4411,"%":95.1},"80+":{"n":4829,"pop":5089,"%":94.9},"all":{"n":28442,"pop":105717,"%":26.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1307,
 		"cov": 214,

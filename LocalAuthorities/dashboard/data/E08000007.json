@@ -1,6 +1,6 @@
 {
 	"name":"Stockport",
-	"population": 294053,
+	"population": 311452,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":44575,"pop":250340,"%":17.8},"65-69":{"n":13773,"pop":15878,"%":86.7},"70-74":{"n":15021,"pop":16132,"%":93.1},"75-79":{"n":11181,"pop":11777,"%":94.9},"80+":{"n":16394,"pop":17325,"%":94.6},"all":{"n":100944,"pop":311452,"%":32.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":46656,"pop":266218,"%":17.5},"70-74":{"n":14934,"pop":16132,"%":92.6},"75-79":{"n":11134,"pop":11777,"%":94.5},"80+":{"n":16357,"pop":17325,"%":94.4},"all":{"n":89081,"pop":311452,"%":28.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":44575,"pop":250340,"%":17.8},"65-69":{"n":13773,"pop":15878,"%":86.7},"70-74":{"n":15021,"pop":16132,"%":93.1},"75-79":{"n":11181,"pop":11777,"%":94.9},"80+":{"n":16394,"pop":17325,"%":94.6},"all":{"n":100944,"pop":311452,"%":32.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":46656,"pop":266218,"%":17.5},"70-74":{"n":14934,"pop":16132,"%":92.6},"75-79":{"n":11134,"pop":11777,"%":94.5},"80+":{"n":16357,"pop":17325,"%":94.4},"all":{"n":89081,"pop":311452,"%":28.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3750,
 		"cov": 650,

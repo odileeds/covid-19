@@ -1,6 +1,6 @@
 {
 	"name":"Walsall",
-	"population": 287476,
+	"population": 300734,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":38938,"pop":249592,"%":15.6},"65-69":{"n":11522,"pop":13384,"%":86.1},"70-74":{"n":11903,"pop":12857,"%":92.6},"75-79":{"n":9511,"pop":10149,"%":93.7},"80+":{"n":13716,"pop":14752,"%":93.0},"all":{"n":85590,"pop":300734,"%":28.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":37915,"pop":262976,"%":14.4},"70-74":{"n":11777,"pop":12857,"%":91.6},"75-79":{"n":9477,"pop":10149,"%":93.4},"80+":{"n":13614,"pop":14752,"%":92.3},"all":{"n":72783,"pop":300734,"%":24.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":38938,"pop":249592,"%":15.6},"65-69":{"n":11522,"pop":13384,"%":86.1},"70-74":{"n":11903,"pop":12857,"%":92.6},"75-79":{"n":9511,"pop":10149,"%":93.7},"80+":{"n":13716,"pop":14752,"%":93.0},"all":{"n":85590,"pop":300734,"%":28.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":37915,"pop":262976,"%":14.4},"70-74":{"n":11777,"pop":12857,"%":91.6},"75-79":{"n":9477,"pop":10149,"%":93.4},"80+":{"n":13614,"pop":14752,"%":92.3},"all":{"n":72783,"pop":300734,"%":24.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3890,
 		"cov": 875,

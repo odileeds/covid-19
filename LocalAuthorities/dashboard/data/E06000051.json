@@ -1,6 +1,6 @@
 {
 	"name":"Shropshire",
-	"population": 326692,
+	"population": 329192,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":44665,"pop":246416,"%":18.1},"65-69":{"n":18481,"pop":21083,"%":87.7},"70-74":{"n":20489,"pop":22049,"%":92.9},"75-79":{"n":16178,"pop":17151,"%":94.3},"80+":{"n":21102,"pop":22493,"%":93.8},"all":{"n":120915,"pop":329192,"%":36.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":50509,"pop":267499,"%":18.9},"70-74":{"n":20347,"pop":22049,"%":92.3},"75-79":{"n":16118,"pop":17151,"%":94.0},"80+":{"n":21028,"pop":22493,"%":93.5},"all":{"n":108002,"pop":329192,"%":32.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":44665,"pop":246416,"%":18.1},"65-69":{"n":18481,"pop":21083,"%":87.7},"70-74":{"n":20489,"pop":22049,"%":92.9},"75-79":{"n":16178,"pop":17151,"%":94.3},"80+":{"n":21102,"pop":22493,"%":93.8},"all":{"n":120915,"pop":329192,"%":36.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":50509,"pop":267499,"%":18.9},"70-74":{"n":20347,"pop":22049,"%":92.3},"75-79":{"n":16118,"pop":17151,"%":94.0},"80+":{"n":21028,"pop":22493,"%":93.5},"all":{"n":108002,"pop":329192,"%":32.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 4650,
 		"cov": 583,

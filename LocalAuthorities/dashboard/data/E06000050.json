@@ -1,6 +1,6 @@
 {
 	"name":"Cheshire West and Chester",
-	"population": 346192,
+	"population": 370092,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":47144,"pop":292765,"%":16.1},"65-69":{"n":16442,"pop":20305,"%":81.0},"70-74":{"n":19706,"pop":20938,"%":94.1},"75-79":{"n":14504,"pop":15214,"%":95.3},"80+":{"n":19714,"pop":20870,"%":94.5},"all":{"n":117510,"pop":370092,"%":31.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":45923,"pop":313070,"%":14.7},"70-74":{"n":19537,"pop":20938,"%":93.3},"75-79":{"n":14465,"pop":15214,"%":95.1},"80+":{"n":19660,"pop":20870,"%":94.2},"all":{"n":99585,"pop":370092,"%":26.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":47144,"pop":292765,"%":16.1},"65-69":{"n":16442,"pop":20305,"%":81.0},"70-74":{"n":19706,"pop":20938,"%":94.1},"75-79":{"n":14504,"pop":15214,"%":95.3},"80+":{"n":19714,"pop":20870,"%":94.5},"all":{"n":117510,"pop":370092,"%":31.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":45923,"pop":313070,"%":14.7},"70-74":{"n":19537,"pop":20938,"%":93.3},"75-79":{"n":14465,"pop":15214,"%":95.1},"80+":{"n":19660,"pop":20870,"%":94.2},"all":{"n":99585,"pop":370092,"%":26.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 4700,
 		"cov": 919,

@@ -1,6 +1,6 @@
 {
 	"name":"Bracknell Forest",
-	"population": 123206,
+	"population": 130171,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":12457,"pop":110604,"%":11.3},"65-69":{"n":5010,"pop":5788,"%":86.6},"70-74":{"n":4729,"pop":5173,"%":91.4},"75-79":{"n":3395,"pop":3647,"%":93.1},"80+":{"n":4612,"pop":4959,"%":93.0},"all":{"n":30203,"pop":130171,"%":23.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15057,"pop":116392,"%":12.9},"70-74":{"n":4705,"pop":5173,"%":91.0},"75-79":{"n":3385,"pop":3647,"%":92.8},"80+":{"n":4584,"pop":4959,"%":92.4},"all":{"n":27731,"pop":130171,"%":21.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":12457,"pop":110604,"%":11.3},"65-69":{"n":5010,"pop":5788,"%":86.6},"70-74":{"n":4729,"pop":5173,"%":91.4},"75-79":{"n":3395,"pop":3647,"%":93.1},"80+":{"n":4612,"pop":4959,"%":93.0},"all":{"n":30203,"pop":130171,"%":23.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15057,"pop":116392,"%":12.9},"70-74":{"n":4705,"pop":5173,"%":91.0},"75-79":{"n":3385,"pop":3647,"%":92.8},"80+":{"n":4584,"pop":4959,"%":92.4},"all":{"n":27731,"pop":130171,"%":21.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1042,
 		"cov": 175,

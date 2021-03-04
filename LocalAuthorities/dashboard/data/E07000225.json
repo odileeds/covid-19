@@ -1,6 +1,6 @@
 {
 	"name":"Chichester",
-	"population": 122616,
+	"population": 130192,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":19862,"pop":95751,"%":20.7},"65-69":{"n":7292,"pop":8224,"%":88.7},"70-74":{"n":8434,"pop":8958,"%":94.2},"75-79":{"n":6746,"pop":7070,"%":95.4},"80+":{"n":9679,"pop":10189,"%":95.0},"all":{"n":52013,"pop":130192,"%":40.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":20659,"pop":103975,"%":19.9},"70-74":{"n":8319,"pop":8958,"%":92.9},"75-79":{"n":6673,"pop":7070,"%":94.4},"80+":{"n":9604,"pop":10189,"%":94.3},"all":{"n":45255,"pop":130192,"%":34.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":19862,"pop":95751,"%":20.7},"65-69":{"n":7292,"pop":8224,"%":88.7},"70-74":{"n":8434,"pop":8958,"%":94.2},"75-79":{"n":6746,"pop":7070,"%":95.4},"80+":{"n":9679,"pop":10189,"%":95.0},"all":{"n":52013,"pop":130192,"%":40.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":20659,"pop":103975,"%":19.9},"70-74":{"n":8319,"pop":8958,"%":92.9},"75-79":{"n":6673,"pop":7070,"%":94.4},"80+":{"n":9604,"pop":10189,"%":94.3},"all":{"n":45255,"pop":130192,"%":34.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2064,
 		"cov": 281,

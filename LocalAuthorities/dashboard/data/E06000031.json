@@ -1,6 +1,6 @@
 {
 	"name":"Peterborough",
-	"population": 205764,
+	"population": 245385,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":23590,"pop":212921,"%":11.1},"65-69":{"n":6961,"pop":9386,"%":74.2},"70-74":{"n":7599,"pop":8533,"%":89.1},"75-79":{"n":5445,"pop":5897,"%":92.3},"80+":{"n":7883,"pop":8648,"%":91.2},"all":{"n":51478,"pop":245385,"%":21.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":22621,"pop":222307,"%":10.2},"70-74":{"n":7516,"pop":8533,"%":88.1},"75-79":{"n":5401,"pop":5897,"%":91.6},"80+":{"n":7792,"pop":8648,"%":90.1},"all":{"n":43330,"pop":245385,"%":17.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":23590,"pop":212921,"%":11.1},"65-69":{"n":6961,"pop":9386,"%":74.2},"70-74":{"n":7599,"pop":8533,"%":89.1},"75-79":{"n":5445,"pop":5897,"%":92.3},"80+":{"n":7883,"pop":8648,"%":91.2},"all":{"n":51478,"pop":245385,"%":21.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":22621,"pop":222307,"%":10.2},"70-74":{"n":7516,"pop":8533,"%":88.1},"75-79":{"n":5401,"pop":5897,"%":91.6},"80+":{"n":7792,"pop":8648,"%":90.1},"all":{"n":43330,"pop":245385,"%":17.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2090,
 		"cov": 346,

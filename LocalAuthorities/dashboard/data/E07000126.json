@@ -1,6 +1,6 @@
 {
 	"name":"South Ribble",
-	"population": 111051,
+	"population": 114749,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":13776,"pop":90365,"%":15.2},"65-69":{"n":5406,"pop":6474,"%":83.5},"70-74":{"n":6482,"pop":6831,"%":94.9},"75-79":{"n":4613,"pop":4812,"%":95.9},"80+":{"n":6010,"pop":6267,"%":95.9},"all":{"n":36287,"pop":114749,"%":31.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15240,"pop":96839,"%":15.7},"70-74":{"n":6454,"pop":6831,"%":94.5},"75-79":{"n":4598,"pop":4812,"%":95.6},"80+":{"n":5999,"pop":6267,"%":95.7},"all":{"n":32291,"pop":114749,"%":28.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":13776,"pop":90365,"%":15.2},"65-69":{"n":5406,"pop":6474,"%":83.5},"70-74":{"n":6482,"pop":6831,"%":94.9},"75-79":{"n":4613,"pop":4812,"%":95.9},"80+":{"n":6010,"pop":6267,"%":95.9},"all":{"n":36287,"pop":114749,"%":31.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15240,"pop":96839,"%":15.7},"70-74":{"n":6454,"pop":6831,"%":94.5},"75-79":{"n":4598,"pop":4812,"%":95.6},"80+":{"n":5999,"pop":6267,"%":95.7},"all":{"n":32291,"pop":114749,"%":28.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1380,
 		"cov": 239,

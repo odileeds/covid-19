@@ -1,6 +1,6 @@
 {
 	"name":"Eden",
-	"population": 53164,
+	"population": 54503,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":3730,"pop":40073,"%":9.3},"65-69":{"n":3269,"pop":3849,"%":84.9},"70-74":{"n":3798,"pop":3972,"%":95.6},"75-79":{"n":2720,"pop":2810,"%":96.8},"80+":{"n":3694,"pop":3799,"%":97.2},"all":{"n":17211,"pop":54503,"%":31.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":5068,"pop":43922,"%":11.5},"70-74":{"n":3740,"pop":3972,"%":94.2},"75-79":{"n":2710,"pop":2810,"%":96.4},"80+":{"n":3689,"pop":3799,"%":97.1},"all":{"n":15207,"pop":54503,"%":27.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":3730,"pop":40073,"%":9.3},"65-69":{"n":3269,"pop":3849,"%":84.9},"70-74":{"n":3798,"pop":3972,"%":95.6},"75-79":{"n":2720,"pop":2810,"%":96.8},"80+":{"n":3694,"pop":3799,"%":97.2},"all":{"n":17211,"pop":54503,"%":31.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":5068,"pop":43922,"%":11.5},"70-74":{"n":3740,"pop":3972,"%":94.2},"75-79":{"n":2710,"pop":2810,"%":96.4},"80+":{"n":3689,"pop":3799,"%":97.1},"all":{"n":15207,"pop":54503,"%":27.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 762,
 		"cov": 142,

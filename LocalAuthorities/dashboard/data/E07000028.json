@@ -1,6 +1,6 @@
 {
 	"name":"Carlisle",
-	"population": 108682,
+	"population": 112034,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":12959,"pop":87899,"%":14.7},"65-69":{"n":5552,"pop":6520,"%":85.2},"70-74":{"n":6203,"pop":6550,"%":94.7},"75-79":{"n":4336,"pop":4550,"%":95.3},"80+":{"n":6179,"pop":6515,"%":94.8},"all":{"n":35229,"pop":112034,"%":31.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13901,"pop":94419,"%":14.7},"70-74":{"n":5971,"pop":6550,"%":91.2},"75-79":{"n":4295,"pop":4550,"%":94.4},"80+":{"n":6130,"pop":6515,"%":94.1},"all":{"n":30297,"pop":112034,"%":27.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":12959,"pop":87899,"%":14.7},"65-69":{"n":5552,"pop":6520,"%":85.2},"70-74":{"n":6203,"pop":6550,"%":94.7},"75-79":{"n":4336,"pop":4550,"%":95.3},"80+":{"n":6179,"pop":6515,"%":94.8},"all":{"n":35229,"pop":112034,"%":31.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13901,"pop":94419,"%":14.7},"70-74":{"n":5971,"pop":6550,"%":91.2},"75-79":{"n":4295,"pop":4550,"%":94.4},"80+":{"n":6130,"pop":6515,"%":94.1},"all":{"n":30297,"pop":112034,"%":27.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1715,
 		"cov": 339,

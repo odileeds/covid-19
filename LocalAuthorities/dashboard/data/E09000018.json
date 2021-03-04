@@ -1,6 +1,6 @@
 {
 	"name":"Hounslow",
-	"population": 272978,
+	"population": 344832,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":40366,"pop":307573,"%":13.1},"65-69":{"n":9032,"pop":11788,"%":76.6},"70-74":{"n":8050,"pop":9739,"%":82.7},"75-79":{"n":5559,"pop":6643,"%":83.7},"80+":{"n":7642,"pop":9089,"%":84.1},"all":{"n":70649,"pop":344832,"%":20.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":40529,"pop":319361,"%":12.7},"70-74":{"n":7907,"pop":9739,"%":81.2},"75-79":{"n":5432,"pop":6643,"%":81.8},"80+":{"n":7584,"pop":9089,"%":83.4},"all":{"n":61452,"pop":344832,"%":17.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":40366,"pop":307573,"%":13.1},"65-69":{"n":9032,"pop":11788,"%":76.6},"70-74":{"n":8050,"pop":9739,"%":82.7},"75-79":{"n":5559,"pop":6643,"%":83.7},"80+":{"n":7642,"pop":9089,"%":84.1},"all":{"n":70649,"pop":344832,"%":20.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":40529,"pop":319361,"%":12.7},"70-74":{"n":7907,"pop":9739,"%":81.2},"75-79":{"n":5432,"pop":6643,"%":81.8},"80+":{"n":7584,"pop":9089,"%":83.4},"all":{"n":61452,"pop":344832,"%":17.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2358,
 		"cov": 596,

@@ -1,6 +1,6 @@
 {
 	"name":"Craven",
-	"population": 57173,
+	"population": 59281,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":6898,"pop":43297,"%":15.9},"65-69":{"n":3442,"pop":4211,"%":81.7},"70-74":{"n":4006,"pop":4284,"%":93.5},"75-79":{"n":3088,"pop":3222,"%":95.8},"80+":{"n":4085,"pop":4267,"%":95.7},"all":{"n":21519,"pop":59281,"%":36.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":8126,"pop":47508,"%":17.1},"70-74":{"n":3966,"pop":4284,"%":92.6},"75-79":{"n":3073,"pop":3222,"%":95.4},"80+":{"n":4076,"pop":4267,"%":95.5},"all":{"n":19241,"pop":59281,"%":32.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":6898,"pop":43297,"%":15.9},"65-69":{"n":3442,"pop":4211,"%":81.7},"70-74":{"n":4006,"pop":4284,"%":93.5},"75-79":{"n":3088,"pop":3222,"%":95.8},"80+":{"n":4085,"pop":4267,"%":95.7},"all":{"n":21519,"pop":59281,"%":36.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":8126,"pop":47508,"%":17.1},"70-74":{"n":3966,"pop":4284,"%":92.6},"75-79":{"n":3073,"pop":3222,"%":95.4},"80+":{"n":4076,"pop":4267,"%":95.5},"all":{"n":19241,"pop":59281,"%":32.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 871,
 		"cov": 138,

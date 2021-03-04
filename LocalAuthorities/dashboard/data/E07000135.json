@@ -1,6 +1,6 @@
 {
 	"name":"Oadby and Wigston",
-	"population": 57250,
+	"population": 61255,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":8574,"pop":48609,"%":17.6},"65-69":{"n":2713,"pop":3065,"%":88.5},"70-74":{"n":2934,"pop":3124,"%":93.9},"75-79":{"n":2309,"pop":2431,"%":95.0},"80+":{"n":3808,"pop":4026,"%":94.6},"all":{"n":20338,"pop":61255,"%":33.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":9048,"pop":51674,"%":17.5},"70-74":{"n":2914,"pop":3124,"%":93.3},"75-79":{"n":2300,"pop":2431,"%":94.6},"80+":{"n":3794,"pop":4026,"%":94.2},"all":{"n":18056,"pop":61255,"%":29.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":8574,"pop":48609,"%":17.6},"65-69":{"n":2713,"pop":3065,"%":88.5},"70-74":{"n":2934,"pop":3124,"%":93.9},"75-79":{"n":2309,"pop":2431,"%":95.0},"80+":{"n":3808,"pop":4026,"%":94.6},"all":{"n":20338,"pop":61255,"%":33.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":9048,"pop":51674,"%":17.5},"70-74":{"n":2914,"pop":3124,"%":93.3},"75-79":{"n":2300,"pop":2431,"%":94.6},"80+":{"n":3794,"pop":4026,"%":94.2},"all":{"n":18056,"pop":61255,"%":29.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 897,
 		"cov": 166,

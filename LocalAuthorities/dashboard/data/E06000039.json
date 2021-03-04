@@ -1,6 +1,6 @@
 {
 	"name":"Slough",
-	"population": 150353,
+	"population": 174909,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16527,"pop":158329,"%":10.4},"65-69":{"n":4279,"pop":5561,"%":76.9},"70-74":{"n":3428,"pop":4117,"%":83.3},"75-79":{"n":2255,"pop":2648,"%":85.2},"80+":{"n":3587,"pop":4254,"%":84.3},"all":{"n":30076,"pop":174909,"%":17.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16293,"pop":163890,"%":9.9},"70-74":{"n":3382,"pop":4117,"%":82.1},"75-79":{"n":2244,"pop":2648,"%":84.7},"80+":{"n":3565,"pop":4254,"%":83.8},"all":{"n":25484,"pop":174909,"%":14.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16527,"pop":158329,"%":10.4},"65-69":{"n":4279,"pop":5561,"%":76.9},"70-74":{"n":3428,"pop":4117,"%":83.3},"75-79":{"n":2255,"pop":2648,"%":85.2},"80+":{"n":3587,"pop":4254,"%":84.3},"all":{"n":30076,"pop":174909,"%":17.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16293,"pop":163890,"%":9.9},"70-74":{"n":3382,"pop":4117,"%":82.1},"75-79":{"n":2244,"pop":2648,"%":84.7},"80+":{"n":3565,"pop":4254,"%":83.8},"all":{"n":25484,"pop":174909,"%":14.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1218,
 		"cov": 310,

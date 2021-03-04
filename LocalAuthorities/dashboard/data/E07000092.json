@@ -1,6 +1,6 @@
 {
 	"name":"Rushmoor",
-	"population": 94623,
+	"population": 104856,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":12752,"pop":88932,"%":14.3},"65-69":{"n":3708,"pop":4311,"%":86.0},"70-74":{"n":4032,"pop":4370,"%":92.3},"75-79":{"n":2948,"pop":3219,"%":91.6},"80+":{"n":3735,"pop":4024,"%":92.8},"all":{"n":27175,"pop":104856,"%":25.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13005,"pop":93243,"%":13.9},"70-74":{"n":3978,"pop":4370,"%":91.0},"75-79":{"n":2929,"pop":3219,"%":91.0},"80+":{"n":3723,"pop":4024,"%":92.5},"all":{"n":23635,"pop":104856,"%":22.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":12752,"pop":88932,"%":14.3},"65-69":{"n":3708,"pop":4311,"%":86.0},"70-74":{"n":4032,"pop":4370,"%":92.3},"75-79":{"n":2948,"pop":3219,"%":91.6},"80+":{"n":3735,"pop":4024,"%":92.8},"all":{"n":27175,"pop":104856,"%":25.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13005,"pop":93243,"%":13.9},"70-74":{"n":3978,"pop":4370,"%":91.0},"75-79":{"n":2929,"pop":3219,"%":91.0},"80+":{"n":3723,"pop":4024,"%":92.5},"all":{"n":23635,"pop":104856,"%":22.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1023,
 		"cov": 231,

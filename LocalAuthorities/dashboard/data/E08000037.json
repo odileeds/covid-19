@@ -1,6 +1,6 @@
 {
 	"name":"Gateshead",
-	"population": 202829,
+	"population": 207306,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":25460,"pop":166614,"%":15.3},"65-69":{"n":8217,"pop":10861,"%":75.7},"70-74":{"n":10322,"pop":10911,"%":94.6},"75-79":{"n":7185,"pop":7518,"%":95.6},"80+":{"n":10746,"pop":11402,"%":94.2},"all":{"n":61930,"pop":207306,"%":29.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":26498,"pop":177475,"%":14.9},"70-74":{"n":10267,"pop":10911,"%":94.1},"75-79":{"n":7151,"pop":7518,"%":95.1},"80+":{"n":10710,"pop":11402,"%":93.9},"all":{"n":54626,"pop":207306,"%":26.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":25460,"pop":166614,"%":15.3},"65-69":{"n":8217,"pop":10861,"%":75.7},"70-74":{"n":10322,"pop":10911,"%":94.6},"75-79":{"n":7185,"pop":7518,"%":95.6},"80+":{"n":10746,"pop":11402,"%":94.2},"all":{"n":61930,"pop":207306,"%":29.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":26498,"pop":177475,"%":14.9},"70-74":{"n":10267,"pop":10911,"%":94.1},"75-79":{"n":7151,"pop":7518,"%":95.1},"80+":{"n":10710,"pop":11402,"%":93.9},"all":{"n":54626,"pop":207306,"%":26.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2930,
 		"cov": 475,

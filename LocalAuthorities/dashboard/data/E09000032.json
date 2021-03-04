@@ -1,6 +1,6 @@
 {
 	"name":"Wandsworth",
-	"population": 331971,
+	"population": 406766,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":43309,"pop":371787,"%":11.6},"65-69":{"n":7648,"pop":10351,"%":73.9},"70-74":{"n":7454,"pop":9319,"%":80.0},"75-79":{"n":5068,"pop":6272,"%":80.8},"80+":{"n":7289,"pop":9037,"%":80.7},"all":{"n":70768,"pop":406766,"%":17.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":39814,"pop":382138,"%":10.4},"70-74":{"n":7332,"pop":9319,"%":78.7},"75-79":{"n":5022,"pop":6272,"%":80.1},"80+":{"n":7213,"pop":9037,"%":79.8},"all":{"n":59381,"pop":406766,"%":14.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":43309,"pop":371787,"%":11.6},"65-69":{"n":7648,"pop":10351,"%":73.9},"70-74":{"n":7454,"pop":9319,"%":80.0},"75-79":{"n":5068,"pop":6272,"%":80.8},"80+":{"n":7289,"pop":9037,"%":80.7},"all":{"n":70768,"pop":406766,"%":17.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":39814,"pop":382138,"%":10.4},"70-74":{"n":7332,"pop":9319,"%":78.7},"75-79":{"n":5022,"pop":6272,"%":80.1},"80+":{"n":7213,"pop":9037,"%":79.8},"all":{"n":59381,"pop":406766,"%":14.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2205,
 		"cov": 468,

@@ -1,6 +1,6 @@
 {
 	"name":"East Riding of Yorkshire",
-	"population": 342195,
+	"population": 354079,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":46787,"pop":261971,"%":17.9},"65-69":{"n":18104,"pop":23526,"%":77.0},"70-74":{"n":24467,"pop":25810,"%":94.8},"75-79":{"n":17474,"pop":18218,"%":95.9},"80+":{"n":23569,"pop":24554,"%":96.0},"all":{"n":130401,"pop":354079,"%":36.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":49587,"pop":285497,"%":17.4},"70-74":{"n":24184,"pop":25810,"%":93.7},"75-79":{"n":17385,"pop":18218,"%":95.4},"80+":{"n":23486,"pop":24554,"%":95.7},"all":{"n":114642,"pop":354079,"%":32.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":46787,"pop":261971,"%":17.9},"65-69":{"n":18104,"pop":23526,"%":77.0},"70-74":{"n":24467,"pop":25810,"%":94.8},"75-79":{"n":17474,"pop":18218,"%":95.9},"80+":{"n":23569,"pop":24554,"%":96.0},"all":{"n":130401,"pop":354079,"%":36.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":49587,"pop":285497,"%":17.4},"70-74":{"n":24184,"pop":25810,"%":93.7},"75-79":{"n":17385,"pop":18218,"%":95.4},"80+":{"n":23486,"pop":24554,"%":95.7},"all":{"n":114642,"pop":354079,"%":32.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 5305,
 		"cov": 823,

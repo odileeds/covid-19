@@ -1,6 +1,6 @@
 {
 	"name":"Worthing",
-	"population": 111283,
+	"population": 115545,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":18416,"pop":90039,"%":20.5},"65-69":{"n":4703,"pop":5984,"%":78.6},"70-74":{"n":6264,"pop":6707,"%":93.4},"75-79":{"n":4666,"pop":4969,"%":93.9},"80+":{"n":7392,"pop":7846,"%":94.2},"all":{"n":41441,"pop":115545,"%":35.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17416,"pop":96023,"%":18.1},"70-74":{"n":6195,"pop":6707,"%":92.4},"75-79":{"n":4623,"pop":4969,"%":93.0},"80+":{"n":7324,"pop":7846,"%":93.3},"all":{"n":35558,"pop":115545,"%":30.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":18416,"pop":90039,"%":20.5},"65-69":{"n":4703,"pop":5984,"%":78.6},"70-74":{"n":6264,"pop":6707,"%":93.4},"75-79":{"n":4666,"pop":4969,"%":93.9},"80+":{"n":7392,"pop":7846,"%":94.2},"all":{"n":41441,"pop":115545,"%":35.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17416,"pop":96023,"%":18.1},"70-74":{"n":6195,"pop":6707,"%":92.4},"75-79":{"n":4623,"pop":4969,"%":93.0},"80+":{"n":7324,"pop":7846,"%":93.3},"all":{"n":35558,"pop":115545,"%":30.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1764,
 		"cov": 200,

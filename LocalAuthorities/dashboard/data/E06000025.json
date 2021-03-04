@@ -1,6 +1,6 @@
 {
 	"name":"South Gloucestershire",
-	"population": 289478,
+	"population": 304671,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":36429,"pop":249114,"%":14.6},"65-69":{"n":12512,"pop":13872,"%":90.2},"70-74":{"n":13703,"pop":14386,"%":95.3},"75-79":{"n":11137,"pop":11545,"%":96.5},"80+":{"n":15240,"pop":15754,"%":96.7},"all":{"n":89021,"pop":304671,"%":29.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":38267,"pop":262986,"%":14.6},"70-74":{"n":13622,"pop":14386,"%":94.7},"75-79":{"n":11104,"pop":11545,"%":96.2},"80+":{"n":15202,"pop":15754,"%":96.5},"all":{"n":78195,"pop":304671,"%":25.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":36429,"pop":249114,"%":14.6},"65-69":{"n":12512,"pop":13872,"%":90.2},"70-74":{"n":13703,"pop":14386,"%":95.3},"75-79":{"n":11137,"pop":11545,"%":96.5},"80+":{"n":15240,"pop":15754,"%":96.7},"all":{"n":89021,"pop":304671,"%":29.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":38267,"pop":262986,"%":14.6},"70-74":{"n":13622,"pop":14386,"%":94.7},"75-79":{"n":11104,"pop":11545,"%":96.2},"80+":{"n":15202,"pop":15754,"%":96.5},"all":{"n":78195,"pop":304671,"%":25.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3037,
 		"cov": 388,

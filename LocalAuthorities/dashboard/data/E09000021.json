@@ -1,6 +1,6 @@
 {
 	"name":"Kingston upon Thames",
-	"population": 177731,
+	"population": 196160,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":23905,"pop":170051,"%":14.1},"65-69":{"n":6094,"pop":7348,"%":82.9},"70-74":{"n":6185,"pop":7021,"%":88.1},"75-79":{"n":4334,"pop":4861,"%":89.2},"80+":{"n":6142,"pop":6879,"%":89.3},"all":{"n":46660,"pop":196160,"%":23.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":22236,"pop":177399,"%":12.5},"70-74":{"n":6134,"pop":7021,"%":87.4},"75-79":{"n":4306,"pop":4861,"%":88.6},"80+":{"n":6121,"pop":6879,"%":89.0},"all":{"n":38797,"pop":196160,"%":19.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":23905,"pop":170051,"%":14.1},"65-69":{"n":6094,"pop":7348,"%":82.9},"70-74":{"n":6185,"pop":7021,"%":88.1},"75-79":{"n":4334,"pop":4861,"%":89.2},"80+":{"n":6142,"pop":6879,"%":89.3},"all":{"n":46660,"pop":196160,"%":23.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":22236,"pop":177399,"%":12.5},"70-74":{"n":6134,"pop":7021,"%":87.4},"75-79":{"n":4306,"pop":4861,"%":88.6},"80+":{"n":6121,"pop":6879,"%":89.0},"all":{"n":38797,"pop":196160,"%":19.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1500,
 		"cov": 313,

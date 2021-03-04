@@ -1,6 +1,6 @@
 {
 	"name":"Gloucester",
-	"population": 130515,
+	"population": 136259,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":19939,"pop":113554,"%":17.6},"65-69":{"n":5470,"pop":6120,"%":89.4},"70-74":{"n":5498,"pop":5870,"%":93.7},"75-79":{"n":4316,"pop":4547,"%":94.9},"80+":{"n":5824,"pop":6168,"%":94.4},"all":{"n":41047,"pop":136259,"%":30.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":22038,"pop":119674,"%":18.4},"70-74":{"n":5457,"pop":5870,"%":93.0},"75-79":{"n":4300,"pop":4547,"%":94.6},"80+":{"n":5815,"pop":6168,"%":94.3},"all":{"n":37610,"pop":136259,"%":27.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":19939,"pop":113554,"%":17.6},"65-69":{"n":5470,"pop":6120,"%":89.4},"70-74":{"n":5498,"pop":5870,"%":93.7},"75-79":{"n":4316,"pop":4547,"%":94.9},"80+":{"n":5824,"pop":6168,"%":94.4},"all":{"n":41047,"pop":136259,"%":30.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":22038,"pop":119674,"%":18.4},"70-74":{"n":5457,"pop":5870,"%":93.0},"75-79":{"n":4300,"pop":4547,"%":94.6},"80+":{"n":5815,"pop":6168,"%":94.3},"all":{"n":37610,"pop":136259,"%":27.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1542,
 		"cov": 266,

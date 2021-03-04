@@ -1,6 +1,6 @@
 {
 	"name":"Babergh",
-	"population": 92538,
+	"population": 94376,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14799,"pop":69589,"%":21.3},"65-69":{"n":5523,"pop":6014,"%":91.8},"70-74":{"n":6532,"pop":6834,"%":95.6},"75-79":{"n":5001,"pop":5197,"%":96.2},"80+":{"n":6467,"pop":6742,"%":95.9},"all":{"n":38322,"pop":94376,"%":40.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15242,"pop":75603,"%":20.2},"70-74":{"n":6496,"pop":6834,"%":95.1},"75-79":{"n":4983,"pop":5197,"%":95.9},"80+":{"n":6416,"pop":6742,"%":95.2},"all":{"n":33137,"pop":94376,"%":35.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14799,"pop":69589,"%":21.3},"65-69":{"n":5523,"pop":6014,"%":91.8},"70-74":{"n":6532,"pop":6834,"%":95.6},"75-79":{"n":5001,"pop":5197,"%":96.2},"80+":{"n":6467,"pop":6742,"%":95.9},"all":{"n":38322,"pop":94376,"%":40.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15242,"pop":75603,"%":20.2},"70-74":{"n":6496,"pop":6834,"%":95.1},"75-79":{"n":4983,"pop":5197,"%":95.9},"80+":{"n":6416,"pop":6742,"%":95.2},"all":{"n":33137,"pop":94376,"%":35.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1393,
 		"cov": 222,

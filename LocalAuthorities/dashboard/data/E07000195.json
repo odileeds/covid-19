@@ -1,6 +1,6 @@
 {
 	"name":"Newcastle-under-Lyme",
-	"population": 130792,
+	"population": 130136,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":19144,"pop":102651,"%":18.6},"65-69":{"n":6166,"pop":7083,"%":87.1},"70-74":{"n":7058,"pop":7455,"%":94.7},"75-79":{"n":5204,"pop":5448,"%":95.5},"80+":{"n":7145,"pop":7499,"%":95.3},"all":{"n":44717,"pop":130136,"%":34.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":18537,"pop":109734,"%":16.9},"70-74":{"n":6988,"pop":7455,"%":93.7},"75-79":{"n":5178,"pop":5448,"%":95.0},"80+":{"n":7123,"pop":7499,"%":95.0},"all":{"n":37826,"pop":130136,"%":29.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":19144,"pop":102651,"%":18.6},"65-69":{"n":6166,"pop":7083,"%":87.1},"70-74":{"n":7058,"pop":7455,"%":94.7},"75-79":{"n":5204,"pop":5448,"%":95.5},"80+":{"n":7145,"pop":7499,"%":95.3},"all":{"n":44717,"pop":130136,"%":34.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":18537,"pop":109734,"%":16.9},"70-74":{"n":6988,"pop":7455,"%":93.7},"75-79":{"n":5178,"pop":5448,"%":95.0},"80+":{"n":7123,"pop":7499,"%":95.0},"all":{"n":37826,"pop":130136,"%":29.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1840,
 		"cov": 367,

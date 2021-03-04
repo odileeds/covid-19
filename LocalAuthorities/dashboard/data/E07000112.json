@@ -1,6 +1,6 @@
 {
 	"name":"Folkestone and Hythe",
-	"population": 114211,
+	"population": 115144,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":18501,"pop":87117,"%":21.2},"65-69":{"n":6129,"pop":7059,"%":86.8},"70-74":{"n":7356,"pop":7909,"%":93.0},"75-79":{"n":5295,"pop":5647,"%":93.8},"80+":{"n":6931,"pop":7412,"%":93.5},"all":{"n":44212,"pop":115144,"%":38.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":18723,"pop":94176,"%":19.9},"70-74":{"n":7292,"pop":7909,"%":92.2},"75-79":{"n":5231,"pop":5647,"%":92.6},"80+":{"n":6886,"pop":7412,"%":92.9},"all":{"n":38132,"pop":115144,"%":33.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":18501,"pop":87117,"%":21.2},"65-69":{"n":6129,"pop":7059,"%":86.8},"70-74":{"n":7356,"pop":7909,"%":93.0},"75-79":{"n":5295,"pop":5647,"%":93.8},"80+":{"n":6931,"pop":7412,"%":93.5},"all":{"n":44212,"pop":115144,"%":38.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":18723,"pop":94176,"%":19.9},"70-74":{"n":7292,"pop":7909,"%":92.2},"75-79":{"n":5231,"pop":5647,"%":92.6},"80+":{"n":6886,"pop":7412,"%":92.9},"all":{"n":38132,"pop":115144,"%":33.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1818,
 		"cov": 384,

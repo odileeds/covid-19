@@ -1,6 +1,6 @@
 {
 	"name":"Broadland",
-	"population": 131671,
+	"population": 134878,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":19023,"pop":100338,"%":19.0},"65-69":{"n":6941,"pop":8281,"%":83.8},"70-74":{"n":8935,"pop":9328,"%":95.8},"75-79":{"n":6743,"pop":6977,"%":96.6},"80+":{"n":9577,"pop":9954,"%":96.2},"all":{"n":51219,"pop":134878,"%":38.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":19177,"pop":108619,"%":17.7},"70-74":{"n":8844,"pop":9328,"%":94.8},"75-79":{"n":6719,"pop":6977,"%":96.3},"80+":{"n":9552,"pop":9954,"%":96.0},"all":{"n":44292,"pop":134878,"%":32.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":19023,"pop":100338,"%":19.0},"65-69":{"n":6941,"pop":8281,"%":83.8},"70-74":{"n":8935,"pop":9328,"%":95.8},"75-79":{"n":6743,"pop":6977,"%":96.6},"80+":{"n":9577,"pop":9954,"%":96.2},"all":{"n":51219,"pop":134878,"%":38.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19177,"pop":108619,"%":17.7},"70-74":{"n":8844,"pop":9328,"%":94.8},"75-79":{"n":6719,"pop":6977,"%":96.3},"80+":{"n":9552,"pop":9954,"%":96.0},"all":{"n":44292,"pop":134878,"%":32.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2014,
 		"cov": 315,

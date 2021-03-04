@@ -1,6 +1,6 @@
 {
 	"name":"Cornwall",
-	"population": 577727,
+	"population": 593433,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":80910,"pop":446491,"%":18.1},"65-69":{"n":32259,"pop":38138,"%":84.6},"70-74":{"n":38542,"pop":41034,"%":93.9},"75-79":{"n":28528,"pop":29962,"%":95.2},"80+":{"n":35833,"pop":37808,"%":94.8},"all":{"n":216072,"pop":593433,"%":36.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":83309,"pop":484629,"%":17.2},"70-74":{"n":38259,"pop":41034,"%":93.2},"75-79":{"n":28395,"pop":29962,"%":94.8},"80+":{"n":35702,"pop":37808,"%":94.4},"all":{"n":185665,"pop":593433,"%":31.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":80910,"pop":446491,"%":18.1},"65-69":{"n":32259,"pop":38138,"%":84.6},"70-74":{"n":38542,"pop":41034,"%":93.9},"75-79":{"n":28528,"pop":29962,"%":95.2},"80+":{"n":35833,"pop":37808,"%":94.8},"all":{"n":216072,"pop":593433,"%":36.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":83309,"pop":484629,"%":17.2},"70-74":{"n":38259,"pop":41034,"%":93.2},"75-79":{"n":28395,"pop":29962,"%":94.8},"80+":{"n":35702,"pop":37808,"%":94.4},"all":{"n":185665,"pop":593433,"%":31.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 7724,
 		"cov": 502,

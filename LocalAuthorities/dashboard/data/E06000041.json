@@ -1,6 +1,6 @@
 {
 	"name":"Wokingham",
-	"population": 172104,
+	"population": 186537,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":18826,"pop":154964,"%":12.1},"65-69":{"n":6721,"pop":8130,"%":82.7},"70-74":{"n":7814,"pop":8309,"%":94.0},"75-79":{"n":5971,"pop":6260,"%":95.4},"80+":{"n":8416,"pop":8874,"%":94.8},"all":{"n":47748,"pop":186537,"%":25.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":18323,"pop":163094,"%":11.2},"70-74":{"n":7740,"pop":8309,"%":93.2},"75-79":{"n":5941,"pop":6260,"%":94.9},"80+":{"n":8380,"pop":8874,"%":94.4},"all":{"n":40384,"pop":186537,"%":21.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":18826,"pop":154964,"%":12.1},"65-69":{"n":6721,"pop":8130,"%":82.7},"70-74":{"n":7814,"pop":8309,"%":94.0},"75-79":{"n":5971,"pop":6260,"%":95.4},"80+":{"n":8416,"pop":8874,"%":94.8},"all":{"n":47748,"pop":186537,"%":25.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":18323,"pop":163094,"%":11.2},"70-74":{"n":7740,"pop":8309,"%":93.2},"75-79":{"n":5941,"pop":6260,"%":94.9},"80+":{"n":8380,"pop":8874,"%":94.4},"all":{"n":40384,"pop":186537,"%":21.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1602,
 		"cov": 303,

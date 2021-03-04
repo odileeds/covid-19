@@ -1,6 +1,6 @@
 {
 	"name":"Tandridge",
-	"population": 88285,
+	"population": 92862,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":12357,"pop":73832,"%":16.7},"65-69":{"n":4167,"pop":4850,"%":85.9},"70-74":{"n":4558,"pop":4893,"%":93.2},"75-79":{"n":3560,"pop":3777,"%":94.3},"80+":{"n":5179,"pop":5510,"%":94.0},"all":{"n":29821,"pop":92862,"%":32.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":11839,"pop":78682,"%":15.0},"70-74":{"n":4519,"pop":4893,"%":92.4},"75-79":{"n":3536,"pop":3777,"%":93.6},"80+":{"n":5141,"pop":5510,"%":93.3},"all":{"n":25035,"pop":92862,"%":27.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":12357,"pop":73832,"%":16.7},"65-69":{"n":4167,"pop":4850,"%":85.9},"70-74":{"n":4558,"pop":4893,"%":93.2},"75-79":{"n":3560,"pop":3777,"%":94.3},"80+":{"n":5179,"pop":5510,"%":94.0},"all":{"n":29821,"pop":92862,"%":32.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":11839,"pop":78682,"%":15.0},"70-74":{"n":4519,"pop":4893,"%":92.4},"75-79":{"n":3536,"pop":3777,"%":93.6},"80+":{"n":5141,"pop":5510,"%":93.3},"all":{"n":25035,"pop":92862,"%":27.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1169,
 		"cov": 218,

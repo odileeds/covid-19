@@ -1,6 +1,6 @@
 {
 	"name":"Southwark",
-	"population": 324164,
+	"population": 373539,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":35890,"pop":344155,"%":10.4},"65-69":{"n":6572,"pop":9874,"%":66.6},"70-74":{"n":5653,"pop":7521,"%":75.2},"75-79":{"n":3673,"pop":4950,"%":74.2},"80+":{"n":5227,"pop":7039,"%":74.3},"all":{"n":57015,"pop":373539,"%":15.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":33512,"pop":354029,"%":9.5},"70-74":{"n":5530,"pop":7521,"%":73.5},"75-79":{"n":3606,"pop":4950,"%":72.8},"80+":{"n":5099,"pop":7039,"%":72.4},"all":{"n":47747,"pop":373539,"%":12.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":35890,"pop":344155,"%":10.4},"65-69":{"n":6572,"pop":9874,"%":66.6},"70-74":{"n":5653,"pop":7521,"%":75.2},"75-79":{"n":3673,"pop":4950,"%":74.2},"80+":{"n":5227,"pop":7039,"%":74.3},"all":{"n":57015,"pop":373539,"%":15.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":33512,"pop":354029,"%":9.5},"70-74":{"n":5530,"pop":7521,"%":73.5},"75-79":{"n":3606,"pop":4950,"%":72.8},"80+":{"n":5099,"pop":7039,"%":72.4},"all":{"n":47747,"pop":373539,"%":12.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1956,
 		"cov": 413,

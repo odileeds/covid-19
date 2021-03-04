@@ -1,6 +1,6 @@
 {
 	"name":"Stockton-on-Tees",
-	"population": 198253,
+	"population": 205567,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":25663,"pop":167773,"%":15.3},"65-69":{"n":8482,"pop":10988,"%":77.2},"70-74":{"n":9822,"pop":10408,"%":94.4},"75-79":{"n":6685,"pop":6964,"%":96.0},"80+":{"n":8992,"pop":9434,"%":95.3},"all":{"n":59644,"pop":205567,"%":29.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":28548,"pop":178761,"%":16.0},"70-74":{"n":9750,"pop":10408,"%":93.7},"75-79":{"n":6660,"pop":6964,"%":95.6},"80+":{"n":8983,"pop":9434,"%":95.2},"all":{"n":53941,"pop":205567,"%":26.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":25663,"pop":167773,"%":15.3},"65-69":{"n":8482,"pop":10988,"%":77.2},"70-74":{"n":9822,"pop":10408,"%":94.4},"75-79":{"n":6685,"pop":6964,"%":96.0},"80+":{"n":8992,"pop":9434,"%":95.3},"all":{"n":59644,"pop":205567,"%":29.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":28548,"pop":178761,"%":16.0},"70-74":{"n":9750,"pop":10408,"%":93.7},"75-79":{"n":6660,"pop":6964,"%":95.6},"80+":{"n":8983,"pop":9434,"%":95.2},"all":{"n":53941,"pop":205567,"%":26.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2560,
 		"cov": 475,

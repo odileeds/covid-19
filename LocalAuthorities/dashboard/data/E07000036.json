@@ -1,6 +1,6 @@
 {
 	"name":"Erewash",
-	"population": 116230,
+	"population": 117033,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":15344,"pop":93036,"%":16.5},"65-69":{"n":5493,"pop":6247,"%":87.9},"70-74":{"n":6180,"pop":6522,"%":94.8},"75-79":{"n":4696,"pop":4897,"%":95.9},"80+":{"n":6087,"pop":6331,"%":96.1},"all":{"n":37800,"pop":117033,"%":32.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15390,"pop":99283,"%":15.5},"70-74":{"n":6119,"pop":6522,"%":93.8},"75-79":{"n":4669,"pop":4897,"%":95.3},"80+":{"n":6063,"pop":6331,"%":95.8},"all":{"n":32241,"pop":117033,"%":27.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":15344,"pop":93036,"%":16.5},"65-69":{"n":5493,"pop":6247,"%":87.9},"70-74":{"n":6180,"pop":6522,"%":94.8},"75-79":{"n":4696,"pop":4897,"%":95.9},"80+":{"n":6087,"pop":6331,"%":96.1},"all":{"n":37800,"pop":117033,"%":32.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15390,"pop":99283,"%":15.5},"70-74":{"n":6119,"pop":6522,"%":93.8},"75-79":{"n":4669,"pop":4897,"%":95.3},"80+":{"n":6063,"pop":6331,"%":95.8},"all":{"n":32241,"pop":117033,"%":27.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1635,
 		"cov": 299,

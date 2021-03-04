@@ -1,6 +1,6 @@
 {
 	"name":"North Lincolnshire",
-	"population": 173143,
+	"population": 178378,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":26786,"pop":140465,"%":19.1},"65-69":{"n":8422,"pop":10278,"%":81.9},"70-74":{"n":9816,"pop":10408,"%":94.3},"75-79":{"n":7104,"pop":7412,"%":95.8},"80+":{"n":9353,"pop":9815,"%":95.3},"all":{"n":61481,"pop":178378,"%":34.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":26783,"pop":150743,"%":17.8},"70-74":{"n":9705,"pop":10408,"%":93.2},"75-79":{"n":7066,"pop":7412,"%":95.3},"80+":{"n":9303,"pop":9815,"%":94.8},"all":{"n":52857,"pop":178378,"%":29.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":26786,"pop":140465,"%":19.1},"65-69":{"n":8422,"pop":10278,"%":81.9},"70-74":{"n":9816,"pop":10408,"%":94.3},"75-79":{"n":7104,"pop":7412,"%":95.8},"80+":{"n":9353,"pop":9815,"%":95.3},"all":{"n":61481,"pop":178378,"%":34.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":26783,"pop":150743,"%":17.8},"70-74":{"n":9705,"pop":10408,"%":93.2},"75-79":{"n":7066,"pop":7412,"%":95.3},"80+":{"n":9303,"pop":9815,"%":94.8},"all":{"n":52857,"pop":178378,"%":29.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2253,
 		"cov": 301,

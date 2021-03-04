@@ -1,6 +1,6 @@
 {
 	"name":"Sedgemoor",
-	"population": 124482,
+	"population": 129909,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16005,"pop":99416,"%":16.1},"65-69":{"n":6234,"pop":7777,"%":80.2},"70-74":{"n":7925,"pop":8419,"%":94.1},"75-79":{"n":5893,"pop":6160,"%":95.7},"80+":{"n":7776,"pop":8137,"%":95.6},"all":{"n":43833,"pop":129909,"%":33.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17898,"pop":107193,"%":16.7},"70-74":{"n":7868,"pop":8419,"%":93.5},"75-79":{"n":5867,"pop":6160,"%":95.2},"80+":{"n":7730,"pop":8137,"%":95.0},"all":{"n":39363,"pop":129909,"%":30.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16005,"pop":99416,"%":16.1},"65-69":{"n":6234,"pop":7777,"%":80.2},"70-74":{"n":7925,"pop":8419,"%":94.1},"75-79":{"n":5893,"pop":6160,"%":95.7},"80+":{"n":7776,"pop":8137,"%":95.6},"all":{"n":43833,"pop":129909,"%":33.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17898,"pop":107193,"%":16.7},"70-74":{"n":7868,"pop":8419,"%":93.5},"75-79":{"n":5867,"pop":6160,"%":95.2},"80+":{"n":7730,"pop":8137,"%":95.0},"all":{"n":39363,"pop":129909,"%":30.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1787,
 		"cov": 176,

@@ -1,6 +1,6 @@
 {
 	"name":"West Lancashire",
-	"population": 114479,
+	"population": 118532,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":18154,"pop":92343,"%":19.7},"65-69":{"n":6006,"pop":6784,"%":88.5},"70-74":{"n":6785,"pop":7199,"%":94.2},"75-79":{"n":5115,"pop":5358,"%":95.5},"80+":{"n":6526,"pop":6848,"%":95.3},"all":{"n":42586,"pop":118532,"%":35.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":18866,"pop":99127,"%":19.0},"70-74":{"n":6730,"pop":7199,"%":93.5},"75-79":{"n":5092,"pop":5358,"%":95.0},"80+":{"n":6508,"pop":6848,"%":95.0},"all":{"n":37196,"pop":118532,"%":31.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":18154,"pop":92343,"%":19.7},"65-69":{"n":6006,"pop":6784,"%":88.5},"70-74":{"n":6785,"pop":7199,"%":94.2},"75-79":{"n":5115,"pop":5358,"%":95.5},"80+":{"n":6526,"pop":6848,"%":95.3},"all":{"n":42586,"pop":118532,"%":35.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":18866,"pop":99127,"%":19.0},"70-74":{"n":6730,"pop":7199,"%":93.5},"75-79":{"n":5092,"pop":5358,"%":95.0},"80+":{"n":6508,"pop":6848,"%":95.0},"all":{"n":37196,"pop":118532,"%":31.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1665,
 		"cov": 275,

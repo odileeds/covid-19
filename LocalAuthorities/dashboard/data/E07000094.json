@@ -1,6 +1,6 @@
 {
 	"name":"Winchester",
-	"population": 125809,
+	"population": 134027,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":15804,"pop":106786,"%":14.8},"65-69":{"n":5975,"pop":6702,"%":89.2},"70-74":{"n":6672,"pop":7074,"%":94.3},"75-79":{"n":5187,"pop":5419,"%":95.7},"80+":{"n":7684,"pop":8046,"%":95.5},"all":{"n":41322,"pop":134027,"%":30.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17636,"pop":113488,"%":15.5},"70-74":{"n":6639,"pop":7074,"%":93.9},"75-79":{"n":5171,"pop":5419,"%":95.4},"80+":{"n":7654,"pop":8046,"%":95.1},"all":{"n":37100,"pop":134027,"%":27.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":15804,"pop":106786,"%":14.8},"65-69":{"n":5975,"pop":6702,"%":89.2},"70-74":{"n":6672,"pop":7074,"%":94.3},"75-79":{"n":5187,"pop":5419,"%":95.7},"80+":{"n":7684,"pop":8046,"%":95.5},"all":{"n":41322,"pop":134027,"%":30.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17636,"pop":113488,"%":15.5},"70-74":{"n":6639,"pop":7074,"%":93.9},"75-79":{"n":5171,"pop":5419,"%":95.4},"80+":{"n":7654,"pop":8046,"%":95.1},"all":{"n":37100,"pop":134027,"%":27.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1390,
 		"cov": 199,

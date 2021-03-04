@@ -1,6 +1,6 @@
 {
 	"name":"Maldon",
-	"population": 65305,
+	"population": 67709,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":8145,"pop":50790,"%":16.0},"65-69":{"n":3939,"pop":4299,"%":91.6},"70-74":{"n":4514,"pop":4777,"%":94.5},"75-79":{"n":3375,"pop":3514,"%":96.0},"80+":{"n":4148,"pop":4329,"%":95.8},"all":{"n":24121,"pop":67709,"%":35.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":9869,"pop":55089,"%":17.9},"70-74":{"n":4497,"pop":4777,"%":94.1},"75-79":{"n":3369,"pop":3514,"%":95.9},"80+":{"n":4140,"pop":4329,"%":95.6},"all":{"n":21875,"pop":67709,"%":32.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":8145,"pop":50790,"%":16.0},"65-69":{"n":3939,"pop":4299,"%":91.6},"70-74":{"n":4514,"pop":4777,"%":94.5},"75-79":{"n":3375,"pop":3514,"%":96.0},"80+":{"n":4148,"pop":4329,"%":95.8},"all":{"n":24121,"pop":67709,"%":35.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":9869,"pop":55089,"%":17.9},"70-74":{"n":4497,"pop":4777,"%":94.1},"75-79":{"n":3369,"pop":3514,"%":95.9},"80+":{"n":4140,"pop":4329,"%":95.6},"all":{"n":21875,"pop":67709,"%":32.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 924,
 		"cov": 145,

@@ -1,6 +1,6 @@
 {
 	"name":"Calderdale",
-	"population": 210958,
+	"population": 221956,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":28176,"pop":181290,"%":15.5},"65-69":{"n":9043,"pop":11317,"%":79.9},"70-74":{"n":10497,"pop":11446,"%":91.7},"75-79":{"n":7375,"pop":7876,"%":93.6},"80+":{"n":9313,"pop":10027,"%":92.9},"all":{"n":64404,"pop":221956,"%":29.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":28996,"pop":192607,"%":15.1},"70-74":{"n":10338,"pop":11446,"%":90.3},"75-79":{"n":7329,"pop":7876,"%":93.1},"80+":{"n":9255,"pop":10027,"%":92.3},"all":{"n":55918,"pop":221956,"%":25.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":28176,"pop":181290,"%":15.5},"65-69":{"n":9043,"pop":11317,"%":79.9},"70-74":{"n":10497,"pop":11446,"%":91.7},"75-79":{"n":7375,"pop":7876,"%":93.6},"80+":{"n":9313,"pop":10027,"%":92.9},"all":{"n":64404,"pop":221956,"%":29.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":28996,"pop":192607,"%":15.1},"70-74":{"n":10338,"pop":11446,"%":90.3},"75-79":{"n":7329,"pop":7876,"%":93.1},"80+":{"n":9255,"pop":10027,"%":92.3},"all":{"n":55918,"pop":221956,"%":25.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2591,
 		"cov": 316,

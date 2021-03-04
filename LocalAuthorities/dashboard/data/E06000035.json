@@ -1,6 +1,6 @@
 {
 	"name":"Medway",
-	"population": 279310,
+	"population": 291637,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":32209,"pop":244210,"%":13.2},"65-69":{"n":10264,"pop":13350,"%":76.9},"70-74":{"n":12092,"pop":13350,"%":90.6},"75-79":{"n":8523,"pop":9169,"%":93.0},"80+":{"n":10668,"pop":11558,"%":92.3},"all":{"n":73756,"pop":291637,"%":25.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":32373,"pop":257560,"%":12.6},"70-74":{"n":11907,"pop":13350,"%":89.2},"75-79":{"n":8453,"pop":9169,"%":92.2},"80+":{"n":10546,"pop":11558,"%":91.2},"all":{"n":63279,"pop":291637,"%":21.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":32209,"pop":244210,"%":13.2},"65-69":{"n":10264,"pop":13350,"%":76.9},"70-74":{"n":12092,"pop":13350,"%":90.6},"75-79":{"n":8523,"pop":9169,"%":93.0},"80+":{"n":10668,"pop":11558,"%":92.3},"all":{"n":73756,"pop":291637,"%":25.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":32373,"pop":257560,"%":12.6},"70-74":{"n":11907,"pop":13350,"%":89.2},"75-79":{"n":8453,"pop":9169,"%":92.2},"80+":{"n":10546,"pop":11558,"%":91.2},"all":{"n":63279,"pop":291637,"%":21.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3337,
 		"cov": 748,

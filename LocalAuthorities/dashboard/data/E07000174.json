@@ -1,6 +1,6 @@
 {
 	"name":"Mansfield",
-	"population": 110247,
+	"population": 115810,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":21396,"pop":93995,"%":22.8},"65-69":{"n":5235,"pop":6104,"%":85.8},"70-74":{"n":5239,"pop":5833,"%":89.8},"75-79":{"n":4094,"pop":4412,"%":92.8},"80+":{"n":4971,"pop":5466,"%":90.9},"all":{"n":40935,"pop":115810,"%":35.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":19312,"pop":100099,"%":19.3},"70-74":{"n":5055,"pop":5833,"%":86.7},"75-79":{"n":4065,"pop":4412,"%":92.1},"80+":{"n":4896,"pop":5466,"%":89.6},"all":{"n":33328,"pop":115810,"%":28.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":21396,"pop":93995,"%":22.8},"65-69":{"n":5235,"pop":6104,"%":85.8},"70-74":{"n":5239,"pop":5833,"%":89.8},"75-79":{"n":4094,"pop":4412,"%":92.8},"80+":{"n":4971,"pop":5466,"%":90.9},"all":{"n":40935,"pop":115810,"%":35.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19312,"pop":100099,"%":19.3},"70-74":{"n":5055,"pop":5833,"%":86.7},"75-79":{"n":4065,"pop":4412,"%":92.1},"80+":{"n":4896,"pop":5466,"%":89.6},"all":{"n":33328,"pop":115810,"%":28.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1641,
 		"cov": 283,

@@ -1,6 +1,6 @@
 {
 	"name":"Ealing",
-	"population": 340940,
+	"population": 445628,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":49049,"pop":396352,"%":12.4},"65-69":{"n":11377,"pop":15319,"%":74.3},"70-74":{"n":10154,"pop":12545,"%":80.9},"75-79":{"n":7191,"pop":8672,"%":82.9},"80+":{"n":10464,"pop":12740,"%":82.1},"all":{"n":88235,"pop":445628,"%":19.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":48261,"pop":411671,"%":11.7},"70-74":{"n":10005,"pop":12545,"%":79.8},"75-79":{"n":7093,"pop":8672,"%":81.8},"80+":{"n":10341,"pop":12740,"%":81.2},"all":{"n":75700,"pop":445628,"%":17.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":49049,"pop":396352,"%":12.4},"65-69":{"n":11377,"pop":15319,"%":74.3},"70-74":{"n":10154,"pop":12545,"%":80.9},"75-79":{"n":7191,"pop":8672,"%":82.9},"80+":{"n":10464,"pop":12740,"%":82.1},"all":{"n":88235,"pop":445628,"%":19.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":48261,"pop":411671,"%":11.7},"70-74":{"n":10005,"pop":12545,"%":79.8},"75-79":{"n":7093,"pop":8672,"%":81.8},"80+":{"n":10341,"pop":12740,"%":81.2},"all":{"n":75700,"pop":445628,"%":17.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3086,
 		"cov": 770,

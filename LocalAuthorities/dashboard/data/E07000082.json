@@ -1,6 +1,6 @@
 {
 	"name":"Stroud",
-	"population": 120685,
+	"population": 125113,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14736,"pop":96313,"%":15.3},"65-69":{"n":6929,"pop":7575,"%":91.5},"70-74":{"n":7508,"pop":7882,"%":95.3},"75-79":{"n":5458,"pop":5664,"%":96.4},"80+":{"n":7419,"pop":7679,"%":96.6},"all":{"n":42050,"pop":125113,"%":33.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16725,"pop":103888,"%":16.1},"70-74":{"n":7466,"pop":7882,"%":94.7},"75-79":{"n":5442,"pop":5664,"%":96.1},"80+":{"n":7416,"pop":7679,"%":96.6},"all":{"n":37049,"pop":125113,"%":29.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14736,"pop":96313,"%":15.3},"65-69":{"n":6929,"pop":7575,"%":91.5},"70-74":{"n":7508,"pop":7882,"%":95.3},"75-79":{"n":5458,"pop":5664,"%":96.4},"80+":{"n":7419,"pop":7679,"%":96.6},"all":{"n":42050,"pop":125113,"%":33.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16725,"pop":103888,"%":16.1},"70-74":{"n":7466,"pop":7882,"%":94.7},"75-79":{"n":5442,"pop":5664,"%":96.1},"80+":{"n":7416,"pop":7679,"%":96.6},"all":{"n":37049,"pop":125113,"%":29.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1604,
 		"cov": 187,

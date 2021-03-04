@@ -1,6 +1,6 @@
 {
 	"name":"North East Derbyshire",
-	"population": 102071,
+	"population": 103996,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":15639,"pop":78299,"%":20.0},"65-69":{"n":5625,"pop":6524,"%":86.2},"70-74":{"n":6631,"pop":6924,"%":95.8},"75-79":{"n":5346,"pop":5549,"%":96.3},"80+":{"n":6439,"pop":6700,"%":96.1},"all":{"n":39680,"pop":103996,"%":38.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15953,"pop":84823,"%":18.8},"70-74":{"n":6583,"pop":6924,"%":95.1},"75-79":{"n":5316,"pop":5549,"%":95.8},"80+":{"n":6412,"pop":6700,"%":95.7},"all":{"n":34264,"pop":103996,"%":32.9}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":15639,"pop":78299,"%":20.0},"65-69":{"n":5625,"pop":6524,"%":86.2},"70-74":{"n":6631,"pop":6924,"%":95.8},"75-79":{"n":5346,"pop":5549,"%":96.3},"80+":{"n":6439,"pop":6700,"%":96.1},"all":{"n":39680,"pop":103996,"%":38.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15953,"pop":84823,"%":18.8},"70-74":{"n":6583,"pop":6924,"%":95.1},"75-79":{"n":5316,"pop":5549,"%":95.8},"80+":{"n":6412,"pop":6700,"%":95.7},"all":{"n":34264,"pop":103996,"%":32.9}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1566,
 		"cov": 280,

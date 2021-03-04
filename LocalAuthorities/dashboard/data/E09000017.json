@@ -1,6 +1,6 @@
 {
 	"name":"Hillingdon",
-	"population": 309310,
+	"population": 348091,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":47143,"pop":303474,"%":15.5},"65-69":{"n":10477,"pop":12784,"%":82.0},"70-74":{"n":9658,"pop":11153,"%":86.6},"75-79":{"n":7022,"pop":7947,"%":88.4},"80+":{"n":11061,"pop":12733,"%":86.9},"all":{"n":85361,"pop":348091,"%":24.5}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":45529,"pop":316258,"%":14.4},"70-74":{"n":9540,"pop":11153,"%":85.5},"75-79":{"n":6949,"pop":7947,"%":87.4},"80+":{"n":10966,"pop":12733,"%":86.1},"all":{"n":72984,"pop":348091,"%":21.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":47143,"pop":303474,"%":15.5},"65-69":{"n":10477,"pop":12784,"%":82.0},"70-74":{"n":9658,"pop":11153,"%":86.6},"75-79":{"n":7022,"pop":7947,"%":88.4},"80+":{"n":11061,"pop":12733,"%":86.9},"all":{"n":85361,"pop":348091,"%":24.5}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":45529,"pop":316258,"%":14.4},"70-74":{"n":9540,"pop":11153,"%":85.5},"75-79":{"n":6949,"pop":7947,"%":87.4},"80+":{"n":10966,"pop":12733,"%":86.1},"all":{"n":72984,"pop":348091,"%":21.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2953,
 		"cov": 702,

@@ -1,6 +1,6 @@
 {
 	"name":"Tewkesbury",
-	"population": 96277,
+	"population": 98665,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":12457,"pop":76971,"%":16.2},"65-69":{"n":5228,"pop":5597,"%":93.4},"70-74":{"n":5518,"pop":5774,"%":95.6},"75-79":{"n":4276,"pop":4404,"%":97.1},"80+":{"n":5760,"pop":5919,"%":97.3},"all":{"n":33239,"pop":98665,"%":33.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15043,"pop":82568,"%":18.2},"70-74":{"n":5495,"pop":5774,"%":95.2},"75-79":{"n":4272,"pop":4404,"%":97.0},"80+":{"n":5751,"pop":5919,"%":97.2},"all":{"n":30561,"pop":98665,"%":31.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":12457,"pop":76971,"%":16.2},"65-69":{"n":5228,"pop":5597,"%":93.4},"70-74":{"n":5518,"pop":5774,"%":95.6},"75-79":{"n":4276,"pop":4404,"%":97.1},"80+":{"n":5760,"pop":5919,"%":97.3},"all":{"n":33239,"pop":98665,"%":33.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15043,"pop":82568,"%":18.2},"70-74":{"n":5495,"pop":5774,"%":95.2},"75-79":{"n":4272,"pop":4404,"%":97.0},"80+":{"n":5751,"pop":5919,"%":97.2},"all":{"n":30561,"pop":98665,"%":31.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1137,
 		"cov": 190,

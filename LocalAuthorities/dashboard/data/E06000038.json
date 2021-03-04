@@ -1,6 +1,6 @@
 {
 	"name":"Reading",
-	"population": 164129,
+	"population": 198169,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16669,"pop":175727,"%":9.5},"65-69":{"n":4607,"pop":6308,"%":73.0},"70-74":{"n":4964,"pop":5685,"%":87.3},"75-79":{"n":3768,"pop":4232,"%":89.0},"80+":{"n":5599,"pop":6217,"%":90.1},"all":{"n":35607,"pop":198169,"%":18.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16653,"pop":182035,"%":9.1},"70-74":{"n":4888,"pop":5685,"%":86.0},"75-79":{"n":3743,"pop":4232,"%":88.4},"80+":{"n":5581,"pop":6217,"%":89.8},"all":{"n":30865,"pop":198169,"%":15.6}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16669,"pop":175727,"%":9.5},"65-69":{"n":4607,"pop":6308,"%":73.0},"70-74":{"n":4964,"pop":5685,"%":87.3},"75-79":{"n":3768,"pop":4232,"%":89.0},"80+":{"n":5599,"pop":6217,"%":90.1},"all":{"n":35607,"pop":198169,"%":18.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16653,"pop":182035,"%":9.1},"70-74":{"n":4888,"pop":5685,"%":86.0},"75-79":{"n":3743,"pop":4232,"%":88.4},"80+":{"n":5581,"pop":6217,"%":89.8},"all":{"n":30865,"pop":198169,"%":15.6}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1618,
 		"cov": 301,

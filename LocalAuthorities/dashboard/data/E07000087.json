@@ -1,6 +1,6 @@
 {
 	"name":"Fareham",
-	"population": 117070,
+	"population": 118966,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":14756,"pop":90512,"%":16.3},"65-69":{"n":5977,"pop":6729,"%":88.8},"70-74":{"n":7140,"pop":7469,"%":95.6},"75-79":{"n":5626,"pop":5845,"%":96.3},"80+":{"n":8075,"pop":8411,"%":96.0},"all":{"n":41574,"pop":118966,"%":34.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":15528,"pop":97241,"%":16.0},"70-74":{"n":7095,"pop":7469,"%":95.0},"75-79":{"n":5594,"pop":5845,"%":95.7},"80+":{"n":8059,"pop":8411,"%":95.8},"all":{"n":36276,"pop":118966,"%":30.5}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":14756,"pop":90512,"%":16.3},"65-69":{"n":5977,"pop":6729,"%":88.8},"70-74":{"n":7140,"pop":7469,"%":95.6},"75-79":{"n":5626,"pop":5845,"%":96.3},"80+":{"n":8075,"pop":8411,"%":96.0},"all":{"n":41574,"pop":118966,"%":34.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":15528,"pop":97241,"%":16.0},"70-74":{"n":7095,"pop":7469,"%":95.0},"75-79":{"n":5594,"pop":5845,"%":95.7},"80+":{"n":8059,"pop":8411,"%":95.8},"all":{"n":36276,"pop":118966,"%":30.5}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1645,
 		"cov": 290,

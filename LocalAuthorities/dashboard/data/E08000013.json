@@ -1,6 +1,6 @@
 {
 	"name":"St. Helens",
-	"population": 181622,
+	"population": 189680,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":30629,"pop":151367,"%":20.2},"65-69":{"n":9077,"pop":10169,"%":89.3},"70-74":{"n":10009,"pop":10677,"%":93.7},"75-79":{"n":7284,"pop":7675,"%":94.9},"80+":{"n":9161,"pop":9792,"%":93.6},"all":{"n":66160,"pop":189680,"%":34.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":30105,"pop":161536,"%":18.6},"70-74":{"n":9930,"pop":10677,"%":93.0},"75-79":{"n":7226,"pop":7675,"%":94.1},"80+":{"n":9080,"pop":9792,"%":92.7},"all":{"n":56341,"pop":189680,"%":29.7}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":30629,"pop":151367,"%":20.2},"65-69":{"n":9077,"pop":10169,"%":89.3},"70-74":{"n":10009,"pop":10677,"%":93.7},"75-79":{"n":7284,"pop":7675,"%":94.9},"80+":{"n":9161,"pop":9792,"%":93.6},"all":{"n":66160,"pop":189680,"%":34.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":30105,"pop":161536,"%":18.6},"70-74":{"n":9930,"pop":10677,"%":93.0},"75-79":{"n":7226,"pop":7675,"%":94.1},"80+":{"n":9080,"pop":9792,"%":92.7},"all":{"n":56341,"pop":189680,"%":29.7}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2654,
 		"cov": 479,

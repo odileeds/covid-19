@@ -1,6 +1,6 @@
 {
 	"name":"Bassetlaw",
-	"population": 118634,
+	"population": 124078,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":16663,"pop":97506,"%":17.1},"65-69":{"n":5844,"pop":6994,"%":83.6},"70-74":{"n":6979,"pop":7393,"%":94.4},"75-79":{"n":5214,"pop":5444,"%":95.8},"80+":{"n":6437,"pop":6741,"%":95.5},"all":{"n":41137,"pop":124078,"%":33.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17682,"pop":104500,"%":16.9},"70-74":{"n":6900,"pop":7393,"%":93.3},"75-79":{"n":5187,"pop":5444,"%":95.3},"80+":{"n":6410,"pop":6741,"%":95.1},"all":{"n":36179,"pop":124078,"%":29.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":16663,"pop":97506,"%":17.1},"65-69":{"n":5844,"pop":6994,"%":83.6},"70-74":{"n":6979,"pop":7393,"%":94.4},"75-79":{"n":5214,"pop":5444,"%":95.8},"80+":{"n":6437,"pop":6741,"%":95.5},"all":{"n":41137,"pop":124078,"%":33.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17682,"pop":104500,"%":16.9},"70-74":{"n":6900,"pop":7393,"%":93.3},"75-79":{"n":5187,"pop":5444,"%":95.3},"80+":{"n":6410,"pop":6741,"%":95.1},"all":{"n":36179,"pop":124078,"%":29.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1683,
 		"cov": 235,

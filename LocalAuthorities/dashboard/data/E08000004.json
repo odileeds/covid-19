@@ -1,6 +1,6 @@
 {
 	"name":"Oldham",
-	"population": 238525,
+	"population": 256531,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":32170,"pop":216549,"%":14.9},"65-69":{"n":9084,"pop":11327,"%":80.2},"70-74":{"n":9894,"pop":10940,"%":90.4},"75-79":{"n":7188,"pop":7815,"%":92.0},"80+":{"n":8997,"pop":9900,"%":90.9},"all":{"n":67333,"pop":256531,"%":26.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":30609,"pop":227876,"%":13.4},"70-74":{"n":9770,"pop":10940,"%":89.3},"75-79":{"n":7121,"pop":7815,"%":91.1},"80+":{"n":8924,"pop":9900,"%":90.1},"all":{"n":56424,"pop":256531,"%":22.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":32170,"pop":216549,"%":14.9},"65-69":{"n":9084,"pop":11327,"%":80.2},"70-74":{"n":9894,"pop":10940,"%":90.4},"75-79":{"n":7188,"pop":7815,"%":92.0},"80+":{"n":8997,"pop":9900,"%":90.9},"all":{"n":67333,"pop":256531,"%":26.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":30609,"pop":227876,"%":13.4},"70-74":{"n":9770,"pop":10940,"%":89.3},"75-79":{"n":7121,"pop":7815,"%":91.1},"80+":{"n":8924,"pop":9900,"%":90.1},"all":{"n":56424,"pop":256531,"%":22.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2939,
 		"cov": 667,

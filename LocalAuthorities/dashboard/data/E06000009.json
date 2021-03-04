@@ -1,6 +1,6 @@
 {
 	"name":"Blackpool",
-	"population": 139173,
+	"population": 153402,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":24407,"pop":123032,"%":19.8},"65-69":{"n":6754,"pop":8067,"%":83.7},"70-74":{"n":7383,"pop":8204,"%":90.0},"75-79":{"n":5553,"pop":5992,"%":92.7},"80+":{"n":7499,"pop":8107,"%":92.5},"all":{"n":51596,"pop":153402,"%":33.6}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":25768,"pop":131099,"%":19.7},"70-74":{"n":7316,"pop":8204,"%":89.2},"75-79":{"n":5523,"pop":5992,"%":92.2},"80+":{"n":7474,"pop":8107,"%":92.2},"all":{"n":46081,"pop":153402,"%":30.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":24407,"pop":123032,"%":19.8},"65-69":{"n":6754,"pop":8067,"%":83.7},"70-74":{"n":7383,"pop":8204,"%":90.0},"75-79":{"n":5553,"pop":5992,"%":92.7},"80+":{"n":7499,"pop":8107,"%":92.5},"all":{"n":51596,"pop":153402,"%":33.6}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":25768,"pop":131099,"%":19.7},"70-74":{"n":7316,"pop":8204,"%":89.2},"75-79":{"n":5523,"pop":5992,"%":92.2},"80+":{"n":7474,"pop":8107,"%":92.2},"all":{"n":46081,"pop":153402,"%":30.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2500,
 		"cov": 431,

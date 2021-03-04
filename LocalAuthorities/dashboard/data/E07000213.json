@@ -1,6 +1,6 @@
 {
 	"name":"Spelthorne",
-	"population": 99813,
+	"population": 110012,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11834,"pop":90522,"%":13.1},"65-69":{"n":4138,"pop":4901,"%":84.4},"70-74":{"n":4443,"pop":4889,"%":90.9},"75-79":{"n":3526,"pop":3774,"%":93.4},"80+":{"n":5434,"pop":5926,"%":91.7},"all":{"n":29375,"pop":110012,"%":26.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":13130,"pop":95423,"%":13.8},"70-74":{"n":4390,"pop":4889,"%":89.8},"75-79":{"n":3497,"pop":3774,"%":92.7},"80+":{"n":5357,"pop":5926,"%":90.4},"all":{"n":26374,"pop":110012,"%":24.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11834,"pop":90522,"%":13.1},"65-69":{"n":4138,"pop":4901,"%":84.4},"70-74":{"n":4443,"pop":4889,"%":90.9},"75-79":{"n":3526,"pop":3774,"%":93.4},"80+":{"n":5434,"pop":5926,"%":91.7},"all":{"n":29375,"pop":110012,"%":26.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":13130,"pop":95423,"%":13.8},"70-74":{"n":4390,"pop":4889,"%":89.8},"75-79":{"n":3497,"pop":3774,"%":92.7},"80+":{"n":5357,"pop":5926,"%":90.4},"all":{"n":26374,"pop":110012,"%":24.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1168,
 		"cov": 210,

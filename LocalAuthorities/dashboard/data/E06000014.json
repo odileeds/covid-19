@@ -1,6 +1,6 @@
 {
 	"name":"York",
-	"population": 211099,
+	"population": 217731,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":24748,"pop":177974,"%":13.9},"65-69":{"n":9002,"pop":10076,"%":89.3},"70-74":{"n":10126,"pop":10761,"%":94.1},"75-79":{"n":7272,"pop":7634,"%":95.3},"80+":{"n":10791,"pop":11286,"%":95.6},"all":{"n":61939,"pop":217731,"%":28.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":29265,"pop":188050,"%":15.6},"70-74":{"n":10041,"pop":10761,"%":93.3},"75-79":{"n":7228,"pop":7634,"%":94.7},"80+":{"n":10752,"pop":11286,"%":95.3},"all":{"n":57286,"pop":217731,"%":26.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":24748,"pop":177974,"%":13.9},"65-69":{"n":9002,"pop":10076,"%":89.3},"70-74":{"n":10126,"pop":10761,"%":94.1},"75-79":{"n":7272,"pop":7634,"%":95.3},"80+":{"n":10791,"pop":11286,"%":95.6},"all":{"n":61939,"pop":217731,"%":28.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":29265,"pop":188050,"%":15.6},"70-74":{"n":10041,"pop":10761,"%":93.3},"75-79":{"n":7228,"pop":7634,"%":94.7},"80+":{"n":10752,"pop":11286,"%":95.3},"all":{"n":57286,"pop":217731,"%":26.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2439,
 		"cov": 363,

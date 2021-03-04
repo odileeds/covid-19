@@ -1,6 +1,6 @@
 {
 	"name":"Allerdale",
-	"population": 97960,
+	"population": 99647,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":11798,"pop":75293,"%":15.7},"65-69":{"n":4854,"pop":6439,"%":75.4},"70-74":{"n":6503,"pop":6832,"%":95.2},"75-79":{"n":4482,"pop":4647,"%":96.4},"80+":{"n":6223,"pop":6436,"%":96.7},"all":{"n":33860,"pop":99647,"%":34.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":12164,"pop":81732,"%":14.9},"70-74":{"n":6453,"pop":6832,"%":94.5},"75-79":{"n":4461,"pop":4647,"%":96.0},"80+":{"n":6212,"pop":6436,"%":96.5},"all":{"n":29290,"pop":99647,"%":29.4}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":11798,"pop":75293,"%":15.7},"65-69":{"n":4854,"pop":6439,"%":75.4},"70-74":{"n":6503,"pop":6832,"%":95.2},"75-79":{"n":4482,"pop":4647,"%":96.4},"80+":{"n":6223,"pop":6436,"%":96.7},"all":{"n":33860,"pop":99647,"%":34.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":12164,"pop":81732,"%":14.9},"70-74":{"n":6453,"pop":6832,"%":94.5},"75-79":{"n":4461,"pop":4647,"%":96.0},"80+":{"n":6212,"pop":6436,"%":96.5},"all":{"n":29290,"pop":99647,"%":29.4}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1639,
 		"cov": 263,

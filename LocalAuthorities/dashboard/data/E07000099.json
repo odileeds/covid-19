@@ -1,6 +1,6 @@
 {
 	"name":"North Hertfordshire",
-	"population": 134049,
+	"population": 139608,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":15926,"pop":113025,"%":14.1},"65-69":{"n":5820,"pop":6731,"%":86.5},"70-74":{"n":6496,"pop":6899,"%":94.2},"75-79":{"n":4859,"pop":5135,"%":94.6},"80+":{"n":7436,"pop":7818,"%":95.1},"all":{"n":40537,"pop":139608,"%":29.0}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":16038,"pop":119756,"%":13.4},"70-74":{"n":6445,"pop":6899,"%":93.4},"75-79":{"n":4832,"pop":5135,"%":94.1},"80+":{"n":7375,"pop":7818,"%":94.3},"all":{"n":34690,"pop":139608,"%":24.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":15926,"pop":113025,"%":14.1},"65-69":{"n":5820,"pop":6731,"%":86.5},"70-74":{"n":6496,"pop":6899,"%":94.2},"75-79":{"n":4859,"pop":5135,"%":94.6},"80+":{"n":7436,"pop":7818,"%":95.1},"all":{"n":40537,"pop":139608,"%":29.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":16038,"pop":119756,"%":13.4},"70-74":{"n":6445,"pop":6899,"%":93.4},"75-79":{"n":4832,"pop":5135,"%":94.1},"80+":{"n":7375,"pop":7818,"%":94.3},"all":{"n":34690,"pop":139608,"%":24.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1639,
 		"cov": 292,

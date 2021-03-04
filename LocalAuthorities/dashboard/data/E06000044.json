@@ -1,6 +1,6 @@
 {
 	"name":"Portsmouth",
-	"population": 216910,
+	"population": 230183,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":28964,"pop":198060,"%":14.6},"65-69":{"n":7506,"pop":8814,"%":85.2},"70-74":{"n":7690,"pop":8481,"%":90.7},"75-79":{"n":5710,"pop":6118,"%":93.3},"80+":{"n":8110,"pop":8710,"%":93.1},"all":{"n":57980,"pop":230183,"%":25.2}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":29169,"pop":206874,"%":14.1},"70-74":{"n":7622,"pop":8481,"%":89.9},"75-79":{"n":5684,"pop":6118,"%":92.9},"80+":{"n":8098,"pop":8710,"%":93.0},"all":{"n":50573,"pop":230183,"%":22.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":28964,"pop":198060,"%":14.6},"65-69":{"n":7506,"pop":8814,"%":85.2},"70-74":{"n":7690,"pop":8481,"%":90.7},"75-79":{"n":5710,"pop":6118,"%":93.3},"80+":{"n":8110,"pop":8710,"%":93.1},"all":{"n":57980,"pop":230183,"%":25.2}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":29169,"pop":206874,"%":14.1},"70-74":{"n":7622,"pop":8481,"%":89.9},"75-79":{"n":5684,"pop":6118,"%":92.9},"80+":{"n":8098,"pop":8710,"%":93.0},"all":{"n":50573,"pop":230183,"%":22.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2186,
 		"cov": 361,

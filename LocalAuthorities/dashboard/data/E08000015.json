@@ -1,6 +1,6 @@
 {
 	"name":"Wirral",
-	"population": 324533,
+	"population": 338346,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":52511,"pop":266077,"%":19.7},"65-69":{"n":17142,"pop":19493,"%":87.9},"70-74":{"n":18198,"pop":19458,"%":93.5},"75-79":{"n":12924,"pop":13681,"%":94.5},"80+":{"n":18511,"pop":19637,"%":94.3},"all":{"n":119286,"pop":338346,"%":35.3}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":58193,"pop":285570,"%":20.4},"70-74":{"n":18093,"pop":19458,"%":93.0},"75-79":{"n":12869,"pop":13681,"%":94.1},"80+":{"n":18434,"pop":19637,"%":93.9},"all":{"n":107589,"pop":338346,"%":31.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":52511,"pop":266077,"%":19.7},"65-69":{"n":17142,"pop":19493,"%":87.9},"70-74":{"n":18198,"pop":19458,"%":93.5},"75-79":{"n":12924,"pop":13681,"%":94.5},"80+":{"n":18511,"pop":19637,"%":94.3},"all":{"n":119286,"pop":338346,"%":35.3}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":58193,"pop":285570,"%":20.4},"70-74":{"n":18093,"pop":19458,"%":93.0},"75-79":{"n":12869,"pop":13681,"%":94.1},"80+":{"n":18434,"pop":19637,"%":93.9},"all":{"n":107589,"pop":338346,"%":31.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 5174,
 		"cov": 927,

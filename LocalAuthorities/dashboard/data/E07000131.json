@@ -1,6 +1,6 @@
 {
 	"name":"Harborough",
-	"population": 94635,
+	"population": 97302,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":13633,"pop":75724,"%":18.0},"65-69":{"n":5140,"pop":5584,"%":92.0},"70-74":{"n":5612,"pop":5888,"%":95.3},"75-79":{"n":4242,"pop":4412,"%":96.1},"80+":{"n":5487,"pop":5694,"%":96.4},"all":{"n":34114,"pop":97302,"%":35.1}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":14280,"pop":81308,"%":17.6},"70-74":{"n":5567,"pop":5888,"%":94.5},"75-79":{"n":4228,"pop":4412,"%":95.8},"80+":{"n":5454,"pop":5694,"%":95.8},"all":{"n":29529,"pop":97302,"%":30.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":13633,"pop":75724,"%":18.0},"65-69":{"n":5140,"pop":5584,"%":92.0},"70-74":{"n":5612,"pop":5888,"%":95.3},"75-79":{"n":4242,"pop":4412,"%":96.1},"80+":{"n":5487,"pop":5694,"%":96.4},"all":{"n":34114,"pop":97302,"%":35.1}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":14280,"pop":81308,"%":17.6},"70-74":{"n":5567,"pop":5888,"%":94.5},"75-79":{"n":4228,"pop":4412,"%":95.8},"80+":{"n":5454,"pop":5694,"%":95.8},"all":{"n":29529,"pop":97302,"%":30.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1189,
 		"cov": 159,

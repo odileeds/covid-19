@@ -1,6 +1,6 @@
 {
 	"name":"Breckland",
-	"population": 142019,
+	"population": 147063,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -24,12 +24,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":18983,"pop":111151,"%":17.1},"65-69":{"n":7492,"pop":8955,"%":83.7},"70-74":{"n":9283,"pop":9848,"%":94.3},"75-79":{"n":7031,"pop":7346,"%":95.7},"80+":{"n":9281,"pop":9763,"%":95.1},"all":{"n":52070,"pop":147063,"%":35.4}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":21829,"pop":120106,"%":18.2},"70-74":{"n":9167,"pop":9848,"%":93.1},"75-79":{"n":6998,"pop":7346,"%":95.3},"80+":{"n":9250,"pop":9763,"%":94.7},"all":{"n":47244,"pop":147063,"%":32.1}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":18983,"pop":111151,"%":17.1},"65-69":{"n":7492,"pop":8955,"%":83.7},"70-74":{"n":9283,"pop":9848,"%":94.3},"75-79":{"n":7031,"pop":7346,"%":95.7},"80+":{"n":9281,"pop":9763,"%":95.1},"all":{"n":52070,"pop":147063,"%":35.4}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":21829,"pop":120106,"%":18.2},"70-74":{"n":9167,"pop":9848,"%":93.1},"75-79":{"n":6998,"pop":7346,"%":95.3},"80+":{"n":9250,"pop":9763,"%":94.7},"all":{"n":47244,"pop":147063,"%":32.1}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 2161,
 		"cov": 308,

@@ -1,6 +1,6 @@
 {
 	"name":"South Derbyshire",
-	"population": 108164,
+	"population": 109611,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":15977,"pop":89236,"%":17.9},"65-69":{"n":4969,"pop":5818,"%":85.4},"70-74":{"n":5459,"pop":5705,"%":95.7},"75-79":{"n":3912,"pop":4051,"%":96.6},"80+":{"n":4604,"pop":4801,"%":95.9},"all":{"n":34921,"pop":109611,"%":31.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":17067,"pop":95054,"%":18.0},"70-74":{"n":5418,"pop":5705,"%":95.0},"75-79":{"n":3896,"pop":4051,"%":96.2},"80+":{"n":4589,"pop":4801,"%":95.6},"all":{"n":30970,"pop":109611,"%":28.3}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":15977,"pop":89236,"%":17.9},"65-69":{"n":4969,"pop":5818,"%":85.4},"70-74":{"n":5459,"pop":5705,"%":95.7},"75-79":{"n":3912,"pop":4051,"%":96.6},"80+":{"n":4604,"pop":4801,"%":95.9},"all":{"n":34921,"pop":109611,"%":31.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":17067,"pop":95054,"%":18.0},"70-74":{"n":5418,"pop":5705,"%":95.0},"75-79":{"n":3896,"pop":4051,"%":96.2},"80+":{"n":4589,"pop":4801,"%":95.6},"all":{"n":30970,"pop":109611,"%":28.3}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1218,
 		"cov": 241,

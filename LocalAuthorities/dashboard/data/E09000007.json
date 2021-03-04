@@ -1,6 +1,6 @@
 {
 	"name":"Camden",
-	"population": 271803,
+	"population": 284429,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":28862,"pop":256509,"%":11.3},"65-69":{"n":6003,"pop":8241,"%":72.8},"70-74":{"n":5845,"pop":7360,"%":79.4},"75-79":{"n":4414,"pop":5354,"%":82.4},"80+":{"n":5755,"pop":6965,"%":82.6},"all":{"n":50879,"pop":284429,"%":17.9}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":26291,"pop":264750,"%":9.9},"70-74":{"n":5761,"pop":7360,"%":78.3},"75-79":{"n":4357,"pop":5354,"%":81.4},"80+":{"n":5691,"pop":6965,"%":81.7},"all":{"n":42100,"pop":284429,"%":14.8}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":28862,"pop":256509,"%":11.3},"65-69":{"n":6003,"pop":8241,"%":72.8},"70-74":{"n":5845,"pop":7360,"%":79.4},"75-79":{"n":4414,"pop":5354,"%":82.4},"80+":{"n":5755,"pop":6965,"%":82.6},"all":{"n":50879,"pop":284429,"%":17.9}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":26291,"pop":264750,"%":9.9},"70-74":{"n":5761,"pop":7360,"%":78.3},"75-79":{"n":4357,"pop":5354,"%":81.4},"80+":{"n":5691,"pop":6965,"%":81.7},"all":{"n":42100,"pop":284429,"%":14.8}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1607,
 		"cov": 308,

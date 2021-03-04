@@ -1,6 +1,6 @@
 {
 	"name":"Salford",
-	"population": 260804,
+	"population": 289101,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":41241,"pop":251510,"%":16.4},"65-69":{"n":8360,"pop":10260,"%":81.5},"70-74":{"n":9279,"pop":10391,"%":89.3},"75-79":{"n":6543,"pop":7138,"%":91.7},"80+":{"n":9004,"pop":9802,"%":91.9},"all":{"n":74427,"pop":289101,"%":25.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":36897,"pop":261770,"%":14.1},"70-74":{"n":9194,"pop":10391,"%":88.5},"75-79":{"n":6438,"pop":7138,"%":90.2},"80+":{"n":8882,"pop":9802,"%":90.6},"all":{"n":61411,"pop":289101,"%":21.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":41241,"pop":251510,"%":16.4},"65-69":{"n":8360,"pop":10260,"%":81.5},"70-74":{"n":9279,"pop":10391,"%":89.3},"75-79":{"n":6543,"pop":7138,"%":91.7},"80+":{"n":9004,"pop":9802,"%":91.9},"all":{"n":74427,"pop":289101,"%":25.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":36897,"pop":261770,"%":14.1},"70-74":{"n":9194,"pop":10391,"%":88.5},"75-79":{"n":6438,"pop":7138,"%":90.2},"80+":{"n":8882,"pop":9802,"%":90.6},"all":{"n":61411,"pop":289101,"%":21.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 3032,
 		"cov": 620,

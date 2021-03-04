@@ -1,6 +1,6 @@
 {
 	"name":"Dover",
-	"population": 119640,
+	"population": 119836,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,12 +22,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":18136,"pop":91554,"%":19.8},"65-69":{"n":6477,"pop":7531,"%":86.0},"70-74":{"n":7176,"pop":7737,"%":92.7},"75-79":{"n":5399,"pop":5735,"%":94.1},"80+":{"n":6805,"pop":7279,"%":93.5},"all":{"n":43993,"pop":119836,"%":36.7}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":19569,"pop":99085,"%":19.7},"70-74":{"n":7082,"pop":7737,"%":91.5},"75-79":{"n":5318,"pop":5735,"%":92.7},"80+":{"n":6625,"pop":7279,"%":91.0},"all":{"n":38594,"pop":119836,"%":32.2}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":18136,"pop":91554,"%":19.8},"65-69":{"n":6477,"pop":7531,"%":86.0},"70-74":{"n":7176,"pop":7737,"%":92.7},"75-79":{"n":5399,"pop":5735,"%":94.1},"80+":{"n":6805,"pop":7279,"%":93.5},"all":{"n":43993,"pop":119836,"%":36.7}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19569,"pop":99085,"%":19.7},"70-74":{"n":7082,"pop":7737,"%":91.5},"75-79":{"n":5318,"pop":5735,"%":92.7},"80+":{"n":6625,"pop":7279,"%":91.0},"all":{"n":38594,"pop":119836,"%":32.2}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 1842,
 		"cov": 338,

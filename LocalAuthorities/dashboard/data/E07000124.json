@@ -1,6 +1,6 @@
 {
 	"name":"Ribble Valley",
-	"population": 60954,
+	"population": 63858,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -19,12 +19,12 @@
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 		"updated": "2021-03-04",
 		"totals":[
-			{"txt":"2021-03-04","ages":{"0-64":{"n":6679,"pop":48746,"%":13.7},"65-69":{"n":3504,"pop":3867,"%":90.6},"70-74":{"n":3901,"pop":4110,"%":94.9},"75-79":{"n":2967,"pop":3061,"%":96.9},"80+":{"n":3908,"pop":4074,"%":95.9},"all":{"n":20959,"pop":63858,"%":32.8}}},
-			{"txt":"2021-02-25","ages":{"0-69":{"n":9021,"pop":52613,"%":17.1},"70-74":{"n":3886,"pop":4110,"%":94.5},"75-79":{"n":2962,"pop":3061,"%":96.8},"80+":{"n":3901,"pop":4074,"%":95.8},"all":{"n":19770,"pop":63858,"%":31.0}}}
+			{"date":"2021-03-04","ages":{"0-64":{"n":6679,"pop":48746,"%":13.7},"65-69":{"n":3504,"pop":3867,"%":90.6},"70-74":{"n":3901,"pop":4110,"%":94.9},"75-79":{"n":2967,"pop":3061,"%":96.9},"80+":{"n":3908,"pop":4074,"%":95.9},"all":{"n":20959,"pop":63858,"%":32.8}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":9021,"pop":52613,"%":17.1},"70-74":{"n":3886,"pop":4110,"%":94.5},"75-79":{"n":2962,"pop":3061,"%":96.8},"80+":{"n":3901,"pop":4074,"%":95.8},"all":{"n":19770,"pop":63858,"%":31.0}}}
 		]
 	},
 	"deaths":{
-		"src": "",
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W07",
 		"all": 898,
 		"cov": 154,
