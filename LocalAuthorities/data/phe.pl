@@ -42,7 +42,7 @@ foreach $line (@lines){
 
 
 
-$deathurl = "";
+$deathurl = "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard";
 @las;
 %names;
 open(FILE,$dir."la.csv");
