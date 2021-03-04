@@ -60,6 +60,12 @@ close(FILE);
 %pop = %{JSON::XS->new->utf8->decode(join("\n",@lines))};
 
 
+
+# Get the vaccine data
+%vaccines = processVaccines();
+logIt("Processed vaccines");
+
+
 # Get the names data
 open(FILE,$dir."names.json");
 @lines = <FILE>;
@@ -132,6 +138,7 @@ foreach $line (@lines){
 	}
 	$i++;
 }
+
 
 # Get the death data
 %deaths = processDeaths();
@@ -241,7 +248,7 @@ for($i = 0; $i < @las; $i++){
 		print FILE "\t\t\"updated\": \"$restrictionsdate\",\n";
 		print FILE "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
 		if($restrictions{$la}{'tier'}){
-print "$la - $restrictions{$la}{'tier'}\n";
+#print "$la - $restrictions{$la}{'tier'}\n";
 			print FILE "\t\t\"tier\": \"$restrictions{$la}{'tier'}\",\n";
 		}
 		print FILE "\t\t\"local\": {";
@@ -271,6 +278,38 @@ print "$la - $restrictions{$la}{'tier'}\n";
 			}
 		}
 		print FILE "\n\t\t}\n";
+		print FILE "\t},\n";
+	}
+	if($vaccines{$la}){
+		print FILE "\t\"vaccines\":{\n";
+		print FILE "\t\t\"src\": \"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/\",\n";
+		$vdate = "";
+		foreach $wk (sort(keys(%{$vaccines{$la}}))){
+			if($wk gt $vdate){
+				$vdate = $wk;
+			}
+		}
+		print FILE "\t\t\"updated\": \"$vdate\",\n";
+		print FILE "\t\t\"totals\":[\n";
+		$w = 0;
+		foreach $wk (reverse(sort(keys(%{$vaccines{$la}})))){
+			if($w > 0){ print FILE "\,\n"; }
+			print FILE "\t\t\t{\"txt\":\"$wk\",\"ages\":{";
+			$k = 0;
+			foreach $ky (sort(keys(%{$vaccines{$la}{$wk}}))){
+				if($k > 0){ print FILE "\,"; }
+				$n = ($vaccines{$la}{$wk}{$ky}{'n'}||0);
+				$p = ($vaccines{$la}{$wk}{$ky}{'pop'}||0);
+				$pc = ($vaccines{$la}{$wk}{$ky}{'%'}||0);
+				$n =~ s/\"//g;	# Extra tidy
+				print "\t$n\t$p\t$pc\n";
+				print FILE "\"$ky\":{\"n\":$n,\"pop\":$p,\"%\":$pc}";
+				$k++;
+			}
+			print FILE "}}";
+			$w++;
+		}
+		print FILE "\n\t\t]\n";
 		print FILE "\t},\n";
 	}
 	if($deaths{$la}){
@@ -612,6 +651,98 @@ sub getArea {
 	close(FILE);
 	$jsonblob = JSON::XS->new->utf8->decode(join("\n",@lines));
 	return %{$jsonblob};
+}
+
+sub processVaccines {
+	
+	my ($vdir,%nims,@files,$file,$h,$h2,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
+
+	$vdir = $dir."vaccines/";
+
+	# Get population data from NIMS
+	open(FILE,$vdir."NIMS-LTLA-population.csv");
+	@lines = <FILE>;
+	close(FILE);
+	$i = 0;
+	foreach $line (@lines){
+		if($i == 0){
+			%header = getHeaders($line);
+		}elsif($i > 0){
+			(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+			$latmp = $cols[$header{'LTLA Code'}];
+			if(!$nims{$latmp}){
+				$nims{$latmp} = {};
+				foreach $h (keys(%header)){
+					if($h =~ /[0-9]/){
+						$h2 = $h;
+						if($h2 =~ /Under ([0-9]+)/i){
+							$h2 = "0-".($1-1);
+						}
+						$cols[$header{$h}] =~ s/(^\"|\"$)//g;
+						$cols[$header{$h}] =~ s/[\,\s]//g;
+						$cols[$header{$h}] =~ s/\"//g;
+						$nims{$latmp}{$h2} = $cols[$header{$h}];
+					}
+				}
+				$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'};
+				$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'}+$nims{$latmp}{'65-69'};
+			}
+		}
+		$i++;
+	}
+
+	print "Processing vaccines...\n";
+	# Set default values
+	%vaccines = {};
+	for($i = 0; $i < @las; $i++){
+		$la = $las[$i];
+		if(!$vaccines{$la}){
+			$vaccines{$la} = { };
+		}
+	}
+
+	opendir ( DIR, $vdir ) || die "Error in opening dir ".$dir."vaccines/\n";
+	while(($filename = readdir(DIR))){
+		if($filename =~ /vaccinations-LTLA-([0-9]{4})([0-9]{2})([0-9]{2})/){
+			$wk = "$1-$2-$3";
+			open(FILE,$vdir.$filename);
+			$i = 0;
+			while (my $line = <FILE>){
+				if($i == 0){
+					%header = getHeaders($line);
+				}elsif($i > 0){
+					(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+					$latmp = $cols[$header{'LTLA Code'}];
+					if($latmp && $vaccines{$latmp}){
+						if(!$vaccines{$latmp}{$wk}){
+							$vaccines{$latmp}{$wk} = {'all'=>{}};
+							foreach $h (keys(%header)){
+								if($h =~ /[0-9]/){
+									$h2 = $h;
+									if($h2 =~ /Under ([0-9]+)/i){
+										$h2 = "0-".($1-1);
+									}
+									$cols[$header{$h}] =~ s/(^\"|\"$)//g;
+									$cols[$header{$h}] =~ s/[\,\s]//g;
+									$vaccines{$latmp}{$wk}{$h2} = {'n'=>$cols[$header{$h}],'pop'=>$nims{$latmp}{$h2},'%'=>sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2})};
+									$vaccines{$latmp}{$wk}{'all'}{'n'} += $cols[$header{$h}];
+									$vaccines{$latmp}{$wk}{'all'}{'pop'} += $nims{$latmp}{$h2};
+									$vaccines{$latmp}{$wk}{'all'}{'%'} = sprintf("%0.1f",100*$vaccines{$latmp}{$wk}{'all'}{'n'}/$vaccines{$latmp}{$wk}{'all'}{'pop'});
+								}
+							}
+							
+						}
+					}
+				}
+				$i++;
+			}
+			close(FILE);
+		}
+	}
+	closedir(DIR);
+	print Dumper %vaccines;
+
+	return %vaccines;
 }
 
 

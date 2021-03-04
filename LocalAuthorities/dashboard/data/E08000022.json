@@ -15,6 +15,14 @@
 
 		}
 	},
+	"vaccines":{
+		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
+		"updated": "2021-03-04",
+		"totals":[
+			{"txt":"2021-03-04","ages":{"0-64":{"n":24160,"pop":172519,"%":14.0},"65-69":{"n":10567,"pop":12390,"%":85.3},"70-74":{"n":11233,"pop":11957,"%":93.9},"75-79":{"n":7631,"pop":7956,"%":95.9},"80+":{"n":10952,"pop":11450,"%":95.7},"all":{"n":64543,"pop":216272,"%":29.8}}},
+			{"txt":"2021-02-25","ages":{"0-69":{"n":30322,"pop":184909,"%":16.4},"70-74":{"n":11120,"pop":11957,"%":93.0},"75-79":{"n":7600,"pop":7956,"%":95.5},"80+":{"n":10919,"pop":11450,"%":95.4},"all":{"n":59961,"pop":216272,"%":27.7}}}
+		]
+	},
 	"deaths":{
 		"src": "",
 		"updated": "2021-W07",
@@ -85,7 +93,7 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000022&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-03-03T18:38:24Z",
+		"updated":"2021-03-04T14:56:30Z",
 		"type":"SpecimenDate",
 		"n": 364,
 		"days":[
