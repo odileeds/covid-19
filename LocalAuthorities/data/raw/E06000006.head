@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000006&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 07 Mar 2021 17:38:52 GMT
-Last-Modified: Sun, 07 Mar 2021 15:32:57 GMT
+Expires: Mon, 08 Mar 2021 08:38:56 GMT
+Last-Modified: Sun, 07 Mar 2021 20:03:01 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-xss-protection: 1; mode=block
 X-Frame-Options: deny
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKW_fe02
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+phe-server-loc: UKW_fe01
+x-xss-protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 20800
-X-Azure-Ref-OriginShield: 0Ug9FYAAAAAAAl52pCqyKSaXyVc3JsUW5TE9OMjFFREdFMDExOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0Ug9FYAAAAABqMtX48sanRaO9mwaDnsu4TUFOMzBFREdFMDcxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 07 Mar 2021 17:37:22 GMT
+PHE-API-Cache-Duration: 3772
+X-Azure-Ref-OriginShield: 0RuJFYAAAAAAxfmiYokBRSayMZ0CQKCL+TE9OMjFFREdFMDIxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0RuJFYAAAAADG4oDvHCK0TaqbF84XEGAXTUFOMzBFREdFMDMxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Mon, 08 Mar 2021 08:37:26 GMT
 
