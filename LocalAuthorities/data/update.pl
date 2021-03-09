@@ -59,6 +59,41 @@ $jsonblob = JSON::XS->new->utf8->decode(join("\n",@lines));
 
 
 
+# Get population data from NIMS
+%nims;
+open(FILE,$dir."vaccines/NIMS-LTLA-population.csv");
+@lines = <FILE>;
+close(FILE);
+$i = 0;
+foreach $line (@lines){
+	if($i == 0){
+		%header = getHeaders($line);
+	}elsif($i > 0){
+		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+		$latmp = $cols[$header{'LTLA Code'}];
+		if(!$nims{$latmp}){
+			$nims{$latmp} = {};
+			foreach $h (keys(%header)){
+				if($h =~ /[0-9]/){
+					$h2 = $h;
+					if($h2 =~ /Under ([0-9]+)/i){
+						$h2 = "0-".($1-1);
+					}
+					$cols[$header{$h}] =~ s/(^\"|\"$)//g;
+					$cols[$header{$h}] =~ s/[\,\s]//g;
+					$cols[$header{$h}] =~ s/\"//g;
+					$nims{$latmp}{$h2} = $cols[$header{$h}];
+				}
+			}
+			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'};
+			$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'}+$nims{$latmp}{'65-69'};
+			$nims{$latmp}{'all'} = $nims{$latmp}{'0-69'}+$nims{$latmp}{'70-74'}+$nims{$latmp}{'75-79'}+$nims{$latmp}{'80+'};
+		}
+	}
+	$i++;
+}
+
+
 getCasesPHE();
 
 saveLAJSON();
@@ -184,10 +219,11 @@ foreach $id (sort(keys(%deaths))){
 	if($deaths{$id}{'all-causes'} > 0){
 		$deaths{$id}{'deaths-percent'} = 100*$deaths{$id}{'covid-19'}/$deaths{$id}{'all-causes'};
 	}
-	if($pop{$id}){
+	$p = ($nims{$id}{'all'}||$pop{$id}||0);
+	if($p){
 		# Normalise the numbers to per capita figures
-		$deaths{$id}{'covid-19-percapita'} = int($deaths{$id}{'covid-19'}*1e5/$pop{$id} + 0.5);
-		$deaths{$id}{'all-causes-percapita'} = int($deaths{$id}{'all-causes'}*1e5/$pop{$id} + 0.5);
+		$deaths{$id}{'covid-19-percapita'} = int($deaths{$id}{'covid-19'}*1e5/$p + 0.5);
+		$deaths{$id}{'all-causes-percapita'} = int($deaths{$id}{'all-causes'}*1e5/$p + 0.5);
 	}else{
 		$deaths{$id}{'covid-19-percapita'} = 0;
 		$deaths{$id}{'all-causes-percapita'} = 0;
@@ -311,7 +347,7 @@ for($i = 1; $i < @lines; $i++){
 		#print "No employment figure for $id\n";
 	}else{
 		$jobs{$id}{'pc'} = int($jobs{$id}{'furloughed'}*100/$employment{$id} + 0.5);
-		$jobs{$id}{'pop'} = $pop{$id};
+		$jobs{$id}{'pop'} = ($nims{$id}{'all'}||$pop{$id}||0);
 	}
 
 	# If we have a UTLA with this code we'll populate the associated LAs unless they have been done
@@ -333,7 +369,7 @@ for($i = 1; $i < @lines; $i++){
 					print "No employment for $id - $convla\n";
 				}
 				if($pop{$id}){
-					$jobs{$convla}{'pop'} = $pop{$id};
+					$jobs{$convla}{'pop'} = ($nims{$id}{'all'}||$pop{$id}||0);
 				#}elsif($pop{$convla}){
 					#$jobs{$convla}{'pc'} = int($jobs{$id}{'furloughed'}*100/$pop{$convla} + 0.5);
 					#$jobs{$convla}{'pop'} = $pop{$convla};
@@ -384,7 +420,7 @@ for($i = 1; $i < @lines; $i++){
 	$cols[1] =~ s/(^\"|\"$)//g;
 	$selfemployed{$id} = { 'name'=>$cols[1],'potential'=>$cols[2],'claims'=>$cols[3],'claimsav'=>$cols[3],'value'=>$cols[4],'valueav'=>$cols[4],'average'=>$cols[5],'UTLA'=>'' };
 	if($pop{$id}){
-		$selfemployed{$id}{'pop'} = $pop{$id};
+		$selfemployed{$id}{'pop'} = ($nims{$id}{'all'}||$pop{$id}||0);
 	}
 
 	# If we have a UTLA with this code we'll populate the associated LAs unless they have been done
@@ -689,8 +725,9 @@ sub getCultureRecovery {
 					$culture{$id} = {'total'=>0,'n'=>0,'name'=>$name,'percapita'=>0};
 				}
 				$culture{$id}{'total'} += $cols[$headers{'Award offered'}];
-				if($pop{$id}){
-					$culture{$id}{'percapita'} = sprintf("%0.2f",$culture{$id}{'total'}/$pop{$id});
+				$p = ($nims{$id}{'all'}||$pop{$id}||0);
+				if($p){
+					$culture{$id}{'percapita'} = sprintf("%0.2f",$culture{$id}{'total'}/$p);
 				}else{
 					print "No population for $id in ACE funding\n";
 				}
@@ -740,9 +777,10 @@ sub getFunding {
 		$i++;
 	}
 	foreach $id (keys(%funding)){
-		if($pop{$id}){
-				$funding{$id}{'percapita'} = sprintf("%0.2f",$funding{$id}{'total'}/$pop{$id});
-			$funding{$id}{'individual'} = sprintf("%0.2f",$funding{$id}{'individual'}/$pop{$id});
+		$p = ($nims{$id}{'all'}||$pop{$id}||0);
+		if($p){
+			$funding{$id}{'percapita'} = sprintf("%0.2f",$funding{$id}{'total'}/$p);
+			$funding{$id}{'individual'} = sprintf("%0.2f",$funding{$id}{'individual'}/$p);
 		}else{
 			print "No population for $id in funding\n";
 			$funding{$id}{'individual'} = -1;
@@ -932,9 +970,10 @@ sub saveLAJSON {
 					}
 					$d = getDate($dt,"%Y-%m-%d");
 					$jsonla .= ($LA{$id}{'dates'}{$d}{'total'} ? $LA{$id}{'dates'}{$d}{'total'} : "null");
-					if($pop{$id}){
+					$p = ($nims{$id}{'all'}||$pop{$id}||0);
+					if($p){
 						if($dt == $max){
-							$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
+							$LAlast{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$p + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>$LA{$id}{'dates'}{$d}{'daily'},'update'=>$d};
 						}
 
 						if($dt >= $recent-3 && $dt <= $recent+3){
@@ -965,7 +1004,8 @@ sub saveLAJSON {
 				}else{
 					print "No average value for $id\n";
 				}
-				$LArecent{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$pop{$id} + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>int($av*1e5/$LA{$id}{'population'} + 0.5),'update'=>$d};
+				$p = ($nims{$id}{'all'}||$pop{$id}||0);
+				$LArecent{$id} = {'percapita'=>int($LA{$id}{'dates'}{$d}{'total'}*1e5/$p + 0.5),'cases'=>$LA{$id}{'dates'}{$d}{'total'},'casesUTLA'=>$LA{$id}{'dates'}{$d}{'total'},'daily'=>int($av*1e5/$p + 0.5),'update'=>$d};
 				$jsonla .= $dates."]";
 			}else{
 				print "No recent days for $id\n";
@@ -978,9 +1018,10 @@ sub saveLAJSON {
 		}
 	}
 	for $id (sort(keys(%LAweek))){
-		if($pop{$id}){
-			$LAweek{$id}{'percapita'} = int($LAweek{$id}{'cases'}*1e5/$pop{$id} + 0.5);
-			$LAweek{$id}{'population'} = $pop{$id};
+		$p = ($nims{$id}{'all'}||$pop{$id}||0);
+		if($p){
+			$LAweek{$id}{'percapita'} = int($LAweek{$id}{'cases'}*1e5/$p + 0.5);
+			$LAweek{$id}{'population'} = $p;
 		}
 	}
 	print "Save to $dir/utla.json\n";
