@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use Data::Dumper;
+use DateTime;
 use POSIX qw(strftime);
 use JSON::XS;
 use vars qw($lib);
@@ -29,7 +30,6 @@ $updates{'cases-date'} = "2000-01-01";
 $updates{'deaths-date'} = "2000-01-01";
 $mindate = "3000-01-01";
 $maxdate = "2000-01-01";
-
 
 $hj = ODILeeds::HexJSON->new();
 
@@ -163,61 +163,16 @@ $svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-pe
 
 #########################
 # Read in ONS death data
-%deaths;
-opendir(DIR,"temp/");
-$tempdate = "";
-while(($filename = readdir(DIR))){
-	if($filename =~ /deaths-([0-9]{4}-[0-9]{2}-[0-9]{2}).csv/){
-		if($1 gt $tempdate){
-			$tempdate = $1;
-			$updates{'deaths-date'} = $1;
-			$file = "temp/".$filename;
-		}
-	}
-}
-closedir(DIR);
+%deaths = processDeaths();
 
-
-if(!-e $file){
-	print "Failed to find deaths data file $file\n";
-	exit;
-}
-
-open(FILE,$file);
-$i = 0;
-while (my $line = <FILE>) {
-    chomp $line;
-	if($i == 0){
-		%headers = getHeaders($line);
-	}
-	if($i > 0 && $line =~ /\,/){
-		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
-		$latmp = $cols[$headers{'administrative-geography'}];
-		$wk = $cols[$headers{'Week'}];
-		#v4_1,Data Marking,calendar-years,time,admin-geography,geography,week-number,week,cause-of-death,causeofdeath,place-of-death,placeofdeath,registration-or-occurrence,registrationoroccurrence
-		if(!$deaths{$latmp}){
-			$deaths{$latmp} = { 'all-causes'=>0,'covid-19'=>0,'weeks'=>{} };
-		}
-		if($cols[$headers{'registration-or-occurrence'}] eq "registrations"){
-			if(!$deaths{$latmp}{'weeks'}{$wk}){
-				$deaths{$latmp}{'weeks'}{$wk} = {'covid-19'=>0,'all-causes'=>0};
-			}
-			if($cols[$headers{'cause-of-death'}] eq "all-causes"){
-				$deaths{$latmp}{'all-causes'} += $cols[$headers{'v4_1'}];
-				$deaths{$latmp}{'weeks'}{$wk}{'all-causes'} += $cols[$headers{'v4_1'}];
-			}elsif($cols[$headers{'cause-of-death'}] eq "covid-19"){
-				$deaths{$latmp}{'covid-19'} += $cols[$headers{'v4_1'}];
-				$deaths{$latmp}{'weeks'}{$wk}{'covid-19'} += $cols[$headers{'v4_1'}];
-			}
-		}
-	}
-	$i++;
-}
 $json = "";
 foreach $id (sort(keys(%deaths))){
 	$deaths{$id}{'deaths-percent'} = 0;
 	if($deaths{$id}{'all-causes'} > 0){
 		$deaths{$id}{'deaths-percent'} = 100*$deaths{$id}{'covid-19'}/$deaths{$id}{'all-causes'};
+	}
+	if($deaths{$id}{'date'} gt $updates{'deaths-date'}){
+		$updates{'deaths-date'} = $deaths{$id}{'date'};
 	}
 	$p = ($nims{$id}{'all'}||$pop{$id}||0);
 	if($p){
@@ -233,6 +188,7 @@ foreach $id (sort(keys(%deaths))){
 	if($json){ $json .= ",\n"; }
 	$json .= "\t\"$id\": {\"total\":{\"date\":\"$updates{'deaths-date'}\",\"all\":$deaths{$id}{'all-causes'},\"covid-19\":$deaths{$id}{'covid-19'}},\"week\":{\"text\":\"$wk\",\"all\":$deaths{$id}{'weeks'}{$wk}{'all-causes'},\"covid-19\":$deaths{$id}{'weeks'}{$wk}{'covid-19'}}}";
 }
+$updates{'deaths-date'} = getDateOfONSWeek($updates{'deaths-date'});
 
 open(FILE,">",$dir."death-summary.json");
 print FILE "{\n$json\n}";
@@ -654,6 +610,69 @@ foreach $t (keys(%svg)){
 
 ###################################
 # SUBROUTINES
+
+sub processDeaths {
+	
+	my (@files,$file,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
+
+	print "Processing deaths...\n";
+	# Set default values
+	%deaths = {};
+	for($i = 0; $i < @las; $i++){
+		$la = $las[$i];
+		if(!$deaths{$la}){
+			$deaths{$la} = { 'date'=>'','all-causes'=>0,'covid-19'=>0,'weeks'=>{} };
+		}
+	}
+	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime();
+	$year = $year+1900;
+
+	for($y = 2020; $y <= $year; $y++){
+		$filename = "deaths/deaths-$y-registrations.csv";
+		if(-e $filename && -s $filename > 0){
+			print "\t$filename\n";
+			open(FILE,$filename);
+			$i = 0;
+			$hi = -1;
+			while (my $line = <FILE>){
+				$line =~ s/[\n\r]//g;
+				if($line =~ /^\,+$/){
+					$commas = 1;
+				}else{
+					$commas = 0;
+				}
+				if($hi < 0 && $commas){
+					$hi = $i + 1;
+				}
+				if($hi == $i){
+					%headers = getHeaders($line);
+				}
+				if($i > $hi && !$commas){
+					(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+					$latmp = $cols[$headers{'Area code'}];
+					$wk = $y."-W".sprintf("%02d",$cols[$headers{'Week number'}]);
+					if($wk gt $deaths{$latmp}{'date'}){ $deaths{$latmp}{'date'} = $wk; }
+					if(!$deaths{$latmp}{'weeks'}{$wk}){
+						$deaths{$latmp}{'weeks'}{$wk} = {'covid-19'=>0,'all-causes'=>0};
+					}
+					if($cols[$headers{'Cause of death'}] eq "All causes"){
+						$deaths{$latmp}{'all-causes'} += $cols[$headers{'Number of deaths'}];
+						$deaths{$latmp}{'weeks'}{$wk}{'all-causes'} += $cols[$headers{'Number of deaths'}];
+					}elsif($cols[$headers{'Cause of death'}] eq "COVID 19"){
+						$deaths{$latmp}{'covid-19'} += $cols[$headers{'Number of deaths'}];
+						$deaths{$latmp}{'weeks'}{$wk}{'covid-19'} += $cols[$headers{'Number of deaths'}];
+					}
+					#print "$latmp - $wk - $line\n";
+				}
+				$i++;
+			}
+			close(FILE);
+		}
+		
+	}
+
+	return %deaths;
+}
 
 sub getArea {
 	my ($id,$d,$url,$json,$f);
@@ -1426,4 +1445,28 @@ sub getISOFromString {
 		return "";
 	}
 	return "$y-$m-".sprintf("%02d",$d);
+}
+
+sub getDateOfONSWeek{
+	my $s = $_[0];
+	my @a = split('-W',$s);
+	my ($y,$w,$d,$dow,$dt);
+	$y = int($a[0]);
+	$w = int($a[1]);
+	$d = (1 + ($w - 1) * 7); # 1st of January + 7 days for each week
+
+	$dt = DateTime->from_day_of_year(
+		year        => $y,
+		day_of_year => $d,
+	);
+	# Get day of week
+	$dow = $dt->day_of_week();	# Monday = 1
+	if($dow < 5){
+		$dt->add( days => 5-$dow );
+	}elsif($dow == 5){
+		$dt->add( days => 7);
+	}elsif($dow > 5){
+		$dt->add( days => 7-($dow-5));
+	}
+	return $dt->ymd();
 }
