@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 use Data::Dumper;
-use DateTime;
 use POSIX qw(strftime);
 use JSON::XS;
 use vars qw($lib);
@@ -167,26 +166,30 @@ $svg{'cases-7day-percapita'} = $hj->map(('width'=>'480','scalebar'=>'scalebar-pe
 
 $json = "";
 foreach $id (sort(keys(%deaths))){
-	$deaths{$id}{'deaths-percent'} = 0;
-	if($deaths{$id}{'all-causes'} > 0){
-		$deaths{$id}{'deaths-percent'} = 100*$deaths{$id}{'covid-19'}/$deaths{$id}{'all-causes'};
+	if($deaths{$id}){
+		$deaths{$id}{'deaths-percent'} = 0;
+		if($deaths{$id}{'all-causes'} > 0){
+			$deaths{$id}{'deaths-percent'} = 100*$deaths{$id}{'covid-19'}/$deaths{$id}{'all-causes'};
+		}
+		if($deaths{$id}{'date'}){
+			if($deaths{$id}{'date'} gt $updates{'deaths-date'}){
+				$updates{'deaths-date'} = $deaths{$id}{'date'};
+			}
+		}
+		$p = ($nims{$id}{'all'}||$pop{$id}||0);
+		if($p){
+			# Normalise the numbers to per capita figures
+			$deaths{$id}{'covid-19-percapita'} = int($deaths{$id}{'covid-19'}*1e5/$p + 0.5);
+			$deaths{$id}{'all-causes-percapita'} = int($deaths{$id}{'all-causes'}*1e5/$p + 0.5);
+		}else{
+			$deaths{$id}{'covid-19-percapita'} = 0;
+			$deaths{$id}{'all-causes-percapita'} = 0;
+		}
+		@weeks = reverse(sort(keys(%{$deaths{$id}{'weeks'}})));
+		$wk = $weeks[0];
+		if($json){ $json .= ",\n"; }
+		$json .= "\t\"$id\": {\"total\":{\"date\":\"$updates{'deaths-date'}\",\"all\":$deaths{$id}{'all-causes'},\"covid-19\":$deaths{$id}{'covid-19'}},\"week\":{\"text\":\"$wk\",\"all\":$deaths{$id}{'weeks'}{$wk}{'all-causes'},\"covid-19\":$deaths{$id}{'weeks'}{$wk}{'covid-19'}}}";
 	}
-	if($deaths{$id}{'date'} gt $updates{'deaths-date'}){
-		$updates{'deaths-date'} = $deaths{$id}{'date'};
-	}
-	$p = ($nims{$id}{'all'}||$pop{$id}||0);
-	if($p){
-		# Normalise the numbers to per capita figures
-		$deaths{$id}{'covid-19-percapita'} = int($deaths{$id}{'covid-19'}*1e5/$p + 0.5);
-		$deaths{$id}{'all-causes-percapita'} = int($deaths{$id}{'all-causes'}*1e5/$p + 0.5);
-	}else{
-		$deaths{$id}{'covid-19-percapita'} = 0;
-		$deaths{$id}{'all-causes-percapita'} = 0;
-	}
-	@weeks = reverse(sort(keys(%{$deaths{$id}{'weeks'}})));
-	$wk = $weeks[0];
-	if($json){ $json .= ",\n"; }
-	$json .= "\t\"$id\": {\"total\":{\"date\":\"$updates{'deaths-date'}\",\"all\":$deaths{$id}{'all-causes'},\"covid-19\":$deaths{$id}{'covid-19'}},\"week\":{\"text\":\"$wk\",\"all\":$deaths{$id}{'weeks'}{$wk}{'all-causes'},\"covid-19\":$deaths{$id}{'weeks'}{$wk}{'covid-19'}}}";
 }
 $updates{'deaths-date'} = getDateOfONSWeek($updates{'deaths-date'});
 
@@ -1447,26 +1450,58 @@ sub getISOFromString {
 	return "$y-$m-".sprintf("%02d",$d);
 }
 
+sub isLeapYear {
+	my $y = $_[0];
+	my $isleap = 0;
+	if($y % 4 == 0){ $isleap = 1; }
+	if($y % 100 == 0){ $isleap = 0; }
+	if($y % 400 == 0){ $isleap = 1; }
+	return $isleap;
+}
 sub getDateOfONSWeek{
-	my $s = $_[0];
-	my @a = split('-W',$s);
-	my ($y,$w,$d,$dow,$dt);
+	my (@a,$s,$y,$m,$d,$w,$days,$doy,$dow,@daysinmonth,$i);
+	$s = $_[0];
+	@daysinmonth = (31,28,31,30,31,30,31,31,30,31,30,31);
+	@a = split('-W',$s);
 	$y = int($a[0]);
 	$w = int($a[1]);
-	$d = (1 + ($w - 1) * 7); # 1st of January + 7 days for each week
 
-	$dt = DateTime->from_day_of_year(
-		year        => $y,
-		day_of_year => $d,
-	);
-	# Get day of week
-	$dow = $dt->day_of_week();	# Monday = 1
-	if($dow < 5){
-		$dt->add( days => 5-$dow );
-	}elsif($dow == 5){
-		$dt->add( days => 7);
-	}elsif($dow > 5){
-		$dt->add( days => 7-($dow-5));
+	# 1st January 1970 was a Thursday
+	$dow = 4;
+	
+	# Find day of the 1st of January of current year
+	for($yy = 1970; $yy < $y ; $yy++){
+		$dow += (isLeapYear($yy) ? 366 : 365);
 	}
-	return $dt->ymd();
+
+	$dow %= 7;
+	$doy = (1 + ($w - 1) * 7); # 1st of January + 7 days for each week
+	
+	if($dow < 5){
+		$doy += 5-$dow;
+	}else{
+		$doy += 7-($dow-5);
+	}
+	
+	if(isLeapYear($y)){ $daysinmonth[1] = 29; }
+
+	$m = 0;
+	$d = 0;
+	for($i = 0; $i < @daysinmonth; $i++){
+		if($doy < $daysinmonth[$i]){
+			$d = $doy;
+			$i = 12;
+		}
+		$doy -= $daysinmonth[$i];
+		if($doy >= 0){
+			$m++;
+		}
+	}
+	# If no day set we must be in the next year
+	if($d == 0){
+		$m = 1;
+		$y++;
+		$d = $doy;
+	}
+	return sprintf("%04d",$y)."-".sprintf("%02d",$m)."-".sprintf("%02d",$d);
 }
