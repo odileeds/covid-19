@@ -21,9 +21,9 @@ else{ $dir = "./"; }
 $cs = ODILeeds::ColourScale->new();
 
 # Settings
-$vaccinedate = "20210304";
-$vaccinedatenice = "4th March 2021";
-$vaccineperiod = "8th December 2020 to 28th February 2021";
+$vaccinedate = "20210311";
+$vaccinedatenice = "11th March 2021";
+$vaccineperiod = "8th December 2020 to 7th March 2021";
 
 
 # Process date
@@ -42,7 +42,7 @@ foreach $ccg (keys(%data)){
 	$code = $data{$ccg}{'stp20cd'};
 	if(!$stp{$code}){
 		$stp{$code} = {'name'=>$data{$ccg}{'stp20nm'}};
-		$stp{$code}{'pop'} = {'total'=>0,'Under 80'=>0,'80+'=>0};
+		$stp{$code}{'pop'} = {'total'=>0,'Under 60'=>0,'80+'=>0};
 	}
 	foreach $c (sort(keys(%{$data{$ccg}}))){
 		$age = int($c);
@@ -50,8 +50,11 @@ foreach $ccg (keys(%data)){
 			$stp{$code}{'pop'}{'total'} += $data{$ccg}{$c};
 		}
 		if($c =~ /^[\d\+]+$/){
-			if($age < 65){
-				$stp{$code}{'pop'}{'Under 65'} += $data{$ccg}{$c};
+			if($age < 60){
+				$stp{$code}{'pop'}{'Under 60'} += $data{$ccg}{$c};
+			}
+			if($age >= 60 && $age < 65){
+				$stp{$code}{'pop'}{'60-64'} += $data{$ccg}{$c};
 			}
 			if($age >= 65 && $age < 70){
 				$stp{$code}{'pop'}{'65-69'} += $data{$ccg}{$c};
@@ -73,24 +76,26 @@ foreach $ccg (keys(%data)){
 
 # Save output to file
 open(FILE,">",$dir."vaccines/STP-populations-2019.csv");
-print FILE "stp20cd,stp20nm,All,Under 65,65-69,70-74,75-79,80+\n";
+print FILE "stp20cd,stp20nm,All,Under 60,60-64,65-69,70-74,75-79,80+\n";
 foreach $s (sort(keys(%stp))){
-	print FILE "$s,$stp{$s}{'name'},$stp{$s}{'pop'}{'total'},$stp{$s}{'pop'}{'Under 65'},$stp{$s}{'pop'}{'65-69'},$stp{$s}{'pop'}{'70-74'},$stp{$s}{'pop'}{'75-79'},$stp{$s}{'pop'}{'80+'}\n";
+	print FILE "$s,$stp{$s}{'name'},$stp{$s}{'pop'}{'total'},$stp{$s}{'pop'}{'Under 60'},$stp{$s}{'pop'}{'60-64'},$stp{$s}{'pop'}{'65-69'},$stp{$s}{'pop'}{'70-74'},$stp{$s}{'pop'}{'75-79'},$stp{$s}{'pop'}{'80+'}\n";
 }
 close(FILE);
 
 $idt = "\t\t\t";
 %vaccinations = getCSV($dir."vaccines/vaccinations-$vaccinedate.csv",{'id'=>'stp20nm','map'=>{'ICS/STP of Residence'=>'stp20nm','Cumulative Total Doses to Date'=>'total','Region of Residence'=>'region'}});
-$table = "Area,Name,1st dose,1st dose %,1st dose under 65,1st dose under 65 %,1st dose 80+,1st dose 80+ %,2nd dose under 65,2nd dose under 65 %,2nd dose 80+,2nd dose 80+ %\n";
-$thtml = "$idt<table class=\"table-sort\">\n$idt<thead><tr><th>Area</th><th>Name</th><th>Pop</th><th>1st<br />Total</th><th>1st<br />%</th><th>1st<br />0-65</th><th>1st<br />0-65 %</th><th>1st<br />65-69</th><th>1st<br />65-69 %</th><th>1st<br />70-74</th><th>1st<br />70-74 %</th><th>1st<br />75-79</th><th>1st<br />75-79 %</th><th>1st<br />80+</th><th>1st<br />80+ %</th><th>2nd<br />Total</th><th>2nd<br />%</th><th>2nd<br />0-65</th><th>2nd<br />0-65 %</th><th>2nd<br />65-69</th><th>2nd<br />65-69 %</th><th>2nd<br />70-74</th><th>2nd<br />70-74 %</th><th>2nd<br />75-79</th><th>2nd<br />75-79 %</th><th>2nd<br />80+</th><th>2nd<br />80+ %</th></tr></thead>\n";
+$table = "Area,Name,1st dose,1st dose %,1st dose under 60,1st dose under 60 %,1st dose 80+,1st dose 80+ %,2nd dose Under 60,2nd dose Under 60 %,2nd dose 80+,2nd dose 80+ %\n";
+$thtml = "$idt<table class=\"table-sort\">\n$idt<thead><tr><th>Area</th><th>Name</th><th>Pop</th><th>1st<br />Total</th><th>1st<br />%</th><th>1st<br />0-59</th><th>1st<br />0-59 %</th><th>1st<br />60-64</th><th>1st<br />60-64 %</th><th>1st<br />65-69</th><th>1st<br />65-69 %</th><th>1st<br />70-74</th><th>1st<br />70-74 %</th><th>1st<br />75-79</th><th>1st<br />75-79 %</th><th>1st<br />80+</th><th>1st<br />80+ %</th><th>2nd<br />Total</th><th>2nd<br />%</th><th>2nd<br />0-59</th><th>2nd<br />0-59 %</th><th>2nd<br />60-64</th><th>2nd<br />60-64 %</th><th>2nd<br />65-69</th><th>2nd<br />65-69 %</th><th>2nd<br />70-74</th><th>2nd<br />70-74 %</th><th>2nd<br />75-79</th><th>2nd<br />75-79 %</th><th>2nd<br />80+</th><th>2nd<br />80+ %</th></tr></thead>\n";
 
 foreach $a (sort(keys(%stp))){
 	$nm = $stp{$a}{'name'};
 	$stp{$a}{'vaccine'} = {};
-	$stp{$a}{'vaccine'}{'1st dose'} = $vaccinations{$nm}{'1st dose Under 65'}+$vaccinations{$nm}{'1st dose 65-69'}+$vaccinations{$nm}{'1st dose 70-74'}+$vaccinations{$nm}{'1st dose 75-79'}+$vaccinations{$nm}{'1st dose 80+'};
+	$stp{$a}{'vaccine'}{'1st dose'} = $vaccinations{$nm}{'1st dose Under 60'}+$vaccinations{$nm}{'1st dose 60-64'}+$vaccinations{$nm}{'1st dose 65-69'}+$vaccinations{$nm}{'1st dose 70-74'}+$vaccinations{$nm}{'1st dose 75-79'}+$vaccinations{$nm}{'1st dose 80+'};
 	$stp{$a}{'vaccine'}{'1st dose pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose'}/$stp{$a}{'pop'}{'total'}));
-	$stp{$a}{'vaccine'}{'1st dose Under 65'} = $vaccinations{$nm}{'1st dose Under 65'};
-	$stp{$a}{'vaccine'}{'1st dose Under 65 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose Under 65'}/$stp{$a}{'pop'}{'Under 65'}));
+	$stp{$a}{'vaccine'}{'1st dose Under 60'} = $vaccinations{$nm}{'1st dose Under 60'};
+	$stp{$a}{'vaccine'}{'1st dose Under 60 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose Under 60'}/$stp{$a}{'pop'}{'Under 60'}));
+	$stp{$a}{'vaccine'}{'1st dose 60-64'} = $vaccinations{$nm}{'1st dose 60-64'};
+	$stp{$a}{'vaccine'}{'1st dose 60-64 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose 60-64'}/$stp{$a}{'pop'}{'60-64'}));
 	$stp{$a}{'vaccine'}{'1st dose 65-69'} = $vaccinations{$nm}{'1st dose 65-69'};
 	$stp{$a}{'vaccine'}{'1st dose 65-69 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose 65-69'}/$stp{$a}{'pop'}{'65-69'}));
 	$stp{$a}{'vaccine'}{'1st dose 70-74'} = $vaccinations{$nm}{'1st dose 70-74'};
@@ -100,10 +105,12 @@ foreach $a (sort(keys(%stp))){
 	$stp{$a}{'vaccine'}{'1st dose 80'} = $vaccinations{$nm}{'1st dose 80+'};
 	$stp{$a}{'vaccine'}{'1st dose 80 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose 80'}/$stp{$a}{'pop'}{'80+'}));
 
-	$stp{$a}{'vaccine'}{'2nd dose'} = $vaccinations{$nm}{'2nd dose Under 65'}+$vaccinations{$nm}{'2nd dose 65-69'}+$vaccinations{$nm}{'2nd dose 70-74'}+$vaccinations{$nm}{'2nd dose 75-79'}+$vaccinations{$nm}{'2nd dose 80+'};
+	$stp{$a}{'vaccine'}{'2nd dose'} = $vaccinations{$nm}{'2nd dose Under 60'}+$vaccinations{$nm}{'2nd dose 60-64'}+$vaccinations{$nm}{'2nd dose 65-69'}+$vaccinations{$nm}{'2nd dose 70-74'}+$vaccinations{$nm}{'2nd dose 75-79'}+$vaccinations{$nm}{'2nd dose 80+'};
 	$stp{$a}{'vaccine'}{'2nd dose pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose'}/$stp{$a}{'pop'}{'total'}));
-	$stp{$a}{'vaccine'}{'2nd dose Under 65'} = $vaccinations{$nm}{'2nd dose Under 65'};
-	$stp{$a}{'vaccine'}{'2nd dose Under 65 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose Under 65'}/$stp{$a}{'pop'}{'Under 65'}));
+	$stp{$a}{'vaccine'}{'2nd dose Under 60'} = $vaccinations{$nm}{'2nd dose Under 60'};
+	$stp{$a}{'vaccine'}{'2nd dose Under 60 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose Under 60'}/$stp{$a}{'pop'}{'Under 60'}));
+	$stp{$a}{'vaccine'}{'2nd dose 60-64'} = $vaccinations{$nm}{'2nd dose 60-64'};
+	$stp{$a}{'vaccine'}{'2nd dose 60-64 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose 60-64'}/$stp{$a}{'pop'}{'60-64'}));
 	$stp{$a}{'vaccine'}{'2nd dose 65-69'} = $vaccinations{$nm}{'2nd dose 65-69'};
 	$stp{$a}{'vaccine'}{'2nd dose 65-69 pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose 65-69'}/$stp{$a}{'pop'}{'65-69'}));
 	$stp{$a}{'vaccine'}{'2nd dose 70-74'} = $vaccinations{$nm}{'2nd dose 70-74'};
@@ -117,20 +124,22 @@ foreach $a (sort(keys(%stp))){
 	$table .= "$a,\"$nm\"";
 	$table .= ",".$stp{$a}{'vaccine'}{'1st dose'};
 	$table .= ",".sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose'}/$stp{$a}{'pop'}{'total'}));
-	$table .= ",$stp{$a}{'vaccine'}{'1st dose Under 65'}";
-	$table .= ",$stp{$a}{'vaccine'}{'1st dose Under 65 pc'}";
+	$table .= ",$stp{$a}{'vaccine'}{'1st dose Under 60'}";
+	$table .= ",$stp{$a}{'vaccine'}{'1st dose Under 60 pc'}";
 	$table .= ",$stp{$a}{'vaccine'}{'1st dose 80'}";
 	$table .= ",$stp{$a}{'vaccine'}{'1st dose 80 pc'}";
-	$table .= ",$stp{$a}{'vaccine'}{'2nd dose Under 65'}";
-	$table .= ",$stp{$a}{'vaccine'}{'2nd dose Under 65 pc'}";
+	$table .= ",$stp{$a}{'vaccine'}{'2nd dose Under 60'}";
+	$table .= ",$stp{$a}{'vaccine'}{'2nd dose Under 60 pc'}";
 	$table .= ",$stp{$a}{'vaccine'}{'2nd dose 80'}";
 	$table .= ",$stp{$a}{'vaccine'}{'2nd dose 80 pc'}";
 	$table .= "\n";
 	$thtml .= "$idt<tr><td>$a</td><td>$nm</td><td>$stp{$a}{'pop'}{'total'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose pc'}</td>";
-	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose Under 65'}</td>";
-	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose Under 65 pc'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose Under 60'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose Under 60 pc'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose 60-64'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose 60-64 pc'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose 65-69'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose 65-69 pc'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose 70-74'}</td>";
@@ -141,8 +150,10 @@ foreach $a (sort(keys(%stp))){
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'1st dose 80 pc'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose pc'}</td>";
-	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose Under 65'}</td>";
-	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose Under 65 pc'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose Under 60'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose Under 60 pc'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose 60-64'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose 60-64 pc'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose 65-69'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose 65-69 pc'}</td>";
 	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose 70-74'}</td>";
@@ -171,8 +182,10 @@ $geojson = ODILeeds::GeoJSON->new();
 $geojson->addLayer("stp","vaccines/Sustainability_and_Transformation_Partnerships__April_2020__Boundaries_EN_BUC.geojson",{'key'=>'stp20cd','strokeWidth'=>0.5,'stroke'=>'white','strokeLinecap'=>'round','fill'=>\&getColour,'fillOpacity'=>1,'props'=>\&getProps});
 %ranges;
 @svgs = (
-	{'key'=>'1st dose Under 65','file'=>'vaccine-1st-dose-under-70.svg'},
-	{'key'=>'1st dose Under 65 pc','file'=>'vaccine-1st-dose-under-70-pc.svg'},
+	{'key'=>'1st dose Under 60','file'=>'vaccine-1st-dose-0-59.svg'},
+	{'key'=>'1st dose Under 60 pc','file'=>'vaccine-1st-dose-0-59-pc.svg'},
+	{'key'=>'1st dose 60-64','file'=>'vaccine-1st-dose-60-64.svg'},
+	{'key'=>'1st dose 60-64 pc','file'=>'vaccine-1st-dose-60-64-pc.svg'},
 	{'key'=>'1st dose 65-69','file'=>'vaccine-1st-dose-65-69.svg'},
 	{'key'=>'1st dose 65-69 pc','file'=>'vaccine-1st-dose-65-69-pc.svg'},
 	{'key'=>'1st dose 70-74','file'=>'vaccine-1st-dose-70-74.svg'},
@@ -181,8 +194,10 @@ $geojson->addLayer("stp","vaccines/Sustainability_and_Transformation_Partnership
 	{'key'=>'1st dose 75-79 pc','file'=>'vaccine-1st-dose-75-79-pc.svg'},
 	{'key'=>'1st dose 80','file'=>'vaccine-1st-dose-80.svg'},
 	{'key'=>'1st dose 80 pc','file'=>'vaccine-1st-dose-80-pc.svg'},
-	{'key'=>'2nd dose Under 65','file'=>'vaccine-2nd-dose-under-70.svg'},
-	{'key'=>'2nd dose Under 65 pc','file'=>'vaccine-2nd-dose-under-70-pc.svg'},
+	{'key'=>'2nd dose Under 60','file'=>'vaccine-2nd-dose-0-59.svg'},
+	{'key'=>'2nd dose Under 60 pc','file'=>'vaccine-2nd-dose-0-59-pc.svg'},
+	{'key'=>'2nd dose 60-64','file'=>'vaccine-2nd-dose-60-64.svg'},
+	{'key'=>'2nd dose 60-64 pc','file'=>'vaccine-2nd-dose-60-64-pc.svg'},
 	{'key'=>'2nd dose 65-69','file'=>'vaccine-2nd-dose-65-69.svg'},
 	{'key'=>'2nd dose 65-69 pc','file'=>'vaccine-2nd-dose-65-69-pc.svg'},
 	{'key'=>'2nd dose 70-74','file'=>'vaccine-2nd-dose-70-74.svg'},
@@ -202,6 +217,7 @@ for($s = 0; $s < @svgs; $s++){
 	close(SVG);
 	$str = replaceHTMLFragment($str,$t,"<div class=\"map\">\n\t".$svg."\n\t".getColourScale($ranges{$t})."\n</div><a href=\"resources/$svgs[$s]{'file'}\">Download map (SVG)</a>","\t\t\t\t\t");
 }
+
 
 # Replace the table
 $str = replaceHTMLFragment($str,"table",$thtml);
@@ -228,8 +244,10 @@ foreach $line (@lines){
 		if($stp{$id}{'vaccine'}){
 			# Need to add the data as properties
 			$props = ",\"period\":\"$vaccineperiod\"";
-			$props .= ",\"1st dose 0-64\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose Under 65'});
-			$props .= ",\"1st dose 0-64 %\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose Under 65 pc'});
+			$props .= ",\"1st dose 0-59\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose Under 60'});
+			$props .= ",\"1st dose 0-59 %\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose Under 60 pc'});
+			$props .= ",\"1st dose 60-64\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 60-64'});
+			$props .= ",\"1st dose 60-64 %\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 60-64 pc'});
 			$props .= ",\"1st dose 65-69\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 65-69'});
 			$props .= ",\"1st dose 65-69 %\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 65-69 pc'});
 			$props .= ",\"1st dose 70-74\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 70-74'});
@@ -238,8 +256,10 @@ foreach $line (@lines){
 			$props .= ",\"1st dose 75-79 %\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 75-79 pc'});
 			$props .= ",\"1st dose 80+\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 80'});
 			$props .= ",\"1st dose 80+ %\":".tdyPrp($stp{$id}{'vaccine'}{'1st dose 80 pc'});
-			$props .= ",\"2nd dose 0-64\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose Under 65'});
-			$props .= ",\"2nd dose 0-64 %\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose Under 65 pc'});
+			$props .= ",\"2nd dose 0-59\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose Under 60'});
+			$props .= ",\"2nd dose 0-59 %\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose Under 60 pc'});
+			$props .= ",\"2nd dose 60-64\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose 60-64'});
+			$props .= ",\"2nd dose 60-64 %\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose 60-64 pc'});
 			$props .= ",\"2nd dose 65-69\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose 65-69'});
 			$props .= ",\"2nd dose 65-69 %\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose 65-69 pc'});
 			$props .= ",\"2nd dose 70-74\":".tdyPrp($stp{$id}{'vaccine'}{'2nd dose 70-74'});
@@ -285,16 +305,19 @@ foreach $m (keys(%data)){
 		$msoa{$m} = {'name'=>$data{$m}{'msoa11nm'}};
 		$msoa{$m}{'pop'} = {'total'=>0,'0-64'=>0,'65-69'=>0,'70-74'=>0,'75-79'=>0,'80'=>0};
 	}
-	#Under 16,16-64,65-69,70-74,75-79,80+,16+
+	#Under 16,16-59,60-64,65-69,70-74,75-79,80+,16+
 	foreach $c (sort(keys(%{$data{$m}}))){
 		$age = int($c);
 		$age = 0;
 		if($c eq "Under 16"){
 			$age = 1;
-			$msoa{$m}{'pop'}{'0-64'} += $data{$m}{$c};
-		}elsif($c eq "16-64"){
+			$msoa{$m}{'pop'}{'0-59'} += $data{$m}{$c};
+		}elsif($c eq "16-59"){
 			$age = 1;
-			$msoa{$m}{'pop'}{'0-64'} += $data{$m}{$c};
+			$msoa{$m}{'pop'}{'0-59'} += $data{$m}{$c};
+		}elsif($c eq "60-64"){
+			$age = 1;
+			$msoa{$m}{'pop'}{'60-64'} += $data{$m}{$c};
 		}elsif($c eq "65-69"){
 			$age = 1;
 			$msoa{$m}{'pop'}{'65-69'} += $data{$m}{$c};
@@ -323,10 +346,12 @@ foreach $m (sort(keys(%msoa))){
 			$msoa{$m}{'name'} = $vaccinemsoa{$m}{'msoa11nm'};
 		}
 		$msoa{$m}{'vaccine'} = {};
-		$msoa{$m}{'vaccine'}{'all'} = $vaccinemsoa{$m}{'Under 65'}+$vaccinemsoa{$m}{'65-69'}+$vaccinemsoa{$m}{'70-74'}+$vaccinemsoa{$m}{'75-79'}+$vaccinemsoa{$nm}{'80+'};
+		$msoa{$m}{'vaccine'}{'all'} = $vaccinemsoa{$m}{'Under 60'}+$vaccinemsoa{$m}{'60-64'}+$vaccinemsoa{$m}{'65-69'}+$vaccinemsoa{$m}{'70-74'}+$vaccinemsoa{$m}{'75-79'}+$vaccinemsoa{$nm}{'80+'};
 		$msoa{$m}{'vaccine'}{'all pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{'all'}/$msoa{$m}{'pop'}{'total'}));
-		$msoa{$m}{'vaccine'}{'0-64'} = $vaccinemsoa{$m}{'Under 65'}+0;
-		$msoa{$m}{'vaccine'}{'0-64 pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{'0-64'}/$msoa{$m}{'pop'}{'0-64'}));
+		$msoa{$m}{'vaccine'}{'0-59'} = $vaccinemsoa{$m}{'Under 60'}+0;
+		$msoa{$m}{'vaccine'}{'0-59 pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{'0-59'}/$msoa{$m}{'pop'}{'0-59'}));
+		$msoa{$m}{'vaccine'}{'60-64'} = $vaccinemsoa{$m}{'60-64'}+0;
+		$msoa{$m}{'vaccine'}{'60-64 pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{'60-64'}/$msoa{$m}{'pop'}{'60-64'}));
 		$msoa{$m}{'vaccine'}{'65-69'} = $vaccinemsoa{$m}{'65-69'}+0;
 		$msoa{$m}{'vaccine'}{'65-69 pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{'65-69'}/$msoa{$m}{'pop'}{'65-69'}));
 		$msoa{$m}{'vaccine'}{'70-74'} = $vaccinemsoa{$m}{'70-74'}+0;
@@ -345,8 +370,10 @@ $geojson = ODILeeds::GeoJSON->new();
 $geojson->addLayer("stp","vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'fill'=>\&getMSOAColour,'props'=>\&getProps});
 %ranges;
 @svgs = (
-	{'key'=>'0-64','file'=>'vaccine-msoa-0-64.svg'},
-	{'key'=>'0-64 pc','file'=>'vaccine-msoa-0-64-pc.svg'},
+	{'key'=>'0-59','file'=>'vaccine-msoa-0-59.svg'},
+	{'key'=>'0-59 pc','file'=>'vaccine-msoa-0-59-pc.svg'},
+	{'key'=>'60-64','file'=>'vaccine-msoa-60-64.svg'},
+	{'key'=>'60-64 pc','file'=>'vaccine-msoa-60-64-pc.svg'},
 	{'key'=>'65-69','file'=>'vaccine-msoa-65-69.svg'},
 	{'key'=>'65-69 pc','file'=>'vaccine-msoa-65-69-pc.svg'},
 	{'key'=>'70-74','file'=>'vaccine-msoa-70-74.svg'},
@@ -381,7 +408,7 @@ foreach $line (@lines){
 		$id = $1;
 		if($msoa{$id}{'vaccine'}){
 			# Need to add the data as properties
-			$line =~ s/(\},"geometry")/,\"MSOA11NM\":\"$msoa{$id}{'name'}\",\"period\":\"$vaccineperiod\",\"0-64\":$msoa{$id}{'vaccine'}{'0-64'},\"0-64 %\":$msoa{$id}{'vaccine'}{'0-64 pc'},\"65-69\":$msoa{$id}{'vaccine'}{'65-69'},\"65-69 %\":$msoa{$id}{'vaccine'}{'65-69 pc'},\"70-74\":$msoa{$id}{'vaccine'}{'70-74'},\"70-74 %\":$msoa{$id}{'vaccine'}{'70-74 pc'},\"75-79\":$msoa{$id}{'vaccine'}{'75-79'},\"75-79 %\":$msoa{$id}{'vaccine'}{'75-79 pc'},\"80+\":$msoa{$id}{'vaccine'}{'80'},\"80+ %\":$msoa{$id}{'vaccine'}{'80 pc'}$1/;
+			$line =~ s/(\},"geometry")/,\"MSOA11NM\":\"$msoa{$id}{'name'}\",\"period\":\"$vaccineperiod\",\"0-59\":$msoa{$id}{'vaccine'}{'0-59'},\"0-59 %\":$msoa{$id}{'vaccine'}{'0-59 pc'},\"60-64\":$msoa{$id}{'vaccine'}{'60-64'},\"60-64 %\":$msoa{$id}{'vaccine'}{'60-64 pc'},\"65-69\":$msoa{$id}{'vaccine'}{'65-69'},\"65-69 %\":$msoa{$id}{'vaccine'}{'65-69 pc'},\"70-74\":$msoa{$id}{'vaccine'}{'70-74'},\"70-74 %\":$msoa{$id}{'vaccine'}{'70-74 pc'},\"75-79\":$msoa{$id}{'vaccine'}{'75-79'},\"75-79 %\":$msoa{$id}{'vaccine'}{'75-79 pc'},\"80+\":$msoa{$id}{'vaccine'}{'80'},\"80+ %\":$msoa{$id}{'vaccine'}{'80 pc'}$1/;
 			$str .= $line;
 		}else{
 			
