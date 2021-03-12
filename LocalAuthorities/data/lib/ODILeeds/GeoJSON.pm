@@ -1,9 +1,10 @@
 package ODILeeds::GeoJSON;
 
+# Version 1.1
+
 use strict;
 use warnings;
 use Data::Dumper;
-use ODILeeds::DateTime;
 use List::Util qw[min max];
 use JSON::XS;
 use Math::Trig;
@@ -112,7 +113,7 @@ sub getBounds {
 
 sub drawSVG {
 	my ($self, $props) = @_;
-	my($w,$h,%b,$ratio,$i,$j,$k,$p,@order,$dlat,$dlon,$mlat,$corr,$slat,$slon,$l,%layer,$n,$nc,$f,%feature,@c,$svg,$path,$lat,$lon,$pad,$idt,$fillcolour,$prec,$min,$max,%rtn);
+	my($w,$h,%b,$ratio,$i,$j,$k,$p,$psafe,@order,$dlat,$dlon,$mlat,$corr,$slat,$slon,$l,%layer,$n,$nc,$f,%feature,@c,$svg,$path,$lat,$lon,$pad,$idt,$fillcolour,$prec,$min,$max,%rtn,$style,$sty);
 
 	$w = $self->{'width'};
 	if($props->{'bounds'}){
@@ -139,11 +140,23 @@ sub drawSVG {
 
 	@order = @{$self->{'layerorder'}};
 	$svg = "";
+	$style = "";
 
 	for($l = 0; $l < @order; $l++){
 		
 		%layer = %{$self->{'layers'}{$order[$l]}};
 		$prec = "%0.".($layer{'options'}{'precision'}||0)."f";
+
+		$svg .= "\t<g id=\"layer-$l\">\n";
+
+		$style .= "\t#layer-$l path {";
+		$sty = "";
+		if($layer{'options'}{'stroke'}){ $sty .= "stroke:$layer{'options'}{'stroke'};"; }
+		if($layer{'options'}{'strokeWidth'}){ $sty .= "stroke-width: $layer{'options'}{'strokeWidth'};"; }
+		if($layer{'options'}{'strokeLinecap'}){ $sty .= "stroke-linecap:$layer{'options'}{'strokeLinecap'};"; }
+		if($layer{'options'}{'fillOpacity'}){ $sty .= "fill-opacity:$layer{'options'}{'fillOpacity'};"; }
+		if($layer{'options'}{'shape-rendering'}){ $sty .= "shape-rendering:$layer{'options'}{'shape-rendering'};"; }
+		$style .= $sty."}\n";
 
 		if(!$layer{'data'}){
 			print "ERROR: No data for layer $order[$l]\n";
@@ -197,7 +210,7 @@ sub drawSVG {
 				$fillcolour = "";
 				if($layer{'options'}{'fill'}){
 					if(defined($layer{'options'}{'fill'})){
-						%rtn = $layer{'options'}{'fill'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'},$min,$max);
+						%rtn = $layer{'options'}{'fill'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'},($props->{'data'}||""),$min,$max);
 						if($rtn{'fill'}){ $fillcolour = $rtn{'fill'}; }
 						$min = ($rtn{'min'}||"");
 						$max = ($rtn{'max'}||"");
@@ -207,26 +220,27 @@ sub drawSVG {
 				}
 				if($path && $fillcolour ne ""){
 					$svg .= "$idt<path d=\"$path\"";
-					if($layer{'options'}{'stroke'}){ $svg .= " stroke=\"$layer{'options'}{'stroke'}\""; }
-					if($layer{'options'}{'strokeWidth'}){ $svg .= " stroke-width=\"$layer{'options'}{'strokeWidth'}\""; }
-					if($layer{'options'}{'strokeLinecap'}){ $svg .= " stroke-linecap=\"$layer{'options'}{'strokeLinecap'}\""; }
+					#if($layer{'options'}{'stroke'}){ $svg .= " stroke=\"$layer{'options'}{'stroke'}\""; }
+					#if($layer{'options'}{'strokeWidth'}){ $svg .= " stroke-width=\"$layer{'options'}{'strokeWidth'}\""; }
+					#if($layer{'options'}{'strokeLinecap'}){ $svg .= " stroke-linecap=\"$layer{'options'}{'strokeLinecap'}\""; }
 					$svg .= " fill=\"$fillcolour\"";
-					if($layer{'options'}{'fillOpacity'}){ $svg .= " fill-opacity=\"$layer{'options'}{'fillOpacity'}\""; }
-					foreach $p (sort(keys(%{$layer{'data'}{'features'}[$f]{'properties'}}))){
-						$svg .= " data-$p=\"$layer{'data'}{'features'}[$f]{'properties'}{$p}\"";
-					}
+					#if($layer{'options'}{'fillOpacity'}){ $svg .= " fill-opacity=\"$layer{'options'}{'fillOpacity'}\""; }
 					if(defined($layer{'options'}{'props'})){
-						$svg .= $layer{'options'}{'props'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'})
+						$svg .= $layer{'options'}{'props'}->($layer{'data'}{'features'}[$f]{'properties'}{$layer{'options'}{'key'}||'id'},($props->{'data'}||""))
+					}else{
+						foreach $p (sort(keys(%{$layer{'data'}{'features'}[$f]{'properties'}}))){
+							$psafe = $p;
+							$psafe =~ s/[^A-Za-z0-9]/-/g; 
+							$svg .= " data-$psafe=\"$layer{'data'}{'features'}[$f]{'properties'}{$p}\"";
+						}
 					}
 					$svg .= "></path>\n";
 				}
-#				map.ctx.fillStyle = hex2rgba(this.options.color,this.options.fillOpacity);
-#				map.ctx.strokeStyle = hex2rgba(this.options.color,this.options.opacity);
-#				map.ctx.lineWidth = this.options.weight;
 			}
 		}
+		$svg .= "\t</g>\n";
 	}
-	$svg = "<svg width=\"$w\" height=\"$h\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\"".($props->{'data'} ? " data=\"".$props->{'data'}."\"" : "").">\n$svg\t</svg>";
+	$svg = "<svg width=\"$w\" height=\"$h\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\"".($props->{'data'} ? " data=\"".$props->{'data'}."\"" : "").">\n\t<style>\n$style\t</style>\n$svg\t</svg>";
 	return $svg;
 }
 

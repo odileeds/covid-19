@@ -179,7 +179,7 @@ $str =~ s/\n\n/=NEWLINE=/g;
 
 
 $geojson = ODILeeds::GeoJSON->new();
-$geojson->addLayer("stp","vaccines/Sustainability_and_Transformation_Partnerships__April_2020__Boundaries_EN_BUC.geojson",{'key'=>'stp20cd','strokeWidth'=>0.5,'stroke'=>'white','strokeLinecap'=>'round','fill'=>\&getColour,'fillOpacity'=>1,'props'=>\&getProps});
+$geojson->addLayer("stp","vaccines/Sustainability_and_Transformation_Partnerships__April_2020__Boundaries_EN_BUC.geojson",{'key'=>'stp20cd','shape-rendering'=>'crispedges','fill'=>\&getColour,'fillOpacity'=>1,'props'=>\&getProps});
 %ranges;
 @svgs = (
 	{'key'=>'1st dose Under 60','file'=>'vaccine-1st-dose-0-59.svg'},
@@ -367,7 +367,7 @@ foreach $m (sort(keys(%msoa))){
 }
 
 $geojson = ODILeeds::GeoJSON->new();
-$geojson->addLayer("stp","vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'fill'=>\&getMSOAColour,'props'=>\&getProps});
+$geojson->addLayer("stp","vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'shape-rendering'=>'crispedges','fill'=>\&getMSOAColour,'props'=>\&getProps});
 %ranges;
 @svgs = (
 	{'key'=>'0-59','file'=>'vaccine-msoa-0-59.svg'},
@@ -484,39 +484,40 @@ sub replaceHTMLFragment {
 }
 # Get a colour given an ID
 sub getColour {
-	my ($id,$min,$max,$a);
+	my ($id,$ky,$min,$max,$a);
 	$id = $_[0];
-	$min = $_[1];
-	$max = $_[2];
-
+	$ky = $_[1];
+	$min = $_[2];
+	$max = $_[3];
 
 	if($min eq "" && $max eq ""){
 		# Work out the range of values
 		$min = 1e100;
 		$max = -1e100;
 		foreach $a (sort(keys(%stp))){
-			if($stp{$a}{'vaccine'}{$t} < $min){ $min = $stp{$a}{'vaccine'}{$t}; }
-			if($stp{$a}{'vaccine'}{$t} > $max){ $max = $stp{$a}{'vaccine'}{$t}; }
+			if($stp{$a}{'vaccine'}{$ky} < $min){ $min = $stp{$a}{'vaccine'}{$ky}; }
+			if($stp{$a}{'vaccine'}{$ky} > $max){ $max = $stp{$a}{'vaccine'}{$ky}; }
 		}
-		if($t =~ / pc$/){
+		if($ky =~ / pc$/){
 			$min = 0;
 			$max = 100;
 		}else{
 			$min = 0;
 		}
-		$ranges{$t} = {'min'=>$min+0,'max'=>$max};
-		if($t =~ / pc$/){
-			$ranges{$t}{'units'} = "%";
+		$ranges{$ky} = {'min'=>$min+0,'max'=>$max};
+		if($ky =~ / pc$/){
+			$ranges{$ky}{'units'} = "%";
 		}
 	}
-	return ('fill'=>$cs->getColourFromScale('Viridis',$stp{$id}{'vaccine'}{$t},$min,$max),'min'=>$min,'max'=>$max);
+	return ('fill'=>$cs->getColourFromScale('Viridis',$stp{$id}{'vaccine'}{$ky},$min,$max),'min'=>$min,'max'=>$max);
 }
 # Get a colour given an ID
 sub getMSOAColour {
-	my ($id,$min,$max,$a);
+	my ($id,$ky,$min,$max,$a);
 	$id = $_[0];
-	$min = $_[1];
-	$max = $_[2];
+	$ky = $_[1];
+	$min = $_[2];
+	$max = $_[3];
 
 	if(!$msoa{$id}{'vaccine'}){ return ('fill'=>'','min'=>'','max'=>''); }
 
@@ -526,18 +527,18 @@ sub getMSOAColour {
 		$max = -1e100;
 		foreach $a (sort(keys(%msoa))){
 			if($msoa{$a}{'vaccine'}){
-				if($msoa{$a}{'vaccine'}{$t} > $max){ $max = $msoa{$a}{'vaccine'}{$t}; }
+				if($msoa{$a}{'vaccine'}{$ky} > $max){ $max = $msoa{$a}{'vaccine'}{$ky}; }
 			}
 		}
-		if($t =~ / pc$/){
+		if($ky =~ / pc$/){
 			$max = 100;
 		}
-		$ranges{$t} = {'min'=>$min+0,'max'=>$max};
-		if($t =~ / pc$/){
-			$ranges{$t}{'units'} = "%";
+		$ranges{$ky} = {'min'=>$min+0,'max'=>$max};
+		if($ky =~ / pc$/){
+			$ranges{$ky}{'units'} = "%";
 		}
 	}
-	return ('fill'=>$cs->getColourFromScale('Viridis',$msoa{$id}{'vaccine'}{$t},$min,$max),'min'=>$min,'max'=>$max);
+	return ('fill'=>$cs->getColourFromScale('Viridis',$msoa{$id}{'vaccine'}{$ky},$min,$max),'min'=>$min,'max'=>$max);
 }
 
 sub getProps {
