@@ -522,7 +522,22 @@ ready(function(){
 			],
 			'vaccines-under65': [
 				{'tagname':'h3','key':'title','html':'Vaccines (under 65)'},
-				{'tagname':'div','key':'number','html':function(la){ if(!this.data.vaccines.totals){ return ""; } return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['0-64']['%'])+'%' : '?'); },'fit':true},
+				{'tagname':'div','key':'number','html':function(la){
+					if(!this.data.vaccines.totals){ return ""; }
+					var t = 0;
+					var p = 0;
+					if(this.data.vaccines.totals){
+						if(this.data.vaccines.totals[0].ages['0-59']){
+							t += this.data.vaccines.totals[0].ages['0-59'].n;
+							p += this.data.vaccines.totals[0].ages['0-59'].pop;
+						}
+						if(this.data.vaccines.totals[0].ages['60-64']){
+							t += this.data.vaccines.totals[0].ages['60-64'].n;
+							p += this.data.vaccines.totals[0].ages['60-64'].pop;
+						}
+					}
+					return (this.data.vaccines.totals ? Math.round(100*t/p)+'%' : '?');
+				},'fit':true},
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.vaccines.totals){ return ""; } var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4); return 'Up to '+d.toISOString().substr(0,10); }}
 			],
 			'vaccines-all': [
