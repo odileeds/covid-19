@@ -87,14 +87,14 @@ foreach $line (@lines){
 					$nims{$latmp}{$h2} = $cols[$header{$h}];
 				}
 			}
-			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'};
-			$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-64'}+$nims{$latmp}{'65-69'};
+			$nims{$latmp}{'0-59'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-59'};
+			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-59'}+$nims{$latmp}{'60-64'};
+			$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-64'}+$nims{$latmp}{'65-69'};
 			$nims{$latmp}{'all'} = $nims{$latmp}{'0-69'}+$nims{$latmp}{'70-74'}+$nims{$latmp}{'75-79'}+$nims{$latmp}{'80+'};
 		}
 	}
 	$i++;
 }
-
 
 
 # Get the vaccine data

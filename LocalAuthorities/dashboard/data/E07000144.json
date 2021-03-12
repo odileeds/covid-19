@@ -1,6 +1,6 @@
 {
 	"name":"Broadland",
-	"population": 134878,
+	"population": 134918,
 	"restrictions":{
 		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
 		"updated": "2020-12-21T16:10:42Z",
@@ -22,10 +22,11 @@
 	},
 	"vaccines":{
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "2021-03-04",
+		"updated": "2021-03-11",
 		"totals":[
-			{"date":"2021-03-04","ages":{"0-64":{"n":19023,"pop":100338,"%":19.0},"65-69":{"n":6941,"pop":8281,"%":83.8},"70-74":{"n":8935,"pop":9328,"%":95.8},"75-79":{"n":6743,"pop":6977,"%":96.6},"80+":{"n":9577,"pop":9954,"%":96.2},"all":{"n":51219,"pop":134878,"%":38.0}}},
-			{"date":"2021-02-25","ages":{"0-69":{"n":19177,"pop":108619,"%":17.7},"70-74":{"n":8844,"pop":9328,"%":94.8},"75-79":{"n":6719,"pop":6977,"%":96.3},"80+":{"n":9552,"pop":9954,"%":96.0},"all":{"n":44292,"pop":134878,"%":32.8}}}
+			{"date":"2021-03-11","ages":{"0-59":{"n":17324,"pop":91475,"%":18.9},"60-64":{"n":5539,"pop":8981,"%":61.7},"65-69":{"n":7488,"pop":8281,"%":90.4},"70-74":{"n":8973,"pop":9319,"%":96.3},"75-79":{"n":6767,"pop":6969,"%":97.1},"80+":{"n":9595,"pop":9893,"%":97.0},"all":{"n":55686,"pop":134918,"%":41.3}}},
+			{"date":"2021-03-04","ages":{"0-64":{"n":19023,"pop":100456,"%":18.9},"65-69":{"n":6941,"pop":8281,"%":83.8},"70-74":{"n":8935,"pop":9319,"%":95.9},"75-79":{"n":6743,"pop":6969,"%":96.8},"80+":{"n":9577,"pop":9893,"%":96.8},"all":{"n":51219,"pop":134918,"%":38.0}}},
+			{"date":"2021-02-25","ages":{"0-69":{"n":19177,"pop":108737,"%":17.6},"70-74":{"n":8844,"pop":9319,"%":94.9},"75-79":{"n":6719,"pop":6969,"%":96.4},"80+":{"n":9552,"pop":9893,"%":96.6},"all":{"n":44292,"pop":134918,"%":32.8}}}
 		]
 	},
 	"deaths":{
@@ -99,13 +100,15 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000144&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-03-10T14:57:09Z",
+		"updated":"2021-03-12T15:32:41Z",
 		"type":"SpecimenDate",
-		"n": 362,
+		"n": 364,
 		"days":[
-			{"date":"2021-03-09","day":0,"tot":5826},
-			{"date":"2021-03-08","day":13,"tot":5826},
-			{"date":"2021-03-07","day":5,"tot":5813},
+			{"date":"2021-03-11","day":2,"tot":5839},
+			{"date":"2021-03-10","day":5,"tot":5837},
+			{"date":"2021-03-09","day":4,"tot":5832},
+			{"date":"2021-03-08","day":14,"tot":5828},
+			{"date":"2021-03-07","day":6,"tot":5814},
 			{"date":"2021-03-06","day":1,"tot":5808},
 			{"date":"2021-03-05","day":4,"tot":5807},
 			{"date":"2021-03-04","day":3,"tot":5803},
