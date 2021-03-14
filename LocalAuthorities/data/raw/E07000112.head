@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000112&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 13 Mar 2021 17:43:55 GMT
+Expires: Sun, 14 Mar 2021 08:43:42 GMT
 Last-Modified: Sat, 13 Mar 2021 15:02:14 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-xss-protection: 1; mode=block
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Content-Type-Options: nosniff
-phe-server-loc: UKW_fe02
-x-phe-media-type: PHE-COVID19.v1
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
 X-Frame-Options: deny
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+phe-server-loc: UKS_fe02
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
+x-phe-media-type: PHE-COVID19.v1
+x-xss-protection: 1; mode=block
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 6319
-X-Azure-Ref-OriginShield: 0gflMYAAAAABLfKCNm5YLTpZVR86yveNaTE9OMjFFREdFMTUxNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0gflMYAAAAAD1qPi16E9ITY4D5JK5xGEsTUFOMzBFREdFMDcxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 13 Mar 2021 17:42:24 GMT
+PHE-API-Cache-Duration: 9333
+X-Azure-Ref-OriginShield: 0ZMxNYAAAAABh6UtwU+tlTYKfCCMD4yfaTE9OMjFFREdFMTUxNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0ZMxNYAAAAAAD/CBXnWOVToDBNOwENwF6TUFOMzBFREdFMDMxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 14 Mar 2021 08:42:12 GMT
 
