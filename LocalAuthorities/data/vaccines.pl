@@ -367,7 +367,7 @@ foreach $m (sort(keys(%msoa))){
 }
 
 $geojson = ODILeeds::GeoJSON->new();
-$geojson->addLayer("stp","vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'shape-rendering'=>'crispedges','fill'=>\&getMSOAColour,'props'=>\&getProps});
+$geojson->addLayer("stp","vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'shape-rendering'=>'crispedges','fill'=>\&getMSOAColour,'props'=>\&getPropsMSOA});
 %ranges;
 @svgs = (
 	{'key'=>'0-59','file'=>'vaccine-msoa-0-59.svg'},
@@ -551,6 +551,22 @@ sub getProps {
 		$p2 =~ s/[^a-zA-Z0-9\-]//;
 		$str .= " data-$p2=\"$stp{$id}{'vaccine'}{$p}\"";
 	}
+	$str .= " data-stp20nm=\"$stp{$id}{'name'}\"";
+	return $str;	
+}
+
+
+sub getPropsMSOA {
+	my $id = $_[0];
+	my $str = "";
+	my ($p,$p2);
+	foreach $p (sort(keys(%{$stp{$id}{'vaccine'}}))){
+		$p2 = $p;
+		$p2 =~ s/ /-/g;
+		$p2 =~ s/[^a-zA-Z0-9\-]//;
+		$str .= " data-$p2=\"$msoa{$id}{'vaccine'}{$p}\"";
+	}
+	$str .= " data-msoanm=\"$msoa{$id}{'name'}\"";
 	return $str;	
 }
 
