@@ -77,7 +77,9 @@ sub draw {
 	$svg .= "\t.data-series:hover path.line, .data-series.on path.line { cursor:pointer; }\n";
 	$svg .= "\t.data-series path.line.dotted { stroke-dasharray: 12 20 }\n";
 	for($s = 0; $s < $n; $s++){
-		$svg .= "\t.data-series-$s:hover path.line, .data-series-$s.on path.line { stroke-width: ".($self->{'series'}[$s]{'stroke-width-hover'}||1)."; }\n";
+		$id = ($self->{'series'}[$s]{'id'});
+		print "$id\n";
+		$svg .= "\t#$id:hover path.line, \#$id.on path.line { stroke-width: ".($self->{'series'}[$s]{'stroke-width-hover'}||1)."; }\n";
 		$svg .= "\t.data-series-$s:hover circle, .data-series-$s.on circle { display: ".($self->{'series'}[$s]{'point'} > 0 ? "inline":"none")."; cursor:pointer; }\n";
 	}
 	if($props->{'key'}){

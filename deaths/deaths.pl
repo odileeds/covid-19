@@ -263,20 +263,17 @@ close(FILE);
 
 
 
-
-print Dumper $out{'total2021-under80'};
-
 # Make graph of all deaths by age
 $file = "deaths-under80-total.svg";
 $graph = ODILeeds::Graph->new();
 $graph->addSeries({
 	'title'=>'Av deaths 2015-19 (<80)',
-	'id'=>'baseline',
+	'id'=>'baseline-under80',
 	'key'=>1,
 	'data'=>\@{$out{'average-under80'}},
 	'colour'=>$colours{'baseline'},
 	'stroke-width'=>3,
-	'stroke-width-hunder'=>5,
+	'stroke-width-hover'=>5,
 	'point'=>5,
 	'line'=>1
 });
@@ -287,7 +284,7 @@ $graph->addSeries({
 	'data'=>\@{$out{'total2020-under80'}},
 	'colour'=>$colours{'2020'},
 	'stroke-width'=>3,
-	'stroke-width-hunder'=>5,
+	'stroke-width-hover'=>5,
 	'point'=>5,
 	'line'=>1
 });
@@ -298,7 +295,7 @@ $graph->addSeries({
 	'data'=>\@{$out{'total2021-under80'}},
 	'colour'=>$colours{'2021'},
 	'stroke-width'=>3,
-	'stroke-width-hunder'=>5,
+	'stroke-width-hover'=>5,
 	'point'=>5,
 	'line'=>1
 });
@@ -321,7 +318,7 @@ $graph->addSeries({
 	'data'=>\@{$out{'covid2020-under80'}},
 	'colour'=>$colours{'2020'},
 	'stroke-width'=>3,
-	'stroke-width-hunder'=>5,
+	'stroke-width-hover'=>5,
 	'point'=>5,
 	'line'=>1
 });
@@ -332,7 +329,7 @@ $graph->addSeries({
 	'data'=>\@{$out{'covid2021-under80'}},
 	'colour'=>$colours{'2021'},
 	'stroke-width'=>3,
-	'stroke-width-hunder'=>5,
+	'stroke-width-hover'=>5,
 	'point'=>5,
 	'line'=>1
 });

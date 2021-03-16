@@ -4,11 +4,11 @@
 	.data-series path.line { fill-opacity: 0; stroke: black; }
 	.data-series:hover path.line, .data-series.on path.line { cursor:pointer; }
 	.data-series path.line.dotted { stroke-dasharray: 12 20 }
-	.data-series-0:hover path.line, .data-series-0.on path.line { stroke-width: 1; }
+	#baseline-under80:hover path.line, #baseline-under80.on path.line { stroke-width: 5; }
 	.data-series-0:hover circle, .data-series-0.on circle { display: inline; cursor:pointer; }
-	.data-series-1:hover path.line, .data-series-1.on path.line { stroke-width: 1; }
+	#all-deaths-2020-under80:hover path.line, #all-deaths-2020-under80.on path.line { stroke-width: 5; }
 	.data-series-1:hover circle, .data-series-1.on circle { display: inline; cursor:pointer; }
-	.data-series-2:hover path.line, .data-series-2.on path.line { stroke-width: 1; }
+	#all-deaths-2021-under80:hover path.line, #all-deaths-2021-under80.on path.line { stroke-width: 5; }
 	.data-series-2:hover circle, .data-series-2.on circle { display: inline; cursor:pointer; }
 	.key rect { fill:transparent;stroke-width:1;stroke:black; }
 	.key text { text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif; }
@@ -32,7 +32,7 @@
 	<text x="50" y="470" text-anchor="middle">J</text>
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(240px) rotate(-90deg);"></text>
 </g>
-<g  id="baseline" class="data-series data-series-0">
+<g  id="baseline-under80" class="data-series data-series-0">
 	<path d="M 50.00,192.24L 68.54,195.14L 87.08,203.96L 105.62,212.84L 124.15,210.31L 142.69,215.01L 161.23,216.92L 179.77,220.28L 198.31,219.50L 216.85,223.74L 235.38,227.30L 253.92,232.77L 272.46,232.93L 291.00,236.90L 309.54,236.28L 328.08,240.00L 346.62,243.51L 365.15,245.42L 383.69,245.78L 402.23,249.40L 420.77,250.48L 439.31,254.82L 457.85,252.18L 476.38,254.92L 494.92,254.15L 513.46,256.62L 532.00,252.39L 550.54,260.08L 569.08,257.40L 587.62,256.99L 606.15,262.20L 624.69,257.71L 643.23,258.48L 661.77,260.86L 680.31,258.69L 698.85,261.01L 717.38,255.90L 735.92,256.99L 754.46,252.60L 773.00,249.76L 791.54,247.59L 810.08,249.09L 828.62,247.64L 847.15,243.10L 865.69,241.60L 884.23,241.24L 902.77,237.88L 921.31,238.61L 939.85,229.36L 958.38,227.45L 976.92,221.47L 995.46,217.44" class="line" style="stroke:silver" stroke-width="3" stroke-linecap="round"><title>Av deaths 2015-19 (&lt;80)</title></path>
 	<circle cx="50.00" cy="192.24" data-y="5380.00" data-x="0" r="5" fill="silver"><title>Week 01: 5380</title></circle>
 	<circle cx="68.54" cy="195.14" data-y="5324.00" data-x="1" r="5" fill="silver"><title>Week 02: 5324</title></circle>
@@ -157,7 +157,7 @@
 </g>
 <g class="key">
 	<rect x="783.5" y="9.5" width="230" height="68"></rect>
-	<g  id="baseline-key">>	<text x="793.5" y="19.5">		<tspan dx="32" dy="0">Av deaths 2015-19 (&lt;80)</tspan>
+	<g  id="baseline-under80-key">>	<text x="793.5" y="19.5">		<tspan dx="32" dy="0">Av deaths 2015-19 (&lt;80)</tspan>
 </text>
 	<path d="M793.50,27.50 l 24 0" class="line" style="stroke:silver" stroke-width="3" stroke-linecap="round" />
 	<circle cx="805.50" cy="27.50" r="5" fill="silver" />	</g>

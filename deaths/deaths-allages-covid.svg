@@ -4,9 +4,9 @@
 	.data-series path.line { fill-opacity: 0; stroke: black; }
 	.data-series:hover path.line, .data-series.on path.line { cursor:pointer; }
 	.data-series path.line.dotted { stroke-dasharray: 12 20 }
-	.data-series-0:hover path.line, .data-series-0.on path.line { stroke-width: 5; }
+	#covid-deaths-2020:hover path.line, #covid-deaths-2020.on path.line { stroke-width: 5; }
 	.data-series-0:hover circle, .data-series-0.on circle { display: inline; cursor:pointer; }
-	.data-series-1:hover path.line, .data-series-1.on path.line { stroke-width: 5; }
+	#covid-deaths-2021:hover path.line, #covid-deaths-2021.on path.line { stroke-width: 5; }
 	.data-series-1:hover circle, .data-series-1.on circle { display: inline; cursor:pointer; }
 	.key rect { fill:transparent;stroke-width:1;stroke:black; }
 	.key text { text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif; }

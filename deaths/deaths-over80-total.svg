@@ -4,11 +4,11 @@
 	.data-series path.line { fill-opacity: 0; stroke: black; }
 	.data-series:hover path.line, .data-series.on path.line { cursor:pointer; }
 	.data-series path.line.dotted { stroke-dasharray: 12 20 }
-	.data-series-0:hover path.line, .data-series-0.on path.line { stroke-width: 5; }
+	#baseline:hover path.line, #baseline.on path.line { stroke-width: 5; }
 	.data-series-0:hover circle, .data-series-0.on circle { display: inline; cursor:pointer; }
-	.data-series-1:hover path.line, .data-series-1.on path.line { stroke-width: 5; }
+	#all-deaths-2020-over80:hover path.line, #all-deaths-2020-over80.on path.line { stroke-width: 5; }
 	.data-series-1:hover circle, .data-series-1.on circle { display: inline; cursor:pointer; }
-	.data-series-2:hover path.line, .data-series-2.on path.line { stroke-width: 5; }
+	#all-deaths-2021-over80:hover path.line, #all-deaths-2021-over80.on path.line { stroke-width: 5; }
 	.data-series-2:hover circle, .data-series-2.on circle { display: inline; cursor:pointer; }
 	.key rect { fill:transparent;stroke-width:1;stroke:black; }
 	.key text { text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif; }
