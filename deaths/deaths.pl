@@ -94,9 +94,18 @@ foreach $wk (sort(keys(%baseline))){
 		$out{'average'}[$i] = {'x'=>$i,'y'=>$baseline{$wk}{'total'},'label'=>$wk.": ".$baseline{$wk}{'total'}};
 		$t = $baseline{$wk}{'ages'}{'80-84'}{'People'} + $baseline{$wk}{'ages'}{'85-89'}{'People'} + $baseline{$wk}{'ages'}{'90+'}{'People'};
 		$out{'average-over80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.": ".$t};
+		$t = 0;
+		foreach $ag (keys(%{$baseline{$wk}{'ages'}})){
+			if($ag =~ /^([0-9]+)/){
+				$age = $1;
+				if($age < 80){ $t += $baseline{$wk}{'ages'}{$ag}{'People'}; }
+			}
+		}
+		$out{'average-under80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.": ".$t};
 		$i++;
 	}
 }
+
 
 
 
