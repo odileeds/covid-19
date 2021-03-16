@@ -1,0 +1,143 @@
+---
+# front matter tells Jekyll to process Liquid
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<title>Deaths in England &amp; Wales</title>
+	<link rel="StyleSheet" href="../resources/style.css" type="text/css" />
+	<style>
+	figure {
+		/*border-top: 2px solid black;*/
+		padding: 0.5em 0;
+		width: 100%;
+		max-width: 100%;
+		margin-bottom: 3em;
+	}
+	figure figcaption {
+		font-size: 1em;
+		color: inherit;
+		text-align: left;
+		margin-bottom: 0.5em;
+	}
+	figure .graph {
+		position: relative;
+	}
+	#tooltip { background: black; color: white; padding: 0.25em 0.5em; margin-top: -1em; transition: left 0.1s linear, top 0.1s linear; border-radius: 4px; white-space: nowrap; }
+	#tooltip::after {
+		content: '';
+		position: absolute;
+		bottom: auto;
+		width: 0;
+		height: 0;
+		border: 0.5em solid transparent;
+		left: 50%;
+		top: 100%;
+		transform: translate3d(-50%,0,0);
+		border-color: transparent;
+		border-top-color: black;
+	}
+	#tooltip.view::after { border-top-color: #1DD3A7; }
+	#tooltip.click::after { border-top-color: #E6007C; }
+	#tooltip.play::after { border-top-color: #00B6FF; }
+	</style>
+</head>
+<body>
+
+	<header>
+		<div class="b1-bg padded">
+			<div class="holder" style="text-align:center;">
+				<a href="https://odileeds.org/"><img src="https://odileeds.org/resources/images/odileeds.svg" /></a>
+				<h1>Deaths in England &amp; Wales</h1>
+			</div>
+		</div>
+		<div class="c14-bg" style="padding:0.5em;text-align:center;">
+			<div class="holder">Also see our <a href="LocalAuthorities/dashboard/index.html">Local Authority Dashboard</a>, our <a href="LocalAuthorities/dashboard/table.html">table of Local Authorities</a>, and our <a href="LocalAuthorities/hexmap.html">Local Authority hex maps</a>.</div>
+		</div>
+	</header>
+
+	<div class="b6-bg">
+		<div class="padded">
+			<div class="holder">
+				<p>Graphs of weekly deaths in England &amp; Wales for 2020 and 2021. Data up to week ending 5th March 2021.</p>
+
+				<figure class="jekyll-parse">
+					<figcaption>
+						<strong>1. All deaths</strong>
+						<p>Weekly provisional figures on <em>all</em> deaths registered in England and Wales.</p>
+					</figcaption>
+					<div class="graph">{% include_relative deaths-allages-total.svg %}</div>
+					<a href="deaths-allages-total.svg" class="button c5-bg">Download SVG</a>
+				</figure>
+
+				<figure class="jekyll-parse">
+					<figcaption>
+						<strong>2. COVID-19 deaths</strong>
+						<p>Weekly provisional figures on deaths registered where coronavirus (COVID-19) was mentioned on the death certificate in England and Wales.</p>
+					</figcaption>
+					<div class="graph">{% include_relative deaths-allages-covid.svg %}</div>
+					<a href="deaths-allages-covid.svg" class="button c5-bg">Download SVG</a>
+				</figure>
+			
+			
+				<figure class="jekyll-parse">
+					<figcaption>
+						<strong>3. All deaths (aged 80+)</strong>
+						<p>Weekly provisional figures on deaths registered of those aged 80+ in England and Wales.</p>
+					</figcaption>
+					<div class="graph">{% include_relative deaths-over80-total.svg %}</div>
+					<a href="deaths-over80-total.svg" class="button c5-bg">Download SVG</a>
+				</figure>
+			
+				<figure class="jekyll-parse">
+					<figcaption>
+						<strong>4. COVID-19 deaths (aged 80+)</strong>
+						<p>Weekly provisional figures on deaths registered of those aged 80+ where coronavirus (COVID-19) was mentioned on the death certificate in England and Wales.</p>
+					</figcaption>
+					<div class="graph">{% include_relative deaths-over80-covid.svg %}</div>
+					<a href="deaths-over80-covid.svg" class="button c5-bg">Download SVG</a>
+				</figure>
+			
+			
+				<figure class="jekyll-parse">
+					<figcaption>
+						<strong>5. All deaths (under 80)</strong>
+						<p>Weekly provisional figures on deaths registered of those aged under 80 in England and Wales.</p>
+					</figcaption>
+					<div class="graph">{% include_relative deaths-under80-total.svg %}</div>
+					<a href="deaths-under80-total.svg" class="button c5-bg">Download SVG</a>
+				</figure>
+			
+				<figure class="jekyll-parse">
+					<figcaption>
+						<strong>6. COVID-19 deaths (under 80)</strong>
+						<p>Weekly provisional figures on deaths registered of those aged under 80 where coronavirus (COVID-19) was mentioned on the death certificate in England and Wales.</p>
+					</figcaption>
+					<div class="graph">{% include_relative deaths-under80-covid.svg %}</div>
+					<a href="deaths-under80-covid.svg" class="button c5-bg">Download SVG</a>
+				</figure>
+			
+			
+			</div>
+		</div>
+	</div>
+
+	<footer class="b1-bg">
+		<div class="holder">
+			<h2 id="notes">Notes</h2>
+			<p>Moveable public holidays, when register offices are closed, affect the number of registrations made in the published weeks and in the corresponding weeks in previous years. The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/11485fiveyearaverageweeklydeathsbysexandagegroupenglandandwalesdeathsoccurringbetween2015and2019">average for 2015-2019</a> provides a comparison of the number of deaths expected per week in a usual (non-pandemic) year.</p>
+			
+			
+			<h2>Credits</h2>
+			<p>Visualisation &copy; 2021 <a href="https://odileeds.org/">ODI Leeds</a>. Code released under an MIT license. <a href="https://github.com/odileeds/covid-19/">Source on Github</a>.</p>
+			<p><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales">Deaths registered weekly in England and Wales</a> &copy; ONS OGL v3</p>
+			<p><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/11485fiveyearaverageweeklydeathsbysexandagegroupenglandandwalesdeathsoccurringbetween2015and2019">Five year average weekly deaths by sex and age group, England and Wales: deaths occurring between 2015 and 2019</a> &copy; ONS OGL v3</p>
+		</div>
+	</footer>
+
+	<script src="graphs.js" ></script>
+
+</body>
+</html>

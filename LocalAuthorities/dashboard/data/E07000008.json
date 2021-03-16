@@ -31,10 +31,11 @@
 	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "2021-W08",
-		"all": 983,
-		"cov": 128,
+		"updated": "2021-W09",
+		"all": 999,
+		"cov": 131,
 		"weeks":[
+			{"txt":"2021-W09","all":16,"cov":3},
 			{"txt":"2021-W08","all":30,"cov":3},
 			{"txt":"2021-W07","all":16,"cov":6},
 			{"txt":"2021-W06","all":16,"cov":4},

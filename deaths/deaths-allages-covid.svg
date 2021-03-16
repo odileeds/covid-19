@@ -1,0 +1,113 @@
+<svg width="1024" height="500" viewBox="0 0 1024 500" xmlns="http://www.w3.org/2000/svg" style="overflow:display" preserveAspectRatio="xMinYMin meet" overflow="visible">
+<defs>
+	<style>
+	.data-series path.line { fill-opacity: 0; stroke: black; }
+	.data-series:hover path.line, .data-series.on path.line { cursor:pointer; }
+	.data-series path.line.dotted { stroke-dasharray: 12 20 }
+	.data-series-0:hover path.line, .data-series-0.on path.line { stroke-width: 5; }
+	.data-series-0:hover circle, .data-series-0.on circle { display: inline; cursor:pointer; }
+	.data-series-1:hover path.line, .data-series-1.on path.line { stroke-width: 5; }
+	.data-series-1:hover circle, .data-series-1.on circle { display: inline; cursor:pointer; }
+	.key rect { fill:transparent;stroke-width:1;stroke:black; }
+	.key text { text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif; }
+	.graph-grid { font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; }
+	.graph-grid line { stroke: black; stroke-width: 1; stroke-linecap: round; }
+	.graph-grid.graph-grid-x text { text-anchor: middle; dominant-baseline: hanging; transform: translateY(10px); }
+	.graph-grid.graph-grid-y text { text-anchor: end; dominant-baseline: middle; transform: translateX(-10px); }
+	</style>
+</defs>
+<g class="graph-grid graph-grid-y">
+	<line x1="49.50" y1="469.50" x2="1013.50" y2="469.50" data-left="50"></line>
+	<text x="60" y="470" text-anchor="end">0</text>
+	<text x="60" y="364.953185658826" text-anchor="end">2000</text>
+	<text x="60" y="259.906371317652" text-anchor="end">4000</text>
+	<text x="60" y="154.859556976479" text-anchor="end">6000</text>
+	<text x="60" y="49.8127426353049" text-anchor="end">8000</text>
+	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(240px) rotate(-90deg);"></text>
+</g>
+<g class="graph-grid graph-grid-x">
+	<line class="tick" x1="49.50" y1="469.50" x2="49.50" y2="474.50"></line>
+	<text x="50" y="470" text-anchor="middle">J</text>
+	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(240px) rotate(-90deg);"></text>
+</g>
+<g  id="covid-deaths-2020" class="data-series data-series-0">
+	<path d="M 50.00,470.00L 68.54,470.00L 87.08,470.00L 105.62,470.00L 124.15,470.00L 142.69,470.00L 161.23,470.00L 179.77,470.00L 198.31,470.00L 216.85,470.00L 235.38,469.74L 253.92,464.59L 272.46,441.69L 291.00,287.48L 309.54,143.67L 328.08,10.00L 346.62,37.36L 365.15,153.02L 383.69,263.58L 402.23,269.89L 420.77,334.02L 439.31,374.30L 457.85,386.59L 476.38,411.49L 494.92,428.87L 513.46,438.17L 532.00,442.06L 550.54,450.78L 569.08,454.51L 587.62,458.60L 606.15,459.86L 624.69,462.02L 643.23,462.70L 661.77,462.75L 680.31,464.70L 698.85,465.90L 717.38,464.80L 735.92,462.70L 754.46,458.71L 773.00,453.14L 791.54,446.99L 810.08,434.81L 828.62,418.63L 847.15,397.57L 865.69,368.26L 884.23,340.48L 902.77,328.34L 921.31,310.33L 939.85,321.10L 958.38,325.25L 976.92,313.17L 995.46,317.05L 1014.00,304.87" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round"><title>Covid deaths 2020</title></path>
+	<circle cx="50.00" cy="470.00" data-y="0.00" data-x="0" r="5" fill="#1DD3A7"><title>Week 01 (03-Jan-20): 0</title></circle>
+	<circle cx="68.54" cy="470.00" data-y="0.00" data-x="1" r="5" fill="#1DD3A7"><title>Week 02 (10-Jan-20): 0</title></circle>
+	<circle cx="87.08" cy="470.00" data-y="0.00" data-x="2" r="5" fill="#1DD3A7"><title>Week 03 (17-Jan-20): 0</title></circle>
+	<circle cx="105.62" cy="470.00" data-y="0.00" data-x="3" r="5" fill="#1DD3A7"><title>Week 04 (24-Jan-20): 0</title></circle>
+	<circle cx="124.15" cy="470.00" data-y="0.00" data-x="4" r="5" fill="#1DD3A7"><title>Week 05 (31-Jan-20): 0</title></circle>
+	<circle cx="142.69" cy="470.00" data-y="0.00" data-x="5" r="5" fill="#1DD3A7"><title>Week 06 (07-Feb-20): 0</title></circle>
+	<circle cx="161.23" cy="470.00" data-y="0.00" data-x="6" r="5" fill="#1DD3A7"><title>Week 07 (14-Feb-20): 0</title></circle>
+	<circle cx="179.77" cy="470.00" data-y="0.00" data-x="7" r="5" fill="#1DD3A7"><title>Week 08 (21-Feb-20): 0</title></circle>
+	<circle cx="198.31" cy="470.00" data-y="0.00" data-x="8" r="5" fill="#1DD3A7"><title>Week 09 (28-Feb-20): 0</title></circle>
+	<circle cx="216.85" cy="470.00" data-y="0.00" data-x="9" r="5" fill="#1DD3A7"><title>Week 10 (06-Mar-20): 0</title></circle>
+	<circle cx="235.38" cy="469.74" data-y="5.00" data-x="10" r="5" fill="#1DD3A7"><title>Week 11 (13-Mar-20): 5</title></circle>
+	<circle cx="253.92" cy="464.59" data-y="103.00" data-x="11" r="5" fill="#1DD3A7"><title>Week 12 (20-Mar-20): 103</title></circle>
+	<circle cx="272.46" cy="441.69" data-y="539.00" data-x="12" r="5" fill="#1DD3A7"><title>Week 13 (27-Mar-20): 539</title></circle>
+	<circle cx="291.00" cy="287.48" data-y="3475.00" data-x="13" r="5" fill="#1DD3A7"><title>Week 14 (03-Apr-20): 3475</title></circle>
+	<circle cx="309.54" cy="143.67" data-y="6213.00" data-x="14" r="5" fill="#1DD3A7"><title>Week 15 (10-Apr-20): 6213</title></circle>
+	<circle cx="328.08" cy="10.00" data-y="8758.00" data-x="15" r="5" fill="#1DD3A7"><title>Week 16 (17-Apr-20): 8758</title></circle>
+	<circle cx="346.62" cy="37.36" data-y="8237.00" data-x="16" r="5" fill="#1DD3A7"><title>Week 17 (24-Apr-20): 8237</title></circle>
+	<circle cx="365.15" cy="153.02" data-y="6035.00" data-x="17" r="5" fill="#1DD3A7"><title>Week 18 (01-May-20): 6035</title></circle>
+	<circle cx="383.69" cy="263.58" data-y="3930.00" data-x="18" r="5" fill="#1DD3A7"><title>Week 19 (08-May-20): 3930</title></circle>
+	<circle cx="402.23" cy="269.89" data-y="3810.00" data-x="19" r="5" fill="#1DD3A7"><title>Week 20 (15-May-20): 3810</title></circle>
+	<circle cx="420.77" cy="334.02" data-y="2589.00" data-x="20" r="5" fill="#1DD3A7"><title>Week 21 (22-May-20): 2589</title></circle>
+	<circle cx="439.31" cy="374.30" data-y="1822.00" data-x="21" r="5" fill="#1DD3A7"><title>Week 22 (29-May-20): 1822</title></circle>
+	<circle cx="457.85" cy="386.59" data-y="1588.00" data-x="22" r="5" fill="#1DD3A7"><title>Week 23 (05-Jun-20): 1588</title></circle>
+	<circle cx="476.38" cy="411.49" data-y="1114.00" data-x="23" r="5" fill="#1DD3A7"><title>Week 24 (12-Jun-20): 1114</title></circle>
+	<circle cx="494.92" cy="428.87" data-y="783.00" data-x="24" r="5" fill="#1DD3A7"><title>Week 25 (19-Jun-20): 783</title></circle>
+	<circle cx="513.46" cy="438.17" data-y="606.00" data-x="25" r="5" fill="#1DD3A7"><title>Week 26 (26-Jun-20): 606</title></circle>
+	<circle cx="532.00" cy="442.06" data-y="532.00" data-x="26" r="5" fill="#1DD3A7"><title>Week 27 (03-Jul-20): 532</title></circle>
+	<circle cx="550.54" cy="450.78" data-y="366.00" data-x="27" r="5" fill="#1DD3A7"><title>Week 28 (10-Jul-20): 366</title></circle>
+	<circle cx="569.08" cy="454.51" data-y="295.00" data-x="28" r="5" fill="#1DD3A7"><title>Week 29 (17-Jul-20): 295</title></circle>
+	<circle cx="587.62" cy="458.60" data-y="217.00" data-x="29" r="5" fill="#1DD3A7"><title>Week 30 (24-Jul-20): 217</title></circle>
+	<circle cx="606.15" cy="459.86" data-y="193.00" data-x="30" r="5" fill="#1DD3A7"><title>Week 31 (31-Jul-20): 193</title></circle>
+	<circle cx="624.69" cy="462.02" data-y="152.00" data-x="31" r="5" fill="#1DD3A7"><title>Week 32 (07-Aug-20): 152</title></circle>
+	<circle cx="643.23" cy="462.70" data-y="139.00" data-x="32" r="5" fill="#1DD3A7"><title>Week 33 (14-Aug-20): 139</title></circle>
+	<circle cx="661.77" cy="462.75" data-y="138.00" data-x="33" r="5" fill="#1DD3A7"><title>Week 34 (21-Aug-20): 138</title></circle>
+	<circle cx="680.31" cy="464.70" data-y="101.00" data-x="34" r="5" fill="#1DD3A7"><title>Week 35 (28-Aug-20): 101</title></circle>
+	<circle cx="698.85" cy="465.90" data-y="78.00" data-x="35" r="5" fill="#1DD3A7"><title>Week 36 (04-Sep-20): 78</title></circle>
+	<circle cx="717.38" cy="464.80" data-y="99.00" data-x="36" r="5" fill="#1DD3A7"><title>Week 37 (11-Sep-20): 99</title></circle>
+	<circle cx="735.92" cy="462.70" data-y="139.00" data-x="37" r="5" fill="#1DD3A7"><title>Week 38 (18-Sep-20): 139</title></circle>
+	<circle cx="754.46" cy="458.71" data-y="215.00" data-x="38" r="5" fill="#1DD3A7"><title>Week 39 (25-Sep-20): 215</title></circle>
+	<circle cx="773.00" cy="453.14" data-y="321.00" data-x="39" r="5" fill="#1DD3A7"><title>Week 40 (02-Oct-20): 321</title></circle>
+	<circle cx="791.54" cy="446.99" data-y="438.00" data-x="40" r="5" fill="#1DD3A7"><title>Week 41 (09-Oct-20): 438</title></circle>
+	<circle cx="810.08" cy="434.81" data-y="670.00" data-x="41" r="5" fill="#1DD3A7"><title>Week 42 (16-Oct-20): 670</title></circle>
+	<circle cx="828.62" cy="418.63" data-y="978.00" data-x="42" r="5" fill="#1DD3A7"><title>Week 43 (23-Oct-20): 978</title></circle>
+	<circle cx="847.15" cy="397.57" data-y="1379.00" data-x="43" r="5" fill="#1DD3A7"><title>Week 44 (30-Oct-20): 1379</title></circle>
+	<circle cx="865.69" cy="368.26" data-y="1937.00" data-x="44" r="5" fill="#1DD3A7"><title>Week 45 (06-Nov-20): 1937</title></circle>
+	<circle cx="884.23" cy="340.48" data-y="2466.00" data-x="45" r="5" fill="#1DD3A7"><title>Week 46 (13-Nov-20): 2466</title></circle>
+	<circle cx="902.77" cy="328.34" data-y="2697.00" data-x="46" r="5" fill="#1DD3A7"><title>Week 47 (20-Nov-20): 2697</title></circle>
+	<circle cx="921.31" cy="310.33" data-y="3040.00" data-x="47" r="5" fill="#1DD3A7"><title>Week 48 (27-Nov-20): 3040</title></circle>
+	<circle cx="939.85" cy="321.10" data-y="2835.00" data-x="48" r="5" fill="#1DD3A7"><title>Week 49 (04-Dec-20): 2835</title></circle>
+	<circle cx="958.38" cy="325.25" data-y="2756.00" data-x="49" r="5" fill="#1DD3A7"><title>Week 50 (11-Dec-20): 2756</title></circle>
+	<circle cx="976.92" cy="313.17" data-y="2986.00" data-x="50" r="5" fill="#1DD3A7"><title>Week 51 (18-Dec-20): 2986</title></circle>
+	<circle cx="995.46" cy="317.05" data-y="2912.00" data-x="51" r="5" fill="#1DD3A7"><title>Week 52 (25-Dec-20): 2912</title></circle>
+	<circle cx="1014.00" cy="304.87" data-y="3144.00" data-x="52" r="5" fill="#1DD3A7"><title>Week 53 (01-Jan-21): 3144</title></circle>
+</g>
+<g  id="covid-deaths-2021" class="data-series data-series-1">
+	<path d="M 50.00,151.87L 68.54,89.47L 87.08,27.65L 105.62,27.07L 124.15,85.53L 142.69,171.09L 161.23,255.76L 179.77,316.95L 198.31,359.44" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round"><title>Covid deaths 2021</title></path>
+	<circle cx="50.00" cy="151.87" data-y="6057.00" data-x="0" r="5" fill="#2254F4"><title>Week 01 (08-Jan-21): 6057</title></circle>
+	<circle cx="68.54" cy="89.47" data-y="7245.00" data-x="1" r="5" fill="#2254F4"><title>Week 02 (15-Jan-21): 7245</title></circle>
+	<circle cx="87.08" cy="27.65" data-y="8422.00" data-x="2" r="5" fill="#2254F4"><title>Week 03 (22-Jan-21): 8422</title></circle>
+	<circle cx="105.62" cy="27.07" data-y="8433.00" data-x="3" r="5" fill="#2254F4"><title>Week 04 (29-Jan-21): 8433</title></circle>
+	<circle cx="124.15" cy="85.53" data-y="7320.00" data-x="4" r="5" fill="#2254F4"><title>Week 05 (05-Feb-21): 7320</title></circle>
+	<circle cx="142.69" cy="171.09" data-y="5691.00" data-x="5" r="5" fill="#2254F4"><title>Week 06 (12-Feb-21): 5691</title></circle>
+	<circle cx="161.23" cy="255.76" data-y="4079.00" data-x="6" r="5" fill="#2254F4"><title>Week 07 (19-Feb-21): 4079</title></circle>
+	<circle cx="179.77" cy="316.95" data-y="2914.00" data-x="7" r="5" fill="#2254F4"><title>Week 08 (26-Feb-21): 2914</title></circle>
+	<circle cx="198.31" cy="359.44" data-y="2105.00" data-x="8" r="5" fill="#2254F4"><title>Week 09 (05-Mar-21): 2105</title></circle>
+</g>
+<g class="key">
+	<rect x="813.5" y="9.5" width="200" height="52"></rect>
+	<g  id="covid-deaths-2020-key">>	<text x="823.5" y="19.5">		<tspan dx="32" dy="0">Covid deaths 2020</tspan>
+</text>
+	<path d="M823.50,27.50 l 24 0" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="27.50" r="5" fill="#1DD3A7" />	</g>
+
+	<g  id="covid-deaths-2021-key">>	<text x="823.5" y="35.5">		<tspan dx="32" dy="0">Covid deaths 2021</tspan>
+</text>
+	<path d="M823.50,43.50 l 24 0" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="43.50" r="5" fill="#2254F4" />	</g>
+</g>
+</svg>
