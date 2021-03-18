@@ -416,7 +416,7 @@ for($s = 0; $s < @svgs; $s++){
 
 
 # Build GeoJSON for MSOAs
-open(FILE,$dir."vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson");
+open(FILE,$dir."data/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson");
 @lines = <FILE>;
 close(FILE);
 $str = "";
@@ -430,7 +430,13 @@ foreach $line (@lines){
 		$id = $1;
 		if($msoa{$id}{'vaccine'}){
 			# Need to add the data as properties
-			$line =~ s/(\},"geometry")/,\"MSOA11NM\":\"$msoa{$id}{'name'}\",\"period\":\"$vaccineperiod\",\"0-59\":$msoa{$id}{'vaccine'}{'0-59'},\"0-59 %\":$msoa{$id}{'vaccine'}{'0-59 pc'},\"60-64\":$msoa{$id}{'vaccine'}{'60-64'},\"60-64 %\":$msoa{$id}{'vaccine'}{'60-64 pc'},\"65-69\":$msoa{$id}{'vaccine'}{'65-69'},\"65-69 %\":$msoa{$id}{'vaccine'}{'65-69 pc'},\"70-74\":$msoa{$id}{'vaccine'}{'70-74'},\"70-74 %\":$msoa{$id}{'vaccine'}{'70-74 pc'},\"75-79\":$msoa{$id}{'vaccine'}{'75-79'},\"75-79 %\":$msoa{$id}{'vaccine'}{'75-79 pc'},\"80+\":$msoa{$id}{'vaccine'}{'80'},\"80+ %\":$msoa{$id}{'vaccine'}{'80 pc'}$1/;
+			$property = ",\"MSOA11NM\":\"$msoa{$id}{'name'}\",\"period\":\"$vaccineperiod\"";
+			for($ag = 0 ; $ag < @agegroups; $ag++){
+				if($agegroups[$ag]{'table'}){
+					$property .= ",\"$agegroups[$ag]{'label'}\":$msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}},\"$agegroups[$ag]{'label'} %\":".$msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'};
+				}
+			}
+			$line =~ s/(\},"geometry")/$property$1/;
 			$str .= $line;
 		}else{
 			
@@ -441,10 +447,10 @@ foreach $line (@lines){
 }
 
 $str =~ s/\,([\n\r]\])/$1/g;
-open(FILE,">",$dir."../../resources/vaccine-msoa.geojson");
+open(FILE,">",$dir."inc/vaccine-msoa.geojson");
 print FILE $str;
 close(FILE);
-$file = $dir."../../resources/covid-19-vaccine-msoa.json";
+$file = $dir."inc/covid-19-vaccine-msoa.json";
 open(FILE,$file);
 @lines = <FILE>;
 close(FILE);
