@@ -63,7 +63,7 @@ close(FILE);
 
 # Get population data from NIMS
 %nims;
-open(FILE,$dir."vaccines/NIMS-LTLA-population.csv");
+open(FILE,$dir."../../vaccines/data/NIMS-LTLA-population.csv");
 @lines = <FILE>;
 close(FILE);
 $i = 0;
@@ -87,7 +87,8 @@ foreach $line (@lines){
 					$nims{$latmp}{$h2} = $cols[$header{$h}];
 				}
 			}
-			$nims{$latmp}{'0-59'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-59'};
+			$nims{$latmp}{'0-54'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-54'};
+			$nims{$latmp}{'0-59'} = $nims{$latmp}{'0-54'}+$nims{$latmp}{'55-59'};
 			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-59'}+$nims{$latmp}{'60-64'};
 			$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-64'}+$nims{$latmp}{'65-69'};
 			$nims{$latmp}{'all'} = $nims{$latmp}{'0-69'}+$nims{$latmp}{'70-74'}+$nims{$latmp}{'75-79'}+$nims{$latmp}{'80+'};
@@ -277,7 +278,6 @@ for($i = 0; $i < @las; $i++){
 	open(FILE,">",$file);
 	print FILE "{\n";
 	print FILE "\t\"name\":\"$names{$la}\",\n";
-	print "HERE $la - $nims{$la}{'all'}\n";
 	print FILE "\t\"population\": ".($nims{$la}{'all'}||$pop{$la}||0).",\n";
 	if($restrictions{$la}){
 		print FILE "\t\"restrictions\":{\n";
@@ -693,7 +693,7 @@ sub processVaccines {
 	
 	my ($vdir,@files,$file,$h,$h2,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
 
-	$vdir = $dir."vaccines/";
+	$vdir = $dir."../../vaccines/data/";
 
 	print "Processing vaccines...\n";
 	# Set default values
@@ -709,6 +709,7 @@ sub processVaccines {
 	while(($filename = readdir(DIR))){
 		if($filename =~ /vaccinations-LTLA-([0-9]{4})([0-9]{2})([0-9]{2})/){
 			$wk = "$1-$2-$3";
+			print "$filename\n";
 			open(FILE,$vdir.$filename);
 			$i = 0;
 			while (my $line = <FILE>){

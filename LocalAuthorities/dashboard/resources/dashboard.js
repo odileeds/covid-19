@@ -499,21 +499,14 @@ ready(function(){
 					var t = 0;
 					var p = 0;
 					if(this.data.vaccines.totals){
-						if(this.data.vaccines.totals[0].ages['80+']){
-							t += this.data.vaccines.totals[0].ages['80+'].n;
-							p += this.data.vaccines.totals[0].ages['80+'].pop;
-						}
-						if(this.data.vaccines.totals[0].ages['75-79']){
-							t += this.data.vaccines.totals[0].ages['75-79'].n;
-							p += this.data.vaccines.totals[0].ages['75-79'].pop;
-						}
-						if(this.data.vaccines.totals[0].ages['70-74']){
-							t += this.data.vaccines.totals[0].ages['70-74'].n;
-							p += this.data.vaccines.totals[0].ages['70-74'].pop;
-						}
-						if(this.data.vaccines.totals[0].ages['65-69']){
-							t += this.data.vaccines.totals[0].ages['65-69'].n;
-							p += this.data.vaccines.totals[0].ages['65-69'].pop;
+						for(a in this.data.vaccines.totals[0].ages){
+							if(a.match(/[0-9]/)){
+								a.replace(/^([0-9]+)-([0-9]+)/,function(m,p1,p2){ s = p1; e = p2; });
+								if(s >= 65){
+									t += this.data.vaccines.totals[0].ages[a].n;
+									p += this.data.vaccines.totals[0].ages[a].pop;
+								}
+							}
 						}
 					}
 					return (this.data.vaccines.totals ? Math.round(100*t/p)+'%' : '?');
@@ -527,13 +520,14 @@ ready(function(){
 					var t = 0;
 					var p = 0;
 					if(this.data.vaccines.totals){
-						if(this.data.vaccines.totals[0].ages['0-59']){
-							t += this.data.vaccines.totals[0].ages['0-59'].n;
-							p += this.data.vaccines.totals[0].ages['0-59'].pop;
-						}
-						if(this.data.vaccines.totals[0].ages['60-64']){
-							t += this.data.vaccines.totals[0].ages['60-64'].n;
-							p += this.data.vaccines.totals[0].ages['60-64'].pop;
+						for(a in this.data.vaccines.totals[0].ages){
+							if(a.match(/[0-9]/)){
+								a.replace(/^([0-9]+)-([0-9]+)/,function(m,p1,p2){ s = p1; e = p2; });
+								if(s < 65){
+									t += this.data.vaccines.totals[0].ages[a].n;
+									p += this.data.vaccines.totals[0].ages[a].pop;
+								}
+							}
 						}
 					}
 					return (this.data.vaccines.totals ? Math.round(100*t/p)+'%' : '?');
