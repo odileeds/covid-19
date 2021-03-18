@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use lib "./lib/";
+use lib "../lib/";
 use Data::Dumper;
 use ODILeeds::Graph;
 use POSIX qw(strftime);

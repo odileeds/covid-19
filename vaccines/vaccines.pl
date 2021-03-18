@@ -5,7 +5,7 @@
 # CCG April 2020 ultra generalised boundaries at https://geoportal.statistics.gov.uk/datasets/clinical-commissioning-groups-april-2020-ultra-generalised-boundaries-en
 # STP April 2020 ultra generalised boundaries at https://geoportal.statistics.gov.uk/datasets/sustainability-and-transformation-partnerships-april-2020-boundaries-en-buc
 
-use lib "../LocalAuthorities/data/lib/";
+use lib "../lib/";
 use Data::Dumper;
 use ODILeeds::ColourScale;
 use ODILeeds::GeoJSON;
@@ -142,26 +142,35 @@ for($ag = 0 ; $ag < @agegroups; $ag++){
 	}
 }
 
+foreach $a (keys(%vaccinations)){
+	foreach $c (keys(%{$vaccinations{$a}})){
+		if($c =~ /^[0-9]/ && $c !~ /^(1st|2nd)/){
+			delete $vaccinations{$a}{$c};
+			
+		}
+	}
+}
 
 
 
 foreach $a (sort(keys(%stp))){
 	$nm = $stp{$a}{'name'};
-	$stp{$a}{'vaccine'} = {};
-	$stp{$a}{'vaccine'}{'1st dose'} = 0;
+	$stp{$a}{'vaccine'} = {'1st dose'=>0,'2nd dose'=>0};
 	for($ag = 0 ; $ag < @agegroups; $ag++){
 		if($agegroups[$ag]{'table'}){
+
 			$stp{$a}{'vaccine'}{'1st dose'} += $vaccinations{$nm}{'1st dose '.$agegroups[$ag]{'head'}};
+			if(!$stp{$a}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}}){ $stp{$a}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}} = 0; }
 			$stp{$a}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}} = $vaccinations{$nm}{'1st dose '.$agegroups[$ag]{'head'}};
 			$stp{$a}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}.' pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}}/$stp{$a}{'pop'}{$agegroups[$ag]{'label'}}));
 
 			$stp{$a}{'vaccine'}{'2nd dose'} += $vaccinations{$nm}{'2nd dose '.$agegroups[$ag]{'head'}};
+			if(!$stp{$a}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}}){ $stp{$a}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}} = 0; }
 			$stp{$a}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}} = $vaccinations{$nm}{'2nd dose '.$agegroups[$ag]{'head'}};
 			$stp{$a}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}.' pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}}/$stp{$a}{'pop'}{$agegroups[$ag]{'label'}}));
 		}
 	}
 
-	$stp{$a}{'vaccine'}{'total'} = $vaccinations{$nm}{'total'};
 	$stp{$a}{'vaccine'}{'1st dose pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'1st dose'}/$stp{$a}{'pop'}{'total'}));
 	$stp{$a}{'vaccine'}{'2nd dose pc'} = sprintf("%0.1f",(100*$stp{$a}{'vaccine'}{'2nd dose'}/$stp{$a}{'pop'}{'total'}));
 
@@ -199,7 +208,6 @@ foreach $a (sort(keys(%stp))){
 $thtml .= "$idt</table>";
 
 
-
 open(FILE,">",$dir."data/vaccines-by-STP.csv");
 print FILE $table;
 close(FILE);
@@ -222,14 +230,14 @@ for($ag = 0 ; $ag < @agegroups; $ag++){
 }
 for($ag = 0 ; $ag < @agegroups; $ag++){
 	if($agegroups[$ag]{'table'}){
-		push(@svgs,{'title'=>'1st dose '.$agegroups[$ag]{'label'}.' (total)','key'=>'1st dose '.$agegroups[$ag]{'safe'},'file'=>'vaccine-1st-dose-'.$agegroups[$ag]{'safe'}.'.svg'});
-		push(@svgs,{'title'=>'1st dose '.$agegroups[$ag]{'label'}.' (%)','key'=>'1st dose '.$agegroups[$ag]{'safe'}.' pc','file'=>'vaccine-1st-dose-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
+		push(@svgs,{'title'=>'1st dose '.$agegroups[$ag]{'label'}.' (total)','key'=>'1st dose '.$agegroups[$ag]{'label'},'file'=>'vaccine-1st-dose-'.$agegroups[$ag]{'safe'}.'.svg'});
+		push(@svgs,{'title'=>'1st dose '.$agegroups[$ag]{'label'}.' (%)','key'=>'1st dose '.$agegroups[$ag]{'label'}.' pc','file'=>'vaccine-1st-dose-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
 	}
 }
 for($ag = 0 ; $ag < @agegroups; $ag++){
 	if($agegroups[$ag]{'table'}){
-		push(@svgs,{'title'=>'2nd dose '.$agegroups[$ag]{'label'}.' (total)','key'=>'2nd dose '.$agegroups[$ag]{'safe'},'file'=>'vaccine-2nd-dose-'.$agegroups[$ag]{'safe'}.'.svg'});
-		push(@svgs,{'title'=>'2nd dose '.$agegroups[$ag]{'label'}.' (%)','key'=>'2nd dose '.$agegroups[$ag]{'safe'}.' pc','file'=>'vaccine-2nd-dose-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
+		push(@svgs,{'title'=>'2nd dose '.$agegroups[$ag]{'label'}.' (total)','key'=>'2nd dose '.$agegroups[$ag]{'label'},'file'=>'vaccine-2nd-dose-'.$agegroups[$ag]{'safe'}.'.svg'});
+		push(@svgs,{'title'=>'2nd dose '.$agegroups[$ag]{'label'}.' (%)','key'=>'2nd dose '.$agegroups[$ag]{'label'}.' pc','file'=>'vaccine-2nd-dose-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
 	}
 }
 
@@ -237,7 +245,7 @@ $maps = "";
 # Replace each SVG/key area
 for($s = 0; $s < @svgs; $s++){
 	$t = $svgs[$s]{'key'};
-	$svg = $geojson->drawSVG({'padding'=>10,'data'=>$t,'indent'=>"\t"});
+	$svg = $geojson->drawSVG({'padding'=>10,'data'=>$t,'indent'=>"\t","debug"=>($t =~ /80/ ? 1 : 0)});
 
 	# Save SVG
 	open(SVG,">",$dir."inc/".$svgs[$s]{'file'});
@@ -385,9 +393,10 @@ foreach $m (sort(keys(%msoa))){
 
 $geojson = ODILeeds::GeoJSON->new();
 $geojson->addLayer("stp","data/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'shape-rendering'=>'crispedges','fill'=>\&getMSOAColour,'props'=>\&getPropsMSOA});
-%ranges;
+undef %ranges;
 undef @svgs;
-
+%ranges;
+@svgs;
 for($ag = 0 ; $ag < @agegroups; $ag++){
 	if($agegroups[$ag]{'table'}){
 		push(@svgs,{'title'=>$agegroups[$ag]{'label'}.' (total)','key'=>$agegroups[$ag]{'label'},'file'=>'vaccine-msoa-'.$agegroups[$ag]{'safe'}.'.svg'});
@@ -399,13 +408,13 @@ for($ag = 0 ; $ag < @agegroups; $ag++){
 for($s = 0; $s < @svgs; $s++){
 	$t = $svgs[$s]{'key'};
 	print "$s - $svgs[$s]{'title'} / $t\n";
-	$svg = $geojson->drawSVG({'padding'=>10,'data'=>$t,'indent'=>"\t"});
+	$svg = $geojson->drawSVG({'padding'=>10,'data'=>$t,'indent'=>"\t","debug"=>($t =~ /^80/ ? 1 : 0)});
 	open(SVG,">",$dir."inc/".$svgs[$s]{'file'});
 	print SVG $svg;
 	close(SVG);
 }
 
-exit;
+
 # Build GeoJSON for MSOAs
 open(FILE,$dir."vaccines/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson");
 @lines = <FILE>;
@@ -501,12 +510,14 @@ sub replaceHTMLFragment {
 }
 # Get a colour given an ID
 sub getColour {
-	my ($id,$ky,$min,$max,$a);
+	my ($id,$ky,$min,$max,$a,$debug);
 	$id = $_[0];
 	$ky = $_[1];
 	$min = $_[2];
 	$max = $_[3];
+	$debug = $_[4];
 
+	if($max && !$min){ $min = 0; }
 	if($min eq "" && $max eq ""){
 		# Work out the range of values
 		$min = 1e100;
@@ -526,18 +537,21 @@ sub getColour {
 			$ranges{$ky}{'units'} = "%";
 		}
 	}
+	
 	return ('fill'=>$cs->getColourFromScale('Viridis',$stp{$id}{'vaccine'}{$ky},$min,$max),'min'=>$min,'max'=>$max);
 }
 # Get a colour given an ID
 sub getMSOAColour {
-	my ($id,$ky,$min,$max,$a);
+	my ($id,$ky,$min,$max,$a,$debug);
 	$id = $_[0];
 	$ky = $_[1];
 	$min = $_[2];
 	$max = $_[3];
+	$debug = $_[4];
 
 	if(!$msoa{$id}{'vaccine'}){ return ('fill'=>'','min'=>'','max'=>''); }
 
+	if($max && !$min){ $min = 0; }
 	if($min eq "" && $max eq ""){
 		# Work out the range of values if needed
 		$min = 0;
@@ -560,13 +574,23 @@ sub getMSOAColour {
 
 sub getProps {
 	my $id = $_[0];
+	my $ky = $_[1];
 	my $str = "";
-	my ($p,$p2);
-	foreach $p (sort(keys(%{$stp{$id}{'vaccine'}}))){
-		$p2 = $p;
-		$p2 =~ s/ /-/g;
-		$p2 =~ s/[^a-zA-Z0-9\-]//;
-		$str .= " data-$p2=\"$stp{$id}{'vaccine'}{$p}\"";
+	my $p2;
+	if($ky){
+		if($stp{$id}{'vaccine'}{$ky} ne ""){
+			$p2 = $ky;
+			$p2 =~ s/ /-/g;
+			$p2 =~ s/[^a-zA-Z0-9\-]//;
+			$str .= " data-$p2=\"$stp{$id}{'vaccine'}{$ky}\"";
+		}
+	}else{
+		foreach $ky (sort(keys(%{$stp{$id}{'vaccine'}}))){
+			$p2 = $ky;
+			$p2 =~ s/ /-/g;
+			$p2 =~ s/[^a-zA-Z0-9\-]//;
+			$str .= " data-$p2=\"$stp{$id}{'vaccine'}{$ky}\"";
+		}
 	}
 	$str .= " data-stp20nm=\"$stp{$id}{'name'}\"";
 	return $str;	
@@ -575,15 +599,27 @@ sub getProps {
 
 sub getPropsMSOA {
 	my $id = $_[0];
+	my $ky = $_[1];
 	my $str = "";
-	my ($p,$p2);
-	foreach $p (sort(keys(%{$stp{$id}{'vaccine'}}))){
-		$p2 = $p;
-		$p2 =~ s/ /-/g;
-		$p2 =~ s/[^a-zA-Z0-9\-]//;
-		$str .= " data-$p2=\"$msoa{$id}{'vaccine'}{$p}\"";
+	my ($p2,$nm);
+	if($ky){
+		if($msoa{$id}{'vaccine'}{$ky} ne ""){
+			$p2 = $ky;
+			$p2 =~ s/ /-/g;
+			$p2 =~ s/[^a-zA-Z0-9\-]//;
+			$str .= " data-$p2=\"$msoa{$id}{'vaccine'}{$ky}\"";
+		}
+	}else{
+		foreach $ky (sort(keys(%{$stp{$id}{'vaccine'}}))){
+			$p2 = $ky;
+			$p2 =~ s/ /-/g;
+			$p2 =~ s/[^a-zA-Z0-9\-]//;
+			$str .= " data-$p2=\"$msoa{$id}{'vaccine'}{$ky}\"";
+		}
 	}
-	$str .= " data-msoanm=\"$msoa{$id}{'name'}\"";
+	$nm = $msoa{$id}{'name'};
+	$nm =~ s/\&/\&amp;/g;
+	$str .= " data-msoanm=\"$nm\"";
 	return $str;	
 }
 
