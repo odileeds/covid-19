@@ -345,23 +345,29 @@ foreach $m (keys(%data)){
 		$msoa{$m} = {'name'=>$data{$m}{'msoa11nm'}};
 		$msoa{$m}{'pop'} = {'total'=>0};
 	}
-	#Under 16,16-59,60-64,65-69,70-74,75-79,80+,16+
 	foreach $c (sort(keys(%{$data{$m}}))){
-		$age = int($c);
-
-		for($ag = 0 ; $ag < @agegroups; $ag++){
-			if($agegroups[$ag]{'table'}){
-				if($age >= $agegroups[$ag]{'low'} && $age < $agegroups[$ag]{'high'}){
-					if(!$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}}){ $msoa{$m}{'pop'}{$agegroups[$ag]{'label'}} = 0; }
-					$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}} += $data{$m}{$c};
+		$age = "";
+		# Only keep the age groups that we want
+		if($c eq "Under 16"){
+			$age = "0";
+		}elsif($c eq "16+"){
+			$age = "";
+		}elsif($c =~ /^([0-9]+)/){
+			$age = int($1);
+		}
+		if($age){
+			for($ag = 0 ; $ag < @agegroups; $ag++){
+				if($agegroups[$ag]{'table'}){
+					if($age >= $agegroups[$ag]{'low'} && $age < $agegroups[$ag]{'high'}){
+						if(!$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}}){ $msoa{$m}{'pop'}{$agegroups[$ag]{'label'}} = 0; }
+						$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}} += $data{$m}{$c};
+					}
+					$msoa{$m}{'pop'}{'total'} += $data{$m}{$c};
 				}
-				$msoa{$m}{'pop'}{'total'} += $data{$m}{$c};
 			}
 		}
-
 	}
 }
-
 
 %vaccinemsoa = getCSV($dir."data/vaccinations-MSOA-$vaccinedate.csv",{'id'=>'msoa11cd','map'=>{'MSOA Code'=>'msoa11cd','MSOA Name'=>'msoa11nm'}});
 
@@ -428,12 +434,15 @@ foreach $line (@lines){
 	}
 	if($line =~ /"MSOA11CD":"([^\"]+)"/){
 		$id = $1;
+		if($id eq "E02003836" || $id eq "E02003835"){
+			print Dumper $msoa{$id};
+		}
 		if($msoa{$id}{'vaccine'}){
 			# Need to add the data as properties
 			$property = ",\"MSOA11NM\":\"$msoa{$id}{'name'}\",\"period\":\"$vaccineperiod\"";
 			for($ag = 0 ; $ag < @agegroups; $ag++){
 				if($agegroups[$ag]{'table'}){
-					$property .= ",\"$agegroups[$ag]{'label'}\":$msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}},\"$agegroups[$ag]{'label'} %\":".$msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'};
+					$property .= ",\"$agegroups[$ag]{'label'}\":".($msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}}||0).",\"$agegroups[$ag]{'label'} %\":".($msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'}||0);
 				}
 			}
 			$line =~ s/(\},"geometry")/$property$1/;
