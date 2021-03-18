@@ -1,0 +1,15 @@
+{
+	"geojson":"https://odileeds.github.io/covid-19/resources/vaccine-nhs-stp.geojson",
+	"name":"Covid-19 vaccine data by NHS ICS/STP",
+	"desc":"NHS England data on vaccine uptake broken down by age group and  NHS Improvement integrated care systems (ICS) and sustainability and transformation partnerships (STP). Period: 8th December 2020 to 14th March 2021.",
+	"url":"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
+	"owner":"nhs-england",
+	"credit": { "text": "&copy; NHS England, ONS, OS", "src": "NHS England" },
+	"licence": { "text": "OGL v3", "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" },
+	"format": { "type": "chloropleth", "keys":["1st dose 0-59","1st dose 0-59 %","1st dose 60-64","1st dose 60-64 %","1st dose 65-69","1st dose 65-69 %","1st dose 70-74","1st dose 70-74 %","1st dose 75-79","1st dose 75-79 %","1st dose 80+","1st dose 80+ %","2nd dose 0-64","2nd dose 0-64 %","2nd dose 65-69","2nd dose 65-69 %","2nd dose 70-74","2nd dose 70-74 %","2nd dose 75-79","2nd dose 75-79 %","2nd dose 80+","2nd dose 80+ %"] },
+	"size": 174000,
+	"odbl": false,
+	"date": "2021-03-18",
+	"colour":"#2254F4",
+	"popup":"function test(f){ return '<h3>'+(f.properties['stp20nm'] ? f.properties['stp20nm']:'?')+'</h3><h4>1st dose</h4><table class=\"odi\"><tr><th>0-59</th><th>60-64</th><th>65-69</th><th>70-74</th><th>75-79</th><th>&gt;80</th></tr><tr><td>'+(f.properties['1st dose 0-64'])+'</td><td>'+(f.properties['1st dose 65-69'])+'</td><td>'+(f.properties['1st dose 70-74'])+'</td><td>'+(f.properties['1st dose 75-79'])+'</td><td>'+(f.properties['1st dose 80+'])+'</td></tr><tr><td>'+(f.properties['1st dose 0-59 %'])+'%</td><td>'+(f.properties['1st dose 60-64 %'])+'%</td><td>'+(f.properties['1st dose 65-69 %'])+'%</td><td>'+(f.properties['1st dose 70-74 %'])+'%</td><td>'+(f.properties['1st dose 75-79 %'])+'%</td><td>'+(f.properties['1st dose 80+ %'])+'%</td></tr></table><h4>2nd dose</h4><table class=\"odi\"><tr><th>&lt;65</th><th>65-69</th><th>70-74</th><th>75-79</th><th>&gt;80</th></tr><tr><td>'+(f.properties['2nd dose 0-59'])+'</td><td>'+(f.properties['2nd dose 60-64'])+'</td><td>'+(f.properties['2nd dose 65-69'])+'</td><td>'+(f.properties['2nd dose 70-74'])+'</td><td>'+(f.properties['2nd dose 75-79'])+'</td><td>'+(f.properties['2nd dose 80+'])+'</td></tr><tr><td>'+(f.properties['2nd dose 0-64 %'])+'%</td><td>'+(f.properties['2nd dose 65-69 %'])+'%</td><td>'+(f.properties['2nd dose 70-74 %'])+'%</td><td>'+(f.properties['2nd dose 75-79 %'])+'%</td><td>'+(f.properties['2nd dose 80+ %'])+'%</td></tr></table>'; }"
+}
