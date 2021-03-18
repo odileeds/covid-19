@@ -23,5 +23,7 @@ Weekly [vaccine data from NHS England](https://www.england.nhs.uk/statistics/sta
 4. Edit [vaccines.pl](vaccines.pl) with correct values for `$vaccinedate`, `$vaccinedatenice`, `$vaccineperiod` and update all the age categories as necessary.
 5. Extract NIMS MSOA populations
 6. Extract MSOA vaccine data as `data/vaccinations-MSOA-YYYYMMDD.csv`
-7. Extract LTLA data
-8. Edit [phe.pl](../LocalAuthorities/data/phe.pl) to edit age groups.
+7. Run vaccines.pl
+8. Extract LTLA data
+9. Edit [phe.pl](../LocalAuthorities/data/phe.pl) and edit age groups in NIMS section.
+10. Run phe.pl
