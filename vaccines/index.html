@@ -1,0 +1,465 @@
+---
+# front matter tells Jekyll to process Liquid
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<title>COVID-19 Vaccines</title>
+	<link rel="StyleSheet" href="../resources/style.css" type="text/css" />
+	<style>
+	.grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.grid img, .grid svg { width: 100%; height: auto; }
+	svg path.active { stroke: black; stroke-width: 2px; }
+	.map { position: relative; }
+	figure h2 { margin-top: 0; }
+	figure a, figure a:visited { color: inherit; }
+	table { width: 100%; }
+	table th { background: #ddd; color: black; }
+	table td, table th { border: 1px solid #222; padding: 0.25em 0.5em; color: black; }
+	table tr:hover td { background: rgba(249, 188, 38,0.4); }
+	td.num { text-align: center; }
+	.sorted-dn::after { content: "▼"; }
+	.sorted-up::after { content: "▲"; }
+	.key { display: block; margin-bottom: 2em; }
+	.key .bar {
+		height: 1em;
+		position: relative;
+		display: block;
+		border: 1px solid #666666;
+	}
+	.key .range {
+		display: block;
+		line-height: 1.5em;
+		font-size: 0.8em;
+	}
+	.key .range .min { float: left; padding-left: 0.25em; border-left: 1px solid #666666; }
+	.key .range .max { float: right; padding-right: 0.25em; border-right: 1px solid #666666; }
+
+	label input[type=checkbox]{
+		width: 1em;
+		height: 1em;
+	}
+
+
+	/* The container */
+	.container {
+		display: inline-block;
+		position: relative;
+		padding-left: 2em;
+		margin-bottom: 0.5em;
+		margin-right: 0em;
+		margin-left: 1em;
+		line-height: 1.5em;
+		cursor: pointer;
+		font-size: 1em;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	/* Hide the browser's default checkbox */
+	.container input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+	/* Create a custom checkbox */
+	.checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 1.5em;
+		width: 1.5em;
+		background-color: #eee;
+	}
+
+	/* On mouse-over, add a grey background color */
+	.container:hover input ~ .checkmark {
+	  background-color: #ccc;
+	}
+
+	/* When the checkbox is checked, add a blue background */
+	.container input:checked ~ .checkmark {
+	  background-color: #2196F3;
+	}
+
+	/* Create the checkmark/indicator (hidden when not checked) */
+	.checkmark:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	}
+
+	/* Show the checkmark when checked */
+	.container input:checked ~ .checkmark:after {
+	  display: block;
+	}
+
+	/* Style the checkmark/indicator */
+	.container .checkmark:after {
+		left: 0.62em;
+		top: 0.32em;
+		width: 0.35em;
+		height: 0.7em;
+		border: solid white;
+		border-width: 0 3px 3px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	header a, header a:visited { color: inherit; }
+	@media only screen and (max-width: 1080px) {
+		.grid { grid-template-columns: repeat(2, 1fr); }
+	}
+	@media only screen and (max-width: 700px) {
+		.grid { grid-template-columns: repeat(1, 1fr); }
+	}
+	</style>
+	<script src="../resources/table-sort.js"></script>
+</head>
+<body class="b1-bg">
+
+
+	<header>
+		<div class="b1-bg padded">
+			<div class="holder" style="text-align:center;">
+				<a href="https://odileeds.org/"><img src="https://odileeds.org/resources/images/odileeds.svg" /></a>
+				<h1>COVID-19 Vaccines in England</h1>
+			</div>
+		</div>
+		<div class="c14-bg" style="padding:0.5em;text-align:center;">
+			<div class="holder">Also see our <a href="LocalAuthorities/dashboard/index.html">Local Authority Dashboard</a>, our <a href="LocalAuthorities/dashboard/table.html">table of Local Authorities</a>, and our <a href="LocalAuthorities/hexmap.html">Local Authority hex maps</a>.</div>
+		</div>
+	</header>
+
+	<div class="b6-bg">
+		<div class="padded">
+			<div class="holder">
+				<p class="updated">A visualisation of <a href="https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/">NHS England vaccine data</a> released on <strong><!-- Start update -->18th March 2021<!-- End update --></strong> (covering <!-- Start period -->8th December 2020 to 14th March 2021<!-- End period -->). Please <a href="#notes">see notes</a>. We also have <a href="https://mapper.odileeds.org/?7/53.17970/-2.02148/covid-19-vaccine-nhs-msoa">vaccine data shown by MSOA on the ODI Leeds Data Mapper</a>.</p>
+				<div style="text-align:center;margin-bottom:1em;">
+					Show maps for
+					<label for="pc" class="container" title="Toggle maps for percentages">
+						<span>Percentages</span>
+						<input type="checkbox" id="pc" checked="checked"></input>
+						<span class="checkmark"></span>
+					</label>
+					<label for="total" class="container" title="Toggle maps for totals">
+						<span>Totals</span>
+						<input type="checkbox" id="total" checked="checked"></input>
+						<span class="checkmark"></span>
+					</label>
+				</div>
+			</div>
+			<div class="grid">
+<!-- Start maps -->				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 0-54 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-0-54.svg %}
+{% include_relative inc/vaccine-1st-dose-0-54.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-0-54.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 0-54 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-0-54-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-0-54-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-0-54-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 55-59 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-55-59.svg %}
+{% include_relative inc/vaccine-1st-dose-55-59.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-55-59.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 55-59 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-55-59-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-55-59-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-55-59-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 60-64 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-60-64.svg %}
+{% include_relative inc/vaccine-1st-dose-60-64.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-60-64.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 60-64 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-60-64-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-60-64-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-60-64-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 65-69 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-65-69.svg %}
+{% include_relative inc/vaccine-1st-dose-65-69.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-65-69.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 65-69 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-65-69-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-65-69-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-65-69-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 70-74 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-70-74.svg %}
+{% include_relative inc/vaccine-1st-dose-70-74.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-70-74.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 70-74 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-70-74-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-70-74-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-70-74-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 75-79 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-75-79.svg %}
+{% include_relative inc/vaccine-1st-dose-75-79.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-75-79.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 75-79 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-75-79-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-75-79-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-75-79-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>1st dose 80+ (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-80.svg %}
+{% include_relative inc/vaccine-1st-dose-80.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-80.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>1st dose 80+ (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-1st-dose-80-pc.svg %}
+{% include_relative inc/vaccine-1st-dose-80-pc.html %}
+					</div>
+					<a href="inc/vaccine-1st-dose-80-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 0-54 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-0-54.svg %}
+{% include_relative inc/vaccine-2nd-dose-0-54.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-0-54.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 0-54 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-0-54-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-0-54-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-0-54-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 55-59 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-55-59.svg %}
+{% include_relative inc/vaccine-2nd-dose-55-59.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-55-59.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 55-59 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-55-59-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-55-59-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-55-59-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 60-64 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-60-64.svg %}
+{% include_relative inc/vaccine-2nd-dose-60-64.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-60-64.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 60-64 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-60-64-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-60-64-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-60-64-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 65-69 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-65-69.svg %}
+{% include_relative inc/vaccine-2nd-dose-65-69.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-65-69.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 65-69 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-65-69-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-65-69-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-65-69-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 70-74 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-70-74.svg %}
+{% include_relative inc/vaccine-2nd-dose-70-74.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-70-74.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 70-74 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-70-74-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-70-74-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-70-74-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 75-79 (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-75-79.svg %}
+{% include_relative inc/vaccine-2nd-dose-75-79.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-75-79.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 75-79 (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-75-79-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-75-79-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-75-79-pc.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded total">
+					<h2>2nd dose 80+ (total)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-80.svg %}
+{% include_relative inc/vaccine-2nd-dose-80.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-80.svg">Download map (SVG)</a>
+				</figure>
+				<figure class="b5-bg doublepadded pc">
+					<h2>2nd dose 80+ (%)</h2>
+					<div class="map jekyll-parse">
+{% include_relative inc/vaccine-2nd-dose-80-pc.svg %}
+{% include_relative inc/vaccine-2nd-dose-80-pc.html %}
+					</div>
+					<a href="inc/vaccine-2nd-dose-80-pc.svg">Download map (SVG)</a>
+				</figure>
+<!-- End maps -->
+
+			</div>
+		</div>
+		<div class="padded">
+			<div class="holder2">
+			<p>Here is the same data presented as a table. Click on any column heading to sort the table by that column.</p>
+<!-- Start table -->
+			<table class="table-sort">
+			<thead><tr><th>Area</th><th>Name</th><th>Pop</th><th>1st<br />Total</th><th>1st<br />%</th><th>1st<br />0-54</th><th>1st<br />0-54 %</th><th>1st<br />55-59</th><th>1st<br />55-59 %</th><th>1st<br />60-64</th><th>1st<br />60-64 %</th><th>1st<br />65-69</th><th>1st<br />65-69 %</th><th>1st<br />70-74</th><th>1st<br />70-74 %</th><th>1st<br />75-79</th><th>1st<br />75-79 %</th><th>1st<br />80+</th><th>1st<br />80+ %</th><th>2nd<br />Total</th><th>2nd<br />%</th><th>2nd<br />0-54</th><th>2nd<br />0-54 %</th><th>2nd<br />55-59</th><th>2nd<br />55-59 %</th><th>2nd<br />60-64</th><th>2nd<br />60-64 %</th><th>2nd<br />65-69</th><th>2nd<br />65-69 %</th><th>2nd<br />70-74</th><th>2nd<br />70-74 %</th><th>2nd<br />75-79</th><th>2nd<br />75-79 %</th><th>2nd<br />80+</th><th>2nd<br />80+ %</th>			<tr><td>E54000007</td><td>Greater Manchester Health and Social Care Partnership</td><td>2869256</td><td class="num">1009298</td><td class="num">35.2</td><td class="num">349050</td><td class="num">16.7</td><td class="num">104665</td><td class="num">72.9</td><td class="num">121534</td><td class="num">102.2</td><td class="num">115939</td><td class="num">113.4</td><td class="num">120663</td><td class="num">116.3</td><td class="num">86062</td><td class="num">120.1</td><td class="num">111385</td><td class="num">94.2</td><td class="num">13599</td><td class="num">0.7</td><td class="num">3138</td><td class="num">2.2</td><td class="num">2439</td><td class="num">2.1</td><td class="num">1338</td><td class="num">1.3</td><td class="num">1029</td><td class="num">1.0</td><td class="num">1303</td><td class="num">1.8</td><td class="num">21306</td><td class="num">18.0</td></tr>
+			<tr><td>E54000008</td><td>Cheshire and Merseyside</td><td>2496557</td><td class="num">1003794</td><td class="num">40.2</td><td class="num">300605</td><td class="num">18.0</td><td class="num">95790</td><td class="num">66.5</td><td class="num">129295</td><td class="num">104.7</td><td class="num">126256</td><td class="num">115.0</td><td class="num">130025</td><td class="num">117.1</td><td class="num">93195</td><td class="num">121.1</td><td class="num">128628</td><td class="num">95.0</td><td class="num">13798</td><td class="num">0.8</td><td class="num">3087</td><td class="num">2.1</td><td class="num">2184</td><td class="num">1.8</td><td class="num">1128</td><td class="num">1.0</td><td class="num">1545</td><td class="num">1.4</td><td class="num">2144</td><td class="num">2.8</td><td class="num">24122</td><td class="num">17.8</td></tr>
+			<tr><td>E54000009</td><td>South Yorkshire and Bassetlaw</td><td>1526479</td><td class="num">538612</td><td class="num">35.3</td><td class="num">162507</td><td class="num">15.3</td><td class="num">45845</td><td class="num">56.6</td><td class="num">61790</td><td class="num">87.9</td><td class="num">69567</td><td class="num">113.6</td><td class="num">72890</td><td class="num">117.1</td><td class="num">54445</td><td class="num">123.2</td><td class="num">71568</td><td class="num">95.2</td><td class="num">8114</td><td class="num">0.8</td><td class="num">2130</td><td class="num">2.6</td><td class="num">1725</td><td class="num">2.5</td><td class="num"> 743 </td><td class="num">1.2</td><td class="num"> 525 </td><td class="num">0.8</td><td class="num">1056</td><td class="num">2.4</td><td class="num">16277</td><td class="num">21.7</td></tr>
+			<tr><td>E54000010</td><td>Staffordshire and Stoke on Trent</td><td>1135935</td><td class="num">476993</td><td class="num">42.0</td><td class="num">136998</td><td class="num">18.2</td><td class="num">46864</td><td class="num">72.6</td><td class="num">62592</td><td class="num">113.0</td><td class="num">58969</td><td class="num">116.6</td><td class="num">62674</td><td class="num">117.3</td><td class="num">48438</td><td class="num">123.6</td><td class="num">60458</td><td class="num">99.4</td><td class="num">9386</td><td class="num">1.2</td><td class="num">2039</td><td class="num">3.2</td><td class="num">1528</td><td class="num">2.8</td><td class="num"> 590 </td><td class="num">1.2</td><td class="num"> 472 </td><td class="num">0.9</td><td class="num"> 699 </td><td class="num">1.8</td><td class="num">15372</td><td class="num">25.3</td></tr>
+			<tr><td>E54000011</td><td>Shropshire and Telford and Wrekin</td><td>502990</td><td class="num">217386</td><td class="num">43.2</td><td class="num">57072</td><td class="num">17.6</td><td class="num">22906</td><td class="num">76.7</td><td class="num">28960</td><td class="num">113.4</td><td class="num">27854</td><td class="num">114.6</td><td class="num">29355</td><td class="num">117.3</td><td class="num">22595</td><td class="num">125.9</td><td class="num">28644</td><td class="num">100.0</td><td class="num">1753</td><td class="num">0.5</td><td class="num"> 434 </td><td class="num">1.5</td><td class="num"> 280 </td><td class="num">1.1</td><td class="num"> 108 </td><td class="num">0.4</td><td class="num"> 52 </td><td class="num">0.2</td><td class="num"> 38 </td><td class="num">0.2</td><td class="num">4716</td><td class="num">16.5</td></tr>
+			<tr><td>E54000012</td><td>Joined Up Care Derbyshire</td><td>1026426</td><td class="num">414516</td><td class="num">40.4</td><td class="num">115473</td><td class="num">17.0</td><td class="num">40724</td><td class="num">69.0</td><td class="num">54258</td><td class="num">107.1</td><td class="num">52724</td><td class="num">115.7</td><td class="num">55835</td><td class="num">116.8</td><td class="num">42005</td><td class="num">125.3</td><td class="num">53497</td><td class="num">96.2</td><td class="num">5274</td><td class="num">0.8</td><td class="num">1252</td><td class="num">2.1</td><td class="num"> 897 </td><td class="num">1.8</td><td class="num"> 304 </td><td class="num">0.7</td><td class="num"> 146 </td><td class="num">0.3</td><td class="num"> 89 </td><td class="num">0.3</td><td class="num">5082</td><td class="num">9.1</td></tr>
+			<tr><td>E54000013</td><td>Lincolnshire</td><td>761224</td><td class="num">321832</td><td class="num">42.3</td><td class="num">76866</td><td class="num">16.1</td><td class="num">28840</td><td class="num">64.1</td><td class="num">42409</td><td class="num">106.2</td><td class="num">43473</td><td class="num">113.7</td><td class="num">48096</td><td class="num">115.9</td><td class="num">36269</td><td class="num">125.0</td><td class="num">45879</td><td class="num">98.7</td><td class="num">4486</td><td class="num">0.9</td><td class="num">1092</td><td class="num">2.4</td><td class="num"> 780 </td><td class="num">2.0</td><td class="num"> 279 </td><td class="num">0.7</td><td class="num"> 142 </td><td class="num">0.3</td><td class="num"> 116 </td><td class="num">0.4</td><td class="num">6279</td><td class="num">13.5</td></tr>
+			<tr><td>E54000014</td><td>Nottingham and Nottinghamshire Health and Care</td><td>1043665</td><td class="num">392900</td><td class="num">37.6</td><td class="num">126377</td><td class="num">17.2</td><td class="num">39100</td><td class="num">71.9</td><td class="num">49029</td><td class="num">107.4</td><td class="num">46535</td><td class="num">113.3</td><td class="num">48403</td><td class="num">116.9</td><td class="num">35859</td><td class="num">124.0</td><td class="num">47597</td><td class="num">95.6</td><td class="num">6894</td><td class="num">0.9</td><td class="num">1485</td><td class="num">2.7</td><td class="num">1004</td><td class="num">2.2</td><td class="num"> 370 </td><td class="num">0.9</td><td class="num"> 163 </td><td class="num">0.4</td><td class="num"> 93 </td><td class="num">0.3</td><td class="num">2569</td><td class="num">5.2</td></tr>
+			<tr><td>E54000015</td><td>Leicester, Leicestershire and Rutland</td><td>1100306</td><td class="num">399937</td><td class="num">36.3</td><td class="num">114995</td><td class="num">14.9</td><td class="num">39324</td><td class="num">68.4</td><td class="num">52665</td><td class="num">107.6</td><td class="num">51294</td><td class="num">115.2</td><td class="num">52628</td><td class="num">119.1</td><td class="num">38128</td><td class="num">125.8</td><td class="num">50903</td><td class="num">96.4</td><td class="num">5545</td><td class="num">0.7</td><td class="num">1347</td><td class="num">2.3</td><td class="num">1142</td><td class="num">2.3</td><td class="num"> 765 </td><td class="num">1.7</td><td class="num"> 840 </td><td class="num">1.9</td><td class="num">1674</td><td class="num">5.5</td><td class="num">8217</td><td class="num">15.6</td></tr>
+			<tr><td>E54000016</td><td>The Black Country and West Birmingham</td><td>1376504</td><td class="num">473222</td><td class="num">34.4</td><td class="num">154283</td><td class="num">15.4</td><td class="num">49381</td><td class="num">72.5</td><td class="num">59034</td><td class="num">106.7</td><td class="num">54724</td><td class="num">112.8</td><td class="num">53603</td><td class="num">116.8</td><td class="num">42419</td><td class="num">114.5</td><td class="num">59778</td><td class="num">93.0</td><td class="num">6154</td><td class="num">0.6</td><td class="num">1391</td><td class="num">2.0</td><td class="num">1038</td><td class="num">1.9</td><td class="num"> 527 </td><td class="num">1.1</td><td class="num"> 398 </td><td class="num">0.9</td><td class="num"> 652 </td><td class="num">1.8</td><td class="num">11618</td><td class="num">18.1</td></tr>
+			<tr><td>E54000017</td><td>Birmingham and Solihull</td><td>1180567</td><td class="num">396575</td><td class="num">33.6</td><td class="num">134950</td><td class="num">15.3</td><td class="num">45461</td><td class="num">84.2</td><td class="num">48970</td><td class="num">110.6</td><td class="num">43651</td><td class="num">113.5</td><td class="num">43141</td><td class="num">117.2</td><td class="num">32853</td><td class="num">119.1</td><td class="num">47549</td><td class="num">90.3</td><td class="num">6357</td><td class="num">0.7</td><td class="num">1128</td><td class="num">2.1</td><td class="num"> 788 </td><td class="num">1.8</td><td class="num"> 412 </td><td class="num">1.1</td><td class="num"> 330 </td><td class="num">0.9</td><td class="num"> 804 </td><td class="num">2.9</td><td class="num">11105</td><td class="num">21.1</td></tr>
+			<tr><td>E54000018</td><td>Coventry and Warwickshire</td><td>949454</td><td class="num">355045</td><td class="num">37.4</td><td class="num">106179</td><td class="num">15.8</td><td class="num">37382</td><td class="num">78.5</td><td class="num">45289</td><td class="num">113.9</td><td class="num">42054</td><td class="num">118.5</td><td class="num">43609</td><td class="num">117.8</td><td class="num">34618</td><td class="num">124.9</td><td class="num">45914</td><td class="num">97.2</td><td class="num">4127</td><td class="num">0.6</td><td class="num"> 872 </td><td class="num">1.8</td><td class="num"> 643 </td><td class="num">1.6</td><td class="num"> 289 </td><td class="num">0.8</td><td class="num"> 228 </td><td class="num">0.6</td><td class="num"> 459 </td><td class="num">1.7</td><td class="num">8575</td><td class="num">18.1</td></tr>
+			<tr><td>E54000019</td><td>Herefordshire and Worcestershire</td><td>788587</td><td class="num">349706</td><td class="num">44.3</td><td class="num">90931</td><td class="num">18.2</td><td class="num">33876</td><td class="num">74.3</td><td class="num">45236</td><td class="num">111.8</td><td class="num">45592</td><td class="num">115.8</td><td class="num">48811</td><td class="num">118.6</td><td class="num">36840</td><td class="num">125.9</td><td class="num">48420</td><td class="num">98.1</td><td class="num">4405</td><td class="num">0.9</td><td class="num">1103</td><td class="num">2.4</td><td class="num"> 738 </td><td class="num">1.8</td><td class="num"> 307 </td><td class="num">0.8</td><td class="num"> 197 </td><td class="num">0.5</td><td class="num"> 399 </td><td class="num">1.4</td><td class="num">11411</td><td class="num">23.1</td></tr>
+			<tr><td>E54000020</td><td>Northamptonshire</td><td>736219</td><td class="num">262100</td><td class="num">35.6</td><td class="num">75006</td><td class="num">14.6</td><td class="num">23884</td><td class="num">59.1</td><td class="num">35100</td><td class="num">105.6</td><td class="num">33892</td><td class="num">112.4</td><td class="num">36349</td><td class="num">115.6</td><td class="num">25848</td><td class="num">127.2</td><td class="num">32021</td><td class="num">97.9</td><td class="num">3540</td><td class="num">0.7</td><td class="num"> 943 </td><td class="num">2.3</td><td class="num"> 679 </td><td class="num">2.0</td><td class="num"> 297 </td><td class="num">1.0</td><td class="num"> 184 </td><td class="num">0.6</td><td class="num"> 521 </td><td class="num">2.6</td><td class="num">10021</td><td class="num">30.6</td></tr>
+			<tr><td>E54000021</td><td>Cambridgeshire and Peterborough</td><td>892627</td><td class="num">334785</td><td class="num">37.5</td><td class="num">102105</td><td class="num">16.4</td><td class="num">30252</td><td class="num">64.6</td><td class="num">43364</td><td class="num">110.8</td><td class="num">40742</td><td class="num">114.8</td><td class="num">43162</td><td class="num">117.2</td><td class="num">31944</td><td class="num">128.5</td><td class="num">43216</td><td class="num">96.5</td><td class="num">4780</td><td class="num">0.8</td><td class="num"> 810 </td><td class="num">1.7</td><td class="num"> 601 </td><td class="num">1.5</td><td class="num"> 273 </td><td class="num">0.8</td><td class="num"> 114 </td><td class="num">0.3</td><td class="num"> 77 </td><td class="num">0.3</td><td class="num">7981</td><td class="num">17.8</td></tr>
+			<tr><td>E54000022</td><td>Norfolk and Waveney Health and Care Partnership</td><td>1026193</td><td class="num">457000</td><td class="num">44.5</td><td class="num">117821</td><td class="num">18.5</td><td class="num">37129</td><td class="num">64.7</td><td class="num">55655</td><td class="num">106.1</td><td class="num">58849</td><td class="num">114.4</td><td class="num">67412</td><td class="num">115.8</td><td class="num">51072</td><td class="num">126.2</td><td class="num">69062</td><td class="num">96.8</td><td class="num">5015</td><td class="num">0.8</td><td class="num">1119</td><td class="num">2.0</td><td class="num"> 834 </td><td class="num">1.6</td><td class="num"> 340 </td><td class="num">0.7</td><td class="num"> 177 </td><td class="num">0.3</td><td class="num"> 203 </td><td class="num">0.5</td><td class="num">15894</td><td class="num">22.3</td></tr>
+			<tr><td>E54000023</td><td>Suffolk and North East Essex</td><td>984184</td><td class="num">428462</td><td class="num">43.5</td><td class="num">116186</td><td class="num">18.3</td><td class="num">42570</td><td class="num">78.3</td><td class="num">52563</td><td class="num">109.0</td><td class="num">52855</td><td class="num">114.7</td><td class="num">59633</td><td class="num">115.6</td><td class="num">44556</td><td class="num">126.7</td><td class="num">60099</td><td class="num">97.1</td><td class="num">6379</td><td class="num">1.0</td><td class="num">1330</td><td class="num">2.4</td><td class="num"> 931 </td><td class="num">1.9</td><td class="num"> 451 </td><td class="num">1.0</td><td class="num"> 339 </td><td class="num">0.7</td><td class="num"> 370 </td><td class="num">1.1</td><td class="num">6652</td><td class="num">10.7</td></tr>
+			<tr><td>E54000024</td><td>Bedfordshire, Luton and Milton Keynes</td><td>950874</td><td class="num">303880</td><td class="num">32.0</td><td class="num">95611</td><td class="num">13.8</td><td class="num">24425</td><td class="num">50.1</td><td class="num">40772</td><td class="num">100.6</td><td class="num">39265</td><td class="num">114.2</td><td class="num">39245</td><td class="num">118.2</td><td class="num">27744</td><td class="num">123.9</td><td class="num">36818</td><td class="num">92.7</td><td class="num">5377</td><td class="num">0.8</td><td class="num">1088</td><td class="num">2.2</td><td class="num"> 802 </td><td class="num">2.0</td><td class="num"> 370 </td><td class="num">1.1</td><td class="num"> 209 </td><td class="num">0.6</td><td class="num"> 543 </td><td class="num">2.4</td><td class="num">8542</td><td class="num">21.5</td></tr>
+			<tr><td>E54000025</td><td>Hertfordshire and West Essex</td><td>1479787</td><td class="num">507012</td><td class="num">34.3</td><td class="num">145992</td><td class="num">14.0</td><td class="num">44951</td><td class="num">55.8</td><td class="num">68002</td><td class="num">103.8</td><td class="num">63126</td><td class="num">117.2</td><td class="num">64780</td><td class="num">117.3</td><td class="num">48047</td><td class="num">124.3</td><td class="num">72114</td><td class="num">94.1</td><td class="num">7573</td><td class="num">0.7</td><td class="num">1731</td><td class="num">2.1</td><td class="num">1228</td><td class="num">1.9</td><td class="num"> 682 </td><td class="num">1.3</td><td class="num"> 612 </td><td class="num">1.1</td><td class="num"> 679 </td><td class="num">1.8</td><td class="num">21779</td><td class="num">28.4</td></tr>
+			<tr><td>E54000026</td><td>Mid and South Essex</td><td>1195348</td><td class="num">411366</td><td class="num">34.4</td><td class="num">110474</td><td class="num">13.5</td><td class="num">33928</td><td class="num">52.0</td><td class="num">45909</td><td class="num">84.3</td><td class="num">54124</td><td class="num">110.7</td><td class="num">61457</td><td class="num">113.6</td><td class="num">44725</td><td class="num">125.4</td><td class="num">60749</td><td class="num">95.4</td><td class="num">4241</td><td class="num">0.5</td><td class="num"> 977 </td><td class="num">1.5</td><td class="num"> 684 </td><td class="num">1.3</td><td class="num"> 381 </td><td class="num">0.8</td><td class="num"> 276 </td><td class="num">0.5</td><td class="num"> 244 </td><td class="num">0.7</td><td class="num">12375</td><td class="num">19.4</td></tr>
+			<tr><td>E54000027</td><td>North West London Health and Care Partnership</td><td>2103719</td><td class="num">627244</td><td class="num">29.8</td><td class="num">234045</td><td class="num">14.6</td><td class="num">78924</td><td class="num">80.3</td><td class="num">79657</td><td class="num">98.0</td><td class="num">67731</td><td class="num">102.3</td><td class="num">59950</td><td class="num">103.4</td><td class="num">43630</td><td class="num">107.1</td><td class="num">63307</td><td class="num">82.2</td><td class="num">12586</td><td class="num">0.8</td><td class="num">1952</td><td class="num">2.0</td><td class="num">1693</td><td class="num">2.1</td><td class="num">1313</td><td class="num">2.0</td><td class="num">2511</td><td class="num">4.3</td><td class="num">1714</td><td class="num">4.2</td><td class="num">12876</td><td class="num">16.7</td></tr>
+			<tr><td>E54000028</td><td>North London Partners in Health and Care</td><td>1510806</td><td class="num">427001</td><td class="num">28.3</td><td class="num">165096</td><td class="num">14.0</td><td class="num">54049</td><td class="num">80.7</td><td class="num">52730</td><td class="num">100.1</td><td class="num">43857</td><td class="num">103.8</td><td class="num">40230</td><td class="num">104.2</td><td class="num">29033</td><td class="num">105.9</td><td class="num">42006</td><td class="num">82.0</td><td class="num">9817</td><td class="num">0.8</td><td class="num">1518</td><td class="num">2.3</td><td class="num">1222</td><td class="num">2.3</td><td class="num"> 841 </td><td class="num">2.0</td><td class="num"> 793 </td><td class="num">2.1</td><td class="num">1490</td><td class="num">5.4</td><td class="num">12828</td><td class="num">25.0</td></tr>
+			<tr><td>E54000029</td><td>East London Health and Care Partnership</td><td>2023383</td><td class="num">489127</td><td class="num">24.2</td><td class="num">205905</td><td class="num">12.6</td><td class="num">50234</td><td class="num">62.0</td><td class="num">59486</td><td class="num">91.4</td><td class="num">51166</td><td class="num">101.2</td><td class="num">45117</td><td class="num">105.6</td><td class="num">31014</td><td class="num">106.1</td><td class="num">46205</td><td class="num">80.3</td><td class="num">9264</td><td class="num">0.6</td><td class="num">1430</td><td class="num">1.8</td><td class="num">1204</td><td class="num">1.9</td><td class="num"> 672 </td><td class="num">1.3</td><td class="num"> 693 </td><td class="num">1.6</td><td class="num"> 706 </td><td class="num">2.4</td><td class="num">10955</td><td class="num">19.0</td></tr>
+			<tr><td>E54000030</td><td>Our Healthier South East London</td><td>1819271</td><td class="num">511139</td><td class="num">28.1</td><td class="num">194579</td><td class="num">13.7</td><td class="num">60526</td><td class="num">70.5</td><td class="num">64820</td><td class="num">99.7</td><td class="num">53190</td><td class="num">109.3</td><td class="num">49994</td><td class="num">110.3</td><td class="num">35602</td><td class="num">114.2</td><td class="num">52428</td><td class="num">86.4</td><td class="num">10423</td><td class="num">0.7</td><td class="num">1694</td><td class="num">2.0</td><td class="num">1258</td><td class="num">1.9</td><td class="num"> 722 </td><td class="num">1.5</td><td class="num">1259</td><td class="num">2.8</td><td class="num">1666</td><td class="num">5.3</td><td class="num">12595</td><td class="num">20.8</td></tr>
+			<tr><td>E54000031</td><td>South West London Health and Care Partnership</td><td>1504810</td><td class="num">453836</td><td class="num">30.2</td><td class="num">162600</td><td class="num">14.2</td><td class="num">51687</td><td class="num">71.4</td><td class="num">57259</td><td class="num">101.7</td><td class="num">49948</td><td class="num">108.9</td><td class="num">48817</td><td class="num">113.4</td><td class="num">34149</td><td class="num">117.4</td><td class="num">49376</td><td class="num">89.3</td><td class="num">12817</td><td class="num">1.1</td><td class="num">2240</td><td class="num">3.1</td><td class="num">1748</td><td class="num">3.1</td><td class="num">1040</td><td class="num">2.3</td><td class="num"> 879 </td><td class="num">2.0</td><td class="num"> 898 </td><td class="num">3.1</td><td class="num">12659</td><td class="num">22.9</td></tr>
+			<tr><td>E54000032</td><td>Kent and Medway</td><td>1860111</td><td class="num">690724</td><td class="num">37.1</td><td class="num">192800</td><td class="num">15.2</td><td class="num">61628</td><td class="num">60.8</td><td class="num">88392</td><td class="num">102.5</td><td class="num">86720</td><td class="num">113.0</td><td class="num">96486</td><td class="num">114.1</td><td class="num">70823</td><td class="num">124.8</td><td class="num">93875</td><td class="num">95.9</td><td class="num">14591</td><td class="num">1.2</td><td class="num">3252</td><td class="num">3.2</td><td class="num">2402</td><td class="num">2.8</td><td class="num">1136</td><td class="num">1.5</td><td class="num"> 762 </td><td class="num">0.9</td><td class="num">1197</td><td class="num">2.1</td><td class="num">23138</td><td class="num">23.6</td></tr>
+			<tr><td>E54000034</td><td>Frimley Health and Care ICS</td><td>744974</td><td class="num">246050</td><td class="num">33.0</td><td class="num">74355</td><td class="num">13.8</td><td class="num">23790</td><td class="num">61.0</td><td class="num">31116</td><td class="num">100.9</td><td class="num">30627</td><td class="num">118.8</td><td class="num">30527</td><td class="num">117.2</td><td class="num">22883</td><td class="num">123.8</td><td class="num">32752</td><td class="num">96.0</td><td class="num">5337</td><td class="num">1.0</td><td class="num">1092</td><td class="num">2.8</td><td class="num"> 763 </td><td class="num">2.5</td><td class="num"> 371 </td><td class="num">1.4</td><td class="num"> 155 </td><td class="num">0.6</td><td class="num"> 176 </td><td class="num">1.0</td><td class="num">6323</td><td class="num">18.5</td></tr>
+			<tr><td>E54000036</td><td>Cornwall and the Isles of Scilly Health and Social Care Partnership</td><td>571802</td><td class="num">254725</td><td class="num">44.5</td><td class="num">60070</td><td class="num">17.3</td><td class="num">21628</td><td class="num">63.2</td><td class="num">34469</td><td class="num">107.0</td><td class="num">34953</td><td class="num">114.0</td><td class="num">38929</td><td class="num">115.0</td><td class="num">28719</td><td class="num">127.4</td><td class="num">35957</td><td class="num">98.3</td><td class="num">7396</td><td class="num">2.1</td><td class="num">1623</td><td class="num">4.7</td><td class="num">1221</td><td class="num">3.8</td><td class="num"> 476 </td><td class="num">1.6</td><td class="num"> 242 </td><td class="num">0.7</td><td class="num"> 274 </td><td class="num">1.2</td><td class="num">6268</td><td class="num">17.1</td></tr>
+			<tr><td>E54000037</td><td>Devon</td><td>1200739</td><td class="num">520901</td><td class="num">43.4</td><td class="num">134707</td><td class="num">18.0</td><td class="num">40249</td><td class="num">58.2</td><td class="num">62080</td><td class="num">97.7</td><td class="num">69363</td><td class="num">115.6</td><td class="num">76814</td><td class="num">116.9</td><td class="num">58455</td><td class="num">128.0</td><td class="num">79233</td><td class="num">99.6</td><td class="num">9996</td><td class="num">1.3</td><td class="num">2091</td><td class="num">3.0</td><td class="num">1499</td><td class="num">2.4</td><td class="num"> 620 </td><td class="num">1.0</td><td class="num"> 342 </td><td class="num">0.5</td><td class="num"> 331 </td><td class="num">0.7</td><td class="num">14931</td><td class="num">18.8</td></tr>
+			<tr><td>E54000038</td><td>Somerset</td><td>562225</td><td class="num">262150</td><td class="num">46.6</td><td class="num">69038</td><td class="num">20.1</td><td class="num">23471</td><td class="num">69.3</td><td class="num">32813</td><td class="num">108.1</td><td class="num">33718</td><td class="num">112.5</td><td class="num">37320</td><td class="num">119.7</td><td class="num">27996</td><td class="num">127.6</td><td class="num">37794</td><td class="num">98.7</td><td class="num">3035</td><td class="num">0.9</td><td class="num"> 674 </td><td class="num">2.0</td><td class="num"> 490 </td><td class="num">1.6</td><td class="num"> 187 </td><td class="num">0.6</td><td class="num"> 109 </td><td class="num">0.3</td><td class="num"> 97 </td><td class="num">0.4</td><td class="num">6260</td><td class="num">16.3</td></tr>
+			<tr><td>E54000039</td><td>Bristol, North Somerset and South Gloucestershire</td><td>963522</td><td class="num">348491</td><td class="num">36.2</td><td class="num">113513</td><td class="num">16.3</td><td class="num">31144</td><td class="num">67.6</td><td class="num">41855</td><td class="num">109.2</td><td class="num">40787</td><td class="num">118.5</td><td class="num">42690</td><td class="num">118.9</td><td class="num">32728</td><td class="num">125.5</td><td class="num">45774</td><td class="num">96.7</td><td class="num">7222</td><td class="num">1.0</td><td class="num">1317</td><td class="num">2.9</td><td class="num"> 939 </td><td class="num">2.4</td><td class="num"> 387 </td><td class="num">1.1</td><td class="num"> 201 </td><td class="num">0.6</td><td class="num"> 350 </td><td class="num">1.3</td><td class="num">12396</td><td class="num">26.2</td></tr>
+			<tr><td>E54000040</td><td>Bath and North East Somerset, Swindon and Wiltshire</td><td>921917</td><td class="num">355120</td><td class="num">38.5</td><td class="num">93303</td><td class="num">15.0</td><td class="num">32753</td><td class="num">62.9</td><td class="num">47837</td><td class="num">110.0</td><td class="num">46295</td><td class="num">118.5</td><td class="num">48450</td><td class="num">120.0</td><td class="num">36203</td><td class="num">127.8</td><td class="num">50279</td><td class="num">99.9</td><td class="num">3549</td><td class="num">0.6</td><td class="num"> 796 </td><td class="num">1.5</td><td class="num"> 559 </td><td class="num">1.3</td><td class="num"> 224 </td><td class="num">0.6</td><td class="num"> 117 </td><td class="num">0.3</td><td class="num"> 84 </td><td class="num">0.3</td><td class="num">7927</td><td class="num">15.8</td></tr>
+			<tr><td>E54000041</td><td>Dorset</td><td>773839</td><td class="num">355300</td><td class="num">45.9</td><td class="num">86500</td><td class="num">18.3</td><td class="num">34709</td><td class="num">77.6</td><td class="num">42782</td><td class="num">106.2</td><td class="num">44840</td><td class="num">115.8</td><td class="num">50905</td><td class="num">116.5</td><td class="num">38870</td><td class="num">126.9</td><td class="num">56694</td><td class="num">98.5</td><td class="num">2868</td><td class="num">0.6</td><td class="num"> 748 </td><td class="num">1.7</td><td class="num"> 531 </td><td class="num">1.3</td><td class="num"> 280 </td><td class="num">0.7</td><td class="num"> 186 </td><td class="num">0.4</td><td class="num"> 140 </td><td class="num">0.5</td><td class="num">10345</td><td class="num">18.0</td></tr>
+			<tr><td>E54000042</td><td>Hampshire and the Isle of Wight</td><td>1824154</td><td class="num">719912</td><td class="num">39.5</td><td class="num">195174</td><td class="num">16.1</td><td class="num">65194</td><td class="num">64.3</td><td class="num">93861</td><td class="num">107.3</td><td class="num">90488</td><td class="num">117.4</td><td class="num">98133</td><td class="num">115.7</td><td class="num">74219</td><td class="num">127.2</td><td class="num">102843</td><td class="num">96.7</td><td class="num">10233</td><td class="num">0.8</td><td class="num">2249</td><td class="num">2.2</td><td class="num">1718</td><td class="num">2.0</td><td class="num"> 752 </td><td class="num">1.0</td><td class="num"> 455 </td><td class="num">0.5</td><td class="num"> 805 </td><td class="num">1.4</td><td class="num">32487</td><td class="num">30.5</td></tr>
+			<tr><td>E54000043</td><td>Gloucestershire</td><td>637070</td><td class="num">256473</td><td class="num">40.3</td><td class="num">64980</td><td class="num">15.7</td><td class="num">24357</td><td class="num">65.4</td><td class="num">33132</td><td class="num">103.7</td><td class="num">34053</td><td class="num">115.3</td><td class="num">35635</td><td class="num">116.5</td><td class="num">27146</td><td class="num">124.2</td><td class="num">37170</td><td class="num">99.4</td><td class="num">5395</td><td class="num">1.3</td><td class="num">1255</td><td class="num">3.4</td><td class="num"> 954 </td><td class="num">3.0</td><td class="num"> 383 </td><td class="num">1.3</td><td class="num"> 316 </td><td class="num">1.0</td><td class="num"> 770 </td><td class="num">3.5</td><td class="num">11005</td><td class="num">29.4</td></tr>
+			<tr><td>E54000044</td><td>Buckinghamshire, Oxfordshire and Berkshire West</td><td>1714146</td><td class="num">610932</td><td class="num">35.6</td><td class="num">172132</td><td class="num">14.4</td><td class="num">56531</td><td class="num">61.3</td><td class="num">80898</td><td class="num">106.3</td><td class="num">75971</td><td class="num">117.5</td><td class="num">79506</td><td class="num">118.3</td><td class="num">60458</td><td class="num">124.7</td><td class="num">85436</td><td class="num">96.7</td><td class="num">11138</td><td class="num">0.9</td><td class="num">2338</td><td class="num">2.5</td><td class="num">1689</td><td class="num">2.2</td><td class="num"> 785 </td><td class="num">1.2</td><td class="num"> 619 </td><td class="num">0.9</td><td class="num">1078</td><td class="num">2.2</td><td class="num">16996</td><td class="num">19.2</td></tr>
+			<tr><td>E54000048</td><td>Healthier Lancashire and South Cumbria</td><td>1695599</td><td class="num">683064</td><td class="num">40.3</td><td class="num">189140</td><td class="num">16.9</td><td class="num">65963</td><td class="num">68.1</td><td class="num">89919</td><td class="num">107.1</td><td class="num">86405</td><td class="num">114.6</td><td class="num">93857</td><td class="num">115.7</td><td class="num">68280</td><td class="num">122.9</td><td class="num">89500</td><td class="num">96.8</td><td class="num">9592</td><td class="num">0.9</td><td class="num">2393</td><td class="num">2.5</td><td class="num">1710</td><td class="num">2.0</td><td class="num"> 748 </td><td class="num">1.0</td><td class="num"> 703 </td><td class="num">0.9</td><td class="num"> 994 </td><td class="num">1.8</td><td class="num">25017</td><td class="num">27.0</td></tr>
+			<tr><td>E54000050</td><td>Cumbria and North East</td><td>2989312</td><td class="num">1126835</td><td class="num">37.7</td><td class="num">315030</td><td class="num">15.9</td><td class="num">98364</td><td class="num">56.9</td><td class="num">125044</td><td class="num">80.0</td><td class="num">156614</td><td class="num">114.9</td><td class="num">163538</td><td class="num">118.8</td><td class="num">113118</td><td class="num">123.8</td><td class="num">155127</td><td class="num">96.3</td><td class="num">22605</td><td class="num">1.1</td><td class="num">5306</td><td class="num">3.1</td><td class="num">4039</td><td class="num">2.6</td><td class="num">1456</td><td class="num">1.1</td><td class="num"> 840 </td><td class="num">0.6</td><td class="num">1259</td><td class="num">1.4</td><td class="num">35877</td><td class="num">22.3</td></tr>
+			<tr><td>E54000051</td><td>Humber, Coast and Vale</td><td>1704336</td><td class="num">697153</td><td class="num">40.9</td><td class="num">177777</td><td class="num">16.2</td><td class="num">65250</td><td class="num">64.7</td><td class="num">89890</td><td class="num">102.0</td><td class="num">92934</td><td class="num">115.2</td><td class="num">101182</td><td class="num">118.5</td><td class="num">71643</td><td class="num">126.0</td><td class="num">98477</td><td class="num">97.5</td><td class="num">5801</td><td class="num">0.5</td><td class="num">1531</td><td class="num">1.5</td><td class="num">1055</td><td class="num">1.2</td><td class="num"> 501 </td><td class="num">0.6</td><td class="num"> 336 </td><td class="num">0.4</td><td class="num"> 468 </td><td class="num">0.8</td><td class="num">23965</td><td class="num">23.7</td></tr>
+			<tr><td>E54000052</td><td>Surrey Heartlands Health and Care Partnership</td><td>1049170</td><td class="num">386481</td><td class="num">36.8</td><td class="num">103894</td><td class="num">14.4</td><td class="num">40421</td><td class="num">68.7</td><td class="num">50453</td><td class="num">106.8</td><td class="num">46931</td><td class="num">117.1</td><td class="num">49341</td><td class="num">114.6</td><td class="num">37836</td><td class="num">124.0</td><td class="num">57605</td><td class="num">95.0</td><td class="num">6504</td><td class="num">0.9</td><td class="num">1392</td><td class="num">2.4</td><td class="num">1059</td><td class="num">2.2</td><td class="num"> 516 </td><td class="num">1.3</td><td class="num"> 309 </td><td class="num">0.7</td><td class="num"> 263 </td><td class="num">0.9</td><td class="num">7946</td><td class="num">13.1</td></tr>
+			<tr><td>E54000053</td><td>Sussex and East Surrey Health and Care Partnership</td><td>1705280</td><td class="num">707716</td><td class="num">41.5</td><td class="num">193470</td><td class="num">17.5</td><td class="num">61011</td><td class="num">63.6</td><td class="num">90067</td><td class="num">108.9</td><td class="num">86683</td><td class="num">114.1</td><td class="num">97249</td><td class="num">114.4</td><td class="num">73466</td><td class="num">125.3</td><td class="num">105770</td><td class="num">94.6</td><td class="num">11515</td><td class="num">1.0</td><td class="num">2428</td><td class="num">2.5</td><td class="num">1841</td><td class="num">2.2</td><td class="num"> 814 </td><td class="num">1.1</td><td class="num"> 500 </td><td class="num">0.6</td><td class="num">1251</td><td class="num">2.1</td><td class="num">13292</td><td class="num">11.9</td></tr>
+			<tr><td>E54000054</td><td>West Yorkshire and Harrogate (Health and Care Partnership)</td><td>2383594</td><td class="num">845936</td><td class="num">35.5</td><td class="num">268273</td><td class="num">15.7</td><td class="num">81073</td><td class="num">67.4</td><td class="num">111121</td><td class="num">106.9</td><td class="num">102692</td><td class="num">113.4</td><td class="num">106388</td><td class="num">117.5</td><td class="num">74269</td><td class="num">122.3</td><td class="num">102120</td><td class="num">95.3</td><td class="num">12896</td><td class="num">0.8</td><td class="num">3211</td><td class="num">2.7</td><td class="num">2380</td><td class="num">2.3</td><td class="num">1411</td><td class="num">1.6</td><td class="num">1418</td><td class="num">1.6</td><td class="num">2050</td><td class="num">3.4</td><td class="num">29473</td><td class="num">27.5</td></tr>
+			</table>
+<!-- End table -->
+			</div>
+		</div>
+	</div>
+
+	<footer class="b1-bg">
+		<div class="holder">
+			<h2 id="notes">Notes</h2>
+			<p>NHS England publish vaccine data weekly by <a href="https://www.england.nhs.uk/integratedcare/ics-and-stp-independent-chairs/">NHS Improvement integrated care systems (ICS) and sustainability and transformation partnerships (STP)</a>. They publish count of vaccinations by age band (defined as 80+ and Under 60 years old) by dose and by Integrated Care Systems (ICSs)/Sustainability and Transformation Partnerships (STPs). We've used <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/clinicalcommissioninggroupmidyearpopulationestimates">ONS population estimates for CCGs (mid-2019)</a> to calculate how many people are in the different age categories in each ICS/STP. This allows us to work out the percentage of each age group vaccinated. In the maps, yellow means more and purple means less.</p>
+			<p>From 27th January all data given by NHS England will include vaccinations administered in Hospital Hubs, Local Vaccination Service sites (e.g. GP practices) and Vaccination Centres. This data is as reported from the National Immunisation Management Service (NIMS), and is classified as management information. NIMS is the System of Record for the NHS COVID-19 vaccination programme in England.</p>
+			<p>Although some areas appear to have greater than 100% with the first dose of the vaccine this is most likely due to using 2019 estimates of populations in each age group and each area. If the real population is lower than those estimates it can give figures that are greater than 100%.</p>
+
+			<h2>Credits</h2>
+			<p>Visualisation &copy; 2021 <a href="https://odileeds.org/">ODI Leeds</a>. Code released under an MIT license. <a href="https://github.com/odileeds/covid-19/">Source on Github</a>.
+			</p><p><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/">Vaccine data</a> &copy; NHS England OGL v3</p>
+			<p><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/clinicalcommissioninggroupmidyearpopulationestimates">Population data</a> &copy; ONS OGL v3</p>
+			<p><a href="https://geoportal.statistics.gov.uk/datasets/sustainability-and-transformation-partnerships-april-2020-boundaries-en-buc">ICS/STP boundaries (April 2020) from ONS Geoportal</a> &copy; Office for National Statistics licensed under the Open Government Licence v.3.0. Contains OS data &copy; Crown copyright and database right 2020</p>
+		</div>
+	</footer>
+
+
+	<script src="vaccines.js"></script>
+	
+	<script src="https://odileeds.org/resources/odi.log.js"></script>
+	<script>
+	ODI.log.setup({'id':'odileeds','target':['odileeds.github.io']}).add('action=view');
+	</script>
+
+</body>
+</html>
