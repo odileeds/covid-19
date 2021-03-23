@@ -145,7 +145,30 @@ $graph->addSeries({
 	'point'=>5,
 	'line'=>1
 });
-$svg = $graph->draw({'width'=>1024,'height'=>500,'left'=>50,'bottom'=>30,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>0,'ticks'=>true}},'key'=>{'width'=>200,'padding'=>10,'border'=>'fill:transparent;stroke-width:1;stroke:black;','text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'}});
+$svg = $graph->draw({
+	'width'=>1024,
+	'height'=>500,
+	'left'=>50,
+	'bottom'=>30,
+	'axis'=>{
+		'y'=>{
+			'labels'=>{'left'=>10,'baseline'=>'middle'},
+			'line'=>1
+		},
+		'x'=>{
+			'line'=>0,
+			'formatLabel'=>\&formatXAxis,
+			'type'=>'number',
+			'ticks'=>true
+		}
+	},
+	'key'=>{
+		'width'=>200,
+		'padding'=>10,
+		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
+	}
+});
 open(FILE,">",$dir.$file);
 print FILE "$svg";
 close(FILE);
@@ -178,7 +201,30 @@ $graph->addSeries({
 	'point'=>5,
 	'line'=>1
 });
-$svg = $graph->draw({'width'=>1024,'height'=>500,'left'=>50,'bottom'=>30,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>0,'ticks'=>true}},'key'=>{'width'=>200,'padding'=>10,'border'=>'fill:transparent;stroke-width:1;stroke:black;','text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'}});
+$svg = $graph->draw({
+	'width'=>1024,
+	'height'=>500,
+	'left'=>50,
+	'bottom'=>30,
+	'axis'=>{
+		'y'=>{
+			'labels'=>{'left'=>10,'baseline'=>'middle'},
+			'line'=>1
+		},
+		'x'=>{
+			'line'=>0,
+			'formatLabel'=>\&formatXAxis,
+			'type'=>'number',
+			'ticks'=>true
+		}
+	},
+	'key'=>{
+		'width'=>200,
+		'padding'=>10,
+		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
+	}
+});
 open(FILE,">",$dir.$file);
 print FILE "$svg";
 close(FILE);
@@ -222,7 +268,30 @@ $graph->addSeries({
 	'point'=>5,
 	'line'=>1
 });
-$svg = $graph->draw({'width'=>1024,'height'=>500,'left'=>50,'bottom'=>30,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>0,'ticks'=>true}},'key'=>{'width'=>230,'padding'=>10,'border'=>'fill:transparent;stroke-width:1;stroke:black;','text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'}});
+$svg = $graph->draw({
+	'width'=>1024,
+	'height'=>500,
+	'left'=>50,
+	'bottom'=>30,
+	'axis'=>{
+		'y'=>{
+			'labels'=>{'left'=>10,'baseline'=>'middle'},
+			'line'=>1
+		},
+		'x'=>{
+			'line'=>0,
+			'formatLabel'=>\&formatXAxis,
+			'type'=>'number',
+			'ticks'=>true
+		}
+	},
+	'key'=>{
+		'width'=>230,
+		'padding'=>10,
+		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
+	}
+});
 open(FILE,">",$dir.$file);
 print FILE "$svg";
 close(FILE);
@@ -256,7 +325,30 @@ $graph->addSeries({
 	'point'=>5,
 	'line'=>1
 });
-$svg = $graph->draw({'width'=>1024,'height'=>500,'left'=>50,'bottom'=>30,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>0,'ticks'=>true}},'key'=>{'width'=>230,'padding'=>10,'border'=>'fill:transparent;stroke-width:1;stroke:black;','text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'}});
+$svg = $graph->draw({
+	'width'=>1024,
+	'height'=>500,
+	'left'=>50,
+	'bottom'=>30,
+	'axis'=>{
+		'y'=>{
+			'labels'=>{'left'=>10,'baseline'=>'middle'},
+			'line'=>1
+		},
+		'x'=>{
+			'line'=>0,
+			'formatLabel'=>\&formatXAxis,
+			'type'=>'number',
+			'ticks'=>true
+		}
+	},
+	'key'=>{
+		'width'=>230,
+		'padding'=>10,
+		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
+	}
+});
 open(FILE,">",$dir.$file);
 print FILE "$svg";
 close(FILE);
@@ -299,7 +391,30 @@ $graph->addSeries({
 	'point'=>5,
 	'line'=>1
 });
-$svg = $graph->draw({'width'=>1024,'height'=>500,'left'=>50,'bottom'=>30,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>0,'ticks'=>true}},'key'=>{'width'=>230,'padding'=>10,'border'=>'fill:transparent;stroke-width:1;stroke:black;','text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'}});
+$svg = $graph->draw({
+	'width'=>1024,
+	'height'=>500,
+	'left'=>50,
+	'bottom'=>30,
+	'axis'=>{
+		'y'=>{
+			'labels'=>{'left'=>10,'baseline'=>'middle'},
+			'line'=>1
+		},
+		'x'=>{
+			'line'=>0,
+			'formatLabel'=>\&formatXAxis,
+			'type'=>'number',
+			'ticks'=>true
+		}
+	},
+	'key'=>{
+		'width'=>230,
+		'padding'=>10,
+		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
+	}
+});
 open(FILE,">",$dir.$file);
 print FILE "$svg";
 close(FILE);
@@ -333,7 +448,30 @@ $graph->addSeries({
 	'point'=>5,
 	'line'=>1
 });
-$svg = $graph->draw({'width'=>1024,'height'=>500,'left'=>50,'bottom'=>30,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>0,'ticks'=>true}},'key'=>{'width'=>230,'padding'=>10,'border'=>'fill:transparent;stroke-width:1;stroke:black;','text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'}});
+$svg = $graph->draw({
+	'width'=>1024,
+	'height'=>500,
+	'left'=>50,
+	'bottom'=>30,
+	'axis'=>{
+		'y'=>{
+			'labels'=>{'left'=>10,'baseline'=>'middle'},
+			'line'=>1
+		},
+		'x'=>{
+			'line'=>0,
+			'formatLabel'=>\&formatXAxis,
+			'type'=>'number',
+			'ticks'=>true
+		}
+	},
+	'key'=>{
+		'width'=>230,
+		'padding'=>10,
+		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
+	}
+});
 open(FILE,">",$dir.$file);
 print FILE "$svg";
 close(FILE);
@@ -347,6 +485,11 @@ close(FILE);
 
 ##########################
 # SUBROUTINES
+
+sub formatXAxis {
+	my $v = $_[0];
+	return $v;
+}
 
 sub getBaselineData {
 	my $file = $_[0];

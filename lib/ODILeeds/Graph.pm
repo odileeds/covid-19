@@ -98,10 +98,9 @@ sub draw {
 	$top = $props->{'top'}||10;
 	$bottom = $props->{'bottom'}||50;
 
-
 	# Draw grid lines
 	$svg .= buildAxis('y',$props->{'axis'}{'y'},{'n'=>3,'left'=>$left,'right'=>$right,'bottom'=>$bottom,'top'=>$top,'width'=>$w,'height'=>$h,'xmin'=>$minx,'xmax'=>$maxx,'ymin'=>$miny,'ymax'=>$maxy});
-	$svg .= buildAxis('x',$props->{'axis'}{'x'},{'type'=>'date','left'=>$left,'right'=>$right,'bottom'=>$bottom,'top'=>$top,'spacing'=>10,'width'=>$w,'height'=>$h,'xmin'=>$minx,'xmax'=>$maxx,'ymin'=>$miny,'ymax'=>$maxy});
+	$svg .= buildAxis('x',$props->{'axis'}{'x'},{'n'=>5,'left'=>$left,'right'=>$right,'bottom'=>$bottom,'top'=>$top,'spacing'=>10,'width'=>$w,'height'=>$h,'xmin'=>$minx,'xmax'=>$maxx,'ymin'=>$miny,'ymax'=>$maxy});
 
 	for($s = 0; $s < $n; $s++){
 		$series = ($self->{'series'}[$s]{'title'}||"Title");
@@ -204,6 +203,17 @@ sub buildAxis {
 	if(!$props){ $props = {}; }
 	$tick = ($props->{'tick'}||5);
 
+	if($axis eq "x"){ $conf->{'type'} = "date"; };
+
+	if($props){
+		if($props->{'type'}){
+			$conf->{'type'} = $props->{'type'};
+		}
+		if($props->{'formatLabel'}){
+			$conf->{'formatLabel'} = $props->{'formatLabel'};
+		}
+	}
+
 	%ticks = makeTicks($conf->{($axis eq "y" ? "ymin":"xmin")},$conf->{($axis eq "y" ? "ymax":"xmax")},%{$conf});
 
 	$svg = "<g class=\"graph-grid graph-grid-".$axis."\">\n";
@@ -241,9 +251,6 @@ sub buildAxis {
 					if($ticks{'label-'.$t}){
 						$label = $ticks{'label-'.$t};
 					}
-					#if($props->{'format'} && $props->{'format'} eq "commify"){
-					#	label = label.toLocaleString();
-					#}
 					$svg .= "\t<text x=\"".($a[0]+($props->{'labels'} && $props->{'labels'}{'left'} ? $props->{'labels'}{'left'} : 0))."\" y=\"$a[1]\" text-anchor=\"".($axis eq "y" ? "end":"middle")."\">".$label."</text>\n";
 				}
 			}
@@ -328,6 +335,10 @@ sub makeTicks(){
 		for($v = ($ticks{'inc'}*int($mn/$ticks{'inc'})), $i = 0; $v <= $vmx; $v += $ticks{'inc'}, $i++){
 			# If formatLabel is set we use that to format the label
 			$ticks{'data-'.$i} = $v;
+			$ticks{'label-'.$i} = $v;
+			if(defined($opts{'formatLabel'})){
+				$ticks{'label-'.$i} = $opts{'formatLabel'}->($v);
+			}
 			$ticks{'length'}++;
 		}
 	}
