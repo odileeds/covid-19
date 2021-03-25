@@ -150,6 +150,7 @@ for($ag = 0 ; $ag < @agegroups; $ag++){
 	}
 }
 
+$thtml .= "$idt</thead>\n$idt<tbody>\n";
 
 foreach $a (keys(%vaccinations)){
 	foreach $c (keys(%{$vaccinations{$a}})){
@@ -212,12 +213,11 @@ foreach $a (sort(keys(%stp))){
 		}
 	}
 
-
 	$thtml .= "</tr>\n";
 }
-$thtml .= "$idt</table>";
+$thtml .= "$idt</tbody>\n";
+$thtml .= "$idt</table>\n";
 
-print $thtml;
 
 open(FILE,">",$dir."data/vaccines-by-STP.csv");
 print FILE $table;
