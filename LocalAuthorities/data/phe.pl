@@ -87,7 +87,8 @@ foreach $line (@lines){
 					$nims{$latmp}{$h2} = $cols[$header{$h}];
 				}
 			}
-			$nims{$latmp}{'0-54'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-54'};
+			$nims{$latmp}{'0-49'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-49'};
+			$nims{$latmp}{'0-54'} = $nims{$latmp}{'0-49'}+$nims{$latmp}{'50-54'};
 			$nims{$latmp}{'0-59'} = $nims{$latmp}{'0-54'}+$nims{$latmp}{'55-59'};
 			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-59'}+$nims{$latmp}{'60-64'};
 			$nims{$latmp}{'0-69'} = $nims{$latmp}{'0-64'}+$nims{$latmp}{'65-69'};

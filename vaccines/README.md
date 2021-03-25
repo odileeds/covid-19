@@ -22,8 +22,10 @@ Weekly [vaccine data from NHS England](https://www.england.nhs.uk/statistics/sta
 3. Change `Lancashire and South Cumbria ICS` to `Healthier Lancashire and South Cumbria` and `Sussex Health and Care Partnership` to `Sussex and East Surrey Health and Care Partnership`
 4. Edit [vaccines.pl](vaccines.pl) with correct values for `$vaccinedate`, `$vaccinedatenice`, `$vaccineperiod` and update all the age categories as necessary.
 5. Extract NIMS MSOA populations
-6. Extract MSOA vaccine data as `data/vaccinations-MSOA-YYYYMMDD.csv`
-7. Run vaccines.pl
-8. Extract LTLA data
-9. Edit [phe.pl](../LocalAuthorities/data/phe.pl) and edit age groups in NIMS section.
-10. Run phe.pl
+6. Extract NIMS LTLA populations
+7. Extract MSOA vaccine data as `data/vaccinations-MSOA-YYYYMMDD.csv`
+8. Extract LTLA data as `data/vaccinations-LTLA-YYYYMMDD.csv`
+9. Run vaccines.pl
+10. Edit [phe.pl](../LocalAuthorities/data/phe.pl) and edit age groups in NIMS section.
+11. Run phe.pl
+12. Update `vaccines/inc/covid-19-vaccine-nhs-stp.json` and `vaccines/inc/covid-19-vaccine-msoa.json` files.
