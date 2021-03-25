@@ -134,6 +134,8 @@ close(FILE);
 
 $idt = "\t\t\t";
 %vaccinations = getCSV($dir."data/vaccinations-$vaccinedate.csv",{'id'=>'stp20nm','map'=>{'ICS/STP of Residence'=>'stp20nm','Cumulative Total Doses to Date'=>'total','Region of Residence'=>'region'}});
+
+
 $table = "Area,Name,1st dose,1st dose %,1st dose under 60,1st dose under 60 %,1st dose 80+,1st dose 80+ %,2nd dose Under 60,2nd dose Under 60 %,2nd dose 80+,2nd dose 80+ %\n";
 $thtml = "$idt<table class=\"table-sort\">\n$idt<thead><tr><th>Area</th><th>Name</th><th>Pop</th><th>1st<br />Total</th><th>1st<br />%</th>";
 for($ag = 0 ; $ag < @agegroups; $ag++){
@@ -148,6 +150,7 @@ for($ag = 0 ; $ag < @agegroups; $ag++){
 	}
 }
 
+
 foreach $a (keys(%vaccinations)){
 	foreach $c (keys(%{$vaccinations{$a}})){
 		if($c =~ /^[0-9]/ && $c !~ /^(1st|2nd)/){
@@ -156,7 +159,6 @@ foreach $a (keys(%vaccinations)){
 		}
 	}
 }
-
 
 
 foreach $a (sort(keys(%stp))){
