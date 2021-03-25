@@ -203,6 +203,8 @@ foreach $a (sort(keys(%stp))){
 			$thtml .= "<td class=\"num\">".$stp{$a}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}.' pc'}."</td>";
 		}
 	}
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose'}</td>";
+	$thtml .= "<td class=\"num\">$stp{$a}{'vaccine'}{'2nd dose pc'}</td>";
 	for($ag = 0 ; $ag < @agegroups; $ag++){
 		if($agegroups[$ag]{'table'}){
 			$thtml .= "<td class=\"num\">".$stp{$a}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}}."</td>";
@@ -215,6 +217,7 @@ foreach $a (sort(keys(%stp))){
 }
 $thtml .= "$idt</table>";
 
+print $thtml;
 
 open(FILE,">",$dir."data/vaccines-by-STP.csv");
 print FILE $table;
