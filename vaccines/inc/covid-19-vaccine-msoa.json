@@ -1,7 +1,7 @@
 {
 	"geojson":"https://odileeds.github.io/covid-19/vaccines/inc/vaccine-msoa.geojson",
 	"name":"Covid-19 vaccine data by MSOA",
-	"desc":"NHS England data on vaccine uptake broken down by age group and MSOA. Period: 8th December 2020 to 21st March 2021.",
+	"desc":"NHS England data on vaccine uptake broken down by age group and MSOA. Period: 8th December 2020 to 28th March 2021.",
 	"url":"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 	"owner":"nhs-england",
 	"credit": { "text": "&copy; NHS England, ONS, OS", "src": "NHS England" },
@@ -9,7 +9,7 @@
 	"format": { "type": "chloropleth", "keys":["0-49","0-49 %","50-54","50-54 %","55-59","55-59 %","60-64","60-64 %","65-69","65-69 %","70-74","70-74 %","75-79","75-79 %","80+","80+ %"] },
 	"size": 4790000,
 	"odbl": false,
-	"date": "2021-03-25",
+	"date": "2021-04-01",
 	"colour":"#2254F4",
 	"popup":"function test(f){ return '<h3>'+(f.properties['MSOA11NM'] ? f.properties['MSOA11NM']:'?')+'</h3><p>Number of people vaccinated with at least 1 dose.</p><table class=\"odi\"><tr><th>0-49</th><th>50-54</th><th>55-59</th><th>60-64</th><th>65-69</th><th>70-74</th><th>75-79</th><th>80+</th></tr><tr><td>'+(f.properties['0-49'])+'</td><td>'+(f.properties['50-54'])+'</td><td>'+(f.properties['55-59'])+'</td><td>'+(f.properties['60-64'])+'</td><td>'+(f.properties['65-69'])+'</td><td>'+(f.properties['70-74'])+'</td><td>'+(f.properties['75-79'])+'</td><td>'+(f.properties['80+'])+'</td></tr><tr><td>'+(f.properties['0-49 %'])+'%</td><td>'+(f.properties['50-54 %'])+'%</td><td>'+(f.properties['55-59 %'])+'%</td><td>'+(f.properties['60-64 %'])+'%</td><td>'+(f.properties['65-69 %'])+'%</td><td>'+(f.properties['70-74 %'])+'%</td><td>'+(f.properties['75-79 %'])+'%</td><td>'+(f.properties['80+ %'])+'%</td></tr></table><p class=\"footer\">Note that percentages are calculated using numbers of eligible individuals for vaccinations as defined in the National Immunisation Management Service (NIMS) database.</p>'; }"
 }
