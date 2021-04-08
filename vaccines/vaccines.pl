@@ -21,9 +21,9 @@ else{ $dir = "./"; }
 $cs = ODILeeds::ColourScale->new();
 
 # Settings
-$vaccinedate = "20210401";
-$vaccinedatenice = "1st April 2021";
-$vaccineperiod = "8th December 2020 to 28th March 2021";
+$vaccinedate = "20210408";
+$vaccinedatenice = "8st April 2021";
+$vaccineperiod = "8th December 2020 to 4th April 2021";
 
 
 # Process date
@@ -446,7 +446,7 @@ foreach $line (@lines){
 	if($line =~ /"MSOA11CD":"([^\"]+)"/){
 		$id = $1;
 		if($id eq "E02003836" || $id eq "E02003835"){
-			print Dumper $msoa{$id};
+			#print Dumper $msoa{$id};
 		}
 		if($msoa{$id}{'vaccine'}){
 			# Need to add the data as properties
