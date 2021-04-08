@@ -20,8 +20,9 @@
 	},
 	"vaccines":{
 		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "2021-04-01",
+		"updated": "2021-04-08",
 		"totals":[
+			{"date":"2021-04-08","ages":{"0-49":{"n":13662,"pop":62647,"%":21.8},"50-54":{"n":7122,"pop":8285,"%":86.0},"55-59":{"n":7617,"pop":8729,"%":87.3},"60-64":{"n":7010,"pop":7747,"%":90.5},"65-69":{"n":6540,"pop":7059,"%":92.6},"70-74":{"n":7462,"pop":7899,"%":94.5},"75-79":{"n":5358,"pop":5620,"%":95.3},"80+":{"n":6939,"pop":7288,"%":95.2},"all":{"n":61710,"pop":115274,"%":53.5}}},
 			{"date":"2021-04-01","ages":{"0-49":{"n":13290,"pop":62647,"%":21.2},"50-54":{"n":6963,"pop":8285,"%":84.0},"55-59":{"n":7561,"pop":8729,"%":86.6},"60-64":{"n":6983,"pop":7747,"%":90.1},"65-69":{"n":6527,"pop":7059,"%":92.5},"70-74":{"n":7457,"pop":7899,"%":94.4},"75-79":{"n":5352,"pop":5620,"%":95.2},"80+":{"n":6941,"pop":7288,"%":95.2},"all":{"n":61074,"pop":115274,"%":53.0}}},
 			{"date":"2021-03-25","ages":{"0-49":{"n":11791,"pop":62647,"%":18.8},"50-54":{"n":6054,"pop":8285,"%":73.1},"55-59":{"n":7033,"pop":8729,"%":80.6},"60-64":{"n":6863,"pop":7747,"%":88.6},"65-69":{"n":6481,"pop":7059,"%":91.8},"70-74":{"n":7429,"pop":7899,"%":94.0},"75-79":{"n":5320,"pop":5620,"%":94.7},"80+":{"n":6923,"pop":7288,"%":95.0},"all":{"n":57894,"pop":115274,"%":50.2}}},
 			{"date":"2021-03-18","ages":{"0-54":{"n":13214,"pop":70932,"%":18.6},"55-59":{"n":4430,"pop":8729,"%":50.8},"60-64":{"n":6559,"pop":7747,"%":84.7},"65-69":{"n":6409,"pop":7059,"%":90.8},"70-74":{"n":7405,"pop":7899,"%":93.7},"75-79":{"n":5314,"pop":5620,"%":94.6},"80+":{"n":6937,"pop":7288,"%":95.2},"all":{"n":50268,"pop":115274,"%":43.6}}},
@@ -32,10 +33,11 @@
 	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "2021-W11",
-		"all": 1947,
-		"cov": 413,
+		"updated": "2021-W12",
+		"all": 1970,
+		"cov": 416,
 		"weeks":[
+			{"txt":"2021-W12","all":23,"cov":3},
 			{"txt":"2021-W11","all":30,"cov":5},
 			{"txt":"2021-W10","all":34,"cov":9},
 			{"txt":"2021-W09","all":39,"cov":7},
@@ -104,10 +106,11 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000112&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-04-07T14:21:27Z",
+		"updated":"2021-04-08T14:14:24Z",
 		"type":"SpecimenDate",
-		"n": 394,
+		"n": 395,
 		"days":[
+			{"date":"2021-04-07","day":1,"tot":8054},
 			{"date":"2021-04-06","day":0,"tot":8053},
 			{"date":"2021-04-05","day":0,"tot":8053},
 			{"date":"2021-04-04","day":0,"tot":8053},
