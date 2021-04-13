@@ -220,7 +220,7 @@ for($i = 0; $i < @las; $i++){
 
 	logIt("$la (".sprintf("%0.1f",$diff)." hours old)");
 	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 9 || -s $head==0){
+	if($diff > 6 || -s $head==0){
 		logIt("\tGetting URL $url");
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
