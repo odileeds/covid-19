@@ -5,6 +5,9 @@ As part of #OpenDataSavesLives at [ODI Leeds](https://odileeds.org/) we are crea
 ## Tools and visualisations
 
 * [Local Authority Dashboard](https://odileeds.github.io/covid-19/LocalAuthorities/dashboard/)
+  * [Greater Manchester Dashboard](https://odileeds.github.io/covid-19/LocalAuthorities/dashboard/gm)
+  * [North Yorkshire Dashboard](https://odileeds.github.io/covid-19/LocalAuthorities/dashboard/ny)
+  * [Customise the Dashboard](https://odileeds.github.io/covid-19/LocalAuthorities/dashboard/custom)
 * [Local Authority Hexmaps](https://odileeds.github.io/covid-19/LocalAuthorities/hexmap.html)
 * [Cases by Local Authority](https://odileeds.github.io/covid-19/LocalAuthorities/cases) as a stacked plot ordered by latitude
 * [Table of Local Authorities by caes](https://odileeds.github.io/covid-19/vaccines/LocalAuthorities/dashboard/table.html)
