@@ -367,7 +367,7 @@ ready(function(){
 		y = parseInt(a[0]);
 		w = parseInt(a[1]);
 		var d = (1 + (w - 1) * 7); // 1st of January + 7 days for each week
-		d = new Date(y,0,d);
+		d = new Date(y,0,d,12);	// Use midday to avoid timezone issues with BST/GMT
 		dow = d.getDay();
 		if(dow < 5) d.setDate(d.getDate() - d.getDay() + 5)
 		else d.setDate(d.getDate() + 7 - d.getDay() + 5);
