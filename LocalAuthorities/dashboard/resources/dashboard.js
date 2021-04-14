@@ -495,10 +495,10 @@ ready(function(){
 			'vaccines-65': [
 				{'tagname':'h3','key':'title','html':'Vaccines (65+)'},
 				{'tagname':'div','key':'number','html':function(la){
-					if(!this.data.vaccines.totals){ return ""; }
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
 					var t = 0;
 					var p = 0;
-					if(this.data.vaccines.totals){
+					if(this.data.vaccines.totals && this.data.vaccines.totals.length > 0){
 						for(a in this.data.vaccines.totals[0].ages){
 							if(a.match(/[0-9]/)){
 								a.replace(/^([0-9]+)-([0-9]+)/,function(m,p1,p2){ s = p1; e = p2; });
@@ -511,12 +511,16 @@ ready(function(){
 					}
 					return (this.data.vaccines.totals ? Math.round(100*t/p)+'%' : '?');
 				},'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.vaccines.totals){ return ""; } var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4); return 'Up to '+d.toISOString().substr(0,10); }}
+				{'tagname':'div','key':'updated','html':function(la){
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
+					var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4);
+					return 'Up to '+d.toISOString().substr(0,10);
+				}}
 			],
 			'vaccines-under65': [
 				{'tagname':'h3','key':'title','html':'Vaccines (under 65)'},
 				{'tagname':'div','key':'number','html':function(la){
-					if(!this.data.vaccines.totals){ return ""; }
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
 					var t = 0;
 					var p = 0;
 					if(this.data.vaccines.totals){
@@ -532,12 +536,23 @@ ready(function(){
 					}
 					return (this.data.vaccines.totals ? Math.round(100*t/p)+'%' : '?');
 				},'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.vaccines.totals){ return ""; } var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4); return 'Up to '+d.toISOString().substr(0,10); }}
+				{'tagname':'div','key':'updated','html':function(la){
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
+					var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4);
+					return 'Up to '+d.toISOString().substr(0,10);
+				}}
 			],
 			'vaccines-all': [
 				{'tagname':'h3','key':'title','html':'Vaccines (all ages)'},
-				{'tagname':'div','key':'number','html':function(la){ if(!this.data.vaccines.totals){ return ""; } return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['%'])+'%' : '?'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.vaccines.totals){ return ""; } var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4); return 'Up to '+d.toISOString().substr(0,10); }}
+				{'tagname':'div','key':'number','html':function(la){
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
+					return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['%'])+'%' : '?');
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
+					var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4);
+					return 'Up to '+d.toISOString().substr(0,10);
+				}}
 			],
 			'weekly-deaths': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
