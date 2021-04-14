@@ -51,6 +51,7 @@ header a { text-decoration: none; }
 footer { width: 100%; padding: 1em; padding-bottom: 3em; }
 footer h2 + p { margin-top: 1em; }
 header a { line-height: 0; }
+header a, header a:visited, footer a, footer a:visited { color: inherit; }
 .msg { text-align:center; padding: 0.5em; }
 #main { padding: 1em; }
 
