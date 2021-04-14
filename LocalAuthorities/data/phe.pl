@@ -422,10 +422,11 @@ for($i = 0; $i < @las; $i++){
 	
 	$updateday = $LAD{$la}{"cases"}{"days"}[$start]{"date"};
 	
-	
-	push(@pulsarplot,{'id'=>$la,'name'=>$names{$la},'data'=>[]});
-
-	@{$pulsarplot[@pulsarplot - 1]->{'data'}} = @smooth;
+	if(@smooth > 1){
+		# Only include if there is data
+		push(@pulsarplot,{'id'=>$la,'name'=>$names{$la},'data'=>[]});
+		@{$pulsarplot[@pulsarplot - 1]->{'data'}} = @smooth;
+	}
 }
 
 makePulsarPlot(2024,200,4,200,"cases-plot.svg",@pulsarplot);
@@ -606,7 +607,7 @@ sub makeGraph {
 
 sub makePulsarPlot {
 	my ($w,$p,$offset,$dy,$file,@output) = @_;
-	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$svg,$x,$y,$sdate,$edate);
+	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$nd,$svg,$x,$y,$sdate,$edate);
 	$minx = 1e100;
 	$maxx = -1e100;
 	$miny = 1e100;
@@ -622,12 +623,11 @@ sub makePulsarPlot {
 		}
 		$n++;
 	}
-	# Hardcode a start
-	$minx = 1582761600;
+	# Hardcode a more sensible start of 1st March February (few LTLAs have much data before this) 
+	$minx = 1583020800;
 	$rangex = $maxx-$minx;
 	$rangey = $maxy-$miny;
 	$h = $dy + ($n-1)*$offset + 1.5*$p;
-	print "$h - $offset\n";
 
 	$svg = "<svg width=\"".sprintf("%d",$w)."\" height=\"".sprintf("%d",$h)."\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" style=\"overflow:display\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\">\n";
 	$svg .= "\t<rect x=\"0\" y=\"0\" width=\"$w\" height=\"$h\" fill=\"black\"></rect>\n";
@@ -645,13 +645,20 @@ sub makePulsarPlot {
 	for($l = @output - 1; $l >= 0; $l--){
 		$path = "";
 		$j = 0;
-		for($i = 0; $i < @{$output[$l]->{'data'}}; $i++){
+		$x = $p + 0;
+		$y = 0.5*$p + $dy + ($n-1)*$offset;
+		$path .= "M".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
+		$nd = @{$output[$l]->{'data'}};
+		for($i = 0; $i < $nd; $i++){
 			if($output[$l]->{'data'}[$i][0] >= $minx){
 				$x = $p + ($w-2*$p)*($output[$l]->{'data'}[$i][0]-$minx)/$rangex;
 				$y = 0.5*$p + $dy + ($n-1)*$offset;
-				$path .= ($j == 0 ? "M" : "L")."".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
+				$path .= "L".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
 				$j++;
 			}
+		}
+		if($j < 2){
+			print "WARNING: Little data for $output[$l]->{'id'} in pulsar plot.\n";
 		}
 		$svg .= "\t<g>\n";
 		$svg .= "\t\t<path d=\"$path L$x,$y\" class=\"area\" stroke=\"white\" stroke-width=\"1px\" fill=\"black\" fill-opacity=\"0.8\"><title id=\"$output[$l]->{'id'}\">$output[$l]->{'name'}</title></path>\n";
