@@ -220,7 +220,7 @@ for($i = 0; $i < @las; $i++){
 
 	logIt("$la (".sprintf("%0.1f",$diff)." hours old)");
 	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 6 || -s $head==0){
+	if($diff > 8 || -s $head==0){
 		logIt("\tGetting URL $url");
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
@@ -276,104 +276,104 @@ for($i = 0; $i < @las; $i++){
 	$file = $dir."../dashboard/data/$la.json";
 	$names{$la} = $data{'data'}{'attributes'}{'name'};
 
-	open(FILE,">",$file);
-	print FILE "{\n";
-	print FILE "\t\"name\":\"$names{$la}\",\n";
-	print FILE "\t\"population\": ".($nims{$la}{'all'}||$pop{$la}||0).",\n";
+	$txt = "";
+	$txt .= "{\n";
+	$txt .= "\t\"name\":\"$names{$la}\",\n";
+	$txt .= "\t\"population\": ".($nims{$la}{'all'}||$pop{$la}||0).",\n";
 	if($restrictions{$la}){
-		print FILE "\t\"restrictions\":{\n";
-		print FILE "\t\t\"src\": \"https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/\",\n";
-		print FILE "\t\t\"updated\": \"$restrictionsdate\",\n";
-		print FILE "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
+		$txt .= "\t\"restrictions\":{\n";
+		$txt .= "\t\t\"src\": \"https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/\",\n";
+		$txt .= "\t\t\"updated\": \"$restrictionsdate\",\n";
+		$txt .= "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
 		if($restrictions{$la}{'tier'}){
 #print "$la - $restrictions{$la}{'tier'}\n";
-			print FILE "\t\t\"tier\": \"$restrictions{$la}{'tier'}\",\n";
+			$txt .= "\t\t\"tier\": \"$restrictions{$la}{'tier'}\",\n";
 		}
-		print FILE "\t\t\"local\": {";
+		$txt .= "\t\t\"local\": {";
 		$r = 0;
 		#fid,l_lacode,l_Category,l_Country,l_restrictions,l_tier,l_url_local,l_url_national,l_local_ruleofsix,l_local_householdmixing,l_local_raves,l_local_stayinglocal,l_local_stayinghome,l_local_notstayingaway,l_local_businessclosures,l_local_openinghours,l_local_alcoholsalesrestrictions,l_national_ruleofsix,l_national_householdmixing,l_national_raves,l_national_stayinglocal,l_national_stayinghome,l_national_notstayingaway,l_national_businessclosures,l_national_openinghours,l_national_gatherings,l_national_alcoholsalesrestrictions
 		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
 			$restrictions{$la}{$restrict} =~ s/(^\"|\"$)//g;
 			if($restrict =~ /local_/ && $restrictions{$la}{$restrict} eq "1"){
-				if($r > 0){ print FILE ","; }
+				if($r > 0){ $txt .= ","; }
 				$restrict =~ s/^local\_//;
-				print FILE "\n\t\t\t\"$restrict\": true";
+				$txt .= "\n\t\t\t\"$restrict\": true";
 				$r++;
 			}
 		}
 		if($r > 0){
-			print FILE "\n\t\t";
+			$txt .= "\n\t\t";
 		}
-		print FILE "},\n";
-		print FILE "\t\t\"national\": {\n";
+		$txt .= "},\n";
+		$txt .= "\t\t\"national\": {\n";
 		$r = 0;
 		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
 			if($restrict =~ /national_/ && $restrictions{$la}{$restrict} eq "1"){
-				if($r > 0){ print FILE ",\n"; }
+				if($r > 0){ $txt .= ",\n"; }
 				$restrict =~ s/^national\_//;
-				print FILE "\t\t\t\"$restrict\": true";
+				$txt .= "\t\t\t\"$restrict\": true";
 				$r++;
 			}
 		}
-		print FILE "\n\t\t}\n";
-		print FILE "\t},\n";
+		$txt .= "\n\t\t}\n";
+		$txt .= "\t},\n";
 	}
 	if($vaccines{$la}){
-		print FILE "\t\"vaccines\":{\n";
-		print FILE "\t\t\"src\": \"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/\",\n";
+		$txt .= "\t\"vaccines\":{\n";
+		$txt .= "\t\t\"src\": \"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/\",\n";
 		$vdate = "";
 		foreach $wk (sort(keys(%{$vaccines{$la}}))){
 			if($wk gt $vdate){
 				$vdate = $wk;
 			}
 		}
-		print FILE "\t\t\"updated\": \"$vdate\",\n";
-		print FILE "\t\t\"totals\":[\n";
+		$txt .= "\t\t\"updated\": \"$vdate\",\n";
+		$txt .= "\t\t\"totals\":[\n";
 		$w = 0;
 		foreach $wk (reverse(sort(keys(%{$vaccines{$la}})))){
-			if($w > 0){ print FILE "\,\n"; }
-			print FILE "\t\t\t{\"date\":\"$wk\",\"ages\":{";
+			if($w > 0){ $txt .= "\,\n"; }
+			$txt .= "\t\t\t{\"date\":\"$wk\",\"ages\":{";
 			$k = 0;
 			foreach $ky (sort(keys(%{$vaccines{$la}{$wk}}))){
-				if($k > 0){ print FILE "\,"; }
+				if($k > 0){ $txt .= "\,"; }
 				$n = ($vaccines{$la}{$wk}{$ky}{'n'}||0);
 				$p = ($vaccines{$la}{$wk}{$ky}{'pop'}||0);
 				$pc = ($vaccines{$la}{$wk}{$ky}{'%'}||0);
 				$n =~ s/\"//g;	# Extra tidy
-				print FILE "\"$ky\":{\"n\":$n,\"pop\":$p,\"%\":$pc}";
+				$txt .= "\"$ky\":{\"n\":$n,\"pop\":$p,\"%\":$pc}";
 				$k++;
 			}
-			print FILE "}}";
+			$txt .= "}}";
 			$w++;
 		}
-		print FILE "\n\t\t]\n";
-		print FILE "\t},\n";
+		$txt .= "\n\t\t]\n";
+		$txt .= "\t},\n";
 	}
 	if($deaths{$la}){
 		#"E06000001": {"total":{"date":"2020-09-24","all":819,"covid-19":110},"week":{"text":"Week 37","all":16,"covid-19":0}},
-		print FILE "\t\"deaths\":{\n";
-		print FILE "\t\t\"src\": \"$deathurl\",\n";
-		print FILE "\t\t\"updated\": \"$deaths{$la}{'date'}\",\n";
-		print FILE "\t\t\"all\": $deaths{$la}{'all-causes'},\n";
-		print FILE "\t\t\"cov\": $deaths{$la}{'covid-19'},\n";
-		print FILE "\t\t\"weeks\":[\n";
+		$txt .= "\t\"deaths\":{\n";
+		$txt .= "\t\t\"src\": \"$deathurl\",\n";
+		$txt .= "\t\t\"updated\": \"$deaths{$la}{'date'}\",\n";
+		$txt .= "\t\t\"all\": $deaths{$la}{'all-causes'},\n";
+		$txt .= "\t\t\"cov\": $deaths{$la}{'covid-19'},\n";
+		$txt .= "\t\t\"weeks\":[\n";
 		$w = 0;
 		foreach $wk (reverse(sort(keys(%{$deaths{$la}{'weeks'}})))){
-			if($w > 0){ print FILE "\,\n"; }
-			print FILE "\t\t\t{\"txt\":\"$wk\",\"all\":$deaths{$la}{'weeks'}{$wk}{'all-causes'},\"cov\":$deaths{$la}{'weeks'}{$wk}{'covid-19'}}";
+			if($w > 0){ $txt .= "\,\n"; }
+			$txt .= "\t\t\t{\"txt\":\"$wk\",\"all\":$deaths{$la}{'weeks'}{$wk}{'all-causes'},\"cov\":$deaths{$la}{'weeks'}{$wk}{'covid-19'}}";
 			$w++;
 		}
-		print FILE "\n\t\t]\n";
-		print FILE "\t},\n";
+		$txt .= "\n\t\t]\n";
+		$txt .= "\t},\n";
 	}
-	print FILE "\t\"cases\": {\n";
+	$txt .= "\t\"cases\": {\n";
 	$recentday = "";
 	if($len > 0){
-		print FILE "\t\t\"src\":\"$url\",\n";
-		print FILE "\t\t\"updated\":\"$casesdate\",\n";
-		print FILE "\t\t\"type\":\"SpecimenDate\",\n";
-		print FILE "\t\t\"n\": $len,\n";
-		print FILE "\t\t\"days\":[\n";
+		$txt .= "\t\t\"src\":\"$url\",\n";
+		$txt .= "\t\t\"updated\":\"$casesdate\",\n";
+		$txt .= "\t\t\"type\":\"SpecimenDate\",\n";
+		$txt .= "\t\t\"n\": $len,\n";
+		$txt .= "\t\t\"days\":[\n";
 		for($l = 0; $l < @lines; $l++){
 			chomp($lines[$l]);
 			#print "line $l - $lines[$l]\n";
@@ -383,14 +383,15 @@ for($i = 0; $i < @las; $i++){
 				$lines[$l] =~ s/\,\"cumCasesBySpecimenDateRate\":[0-9\.]*//g;
 				$lines[$l] =~ s/newCasesBySpecimenDate/day/g;
 				$lines[$l] =~ s/cumCasesBySpecimenDate/tot/g;
-				print FILE "\t\t$lines[$l]\n";
+				$txt .= "\t\t$lines[$l]\n";
 			}
 		}
-		print FILE "\t\t]\n";
+		$txt .= "\t\t]\n";
 	}
-	print FILE "\t}\n";
-	print FILE "}\n";
-	close(FILE);
+	$txt .= "\t}\n";
+	$txt .= "}\n";
+	updateFile($file,$txt);
+
 	
  
 	@smooth = makeGraph($la);
@@ -422,13 +423,15 @@ for($i = 0; $i < @las; $i++){
 	
 	$updateday = $LAD{$la}{"cases"}{"days"}[$start]{"date"};
 	
-	
-	push(@pulsarplot,{'id'=>$la,'name'=>$names{$la},'data'=>[]});
-
-	@{$pulsarplot[@pulsarplot - 1]->{'data'}} = @smooth;
+	if(@smooth > 1){
+		# Only include if there is data
+		push(@pulsarplot,{'id'=>$la,'name'=>$names{$la},'data'=>[]});
+		@{$pulsarplot[@pulsarplot - 1]->{'data'}} = @smooth;
+	}
 }
 
 makePulsarPlot(2024,200,4,200,"cases-plot.svg",@pulsarplot);
+
 # Sort by latitude
 @pulsarplot = (sort{ $coords{$a->{'id'}}->{'lat'} <=> $coords{$b->{'id'}}->{'lat'} }(@pulsarplot));
 @dates = makePulsarPlot(2024,200,4,200,"cases-plot-by-latitude.svg",@pulsarplot);
@@ -464,7 +467,7 @@ close(FILE);
 
 
 $table = "\t\t\t<p>As of: $updateday</p>\n\t\t\t<table class=\"js-sort-table\">\n\t\t\t\t<tr><th>Local Authority</th><th class=\"js-sort-number\">Cases/100k</th><th class=\"js-sort-number\">Weekly cases/100k</th><th class=\"js-sort-number\">Weekly change/100k</th><th class=\"js-sort-number\">Weekly deaths/100k</th></tr>\n";
-foreach $la (reverse(sort{ $LAD{$a}{'cases'}{'latest_smoothed_100k'} <=> $LAD{$b}{'cases'}{'latest_smoothed_100k'}}keys(%LAD))){
+foreach $la (reverse(sort{ $LAD{$a}{'cases'}{'latest_smoothed_100k'} <=> $LAD{$b}{'cases'}{'latest_smoothed_100k'} || $LAD{$b}{'name'} cmp $LAD{$a}{'name'} }keys(%LAD))){
 	$lvl = "0";
 	if($LAD{$la}{'restrictions'}{'tier'} eq "Stay at home"){
 		$lvl = 4;
@@ -497,6 +500,27 @@ close(FILE);
 #####################
 # SUBROUTINES
 
+sub updateFile {
+	my $file = $_[0];
+	my $txt = $_[1];
+	my ($fh,$safei,$safeo);
+
+	open($fh,$file);
+	$safei = do { local $/; <$fh> };
+	close($fh);
+	$safeo = $txt;
+	# Remove newlines and tabs before checking if they match
+	$safei =~ s/[\n\r\t]//g;
+	$safeo =~ s/[\n\r\t]//g;
+	# If the existing file and the replacement text don't match then save it
+	if($safei ne $safeo){
+		print "\tUpdated $file\n";
+		open(FILE,">",$file);
+		print FILE $txt;
+		close(FILE);
+	}
+	return;	
+}
 sub logIt {
 	my $msg = $_[0];
 	my $file = "/home/slowe/tmp/update-covid.log";
@@ -597,16 +621,14 @@ sub makeGraph {
 					'line'=>1
 		});
 		$svg = $graph->draw({'width'=>480,'height'=>400,'left'=>25,'bottom'=>25,'axis'=>{'y'=>{'labels'=>{'left'=>10,'baseline'=>'middle'},'line'=>1},'x'=>{'line'=>1,'ticks'=>true}}});
-		open(FILE,">",$file);
-		print FILE "$svg";
-		close(FILE);
+		updateFile($file,$svg);
 	}
 	return @output;
 }
 
 sub makePulsarPlot {
 	my ($w,$p,$offset,$dy,$file,@output) = @_;
-	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$svg,$x,$y,$sdate,$edate);
+	my($minx,$miny,$maxx,$maxy,$la,$rangex,$rangey,$h,$n,$nd,$svg,$x,$y,$sdate,$edate);
 	$minx = 1e100;
 	$maxx = -1e100;
 	$miny = 1e100;
@@ -622,12 +644,11 @@ sub makePulsarPlot {
 		}
 		$n++;
 	}
-	# Hardcode a start
-	$minx = 1582761600;
+	# Hardcode a more sensible start of 1st March February (few LTLAs have much data before this) 
+	$minx = 1583020800;
 	$rangex = $maxx-$minx;
 	$rangey = $maxy-$miny;
 	$h = $dy + ($n-1)*$offset + 1.5*$p;
-	print "$h - $offset\n";
 
 	$svg = "<svg width=\"".sprintf("%d",$w)."\" height=\"".sprintf("%d",$h)."\" viewBox=\"0 0 $w $h\" xmlns=\"http://www.w3.org/2000/svg\" style=\"overflow:display\" preserveAspectRatio=\"xMinYMin meet\" overflow=\"visible\">\n";
 	$svg .= "\t<rect x=\"0\" y=\"0\" width=\"$w\" height=\"$h\" fill=\"black\"></rect>\n";
@@ -645,13 +666,20 @@ sub makePulsarPlot {
 	for($l = @output - 1; $l >= 0; $l--){
 		$path = "";
 		$j = 0;
-		for($i = 0; $i < @{$output[$l]->{'data'}}; $i++){
+		$x = $p + 0;
+		$y = 0.5*$p + $dy + ($n-1)*$offset;
+		$path .= "M".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
+		$nd = @{$output[$l]->{'data'}};
+		for($i = 0; $i < $nd; $i++){
 			if($output[$l]->{'data'}[$i][0] >= $minx){
 				$x = $p + ($w-2*$p)*($output[$l]->{'data'}[$i][0]-$minx)/$rangex;
 				$y = 0.5*$p + $dy + ($n-1)*$offset;
-				$path .= ($j == 0 ? "M" : "L")."".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
+				$path .= "L".sprintf("%0.1f",$x).",".sprintf("%0.1f",$y - $dy*($output[$l]->{'data'}[$i][1])/$maxy);
 				$j++;
 			}
+		}
+		if($j < 2){
+			print "WARNING: Little data for $output[$l]->{'id'} in pulsar plot.\n";
 		}
 		$svg .= "\t<g>\n";
 		$svg .= "\t\t<path d=\"$path L$x,$y\" class=\"area\" stroke=\"white\" stroke-width=\"1px\" fill=\"black\" fill-opacity=\"0.8\"><title id=\"$output[$l]->{'id'}\">$output[$l]->{'name'}</title></path>\n";
