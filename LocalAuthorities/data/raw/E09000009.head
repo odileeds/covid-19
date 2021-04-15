@@ -5,7 +5,7 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E09000009&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Thu, 15 Apr 2021 07:13:24 GMT
+Expires: Thu, 15 Apr 2021 11:21:07 GMT
 Last-Modified: Wed, 14 Apr 2021 14:02:01 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
@@ -19,6 +19,7 @@ X-Frame-Options: deny
 x-xss-protection: 1; mode=block
 PHE-Website-Request: 0
 PHE-API-Cache-Duration: 19566
-X-Azure-Ref: 0Oud3YAAAAAA7JhEpaoz+SqML9dlKsUK7TE9OMjFFREdFMTUxMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Thu, 15 Apr 2021 07:11:54 GMT
+X-Azure-Ref-OriginShield: 0SSF4YAAAAADNRv9/E3jWRK0Dtuo+Z2XLTE9OMjFFREdFMTUyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0SSF4YAAAAABOoqUtF7VKQ6AVVF1LjxSfTUFOMzBFREdFMDcxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 15 Apr 2021 11:19:37 GMT
 
