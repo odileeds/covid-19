@@ -132,6 +132,35 @@ foreach $s (sort(keys(%stp))){
 }
 close(FILE);
 
+
+
+# We will now load in the populations from NIMS
+%data = getCSV($dir."data/NIMS-STP-population.csv",{"id"=>"STP21CD"});
+foreach $code (sort(keys(%data))){
+	for($ag = 0 ; $ag < @agegroups; $ag++){
+		# Reset values
+		$stp{$code}{'pop'}{$agegroups[$ag]{'label'}} = 0;
+	}
+	foreach $c (sort(keys(%{$data{$code}}))){
+		$age = int($c);
+		if($c eq "All Ages"){
+			$stp{$code}{'pop'}{'total'} = $data{$code}{$c};
+		}
+		if($c =~ /^[\d]/){
+			for($ag = 0 ; $ag < @agegroups; $ag++){
+				if($age >= $agegroups[$ag]{'low'} && $age < $agegroups[$ag]{'high'}){
+					$stp{$code}{'pop'}{$agegroups[$ag]{'label'}} += $data{$code}{$c};
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
 $idt = "\t\t\t";
 %vaccinations = getCSV($dir."data/vaccinations-$vaccinedate.csv",{'id'=>'stp20nm','map'=>{'ICS/STP of Residence'=>'stp20nm','Cumulative Total Doses to Date'=>'total','Region of Residence'=>'region'}});
 
