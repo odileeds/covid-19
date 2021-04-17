@@ -210,6 +210,7 @@ svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 	transform:translate3d(-50%,-100%,0);
 	display: none;
 	background: black;
+	color: white;
 	white-space: nowrap;
 	padding: 0.25em 0.5em;
 	z-index: 1000;
