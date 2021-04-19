@@ -35,11 +35,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000005&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-04-18T13:43:35Z",
+		"updated":"2021-04-19T13:52:40Z",
 		"type":"SpecimenDate",
-		"n": 415,
+		"n": 414,
 		"days":[
-			{"date":"2021-04-17","day":0,"tot":2445},
+			{"date":"2021-04-18","day":5,"tot":2451},
+			{"date":"2021-04-17","day":1,"tot":2446},
 			{"date":"2021-04-16","day":6,"tot":2445},
 			{"date":"2021-04-15","day":5,"tot":2439},
 			{"date":"2021-04-14","day":1,"tot":2434},
@@ -102,14 +103,14 @@
 			{"date":"2021-02-16","day":11,"tot":1907},
 			{"date":"2021-02-15","day":12,"tot":1896},
 			{"date":"2021-02-14","day":17,"tot":1884},
-			{"date":"2021-02-13","day":11,"tot":1867},
-			{"date":"2021-02-12","day":23,"tot":1856},
-			{"date":"2021-02-11","day":18,"tot":1833},
-			{"date":"2021-02-10","day":17,"tot":1815},
-			{"date":"2021-02-09","day":20,"tot":1798},
-			{"date":"2021-02-08","day":18,"tot":1778},
-			{"date":"2021-02-07","day":7,"tot":1760},
-			{"date":"2021-02-06","day":13,"tot":1753},
+			{"date":"2021-02-13","day":10,"tot":1867},
+			{"date":"2021-02-12","day":23,"tot":1857},
+			{"date":"2021-02-11","day":18,"tot":1834},
+			{"date":"2021-02-10","day":17,"tot":1816},
+			{"date":"2021-02-09","day":20,"tot":1799},
+			{"date":"2021-02-08","day":18,"tot":1779},
+			{"date":"2021-02-07","day":7,"tot":1761},
+			{"date":"2021-02-06","day":14,"tot":1754},
 			{"date":"2021-02-05","day":19,"tot":1740},
 			{"date":"2021-02-04","day":20,"tot":1721},
 			{"date":"2021-02-03","day":14,"tot":1701},
@@ -451,9 +452,7 @@
 			{"date":"2020-03-04","day":0,"tot":2},
 			{"date":"2020-03-03","day":1,"tot":2},
 			{"date":"2020-03-02","day":0,"tot":1},
-			{"date":"2020-03-01","day":1,"tot":1},
-			{"date":"2020-02-29","day":0,"tot":0},
-			{"date":"2020-02-28","day":0,"tot":0}
+			{"date":"2020-03-01","day":1,"tot":1}
 		]
 	}
 }

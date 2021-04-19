@@ -35,11 +35,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000036&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-04-18T13:43:35Z",
+		"updated":"2021-04-19T13:52:40Z",
 		"type":"SpecimenDate",
-		"n": 415,
+		"n": 411,
 		"days":[
-			{"date":"2021-04-17","day":4,"tot":16793},
+			{"date":"2021-04-18","day":1,"tot":16816},
+			{"date":"2021-04-17","day":26,"tot":16815},
 			{"date":"2021-04-16","day":13,"tot":16789},
 			{"date":"2021-04-15","day":11,"tot":16776},
 			{"date":"2021-04-14","day":11,"tot":16765},
@@ -105,11 +106,11 @@
 			{"date":"2021-02-13","day":39,"tot":14602},
 			{"date":"2021-02-12","day":38,"tot":14563},
 			{"date":"2021-02-11","day":64,"tot":14525},
-			{"date":"2021-02-10","day":39,"tot":14461},
-			{"date":"2021-02-09","day":36,"tot":14422},
-			{"date":"2021-02-08","day":50,"tot":14386},
-			{"date":"2021-02-07","day":34,"tot":14336},
-			{"date":"2021-02-06","day":49,"tot":14302},
+			{"date":"2021-02-10","day":38,"tot":14461},
+			{"date":"2021-02-09","day":36,"tot":14423},
+			{"date":"2021-02-08","day":50,"tot":14387},
+			{"date":"2021-02-07","day":34,"tot":14337},
+			{"date":"2021-02-06","day":50,"tot":14303},
 			{"date":"2021-02-05","day":59,"tot":14253},
 			{"date":"2021-02-04","day":56,"tot":14194},
 			{"date":"2021-02-03","day":60,"tot":14138},
@@ -448,12 +449,7 @@
 			{"date":"2020-03-07","day":2,"tot":4},
 			{"date":"2020-03-06","day":1,"tot":2},
 			{"date":"2020-03-05","day":0,"tot":1},
-			{"date":"2020-03-04","day":1,"tot":1},
-			{"date":"2020-03-03","day":0,"tot":0},
-			{"date":"2020-03-02","day":0,"tot":0},
-			{"date":"2020-03-01","day":0,"tot":0},
-			{"date":"2020-02-29","day":0,"tot":0},
-			{"date":"2020-02-28","day":0,"tot":0}
+			{"date":"2020-03-04","day":1,"tot":1}
 		]
 	}
 }
