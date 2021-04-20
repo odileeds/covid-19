@@ -39,7 +39,7 @@
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(240px) rotate(-90deg);"></text>
 </g>
 <g  id="covid-deaths-2020-over80" class="data-series data-series-0">
-	<path d="M 50.00,470.00L 68.54,470.00L 87.08,470.00L 105.62,470.00L 124.15,470.00L 142.69,470.00L 161.23,470.00L 179.77,470.00L 198.31,470.00L 216.85,470.00L 235.38,469.91L 253.92,464.14L 272.46,444.31L 291.00,303.72L 309.54,170.78L 328.08,14.87L 346.62,11.98L 365.15,118.87L 383.69,233.69L 402.23,239.64L 420.77,312.91L 439.31,356.53L 457.85,376.45L 476.38,402.95L 494.92,424.40L 513.46,435.48L 532.00,439.18L 550.54,449.90L 569.08,453.33L 587.62,459.37L 606.15,460.18L 624.69,462.25L 643.23,462.07L 661.77,462.43L 680.31,464.86L 698.85,466.21L 717.38,465.40L 735.92,462.88L 754.46,458.64L 773.00,453.60L 791.54,448.37L 810.08,434.67L 828.62,420.16L 847.15,397.99L 865.69,365.09L 884.23,337.16L 902.77,324.27L 921.31,302.01L 939.85,316.25L 958.38,319.22L 976.92,299.75L 995.46,305.34L 1014.00,293.35" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round"><title>Covid deaths 2020 (80+)</title></path>
+	<path d="M 50.00,470.00L 68.54,470.00L 87.08,470.00L 105.62,470.00L 124.15,470.00L 142.69,470.00L 161.23,470.00L 179.77,470.00L 198.31,470.00L 216.85,470.00L 235.38,469.91L 253.92,464.14L 272.46,444.31L 291.00,303.72L 309.54,170.78L 328.08,14.87L 346.62,11.98L 365.15,118.87L 383.69,233.69L 402.23,239.64L 420.77,312.91L 439.31,356.53L 457.85,376.45L 476.38,402.95L 494.92,424.40L 513.46,435.48L 532.00,439.18L 550.54,449.90L 569.08,453.33L 587.62,459.37L 606.15,460.18L 624.69,462.25L 643.23,462.07L 661.77,462.43L 680.31,464.86L 698.85,466.21L 717.38,465.40L 735.92,462.88L 754.46,458.64L 773.00,453.60L 791.54,448.37L 810.08,434.67L 828.62,420.16L 847.15,397.99L 865.69,365.09L 884.23,337.16L 902.77,324.27L 921.31,302.01L 939.85,316.25L 958.38,319.22L 976.92,299.75L 995.46,305.34L 1014.00,293.35" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round"><title>Covid deaths 2020</title></path>
 	<circle cx="50.00" cy="470.00" data-y="0.00" data-x="0" r="5" fill="#1DD3A7"><title>Week 01 (03-Jan-20): 0</title></circle>
 	<circle cx="68.54" cy="470.00" data-y="0.00" data-x="1" r="5" fill="#1DD3A7"><title>Week 02 (10-Jan-20): 0</title></circle>
 	<circle cx="87.08" cy="470.00" data-y="0.00" data-x="2" r="5" fill="#1DD3A7"><title>Week 03 (17-Jan-20): 0</title></circle>
@@ -95,7 +95,7 @@
 	<circle cx="1014.00" cy="293.35" data-y="1960.00" data-x="52" r="5" fill="#1DD3A7"><title>Week 53 (01-Jan-21): 1960</title></circle>
 </g>
 <g  id="covid-deaths-2021-over80" class="data-series data-series-1">
-	<path d="M 50.00,142.39L 68.54,81.83L 87.08,16.22L 105.62,10.00L 124.15,77.23L 142.69,176.28L 161.23,266.68L 179.77,329.13L 198.31,372.57L 216.85,401.23L 235.38,426.83L 253.92,437.37L 272.46,452.52" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round"><title>Covid deaths 2021 (80+)</title></path>
+	<path d="M 50.00,142.39L 68.54,81.83L 87.08,16.22L 105.62,10.00L 124.15,77.23L 142.69,176.28L 161.23,266.68L 179.77,329.13L 198.31,372.57L 216.85,401.23L 235.38,426.83L 253.92,437.37L 272.46,452.52L 291.00,454.23" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round"><title>Covid deaths 2021</title></path>
 	<circle cx="50.00" cy="142.39" data-y="3635.00" data-x="0" r="5" fill="#2254F4"><title>Week 01 (08-Jan-21): 3635</title></circle>
 	<circle cx="68.54" cy="81.83" data-y="4307.00" data-x="1" r="5" fill="#2254F4"><title>Week 02 (15-Jan-21): 4307</title></circle>
 	<circle cx="87.08" cy="16.22" data-y="5035.00" data-x="2" r="5" fill="#2254F4"><title>Week 03 (22-Jan-21): 5035</title></circle>
@@ -109,17 +109,18 @@
 	<circle cx="235.38" cy="426.83" data-y="479.00" data-x="10" r="5" fill="#2254F4"><title>Week 11 (19-Mar-21): 479</title></circle>
 	<circle cx="253.92" cy="437.37" data-y="362.00" data-x="11" r="5" fill="#2254F4"><title>Week 12 (26-Mar-21): 362</title></circle>
 	<circle cx="272.46" cy="452.52" data-y="194.00" data-x="12" r="5" fill="#2254F4"><title>Week 13 (02-Apr-21): 194</title></circle>
+	<circle cx="291.00" cy="454.23" data-y="175.00" data-x="13" r="5" fill="#2254F4"><title>Week 14 (09-Apr-21): 175</title></circle>
 </g>
 <g class="key">
-	<rect x="783.5" y="9.5" width="230" height="52"></rect>
-	<g  id="covid-deaths-2020-over80-key">>	<text x="793.5" y="19.5">		<tspan dx="32" dy="0">Covid deaths 2020 (80+)</tspan>
+	<rect x="813.5" y="9.5" width="200" height="52"></rect>
+	<g  id="covid-deaths-2020-over80-key">>	<text x="823.5" y="19.5">		<tspan dx="32" dy="0">Covid deaths 2020</tspan>
 </text>
-	<path d="M793.50,27.50 l 24 0" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round" />
-	<circle cx="805.50" cy="27.50" r="5" fill="#1DD3A7" />	</g>
+	<path d="M823.50,27.50 l 24 0" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="27.50" r="5" fill="#1DD3A7" />	</g>
 
-	<g  id="covid-deaths-2021-over80-key">>	<text x="793.5" y="35.5">		<tspan dx="32" dy="0">Covid deaths 2021 (80+)</tspan>
+	<g  id="covid-deaths-2021-over80-key">>	<text x="823.5" y="35.5">		<tspan dx="32" dy="0">Covid deaths 2021</tspan>
 </text>
-	<path d="M793.50,43.50 l 24 0" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round" />
-	<circle cx="805.50" cy="43.50" r="5" fill="#2254F4" />	</g>
+	<path d="M823.50,43.50 l 24 0" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="43.50" r="5" fill="#2254F4" />	</g>
 </g>
 </svg>

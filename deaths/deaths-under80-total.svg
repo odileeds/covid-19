@@ -4,7 +4,7 @@
 	.data-series path.line { fill-opacity: 0; stroke: black; }
 	.data-series:hover path.line, .data-series.on path.line { cursor:pointer; }
 	.data-series path.line.dotted { stroke-dasharray: 12 20 }
-	#baseline-under80:hover path.line, #baseline-under80.on path.line { stroke-width: 5; }
+	#baseline:hover path.line, #baseline.on path.line { stroke-width: 5; }
 	.data-series-0:hover circle, .data-series-0.on circle { display: inline; cursor:pointer; }
 	#all-deaths-2020-under80:hover path.line, #all-deaths-2020-under80.on path.line { stroke-width: 5; }
 	.data-series-1:hover circle, .data-series-1.on circle { display: inline; cursor:pointer; }
@@ -42,8 +42,8 @@
 	<text x="976.923076923077" y="470" text-anchor="middle">50</text>
 	<text style="text-anchor:middle;dominant-baseline:hanging;font-weight:bold;transform: translateY(240px) rotate(-90deg);"></text>
 </g>
-<g  id="baseline-under80" class="data-series data-series-0">
-	<path d="M 50.00,192.24L 68.54,195.14L 87.08,203.96L 105.62,212.84L 124.15,210.31L 142.69,215.01L 161.23,216.92L 179.77,220.28L 198.31,219.50L 216.85,223.74L 235.38,227.30L 253.92,232.77L 272.46,232.93L 291.00,236.90L 309.54,236.28L 328.08,240.00L 346.62,243.51L 365.15,245.42L 383.69,245.78L 402.23,249.40L 420.77,250.48L 439.31,254.82L 457.85,252.18L 476.38,254.92L 494.92,254.15L 513.46,256.62L 532.00,252.39L 550.54,260.08L 569.08,257.40L 587.62,256.99L 606.15,262.20L 624.69,257.71L 643.23,258.48L 661.77,260.86L 680.31,258.69L 698.85,261.01L 717.38,255.90L 735.92,256.99L 754.46,252.60L 773.00,249.76L 791.54,247.59L 810.08,249.09L 828.62,247.64L 847.15,243.10L 865.69,241.60L 884.23,241.24L 902.77,237.88L 921.31,238.61L 939.85,229.36L 958.38,227.45L 976.92,221.47L 995.46,217.44" class="line" style="stroke:silver" stroke-width="3" stroke-linecap="round"><title>Av deaths 2015-19 (&lt;80)</title></path>
+<g  id="baseline" class="data-series data-series-0">
+	<path d="M 50.00,192.24L 68.54,195.14L 87.08,203.96L 105.62,212.84L 124.15,210.31L 142.69,215.01L 161.23,216.92L 179.77,220.28L 198.31,219.50L 216.85,223.74L 235.38,227.30L 253.92,232.77L 272.46,232.93L 291.00,236.90L 309.54,236.28L 328.08,240.00L 346.62,243.51L 365.15,245.42L 383.69,245.78L 402.23,249.40L 420.77,250.48L 439.31,254.82L 457.85,252.18L 476.38,254.92L 494.92,254.15L 513.46,256.62L 532.00,252.39L 550.54,260.08L 569.08,257.40L 587.62,256.99L 606.15,262.20L 624.69,257.71L 643.23,258.48L 661.77,260.86L 680.31,258.69L 698.85,261.01L 717.38,255.90L 735.92,256.99L 754.46,252.60L 773.00,249.76L 791.54,247.59L 810.08,249.09L 828.62,247.64L 847.15,243.10L 865.69,241.60L 884.23,241.24L 902.77,237.88L 921.31,238.61L 939.85,229.36L 958.38,227.45L 976.92,221.47L 995.46,217.44" class="line" style="stroke:silver" stroke-width="3" stroke-linecap="round"><title>Av deaths 2015-19</title></path>
 	<circle cx="50.00" cy="192.24" data-y="5380.00" data-x="0" r="5" fill="silver"><title>Week 01: 5380</title></circle>
 	<circle cx="68.54" cy="195.14" data-y="5324.00" data-x="1" r="5" fill="silver"><title>Week 02: 5324</title></circle>
 	<circle cx="87.08" cy="203.96" data-y="5153.00" data-x="2" r="5" fill="silver"><title>Week 03: 5153</title></circle>
@@ -98,7 +98,7 @@
 	<circle cx="995.46" cy="217.44" data-y="4892.00" data-x="51" r="5" fill="silver"><title>Week 52: 4892</title></circle>
 </g>
 <g  id="all-deaths-2020-under80" class="data-series data-series-1">
-	<path d="M 50.00,219.66L 68.54,171.96L 87.08,183.88L 105.62,202.78L 124.15,207.01L 142.69,221.52L 161.23,227.97L 179.77,225.18L 198.31,227.92L 216.85,225.60L 235.38,219.87L 253.92,224.87L 272.46,219.71L 291.00,101.74L 309.54,64.26L 328.08,10.00L 346.62,19.19L 365.15,105.67L 383.69,205.98L 402.23,163.38L 420.77,198.34L 439.31,252.18L 457.85,222.76L 476.38,234.53L 494.92,248.98L 513.46,255.90L 532.00,247.74L 550.54,259.15L 569.08,253.27L 587.62,255.69L 606.15,250.17L 624.69,254.61L 643.23,248.67L 661.77,239.95L 680.31,249.76L 698.85,281.87L 717.38,237.57L 735.92,241.55L 754.46,238.92L 773.00,232.77L 791.54,238.04L 810.08,221.62L 828.62,216.15L 847.15,213.36L 865.69,198.70L 884.23,188.22L 902.77,180.89L 921.31,184.76L 939.85,186.62L 958.38,185.33L 976.92,182.59L 995.46,213.62L 1014.00,254.04" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round"><title>All deaths 2020 (&lt;80)</title></path>
+	<path d="M 50.00,219.66L 68.54,171.96L 87.08,183.88L 105.62,202.78L 124.15,207.01L 142.69,221.52L 161.23,227.97L 179.77,225.18L 198.31,227.92L 216.85,225.60L 235.38,219.87L 253.92,224.87L 272.46,219.71L 291.00,101.74L 309.54,64.26L 328.08,10.00L 346.62,19.19L 365.15,105.67L 383.69,205.98L 402.23,163.38L 420.77,198.34L 439.31,252.18L 457.85,222.76L 476.38,234.53L 494.92,248.98L 513.46,255.90L 532.00,247.74L 550.54,259.15L 569.08,253.27L 587.62,255.69L 606.15,250.17L 624.69,254.61L 643.23,248.67L 661.77,239.95L 680.31,249.76L 698.85,281.87L 717.38,237.57L 735.92,241.55L 754.46,238.92L 773.00,232.77L 791.54,238.04L 810.08,221.62L 828.62,216.15L 847.15,213.36L 865.69,198.70L 884.23,188.22L 902.77,180.89L 921.31,184.76L 939.85,186.62L 958.38,185.33L 976.92,182.59L 995.46,213.62L 1014.00,254.04" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round"><title>All deaths 2020</title></path>
 	<circle cx="50.00" cy="219.66" data-y="4849.00" data-x="0" r="5" fill="#1DD3A7"><title>Week 01 (03-Jan-20): 4849</title></circle>
 	<circle cx="68.54" cy="171.96" data-y="5773.00" data-x="1" r="5" fill="#1DD3A7"><title>Week 02 (10-Jan-20): 5773</title></circle>
 	<circle cx="87.08" cy="183.88" data-y="5542.00" data-x="2" r="5" fill="#1DD3A7"><title>Week 03 (17-Jan-20): 5542</title></circle>
@@ -154,7 +154,7 @@
 	<circle cx="1014.00" cy="254.04" data-y="4183.00" data-x="52" r="5" fill="#1DD3A7"><title>Week 53 (01-Jan-21): 4183</title></circle>
 </g>
 <g  id="all-deaths-2021-under80" class="data-series data-series-2">
-	<path d="M 50.00,84.14L 68.54,68.70L 87.08,59.82L 105.62,68.96L 124.15,91.21L 142.69,115.53L 161.23,146.50L 179.77,174.95L 198.31,191.68L 216.85,202.11L 235.38,218.94L 253.92,227.66L 272.46,272.16" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round"><title>All deaths 2021 (80+)</title></path>
+	<path d="M 50.00,84.14L 68.54,68.70L 87.08,59.82L 105.62,68.96L 124.15,91.21L 142.69,115.53L 161.23,146.50L 179.77,174.95L 198.31,191.68L 216.85,202.11L 235.38,218.94L 253.92,227.66L 272.46,272.16L 291.00,253.53" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round"><title>All deaths 2021</title></path>
 	<circle cx="50.00" cy="84.14" data-y="7474.00" data-x="0" r="5" fill="#2254F4"><title>Week 01 (08-Jan-21): 7474</title></circle>
 	<circle cx="68.54" cy="68.70" data-y="7773.00" data-x="1" r="5" fill="#2254F4"><title>Week 02 (15-Jan-21): 7773</title></circle>
 	<circle cx="87.08" cy="59.82" data-y="7945.00" data-x="2" r="5" fill="#2254F4"><title>Week 03 (22-Jan-21): 7945</title></circle>
@@ -168,22 +168,23 @@
 	<circle cx="235.38" cy="218.94" data-y="4863.00" data-x="10" r="5" fill="#2254F4"><title>Week 11 (19-Mar-21): 4863</title></circle>
 	<circle cx="253.92" cy="227.66" data-y="4694.00" data-x="11" r="5" fill="#2254F4"><title>Week 12 (26-Mar-21): 4694</title></circle>
 	<circle cx="272.46" cy="272.16" data-y="3832.00" data-x="12" r="5" fill="#2254F4"><title>Week 13 (02-Apr-21): 3832</title></circle>
+	<circle cx="291.00" cy="253.53" data-y="4193.00" data-x="13" r="5" fill="#2254F4"><title>Week 14 (09-Apr-21): 4193</title></circle>
 </g>
 <g class="key">
-	<rect x="783.5" y="9.5" width="230" height="68"></rect>
-	<g  id="baseline-under80-key">>	<text x="793.5" y="19.5">		<tspan dx="32" dy="0">Av deaths 2015-19 (&lt;80)</tspan>
+	<rect x="813.5" y="9.5" width="200" height="68"></rect>
+	<g  id="baseline-key">>	<text x="823.5" y="19.5">		<tspan dx="32" dy="0">Av deaths 2015-19</tspan>
 </text>
-	<path d="M793.50,27.50 l 24 0" class="line" style="stroke:silver" stroke-width="3" stroke-linecap="round" />
-	<circle cx="805.50" cy="27.50" r="5" fill="silver" />	</g>
+	<path d="M823.50,27.50 l 24 0" class="line" style="stroke:silver" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="27.50" r="5" fill="silver" />	</g>
 
-	<g  id="all-deaths-2020-under80-key">>	<text x="793.5" y="35.5">		<tspan dx="32" dy="0">All deaths 2020 (&lt;80)</tspan>
+	<g  id="all-deaths-2020-under80-key">>	<text x="823.5" y="35.5">		<tspan dx="32" dy="0">All deaths 2020</tspan>
 </text>
-	<path d="M793.50,43.50 l 24 0" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round" />
-	<circle cx="805.50" cy="43.50" r="5" fill="#1DD3A7" />	</g>
+	<path d="M823.50,43.50 l 24 0" class="line" style="stroke:#1DD3A7" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="43.50" r="5" fill="#1DD3A7" />	</g>
 
-	<g  id="all-deaths-2021-under80-key">>	<text x="793.5" y="51.5">		<tspan dx="32" dy="0">All deaths 2021 (80+)</tspan>
+	<g  id="all-deaths-2021-under80-key">>	<text x="823.5" y="51.5">		<tspan dx="32" dy="0">All deaths 2021</tspan>
 </text>
-	<path d="M793.50,59.50 l 24 0" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round" />
-	<circle cx="805.50" cy="59.50" r="5" fill="#2254F4" />	</g>
+	<path d="M823.50,59.50 l 24 0" class="line" style="stroke:#2254F4" stroke-width="3" stroke-linecap="round" />
+	<circle cx="835.50" cy="59.50" r="5" fill="#2254F4" />	</g>
 </g>
 </svg>

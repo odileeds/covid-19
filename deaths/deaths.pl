@@ -14,6 +14,37 @@ else{ $dir = "./"; }
 %data;
 %baseline;
 
+
+
+@agegroups = (
+	{
+		'key'=>'-allages',
+		'label'=>'All deaths',
+		'low'=>0,
+		'high'=>200
+	},{
+		'key'=>'-under65',
+		'label'=>'0-64',
+		'low'=>0,
+		'high'=>64
+	},{
+		'key'=>'-65-79',
+		'label'=>'65-79',
+		'low'=>65,
+		'high'=>79
+	},{
+		'key'=>'-under80',
+		'label'=>'0-79',
+		'low'=>0,
+		'high'=>79
+	},{
+		'key'=>'-over80',
+		'label'=>'80+',
+		'low'=>80,
+		'high'=>200
+	}
+);
+
 getBaselineData($dir."2015-2019.tsv");
 getDeathData($dir."deaths-all-2020.tsv","all","2020");
 getDeathData($dir."deaths-all-2021.tsv","all","2021");
@@ -24,64 +55,40 @@ getDeathData($dir."deaths-covid-2021.tsv","covid","2021");
 %out;
 
 foreach $year (sort(keys(%data))){
-	if($year eq "2020"){
+	if($year eq "2020" || $year eq "2021"){
 		$i = 0;
 		foreach $wk (sort(keys(%{$data{$year}}))){
 			if($wk){
 				$dt = ($data{$year}{$wk}{'ended'} ? " (".$data{$year}{$wk}{'ended'}.")":"");
-				$out{'total2020'}[$i] = {'x'=>$i,'y'=>$data{$year}{$wk}{'all'}{'total'},'label'=>$wk.$dt.": ".$data{$year}{$wk}{'all'}{'total'}};
-				$out{'covid2020'}[$i] = {'x'=>$i,'y'=>$data{$year}{$wk}{'covid'}{'total'},'label'=>$wk.$dt.": ".$data{$year}{$wk}{'covid'}{'total'}};
-				$t = $data{$year}{$wk}{'all'}{'ages'}{'80-84'}{'People'} + $data{$year}{$wk}{'all'}{'ages'}{'85-89'}{'People'} + $data{$year}{$wk}{'all'}{'ages'}{'90+'}{'People'};
-				$out{'total2020-over80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$t = $data{$year}{$wk}{'covid'}{'ages'}{'80-84'}{'People'} + $data{$year}{$wk}{'covid'}{'ages'}{'85-89'}{'People'} + $data{$year}{$wk}{'covid'}{'ages'}{'90+'}{'People'};
-				$out{'covid2020-over80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$t = 0;
-				foreach $ag (keys(%{$data{$year}{$wk}{'all'}{'ages'}})){
-					if($ag =~ /^([0-9]+)/){
-						$age = $1;
-						if($age < 80){ $t += $data{$year}{$wk}{'all'}{'ages'}{$ag}{'People'}; }
+
+				for($a = 0 ; $a < @agegroups; $a++){
+					$t = 0;
+					foreach $ag (keys(%{$data{$year}{$wk}{'all'}{'ages'}})){
+						$age = $ag;
+						$age =~ s/\+//g;
+						($l,$h) = split("-",$age);
+						$l += 0;
+						$h += 0;
+						if(!$h){ $h = 200; }
+						if($l >= $agegroups[$a]{'low'} && $h <= $agegroups[$a]{'high'}){
+							$t += $data{$year}{$wk}{'all'}{'ages'}{$ag}{'People'};
+						}
 					}
-				}
-				$out{'total2020-under80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$t = 0;
-				foreach $ag (keys(%{$data{$year}{$wk}{'covid'}{'ages'}})){
-					if($ag =~ /^([0-9]+)/){
-						$age = $1;
-						if($age < 80){ $t += $data{$year}{$wk}{'covid'}{'ages'}{$ag}{'People'}; }
+					$out{'total'.$year.$agegroups[$a]{'key'}}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
+					$t = 0;
+					foreach $ag (keys(%{$data{$year}{$wk}{'covid'}{'ages'}})){
+						$age = $ag;
+						$age =~ s/\+//g;
+						($l,$h) = split("-",$age);
+						$l += 0;
+						$h += 0;
+						if(!$h){ $h = 200; }
+						if($l >= $agegroups[$a]{'low'} && $h <= $agegroups[$a]{'high'}){
+							$t += $data{$year}{$wk}{'covid'}{'ages'}{$ag}{'People'};
+						}
 					}
+					$out{'covid'.$year.$agegroups[$a]{'key'}}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
 				}
-				$out{'covid2020-under80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$i++;
-			}
-		}
-	}
-	if($year eq "2021"){
-		$i = 0;
-		foreach $wk (sort(keys(%{$data{$year}}))){
-			if($wk){
-				$dt = ($data{$year}{$wk}{'ended'} ? " (".$data{$year}{$wk}{'ended'}.")":"");
-				$out{'total2021'}[$i] = {'x'=>$i,'y'=>$data{$year}{$wk}{'all'}{'total'},'label'=>$wk.$dt.": ".$data{$year}{$wk}{'all'}{'total'}};
-				$out{'covid2021'}[$i] = {'x'=>$i,'y'=>$data{$year}{$wk}{'covid'}{'total'},'label'=>$wk.$dt.": ".$data{$year}{$wk}{'covid'}{'total'}};
-				$t = $data{$year}{$wk}{'all'}{'ages'}{'80-84'}{'People'} + $data{$year}{$wk}{'all'}{'ages'}{'85-89'}{'People'} + $data{$year}{$wk}{'all'}{'ages'}{'90+'}{'People'};
-				$out{'total2021-over80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$t = $data{$year}{$wk}{'covid'}{'ages'}{'80-84'}{'People'} + $data{$year}{$wk}{'covid'}{'ages'}{'85-89'}{'People'} + $data{$year}{$wk}{'covid'}{'ages'}{'90+'}{'People'};
-				$out{'covid2021-over80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$t = 0;
-				foreach $ag (keys(%{$data{$year}{$wk}{'all'}{'ages'}})){
-					if($ag =~ /^([0-9]+)/){
-						$age = $1;
-						if($age < 80){ $t += $data{$year}{$wk}{'all'}{'ages'}{$ag}{'People'}; }
-					}
-				}
-				$out{'total2021-under80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
-				$t = 0;
-				foreach $ag (keys(%{$data{$year}{$wk}{'covid'}{'ages'}})){
-					if($ag =~ /^([0-9]+)/){
-						$age = $1;
-						if($age < 80){ $t += $data{$year}{$wk}{'covid'}{'ages'}{$ag}{'People'}; }
-					}
-				}
-				$out{'covid2021-under80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
 				$i++;
 			}
 		}
@@ -93,389 +100,152 @@ foreach $wk (sort(keys(%baseline))){
 	if($wk){
 		$out{'average'}[$i] = {'x'=>$i,'y'=>$baseline{$wk}{'total'},'label'=>$wk.": ".$baseline{$wk}{'total'}};
 		$t = $baseline{$wk}{'ages'}{'80-84'}{'People'} + $baseline{$wk}{'ages'}{'85-89'}{'People'} + $baseline{$wk}{'ages'}{'90+'}{'People'};
-		$out{'average-over80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.": ".$t};
-		$t = 0;
-		foreach $ag (keys(%{$baseline{$wk}{'ages'}})){
-			if($ag =~ /^([0-9]+)/){
-				$age = $1;
-				if($age < 80){ $t += $baseline{$wk}{'ages'}{$ag}{'People'}; }
+		for($a = 0 ; $a < @agegroups; $a++){
+			$t = 0;
+			foreach $ag (keys(%{$baseline{$wk}{'ages'}})){
+				$age = $ag;
+				$age =~ s/\+//g;
+				($l,$h) = split("-",$age);
+				$l += 0;
+				$h += 0;
+				if(!$h){ $h = 200; }
+				if($l >= $agegroups[$a]{'low'} && $h <= $agegroups[$a]{'high'}){
+					$t += $baseline{$wk}{'ages'}{$ag}{'People'};
+				}
 			}
+			$out{'average'.$agegroups[$a]{'key'}}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.": ".$t};
 		}
-		$out{'average-under80'}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.": ".$t};
 		$i++;
 	}
 }
 
 
+# Loop over age groups
+for($a = 0 ; $a < @agegroups; $a++){
 
-
-# Make graph of all deaths
-$file = "deaths-allages-total.svg";
-$graph = ODILeeds::Graph->new();
-$graph->addSeries({
-	'title'=>'Av deaths 2015-19',
-	'id'=>'baseline',
-	'key'=>1,
-	'data'=>\@{$out{'average'}},
-	'colour'=>$colours{'baseline'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'All deaths 2020',
-	'id'=>'all-deaths-2020',
-	'key'=>1,
-	'data'=>\@{$out{'total2020'}},
-	'colour'=>$colours{'2020'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'All deaths 2021',
-	'id'=>'all-deaths-2021',
-	'key'=>1,
-	'data'=>\@{$out{'total2021'}},
-	'colour'=>$colours{'2021'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$svg = $graph->draw({
-	'width'=>1024,
-	'height'=>500,
-	'left'=>50,
-	'bottom'=>30,
-	'axis'=>{
-		'y'=>{
-			'labels'=>{'left'=>10,'baseline'=>'middle'},
-			'line'=>1
+	# Make graph of all deaths
+	$key = $agegroups[$a]{'key'};
+	$file = "deaths$key-total.svg";
+	print "Make graph for total deaths - $key - $file\n";
+	$graph = ODILeeds::Graph->new();
+	$graph->addSeries({
+		'title'=>'Av deaths 2015-19',
+		'id'=>'baseline',
+		'key'=>1,
+		'data'=>\@{$out{'average'.$key}},
+		'colour'=>$colours{'baseline'},
+		'stroke-width'=>3,
+		'stroke-width-hover'=>5,
+		'point'=>5,
+		'line'=>1
+	});
+	$graph->addSeries({
+		'title'=>'All deaths 2020',
+		'id'=>'all-deaths-2020'.$key,
+		'key'=>1,
+		'data'=>\@{$out{'total2020'.$key}},
+		'colour'=>$colours{'2020'},
+		'stroke-width'=>3,
+		'stroke-width-hover'=>5,
+		'point'=>5,
+		'line'=>1
+	});
+	$graph->addSeries({
+		'title'=>'All deaths 2021',
+		'id'=>'all-deaths-2021'.$key,
+		'key'=>1,
+		'data'=>\@{$out{'total2021'.$key}},
+		'colour'=>$colours{'2021'},
+		'stroke-width'=>3,
+		'stroke-width-hover'=>5,
+		'point'=>5,
+		'line'=>1
+	});
+	$svg = $graph->draw({
+		'width'=>1024,
+		'height'=>500,
+		'left'=>50,
+		'bottom'=>30,
+		'axis'=>{
+			'y'=>{
+				'labels'=>{'left'=>10,'baseline'=>'middle'},
+				'line'=>1
+			},
+			'x'=>{
+				'line'=>0,
+				'formatLabel'=>\&formatXAxis,
+				'type'=>'number',
+				'ticks'=>true
+			}
 		},
-		'x'=>{
-			'line'=>0,
-			'formatLabel'=>\&formatXAxis,
-			'type'=>'number',
-			'ticks'=>true
+		'key'=>{
+			'width'=>200,
+			'padding'=>10,
+			'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+			'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
 		}
-	},
-	'key'=>{
-		'width'=>200,
-		'padding'=>10,
-		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
-		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
-	}
-});
-open(FILE,">",$dir.$file);
-print FILE "$svg";
-close(FILE);
+	});
+	open(FILE,">",$dir.$file);
+	print FILE "$svg";
+	close(FILE);
 
 
 
-
-# Make graph of covid deaths
-$file = "deaths-allages-covid.svg";
-$graph = ODILeeds::Graph->new();
-$graph->addSeries({
-	'title'=>'Covid deaths 2020',
-	'id'=>'covid-deaths-2020',
-	'key'=>1,
-	'data'=>\@{$out{'covid2020'}},
-	'colour'=>$colours{'2020'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'Covid deaths 2021',
-	'id'=>'covid-deaths-2021',
-	'key'=>1,
-	'data'=>\@{$out{'covid2021'}},
-	'colour'=>$colours{'2021'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$svg = $graph->draw({
-	'width'=>1024,
-	'height'=>500,
-	'left'=>50,
-	'bottom'=>30,
-	'axis'=>{
-		'y'=>{
-			'labels'=>{'left'=>10,'baseline'=>'middle'},
-			'line'=>1
+	# Make graph of covid deaths
+	print "Make graph for covid deaths - $key - $file\n";
+	$file = "deaths$key-covid.svg";
+	$graph = ODILeeds::Graph->new();
+	$graph->addSeries({
+		'title'=>'Covid deaths 2020',
+		'id'=>'covid-deaths-2020'.$key,
+		'key'=>1,
+		'data'=>\@{$out{'covid2020'.$key}},
+		'colour'=>$colours{'2020'},
+		'stroke-width'=>3,
+		'stroke-width-hover'=>5,
+		'point'=>5,
+		'line'=>1
+	});
+	$graph->addSeries({
+		'title'=>'Covid deaths 2021',
+		'id'=>'covid-deaths-2021'.$key,
+		'key'=>1,
+		'data'=>\@{$out{'covid2021'.$key}},
+		'colour'=>$colours{'2021'},
+		'stroke-width'=>3,
+		'stroke-width-hover'=>5,
+		'point'=>5,
+		'line'=>1
+	});
+	$svg = $graph->draw({
+		'width'=>1024,
+		'height'=>500,
+		'left'=>50,
+		'bottom'=>30,
+		'axis'=>{
+			'y'=>{
+				'labels'=>{'left'=>10,'baseline'=>'middle'},
+				'line'=>1
+			},
+			'x'=>{
+				'line'=>0,
+				'formatLabel'=>\&formatXAxis,
+				'type'=>'number',
+				'ticks'=>true
+			}
 		},
-		'x'=>{
-			'line'=>0,
-			'formatLabel'=>\&formatXAxis,
-			'type'=>'number',
-			'ticks'=>true
+		'key'=>{
+			'width'=>200,
+			'padding'=>10,
+			'border'=>'fill:transparent;stroke-width:1;stroke:black;',
+			'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
 		}
-	},
-	'key'=>{
-		'width'=>200,
-		'padding'=>10,
-		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
-		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
-	}
-});
-open(FILE,">",$dir.$file);
-print FILE "$svg";
-close(FILE);
+	});
+	open(FILE,">",$dir.$file);
+	print FILE "$svg";
+	close(FILE);
 
-
-
-
-# Make graph of all deaths by age
-$file = "deaths-over80-total.svg";
-$graph = ODILeeds::Graph->new();
-$graph->addSeries({
-	'title'=>'Av deaths 2015-19 (80+)',
-	'id'=>'baseline',
-	'key'=>1,
-	'data'=>\@{$out{'average-over80'}},
-	'colour'=>$colours{'baseline'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'All deaths 2020 (80+)',
-	'id'=>'all-deaths-2020-over80',
-	'key'=>1,
-	'data'=>\@{$out{'total2020-over80'}},
-	'colour'=>$colours{'2020'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'All deaths 2021 (80+)',
-	'id'=>'all-deaths-2021-over80',
-	'key'=>1,
-	'data'=>\@{$out{'total2021-over80'}},
-	'colour'=>$colours{'2021'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$svg = $graph->draw({
-	'width'=>1024,
-	'height'=>500,
-	'left'=>50,
-	'bottom'=>30,
-	'axis'=>{
-		'y'=>{
-			'labels'=>{'left'=>10,'baseline'=>'middle'},
-			'line'=>1
-		},
-		'x'=>{
-			'line'=>0,
-			'formatLabel'=>\&formatXAxis,
-			'type'=>'number',
-			'ticks'=>true
-		}
-	},
-	'key'=>{
-		'width'=>230,
-		'padding'=>10,
-		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
-		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
-	}
-});
-open(FILE,">",$dir.$file);
-print FILE "$svg";
-close(FILE);
-
-
-
-
-
-# Make graph of all deaths by age
-$file = "deaths-over80-covid.svg";
-$graph = ODILeeds::Graph->new();
-$graph->addSeries({
-	'title'=>'Covid deaths 2020 (80+)',
-	'id'=>'covid-deaths-2020-over80',
-	'key'=>1,
-	'data'=>\@{$out{'covid2020-over80'}},
-	'colour'=>$colours{'2020'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'Covid deaths 2021 (80+)',
-	'id'=>'covid-deaths-2021-over80',
-	'key'=>1,
-	'data'=>\@{$out{'covid2021-over80'}},
-	'colour'=>$colours{'2021'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$svg = $graph->draw({
-	'width'=>1024,
-	'height'=>500,
-	'left'=>50,
-	'bottom'=>30,
-	'axis'=>{
-		'y'=>{
-			'labels'=>{'left'=>10,'baseline'=>'middle'},
-			'line'=>1
-		},
-		'x'=>{
-			'line'=>0,
-			'formatLabel'=>\&formatXAxis,
-			'type'=>'number',
-			'ticks'=>true
-		}
-	},
-	'key'=>{
-		'width'=>230,
-		'padding'=>10,
-		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
-		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
-	}
-});
-open(FILE,">",$dir.$file);
-print FILE "$svg";
-close(FILE);
-
-
-
-# Make graph of all deaths by age
-$file = "deaths-under80-total.svg";
-$graph = ODILeeds::Graph->new();
-$graph->addSeries({
-	'title'=>'Av deaths 2015-19 (<80)',
-	'id'=>'baseline-under80',
-	'key'=>1,
-	'data'=>\@{$out{'average-under80'}},
-	'colour'=>$colours{'baseline'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'All deaths 2020 (<80)',
-	'id'=>'all-deaths-2020-under80',
-	'key'=>1,
-	'data'=>\@{$out{'total2020-under80'}},
-	'colour'=>$colours{'2020'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'All deaths 2021 (80+)',
-	'id'=>'all-deaths-2021-under80',
-	'key'=>1,
-	'data'=>\@{$out{'total2021-under80'}},
-	'colour'=>$colours{'2021'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$svg = $graph->draw({
-	'width'=>1024,
-	'height'=>500,
-	'left'=>50,
-	'bottom'=>30,
-	'axis'=>{
-		'y'=>{
-			'labels'=>{'left'=>10,'baseline'=>'middle'},
-			'line'=>1
-		},
-		'x'=>{
-			'line'=>0,
-			'formatLabel'=>\&formatXAxis,
-			'type'=>'number',
-			'ticks'=>true
-		}
-	},
-	'key'=>{
-		'width'=>230,
-		'padding'=>10,
-		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
-		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
-	}
-});
-open(FILE,">",$dir.$file);
-print FILE "$svg";
-close(FILE);
-
-
-
-
-
-# Make graph of all deaths by age
-$file = "deaths-under80-covid.svg";
-$graph = ODILeeds::Graph->new();
-$graph->addSeries({
-	'title'=>'Covid deaths 2020 (80+)',
-	'id'=>'covid-deaths-2020-under80',
-	'key'=>1,
-	'data'=>\@{$out{'covid2020-under80'}},
-	'colour'=>$colours{'2020'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$graph->addSeries({
-	'title'=>'Covid deaths 2021 (80+)',
-	'id'=>'covid-deaths-2021-under80',
-	'key'=>1,
-	'data'=>\@{$out{'covid2021-under80'}},
-	'colour'=>$colours{'2021'},
-	'stroke-width'=>3,
-	'stroke-width-hover'=>5,
-	'point'=>5,
-	'line'=>1
-});
-$svg = $graph->draw({
-	'width'=>1024,
-	'height'=>500,
-	'left'=>50,
-	'bottom'=>30,
-	'axis'=>{
-		'y'=>{
-			'labels'=>{'left'=>10,'baseline'=>'middle'},
-			'line'=>1
-		},
-		'x'=>{
-			'line'=>0,
-			'formatLabel'=>\&formatXAxis,
-			'type'=>'number',
-			'ticks'=>true
-		}
-	},
-	'key'=>{
-		'width'=>230,
-		'padding'=>10,
-		'border'=>'fill:transparent;stroke-width:1;stroke:black;',
-		'text'=>'text-anchor:start;dominant-baseline:hanging;font-weight:bold;fill:black;stroke-width:0;font-family:sans-serif;'
-	}
-});
-open(FILE,">",$dir.$file);
-print FILE "$svg";
-close(FILE);
-
+}
 
 
 

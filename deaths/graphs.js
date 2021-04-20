@@ -21,7 +21,7 @@ function ready(){
 	document.querySelectorAll('.graph').forEach(function(e){ e.addEventListener('mouseleave',function(e){ clearTooltip(); }); });
 
 	// Add hover events to circles
-	document.querySelectorAll('circle').forEach(function(e){ e.addEventListener('mouseover',function(e){ showTooltip(e.currentTarget); }); });
+	document.querySelectorAll('.data-series circle').forEach(function(e){ e.addEventListener('mouseover',function(e){ showTooltip(e.currentTarget); }); });
 	
 	hi = document.querySelectorAll('svg .key g');
 	hi.forEach(function(e){
