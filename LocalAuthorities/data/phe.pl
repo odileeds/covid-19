@@ -692,9 +692,8 @@ sub makePulsarPlot {
 	$svg .= "\t<text x=\"".($w-20)."\" y=\"".($h-20)."\">Credit: Data from PHE, Visualisation by ODI Leeds</text>\n";
 
 	$svg .= "</svg>";
-	open(SVG,">",$dir.$file);
-	print SVG $svg;
-	close(SVG);
+	
+	updateFile($dir.$file,$svg);
 	
 	return ($minx,$maxx);
 }
@@ -758,6 +757,7 @@ sub processVaccines {
 									}
 									$cols[$header{$h}] =~ s/(^\"|\"$)//g;
 									$cols[$header{$h}] =~ s/[\,\s]//g;
+#									print "$latmp - $nims{$latmp}{$h2}\n";
 									$vaccines{$latmp}{$wk}{$h2} = {'n'=>$cols[$header{$h}],'pop'=>$nims{$latmp}{$h2},'%'=>sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2})};
 									$vaccines{$latmp}{$wk}{'all'}{'n'} += $cols[$header{$h}];
 									$vaccines{$latmp}{$wk}{'all'}{'pop'} += $nims{$latmp}{$h2};
