@@ -21,9 +21,9 @@ else{ $dir = "./"; }
 $cs = ODILeeds::ColourScale->new();
 
 # Settings
-$vaccinedate = "20210415";
-$vaccinedatenice = "15th April 2021";
-$vaccineperiod = "8th December 2020 to 11th April 2021";
+$vaccinedate = "20210422";
+$vaccinedatenice = "22nd April 2021";
+$vaccineperiod = "8th December 2020 to 18th April 2021";
 
 
 # Process date
@@ -33,11 +33,17 @@ $vdate =~ s/([0-9]{4})([0-9]{2})([0-9]{2})/$1-$2-$3/;
 
 @agegroups = (
 	{
-		'label'=>'0-49',
-		'head'=>'Under 50',
+		'label'=>'0-44',
+		'head'=>'Under 45',
 		'table'=>1,
 		'low'=>0,
-		'high'=>50
+		'high'=>44
+	},{
+		'label'=>'45-49',
+		'head'=>'45-49',
+		'table'=>1,
+		'low'=>45,
+		'high'=>49
 	},{
 		'label'=>'50-54',
 		'head'=>'50-54',

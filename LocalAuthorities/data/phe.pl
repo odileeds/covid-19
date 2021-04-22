@@ -87,7 +87,8 @@ foreach $line (@lines){
 					$nims{$latmp}{$h2} = $cols[$header{$h}];
 				}
 			}
-			$nims{$latmp}{'0-49'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-49'};
+			$nims{$latmp}{'0-44'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-44'};
+			$nims{$latmp}{'0-49'} = $nims{$latmp}{'0-44'}+$nims{$latmp}{'45-49'};
 			$nims{$latmp}{'0-54'} = $nims{$latmp}{'0-49'}+$nims{$latmp}{'50-54'};
 			$nims{$latmp}{'0-59'} = $nims{$latmp}{'0-54'}+$nims{$latmp}{'55-59'};
 			$nims{$latmp}{'0-64'} = $nims{$latmp}{'0-59'}+$nims{$latmp}{'60-64'};
@@ -219,8 +220,8 @@ for($i = 0; $i < @las; $i++){
 
 
 	logIt("$la (".sprintf("%0.1f",$diff)." hours old)");
-	# If we last checked more than 2 hours ago we grab a new copy
-	if($diff > 8 || -s $head==0){
+	# Age: If we last checked more than 6 hours ago we grab a new copy
+	if($diff > 6 || -s $head==0){
 		logIt("\tGetting URL $url");
 		`curl -sI "$url" > $head`;
 		@lines = `curl -s --compressed "$url"`;
@@ -383,7 +384,10 @@ for($i = 0; $i < @las; $i++){
 				$lines[$l] =~ s/\,\"cumCasesBySpecimenDateRate\":[0-9\.]*//g;
 				$lines[$l] =~ s/newCasesBySpecimenDate/day/g;
 				$lines[$l] =~ s/cumCasesBySpecimenDate/tot/g;
-				$txt .= "\t\t$lines[$l]\n";
+				$lines[$l] =~ s/\],.*$//g;
+				if($lines[$l] =~ /\"date\":\"[0-9]{4}-[0-9]{2}-[0-9]{2}\"/){
+					$txt .= "\t\t$lines[$l]\n";
+				}
 			}
 		}
 		$txt .= "\t\t]\n";

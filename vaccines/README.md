@@ -23,9 +23,10 @@ Weekly [vaccine data from NHS England](https://www.england.nhs.uk/statistics/sta
 4. Edit [vaccines.pl](vaccines.pl) with correct values for `$vaccinedate`, `$vaccinedatenice`, `$vaccineperiod` and update all the age categories as necessary.
 5. Extract NIMS MSOA populations
 6. Extract NIMS LTLA populations
-7. Extract MSOA vaccine data as `data/vaccinations-MSOA-YYYYMMDD.csv`
-8. Extract LTLA data as `data/vaccinations-LTLA-YYYYMMDD.csv`
-9. Run vaccines.pl
-10. Edit [phe.pl](../LocalAuthorities/data/phe.pl) and edit age groups in NIMS section.
-11. Run phe.pl
-12. Update `vaccines/inc/covid-19-vaccine-nhs-stp.json` and `vaccines/inc/covid-19-vaccine-msoa.json` files.
+7. Run [populations.pl]
+8. Extract MSOA vaccine data as `data/vaccinations-MSOA-YYYYMMDD.csv`
+9. Extract LTLA data as `data/vaccinations-LTLA-YYYYMMDD.csv`
+10. Run vaccines.pl
+11. Edit [phe.pl](../LocalAuthorities/data/phe.pl) and edit age groups in NIMS section.
+12. Run phe.pl
+13. Update `vaccines/inc/covid-19-vaccine-nhs-stp.json` and `vaccines/inc/covid-19-vaccine-msoa.json` files.
