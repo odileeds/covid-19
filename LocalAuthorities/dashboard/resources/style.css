@@ -88,6 +88,14 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 .widespread .data-series path.line, .widespread .graph-grid line, .substantial .data-series path.line, .substantial .graph-grid line { stroke: white; }
 .data-series:hover circle { r:3px; }
 .data-series circle:hover { r: 5px; }
+.moderate .data-series:hover circle,
+.minimal .data-series:hover circle,
+.moderate .data-series circle:hover,
+.minimal .data-series circle:hover,
+.moderate svg g.data-series[data-series="recent-cases"] circle,
+.minimal svg g.data-series[data-series="recent-cases"] circle,
+.moderate svg g.data-series[data-series="new-cases"] circle:last-child,
+.minimal svg g.data-series[data-series="new-cases"] circle:last-child { fill: black; }
 .data-series:last-child path { display: none; }
 
 
