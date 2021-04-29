@@ -754,14 +754,14 @@ sub processVaccines {
 						if(!$vaccines{$latmp}{$wk}){
 							$vaccines{$latmp}{$wk} = {'all'=>{}};
 							foreach $h (keys(%header)){
-								if($h =~ /[0-9]/){
+								if($h =~ /[0-9]/ && $h !~ /2nd dose/){
 									$h2 = $h;
+									$h2 =~ s/1st dose //g;
 									if($h2 =~ /Under ([0-9]+)/i){
 										$h2 = "0-".($1-1);
 									}
 									$cols[$header{$h}] =~ s/(^\"|\"$)//g;
 									$cols[$header{$h}] =~ s/[\,\s]//g;
-#									print "$latmp - $nims{$latmp}{$h2}\n";
 									$vaccines{$latmp}{$wk}{$h2} = {'n'=>$cols[$header{$h}],'pop'=>$nims{$latmp}{$h2},'%'=>sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2})};
 									$vaccines{$latmp}{$wk}{'all'}{'n'} += $cols[$header{$h}];
 									$vaccines{$latmp}{$wk}{'all'}{'pop'} += $nims{$latmp}{$h2};
