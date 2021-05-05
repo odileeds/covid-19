@@ -74,7 +74,7 @@ foreach $year (sort(keys(%data))){
 							$t += $data{$year}{$wk}{'all'}{'ages'}{$ag}{'People'};
 						}
 					}
-					$out{'total'.$year.$agegroups[$a]{'key'}}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
+					$out{'total'.$year.$agegroups[$a]{'key'}}[$i] = {'x'=>$i+1,'y'=>$t,'label'=>$wk.$dt.": ".$t};
 					$t = 0;
 					foreach $ag (keys(%{$data{$year}{$wk}{'covid'}{'ages'}})){
 						$age = $ag;
@@ -87,7 +87,7 @@ foreach $year (sort(keys(%data))){
 							$t += $data{$year}{$wk}{'covid'}{'ages'}{$ag}{'People'};
 						}
 					}
-					$out{'covid'.$year.$agegroups[$a]{'key'}}[$i] = {'x'=>$i,'y'=>$t,'label'=>$wk.$dt.": ".$t};
+					$out{'covid'.$year.$agegroups[$a]{'key'}}[$i] = {'x'=>$i+1,'y'=>$t,'label'=>$wk.$dt.": ".$t};
 				}
 				$i++;
 			}
