@@ -2,21 +2,21 @@ HTTP/1.1 204 No Content
 Cache-Control: public, must-revalidate, max-age=90
 Content-Length: 0
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000060&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Wed, 05 May 2021 18:06:24 GMT
+Expires: Thu, 06 May 2021 07:04:19 GMT
 Last-Modified: Wed, 05 May 2021 15:00:02 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Content-Type-Options: nosniff
-phe-server-loc: UKS_fe02
-x-xss-protection: 1; mode=block
 X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+x-xss-protection: 1; mode=block
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 x-phe-media-type: PHE-COVID19.v1
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+phe-server-loc: UKS_fe01
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 6055
-X-Azure-Ref-OriginShield: 0Rt6SYAAAAACxqes3HbeSTopzuX0EGTByTE9OMjFFREdFMDEyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0Rt6SYAAAAABmpHXjrrwGT55Sqyr75kxHTUFOMzBFREdFMDMxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Wed, 05 May 2021 18:04:54 GMT
+PHE-API-Cache-Duration: 19676
+X-Azure-Ref-OriginShield: 0mJSTYAAAAACEQNLKJCppQ6Hlt2I01oCJTE9OMjFFREdFMDEwNgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0mJSTYAAAAADf6GqjTsM1ToB4much1VsNTUFOMzBFREdFMDMxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 06 May 2021 07:02:48 GMT
 
