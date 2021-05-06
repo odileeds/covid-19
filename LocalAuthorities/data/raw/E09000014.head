@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E09000014&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Thu, 06 May 2021 07:13:56 GMT
-Last-Modified: Wed, 05 May 2021 15:00:02 GMT
+Expires: Thu, 06 May 2021 18:13:39 GMT
+Last-Modified: Thu, 06 May 2021 15:00:03 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-xss-protection: 1; mode=block
-phe-server-loc: UKW_fe02
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-X-Frame-Options: deny
 X-Content-Type-Options: nosniff
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-phe-media-type: PHE-COVID19.v1
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
+x-xss-protection: 1; mode=block
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+phe-server-loc: UKS_fe02
+x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 17634
-X-Azure-Ref-OriginShield: 02ZaTYAAAAACPVI5xxqQgR4LLRa/LXy+RTE9OMjFFREdFMDEyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 02ZaTYAAAAABuWP3XRi7nSYa7mKD2ey84TUFOMzBFREdFMDMwNwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Thu, 06 May 2021 07:12:25 GMT
+PHE-API-Cache-Duration: 11029
+X-Azure-Ref-OriginShield: 0eTGUYAAAAABUYsr4e3GTTavFC0I5V8/zTE9OMjFFREdFMDIxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0eTGUYAAAAABd9cqMIN2DTYAKDV1dH4+RTUFOMzBFREdFMDMxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 06 May 2021 18:12:09 GMT
 
