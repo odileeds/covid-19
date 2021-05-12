@@ -1,21 +1,20 @@
-HTTP/1.1 200 OK
-Date: Wed, 12 May 2021 07:00:13 GMT
-Content-Type: text/csv
-Content-Length: 63699
-Connection: keep-alive
+HTTP/2 200 
+date: Wed, 12 May 2021 11:04:11 GMT
+content-type: text/csv
+content-length: 63699
 x-amz-id-2: 0fcwKBbC+Qi4Imw9Yzcqwkg9+1DA3+zXtT8M4dbC7S9TNXMLxH5UJdNyB1Br6NfU6OiMvWmL4Ko=
 x-amz-request-id: RG2FM9G5EHCY1Y5Y
-Last-Modified: Mon, 21 Dec 2020 16:10:42 GMT
+last-modified: Mon, 21 Dec 2020 16:10:42 GMT
 x-amz-version-id: Fa0_vdlLCTlQz0i_1j.BnIwjAM5m6Aa.
-ETag: "7d3cc9bedde5ddde4fd9b42975fa9afe"
-CF-Cache-Status: HIT
-Age: 2589
-Expires: Wed, 12 May 2021 11:00:13 GMT
-Cache-Control: public, max-age=14400
-Accept-Ranges: bytes
-cf-request-id: 0a00f957010000008d8a880000000001
-Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-Server: cloudflare
-CF-RAY: 64e1c4d19abb008d-LHR
+etag: "7d3cc9bedde5ddde4fd9b42975fa9afe"
+cf-cache-status: HIT
+age: 6428
+expires: Wed, 12 May 2021 15:04:11 GMT
+cache-control: public, max-age=14400
+accept-ranges: bytes
+cf-request-id: 0a01d8b34a00002ce3428b7000000001
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+server: cloudflare
+cf-ray: 64e32a320e6b2ce3-LHR
 alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
 
