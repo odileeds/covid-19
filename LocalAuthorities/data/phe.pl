@@ -87,7 +87,8 @@ foreach $line (@lines){
 					$nims{$latmp}{$h2} = $cols[$header{$h}];
 				}
 			}
-			$nims{$latmp}{'0-44'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-44'};
+			$nims{$latmp}{'0-39'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-39'};
+			$nims{$latmp}{'0-44'} = $nims{$latmp}{'0-40'}+$nims{$latmp}{'40-44'};
 			$nims{$latmp}{'0-49'} = $nims{$latmp}{'0-44'}+$nims{$latmp}{'45-49'};
 			$nims{$latmp}{'0-54'} = $nims{$latmp}{'0-49'}+$nims{$latmp}{'50-54'};
 			$nims{$latmp}{'0-59'} = $nims{$latmp}{'0-54'}+$nims{$latmp}{'55-59'};
@@ -114,12 +115,13 @@ close(FILE);
 
 
 # Get local restrictions
+
 $url = "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/commonslibrary-coronavirus-restrictions-data.csv";
 $file = $dir."commonslibrary-coronavirus-restrictions-data.csv";
 $head = $dir."commonslibrary-coronavirus-restrictions-data.head";
-`curl -sI "$url" > $head`;
-`curl -s "$url" > $file`;
-logIt("Saved $head");
+#`curl -sI "$url" > $head`;
+#`curl -s "$url" > $file`;
+#logIt("Saved $head");
 open(FILE,$head);
 @headlines = <FILE>;
 close(FILE);
