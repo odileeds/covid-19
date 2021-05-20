@@ -21,9 +21,9 @@ else{ $dir = "./"; }
 $cs = ODILeeds::ColourScale->new();
 
 # Settings
-$vaccinedate = "20210513";
-$vaccinedatenice = "13th May 2021";
-$vaccineperiod = "8th December 2020 to 9th May 2021";
+$vaccinedate = "20210520";
+$vaccinedatenice = "20th May 2021";
+$vaccineperiod = "8th December 2020 to 16th May 2021";
 
 
 # Process date
@@ -104,7 +104,6 @@ $vdate =~ s/([0-9]{4})([0-9]{2})([0-9]{2})/$1-$2-$3/;
 # Now process NHS ICS/STP level data
 
 %stp;
-
 %data = getCSV($dir."data/CCG-STP-ages-population.csv",{'id'=>'CCG Code','map'=>{'STP20 Code'=>'stp20cd','STP20 Name'=>'stp20nm'}});
 foreach $ccg (keys(%data)){
 	$code = $data{$ccg}{'stp20cd'};
@@ -143,7 +142,6 @@ foreach $s (sort(keys(%stp))){
 	print FILE "\n";
 }
 close(FILE);
-
 
 
 # We will now load in the populations from NIMS
@@ -422,7 +420,7 @@ foreach $m (keys(%data)){
 }
 
 %vaccinemsoa = getCSV($dir."data/vaccinations-MSOA-$vaccinedate.csv",{'id'=>'msoa11cd','map'=>{'MSOA Code'=>'msoa11cd','MSOA Name'=>'msoa11nm'}});
-
+$msoaboth = 0;
 
 foreach $m (sort(keys(%msoa))){
 	if($vaccinemsoa{$m}{'msoa11cd'}){
@@ -434,11 +432,23 @@ foreach $m (sort(keys(%msoa))){
 
 		for($ag = 0 ; $ag < @agegroups; $ag++){
 			if($agegroups[$ag]{'table'}){
-				$msoa{$m}{'vaccine'}{$agegroups[$ag]{'label'}} = $vaccinemsoa{$m}{$agegroups[$ag]{'head'}}+0;
-				$msoa{$m}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{$agegroups[$ag]{'label'}}/$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}}));
-				$msoa{$m}{'vaccine'}{'all'} += $vaccinemsoa{$m}{$agegroups[$ag]{'head'}};
+				if($vaccinemsoa{$m}{'1st dose 80+'}){
+					$msoaboth = 1;
+					$v1 = $vaccinemsoa{$m}{'1st dose '.$agegroups[$ag]{'head'}}+0;
+					$v2 = $vaccinemsoa{$m}{'2nd dose '.$agegroups[$ag]{'head'}}+0;
+					$msoa{$m}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}} = $v1;
+					$msoa{$m}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}.' pc'} = sprintf("%0.1f",(100*$v1/$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}}));
+					$msoa{$m}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}} = $v2;
+					$msoa{$m}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}.' pc'} = sprintf("%0.1f",(100*$v2/$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}}));
+					$msoa{$m}{'vaccine'}{'1st dose all'} += $v1;
+					$msoa{$m}{'vaccine'}{'2nd dose all'} += $v2;
+				}else{
+					$v = $vaccinemsoa{$m}{$agegroups[$ag]{'head'}}+0;
+					$msoa{$m}{'vaccine'}{$agegroups[$ag]{'label'}} = $v;
+					$msoa{$m}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'} = sprintf("%0.1f",(100*$v/$msoa{$m}{'pop'}{$agegroups[$ag]{'label'}}));
+					$msoa{$m}{'vaccine'}{'all'} += $v;
+				}
 			}
-			
 		}
 		$msoa{$m}{'vaccine'}{'all pc'} = sprintf("%0.1f",(100*$msoa{$m}{'vaccine'}{'all'}/$msoa{$m}{'pop'}{'total'}));
 
@@ -448,7 +458,6 @@ foreach $m (sort(keys(%msoa))){
 	}
 }
 
-
 $geojson = ODILeeds::GeoJSON->new();
 $geojson->addLayer("stp","data/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson",{'key'=>'MSOA11CD','precision'=>1,'shape-rendering'=>'crispedges','fill'=>\&getMSOAColour,'props'=>\&getPropsMSOA});
 undef %ranges;
@@ -457,8 +466,15 @@ undef @svgs;
 @svgs;
 for($ag = 0 ; $ag < @agegroups; $ag++){
 	if($agegroups[$ag]{'table'}){
-		push(@svgs,{'title'=>$agegroups[$ag]{'label'}.' (total)','key'=>$agegroups[$ag]{'label'},'file'=>'vaccine-msoa-'.$agegroups[$ag]{'safe'}.'.svg'});
-		push(@svgs,{'title'=>$agegroups[$ag]{'label'}.' (%)','key'=>$agegroups[$ag]{'label'}.' pc','file'=>'vaccine-msoa-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
+		if($msoaboth){
+			push(@svgs,{'title'=>'1st dose '.$agegroups[$ag]{'label'}.' (total)','key'=>'1st dose '.$agegroups[$ag]{'label'},'file'=>'vaccine-msoa-1stdose-'.$agegroups[$ag]{'safe'}.'.svg'});
+			push(@svgs,{'title'=>'1st dose '.$agegroups[$ag]{'label'}.' (%)','key'=>'1st dose '.$agegroups[$ag]{'label'}.' pc','file'=>'vaccine-msoa-1stdose-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
+			push(@svgs,{'title'=>'2nd dose '.$agegroups[$ag]{'label'}.' (total)','key'=>'2nd dose '.$agegroups[$ag]{'label'},'file'=>'vaccine-msoa-2nddose-'.$agegroups[$ag]{'safe'}.'.svg'});
+			push(@svgs,{'title'=>'2nd dose '.$agegroups[$ag]{'label'}.' (%)','key'=>'2nd dose '.$agegroups[$ag]{'label'}.' pc','file'=>'vaccine-msoa-2nddose-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
+		}else{
+			push(@svgs,{'title'=>$agegroups[$ag]{'label'}.' (total)','key'=>$agegroups[$ag]{'label'},'file'=>'vaccine-msoa-'.$agegroups[$ag]{'safe'}.'.svg'});
+			push(@svgs,{'title'=>$agegroups[$ag]{'label'}.' (%)','key'=>$agegroups[$ag]{'label'}.' pc','file'=>'vaccine-msoa-'.$agegroups[$ag]{'safe'}.'-pc.svg'});
+		}
 	}
 }
 
@@ -471,7 +487,6 @@ for($s = 0; $s < @svgs; $s++){
 	print SVG $svg;
 	close(SVG);
 }
-
 
 # Build GeoJSON for MSOAs
 open(FILE,$dir."data/Middle_Layer_Super_Output_Areas_(December_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson");
@@ -494,7 +509,12 @@ foreach $line (@lines){
 			$property = ",\"MSOA11NM\":\"$msoa{$id}{'name'}\",\"period\":\"$vaccineperiod\"";
 			for($ag = 0 ; $ag < @agegroups; $ag++){
 				if($agegroups[$ag]{'table'}){
-					$property .= ",\"$agegroups[$ag]{'label'}\":".($msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}}||0).",\"$agegroups[$ag]{'label'} %\":".($msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'}||0);
+					if($msoaboth){
+						$property .= ",\"1st dose $agegroups[$ag]{'label'}\":".($msoa{$id}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}}||0).",\"1st dose $agegroups[$ag]{'label'} %\":".($msoa{$id}{'vaccine'}{'1st dose '.$agegroups[$ag]{'label'}.' pc'}||0);
+						$property .= ",\"2nd dose $agegroups[$ag]{'label'}\":".($msoa{$id}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}}||0).",\"2nd dose $agegroups[$ag]{'label'} %\":".($msoa{$id}{'vaccine'}{'2nd dose '.$agegroups[$ag]{'label'}.' pc'}||0);
+					}else{
+						$property .= ",\"$agegroups[$ag]{'label'}\":".($msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}}||0).",\"$agegroups[$ag]{'label'} %\":".($msoa{$id}{'vaccine'}{$agegroups[$ag]{'label'}.' pc'}||0);
+					}
 				}
 			}
 			$line =~ s/(\},"geometry")/$property$1/;
