@@ -11,8 +11,10 @@
 	<style>
 		#stackedplot svg { width: 100%; height: auto; }
 		#stackedplot svg .area { display: block; }
-		#stackedplot svg g:hover text { font-size: 28px; font-weight: bold; }
+		#stackedplot svg g:hover text, #stackedplot svg g.on text { font-size: 28px; font-weight: bold; display: block; }
+		#stackedplot svg g:hover path.area, #stackedplot svg g.on path.area { stroke: #1DD3A7; stroke-width: 3px; }
 		header a:visited, header a, footer a, footer a:visited { color: inherit; text-decoration: underline; }
+		#search { position: relative; margin: 0 auto 1em; }
 	</style>
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@ODILeeds">
@@ -37,8 +39,10 @@
 	<div class="b6-bg">
 		<div class="padded">
 			<div class="holder" id="stackedplot">
+				<input type="text" id="search" placeholder="Start typing to highlight authorities..." style="width: 300px;max-width:100%;font-size:1em;line-height:2em;padding: 0 0.25em;display: block;" />
+				<div class="jekyll-parse">
 {% include_relative data/cases-plot-by-latitude.svg %}
-
+				</div>
 				<br /><a href="data/cases-plot-by-latitude.svg" class="button c5-bg" style="display:block;text-align:center;">Download stacked plot as SVG</a>
 			</div>
 		</div>
@@ -54,6 +58,8 @@
 			</p><p><a href="https://coronavirus.data.gov.uk/developers-guide">Confirmed cases data</a> &copy; Public Health England OGL v3</p>
 		</div>
 	</footer>
+
+	<script src="resources/cases.js"></script>
 
 	<script src="https://odileeds.org/resources/odi.log.js"></script>
 	<script>
