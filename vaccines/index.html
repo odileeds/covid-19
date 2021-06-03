@@ -124,6 +124,13 @@
 		transform: rotate(45deg);
 	}
 	header a, header a:visited { color: inherit; text-decoration: underline; }
+
+	.screenshot .grid { grid-template-columns: repeat(12, 1fr); grid-gap: 1px; }
+	.screenshot .total { display: none; }
+	.screenshot .doublepadded { padding: 0.25em; }
+	.screenshot figure a { display: none; }
+	.screenshot figure h2 { font-size: 1em; }
+
 	@media only screen and (max-width: 1080px) {
 		.grid { grid-template-columns: repeat(2, 1fr); }
 	}
