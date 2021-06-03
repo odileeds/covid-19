@@ -53,6 +53,7 @@ foreach $stp (sort(keys(%stps))){
 	$csv .= "\n";
 }
 
+print "Saving to data/NIMS-STP-population.csv\n";
 open(FILE,">","data/NIMS-STP-population.csv");
 print FILE $csv;
 close(FILE);
