@@ -5,20 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000106&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Thu, 03 Jun 2021 18:07:18 GMT
+Expires: Fri, 04 Jun 2021 07:09:25 GMT
 Last-Modified: Thu, 03 Jun 2021 17:51:10 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
 x-xss-protection: 1; mode=block
 x-phe-media-type: PHE-COVID19.v1
-X-Content-Type-Options: nosniff
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-X-Frame-Options: deny
 phe-server-loc: UKW_fe01
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 17316
-X-Azure-Ref: 0/Bm5YAAAAADn9Ki9f4tEQIdkT3fMbU48TE9OMjFFREdFMDExOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Thu, 03 Jun 2021 18:05:47 GMT
+PHE-API-Cache-Duration: 15347
+X-Azure-Ref-OriginShield: 0S9G5YAAAAAB4ADo45rK5Q4dY2F6ONq4sTE9OMjFFREdFMDIyMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0SNG5YAAAAACay3wRl3ImSL4g1sv9PCjyTUFOMzBFREdFMDcxMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Fri, 04 Jun 2021 07:07:55 GMT
 
