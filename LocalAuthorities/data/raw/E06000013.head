@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000013&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sat, 05 Jun 2021 07:02:32 GMT
-Last-Modified: Fri, 04 Jun 2021 15:00:16 GMT
+Expires: Sat, 05 Jun 2021 18:02:34 GMT
+Last-Modified: Sat, 05 Jun 2021 15:00:08 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Frame-Options: deny
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKW_fe01
-X-Content-Type-Options: nosniff
-x-xss-protection: 1; mode=block
-x-phe-media-type: PHE-COVID19.v1
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+x-xss-protection: 1; mode=block
+X-Content-Type-Options: nosniff
+x-phe-media-type: PHE-COVID19.v1
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+phe-server-loc: UKW_fe02
+X-Frame-Options: deny
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 15531
-X-Azure-Ref-OriginShield: 0LiG7YAAAAAAAeV5NczHNR6CPTj0m9yBEREIzRURHRTE0MTMAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
-X-Azure-Ref: 0LiG7YAAAAACr+JWZDmstQZD0FJVeNBUVTUFOMzBFREdFMDcxNQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sat, 05 Jun 2021 07:01:02 GMT
+PHE-API-Cache-Duration: 16794
+X-Azure-Ref-OriginShield: 04Lu7YAAAAAAVtlpr6RzuS6BSERjRbrgNREIzRURHRTE0MTkAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
+X-Azure-Ref: 04Lu7YAAAAAA44JhvOpD8SoRhDQDi+kAdTUFOMzBFREdFMDcxMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sat, 05 Jun 2021 18:01:04 GMT
 
