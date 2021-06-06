@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000010&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 06 Jun 2021 07:04:41 GMT
-Last-Modified: Sat, 05 Jun 2021 15:00:08 GMT
+Expires: Sun, 06 Jun 2021 18:04:43 GMT
+Last-Modified: Sun, 06 Jun 2021 15:00:07 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
 x-phe-media-type: PHE-COVID19.v1
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-phe-server-loc: UKW_fe01
-X-Content-Type-Options: nosniff
-x-xss-protection: 1; mode=block
 Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+X-Content-Type-Options: nosniff
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 X-Frame-Options: deny
+x-xss-protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+phe-server-loc: UKS_fe03
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 16213
-X-Azure-Ref-OriginShield: 0L3O8YAAAAABXBR3n7B4mQLB1gItkroiAREIzRURHRTE0MTgAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
-X-Azure-Ref: 0L3O8YAAAAACLGP9L14o8R5w39DV71H8/TUFOMzBFREdFMDcwOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 06 Jun 2021 07:03:11 GMT
+PHE-API-Cache-Duration: 6876
+X-Azure-Ref-OriginShield: 04Q29YAAAAAD+kT/bdH4fTYcbgxKRDQPpREIzRURHRTE0MTMAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
+X-Azure-Ref: 04Q29YAAAAACPasmwAetKTaIj1++nP5kFTUFOMzBFREdFMDMxNAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 06 Jun 2021 18:03:12 GMT
 

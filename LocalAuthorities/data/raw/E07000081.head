@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000081&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Sun, 06 Jun 2021 07:06:29 GMT
-Last-Modified: Sat, 05 Jun 2021 15:00:08 GMT
+Expires: Sun, 06 Jun 2021 18:06:32 GMT
+Last-Modified: Sun, 06 Jun 2021 15:00:07 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-xss-protection: 1; mode=block
-phe-server-loc: UKW_fe02
+phe-server-loc: UKW_fe01
 referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-X-Frame-Options: deny
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-x-phe-media-type: PHE-COVID19.v1
 X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+X-Frame-Options: deny
+x-xss-protection: 1; mode=block
+x-phe-media-type: PHE-COVID19.v1
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 16690
-X-Azure-Ref-OriginShield: 0m3O8YAAAAAC2q3qvhpTPR5Fg7+G59qy1REIzRURHRTEzMjEAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
-X-Azure-Ref: 0m3O8YAAAAAA5DJBXWQaqSLUnge7D300UTUFOMzBFREdFMDMxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Sun, 06 Jun 2021 07:04:58 GMT
+PHE-API-Cache-Duration: 6464
+X-Azure-Ref-OriginShield: 0Tg69YAAAAADMm7wPvXxxQYtY25vbaJ9DREIzRURHRTE0MTUAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
+X-Azure-Ref: 0TQ69YAAAAAAj/LOaj81xRp/3IjhssY1sTUFOMzBFREdFMDcxOQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Sun, 06 Jun 2021 18:05:02 GMT
 
