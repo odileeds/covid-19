@@ -21,9 +21,9 @@ else{ $dir = "./"; }
 $cs = ODILeeds::ColourScale->new();
 
 # Settings
-$vaccinedate = "20210603";
-$vaccinedatenice = "3rd June 2021";
-$vaccineperiod = "8th December 2020 to 30th May 2021";
+$vaccinedate = "20210610";
+$vaccinedatenice = "10th June 2021";
+$vaccineperiod = "8th December 2020 to 6th June 2021";
 
 
 # Process date

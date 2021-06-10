@@ -31,4 +31,4 @@ Weekly [vaccine data from NHS England](https://www.england.nhs.uk/statistics/sta
 6. In `data/vaccinations-YYYYMMDD.csv`, change `Lancashire and South Cumbria ICS` to `Healthier Lancashire and South Cumbria` and `Sussex Health and Care Partnership` to `Sussex and East Surrey Health and Care Partnership`
 7. Edit [vaccines.pl](vaccines.pl) with correct values for `$vaccinedate`, `$vaccinedatenice`, `$vaccineperiod` and update all the age categories as necessary.
 8. Run `perl vaccines.pl`
-9. Run `perl phe.pl` - [phe.pl](../LocalAuthorities/data/phe.pl
+9. Run `perl phe.pl` - [phe.pl](../LocalAuthorities/data/phe.pl)
