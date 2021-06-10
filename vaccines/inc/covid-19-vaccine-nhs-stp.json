@@ -36,5 +36,5 @@
 	"odbl": false,
 	"date": "2021-06-10",
 	"colour":"#2254F4",
-	"popup":"function test(t){ var a,d,e,r,n; e=['0-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+']; r=['1st dose','2nd dose']; n='<h3>'+(t.properties.stp20nm?t.properties.stp20nm:'?')+'</h3><table class=\'odi\'><tr><th>Dose</th>'; for(a=0;a<e.length;a++){ n+='<th>'+e[a]+'</th>'; } n+='</tr>'; for(d=0;d<r.length;d++){ n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<th>'+t.properties[r[d]+' '+e[a]]+'</th>'; } n+='</tr>'; n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<th>'+t.properties[r[d]+' '+e[a]+' %']+'%</th>'; } n+='</tr>' } return n+='</table>'; }"
+	"popup":"function test(t){ var a,d,e,r,n; e=['0-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+']; r=['1st dose','2nd dose']; n='<h3>'+(t.properties.stp20nm?t.properties.stp20nm:'?')+'</h3><table class=\"odi\"><tr><th>Dose</th>'; for(a=0;a<e.length;a++){ n+='<th>'+e[a]+'</th>'; } n+='</tr>'; for(d=0;d<r.length;d++){ n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<th>'+t.properties[r[d]+' '+e[a]]+'</th>'; } n+='</tr>'; n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<th>'+t.properties[r[d]+' '+e[a]+' %']+'%</th>'; } n+='</tr>' } return n+='</table>'; }"
 }
