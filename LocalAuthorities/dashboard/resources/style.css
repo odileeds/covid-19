@@ -239,7 +239,15 @@ svg:hover g.data-series[data-series=recent-cases] circle { r: 3px; }
 .barchart .col:hover .label { display: block; }
 .barchart .col:hover .antibar { background: rgba(255,255,255,0.2); }
 
-
+.progress { margin-bottom: 0.5em; }
+.progress .row {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+.progress .bar > div { background: white; }
+.progress .bar { border-right: 1px solid white; }
+.moderate .progress .bar, .minimal .progress .bar { border-color: black; }
+.moderate .progress .bar > div, .minimal .progress .bar > div { background: black; }
 
 footer p { margin-bottom: 1em; }
 footer p:last-child { margin-bottom: 0; }

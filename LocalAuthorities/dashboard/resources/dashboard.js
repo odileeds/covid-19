@@ -416,57 +416,7 @@ ready(function(){
 					return "";
 				}},
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.cases.days){ return ""; } return 'Value as of '+this.data.cases.days[start].date+'. Data last updated on '+this.data.cases.updated+'. <a href="svg/'+la+'.svg">Graph for '+this.data.name+'</a>. <a href="#notes">See notes</a>.'; }}
-			],/*
-			'restrictions': [
-				{'tagname':'h3','key':'title','html':'Restrictions'},
-				{'tagname':'div','key':'list','html':function(la){
-					var i,r,str,tier;
-					str = '';
-					tier = this.data.restrictions.tier||"";
-					if(tier){
-						str += '<span class="tier">';
-						if(tier=="Stay at home") str += 'Tier 4: Stay at home';
-						else if(tier=="Very High") str += 'Tier 3: Very high';
-						else if(tier=="High") str += 'Tier 2: High';
-						else if(tier=="Medium") str += 'Tier 1: Medium';
-						else str += this.data.restrictions.tier;
-						str += '</span>';
-					}
-
-					var icons = {
-						'ruleofsix': {'title':'Rule of 6','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M14.886 2l-4.438 7.686A6.5 6.5 0 1 1 6.4 12.7L12.576 2h2.31zM12 11.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"></path></svg>'},
-						'householdmixing': {'title':'Household mixing','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"></path><path fill="white" d="M2 22a8 8 0 1 1 16 0H2zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm7.363 2.233A7.505 7.505 0 0 1 22.983 22H20c0-2.61-1-4.986-2.637-6.767zm-2.023-2.276A7.98 7.98 0 0 0 18 7a7.964 7.964 0 0 0-1.015-3.903A5 5 0 0 1 21 8a4.999 4.999 0 0 1-5.66 4.957z"></path></svg>'},
-						'raves': {'title':'Illegal raves','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M4 2h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 18a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path></svg>'},
-						'stayinglocal': {'title':'Leaving local area','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M16.95 11.95a6.996 6.996 0 0 0 1.858-6.582l2.495-1.07a.5.5 0 0 1 .697.46V19l-7 3-6-3-6.303 2.701a.5.5 0 0 1-.697-.46V7l3.129-1.341a6.993 6.993 0 0 0 1.921 6.29L12 16.9l4.95-4.95zm-1.414-1.414L12 14.07l-3.536-3.535a5 5 0 1 1 7.072 0z"></path></svg>'},
-						'stayinghome': {'title':'Staying home','svg':''},
-						'alcoholsalesrestrictions': {'title':'Alcohol sales restrictions','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M11 19v-5.111L3 5V3h18v2l-8 8.889V19h5v2H6v-2h5zM7.49 7h9.02l1.8-2H5.69l1.8 2z"></path></svg>'},
-						'notstayingaway': {'title':'Not staying away','svg':''},
-						'businessclosures': {'title':'Business closures','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z"></path></svg>'},
-						'openinghours': {'title':'Business opening hours','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M20 18.667l.4.533a.5.5 0 0 1-.4.8H4a.5.5 0 0 1-.4-.8l.4-.533V10a8 8 0 1 1 16 0v8.667zM9.5 21h5a2.5 2.5 0 1 1-5 0z"></path></svg>'},
-						'gatherings': {'title':'Gatherings','svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M12 11a5 5 0 0 1 5 5v6H7v-6a5 5 0 0 1 5-5zm-6.712 3.006a6.983 6.983 0 0 0-.28 1.65L5 16v6H2v-4.5a3.5 3.5 0 0 1 3.119-3.48l.17-.014zm13.424 0A3.501 3.501 0 0 1 22 17.5V22h-3v-6c0-.693-.1-1.362-.288-1.994zM5.5 8a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm13 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM12 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"></path></svg>'}
-						
-					};
-					str += '<ul class="restrictions">';
-					if(this.data.restrictions.url.local){
-						for(r in this.data.restrictions.local){
-							str += '<li>'+(icons[r] ? icons[r].svg+icons[r].title : r)+' (local)</li>';
-						}
-					}
-					if(this.data.restrictions.url.national){
-						for(r in this.data.restrictions.national){
-							if(!this.data.restrictions.local[r]){
-								str += '<li>'+(icons[r] ? icons[r].svg+icons[r].title : r)+' (national)</li>';
-							}
-						}
-					}
-					str += '</ul><p class="small">';
-					if(this.data.restrictions.url.local) str += 'See <a href="'+this.data.restrictions.url.local+'" target="_parent">local</a>';
-					if(this.data.restrictions.url.national) str += (this.data.restrictions.url.local ? ' and ':'See ')+'<a href="'+this.data.restrictions.url.national+'" target="_parent">national</a>';
-					str += ' restrictions.</p>';
-					return str;
-				}},
-				{'tagname':'div','key':'updated','html':function(la){ if(!this.data.restrictions.updated){ return ""; } return '<a href="'+this.data.restrictions.src+'">As of '+this.data.restrictions.updated.substr(0,10)+'</a>'; }}
-			],*/
+			],
 			'total': [
 				{'tagname':'h3','key':'title','html':'Total cases'},
 				{'tagname':'div','key':'number','html':function(la){ if(!this.data.cases.days){ return ""; } return this.data.cases.days[0].tot; },'fit':true},
@@ -491,6 +441,30 @@ ready(function(){
 				{'tagname':'h3','key':'title','html':'Weekly cases/100,000<br/><span class="small">Ignoring most recent '+start+' days</small>'},
 				{'tagname':'div','key':'number','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks && this.weeks[0].days == 7 && this.data.population ? Math.round(this.weeks[0].total*1e5/this.data.population) : ''); },'fit':true},
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks ? 'Up to '+this.weeks[0].upto : '?'); }}
+			],
+			'vaccines-all': [
+				{'tagname':'h3','key':'title','html':'Vaccines'},
+				{'tagname':'div','key':'number','html':function(la){
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
+					return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['%'])+'%' : '?');
+				},'fit':true},
+				{'tagname':'div','key':'graph','html':function(la){
+					console.log(this.data.vaccines.totals[0]);
+					var n = 0;
+					for(var a in this.data.vaccines.totals[0].ages) n++;
+					var str = '<div class="progress" style="display:grid;grid-template-rows: repeat('+n+', 1fr);grid-template-columns: auto 1fr;grid-gap:1px;">';
+					for(var a in this.data.vaccines.totals[0].ages){
+						w = this.data.vaccines.totals[0].ages[a];
+						str += '<span class="label" style="margin-right:0.5em;text-align:right">'+(a)+'</span><div class="bar"><div style="height:2em;width:'+this.data.vaccines.totals[0].ages[a]['%']+'%" title="'+this.data.vaccines.totals[0].ages[a]['%']+'%" tabindex="0"></div></div>';
+					}
+					str += '</div>';
+					return str;
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){
+					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
+					var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4);
+					return 'Up to '+d.toISOString().substr(0,10);
+				}}
 			],
 			'vaccines-65': [
 				{'tagname':'h3','key':'title','html':'Vaccines (65+)'},
@@ -535,18 +509,6 @@ ready(function(){
 						}
 					}
 					return (this.data.vaccines.totals ? Math.round(100*t/p)+'%' : '?');
-				},'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){
-					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
-					var d = new Date(this.data.vaccines.totals[0].date); d.setDate(d.getDate() - 4);
-					return 'Up to '+d.toISOString().substr(0,10);
-				}}
-			],
-			'vaccines-all': [
-				{'tagname':'h3','key':'title','html':'Vaccines (all ages)'},
-				{'tagname':'div','key':'number','html':function(la){
-					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
-					return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['%'])+'%' : '?');
 				},'fit':true},
 				{'tagname':'div','key':'updated','html':function(la){
 					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
