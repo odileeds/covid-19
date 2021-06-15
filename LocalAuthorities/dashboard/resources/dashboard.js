@@ -443,19 +443,19 @@ ready(function(){
 				{'tagname':'div','key':'updated','html':function(la){ if(!this.weeks){ return ""; } return (this.weeks ? 'Up to '+this.weeks[0].upto : '?'); }}
 			],
 			'vaccines-all': [
-				{'tagname':'h3','key':'title','html':'Vaccines'},
+				{'tagname':'h3','key':'title','html':'Vaccines<br /><span class="small">1st dose / 2nd dose</span>'},
 				{'tagname':'div','key':'number','html':function(la){
 					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
-					return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['%'])+'%' : '?');
+					return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['1st %'])+'% / '+Math.round(this.data.vaccines.totals[0].ages['all']['2nd %'])+'%' : '?');
 				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la){
 					console.log(this.data.vaccines.totals[0]);
 					var n = 0;
 					for(var a in this.data.vaccines.totals[0].ages) n++;
-					var str = '<div class="progress" style="display:grid;grid-template-rows: repeat('+n+', 1fr);grid-template-columns: auto 1fr;grid-gap:1px;">';
+					var str = '<div class="progress">';
 					for(var a in this.data.vaccines.totals[0].ages){
 						w = this.data.vaccines.totals[0].ages[a];
-						str += '<span class="label" style="margin-right:0.5em;text-align:right">'+(a)+'</span><div class="bar"><div style="height:2em;width:'+this.data.vaccines.totals[0].ages[a]['%']+'%" title="'+this.data.vaccines.totals[0].ages[a]['%']+'%" tabindex="0"></div></div>';
+						str += '<span class="label">'+(a)+'</span><div class="bar"><div style="height:1em;width:'+this.data.vaccines.totals[0].ages[a]['1st %']+'%" title="1st dose: '+this.data.vaccines.totals[0].ages[a]['1st %']+'%" tabindex="0"></div><div style="height:1em;opacity:0.8;width:'+this.data.vaccines.totals[0].ages[a]['2nd %']+'%" title="2nd dose: '+this.data.vaccines.totals[0].ages[a]['2nd %']+'%" tabindex="0"></div></div>';
 					}
 					str += '</div>';
 					return str;
@@ -467,7 +467,7 @@ ready(function(){
 				}}
 			],
 			'vaccines-65': [
-				{'tagname':'h3','key':'title','html':'Vaccines (65+)'},
+				{'tagname':'h3','key':'title','html':'Vaccines (65+)<br/><span class="small">1st dose</span>'},
 				{'tagname':'div','key':'number','html':function(la){
 					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
 					var t = 0;
@@ -477,7 +477,7 @@ ready(function(){
 							if(a.match(/[0-9]/)){
 								a.replace(/^([0-9]+)-([0-9]+)/,function(m,p1,p2){ s = p1; e = p2; });
 								if(s >= 65){
-									t += this.data.vaccines.totals[0].ages[a].n;
+									t += this.data.vaccines.totals[0].ages[a]['1st'];
 									p += this.data.vaccines.totals[0].ages[a].pop;
 								}
 							}
@@ -492,7 +492,7 @@ ready(function(){
 				}}
 			],
 			'vaccines-under65': [
-				{'tagname':'h3','key':'title','html':'Vaccines (under 65)'},
+				{'tagname':'h3','key':'title','html':'Vaccines (under 65)<br/><span class="small">1st dose</span>'},
 				{'tagname':'div','key':'number','html':function(la){
 					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
 					var t = 0;
@@ -502,7 +502,7 @@ ready(function(){
 							if(a.match(/[0-9]/)){
 								a.replace(/^([0-9]+)-([0-9]+)/,function(m,p1,p2){ s = p1; e = p2; });
 								if(s < 65){
-									t += this.data.vaccines.totals[0].ages[a].n;
+									t += this.data.vaccines.totals[0].ages[a]['1st'];
 									p += this.data.vaccines.totals[0].ages[a].pop;
 								}
 							}
