@@ -5,21 +5,21 @@ Transfer-Encoding: chunked
 Content-Type: application/vnd.PHE-COVID19.v1+json; charset=utf-8
 Content-Encoding: gzip
 Content-Location: https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000164&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json&page=1
-Expires: Tue, 15 Jun 2021 07:09:19 GMT
-Last-Modified: Mon, 14 Jun 2021 15:00:15 GMT
+Expires: Thu, 17 Jun 2021 07:09:26 GMT
+Last-Modified: Wed, 16 Jun 2021 15:00:08 GMT
 X-Cache: TCP_MISS
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-x-xss-protection: 1; mode=block
-phe-server-loc: UKW_fe02
-Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
-X-Frame-Options: deny
-Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-x-phe-media-type: PHE-COVID19.v1
-referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
 X-Content-Type-Options: nosniff
+phe-server-loc: UKW_fe03
+x-phe-media-type: PHE-COVID19.v1
+X-Frame-Options: deny
+x-xss-protection: 1; mode=block
+referrer-policy: origin-when-cross-origin,strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'; style-src 'self' 'unsafe-inline'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 PHE-Website-Request: 0
-PHE-API-Cache-Duration: 8968
-X-Azure-Ref-OriginShield: 0xVHIYAAAAACrp4nKYQkKQI3VZkDiJRfOTE9OMjFFREdFMDExOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0xVHIYAAAAAAiypjM/t88R4L5Hmttahd6TUFOMzBFREdFMDcxMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Tue, 15 Jun 2021 07:07:48 GMT
+PHE-API-Cache-Duration: 4082
+X-Azure-Ref-OriginShield: 0zPTKYAAAAACpE9d93X2zSK4FMgW+Gn0iTE9OMjFFREdFMDIxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0zPTKYAAAAAC9Mf0vmnPUSqOYCEEUwotkTUFOMzBFREdFMDcyMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Thu, 17 Jun 2021 07:07:55 GMT
 
