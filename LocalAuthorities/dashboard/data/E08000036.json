@@ -40,10 +40,11 @@
 	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "2021-W22",
-		"all": 5712,
+		"updated": "2021-W23",
+		"all": 5762,
 		"cov": 884,
 		"weeks":[
+			{"txt":"2021-W23","all":50,"cov":0},
 			{"txt":"2021-W22","all":49,"cov":0},
 			{"txt":"2021-W21","all":59,"cov":0},
 			{"txt":"2021-W20","all":57,"cov":1},
@@ -123,12 +124,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E08000036&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-21T15:00:09Z",
+		"updated":"2021-06-22T15:00:08Z",
 		"type":"SpecimenDate",
-		"n": 467,
+		"n": 468,
 		"days":[
-			{"date":"2021-06-20","day":27,"tot":27308},
-			{"date":"2021-06-19","day":63,"tot":27281},
+			{"date":"2021-06-21","day":35,"tot":27394},
+			{"date":"2021-06-20","day":76,"tot":27359},
+			{"date":"2021-06-19","day":65,"tot":27283},
 			{"date":"2021-06-18","day":61,"tot":27218},
 			{"date":"2021-06-17","day":57,"tot":27157},
 			{"date":"2021-06-16","day":53,"tot":27100},
