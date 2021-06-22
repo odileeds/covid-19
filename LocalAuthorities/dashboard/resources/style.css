@@ -83,6 +83,7 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 .substantial, .grid .substantial { background: #c43d53!important; color: white!important; stroke: white; fill: white; }
 .moderate, .grid .moderate { background: #d97641!important; color: black!important; stroke: black; fill: black; }
 .minimal, .grid .minimal { background: #e6b735!important; color: black!important; stroke: black; fill: black; }
+.missing, .grid .missing { background: #444!important; color: white!important; stroke: white; fill: white; }
 
 .data-series path, .graph-grid line { vector-effect: non-scaling-stroke; }
 .widespread .data-series path.line, .widespread .graph-grid line, .substantial .data-series path.line, .substantial .graph-grid line { stroke: white; }

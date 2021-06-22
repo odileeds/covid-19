@@ -393,6 +393,7 @@ ready(function(){
 			'daily-percapita-graph': [
 				{'tagname':'h3','key':'title','html': 'Daily cases/100,000<br /><span class="small">Rolling 7-day average</span>'},
 				{'tagname':'div','key':'number','html':function(la){
+					if(typeof this.data.cases==="undefined" || typeof this.data.cases.days==="undefined" || this.data.cases.days.length == 0){ return ""; }
 					var v = 0;
 					// Smooth the value using a 7-day rolling average
 					for(var i = start-3; i <= start+3; i++) v += this.data.cases.days[i].day;
@@ -400,6 +401,7 @@ ready(function(){
 				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la,props,callback){
 					url = "svg/"+la+".svg";
+					if(typeof this.data.cases==="undefined" || typeof this.data.cases.days==="undefined" || this.data.cases.days.length == 0){ return ""; }
 					if(this.data.cases.days){
 						fetch(url,{'method':'GET'})
 						.then(response => { return response.text() })
@@ -445,17 +447,17 @@ ready(function(){
 			'vaccines-all': [
 				{'tagname':'h3','key':'title','html':'Vaccines<br /><span class="small">1st dose / 2nd dose</span>'},
 				{'tagname':'div','key':'number','html':function(la){
-					if(!this.data.vaccines.totals || this.data.vaccines.totals.length == 0){ return ""; }
-					return (this.data.population && this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['1st %'])+'% / '+Math.round(this.data.vaccines.totals[0].ages['all']['2nd %'])+'%' : '?');
+					if(typeof this.data.vaccines==="undefined" || this.data.vaccines.totals.length == 0){ return ""; }
+					return (this.data.vaccines.totals ? Math.round(this.data.vaccines.totals[0].ages['all']['1st %'])+'% / '+Math.round(this.data.vaccines.totals[0].ages['all']['2nd %'])+'%' : '?');
 				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la){
-					console.log(this.data.vaccines.totals[0]);
+					if(typeof this.data.vaccines==="undefined" || this.data.vaccines.totals.length == 0){ return ""; }
 					var n = 0;
 					for(var a in this.data.vaccines.totals[0].ages) n++;
 					var str = '<div class="progress">';
 					for(var a in this.data.vaccines.totals[0].ages){
 						w = this.data.vaccines.totals[0].ages[a];
-						str += '<span class="label">'+(a)+'</span><div class="bar"><div style="height:1em;width:'+this.data.vaccines.totals[0].ages[a]['1st %']+'%" title="1st dose: '+this.data.vaccines.totals[0].ages[a]['1st %']+'%" tabindex="0"></div><div style="height:1em;opacity:0.8;width:'+this.data.vaccines.totals[0].ages[a]['2nd %']+'%" title="2nd dose: '+this.data.vaccines.totals[0].ages[a]['2nd %']+'%" tabindex="0"></div></div>';
+						str += '<span class="label">'+(a)+'</span><div class="bar"><div style="height:1em;width:'+this.data.vaccines.totals[0].ages[a]['1st %']+'%" title="'+a+' 1st dose: '+this.data.vaccines.totals[0].ages[a]['1st %']+'%" tabindex="0"></div><div style="height:1em;opacity:0.8;width:'+this.data.vaccines.totals[0].ages[a]['2nd %']+'%" title="'+a+' 2nd dose: '+this.data.vaccines.totals[0].ages[a]['2nd %']+'%" tabindex="0"></div></div>';
 					}
 					str += '</div>';
 					return str;
@@ -518,8 +520,12 @@ ready(function(){
 			],
 			'weekly-deaths': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].cov : '-'); },'fit':true},
+				{'tagname':'div','key':'number','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.weeks.length > 0 ? this.data.deaths.weeks[0].cov : '-');
+				},'fit':true},
 				{'tagname':'div','key':'graph','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
 					var str = '<div class="barchart" style="grid-template-columns: repeat('+this.data.deaths.weeks.length+', 1fr);">';
 					var mx = -1e100;
 					for(var i = 0; i < this.data.deaths.weeks.length; i++) mx = Math.max(mx,this.data.deaths.weeks[i].cov);
@@ -535,27 +541,54 @@ ready(function(){
 					str += '</div>';
 					return str;
 				},'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? getDateOfONSWeek(this.data.deaths.weeks[0].txt).toISOString().substr(0,10) : '?'); }}
+				{'tagname':'div','key':'updated','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? getDateOfONSWeek(this.data.deaths.weeks[0].txt).toISOString().substr(0,10) : '?');
+				}}
 			],
 			'weekly-deaths-percapita': [
 				{'tagname':'h3','key':'title','html':'Weekly COVID-19 deaths/100,000'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? (this.data.deaths.weeks[0].cov*(this.data.population ? 1e5/this.data.population : 1)).toFixed(1) : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? getDateOfONSWeek(this.data.deaths.weeks[0].txt).toISOString().substr(0,10) : '?'); }}
+				{'tagname':'div','key':'number','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.weeks.length > 0 ? (this.data.deaths.weeks[0].cov*(this.data.population ? 1e5/this.data.population : 1)).toFixed(1) : '-');
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return 'Weekly totals up to '+(this.data.deaths.weeks.length > 0 ? getDateOfONSWeek(this.data.deaths.weeks[0].txt).toISOString().substr(0,10) : '?');
+				}}
 			],
 			'total-deaths-covid': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.cov : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : '?'); }}
+				{'tagname':'div','key':'number','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.weeks.length > 0 ? this.data.deaths.cov : '-');
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.weeks.length > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : '?');
+				}}
 			],
 			'total-deaths-all': [
 				{'tagname':'h3','key':'title','html':'Deaths from all causes'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.weeks.length > 0 ? this.data.deaths.all : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.weeks.length > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : ''); }}
+				{'tagname':'div','key':'number','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.weeks.length > 0 ? this.data.deaths.all : '-');
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.weeks.length > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : '');
+				}}
 			],
 			'total-deaths-pc': [
 				{'tagname':'h3','key':'title','html':'Total COVID-19 deaths as a percent of total deaths'},
-				{'tagname':'div','key':'number','html':function(la){ return (this.data.deaths.cov > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-'); },'fit':true},
-				{'tagname':'div','key':'updated','html':function(la){ return (this.data.deaths.cov > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : ''); }}
+				{'tagname':'div','key':'number','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.cov > 0 ? Math.round(100*this.data.deaths.cov/this.data.deaths.all)+'%' : '-');
+				},'fit':true},
+				{'tagname':'div','key':'updated','html':function(la){
+					if(typeof this.data.deaths==="undefined" || typeof this.data.deaths.weeks==="undefined" || this.data.deaths.weeks.length == 0){ return ""; }
+					return (this.data.deaths.cov > 0 ? 'Up to '+getDateOfONSWeek(this.data.deaths.updated).toISOString().substr(0,10) : '');
+				}}
 			],
 			'population': [
 				{'tagname':'h3','key':'title','html':'Population'},
@@ -574,8 +607,12 @@ ready(function(){
 			for(la in lad){
 				// Smooth the value using a 7-day rolling average
 				var v = 0;
-				for(var i = start-3; i <= start+3; i++) v += lad[la].data.cases.days[i].day;
-				v = Math.round((v/7)*1e5/lad[la].data.population);
+				if(typeof lad[la].data.cases!=="undefined" && typeof lad[la].data.cases.days==="object"){
+					for(var i = start-3; i <= start+3; i++) v += lad[la].data.cases.days[i].day;
+					v = Math.round((v/7)*1e5/lad[la].data.population);
+				}else{
+					v = -1;
+				}
 
 				panels = document.querySelectorAll('.'+la);
 				for(i = 0; i < panels.length; i++){
@@ -584,6 +621,7 @@ ready(function(){
 					if(v >= 7) cls = "widespread";
 					else if(v >= 4 && v < 7) cls = "substantial";
 					else if(v >= 1 && v < 4) cls = "moderate";
+					else if(v < 0) cls = "missing";
 					else cls = "minimal";
 					if(cls) panels[i].classList.add(cls);
 				}
