@@ -124,12 +124,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E06000013&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-22T15:00:08Z",
+		"updated":"2021-06-23T15:00:07Z",
 		"type":"SpecimenDate",
-		"n": 473,
+		"n": 474,
 		"days":[
-			{"date":"2021-06-21","day":2,"tot":9892},
-			{"date":"2021-06-20","day":11,"tot":9890},
+			{"date":"2021-06-22","day":7,"tot":9912},
+			{"date":"2021-06-21","day":13,"tot":9905},
+			{"date":"2021-06-20","day":13,"tot":9892},
 			{"date":"2021-06-19","day":9,"tot":9879},
 			{"date":"2021-06-18","day":11,"tot":9870},
 			{"date":"2021-06-17","day":3,"tot":9859},
