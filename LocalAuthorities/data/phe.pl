@@ -108,7 +108,6 @@ foreach $line (@lines){
 %vaccines = processVaccines();
 logIt("Processed vaccines");
 
-
 # Get the names data
 open(FILE,$dir."names.json");
 @lines = <FILE>;
@@ -117,71 +116,6 @@ close(FILE);
 
 
 
-# Get local restrictions
-
-$url = "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/commonslibrary-coronavirus-restrictions-data.csv";
-$file = $dir."commonslibrary-coronavirus-restrictions-data.csv";
-$head = $dir."commonslibrary-coronavirus-restrictions-data.head";
-#`curl -sI "$url" > $head`;
-#`curl -s "$url" > $file`;
-#logIt("Saved $head");
-open(FILE,$head);
-@headlines = <FILE>;
-close(FILE);
-$strhead = join("",@headlines);
-$strhead =~ /Last-Modified: (.*)\n/i;
-$restrictionsdate = $datetime->parseISO($1);
-open(FILE,$file);
-@lines = <FILE>;
-close(FILE);
-$i = 0;
-%restrictions;
-@header;
-%headerlookup;
-foreach $line (@lines){
-	$line =~ s/[\n\r]//g;
-
-	if($i == 0){
-		@header = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
-		for($j = 0; $j < @header; $j++){
-			$header[$j] =~ s/^l_//g;
-			$headerlookup{$header[$j]} = $j;
-		}
-	}else{
-		@cols = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,,$line);
-		$la = "";
-		if($cols[$headerlookup{'restrictions'}] eq "National"){
-			# Loop over all authorities finding any with the country letter
-			foreach $l (keys(%names)){
-				if($l =~ /^$cols[$headerlookup{'Country'}]/){
-					# If we've not created an empty holder do that now
-					if(!$restrictions{$l}){ $restrictions{$l} = {}; }
-					for($j = 0; $j < @cols; $j++){
-						# If we haven't set the restriction do that (don't over-write any that have already been processed)
-						if(!$restrictions{$l}{$header[$j]}){
-							$restrictions{$l}{$header[$j]} = $cols[$j];
-						}
-					}
-				}
-			}
-		}
-		$la = $cols[$headerlookup{'lacode'}];
-		#foreach $l (keys(%names)){
-		#	if($names{$l}{'name'} eq $cols[$headerlookup{'lacode'}]){
-		#		$la = $l;
-		#	}
-		#}
-		if(!$la){
-			print "Didn't find $cols[$headerlookup{'lacode'}]\n";
-		}else{
-			if(!$restrictions{$la}){ $restrictions{$la} = {}; }
-			for($j = 0; $j < @cols; $j++){
-				$restrictions{$la}{$header[$j]} = $cols[$j];
-			}
-		}
-	}
-	$i++;
-}
 
 
 # Get the death data
@@ -192,138 +126,78 @@ $start = 5;
 %LAD;
 @pulsarplot;
 
-for($i = 0; $i < @las; $i++){
-	$la = $las[$i];
-	$url = "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=$la&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json";
-	$file = $dir."raw/$la.json";
-	$head = $dir."raw/$la.head";
-	$lastupdated = "";
-	
-	# Find the file age in hours
-	if(-e $head){
-		open(FILE,$head);
-		@headlines = <FILE>;
-		close(FILE);
-		$strhead = join("===",@headlines);
-		$now = $datetime->getJulianDate();
-		$strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i;
-		$lastupdated = $datetime->parseISO($2);
-		$jd = $datetime->getJulianFromISO($lastupdated);
-		
-		$diff = (($now-$jd)*24);
-		# Get the last check date
-		if($strhead =~ /(^|===)date: ([^\n]*)\n/i){
-			$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
-			$diff = (($now-$jd)*24);
-		}
-		if($diff == 0){
-			print "$la - $jd\n";
-		}
-	}else{
-		$diff = 24;
-	}
-
-
-	logIt("$la (".sprintf("%0.1f",$diff)." hours old)");
-	# Age: If we last checked more than 6 hours ago we grab a new copy
-	if($diff > 6 || -s $head==0){
-		logIt("\tGetting URL $url");
-		`curl -sI "$url" > $head`;
-		@lines = `curl -s --compressed "$url"`;
-		$str = join("",@lines);
-		# Add new lines before every day
-		$str =~ s/(\{"date")/\n\t$1/g;
-		# Add a new line before the pagination object
-		$str =~ s/(\],"pagination")/\n$1/g;
-		# If it seems to be valid JSON we save it over the previous version
-		if($str =~ /\{"date\"/){
-			open(FILE,">",$file);
-			print FILE $str;
-			close(FILE);
-			@lines = split(/\n/,$str);
-		}else{
-			print "Opening previous\n";
-			# Open the previous version
-			open(FILE,$file);
-			@lines = <FILE>;
-			close(FILE);
-			$str = join("",@lines);
-		}
-		sleep rand(2) + 1;
-	}else{
-		open(FILE,$file);
-		@lines = <FILE>;
-		close(FILE);
-		$str = join("",@lines);
-	}
+$url = "https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv";
+$file = $dir."raw/ltla.csv";
+$head = $dir."raw/ltla.head";
+$lastupdated = "";
+# Find the file age in hours
+if(-e $head){
 	open(FILE,$head);
 	@headlines = <FILE>;
 	close(FILE);
 	$strhead = join("===",@headlines);
-	if($strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i){
-		$lastupdated = $datetime->parseISO($2);
-	}
-	print "\tLast updated = $lastupdated\n";
-	$casesdate = $lastupdated;
+	$now = $datetime->getJulianDate();
+	$strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i;
+	$lastupdated = $datetime->parseISO($2);
+	$jd = $datetime->getJulianFromISO($lastupdated);
 	
-	
-	# Find number of lines
-	if($str =~ /"length":([0-9]+)/){
-		$len = $1;
-		print "\t$1 days\n";
-	}else{
-		$len = 0;
-		print "\tERROR: No lines\n";
-		print $str." $file\n";
+	$diff = (($now-$jd)*24);
+	# Get the last check date
+	if($strhead =~ /(^|===)date: ([^\n]*)\n/i){
+		$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
+		$diff = (($now-$jd)*24);
 	}
-	%data = getArea($la);
+	if($diff == 0){
+		print "$la - $jd\n";
+	}
+}else{
+	$diff = 24;
+}
 
+
+print "Here - $diff\n";
+if($diff > 6 || -s $head==0 || !-e $file){
+	logIt("\tGetting URL $url");
+	`curl -sI "$url" > $head`;
+	`curl -s --compressed "$url" > $file`;
+}
+
+%casedata;
+open(FILE,$file);
+$i = 0;
+while (my $line = <FILE>){
+	$line =~ s/[\n\r]//g;
+	if($i == 0){
+		%header = getHeaders($line);
+	}elsif($i > 0){
+		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+		$id = $cols[$header{'areaCode'}];
+		$dt = $cols[$header{'date'}];
+		if(!$casedata{$id}){ $casedata{$id} = {'name'=>$cols[$header{'areaName'}],'dates'=>{}}; }
+		$casedata{$id}{'name'} =~ s/(^\"|\"$)//g;
+		if(!$casedata{$id}{'dates'}{$dt}){
+			$casedata{$id}{'dates'}{$dt} = {'cumCases'=>$cols[$header{'cumCasesBySpecimenDate'}],'newCases'=>$cols[$header{'newCasesBySpecimenDate'}]};
+		}else{
+			print "WARNING: $dt already exists for $id\n";
+		}
+	}
+	$i++;
+}
+close(FILE);
+
+
+foreach $la (sort(keys(%casedata))){
+
+	@dates = reverse(sort(keys(%{$casedata{$la}{'dates'}})));
 	
 	$file = $dir."../dashboard/data/$la.json";
-	$names{$la} = $data{'data'}{'attributes'}{'name'};
+	$names{$la} = $casedata{$la}{'name'};
+	print "$la = $names{$la}\n";
 
 	$txt = "";
 	$txt .= "{\n";
 	$txt .= "\t\"name\":\"$names{$la}\",\n";
 	$txt .= "\t\"population\": ".($nims{$la}{'all'}||$pop{$la}||0).",\n";
-	if($restrictions{$la}){
-		$txt .= "\t\"restrictions\":{\n";
-		$txt .= "\t\t\"src\": \"https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/\",\n";
-		$txt .= "\t\t\"updated\": \"$restrictionsdate\",\n";
-		$txt .= "\t\t\"url\": {\"local\":\"$restrictions{$la}{'url_local'}\",\"national\":\"$restrictions{$la}{'url_national'}\"},\n";
-		if($restrictions{$la}{'tier'}){
-#print "$la - $restrictions{$la}{'tier'}\n";
-			$txt .= "\t\t\"tier\": \"$restrictions{$la}{'tier'}\",\n";
-		}
-		$txt .= "\t\t\"local\": {";
-		$r = 0;
-		#fid,l_lacode,l_Category,l_Country,l_restrictions,l_tier,l_url_local,l_url_national,l_local_ruleofsix,l_local_householdmixing,l_local_raves,l_local_stayinglocal,l_local_stayinghome,l_local_notstayingaway,l_local_businessclosures,l_local_openinghours,l_local_alcoholsalesrestrictions,l_national_ruleofsix,l_national_householdmixing,l_national_raves,l_national_stayinglocal,l_national_stayinghome,l_national_notstayingaway,l_national_businessclosures,l_national_openinghours,l_national_gatherings,l_national_alcoholsalesrestrictions
-		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
-			$restrictions{$la}{$restrict} =~ s/(^\"|\"$)//g;
-			if($restrict =~ /local_/ && $restrictions{$la}{$restrict} eq "1"){
-				if($r > 0){ $txt .= ","; }
-				$restrict =~ s/^local\_//;
-				$txt .= "\n\t\t\t\"$restrict\": true";
-				$r++;
-			}
-		}
-		if($r > 0){
-			$txt .= "\n\t\t";
-		}
-		$txt .= "},\n";
-		$txt .= "\t\t\"national\": {\n";
-		$r = 0;
-		foreach $restrict (sort(keys(%{$restrictions{$la}}))){
-			if($restrict =~ /national_/ && $restrictions{$la}{$restrict} eq "1"){
-				if($r > 0){ $txt .= ",\n"; }
-				$restrict =~ s/^national\_//;
-				$txt .= "\t\t\t\"$restrict\": true";
-				$r++;
-			}
-		}
-		$txt .= "\n\t\t}\n";
-		$txt .= "\t},\n";
-	}
 	if($vaccines{$la}){
 		$txt .= "\t\"vaccines\":{\n";
 		$txt .= "\t\t\"src\": \"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/\",\n";
@@ -382,35 +256,29 @@ for($i = 0; $i < @las; $i++){
 	}
 	$txt .= "\t\"cases\": {\n";
 	$recentday = "";
+	$len = @dates;
 	if($len > 0){
 		$txt .= "\t\t\"src\":\"$url\",\n";
-		$txt .= "\t\t\"updated\":\"$casesdate\",\n";
+		$txt .= "\t\t\"updated\":\"$lastupdated\",\n";
 		$txt .= "\t\t\"type\":\"SpecimenDate\",\n";
 		$txt .= "\t\t\"n\": $len,\n";
 		$txt .= "\t\t\"days\":[\n";
-		for($l = 0; $l < @lines; $l++){
-			chomp($lines[$l]);
-			#print "line $l - $lines[$l]\n";
-			if($lines[$l] =~ /\"date\"/){
-				$lines[$l] =~ s/\,"(areaName|areaCode)":"[^\"]*"//g;
-				# Remove rate (as we can calculate it
-				$lines[$l] =~ s/\,\"cumCasesBySpecimenDateRate\":[0-9\.]*//g;
-				$lines[$l] =~ s/newCasesBySpecimenDate/day/g;
-				$lines[$l] =~ s/cumCasesBySpecimenDate/tot/g;
-				$lines[$l] =~ s/\],.*$//g;
-				if($lines[$l] =~ /\"date\":\"[0-9]{4}-[0-9]{2}-[0-9]{2}\"/){
-					$txt .= "\t\t$lines[$l]\n";
-				}
-			}
+		$j = 0;
+		foreach $dt (@dates){
+			#e.g. {"date":"2021-06-22","day":12,"tot":9126},
+			$txt .= ($j > 0 ? ",\n":"");
+			$txt .= "\t\t\t\{\"date\":\"$dt\",\"day\":$casedata{$la}{'dates'}{$dt}{'newCases'},\"tot\":$casedata{$la}{'dates'}{$dt}{'cumCases'}\}";
+			$j++;
 		}
+		$txt .= "\n";
 		$txt .= "\t\t]\n";
 	}
 	$txt .= "\t}\n";
 	$txt .= "}\n";
+
+
 	updateFile($file,$txt);
 
-	
- 
 	@smooth = makeGraph($la);
 
 	# Work out the latest (as of 5 days ago in the data) 7-day-smoothed values for each LA
@@ -763,7 +631,7 @@ sub processVaccines {
 				}elsif($i > 0){
 					(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
 					$latmp = $cols[$header{'LTLA Code'}];
-					if($latmp && $vaccines{$latmp}){
+					if($latmp){
 						if(!$vaccines{$latmp}{$wk}){
 							$vaccines{$latmp}{$wk} = {'all'=>{}};
 							foreach $h (sort(keys(%header))){
