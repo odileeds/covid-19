@@ -1,45 +1,16 @@
 {
 	"name":"Highland",
 	"population": 235540,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-21T16:10:42Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-1/","national":""},
-		"tier": "1",
-		"local": {
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
-		},
-		"national": {
-			"travelrestrictions": true
-		}
-	},
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
-		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000017&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-23T15:00:07Z",
+		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
+		"updated":"2021-06-24T15:01:22Z",
 		"type":"SpecimenDate",
-		"n": 470,
+		"n": 471,
 		"days":[
-			{"date":"2021-06-22","day":8,"tot":3954},
-			{"date":"2021-06-21","day":45,"tot":3946},
-			{"date":"2021-06-20","day":17,"tot":3901},
+			{"date":"2021-06-23","day":1,"tot":4005},
+			{"date":"2021-06-22","day":55,"tot":4004},
+			{"date":"2021-06-21","day":47,"tot":3949},
+			{"date":"2021-06-20","day":18,"tot":3902},
 			{"date":"2021-06-19","day":8,"tot":3884},
 			{"date":"2021-06-18","day":8,"tot":3876},
 			{"date":"2021-06-17","day":14,"tot":3868},

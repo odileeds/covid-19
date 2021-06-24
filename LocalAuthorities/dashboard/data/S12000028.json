@@ -1,48 +1,17 @@
 {
 	"name":"South Ayrshire",
 	"population": 112550,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-21T16:10:42Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-3/","national":""},
-		"tier": "3",
-		"local": {
-			"alcoholsalesrestrictions": true,
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true,
-			"stayinglocal": true
-		},
-		"national": {
-			"travelrestrictions": true
-		}
-	},
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
-		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000028&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-23T15:00:07Z",
+		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
+		"updated":"2021-06-24T15:01:22Z",
 		"type":"SpecimenDate",
-		"n": 471,
+		"n": 472,
 		"days":[
-			{"date":"2021-06-22","day":14,"tot":5147},
-			{"date":"2021-06-21","day":31,"tot":5133},
-			{"date":"2021-06-20","day":16,"tot":5102},
-			{"date":"2021-06-19","day":18,"tot":5086},
+			{"date":"2021-06-23","day":13,"tot":5182},
+			{"date":"2021-06-22","day":35,"tot":5169},
+			{"date":"2021-06-21","day":31,"tot":5134},
+			{"date":"2021-06-20","day":16,"tot":5103},
+			{"date":"2021-06-19","day":19,"tot":5087},
 			{"date":"2021-06-18","day":32,"tot":5068},
 			{"date":"2021-06-17","day":30,"tot":5036},
 			{"date":"2021-06-16","day":37,"tot":5006},

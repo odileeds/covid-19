@@ -1,49 +1,15 @@
 {
 	"name":"South Bucks",
 	"population": 70083,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-21T16:10:42Z",
-		"url": {"local":"https://www.gov.uk/guidance/tier-2-high-alert","national":""},
-		"tier": "High",
-		"local": {
-			"alcoholsalesrestrictions": true,
-			"hospitalityclosures": true,
-			"householdmixing": true,
-			"largegatherings": true,
-			"openinghours": true,
-			"ruleofsix": true,
-			"socialgatheringsban": true,
-			"stayinghome": true
-		},
-		"national": {
-
-		}
-	},
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
-		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=E07000006&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-23T15:00:07Z",
+		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
+		"updated":"2021-06-24T15:01:22Z",
 		"type":"SpecimenDate",
-		"n": 474,
+		"n": 475,
 		"days":[
-			{"date":"2021-06-22","day":1,"tot":5006},
-			{"date":"2021-06-21","day":5,"tot":5005},
+			{"date":"2021-06-23","day":4,"tot":5013},
+			{"date":"2021-06-22","day":2,"tot":5009},
+			{"date":"2021-06-21","day":7,"tot":5007},
 			{"date":"2021-06-20","day":9,"tot":5000},
 			{"date":"2021-06-19","day":4,"tot":4991},
 			{"date":"2021-06-18","day":2,"tot":4987},

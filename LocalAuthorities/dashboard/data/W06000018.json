@@ -1,26 +1,6 @@
 {
 	"name":"Caerphilly",
 	"population": 181019,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-21T16:10:42Z",
-		"url": {"local":"","national":"https://gov.wales/alert-level-4-guide"},
-		"tier": "4",
-		"local": {},
-		"national": {
-			"hospitalityclosures": true,
-			"socialgatherings": true,
-			"stayinghome": true,
-			"travelrestrictions": true
-		}
-	},
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W23",
@@ -106,12 +86,13 @@
 		]
 	},
 	"cases": {
-		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=W06000018&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-23T15:00:07Z",
+		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
+		"updated":"2021-06-24T15:01:22Z",
 		"type":"SpecimenDate",
-		"n": 469,
+		"n": 470,
 		"days":[
-			{"date":"2021-06-21","day":6,"tot":13558},
+			{"date":"2021-06-22","day":8,"tot":13569},
+			{"date":"2021-06-21","day":9,"tot":13561},
 			{"date":"2021-06-20","day":4,"tot":13552},
 			{"date":"2021-06-19","day":1,"tot":13548},
 			{"date":"2021-06-18","day":6,"tot":13547},

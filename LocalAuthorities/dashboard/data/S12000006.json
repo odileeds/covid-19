@@ -1,45 +1,16 @@
 {
 	"name":"Dumfries and Galloway",
 	"population": 148790,
-	"restrictions":{
-		"src": "https://visual.parliament.uk/research/visualisations/coronavirus-restrictions-map/",
-		"updated": "2020-12-21T16:10:42Z",
-		"url": {"local":"http://www.gov.scot/publications/coronavirus-covid-19-protection-levels/pages/protection-level-1/","national":""},
-		"tier": "1",
-		"local": {
-			"householdmixing": true,
-			"openinghours": true,
-			"ruleofsix": true
-		},
-		"national": {
-			"travelrestrictions": true
-		}
-	},
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
-		"src":"https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=ltla;areaCode=S12000006&structure=%7B%22date%22:%22date%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22cumCasesBySpecimenDateRate%22:%22cumCasesBySpecimenDateRate%22%7D&format=json",
-		"updated":"2021-06-23T15:00:07Z",
+		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
+		"updated":"2021-06-24T15:01:22Z",
 		"type":"SpecimenDate",
-		"n": 465,
+		"n": 466,
 		"days":[
-			{"date":"2021-06-22","day":15,"tot":4448},
-			{"date":"2021-06-21","day":29,"tot":4433},
-			{"date":"2021-06-20","day":18,"tot":4404},
+			{"date":"2021-06-23","day":11,"tot":4482},
+			{"date":"2021-06-22","day":36,"tot":4471},
+			{"date":"2021-06-21","day":30,"tot":4435},
+			{"date":"2021-06-20","day":19,"tot":4405},
 			{"date":"2021-06-19","day":11,"tot":4386},
 			{"date":"2021-06-18","day":19,"tot":4375},
 			{"date":"2021-06-17","day":10,"tot":4356},
