@@ -1,22 +1,22 @@
 HTTP/1.1 200 OK
 Cache-Control: max-age=90, s-maxage=300
-Content-Length: 8281145
+Content-Length: 8299010
 Content-Type: text/csv; charset=utf-8
 Content-Language: en-GB
-Content-Location: https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate,newCasesBySpecimenDate&format=csv&release=2021-06-28
-Content-MD5: MH4AWED3Oadke534K+Zfjw==
-Last-Modified: Mon, 28 Jun 2021 15:02:16 GMT
-ETag: 0x8D93A45B821A6A7
+Content-Location: https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate,newCasesBySpecimenDate&format=csv&release=2021-06-29
+Content-MD5: n/U3HxnnjBmO3ZqISX71wQ==
+Last-Modified: Tue, 29 Jun 2021 18:28:23 GMT
+ETag: 0x8D93B2BADCD2393
 X-Cache: TCP_MISS
-x-ms-request-id: b8c7d8a0-c01e-005b-64f7-6c9573000000
+x-ms-request-id: f9c41207-801e-004f-7132-6d8959000000
 x-ms-version: 2009-09-19
 x-ms-lease-status: unlocked
 x-ms-blob-type: BlockBlob
 Access-Control-Allow-Origin: *
 PHE-Website-Request: 0
-Content-Disposition: attachment; filename="ltla_2021-06-28.csv"
+Content-Disposition: attachment; filename="ltla_2021-06-29.csv"
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref-OriginShield: 0iDXbYAAAAAAP5fBwEJXUS7f7gV+8bJJQTE9OMjFFREdFMDExMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0iDXbYAAAAABBPLupoGDHT7dvKVMRGqZUTUFOMzBFREdFMDcxMgAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Tue, 29 Jun 2021 15:00:24 GMT
+X-Azure-Ref-OriginShield: 09ZfbYAAAAADkqO0DpsuLT6Y/kmZIq6nPTE9OMjFFREdFMDExMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 09ZfbYAAAAAB/0jJ/9q1ZQKV4MRQILLKFTUFOMzBFREdFMDcyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+Date: Tue, 29 Jun 2021 22:00:21 GMT
 
