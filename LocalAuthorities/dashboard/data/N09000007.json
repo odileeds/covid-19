@@ -1,44 +1,29 @@
 {
 	"name":"Lisburn and Castlereagh",
 	"population": 144381,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 479,
+		"n": 480,
 		"days":[
-			{"date":"2021-06-30","day":17,"tot":7872},
-			{"date":"2021-06-29","day":21,"tot":7855},
-			{"date":"2021-06-28","day":19,"tot":7834},
-			{"date":"2021-06-27","day":15,"tot":7815},
-			{"date":"2021-06-26","day":20,"tot":7800},
-			{"date":"2021-06-25","day":23,"tot":7780},
-			{"date":"2021-06-24","day":17,"tot":7757},
-			{"date":"2021-06-23","day":13,"tot":7740},
-			{"date":"2021-06-22","day":10,"tot":7727},
-			{"date":"2021-06-21","day":6,"tot":7717},
-			{"date":"2021-06-20","day":4,"tot":7711},
-			{"date":"2021-06-19","day":10,"tot":7707},
-			{"date":"2021-06-18","day":10,"tot":7697},
-			{"date":"2021-06-17","day":8,"tot":7687},
-			{"date":"2021-06-16","day":10,"tot":7679},
-			{"date":"2021-06-15","day":7,"tot":7669},
+			{"date":"2021-07-01","day":8,"tot":7891},
+			{"date":"2021-06-30","day":30,"tot":7883},
+			{"date":"2021-06-29","day":20,"tot":7853},
+			{"date":"2021-06-28","day":19,"tot":7833},
+			{"date":"2021-06-27","day":15,"tot":7814},
+			{"date":"2021-06-26","day":20,"tot":7799},
+			{"date":"2021-06-25","day":23,"tot":7779},
+			{"date":"2021-06-24","day":17,"tot":7756},
+			{"date":"2021-06-23","day":13,"tot":7739},
+			{"date":"2021-06-22","day":10,"tot":7726},
+			{"date":"2021-06-21","day":6,"tot":7716},
+			{"date":"2021-06-20","day":4,"tot":7710},
+			{"date":"2021-06-19","day":10,"tot":7706},
+			{"date":"2021-06-18","day":10,"tot":7696},
+			{"date":"2021-06-17","day":8,"tot":7686},
+			{"date":"2021-06-16","day":10,"tot":7678},
+			{"date":"2021-06-15","day":6,"tot":7668},
 			{"date":"2021-06-14","day":9,"tot":7662},
 			{"date":"2021-06-13","day":5,"tot":7653},
 			{"date":"2021-06-12","day":3,"tot":7648},

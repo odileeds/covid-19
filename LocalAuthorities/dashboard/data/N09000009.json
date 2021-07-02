@@ -1,31 +1,16 @@
 {
 	"name":"Mid Ulster",
 	"population": 147392,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 477,
+		"n": 478,
 		"days":[
-			{"date":"2021-06-30","day":12,"tot":13043},
-			{"date":"2021-06-29","day":26,"tot":13031},
-			{"date":"2021-06-28","day":17,"tot":13005},
+			{"date":"2021-07-01","day":3,"tot":13063},
+			{"date":"2021-06-30","day":24,"tot":13060},
+			{"date":"2021-06-29","day":30,"tot":13036},
+			{"date":"2021-06-28","day":18,"tot":13006},
 			{"date":"2021-06-27","day":10,"tot":12988},
 			{"date":"2021-06-26","day":9,"tot":12978},
 			{"date":"2021-06-25","day":15,"tot":12969},

@@ -1,13 +1,6 @@
 {
 	"name":"Gwynedd",
 	"population": 124178,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W23",
@@ -94,11 +87,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 471,
+		"n": 472,
 		"days":[
-			{"date":"2021-06-29","day":7,"tot":3688},
+			{"date":"2021-06-30","day":8,"tot":3713},
+			{"date":"2021-06-29","day":24,"tot":3705},
 			{"date":"2021-06-28","day":24,"tot":3681},
 			{"date":"2021-06-27","day":16,"tot":3657},
 			{"date":"2021-06-26","day":14,"tot":3641},

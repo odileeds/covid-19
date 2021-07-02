@@ -1,32 +1,17 @@
 {
 	"name":"North Ayrshire",
 	"population": 135280,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 486,
+		"n": 487,
 		"days":[
-			{"date":"2021-06-30","day":21,"tot":7596},
-			{"date":"2021-06-29","day":52,"tot":7575},
-			{"date":"2021-06-28","day":55,"tot":7523},
-			{"date":"2021-06-27","day":38,"tot":7468},
+			{"date":"2021-07-01","day":23,"tot":7669},
+			{"date":"2021-06-30","day":64,"tot":7646},
+			{"date":"2021-06-29","day":56,"tot":7582},
+			{"date":"2021-06-28","day":56,"tot":7526},
+			{"date":"2021-06-27","day":40,"tot":7470},
 			{"date":"2021-06-26","day":47,"tot":7430},
 			{"date":"2021-06-25","day":34,"tot":7383},
 			{"date":"2021-06-24","day":53,"tot":7349},

@@ -1,13 +1,6 @@
 {
 	"name":"Caerphilly",
 	"population": 181019,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W23",
@@ -94,11 +87,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 477,
+		"n": 478,
 		"days":[
-			{"date":"2021-06-29","day":6,"tot":13681},
+			{"date":"2021-06-30","day":5,"tot":13709},
+			{"date":"2021-06-29","day":29,"tot":13704},
 			{"date":"2021-06-28","day":31,"tot":13675},
 			{"date":"2021-06-27","day":30,"tot":13644},
 			{"date":"2021-06-26","day":9,"tot":13614},

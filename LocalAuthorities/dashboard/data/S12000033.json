@@ -1,30 +1,15 @@
 {
 	"name":"Aberdeen City",
 	"population": 227560,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 484,
+		"n": 485,
 		"days":[
-			{"date":"2021-06-30","day":24,"tot":9045},
-			{"date":"2021-06-29","day":151,"tot":9021},
+			{"date":"2021-07-01","day":34,"tot":9230},
+			{"date":"2021-06-30","day":171,"tot":9196},
+			{"date":"2021-06-29","day":155,"tot":9025},
 			{"date":"2021-06-28","day":182,"tot":8870},
 			{"date":"2021-06-27","day":95,"tot":8688},
 			{"date":"2021-06-26","day":75,"tot":8593},

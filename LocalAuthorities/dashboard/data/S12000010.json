@@ -1,31 +1,16 @@
 {
 	"name":"East Lothian",
 	"population": 105790,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 469,
+		"n": 470,
 		"days":[
-			{"date":"2021-06-30","day":53,"tot":4440},
-			{"date":"2021-06-29","day":94,"tot":4387},
-			{"date":"2021-06-28","day":140,"tot":4293},
+			{"date":"2021-07-01","day":24,"tot":4537},
+			{"date":"2021-06-30","day":121,"tot":4513},
+			{"date":"2021-06-29","day":98,"tot":4392},
+			{"date":"2021-06-28","day":141,"tot":4294},
 			{"date":"2021-06-27","day":68,"tot":4153},
 			{"date":"2021-06-26","day":64,"tot":4085},
 			{"date":"2021-06-25","day":74,"tot":4021},

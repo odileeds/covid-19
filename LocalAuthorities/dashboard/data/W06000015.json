@@ -1,13 +1,6 @@
 {
 	"name":"Cardiff",
 	"population": 364248,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W23",
@@ -94,18 +87,19 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 483,
+		"n": 484,
 		"days":[
-			{"date":"2021-06-29","day":6,"tot":27152},
-			{"date":"2021-06-28","day":99,"tot":27146},
-			{"date":"2021-06-27","day":51,"tot":27047},
-			{"date":"2021-06-26","day":21,"tot":26996},
-			{"date":"2021-06-25","day":64,"tot":26975},
-			{"date":"2021-06-24","day":72,"tot":26911},
-			{"date":"2021-06-23","day":72,"tot":26839},
-			{"date":"2021-06-22","day":55,"tot":26767},
+			{"date":"2021-06-30","day":5,"tot":27235},
+			{"date":"2021-06-29","day":77,"tot":27230},
+			{"date":"2021-06-28","day":105,"tot":27153},
+			{"date":"2021-06-27","day":51,"tot":27048},
+			{"date":"2021-06-26","day":21,"tot":26997},
+			{"date":"2021-06-25","day":64,"tot":26976},
+			{"date":"2021-06-24","day":72,"tot":26912},
+			{"date":"2021-06-23","day":72,"tot":26840},
+			{"date":"2021-06-22","day":56,"tot":26768},
 			{"date":"2021-06-21","day":31,"tot":26712},
 			{"date":"2021-06-20","day":20,"tot":26681},
 			{"date":"2021-06-19","day":28,"tot":26661},

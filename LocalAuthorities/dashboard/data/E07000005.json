@@ -1,31 +1,16 @@
 {
 	"name":"Chiltern",
 	"population": 96274,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 494,
+		"n": 495,
 		"days":[
-			{"date":"2021-06-30","day":12,"tot":4653},
-			{"date":"2021-06-29","day":33,"tot":4641},
-			{"date":"2021-06-28","day":36,"tot":4608},
+			{"date":"2021-07-01","day":7,"tot":4682},
+			{"date":"2021-06-30","day":33,"tot":4675},
+			{"date":"2021-06-29","day":32,"tot":4642},
+			{"date":"2021-06-28","day":38,"tot":4610},
 			{"date":"2021-06-27","day":16,"tot":4572},
 			{"date":"2021-06-26","day":15,"tot":4556},
 			{"date":"2021-06-25","day":19,"tot":4541},

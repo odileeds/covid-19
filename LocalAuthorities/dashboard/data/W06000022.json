@@ -1,13 +1,6 @@
 {
 	"name":"Newport",
 	"population": 153302,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W23",
@@ -94,11 +87,12 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 479,
+		"n": 480,
 		"days":[
-			{"date":"2021-06-29","day":2,"tot":11576},
+			{"date":"2021-06-30","day":2,"tot":11592},
+			{"date":"2021-06-29","day":16,"tot":11590},
 			{"date":"2021-06-28","day":9,"tot":11574},
 			{"date":"2021-06-27","day":7,"tot":11565},
 			{"date":"2021-06-26","day":4,"tot":11558},

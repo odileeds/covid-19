@@ -1,31 +1,16 @@
 {
 	"name":"East Dunbartonshire",
 	"population": 108330,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 477,
+		"n": 478,
 		"days":[
-			{"date":"2021-06-30","day":42,"tot":6618},
-			{"date":"2021-06-29","day":107,"tot":6576},
-			{"date":"2021-06-28","day":90,"tot":6469},
+			{"date":"2021-07-01","day":27,"tot":6700},
+			{"date":"2021-06-30","day":96,"tot":6673},
+			{"date":"2021-06-29","day":107,"tot":6577},
+			{"date":"2021-06-28","day":91,"tot":6470},
 			{"date":"2021-06-27","day":60,"tot":6379},
 			{"date":"2021-06-26","day":44,"tot":6319},
 			{"date":"2021-06-25","day":63,"tot":6275},

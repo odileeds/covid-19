@@ -1,29 +1,14 @@
 {
 	"name":"Mid and East Antrim",
 	"population": 138773,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 478,
+		"n": 479,
 		"days":[
-			{"date":"2021-06-30","day":14,"tot":8131},
+			{"date":"2021-07-01","day":4,"tot":8138},
+			{"date":"2021-06-30","day":17,"tot":8134},
 			{"date":"2021-06-29","day":17,"tot":8117},
 			{"date":"2021-06-28","day":10,"tot":8100},
 			{"date":"2021-06-27","day":8,"tot":8090},

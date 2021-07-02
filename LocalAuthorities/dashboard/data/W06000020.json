@@ -1,13 +1,6 @@
 {
 	"name":"Torfaen",
 	"population": 93049,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
 		"updated": "2021-W23",
@@ -94,13 +87,14 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 474,
+		"n": 475,
 		"days":[
-			{"date":"2021-06-29","day":3,"tot":6582},
-			{"date":"2021-06-28","day":16,"tot":6579},
-			{"date":"2021-06-27","day":7,"tot":6563},
+			{"date":"2021-06-30","day":1,"tot":6598},
+			{"date":"2021-06-29","day":17,"tot":6597},
+			{"date":"2021-06-28","day":16,"tot":6580},
+			{"date":"2021-06-27","day":8,"tot":6564},
 			{"date":"2021-06-26","day":7,"tot":6556},
 			{"date":"2021-06-25","day":12,"tot":6549},
 			{"date":"2021-06-24","day":10,"tot":6537},

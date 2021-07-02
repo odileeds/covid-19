@@ -1,32 +1,17 @@
 {
 	"name":"Causeway Coast and Glens",
 	"population": 144246,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 469,
+		"n": 470,
 		"days":[
-			{"date":"2021-06-30","day":27,"tot":7948},
-			{"date":"2021-06-29","day":52,"tot":7921},
-			{"date":"2021-06-28","day":27,"tot":7869},
-			{"date":"2021-06-27","day":10,"tot":7842},
+			{"date":"2021-07-01","day":17,"tot":7986},
+			{"date":"2021-06-30","day":49,"tot":7969},
+			{"date":"2021-06-29","day":51,"tot":7920},
+			{"date":"2021-06-28","day":28,"tot":7869},
+			{"date":"2021-06-27","day":9,"tot":7841},
 			{"date":"2021-06-26","day":22,"tot":7832},
 			{"date":"2021-06-25","day":20,"tot":7810},
 			{"date":"2021-06-24","day":14,"tot":7790},

@@ -1,31 +1,16 @@
 {
 	"name":"Dundee City",
 	"population": 148750,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 479,
+		"n": 480,
 		"days":[
-			{"date":"2021-06-30","day":96,"tot":10162},
-			{"date":"2021-06-29","day":227,"tot":10066},
-			{"date":"2021-06-28","day":223,"tot":9839},
+			{"date":"2021-07-01","day":69,"tot":10384},
+			{"date":"2021-06-30","day":247,"tot":10315},
+			{"date":"2021-06-29","day":228,"tot":10068},
+			{"date":"2021-06-28","day":224,"tot":9840},
 			{"date":"2021-06-27","day":135,"tot":9616},
 			{"date":"2021-06-26","day":133,"tot":9481},
 			{"date":"2021-06-25","day":160,"tot":9348},

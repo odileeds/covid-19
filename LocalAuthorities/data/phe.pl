@@ -87,7 +87,8 @@ foreach $line (@lines){
 					$nims{$latmp}{$h2} = $cols[$header{$h}];
 				}
 			}
-			$nims{$latmp}{'0-24'} = $nims{$latmp}{'0-15'}+$nims{$latmp}{'16-24'};
+			$nims{$latmp}{'0-17'} = $nims{$latmp}{'0-17'};
+			$nims{$latmp}{'0-24'} = $nims{$latmp}{'0-17'}+$nims{$latmp}{'18-24'};
 			$nims{$latmp}{'0-29'} = $nims{$latmp}{'0-24'}+$nims{$latmp}{'25-29'};
 			$nims{$latmp}{'0-34'} = $nims{$latmp}{'0-29'}+$nims{$latmp}{'30-34'};
 			$nims{$latmp}{'0-39'} = $nims{$latmp}{'0-34'}+$nims{$latmp}{'35-39'};
@@ -635,11 +636,15 @@ sub processVaccines {
 						if(!$vaccines{$latmp}{$wk}){
 							$vaccines{$latmp}{$wk} = {'all'=>{}};
 							foreach $h (sort(keys(%header))){
-								if($h =~ /[0-9]/){
+								if($h =~ /[0-9]/ && $h !~ /Cumulative/){
 									$h2 = $h;
 									$h2 =~ s/1st dose //g;
 									if($h2 =~ /Under ([0-9]+)/i){
 										$h2 = "0-".($1-1);
+									}
+
+									if($nims{$latmp}{$h2} <= 0){
+										print "No population for $latmp $wk $h2.\n";
 									}
 
 									if($h !~ /2nd dose/){
@@ -648,12 +653,21 @@ sub processVaccines {
 
 										$cols[$header{$h}] =~ s/(^\"|\"$)//g;
 										$cols[$header{$h}] =~ s/[\,\s]//g;
+										$cols[$header{$h}] =~ s/(^ *| *$)//g;
 										$vaccines{$latmp}{$wk}{$h2}{'n'} = $cols[$header{$h}];
 										$vaccines{$latmp}{$wk}{$h2}{'pop'} = $nims{$latmp}{$h2};
-										$vaccines{$latmp}{$wk}{$h2}{'%'} = sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2});
+										if($nims{$latmp}{$h2} > 0){
+											$vaccines{$latmp}{$wk}{$h2}{'%'} = sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2});
+										}else{
+											$vaccines{$latmp}{$wk}{$h2}{'%'} = "0";
+										}
 										$vaccines{$latmp}{$wk}{'all'}{'n'} += $cols[$header{$h}];
 										$vaccines{$latmp}{$wk}{'all'}{'pop'} += $nims{$latmp}{$h2};
-										$vaccines{$latmp}{$wk}{'all'}{'%'} = sprintf("%0.1f",100*$vaccines{$latmp}{$wk}{'all'}{'n'}/$vaccines{$latmp}{$wk}{'all'}{'pop'});
+										if($nims{$latmp}{$h2} > 0){
+											$vaccines{$latmp}{$wk}{'all'}{'%'} = sprintf("%0.1f",100*$vaccines{$latmp}{$wk}{'all'}{'n'}/$vaccines{$latmp}{$wk}{'all'}{'pop'});
+										}else{
+											$vaccines{$latmp}{$wk}{$h2}{'%'} = "0";											
+										}
 									}
 									if($h =~ /2nd dose/){
 										$h2 = $h;
@@ -664,9 +678,17 @@ sub processVaccines {
 										$cols[$header{$h}] =~ s/(^\"|\"$)//g;
 										$cols[$header{$h}] =~ s/[\,\s]//g;
 										$vaccines{$latmp}{$wk}{$h2}{'2nd'} = $cols[$header{$h}];
-										$vaccines{$latmp}{$wk}{$h2}{'2nd %'} = sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2});
+										if($nims{$latmp}{$h2} > 0){
+											$vaccines{$latmp}{$wk}{$h2}{'2nd %'} = sprintf("%0.1f",100*$cols[$header{$h}]/$nims{$latmp}{$h2});
+										}else{
+											$vaccines{$latmp}{$wk}{$h2}{'2nd %'} = "0";
+										}
 										$vaccines{$latmp}{$wk}{'all'}{'2nd'} += $cols[$header{$h}];
-										$vaccines{$latmp}{$wk}{'all'}{'2nd %'} = sprintf("%0.1f",100*$vaccines{$latmp}{$wk}{'all'}{'2nd'}/$vaccines{$latmp}{$wk}{'all'}{'pop'});
+										if($nims{$latmp}{$h2} > 0){
+											$vaccines{$latmp}{$wk}{'all'}{'2nd %'} = sprintf("%0.1f",100*$vaccines{$latmp}{$wk}{'all'}{'2nd'}/$vaccines{$latmp}{$wk}{'all'}{'pop'});
+										}else{
+											$vaccines{$latmp}{$wk}{'all'}{'2nd %'} = "0";
+										}
 										
 									}
 								}

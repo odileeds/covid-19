@@ -1,31 +1,16 @@
 {
 	"name":"Fife",
 	"population": 371910,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 484,
+		"n": 485,
 		"days":[
-			{"date":"2021-06-30","day":62,"tot":14680},
-			{"date":"2021-06-29","day":307,"tot":14618},
-			{"date":"2021-06-28","day":314,"tot":14311},
+			{"date":"2021-07-01","day":59,"tot":14989},
+			{"date":"2021-06-30","day":307,"tot":14930},
+			{"date":"2021-06-29","day":311,"tot":14623},
+			{"date":"2021-06-28","day":315,"tot":14312},
 			{"date":"2021-06-27","day":230,"tot":13997},
 			{"date":"2021-06-26","day":123,"tot":13767},
 			{"date":"2021-06-25","day":165,"tot":13644},

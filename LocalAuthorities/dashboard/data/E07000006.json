@@ -1,31 +1,16 @@
 {
 	"name":"South Bucks",
 	"population": 70083,
-	"vaccines":{
-		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
-		"updated": "",
-		"totals":[
-
-		]
-	},
-	"deaths":{
-		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "",
-		"all": 0,
-		"cov": 0,
-		"weeks":[
-
-		]
-	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"",
+		"updated":"2021-07-01T15:05:27Z",
 		"type":"SpecimenDate",
-		"n": 482,
+		"n": 483,
 		"days":[
-			{"date":"2021-06-30","day":4,"tot":5109},
-			{"date":"2021-06-29","day":20,"tot":5105},
-			{"date":"2021-06-28","day":21,"tot":5085},
+			{"date":"2021-07-01","day":3,"tot":5123},
+			{"date":"2021-06-30","day":14,"tot":5120},
+			{"date":"2021-06-29","day":20,"tot":5106},
+			{"date":"2021-06-28","day":22,"tot":5086},
 			{"date":"2021-06-27","day":10,"tot":5064},
 			{"date":"2021-06-26","day":10,"tot":5054},
 			{"date":"2021-06-25","day":13,"tot":5044},
