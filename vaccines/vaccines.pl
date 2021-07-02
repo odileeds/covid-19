@@ -21,9 +21,9 @@ else{ $dir = "./"; }
 $cs = ODILeeds::ColourScale->new();
 
 # Settings
-$vaccinedate = "20210624";
-$vaccinedatenice = "24th June 2021";
-$vaccineperiod = "8th December 2020 to 20th June 2021";
+$vaccinedate = "20210701";
+$vaccinedatenice = "1st July 2021";
+$vaccineperiod = "8th December 2020 to 27th June 2021";
 
 
 # Process date
@@ -754,21 +754,25 @@ sub getCSV {
 		undef %datum;
 		$lines[$i] =~ s/[\n\r]//g;
 		(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$lines[$i]);
-		for($c = 0; $c < @cols; $c++){
-			#print "\t$i = $header[$c] = $cols[$c]\n";
-			if($cols[$c] =~ /^" ?([0-9\,]+) ?"$/){
-				$cols[$c] =~ s/(^" ?| ?"$)//g;
-				$cols[$c] =~ s/\,//g;
+		if(@cols > 0){
+			for($c = 0; $c < @cols; $c++){
+				if($cols[$c] =~ /^" ?([0-9\,]+) ?"$/){
+					$cols[$c] =~ s/(^" ?| ?"$)//g;
+					$cols[$c] =~ s/\,//g;
+				}
+				$cols[$c] =~ s/(^\"|\"$)//g;
+				# Remove leading/trailing spaces
+				$cols[$c] =~ s/(^ *| *$)//g;
+				#print "\t$i = $header[$c] = $cols[$c]\n";
+				if($header[$c] ne ""){
+					$datum{$header[$c]} = $cols[$c];
+				}
 			}
-			$cols[$c] =~ s/(^\"|\"$)//g;
-			if($header[$c] ne ""){
-				$datum{$header[$c]} = $cols[$c];
+			if($id >= 0){
+				$dat{$cols[$id]} = {%datum};
+			}else{
+				push(@data,{%datum});
 			}
-		}
-		if($id >= 0){
-			$dat{$cols[$id]} = {%datum};
-		}else{
-			push(@data,{%datum});
 		}
 	}
 	if($id >= 0){

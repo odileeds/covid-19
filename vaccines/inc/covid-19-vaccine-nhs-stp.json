@@ -1,7 +1,7 @@
 {
 	"geojson":"https://odileeds.github.io/covid-19/vaccines/inc/vaccine-nhs-stp.geojson",
 	"name":"Covid-19 vaccine data by NHS ICS/STP",
-	"desc":"NHS England data on vaccine uptake broken down by age group and  NHS Improvement integrated care systems (ICS) and sustainability and transformation partnerships (STP). Period: 8th December 2020 to 20th June 2021.",
+	"desc":"NHS England data on vaccine uptake broken down by age group and  NHS Improvement integrated care systems (ICS) and sustainability and transformation partnerships (STP). Period: 8th December 2020 to 27th June 2021.",
 	"url":"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 	"owner":"nhs-england",
 	"credit": { "text": "&copy; NHS England, ONS, OS", "src": "NHS England" },
@@ -34,7 +34,7 @@
 	] },
 	"size": 174000,
 	"odbl": false,
-	"date": "2021-06-24",
+	"date": "2021-07-01",
 	"colour":"#2254F4",
 	"popup":"function test(t){ var a,d,e,r,n; e=['0-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+']; r=['1st dose','2nd dose']; n='<h3>'+(t.properties.stp20nm?t.properties.stp20nm:'?')+'</h3><table class=\"odi\"><tr><th>Dose</th>'; for(a=0;a<e.length;a++){ n+='<th>'+e[a]+'</th>'; } n+='</tr>'; for(d=0;d<r.length;d++){ n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<td>'+t.properties[r[d]+' '+e[a]]+'</td>'; } n+='</tr>'; n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<th>'+t.properties[r[d]+' '+e[a]+' %']+'%</th>'; } n+='</tr>' } return n+='</table>'; }"
 }
