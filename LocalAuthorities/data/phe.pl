@@ -161,6 +161,27 @@ if($diff > 6 || -s $head==0 || !-e $file){
 	logIt("\tGetting URL $url");
 	`curl -sI "$url" > $head`;
 	`curl -s --compressed "$url" > $file`;
+
+	# Find the file age in hours
+	open(FILE,$head);
+	@headlines = <FILE>;
+	close(FILE);
+	$strhead = join("===",@headlines);
+	$now = $datetime->getJulianDate();
+	$strhead =~ /(^|===)Last-Modified: ([^\n]*)\n/i;
+	$lastupdated = $datetime->parseISO($2);
+	$jd = $datetime->getJulianFromISO($lastupdated);
+	
+	$diff = (($now-$jd)*24);
+	# Get the last check date
+	if($strhead =~ /(^|===)date: ([^\n]*)\n/i){
+		$jd = $datetime->getJulianFromISO($datetime->parseISO($2));
+		$diff = (($now-$jd)*24);
+	}
+	if($diff == 0){
+		print "$la - $jd\n";
+	}
+
 }
 
 %casedata;
@@ -643,11 +664,11 @@ sub processVaccines {
 										$h2 = "0-".($1-1);
 									}
 
-									if($nims{$latmp}{$h2} <= 0){
-										print "No population for $latmp $wk $h2.\n";
-									}
-
 									if($h !~ /2nd dose/){
+
+										if($nims{$latmp}{$h2} <= 0){
+											print "No population for $latmp=$wk=$h2.\n";
+										}
 										if(!$vaccines{$latmp}{$wk}{$h2}){ $vaccines{$latmp}{$wk}{$h2} = {}; }
 										if(!$vaccines{$latmp}{$wk}{'all'}){ $vaccines{$latmp}{$wk}{'all'} = {}; }
 
@@ -674,6 +695,10 @@ sub processVaccines {
 										$h2 =~ s/2nd dose //g;
 										if($h2 =~ /Under ([0-9]+)/i){
 											$h2 = "0-".($1-1);
+										}
+
+										if($nims{$latmp}{$h2} <= 0){
+											print "No population for $latmp=$wk=$h2 (2).\n";
 										}
 										$cols[$header{$h}] =~ s/(^\"|\"$)//g;
 										$cols[$header{$h}] =~ s/[\,\s]//g;
