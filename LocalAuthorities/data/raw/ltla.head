@@ -1,23 +1,8 @@
-HTTP/1.1 200 OK
-Cache-Control: max-age=90, s-maxage=300
-Content-Length: 8425299
-Content-Type: text/csv; charset=utf-8
-Content-Language: en-GB
-Content-Location: https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate,newCasesBySpecimenDate&format=csv&release=2021-07-06
-Content-MD5: hnG/v7ot/GxwMwBqyr9kCQ==
-Last-Modified: Tue, 06 Jul 2021 15:30:02 GMT
-ETag: 0x8D94092EC9E9779
+HTTP/1.1 400 Bad Request
+Content-Length: 56
 X-Cache: TCP_MISS
-x-ms-request-id: 2947a38c-a01e-0061-34fd-72ba77000000
-x-ms-version: 2009-09-19
-x-ms-lease-status: unlocked
-x-ms-blob-type: BlockBlob
-Access-Control-Allow-Origin: *
-X-Azure-Ref-OriginShield: 0CVHlYAAAAAAENoY9AY3bSazGoc9l7XI8TE9OMjFFREdFMDIyMQAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-PHE-Website-Request: 0
-Content-Disposition: attachment; filename="ltla_2021-07-06.csv"
 Request-Context: appId=cid-v1:6fbda246-e883-4d2e-93ec-3ca88a41db09
-X-Azure-Ref-OriginShield: 0CVHlYAAAAABVZBYKmiRFQ7z3b83RMcEoTE9OMjFFREdFMDExMAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-X-Azure-Ref: 0CVHlYAAAAABkVSv+hNJhTb7x5UsimRduTUFOMzBFREdFMDcxOAAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
-Date: Wed, 07 Jul 2021 07:00:26 GMT
+X-Azure-Ref-OriginShield: 0i8HlYAAAAACXL5SnV3FPSL06KvhfIA5lTE9OMjFFREdFMTUxMwAwNWYwYmQyOC1jYTIyLTQ2YjYtYjAwYy04NDQyYmI2ZjE3NDE=
+X-Azure-Ref: 0i8HlYAAAAADUV8MiPmZZTI2W9i1gnyf1TFRTRURHRTEzMTQAMDVmMGJkMjgtY2EyMi00NmI2LWIwMGMtODQ0MmJiNmYxNzQx
+Date: Wed, 07 Jul 2021 15:00:26 GMT
 
