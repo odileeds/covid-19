@@ -28,10 +28,11 @@
 	},
 	"deaths":{
 		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
-		"updated": "2021-W25",
-		"all": 2681,
+		"updated": "2021-W26",
+		"all": 2705,
 		"cov": 327,
 		"weeks":[
+			{"txt":"2021-W26","all":24,"cov":0},
 			{"txt":"2021-W25","all":28,"cov":0},
 			{"txt":"2021-W24","all":36,"cov":1},
 			{"txt":"2021-W23","all":34,"cov":1},
@@ -114,13 +115,14 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"2021-07-12T15:01:32Z",
+		"updated":"2021-07-13T15:01:21Z",
 		"type":"SpecimenDate",
-		"n": 486,
+		"n": 487,
 		"days":[
-			{"date":"2021-07-11","day":6,"tot":7168},
-			{"date":"2021-07-10","day":15,"tot":7162},
-			{"date":"2021-07-09","day":16,"tot":7147},
+			{"date":"2021-07-12","day":12,"tot":7189},
+			{"date":"2021-07-11","day":15,"tot":7177},
+			{"date":"2021-07-10","day":14,"tot":7162},
+			{"date":"2021-07-09","day":17,"tot":7148},
 			{"date":"2021-07-08","day":16,"tot":7131},
 			{"date":"2021-07-07","day":22,"tot":7115},
 			{"date":"2021-07-06","day":21,"tot":7093},
