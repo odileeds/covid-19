@@ -1,6 +1,22 @@
 {
 	"name":"Midlothian",
 	"population": 91340,
+	"vaccines":{
+		"src": "https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
+		"updated": "",
+		"totals":[
+
+		]
+	},
+	"deaths":{
+		"src": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard",
+		"updated": "",
+		"all": 0,
+		"cov": 0,
+		"weeks":[
+
+		]
+	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
 		"updated":"2021-07-13T15:01:21Z",
