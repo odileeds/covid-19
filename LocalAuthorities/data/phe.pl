@@ -626,7 +626,7 @@ sub getArea {
 
 sub processVaccines {
 	
-	my ($vdir,@files,$file,$h,$h2,$f,$y,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
+	my ($vdir,@files,$file,$h,$h2,$f,$y,$c,$filename,$sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst,$ofile,$i,@lines,$line,$latmp,$wk,%headers,$json,$id,$v,$date,%deaths,@cols,$latestversion,$latestdate,$la,$tempdate,$tempdate2);
 
 	$vdir = $dir."../../vaccines/data/";
 
@@ -644,7 +644,7 @@ sub processVaccines {
 	while(($filename = readdir(DIR))){
 		if($filename =~ /vaccinations-LTLA-([0-9]{4})([0-9]{2})([0-9]{2})/){
 			$wk = "$1-$2-$3";
-			print "$filename\n";
+			print "$filename ($wk)\n";
 			open(FILE,$vdir.$filename);
 			$i = 0;
 			while (my $line = <FILE>){
@@ -652,6 +652,11 @@ sub processVaccines {
 					%header = getHeaders($line);
 				}elsif($i > 0){
 					(@cols) = split(/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/,$line);
+					for($c = 0; $c < @cols; $c++){
+						# Remove trailing/leading spaces or quotation marks
+						$cols[$c] =~ s/(^\"|\"$)//g;
+						$cols[$c] =~ s/(^\s|\s$)//g;
+					}
 					$latmp = $cols[$header{'LTLA Code'}];
 					if($latmp){
 						if(!$vaccines{$latmp}{$wk}){
