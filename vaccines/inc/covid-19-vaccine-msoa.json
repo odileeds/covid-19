@@ -1,7 +1,7 @@
 {
 	"geojson":"https://odileeds.github.io/covid-19/vaccines/inc/vaccine-msoa.geojson",
 	"name":"Covid-19 vaccine data by MSOA",
-	"desc":"NHS England data on vaccine uptake broken down by age group and MSOA. Period: 8th December 2020 to 4th July 2021.",
+	"desc":"NHS England data on vaccine uptake broken down by age group and MSOA. Period: 8th December 2020 to 11th July 2021.",
 	"url":"https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-vaccinations/",
 	"owner":"nhs-england",
 	"credit": { "text": "&copy; NHS England, ONS, OS", "src": "NHS England" },
@@ -54,7 +54,7 @@
 	]},
 	"size": 4790000,
 	"odbl": false,
-	"date": "2021-07-08",
+	"date": "2021-07-15",
 	"colour":"#2254F4",
 	"popup":"function test(t){ var e,r,n,a,d; e=['0-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+']; r=['1st dose','2nd dose']; n='<h3>'+(t.properties.MSOA11NM?t.properties.MSOA11NM:'?')+'</h3><table class=\"odi\"><tr><th>Dose</th>'; for(a=0;a<e.length;a++){ n+='<th>'+e[a]+'</th>'; } n+='</tr>'; for(d=0;d<r.length;d++){ n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<td>'+t.properties[r[d]+' '+e[a]]+'</td>'; } n+='</tr>'; n+='<tr><td>'+r[d]+'</td>'; for(a=0;a<e.length;a++){ n+='<th>'+t.properties[r[d]+' '+e[a]+' %']+'%</th>'; } n+='</tr>'; } return n+='</table><p class=\"footer\">Note that percentages are calculated using numbers of eligible individuals for vaccinations as defined in the National Immunisation Management Service (NIMS) database.</p>'; }"
 }
