@@ -117,12 +117,13 @@
 	},
 	"cases": {
 		"src":"https://api.coronavirus.data.gov.uk/v2/data?areaType=ltla&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&format=csv",
-		"updated":"2021-07-15T15:02:11Z",
+		"updated":"2021-07-16T15:16:29Z",
 		"type":"SpecimenDate",
-		"n": 493,
+		"n": 494,
 		"days":[
-			{"date":"2021-07-14","day":16,"tot":4081},
-			{"date":"2021-07-13","day":37,"tot":4065},
+			{"date":"2021-07-15","day":8,"tot":4116},
+			{"date":"2021-07-14","day":42,"tot":4108},
+			{"date":"2021-07-13","day":38,"tot":4066},
 			{"date":"2021-07-12","day":39,"tot":4028},
 			{"date":"2021-07-11","day":21,"tot":3989},
 			{"date":"2021-07-10","day":24,"tot":3968},
